@@ -184,6 +184,7 @@ function initWorld(story) {
 }
 
 function runArea(baseStory, place, city) {
+  const savedState = readGameState();
   const story = place.type === 'dapur' && city.name === 'Jakarta' ? baseStory : { ...baseStory, title: place.title, hook: place.hook || baseStory.hook, witness: place.witness,
     clues: localClues(place.type, place.witness), endingTitle: `${place.name} ternyata...`,
     endingText: `Urusan kecilnya selesai. ${place.witness} mengajak warga istirahat sebentar sebelum kegiatan berikutnya.`,
