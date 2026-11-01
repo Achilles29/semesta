@@ -1,0 +1,35 @@
+{
+  "caseNumber": "EPISODE 001",
+  "title": "Sendok Sayur Mengundurkan Diri",
+  "hook": "Pagi ini sendok sayur pamit. Katanya capek mengaduk semuanya.",
+  "openingHook": "Dapur sudah buka. Tapi sendok sayur memilih cuti tanpa tanggal kembali.",
+  "objective": "Cari tiga petunjuk. Nasi kotaknya sudah menunggu rapat.",
+  "citizenNote": "Tadi ada yang dengar bunyi ting! dari arah kebun.",
+  "witness": "Bu Nining",
+  "endingTitle": "Sendoknya ternyata...",
+  "endingText": "Dia pindah ke koperasi. Katanya ingin mencoba mengaduk harga. Bu Nining mengizinkan, asal kembali sebelum makan siang.",
+  "nextPrompt": "Barang apa lagi yang suka bertingkah di kampung ini? Tulis di komentar.",
+  "clues": [
+    {
+      "name": "Nasi Kotak",
+      "short": "NASI KOTAK",
+      "detail": "Ada bekas adukan berbentuk spiral. Padahal ini nasi, bukan kolam renang.",
+      "speaker": "BU NINING",
+      "line": "Sendok sayur biasanya paling semangat kalau dengar kata ‘tambah’. Hari ini malah menghilang."
+    },
+    {
+      "name": "Kebun Daun Bawang",
+      "short": "KUNCI KOPERASI",
+      "detail": "Kunci koperasi terselip di antara daun bawang. Ada jejak tanah menuju balai desa.",
+      "speaker": "PAK RT",
+      "line": "Ada yang lewat sambil bilang mau ganti suasana. Kukira anggota koperasi."
+    },
+    {
+      "name": "Papan Menu",
+      "short": "CATATAN CUTI",
+      "detail": "Surat pengunduran diri ditulis rapi. Tanda tangannya berupa gambar sendok kecil.",
+      "speaker": "BU NINING",
+      "line": "Tulisannya sopan sekali. Bahkan minta maaf karena selama ini sering nyipratin kuah."
+    }
+  ]
+}

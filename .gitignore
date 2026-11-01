@@ -1,0 +1,6 @@
+/application/config/admin_credentials.php
+/application/cache/sessions/*
+!/application/cache/sessions/.gitkeep
+/assets/game/
+/.ci3-extract/
+/node_modules/
