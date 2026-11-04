@@ -4,124 +4,160 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#f1f5ff">
-    <meta name="description" content="Jelajahi kota, temukan cerita lokal, dan bantu warga Semesta Nyasar.">
-    <title>Semesta Nyasar — Peta Besar, Urusan Kecil</title>
+    <meta name="description" content="Jelajahi isu kehidupan warga Indonesia melalui cerita interaktif Republik WkWkWk.">
+    <title>Republik WkWkWk — Urusan Negara, Cerita Warga</title>
     <?php
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();
     $entry = isset($manifest['game-src/main.js']) ? $manifest['game-src/main.js'] : NULL;
+    $character_model_path = is_file($manifest_path) ? 'assets/game/models/characters/warga-chibi-base.glb' : 'public/models/characters/warga-chibi-base.glb';
+    $map_asset_root = is_file(FCPATH . 'assets/game/map-assets/kawasan-warga.webp') ? 'assets/game/map-assets/' : 'public/map-assets/';
+    $source_css_version = is_file(FCPATH . 'game-src/style.css') ? filemtime(FCPATH . 'game-src/style.css') : time();
+    $source_js_version = is_file(FCPATH . 'game-src/main.js') ? filemtime(FCPATH . 'game-src/main.js') : time();
     if ($entry && !empty($entry['css'])):
         foreach ($entry['css'] as $css): ?>
             <link rel="stylesheet" href="<?= base_url('assets/game/' . $css); ?>">
         <?php endforeach;
-    endif;
-    ?>
+    else: ?>
+        <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . $source_css_version); ?>">
+    <?php endif; ?>
 </head>
 <body class="world-body">
     <main id="app" class="app-shell">
-        <header class="site-header">
-            <a class="brand" href="<?= base_url(); ?>"><span class="brand-icon">✳</span><span><b>SEMESTA</b><small>NYASAR</small></span></a>
-            <div class="header-center"><span class="online-dot"></span> SERVER LOKAL <span class="header-divider">/</span> EPISODE 001</div>
-            <div class="header-right"><a class="editor-link" href="<?= site_url('admin'); ?>">RUANG EDITOR <span>↗</span></a><span class="avatar-chip">N</span></div>
-        </header>
+        <div class="game-hud" aria-label="Menu permainan">
+            <a class="game-brand" href="<?= base_url(); ?>" aria-label="Republik WkWkWk — beranda"><span class="game-brand-mark">RW</span><span><b>REPUBLIK</b><small>WKWKWK</small></span></a>
+            <div class="game-hud-actions"><button class="profile-button" id="profileButton" type="button"><span class="avatar-chip" id="headerAvatar">↗</span><span id="headerCitizenName">MASUK / DAFTAR WARGA</span></button><a class="editor-link" href="<?= base_url('admin/'); ?>">⚙ ADMIN</a></div>
+        </div>
 
-        <section class="map-screen active" id="worldScreen" aria-label="Peta dunia">
+        <section class="citizen-panel" id="citizenPanel" aria-labelledby="citizenPanelTitle" hidden>
+            <div class="citizen-card"><button class="citizen-close" id="closeCitizenPanel" type="button" aria-label="Tutup">×</button><span class="kicker">AKUN WARGA · REPUBLIK WKWKWK</span><h2 id="citizenPanelTitle">Masuk atau daftar</h2><p class="citizen-intro">Untuk masuk, cukup isi username dan kata sandi. Pendaftaran warga punya formulir tersendiri.</p>
+                <div class="citizen-tabs"><button type="button" data-auth-mode="register">DAFTAR WARGA</button><button type="button" class="active" data-auth-mode="login">MASUK</button></div>
+                <a class="google-sso-button" href="<?= base_url('api?resource=google_sso'); ?>"><span aria-hidden="true">G</span> LANJUTKAN DENGAN GOOGLE</a>
+                <div class="auth-divider"><span>ATAU PAKAI AKUN WARGA</span></div>
+                <form id="citizenForm"><label class="citizen-username">Username<input name="username" maxlength="32" autocomplete="username" pattern="[A-Za-z0-9_.-]{1,32}" title="Username memakai huruf, angka, titik, garis bawah, atau tanda hubung" required></label><label class="register-only">Email untuk verifikasi<input name="email" type="email" maxlength="190" autocomplete="email"></label><label class="verification-email" hidden>Email akun untuk kirim ulang tautan<input name="verificationEmail" type="email" maxlength="190" autocomplete="email"></label><label class="register-only">Nama warga<input name="displayName" maxlength="40" required></label><label>Kata sandi<input name="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" required></label>
+                    <div class="citizen-profile-fields" id="citizenProfileFields">
+                        <div class="citizen-profile-heading"><b>Profil dan biodata</b><small>Opsional · biodata hanya terlihat oleh Anda dan admin; kostum avatar terlihat di peta</small></div>
+                        <label>Jenis kelamin<select name="gender"><option value="">Pilih jika ingin mengisi</option></select></label>
+                        <label>Agama / kepercayaan<select name="religion"><option value="">Pilih jika ingin mengisi</option></select></label>
+                        <label>Provinsi tempat lahir<select name="birthProvince"><option value="">Pilih jika ingin mengisi</option></select></label>
+                        <label>Kota/kabupaten tempat lahir<input name="birthCity" maxlength="80" placeholder="Opsional"></label>
+                        <label>Tanggal lahir<input name="birthDate" type="date" min="1900-01-01"></label>
+                        <label>Pekerjaan<select name="occupation"><option value="">Pilih jika ingin mengisi</option></select></label>
+                        <label>Pendidikan terakhir<select name="educationLevel"><option value="">Pilih jika ingin mengisi</option></select></label>
+                        <label>Provinsi domisili<select name="domicileProvince"><option value="">Pilih jika ingin mengisi</option></select></label>
+                        <label>Kota/kabupaten domisili<input name="domicileCity" maxlength="80" placeholder="Opsional"></label>
+                        <label class="citizen-avatar-select">Gaya avatar<select name="avatar" id="citizenAvatarSelect"><option value="warga">Warga umum</option></select><small id="citizenAvatarHint">Pilihan avatar mengikuti pekerjaan dan bisa diganti.</small></label>
+                    </div>
+                    <div class="register-only"><label>Pilih rumah</label><div class="choice-grid house-choices"><label><input type="radio" name="house" value="rumah-kayu" checked><span>🛖<b>Rumah kayu</b></span></label><label><input type="radio" name="house" value="rumah-bata"><span>🏠<b>Rumah bata</b></span></label><label><input type="radio" name="house" value="rumah-panggung"><span>🏡<b>Rumah panggung</b></span></label></div></div>
+                    <p class="citizen-error" id="citizenError" role="alert"></p><button class="primary-button" type="submit" id="citizenSubmit">BUAT AKUN WARGA ↗</button><button type="button" class="citizen-logout" id="verificationResend" hidden>Kirim ulang email verifikasi</button><button type="button" class="citizen-logout" id="citizenLogout" hidden>Keluar dari akun ini</button>
+                </form>
+            </div>
+        </section>
+        <section class="avatar-customizer" id="avatarCustomizer" aria-labelledby="avatarCustomizerTitle" hidden>
+            <div class="avatar-customizer-card">
+                <button class="citizen-close" id="closeAvatarCustomizer" type="button" aria-label="Tutup">×</button>
+                <span class="kicker">PENAMPILAN WARGA · BISA DIGANTI KAPAN SAJA</span><h2 id="avatarCustomizerTitle">Racik avatar</h2>
+                <div class="avatar-customizer-profile"><img src="<?= base_url('public/images/avatar/potret-warga-gaya-realistis.jpg?v=1'); ?>" alt="Potret ilustratif warga dengan gaya kartun realistis"><div><b id="customAvatarName">Warga</b><small>Potret profil · model karakter 3D tampil di peta</small></div></div>
+                <button type="button" class="avatar-style-preset" id="applyHarvestAvatarPreset">🌾 PAKAI GAYA PETANI PANEN PAGI</button>
+                <form id="exploreAvatarForm" class="explore-avatar-form">
+                    <label>Warna kulit<select name="skin"><option value="sawo">Sawo matang</option><option value="kuning">Kuning langsat</option><option value="gelap">Gelap</option><option value="zaitun">Zaitun</option><option value="pucat">Terang</option><option value="coklat">Cokelat</option></select></label>
+                    <label>Rambut<select name="hair"><option value="pendek">Pendek</option><option value="cepak">Cepak</option><option value="ikal">Ikal</option><option value="panjang">Panjang</option><option value="keriting">Keriting</option><option value="kuncir">Kuncir</option><option value="hijab">Hijab</option><option value="botak">Botak</option></select></label>
+                    <label>Warna rambut<select name="hairColor"><option value="hitam">Hitam</option><option value="coklat">Cokelat</option><option value="coklat-tua">Cokelat tua</option><option value="pirang">Pirang</option><option value="uban">Uban</option><option value="merah">Merah marun</option></select></label>
+                    <label>Atasan<select name="top"><option value="kemeja">Kemeja</option><option value="flanel">Kemeja flanel kotak</option><option value="batik">Batik</option><option value="seragam">Seragam</option><option value="jaket">Jaket</option><option value="hoodie">Hoodie</option><option value="jas">Jas warga</option><option value="kaos">Kaos</option><option value="kebaya">Kebaya</option><option value="petani">Pakaian tani</option><option value="pekerja">Rompi kerja</option><option value="koko">Baju koko</option><option value="rompi">Rompi warga</option></select></label>
+                    <label>Bawahan<select name="bottom"><option value="celana">Celana panjang</option><option value="jeans">Jins</option><option value="cargo">Celana kargo</option><option value="sarung">Sarung</option><option value="rok">Rok</option><option value="pendek">Celana pendek</option><option value="kulot">Kulot</option></select></label>
+                    <label>Penutup kepala<select name="headwear"><option value="tanpa">Tanpa penutup</option><option value="peci">Peci</option><option value="topi">Topi lapangan</option><option value="helm">Helm</option><option value="bandana">Ikat kepala</option><option value="caping">Caping</option></select></label>
+                    <label>Aksesori<select name="accessory"><option value="tanpa">Tanpa aksesori</option><option value="kacamata">Kacamata</option><option value="ransel">Ransel</option><option value="tas-anyaman">Tas anyaman silang</option><option value="lencana">Lencana</option><option value="selempang">Tas selempang</option><option value="syal">Syal</option><option value="map">Map warga</option><option value="jam">Jam tangan</option></select></label>
+                    <label>Rambut wajah<select name="facialHair"><option value="tanpa">Tanpa kumis/janggut</option><option value="kumis">Kumis</option><option value="kumis-janggut">Kumis dan janggut</option></select></label>
+                    <p class="avatar-save-status" id="exploreAvatarStatus" role="status">Pilih bagian avatar, lalu simpan.</p><button class="primary-button" type="submit">SIMPAN PENAMPILAN <span>✓</span></button>
+                </form>
+            </div>
+        </section>
+        <section class="map-screen active" id="worldScreen" aria-label="Peta Indonesia">
             <div class="screen-heading">
-                <div><span class="kicker"><i></i> PETA DUNIA · MODE 2D</span><h1>Urusan kecil,<br><em>jarak jauh.</em></h1><p>Cempluk sedang mencari kota dengan cerita yang agak aneh. Pilih tujuan, kita mampir.</p></div>
-                <div class="world-stamp"><b>01</b><span>PERJALANAN<br>PERTAMA</span><i>✳</i></div>
+                <div><span class="kicker"><i></i> REPUBLIK WKWKWK · PETA NUSANTARA</span><h1>Pilih kota untuk <em>turun.</em></h1><p>Pilih pin kota di peta, lalu masuk ke wilayahnya.</p></div>
             </div>
             <div class="world-layout">
                 <div class="world-map-card">
-                    <div class="map-topline"><span>ATLAS YANG KATANYA AKURAT</span><span>▦ &nbsp; 1 : 8.000.000</span></div>
+                    <div class="map-topline"><span>PETA NUSANTARA</span><span>GESER UNTUK MENJELAJAHI · PILIH PIN KOTA</span></div>
                     <div class="world-map" id="worldMap">
-                        <svg class="continent-map" viewBox="0 0 1000 460" role="img" aria-label="Peta ilustratif dunia">
-                            <defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#597168" stroke-opacity=".14" stroke-width="1"/></pattern></defs>
-                            <rect width="1000" height="460" fill="url(#grid)"/>
-                            <g class="latitude-lines"><path d="M30 115Q500 70 970 115M10 230Q500 190 990 230M30 345Q500 390 970 345"/><ellipse cx="500" cy="230" rx="455" ry="213"/></g>
-                            <g class="land-shapes">
-                                <path d="M94 119l37-27 56-15 31 13 40-12 47 16 24 30-15 20-39-3-19 18-48 5-21 27-25 1-18 28-33 5-20-20-23-2-13-34-28-18 10-30z"/>
-                                <path d="M212 232l26 2 21 21 4 31-18 22-8 48-21 38-16-8 8-49-20-22 4-42-20-22 9-13z"/>
-                                <path d="M407 110l30-22 43-1 15 16-16 14-37 6-19 22-21-9zM432 156l41-24 55 7 37 21 14 31-15 32-24 27-18 42-20 19-13 49-18 39-18-20-4-37-23-30-7-37-25-25-1-44-16-25 8-35z"/>
-                                <path d="M492 92l43-22 47 1 41 17 49-5 49 16 43-3 44 21 3 24-30 14-31-10-37 9-28 24-34-8-14-20-33-1-23 18-23-8-7-25-27-8-20-18-37 5-25-16z"/>
-                                <path d="M656 214l31 4 31 20-7 24-31 2-29-18zM742 275l20 4 16 18-18 9-20-13z"/>
-                                <path d="M834 282l36-13 39 13 30 25-14 25-42 3-21 21-33-12-10-31z"/>
-                                <path d="M892 115l20-12 12 12-9 16-17 2zM571 351l15-8 12 11-11 10zM615 369l12-8 9 9-8 12z"/>
+                        <svg class="continent-map indonesia-map" viewBox="0 0 1000 460" role="img" aria-label="Peta ilustratif kepulauan Indonesia">
+                            <rect width="1000" height="460" fill="#c9ddcf" stroke="none"/>
+                            <g class="sea-current" fill="none" stroke="#ffffff" stroke-opacity=".58" stroke-width="2" stroke-dasharray="2 11" stroke-linecap="round"><path d="M25 118q70-28 142 0t143 0m255 228q75-25 150 0t150 0m-290-283q65-24 130 0t130 0"/><path d="M60 390q58-22 116 0t116 0m485-180q40-18 80 0t80 0"/></g>
+                            <g class="indonesia-land" stroke="#fff7df" stroke-width="3" stroke-linejoin="round">
+                                <path class="island-sumatra" fill="#82a96f" d="m165 123 23-9 18 13 12 25 23 18 3 22 26 17-8 25-18 12-7 27-18 12-6 31-16 8-4 28-16 15-16-13 5-27-15-16 7-25-15-19 9-26-17-21 10-21-13-22 13-17-10-25z"/>
+                                <path class="island-java" fill="#d4b36e" d="m326 322 38-9 40 3 37-8 40 5 30-7 42 8 29-2 28 12-7 16-38 3-30-6-35 8-43-5-39 8-43-7-40 5-25-9-24 2-19-10z"/>
+                                <path class="island-borneo" fill="#92b47c" d="m463 139 27-18 36 4 24-15 28 10 14 24 27 12 7 25-21 21 5 28-19 13-1 31-23 12-15-14-26 11-13-17-27-4-14-24-24-7 8-27-16-19 12-20-10-21z"/>
+                                <path class="island-sulawesi" fill="#dda875" d="m632 190 20-18 14 14-5 27 18 17 4 29 21 22-7 16-20-12-15-27-16-7-13 18-5 28-17 12-14-12 11-27 4-25-16-16 8-20 20-9z"/>
+                                <path class="island-papua" fill="#83a88a" d="m754 207 34-16 45 4 25-12 36 9 18-8 32 17-5 23 20 16-14 22 8 20-23 8-18 28-30-3-25 15-28-12-27 11-16-18-31-2-15-22 11-20-12-20 18-20-8-20z"/>
+                                <path class="island-bali" fill="#d9bd79" d="m576 354 19-5 14 7-8 9-20 2z"/>
+                                <path class="island-nusa" fill="none" stroke="#d9bd79" stroke-width="5" stroke-linecap="round" d="m621 358 28-3 13 7-26 5-14-3m55-3 31-4 13 7-29 6-15-3m54-4 18-2 8 6-18 5-10-3"/>
+                                <path class="island-maluku" fill="#d9bd79" d="m699 174 9-14 8 11-2 17zm34 11 11-12 7 8-9 14zm-21 38 9-11 8 8-11 13zm23 43 10-8 7 8-10 11z"/>
                             </g>
-                            <g class="route-lines"><path d="M600 314Q677 185 721 184"/><path d="M600 314Q480 242 479 196"/><path d="M600 314Q396 170 284 173"/></g>
+                            <g class="island-routes" fill="none" stroke="#cd815f" stroke-width="3" stroke-dasharray="5 8" stroke-linecap="round" opacity=".82"><path d="M399 337q21-10 48 2m-40-2q56-31 112-8m-110 11q80 14 148-4m-130 5q113 52 208-62"/></g>
+                            <g class="island-names" fill="#586c59" font-family="Trebuchet MS, sans-serif" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle" opacity=".72"><text x="203" y="272">SUMATRA</text><text x="432" y="309">JAWA</text><text x="516" y="187">KALIMANTAN</text><text x="631" y="266">SULAWESI</text><text x="835" y="251">PAPUA</text><text x="628" y="402">NUSA TENGGARA</text></g>
                         </svg>
-                        <div class="map-label label-europe">EROPA</div><div class="map-label label-africa">AFRIKA</div><div class="map-label label-asia">ASIA</div><div class="map-label label-pacific">SAMUDRA PASIFIK</div>
+                        <div class="map-label label-pacific">SAMUDRA HINDIA</div><div class="map-label label-asia">LAUT JAWA</div>
                         <button class="destination-pin pin-jakarta selected" data-destination="jakarta" aria-label="Pilih Jakarta"><i></i><span>JAKARTA</span></button>
-                        <button class="destination-pin pin-tokyo locked" data-destination="tokyo" aria-label="Tokyo akan dibuka nanti" disabled><i></i><span>TOKYO · SEGERA</span></button>
-                        <button class="destination-pin pin-cairo locked" data-destination="cairo" aria-label="Kairo akan dibuka nanti" disabled><i></i><span>KAIRO · SEGERA</span></button>
-                        <button class="destination-pin pin-lisbon locked" data-destination="lisbon" aria-label="Lisbon akan dibuka nanti" disabled><i></i><span>LISBON · SEGERA</span></button>
-                        <div class="map-avatar" id="mapAvatar"><b>C</b><span>CEMPLUK</span></div>
+                        <button class="destination-pin pin-bandung" data-destination="bandung" aria-label="Pilih Bandung"><i></i><span>BANDUNG</span></button>
+                        <button class="destination-pin pin-semarang" data-destination="semarang" aria-label="Pilih Semarang"><i></i><span>SEMARANG</span></button>
+                        <button class="destination-pin pin-surabaya" data-destination="surabaya" aria-label="Pilih Surabaya"><i></i><span>SURABAYA</span></button>
+                        <button class="destination-pin pin-makassar" data-destination="makassar" aria-label="Pilih Makassar"><i></i><span>MAKASSAR</span></button>
+                        <div class="map-avatar" id="mapAvatar" aria-hidden="true"><b>✳</b><span>WARGA</span></div><div class="citizen-home-pin" id="citizenHome">🏠 RUMAH WARGA</div>
                         <div class="map-compass"><span>N</span><b>✳</b></div>
+                        <aside class="map-destination-card" aria-live="polite">
+                            <div class="map-destination-copy"><div class="map-destination-meta"><span id="destinationIcon">🏙️</span><span id="destinationCountry">INDONESIA · PULAU JAWA</span></div><h2 id="destinationTitle">Jakarta</h2><p id="destinationDesc">Kota padat dengan banyak cerita tentang layanan publik, biaya hidup, dan ruang bersama.</p><small id="destinationNote">Warga mengusulkan: cerita dimulai dari urusan yang paling terasa di rumah.</small></div>
+                            <button class="primary-button" id="enterCity" type="button">TURUN DI KOTA INI <span>↗</span></button>
+                        </aside>
                     </div>
-                    <div class="map-bottomline"><span><i></i> CEMPLUK — PETUALANG SERABUTAN</span><span>GERAKKAN DENGAN WASD / TOMBOL PANAH</span></div>
+                    <div class="map-bottomline"><span><i></i> <span id="worldCitizenStatus">TAMU · PETA TERBUKA</span></span><span>PILIH KOTA UNTUK MEMBUKA PETA LINGKUNGAN</span></div>
                 </div>
-                <aside class="destination-card">
-                    <div class="postmark">✳ <span>TUJUAN TERPILIH</span></div>
-                    <div class="destination-icon" id="destinationIcon">☀</div>
-                    <span class="destination-country" id="destinationCountry">INDONESIA · ASIA TENGGARA</span>
-                    <h2 id="destinationTitle">Jakarta</h2>
-                    <p id="destinationDesc">Kota yang selalu punya jalan pintas, kecuali saat sedang buru-buru.</p>
-                    <div class="destination-detail"><span>CATATAN PERJALANAN</span><b id="destinationNote">Warga melapor: ada rapat yang molor sampai besok.</b></div>
-                    <button class="primary-button" id="enterCity">TURUN DI KOTA INI <span>↗</span></button>
-                    <div class="travel-tip"><span>✦</span> Klik area peta atau pin kota untuk memilih tujuan.</div>
-                </aside>
             </div>
-            <div class="page-foot"><span>SEMESTA NYASAR <i>·</i> DUNIA 2D</span><span>SEBUAH KISAH LOKAL YANG BISA PERGI JAUH</span></div>
+            <div class="page-foot"><span>REPUBLIK WKWKWK <i>·</i> PETA INDONESIA</span><span>SEBUAH KISAH LOKAL YANG BISA PERGI JAUH</span></div>
         </section>
 
         <section class="map-screen city-screen" id="cityScreen" aria-label="Peta kota">
-            <div class="city-heading"><div><button class="back-button" id="backToWorld">← PETA DUNIA</button><span class="kicker"><i></i> <span id="cityCountry">INDONESIA · ASIA TENGGARA</span> · KOTA PILIHANMU</span><h1 id="cityTitle">Jakarta, Kota Serba Bisa</h1><p id="cityIntro">Kota ini berjalan cepat. Beberapa urusannya malah jalan sendiri.</p></div><div class="city-id"><span>KOORDINAT IMAGINER</span><b id="cityCoordinates">06°12′ S &nbsp; 106°49′ E</b><small>LOKASI CERITA FIKSI, TERINSPIRASI KEHIDUPAN HARIAN</small></div></div>
+            <div class="city-heading"><div><button class="back-button" id="backToWorld">← PETA INDONESIA</button><span class="kicker"><i></i> <span id="cityCountry">INDONESIA · ASIA TENGGARA</span> · KOTA PILIHAN WARGA</span><h1 id="cityTitle">Kawasan Warga, Jakarta</h1><p id="cityIntro">Peta lingkungan ilustratif; cerita terinspirasi pengalaman warga sehari-hari.</p></div><div class="city-id"><span>KOORDINAT IMAGINER</span><b id="cityCoordinates">06°12′ S &nbsp; 106°49′ E</b><small>LOKASI CERITA FIKSI, TERINSPIRASI KEHIDUPAN HARIAN</small></div></div>
+            <div class="region-strip" aria-label="Pilih wilayah untuk dijelajahi"><span>WILAYAH CERITA</span><div><button type="button" class="region-tab active" data-region="kota">🏙️ KOTA WARGA <small>TERBUKA</small></button><button type="button" class="region-tab" data-region="desa">🌾 DESA TUMBUH <small>TERBUKA</small></button><button type="button" class="region-tab" data-region="hutan">🌳 HUTAN WARGA <small>TERBUKA</small></button></div></div>
             <div class="city-map-layout">
                 <div class="city-map-card">
-                    <div class="city-map-head"><span>PETA KOTA <b>— PILIH TEMPAT MAMPIR</b></span><span class="sunny-weather">☀ &nbsp; CERAH, ADA KEMUNGKINAN GORENGAN</span></div>
+                    <div class="city-map-head"><span>PETA JALAN <b>— SATU PINTU PERMUKIMAN</b></span><span class="sunny-weather">☀ &nbsp; KAWASAN WARGA</span></div>
                     <div class="city-map-art" id="cityMapArt">
-                        <svg class="village-map" viewBox="0 0 900 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                            <path class="map-field" d="M0 0h900v420H0z"/><path class="map-hill" d="M0 64Q170 6 320 64t310 0Q785 12 900 48v70H0z"/>
-                            <path class="map-river-bank" d="M760-20q-80 86-20 149t-28 137q-40 73 20 174h210V-20z"/><path class="map-river-water" d="M800-20q-80 86-20 149t-28 137q-40 73 20 174h160V-20z"/>
-                            <path class="map-main-road-outline" d="M-30 294q166-75 291-24t230-42q116-92 241-25t215 31"/><path class="map-main-road" d="M-30 294q166-75 291-24t230-42q116-92 241-25t215 31"/>
-                            <path class="map-lane-outline" d="M135 420q54-87 33-166T218 92M430 0q-8 78 36 122t-7 136q-29 58 2 162M630 0q-51 91-12 147t-7 118"/><path class="map-lane" d="M135 420q54-87 33-166T218 92M430 0q-8 78 36 122t-7 136q-29 58 2 162M630 0q-51 91-12 147t-7 118"/>
-                            <g class="map-garden"><path d="M62 91h142v82H62z"/><path d="M70 105h126M70 123h126M70 141h126M70 159h126"/><path d="M62 91v82m142-82v82"/></g>
-                            <g class="map-plaza"><path d="M324 139h127v92H324z"/><path d="M337 154h101v62H337z"/><circle cx="387" cy="185" r="16"/><path d="M387 154v62m-50-31h101"/></g>
-                            <g class="map-coop" transform="translate(500 136)"><rect x="0" y="17" width="104" height="64" rx="5"/><path d="M-8 21 52-10l60 31z"/><path d="M-4 31h112v15H-4z"/><rect x="44" y="49" width="18" height="32"/><rect x="10" y="48" width="21" height="17"/><path d="M10 48h21"/></g>
-                            <g class="map-houses"><g transform="translate(245 65)"><rect x="0" y="20" width="76" height="54" rx="4"/><path d="M-8 24 37-8l48 32z"/><rect x="32" y="42" width="15" height="32"/><rect x="9" y="37" width="14" height="13"/></g><g transform="translate(520 54)"><rect x="0" y="20" width="82" height="59" rx="4"/><path d="M-9 24 39-9l52 33z"/><rect x="35" y="44" width="16" height="35"/><rect x="10" y="38" width="15" height="14"/></g><g transform="translate(636 276)"><rect x="0" y="20" width="74" height="55" rx="4"/><path d="M-8 24 35-8l48 32z"/><rect x="30" y="43" width="15" height="32"/><rect x="52" y="37" width="13" height="13"/></g></g>
-                            <g class="map-market"><path d="M475 285h115v67H475z"/><path d="M464 288h137l-14-34H478z"/><path d="M484 255v34m31-34v34m31-34v34m31-34v34"/><path d="M470 355h126"/></g>
-                            <g class="map-kitchen"><rect x="76" y="245" width="75" height="53" rx="4"/><path d="M68 249 114 215l53 34z"/><rect x="104" y="269" width="17" height="29"/><path d="M73 303h82"/></g>
-                            <g class="map-trees"><g><path d="M40 222v36m0-72c-22 0-30 25-15 36-9 22 6 37 23 27 17 12 34-6 23-25 16-19 2-39-18-38z"/><path d="M221 286v40m0-80c-24-1-35 26-18 40-11 20 4 40 22 29 19 12 35-9 21-28 16-20 0-42-20-41z"/><path d="M729 187v38m0-77c-21 0-31 23-16 36-10 18 5 35 21 26 17 11 31-8 20-25 14-18 0-37-18-37z"/><path d="M329 333v35m0-70c-18 0-26 20-13 31-8 16 4 31 18 23 14 9 26-7 17-22 12-15 0-32-16-32z"/></g></g>
-                            <g class="map-fence"><path d="M44 78v114m15-114v114m15-114v114m15-114v114m15-114v114m15-114v114m15-114v114m15-114v114m15-114v114m15-114v114"/><path d="M39 92h139M39 178h139"/></g>
-                            <g class="map-flowers"><circle cx="190" cy="238" r="5"/><circle cx="204" cy="251" r="4"/><circle cx="303" cy="274" r="5"/><circle cx="687" cy="124" r="4"/><circle cx="712" cy="113" r="5"/><circle cx="606" cy="361" r="4"/><circle cx="277" cy="366" r="4"/></g>
-                        </svg>
-                        <button class="zone-pin zone-dapur selected" data-location="dapur"><span>🍱</span><b>DAPUR MBG</b></button>
-                        <button class="zone-pin zone-kopdes" data-location="kopdes"><span>🏪</span><b>BALAI KOPDES</b></button>
-                        <button class="zone-pin zone-pasar" data-location="pasar"><span>🥬</span><b>PASAR SORE</b></button>
-                        <button class="zone-pin zone-kampung" data-location="kampung"><span>🏠</span><b>KAMPUNG BAMBU</b></button>
-                        <button class="zone-pin zone-hutan" data-location="hutan"><span>🌳</span><b>HUTAN KOTA</b></button>
-                        <button class="zone-pin zone-kebun" data-location="kebun"><span>🌱</span><b>KEBUN CEMPLUK</b></button>
-                        <div class="city-map-note">SATU KAMPUNG · BANYAK URUSAN KECIL</div>
+                        <img class="map-background" src="<?= base_url($map_asset_root . 'kawasan-warga.webp?v=' . filemtime(FCPATH . $map_asset_root . 'kawasan-warga.webp')); ?>" alt="Ilustrasi kawasan warga Indonesia dengan permukiman, pasar, sungai, dan lahan fasilitas umum" draggable="false">
+                        <img class="village-home village-home-back" src="<?= base_url($map_asset_root . 'rumah-warga-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'rumah-warga-v2.webp')); ?>" alt="" draggable="false">
+                        <img class="village-home village-home-left" src="<?= base_url($map_asset_root . 'rumah-warga-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'rumah-warga-v2.webp')); ?>" alt="" draggable="false">
+                        <img class="village-home village-home-right" src="<?= base_url($map_asset_root . 'rumah-warga-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'rumah-warga-v2.webp')); ?>" alt="" draggable="false">
+                        <img class="map-building map-building-school" src="<?= base_url($map_asset_root . 'sekolah-rusak.webp?v=' . filemtime(FCPATH . $map_asset_root . 'sekolah-rusak.webp')); ?>" alt="Sekolah warga dengan atap bocor dan rusak" draggable="false">
+                        <img class="map-building map-building-dapur" src="<?= base_url($map_asset_root . 'dapur-mbg-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'dapur-mbg-v2.webp')); ?>" alt="Dapur SPPG MBG dengan area penerimaan bahan dan ruang produksi" draggable="false">
+                        <img class="map-building map-building-kopdes" src="<?= base_url($map_asset_root . 'kopdes-merah-putih-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'kopdes-merah-putih-v2.webp')); ?>" alt="Koperasi desa dengan kantor, deretan gerai, dan gudang" draggable="false">
+                        <div class="facility-brand facility-brand-mbg" aria-label="SPPG Badan Gizi Nasional"><span class="facility-logo facility-logo-bgn" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" fill="#071e49" stroke="#d1b06c" stroke-width="3"/><path d="M14 27 26 22 32 25 38 22 50 27 43 30 38 28 32 32 26 28 21 30z" fill="#d1b06c"/><circle cx="32" cy="30" r="3" fill="#fff4d2"/><circle cx="24" cy="35" r="3" fill="#d1b06c"/><circle cx="40" cy="35" r="3" fill="#d1b06c"/><path d="M17 43q7-8 14 0M47 43q-7-8-14 0M21 48q11-8 22 0" fill="none" stroke="#92d05d" stroke-width="3" stroke-linecap="round"/></svg></span><span><b>SPPG</b><small>BGN · GIZI</small></span></div>
+                        <div class="facility-brand facility-brand-kopdes" aria-label="Koperasi Desa Merah Putih"><span class="facility-logo facility-logo-kopdes" aria-hidden="true"><svg viewBox="0 0 64 52"><path d="M5 23 32 4l27 19H49v24H15V23z" fill="#fff" stroke="#b51f2a" stroke-width="4" stroke-linejoin="round"/><path d="M20 27h24v8H20z" fill="#d62332"/><path d="M20 35h24v8H20z" fill="#fff"/><path d="M26 23h12v18H26z" fill="#d62332"/></svg></span><span><b>KOPDES</b><small>MERAH PUTIH</small></span></div>
+                        <button class="zone-pin zone-kampung selected" data-location="kampung"><span>🏠</span><b>PERMUKIMAN WARGA</b></button>
+                        <div class="city-map-note">SATU PINTU MASUK · DUNIA WARGA</div>
                     </div>
                 </div>
-                <aside class="location-info"><span class="location-label">LOKASI DIPILIH</span><div class="location-emoji" id="locationEmoji">🍱</div><h2 id="locationTitle">Dapur MBG</h2><p id="locationDescription">Dapur sekolah yang sibuk. Entah kenapa sendok sayurnya selalu punya agenda sendiri.</p><div class="local-tag" id="locationTag">CERITA HARIAN · MBG</div><button id="enterLocation" class="primary-button">MASUK & JELAJAHI <span>↗</span></button><span class="walk-note">AREA 3D · BISA JALAN-JALAN</span></aside>
+                <div class="asset-library" aria-hidden="true"><img class="asset-house" src="<?= base_url($map_asset_root . 'rumah-warga-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'rumah-warga-v2.webp')); ?>" alt=""><img class="asset-tree" src="<?= base_url($map_asset_root . 'pohon-rindang-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'pohon-rindang-v2.webp')); ?>" alt=""></div>
+                <aside class="location-info"><span class="location-label">WILAYAH AKTIF · TITIK DI PETA</span><div class="location-emoji" id="locationEmoji">🏙️</div><h2 id="locationTitle">Kota Warga</h2><p id="locationDescription">Kawasan kota dengan rumah, sekolah, pasar, layanan publik, dan ruang bersama.</p><div class="local-tag" id="locationTag">WILAYAH · KOTA</div><button id="enterLocation" class="primary-button">MASUK KE WILAYAH <span>↗</span></button><span class="walk-note">FASILITAS DI PETA ADALAH TITIK DI DALAM WILAYAH</span></aside>
             </div>
-            <div class="location-strip"><span>ATAU PILIH LANGSUNG</span><div id="locationChips"></div></div>
-            <div class="page-foot"><span>SEMESTA NYASAR <i>·</i> PETA KOTA</span><span>SETIAP LOKASI PUNYA CERITA KECILNYA SENDIRI</span></div>
+            <div class="location-strip" hidden><span>WILAYAH</span><div id="locationChips"></div></div>
+            <div class="page-foot"><span>REPUBLIK WKWKWK <i>·</i> PETA KOTA</span><span>SETIAP LOKASI PUNYA CERITA KECILNYA SENDIRI</span></div>
         </section>
 
-        <section class="explore-screen" id="exploreScreen" aria-label="Jelajahi area 3D">
-            <canvas id="world" aria-label="Area 3D Semesta Nyasar"></canvas><div class="explore-wash"></div>
-            <header class="explore-top"><button class="back-button" id="backToCity">← KEMBALI KE PETA KOTA</button><div class="explore-location"><span id="exploreCityName">JAKARTA</span><b>·</b><strong id="exploreLocationName">DAPUR MBG</strong><i class="online-dot"></i></div><button id="captureButton" class="capture-button">◉ <span>MODE REKAM</span></button></header>
-            <nav class="explore-map-nav" aria-label="Navigasi peta"><button id="backToCityQuick">↗ PETA JALAN</button><button id="backToWorldFromExplore">◎ PETA UTAMA</button></nav><aside id="worldError" class="world-error" role="alert"><b>Dunia 3D belum berhasil dimuat</b><p>Gunakan navigasi peta di atas untuk melanjutkan.</p><code data-error-detail></code></aside><aside class="explore-briefing"><span class="kicker">CERITA PAGI INI · EPISODE 001</span><h2 id="caseTitle">Sendok Sayur Mengundurkan Diri</h2><p id="caseHook">Pagi ini sendok sayur pamit. Katanya capek mengaduk semuanya.</p><div class="brief-rule"></div><span class="brief-label">TUGAS KECIL CEMPLUK</span><p id="caseObjective">Cari tiga petunjuk. Nasi kotaknya sudah menunggu rapat.</p><div class="clue-count"><span id="clueDots"><i></i><i></i><i></i></span><b id="clueCount">0 / 3 PETUNJUK</b></div><div class="case-witness"><span>✳</span><p><b>KATA TETANGGA</b><br><em id="citizenNote">“Tadi ada yang dengar bunyi ting!”</em></p></div></aside>
-            <aside class="daily-task" id="dailyTask"><div class="daily-top"><span>HARI 01 · MUSIM TANAM</span><b>☀ CERAH</b></div><h3>Tugas kebun Cempluk</h3><p>Siram bibit sebelum bantu tetangga.</p><div class="daily-progress"><span id="cropProgress">0 / 3 BIBIT</span><div><i id="cropProgressBar"></i></div></div><div class="seed-reward">🌱 <span>BENIH</span><b id="seedCount">3</b></div></aside>
-            <div class="interaction-hint" id="interactionHint">DEKATI SESUATU UNTUK MEMERIKSA</div>
-            <aside class="dialogue" id="dialogue"><div class="speaker-badge" id="speakerBadge">✳</div><div><p id="speakerName">BU NINING</p><p id="dialogueText">Kamu detektifnya? Hati-hati, sendok itu licin.</p></div><button id="dialogueNext">↗</button></aside>
-            <div class="explore-controls" id="touchControls"><div class="joystick" id="joystick"><div class="joystick-ring"><div class="joystick-knob" id="joystickKnob"></div></div></div><button class="inspect-button" id="inspectButton"><span>✳</span><small>PERIKSA</small></button></div>
-            <div class="desktop-controls"><kbd>W A S D</kbd> JALAN <kbd>E</kbd> PERIKSA</div>
+        <section class="explore-screen" id="exploreScreen" aria-label="Dunia Warga 3D — Alun-Alun Republik">
+            <canvas id="world" aria-label="Area 3D Republik WkWkWk"></canvas><div class="explore-wash"></div>
+            <header class="explore-top"><button class="back-button" id="backToCity">← PETA KAWASAN</button><div class="explore-location"><span id="exploreCityName">JAKARTA</span><b>·</b><strong id="exploreLocationName">KOTA WARGA</strong><i class="online-dot"></i></div><div class="explore-top-actions"><button id="openAvatarCustomizer" class="capture-button" type="button">♙ <span>AVATAR</span></button><button id="captureButton" class="capture-button">◉ <span>MODE REKAM</span></button></div></header>
+            <nav class="explore-map-nav" aria-label="Navigasi peta"><button id="backToCityQuick">↗ PETA JALAN</button><button id="backToWorldFromExplore">◎ PETA UTAMA</button></nav><aside id="worldError" class="world-error" role="alert"><b>Area eksplorasi belum berhasil dimuat</b><p>Gunakan navigasi peta di atas untuk melanjutkan.</p><code data-error-detail></code></aside>
+            <div class="interaction-hint" id="interactionHint">JELAJAHI BEBAS · DEKATI WARGA UNTUK MENGOBROL</div>
+            <aside class="dialogue" id="dialogue"><div class="speaker-badge" id="speakerBadge">✳</div><div><p id="speakerName">WARGA</p><p id="dialogueText">Halo! Silakan lihat-lihat lingkungan kami.</p></div><button id="dialogueNext" aria-label="Tutup percakapan">×</button></aside>
+            <section class="citizen-chat" id="citizenChat" aria-label="Obrolan pribadi antarwarga" hidden><header class="citizen-chat-head"><div><span>OBROLAN LANGSUNG · WILAYAH INI</span><b id="citizenChatName">Warga</b></div><button type="button" id="citizenChatClose" aria-label="Tutup obrolan">×</button></header><div class="citizen-chat-log" id="citizenChatLog" aria-live="polite"><p class="citizen-chat-empty">Sapa warga yang kamu temui di sini.</p></div><p class="citizen-chat-status" id="citizenChatStatus">Ketik pesan untuk memulai obrolan.</p><form class="citizen-chat-form" id="citizenChatForm"><input name="message" maxlength="280" autocomplete="off" placeholder="Tulis pesan…" aria-label="Tulis pesan kepada warga" required><button type="submit" aria-label="Kirim pesan">KIRIM ↗</button></form></section>
+            <div class="explore-controls" id="touchControls"><div class="joystick" id="joystick" role="application" aria-label="Joystick untuk berjalan ke segala arah"><div class="joystick-ring"><span class="joystick-north">▲</span><div class="joystick-knob" id="joystickKnob"></div></div></div></div><button class="inspect-button" id="talkButton" type="button"><span aria-hidden="true">💬</span><small>BICARA</small></button>
+            <div class="zoom-controls" aria-label="Kontrol zoom"><button id="zoomIn" type="button" aria-label="Perbesar tampilan">+</button><button id="zoomOut" type="button" aria-label="Perkecil tampilan">−</button></div>
+            <div class="desktop-controls"><kbd>W A S D</kbd> JALAN <kbd>E</kbd> BICARA · SCROLL ZOOM</div>
             <div class="explore-toast" id="toast"></div><div class="capture-exit" id="captureExit"><button id="exitCapture">KELUAR DARI MODE REKAM <span>×</span></button></div>
-            <div class="ending" id="ending"><div class="ending-card"><span>BERKAS DITUTUP (SEMENTARA)</span><h2 id="endingTitle">Sendoknya ternyata...</h2><p id="endingText">Dia pindah ke koperasi. Katanya ingin mencoba mengaduk harga.</p><div class="ending-comment"><b>IDE WARGA BERIKUTNYA</b><p id="nextPrompt">Barang apa lagi yang suka bertingkah di kota ini?</p></div><button id="replayButton">ULANGI ADEGAN <i>↺</i></button></div></div>
         </section>
     </main>
-    <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><div class="build-notice">Jalankan <code>npm run build</code> di folder proyek untuk menyiapkan game.</div><?php endif; ?>
+    <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/warga-chibi-base.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
+    <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . $source_js_version); ?>"></script><?php endif; ?>
 </body>
 </html>

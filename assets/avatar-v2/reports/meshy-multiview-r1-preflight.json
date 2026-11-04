@@ -1,0 +1,52 @@
+{
+  "provider": "Meshy multi-image-to-3D",
+  "networkCalled": false,
+  "imageCount": 4,
+  "frontView": {
+    "path": "/www/wwwroot/semesta/assets/avatar-v2/source/semesta_farmer_male_v2-r1-front.png",
+    "bytes": 404442,
+    "dimensions": [
+      434,
+      874
+    ],
+    "sha256": "a10f2ec5dcba5c932fcd56804522230c4534d2d52277f9afcf521e8e717718cf"
+  },
+  "otherViews": [
+    {
+      "path": "/www/wwwroot/semesta/assets/avatar-v2/source/semesta_farmer_male_v2-r1-left-profile.png",
+      "bytes": 370798,
+      "dimensions": [
+        434,
+        874
+      ],
+      "sha256": "caaae7629d64f59a3ab296d70c4294104f8bc4572f628489b1b135d3e8964c84"
+    },
+    {
+      "path": "/www/wwwroot/semesta/assets/avatar-v2/source/semesta_farmer_male_v2-r1-back.png",
+      "bytes": 400731,
+      "dimensions": [
+        434,
+        874
+      ],
+      "sha256": "d4a6b632cfe863600620a4d472807642e804caa434ceac62a5254cbc7262a5e6"
+    },
+    {
+      "path": "/www/wwwroot/semesta/assets/avatar-v2/source/semesta_farmer_male_v2-r1-front-three-quarter.png",
+      "bytes": 406215,
+      "dimensions": [
+        434,
+        874
+      ],
+      "sha256": "a8c54676d93d221accff484623aa4c4ac7dc5d9c975925c26d20150324b1ecb1"
+    }
+  ],
+  "parameters": {
+    "ai_model": "meshy-7.1",
+    "should_texture": true,
+    "enable_pbr": true,
+    "target_formats": [
+      "glb"
+    ]
+  },
+  "note": "Review current provider credits and data/license terms before submitting."
+}

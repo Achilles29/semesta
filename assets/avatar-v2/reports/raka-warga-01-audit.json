@@ -1,0 +1,534 @@
+{
+  "file": "public/models/characters/gallery/raka-warga-01.glb",
+  "bytes": 1153852,
+  "validGlbV2Header": true,
+  "chunks": [
+    {
+      "type": "JSON",
+      "bytes": 52904
+    },
+    {
+      "type": "BIN",
+      "bytes": 1100920
+    }
+  ],
+  "environment": {
+    "python": "3.12.7",
+    "blenderExecutable": null,
+    "nodeExecutable": null,
+    "npmExecutable": null,
+    "pillowAvailable": true,
+    "bpyAvailableInHostPython": false,
+    "threeDependency": "^0.187.0",
+    "viteDependency": "^8.3.5",
+    "configured3dServiceCredentialsFound": false,
+    "note": "Checked relevant environment variable names and repository references; no 3D generation service integration or credential found. No paid request was made."
+  },
+  "existingCharacterAssets": [
+    {
+      "path": "public/models/characters/warga-chibi-base.glb",
+      "bytes": 5531036,
+      "kind": ".glb"
+    },
+    {
+      "path": "public/models/characters/warga-chibi-base.blend",
+      "bytes": 10978932,
+      "kind": ".blend"
+    },
+    {
+      "path": "public/models/characters/gallery/raka-warga-01.glb",
+      "bytes": 1153852,
+      "kind": ".glb"
+    },
+    {
+      "path": "public/models/characters/gallery/raka-warga-01.png",
+      "bytes": 631138,
+      "kind": ".png"
+    },
+    {
+      "path": "public/models/characters/gallery/karakter-harvestmoon-warga-3d.png",
+      "bytes": 1952686,
+      "kind": ".png"
+    }
+  ],
+  "worldBounds": {
+    "min": [
+      -0.376,
+      0.039,
+      -0.217
+    ],
+    "max": [
+      0.376,
+      1.77,
+      0.233
+    ],
+    "size": [
+      0.752,
+      1.731,
+      0.45
+    ]
+  },
+  "meshTriangleDistribution": {
+    "100-499": 3,
+    "500-1,999": 12,
+    "2,000-9,999": 3,
+    "10,000+": 1
+  },
+  "sceneNodes": 36,
+  "meshObjects": 19,
+  "primitiveCount": 33,
+  "triangleCount": 30088,
+  "vertexCount": 17947,
+  "skinnedPrimitives": 33,
+  "unskinnedPrimitives": 0,
+  "normalPrimitives": 33,
+  "uvPrimitives": 32,
+  "uvAccessorsComputed": 32,
+  "uvBoundsAcrossPrimitives": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      1.0
+    ]
+  ],
+  "uvVertices": 17787,
+  "uvOutside01Vertices": 0,
+  "weightInfluenceHistogram": {
+    "1": 17947
+  },
+  "skins": [
+    {
+      "name": "Warga Chibi Rig",
+      "jointCount": 16,
+      "bones": [
+        {
+          "name": "root",
+          "parent": "Warga Chibi Rig"
+        },
+        {
+          "name": "spine",
+          "parent": "root"
+        },
+        {
+          "name": "neck",
+          "parent": "spine"
+        },
+        {
+          "name": "head",
+          "parent": "neck"
+        },
+        {
+          "name": "upper_arm.L",
+          "parent": "spine"
+        },
+        {
+          "name": "forearm.L",
+          "parent": "upper_arm.L"
+        },
+        {
+          "name": "hand.L",
+          "parent": "forearm.L"
+        },
+        {
+          "name": "upper_arm.R",
+          "parent": "spine"
+        },
+        {
+          "name": "forearm.R",
+          "parent": "upper_arm.R"
+        },
+        {
+          "name": "hand.R",
+          "parent": "forearm.R"
+        },
+        {
+          "name": "thigh.L",
+          "parent": "root"
+        },
+        {
+          "name": "calf.L",
+          "parent": "thigh.L"
+        },
+        {
+          "name": "foot.L",
+          "parent": "calf.L"
+        },
+        {
+          "name": "thigh.R",
+          "parent": "root"
+        },
+        {
+          "name": "calf.R",
+          "parent": "thigh.R"
+        },
+        {
+          "name": "foot.R",
+          "parent": "calf.R"
+        }
+      ],
+      "inverseBindMatricesAccessor": 12,
+      "skeletonRoot": null
+    }
+  ],
+  "materials": [
+    {
+      "name": "Stitch · golden thread",
+      "baseColorFactor": [
+        0.8299999833106995,
+        0.6100000143051147,
+        0.25,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.6499999761581421,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Scarf · persimmon",
+      "baseColorFactor": [
+        0.7200000286102295,
+        0.12999999523162842,
+        0.09000000357627869,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.8199999928474426,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Headwear · dark cloth",
+      "baseColorFactor": [
+        0.017999999225139618,
+        0.017999999225139618,
+        0.02199999988079071,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.75,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Denim · indigo blue",
+      "baseColorFactor": [
+        0.03500000014901161,
+        0.07500000298023224,
+        0.14499999582767487,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.9200000166893005,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Leather · umber",
+      "baseColorFactor": [
+        0.20000000298023224,
+        0.10499999672174454,
+        0.054999999701976776,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.550000011920929,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Rubber · dark brown",
+      "baseColorFactor": [
+        0.07500000298023224,
+        0.054999999701976776,
+        0.03999999910593033,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.6800000071525574,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Skin · honey",
+      "baseColorFactor": [
+        0.5649999976158142,
+        0.24500000476837158,
+        0.12800000607967377,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.6800000071525574,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Eye · ivory",
+      "baseColorFactor": [
+        0.9700000286102295,
+        0.9399999976158142,
+        0.8399999737739563,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.36000001430511475,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Eye · warm hazel",
+      "baseColorFactor": [
+        0.20000000298023224,
+        0.0949999988079071,
+        0.04500000178813934,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.30000001192092896,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Eye · deep brown",
+      "baseColorFactor": [
+        0.04500000178813934,
+        0.027000000700354576,
+        0.019999999552965164,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.25,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Eye · catchlight",
+      "baseColorFactor": [
+        1,
+        0.9800000190734863,
+        0.8999999761581421,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.18000000715255737,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Hair · chestnut",
+      "baseColorFactor": [
+        0.019999999552965164,
+        0.014000000432133675,
+        0.012000000104308128,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.8600000143051147,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Mouth · muted rose",
+      "baseColorFactor": [
+        0.4300000071525574,
+        0.15000000596046448,
+        0.12999999523162842,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.7799999713897705,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    },
+    {
+      "name": "Cotton · warm ivory",
+      "baseColorFactor": [
+        0.7799999713897705,
+        0.7300000190734863,
+        0.6000000238418579,
+        1
+      ],
+      "baseColorTexture": null,
+      "metallicFactor": 0,
+      "roughnessFactor": 0.8999999761581421,
+      "metallicRoughnessTexture": null,
+      "normalTexture": null,
+      "occlusionTexture": null,
+      "emissiveTexture": null
+    }
+  ],
+  "materialCount": 14,
+  "images": [],
+  "embeddedImageBytes": 0,
+  "animations": [
+    {
+      "name": "Idle",
+      "durationSeconds": 0.5417,
+      "channels": 48,
+      "targetPaths": {
+        "translation": 16,
+        "rotation": 16,
+        "scale": 16
+      },
+      "targetNames": {
+        "root": 3,
+        "spine": 3,
+        "neck": 3,
+        "head": 3,
+        "upper_arm.L": 3,
+        "forearm.L": 3,
+        "hand.L": 3,
+        "upper_arm.R": 3,
+        "forearm.R": 3,
+        "hand.R": 3,
+        "thigh.L": 3,
+        "calf.L": 3,
+        "foot.L": 3,
+        "thigh.R": 3,
+        "calf.R": 3,
+        "foot.R": 3
+      },
+      "hasRootTranslation": true,
+      "hasScaleTracks": true
+    }
+  ],
+  "largestMeshes": [
+    {
+      "name": "Sphere.090",
+      "triangles": 11432,
+      "primitives": 8
+    },
+    {
+      "name": "Sphere.036",
+      "triangles": 3320,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.050",
+      "triangles": 3320,
+      "primitives": 1
+    },
+    {
+      "name": "Top_Kemeja_Placket",
+      "triangles": 2592,
+      "primitives": 3
+    },
+    {
+      "name": "Sphere.011",
+      "triangles": 1160,
+      "primitives": 2
+    },
+    {
+      "name": "Sphere.024",
+      "triangles": 1160,
+      "primitives": 2
+    },
+    {
+      "name": "Top_Base_Torso mesh",
+      "triangles": 828,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.005",
+      "triangles": 808,
+      "primitives": 2
+    },
+    {
+      "name": "Sphere.018",
+      "triangles": 808,
+      "primitives": 2
+    },
+    {
+      "name": "Sphere.004",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.017",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.035",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.049",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.070",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.031",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.045",
+      "triangles": 520,
+      "primitives": 1
+    },
+    {
+      "name": "Sphere.066",
+      "triangles": 456,
+      "primitives": 2
+    },
+    {
+      "name": "Bottom_Base_Pelvis mesh",
+      "triangles": 316,
+      "primitives": 1
+    },
+    {
+      "name": "Cylinder",
+      "triangles": 248,
+      "primitives": 1
+    }
+  ]
+}

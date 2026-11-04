@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "skeletonVersion": "semesta-humanoid-v2.0",
+  "productionStatus": "blocked_missing_acceptable_source_mesh",
+  "runtimeIntegrated": false,
+  "registry": "asset_registry.json",
+  "registrySchema": "asset_registry.schema.json",
+  "characters": [
+    {
+      "characterId": "semesta_farmer_male_v2",
+      "displayName": "SEMESTA Farmer V2 — Male Base",
+      "targetFile": "characters/semesta_farmer_male_v2.glb",
+      "fileExists": false,
+      "sourceStatus": "awaiting_licensed_model_source",
+      "designBrief": "../../docs/AVATAR_V2_FARMER_CONCEPT.md",
+      "styleGuide": "../../docs/AVATAR_V2_STYLE_GUIDE.md",
+      "minimumViewsForReview": ["front", "left_profile", "right_profile", "back", "three_quarter", "face_close_up"],
+      "targetHeightWorldUnits": 1.8,
+      "skeletonVersion": "semesta-humanoid-v2.0",
+      "licenseStatus": "pending",
+      "validationStatus": "not_created",
+      "visualReviewStatus": "not_created"
+    },
+    {
+      "characterId": "semesta_farmer_female_v2",
+      "displayName": "SEMESTA Farmer V2 — Female Base",
+      "targetFile": "characters/semesta_farmer_female_v2.glb",
+      "fileExists": false,
+      "sourceStatus": "deferred_until_male_base_approved",
+      "targetHeightWorldUnits": 1.8,
+      "skeletonVersion": "semesta-humanoid-v2.0",
+      "licenseStatus": "pending",
+      "validationStatus": "not_created",
+      "visualReviewStatus": "not_created"
+    }
+  ],
+  "assetFolders": {
+    "bodies": "bodies/",
+    "faces": "faces/",
+    "hair": "hair/",
+    "tops": "tops/",
+    "bottoms": "bottoms/",
+    "footwear": "footwear/",
+    "headwear": "headwear/",
+    "facialHair": "facial_hair/",
+    "accessories": "accessories/",
+    "animations": "animations/",
+    "source": "source/",
+    "previews": "previews/",
+    "reports": "reports/"
+  },
+  "notes": [
+    "These are target paths only. No GLB is present at either character target.",
+    "No existing production asset was copied or renamed into V2.",
+    "Do not set productionStatus to approved until the exported asset passes structural, visual, rigging, animation, licensing, and target-device review."
+  ]
+}

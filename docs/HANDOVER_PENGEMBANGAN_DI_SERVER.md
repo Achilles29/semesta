@@ -2,15 +2,15 @@
 
 Dokumen ini menjadi panduan memindahkan prototipe dari XAMPP lokal ke server dan melanjutkan pengembangan. Aplikasi memakai CodeIgniter 3, PHP, MySQL, serta frontend Three.js yang dibangun dengan Vite.
 
-## Status saat diserahkan
+## Status pengembangan saat ini
 
-- Peta utama menampilkan tujuan kota.
-- Peta kota Kampung Sore menampilkan enam titik lokasi.
-- Dapur MBG adalah satu-satunya titik dengan area 3D yang bisa dimasuki. Titik lain masih terkunci sampai punya area tersendiri.
-- Area Dapur MBG punya jalan utama dan cabang, rumah, dapur, kandang, manusia, hewan, pohon, petunjuk, dan tabrakan objek.
-- Navigasi cepat dari area 3D ke Peta Jalan dan Peta Utama tersedia. Jika render 3D gagal, panel diagnostik menampilkan pesan kesalahan.
-- Lokasi, posisi pemain, arah kamera, dan petunjuk disimpan di localStorage browser. Data cerita dan ide warga disimpan di MySQL.
-- Akun admin saat ini dibatasi hanya untuk koneksi localhost. Jangan membuka endpoint admin ke publik tanpa menambahkan pengamanan yang sesuai.
+- Kunjungan pertama membuka scene 3D **Dunia Warga** di **Alun-Alun Republik**; peta Indonesia dan peta kawasan tetap tersedia melalui navigasi.
+- Pemimpin yang dikendalikan pemain disebut **Presiden Republik WkWkWk**. Avatar pemain dapat dipilih dari profil warga.
+- Peta kawasan membagi eksplorasi ke Kota Warga, Desa Tumbuh, dan Hutan Warga. Setiap wilayah punya susunan, warna, petunjuk, dan penanda area berbeda; MBG, sekolah, Kopdes, dan pasar adalah fasilitas di dalam kawasan.
+- Dapur MBG pada scene 3D memakai satu model. Hewan ternak bergerak mengikuti jalur di kawasan.
+- Akun warga memakai email dan kata sandi; profil menyimpan avatar serta tipe rumah. Verifikasi email dapat diwajibkan lewat Pengaturan Admin.
+- Pengiriman verifikasi memerlukan variabel SMTP server. Skema `citizens` dan `app_settings` tersedia di `database/schema.sql` dan dibuat/ditingkatkan oleh `tools/setup_database.php`.
+- Pengelolaan admin membutuhkan sesi login dengan kredensial deployment pada `application/config/admin_credentials.php` atau environment server.
 
 ## Susunan berkas penting
 
@@ -76,19 +76,19 @@ Buat hash di komputer tepercaya dengan `password_hash()` PHP. Jangan menaruh pas
 
 - Halaman awal terbuka melalui domain dan tidak meminta port Vite.
 - Peta utama berpindah ke peta Kampung Sore.
-- Peta kota memilih titik sesuai pin.
-- Dapur MBG membuka area 3D; navigasi Peta Jalan dan Peta Utama membawa ke layar yang benar.
+- Kunjungan baru membuka Dunia Warga 3D; tombol Peta Kawasan dan Peta Utama kembali ke layar yang benar.
+- Kota, desa, dan hutan menampilkan lingkungan serta cerita berbeda. MBG muncul satu kali di wilayah kota.
 - Jika area 3D kosong, panel diagnostik tampil. Catat pesan di panel dan periksa Console browser serta dukungan WebGL.
 - Pemain dapat berjalan, berhenti di penghalang, dan berjalan melewati jembatan.
 - Muat ulang saat berada di area 3D; pemain kembali ke lokasi dan posisi terakhir pada browser yang sama.
 - Episode dapat dibaca/disimpan dan ide warga dapat diakses database.
-- URL admin tidak dapat diakses publik selama pembatasan localhost masih aktif.
+- Admin dapat dibuka melalui domain setelah kredensial deployment disiapkan; pengelolaan API tetap memerlukan sesi admin.
 
 ## Batasan yang perlu diketahui
 
 - Posisi dan progres permainan saat ini tersimpan di browser pengguna. Data itu tidak mengikuti pengguna ke perangkat/browser lain dan tidak disimpan sebagai akun di server.
 - Komentar media sosial belum diambil otomatis. Inbox ide masih bergantung pada alur input yang disediakan aplikasi.
-- Kota lain dan lima titik selain Dapur MBG belum memiliki area 3D unik.
+- Lingkungan regional sudah berbeda, tetapi aset dan navigasi masih berupa prototipe yang perlu diperluas.
 - Aplikasi belum menyediakan akun pemain, multiplayer, pembayaran, atau penyimpanan cloud untuk progres.
 - Vite saat build memberi peringatan ukuran bundel JavaScript di atas 500 KB karena Three.js masih berada dalam satu bundel.
 
@@ -97,5 +97,5 @@ Buat hash di komputer tepercaya dengan `password_hash()` PHP. Jangan menaruh pas
 - Tinjau pesan diagnostik bila render 3D masih gagal di browser server.
 - Selesaikan visual dan collision untuk Dapur MBG sebelum membuka titik lain.
 - Bangun area 3D unik untuk satu titik berikutnya, lalu hubungkan pintu/jalurnya ke peta kampung.
-- Sebelum panel admin dipakai dari jarak jauh, rancang akses aman berbasis HTTPS, autentikasi, dan pembatasan jaringan.
+- Aktifkan HTTPS, gunakan kredensial admin yang kuat, dan pasang konfigurasi SMTP sebelum mewajibkan verifikasi email.
 - Jika progres harus lintas perangkat, pindahkan penyimpanan pemain dari localStorage ke tabel database dan tambahkan identitas pemain.

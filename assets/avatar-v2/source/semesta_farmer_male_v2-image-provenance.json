@@ -1,0 +1,33 @@
+{
+  "assetId": "semesta_farmer_male_v2_reference_views",
+  "type": "2d_concept_reference_only",
+  "character": "SEMESTA FARMER MALE V2",
+  "generatedAt": "2026-11-04",
+  "generator": "OpenAI built-in image_gen",
+  "generatedSheet": "references/semesta_farmer_male_v2-turnaround-sheet.png",
+  "revision": "r1 selected by owner for the Meshy input set",
+  "alternateRevision": "r2 kept as a separate iteration at references/semesta_farmer_male_v2-turnaround-sheet-v2.png and semesta_farmer_male_v2-r2-*.png",
+  "sourceInputImages": [],
+  "promptSummary": "Original young adult Indonesian male farmer concept: warm medium-brown skin, expressive dark eyes, layered chestnut hair, medium-blue work shirt, olive trousers, brown boots, neutral A-pose, and four consistent studio views; no equipment or accessories.",
+  "views": [
+    {"file": "semesta_farmer_male_v2-r1-front.png", "view": "front"},
+    {"file": "semesta_farmer_male_v2-r1-left-profile.png", "view": "left_profile"},
+    {"file": "semesta_farmer_male_v2-r1-back.png", "view": "back"},
+    {"file": "semesta_farmer_male_v2-r1-front-three-quarter.png", "view": "front_three_quarter"}
+  ],
+  "meshGeneration": {
+    "provider": "Meshy",
+    "status": "blocked_missing_api_key",
+    "reason": "MESHY_API_KEY is not configured in the protected environment.",
+    "ownerApproval": "Owner explicitly approved one multiview generation up to 30 credits, subject to rechecking the live price.",
+    "selectedInputSet": "r1 four-view images named in the owner's Task A2 request",
+    "preflightReport": "../reports/meshy-multiview-r1-preflight.json",
+    "localPreflight": "passed",
+    "networkCalled": false
+  },
+  "licenseReview": {
+    "referenceRights": "Generated for this SEMESTA task; no third-party source images were used.",
+    "meshOutputTerms": "Must be verified against the account plan and Meshy terms before generation or production use.",
+    "notes": "These files are 2D reference art, not a 3D mesh. No production asset license has been created or asserted."
+  }
+}

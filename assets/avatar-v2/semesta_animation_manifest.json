@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "skeletonVersion": "semesta-humanoid-v2.0",
+  "runtimeIntegrated": false,
+  "rootMotionPolicy": "all locomotion in-place; Three.js game controller owns world translation",
+  "frameRateTarget": 30,
+  "clips": [
+    {"state":"idle","clipName":"Idle","priority":"core","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"},
+    {"state":"walk","clipName":"Walk","priority":"core","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"},
+    {"state":"run","clipName":"Run","priority":"core","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"},
+    {"state":"interact","clipName":"Interact","priority":"core","file":null,"status":"missing_source_asset","loop":false,"rootMotion":"in_place"},
+    {"state":"wave","clipName":"Wave","priority":"secondary","file":null,"status":"missing_source_asset","loop":false,"rootMotion":"in_place"},
+    {"state":"hoe","clipName":"Hoe","priority":"secondary","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"},
+    {"state":"water","clipName":"Water","priority":"secondary","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"},
+    {"state":"harvest","clipName":"Harvest","priority":"secondary","file":null,"status":"missing_source_asset","loop":false,"rootMotion":"in_place"},
+    {"state":"carry","clipName":"Carry","priority":"secondary","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"},
+    {"state":"sit","clipName":"Sit","priority":"secondary","file":null,"status":"missing_source_asset","loop":true,"rootMotion":"in_place"}
+  ],
+  "requiredValidation": ["same_skeleton_version", "target_bone_names", "root_translation_audit", "rest_pose_match", "shoulder_elbow_wrist_knee_foot_deformation", "garment_deformation", "clip_duration_and_loop_review", "glb_round_trip_import", "visual_review"]
+}

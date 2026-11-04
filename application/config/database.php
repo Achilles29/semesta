@@ -94,3 +94,12 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// Host-specific credentials live in an ignored local file, never in the repo.
+$local_database_file = APPPATH . 'config/database_local.php';
+if (is_file($local_database_file)) {
+	$local_database = require $local_database_file;
+	if (is_array($local_database)) {
+		$db['default'] = array_merge($db['default'], $local_database);
+	}
+}

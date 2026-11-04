@@ -1,0 +1,315 @@
+{
+  "source": "/tmp/semesta-avatar-v2-smoke/smoke-final.glb",
+  "blenderVersion": "4.5.15 LTS",
+  "sceneObjectCount": 4,
+  "meshObjectCount": 2,
+  "meshes": [
+    {
+      "name": "SMOKE_ONLY_WEIGHTED_MESH",
+      "vertices": 264,
+      "edges": 342,
+      "polygons": 140,
+      "trianglesEvaluated": 140,
+      "looseOrDisconnectedVertexComponents": 62,
+      "materials": [
+        "SMOKE_ONLY_PBR"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 420,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.91667,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 264,
+      "nonManifoldEdges": 264,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 120,
+        "2": 144
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "pelvis",
+        "spine_01",
+        "chest",
+        "neck",
+        "head"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "SMOKE_ONLY_RIG",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Icosphere",
+      "vertices": 42,
+      "edges": 120,
+      "polygons": 80,
+      "trianglesEvaluated": 80,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 240,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.47238
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": false,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "0": 42
+      },
+      "zeroWeightVertices": 42,
+      "vertexGroups": [],
+      "armatureModifiers": []
+    }
+  ],
+  "armatures": [
+    {
+      "name": "SMOKE_ONLY_RIG",
+      "boneCount": 6,
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "head": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.35
+          ],
+          "deform": true
+        },
+        {
+          "name": "pelvis",
+          "parent": "root",
+          "head": [
+            0.0,
+            0.0,
+            0.35
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.75
+          ],
+          "deform": true
+        },
+        {
+          "name": "spine_01",
+          "parent": "pelvis",
+          "head": [
+            0.0,
+            0.0,
+            0.75
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.1
+          ],
+          "deform": true
+        },
+        {
+          "name": "chest",
+          "parent": "spine_01",
+          "head": [
+            0.0,
+            0.0,
+            1.1
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.4
+          ],
+          "deform": true
+        },
+        {
+          "name": "neck",
+          "parent": "chest",
+          "head": [
+            0.0,
+            0.0,
+            1.4
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.52
+          ],
+          "deform": true
+        },
+        {
+          "name": "head",
+          "parent": "neck",
+          "head": [
+            0.0,
+            0.0,
+            1.52
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.64
+          ],
+          "deform": true
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "SMOKE_ONLY_PBR",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.5, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    }
+  ],
+  "duplicateMaterialSignatureGroups": [],
+  "images": [],
+  "actions": [
+    {
+      "name": "Idle",
+      "frameRange": [
+        0.8000000715255737,
+        7.200000286102295
+      ],
+      "channelCount": 60,
+      "paths": {
+        "location": 18,
+        "rotation_quaternion": 24,
+        "scale": 18
+      },
+      "boneTargets": [
+        "chest",
+        "head",
+        "neck",
+        "pelvis",
+        "root",
+        "spine_01"
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameRange": [
+        0.8000000715255737,
+        7.200000286102295
+      ],
+      "channelCount": 60,
+      "paths": {
+        "location": 18,
+        "rotation_quaternion": 24,
+        "scale": 18
+      },
+      "boneTargets": [
+        "chest",
+        "head",
+        "neck",
+        "pelvis",
+        "root",
+        "spine_01"
+      ]
+    }
+  ],
+  "sceneBounds": {
+    "min": [
+      -0.95106,
+      -1.0,
+      -1.0
+    ],
+    "max": [
+      0.95106,
+      1.0,
+      1.8
+    ],
+    "size": [
+      1.90212,
+      2.0,
+      2.8
+    ]
+  },
+  "sceneBoundsNote": "Union of Blender object bound boxes transformed by object matrices. It includes all imported variant meshes and does not evaluate armature deformation or hide-state intent; use the exported GLB accessor audit for file bounds.",
+  "manualReviewRequired": [
+    "front/back orientation and approved style silhouette",
+    "UV island overlap and texel density",
+    "facial quality and shading",
+    "joint deformation under required animation poses",
+    "clothing/body intersection",
+    "hat/hair/accessory attachment and floating checks"
+  ],
+  "automationLimits": [
+    "No topology edits, decimation, retopology, UV repair, weight painting, rig retargeting, or animation fabrication are performed."
+  ],
+  "exportedFrom": "/tmp/semesta-avatar-v2-smoke/smoke-source.blend",
+  "normalization": {
+    "applied": true,
+    "root": "SEMESTA_V2_NormalizationRoot",
+    "heightBefore": 1.8,
+    "targetHeight": 1.8,
+    "uniformScale": 1.00000003,
+    "yawDegreesZ": 0.0,
+    "centeredXZ": true,
+    "feetGroundedAtZ0InBlender": true,
+    "topologyOrWeightsChanged": false,
+    "skinnedMeshParentRepairs": [
+      "SMOKE_ONLY_WEIGHTED_MESH"
+    ],
+    "manualDirectionCheckRequired": "Confirm the face direction in a preview before selecting --yaw-degrees; this automation cannot recognize which side is the face."
+  },
+  "skinnedMeshParentRepairsBeforeExport": [],
+  "sourceAuditSummary": {
+    "meshObjectCount": 1,
+    "armatureCount": 1,
+    "actionCount": 2
+  },
+  "roundTripMissingSourceBones": [],
+  "roundTripMissingSourceActions": [],
+  "missingRequiredClips": [
+    "Carry",
+    "Harvest",
+    "Hoe",
+    "Interact",
+    "Run",
+    "Sit",
+    "Water",
+    "Wave"
+  ],
+  "roundTripSkinnedMeshObjectCount": 1,
+  "roundTripValidated": true,
+  "productionReady": false,
+  "productionReadinessNote": "Round-trip validation is structural only. This pipeline never marks production ready; a real character must additionally pass visual, joint-deformation, animation, license, and target-device review.",
+  "roundTripNote": "Structural reimport only; visual, rigging, materials, and animation deformation still require artist review."
+}

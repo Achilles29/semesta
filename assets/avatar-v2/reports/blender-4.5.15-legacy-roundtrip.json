@@ -1,0 +1,5210 @@
+{
+  "source": "/tmp/semesta-avatar-v2-smoke/warga-chibi-v2-roundtrip.glb",
+  "blenderVersion": "4.5.15 LTS",
+  "sceneObjectCount": 79,
+  "meshObjectCount": 77,
+  "meshes": [
+    {
+      "name": "Accessory_Backpack_spine",
+      "vertices": 889,
+      "edges": 2346,
+      "polygons": 1472,
+      "trianglesEvaluated": 1472,
+      "looseOrDisconnectedVertexComponents": 15,
+      "materials": [
+        "Pack · terracotta canvas",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 4416,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 276,
+      "nonManifoldEdges": 276,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 889
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Badge_spine",
+      "vertices": 300,
+      "edges": 754,
+      "polygons": 456,
+      "trianglesEvaluated": 456,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Stitch · golden thread",
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1368,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 140,
+      "nonManifoldEdges": 140,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 300
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Bandana_head",
+      "vertices": 363,
+      "edges": 1002,
+      "polygons": 640,
+      "trianglesEvaluated": 640,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1920,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 84,
+      "nonManifoldEdges": 84,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 363
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Caping_head",
+      "vertices": 292,
+      "edges": 566,
+      "polygons": 280,
+      "trianglesEvaluated": 280,
+      "looseOrDisconnectedVertexComponents": 6,
+      "materials": [
+        "Headwear · woven straw"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 840,
+          "bounds": [
+            [
+              0.0,
+              0.01
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 292,
+      "nonManifoldEdges": 292,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 292
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Glasses_head",
+      "vertices": 813,
+      "edges": 2218,
+      "polygons": 1408,
+      "trianglesEvaluated": 1408,
+      "looseOrDisconnectedVertexComponents": 3,
+      "materials": [
+        "Headwear · dark cloth"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 4224,
+          "bounds": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 212,
+      "nonManifoldEdges": 212,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 813
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Helmet_head",
+      "vertices": 397,
+      "edges": 1026,
+      "polygons": 636,
+      "trianglesEvaluated": 636,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Headwear · safety yellow"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1908,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 144,
+      "nonManifoldEdges": 144,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 397
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Jam_forearm.R",
+      "vertices": 523,
+      "edges": 1360,
+      "polygons": 840,
+      "trianglesEvaluated": 840,
+      "looseOrDisconnectedVertexComponents": 3,
+      "materials": [
+        "Headwear · dark cloth",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2520,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 200,
+      "nonManifoldEdges": 200,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 523
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Map_hand.L",
+      "vertices": 387,
+      "edges": 1032,
+      "polygons": 652,
+      "trianglesEvaluated": 652,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Cotton · warm ivory",
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1956,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 108,
+      "nonManifoldEdges": 108,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 387
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Peci_head",
+      "vertices": 260,
+      "edges": 502,
+      "polygons": 248,
+      "trianglesEvaluated": 248,
+      "looseOrDisconnectedVertexComponents": 6,
+      "materials": [
+        "Headwear · dark cloth"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 744,
+          "bounds": [
+            [
+              0.0,
+              0.01
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 260,
+      "nonManifoldEdges": 260,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 260
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Sash_spine",
+      "vertices": 363,
+      "edges": 1002,
+      "polygons": 640,
+      "trianglesEvaluated": 640,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1920,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 84,
+      "nonManifoldEdges": 84,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 363
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Scarf_spine",
+      "vertices": 447,
+      "edges": 1172,
+      "polygons": 732,
+      "trianglesEvaluated": 732,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2196,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 148,
+      "nonManifoldEdges": 148,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 447
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Accessory_Topi_head",
+      "vertices": 260,
+      "edges": 502,
+      "polygons": 248,
+      "trianglesEvaluated": 248,
+      "looseOrDisconnectedVertexComponents": 6,
+      "materials": [
+        "Headwear · dark cloth"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 744,
+          "bounds": [
+            [
+              0.0,
+              0.01
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 260,
+      "nonManifoldEdges": 260,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 260
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Base_root",
+      "vertices": 160,
+      "edges": 474,
+      "polygons": 316,
+      "trianglesEvaluated": 316,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 160
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Cargo_calf.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Cargo_calf.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Cargo_thigh.L",
+      "vertices": 337,
+      "edges": 862,
+      "polygons": 532,
+      "trianglesEvaluated": 532,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1596,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 128,
+      "nonManifoldEdges": 128,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 337
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Cargo_thigh.R",
+      "vertices": 337,
+      "edges": 862,
+      "polygons": 532,
+      "trianglesEvaluated": 532,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1596,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 128,
+      "nonManifoldEdges": 128,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 337
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Celana_calf.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Celana_calf.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Celana_thigh.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Celana_thigh.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_ExposedLeg_calf.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_ExposedLeg_calf.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Jeans_calf.L",
+      "vertices": 498,
+      "edges": 1304,
+      "polygons": 808,
+      "trianglesEvaluated": 808,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Denim · indigo blue",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2424,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 184,
+      "nonManifoldEdges": 184,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 498
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Jeans_calf.R",
+      "vertices": 498,
+      "edges": 1304,
+      "polygons": 808,
+      "trianglesEvaluated": 808,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Denim · indigo blue",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2424,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 184,
+      "nonManifoldEdges": 184,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 498
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Jeans_thigh.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Jeans_thigh.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Kulot_calf.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Kulot_calf.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Kulot_thigh.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Kulot_thigh.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Pendek_thigh.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Pendek_thigh.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Rok_root",
+      "vertices": 711,
+      "edges": 1815,
+      "polygons": 1108,
+      "trianglesEvaluated": 1108,
+      "looseOrDisconnectedVertexComponents": 4,
+      "materials": [
+        "Denim · indigo blue"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 3324,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 306,
+      "nonManifoldEdges": 306,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 711
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Bottom_Sarung_root",
+      "vertices": 1945,
+      "edges": 5261,
+      "polygons": 3324,
+      "trianglesEvaluated": 3324,
+      "looseOrDisconnectedVertexComponents": 8,
+      "materials": [
+        "Sarong · woven indigo",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 9972,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 550,
+      "nonManifoldEdges": 550,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1945
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_foot.L",
+      "vertices": 694,
+      "edges": 1852,
+      "polygons": 1160,
+      "trianglesEvaluated": 1160,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Leather · umber",
+        "Rubber · dark brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 3480,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 224,
+      "nonManifoldEdges": 224,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 694
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_foot.R",
+      "vertices": 694,
+      "edges": 1852,
+      "polygons": 1160,
+      "trianglesEvaluated": 1160,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Leather · umber",
+        "Rubber · dark brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 3480,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 224,
+      "nonManifoldEdges": 224,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 694
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_forearm.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_forearm.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_hand.L",
+      "vertices": 1988,
+      "edges": 5302,
+      "polygons": 3320,
+      "trianglesEvaluated": 3320,
+      "looseOrDisconnectedVertexComponents": 6,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 9960,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 644,
+      "nonManifoldEdges": 644,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1988
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_hand.R",
+      "vertices": 1988,
+      "edges": 5302,
+      "polygons": 3320,
+      "trianglesEvaluated": 3320,
+      "looseOrDisconnectedVertexComponents": 6,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 9960,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 644,
+      "nonManifoldEdges": 644,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1988
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_head",
+      "vertices": 6678,
+      "edges": 18092,
+      "polygons": 11432,
+      "trianglesEvaluated": 11432,
+      "looseOrDisconnectedVertexComponents": 18,
+      "materials": [
+        "Skin · honey",
+        "Scarf · persimmon",
+        "Eye · ivory",
+        "Eye · warm hazel",
+        "Eye · deep brown",
+        "Eye · catchlight",
+        "Hair · chestnut",
+        "Mouth · muted rose"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 34296,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 1888,
+      "nonManifoldEdges": 1888,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 6678
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Core_neck",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Skin · honey"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Cepak_head",
+      "vertices": 972,
+      "edges": 2642,
+      "polygons": 1672,
+      "trianglesEvaluated": 1672,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Hair · chestnut"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 5016,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 268,
+      "nonManifoldEdges": 268,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 972
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Curly_head",
+      "vertices": 2684,
+      "edges": 6980,
+      "polygons": 4308,
+      "trianglesEvaluated": 4308,
+      "looseOrDisconnectedVertexComponents": 12,
+      "materials": [
+        "Hair · chestnut"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 12924,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 1036,
+      "nonManifoldEdges": 1036,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 2684
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Hijab_head",
+      "vertices": 1160,
+      "edges": 3182,
+      "polygons": 2024,
+      "trianglesEvaluated": 2024,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 6072,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 292,
+      "nonManifoldEdges": 292,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1160
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Kuncir_head",
+      "vertices": 1051,
+      "edges": 2840,
+      "polygons": 1792,
+      "trianglesEvaluated": 1792,
+      "looseOrDisconnectedVertexComponents": 3,
+      "materials": [
+        "Hair · chestnut",
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 5376,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 304,
+      "nonManifoldEdges": 304,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1051
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Long_head",
+      "vertices": 1932,
+      "edges": 5264,
+      "polygons": 3336,
+      "trianglesEvaluated": 3336,
+      "looseOrDisconnectedVertexComponents": 4,
+      "materials": [
+        "Hair · chestnut"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 10008,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 520,
+      "nonManifoldEdges": 520,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1932
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Short_head",
+      "vertices": 1796,
+      "edges": 4880,
+      "polygons": 3088,
+      "trianglesEvaluated": 3088,
+      "looseOrDisconnectedVertexComponents": 4,
+      "materials": [
+        "Hair · chestnut"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 9264,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 496,
+      "nonManifoldEdges": 496,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1796
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Hair_Short_Lock_head",
+      "vertices": 1089,
+      "edges": 3006,
+      "polygons": 1920,
+      "trianglesEvaluated": 1920,
+      "looseOrDisconnectedVertexComponents": 3,
+      "materials": [
+        "Hair · chestnut"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 5760,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 252,
+      "nonManifoldEdges": 252,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1089
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Outfit_Leader_root",
+      "vertices": 208,
+      "edges": 534,
+      "polygons": 340,
+      "trianglesEvaluated": 340,
+      "looseOrDisconnectedVertexComponents": 13,
+      "materials": [
+        "Leader Trousers · cream",
+        "Rubber · dark brown",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1020,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.875,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 48,
+      "nonManifoldEdges": 48,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 208
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Outfit_Leader_spine",
+      "vertices": 1536,
+      "edges": 3822,
+      "polygons": 2332,
+      "trianglesEvaluated": 2332,
+      "looseOrDisconnectedVertexComponents": 45,
+      "materials": [
+        "Leader Uniform · cream",
+        "Stitch · golden thread",
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 6996,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 648,
+      "nonManifoldEdges": 648,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1536
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Outfit_Leader_thigh.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Leader Trousers · cream"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Outfit_Leader_thigh.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Leader Trousers · cream"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Outfit_Leader_upper_arm.L",
+      "vertices": 498,
+      "edges": 1304,
+      "polygons": 808,
+      "trianglesEvaluated": 808,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Leader Uniform · cream"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2424,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 184,
+      "nonManifoldEdges": 184,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 498
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Outfit_Leader_upper_arm.R",
+      "vertices": 498,
+      "edges": 1304,
+      "polygons": 808,
+      "trianglesEvaluated": 808,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Leader Uniform · cream"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2424,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 184,
+      "nonManifoldEdges": 184,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 498
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Base_Sleeve_upper_arm.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Cotton · warm ivory"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Base_Sleeve_upper_arm.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Cotton · warm ivory"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Base_spine",
+      "vertices": 449,
+      "edges": 1274,
+      "polygons": 828,
+      "trianglesEvaluated": 828,
+      "looseOrDisconnectedVertexComponents": 2,
+      "materials": [
+        "Cotton · warm ivory"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 2484,
+          "bounds": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 64,
+      "nonManifoldEdges": 64,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 449
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Batik_spine",
+      "vertices": 2541,
+      "edges": 7014,
+      "polygons": 4480,
+      "trianglesEvaluated": 4480,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Batik · indigo motif"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 13440,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 588,
+      "nonManifoldEdges": 588,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 2541
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Hoodie_spine",
+      "vertices": 1622,
+      "edges": 4450,
+      "polygons": 2840,
+      "trianglesEvaluated": 2840,
+      "looseOrDisconnectedVertexComponents": 11,
+      "materials": [
+        "Canvas · cedar brown",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 8520,
+          "bounds": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 380,
+      "nonManifoldEdges": 380,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1622
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Hoodie_upper_arm.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Canvas · cedar brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Hoodie_upper_arm.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Canvas · cedar brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Jaket_spine",
+      "vertices": 1849,
+      "edges": 5002,
+      "polygons": 3172,
+      "trianglesEvaluated": 3172,
+      "looseOrDisconnectedVertexComponents": 18,
+      "materials": [
+        "Canvas · cedar brown",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 9516,
+          "bounds": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 488,
+      "nonManifoldEdges": 488,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1849
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Jaket_upper_arm.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Canvas · cedar brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Jaket_upper_arm.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Canvas · cedar brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Jas_spine",
+      "vertices": 1568,
+      "edges": 4184,
+      "polygons": 2636,
+      "trianglesEvaluated": 2636,
+      "looseOrDisconnectedVertexComponents": 19,
+      "materials": [
+        "Canvas · cedar brown",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 7908,
+          "bounds": [
+            [
+              -0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 460,
+      "nonManifoldEdges": 460,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1568
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Jas_upper_arm.L",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Canvas · cedar brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Jas_upper_arm.R",
+      "vertices": 313,
+      "edges": 832,
+      "polygons": 520,
+      "trianglesEvaluated": 520,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [
+        "Canvas · cedar brown"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 1560,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 104,
+      "nonManifoldEdges": 104,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 313
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Kebaya_spine",
+      "vertices": 956,
+      "edges": 2568,
+      "polygons": 1616,
+      "trianglesEvaluated": 1616,
+      "looseOrDisconnectedVertexComponents": 4,
+      "materials": [
+        "Stitch · golden thread",
+        "Scarf · persimmon"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 4848,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 288,
+      "nonManifoldEdges": 288,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 956
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Kemeja_spine",
+      "vertices": 1549,
+      "edges": 4134,
+      "polygons": 2592,
+      "trianglesEvaluated": 2592,
+      "looseOrDisconnectedVertexComponents": 7,
+      "materials": [
+        "Stitch · golden thread",
+        "Cotton · warm ivory",
+        "Leather · umber"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 7776,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 492,
+      "nonManifoldEdges": 492,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1549
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Koko_spine",
+      "vertices": 733,
+      "edges": 1946,
+      "polygons": 1216,
+      "trianglesEvaluated": 1216,
+      "looseOrDisconnectedVertexComponents": 3,
+      "materials": [
+        "Cotton · warm ivory",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 3648,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 244,
+      "nonManifoldEdges": 244,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 733
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Pekerja_spine",
+      "vertices": 96,
+      "edges": 120,
+      "polygons": 48,
+      "trianglesEvaluated": 48,
+      "looseOrDisconnectedVertexComponents": 24,
+      "materials": [
+        "Vest · high visibility",
+        "Eye · catchlight"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 144,
+          "bounds": [
+            [
+              0.125,
+              0.0
+            ],
+            [
+              0.875,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 96,
+      "nonManifoldEdges": 96,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 96
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Petani_spine",
+      "vertices": 1429,
+      "edges": 3758,
+      "polygons": 2340,
+      "trianglesEvaluated": 2340,
+      "looseOrDisconnectedVertexComponents": 11,
+      "materials": [
+        "Canvas · cedar brown",
+        "Denim · indigo blue",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 7020,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 496,
+      "nonManifoldEdges": 496,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 1429
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Rompi_spine",
+      "vertices": 96,
+      "edges": 120,
+      "polygons": 48,
+      "trianglesEvaluated": 48,
+      "looseOrDisconnectedVertexComponents": 24,
+      "materials": [
+        "Vest · cooperative green",
+        "Eye · catchlight"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 144,
+          "bounds": [
+            [
+              0.125,
+              0.0
+            ],
+            [
+              0.875,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 96,
+      "nonManifoldEdges": 96,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 96
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Top_Seragam_spine",
+      "vertices": 242,
+      "edges": 532,
+      "polygons": 304,
+      "trianglesEvaluated": 304,
+      "looseOrDisconnectedVertexComponents": 14,
+      "materials": [
+        "Cotton · warm ivory",
+        "Stitch · golden thread"
+      ],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 912,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": true,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 152,
+      "nonManifoldEdges": 152,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "1": 242
+      },
+      "zeroWeightVertices": 0,
+      "vertexGroups": [
+        "root",
+        "spine",
+        "neck",
+        "head",
+        "upper_arm.L",
+        "forearm.L",
+        "hand.L",
+        "upper_arm.R",
+        "forearm.R",
+        "hand.R",
+        "thigh.L",
+        "calf.L",
+        "foot.L",
+        "thigh.R",
+        "calf.R",
+        "foot.R"
+      ],
+      "armatureModifiers": [
+        {
+          "name": "Armature",
+          "armature": "Warga Chibi Rig",
+          "preserveVolume": false
+        }
+      ]
+    },
+    {
+      "name": "Icosphere",
+      "vertices": 42,
+      "edges": 120,
+      "polygons": 80,
+      "trianglesEvaluated": 80,
+      "looseOrDisconnectedVertexComponents": 1,
+      "materials": [],
+      "uvLayers": [
+        {
+          "name": "UVMap",
+          "loopCount": 240,
+          "bounds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.47238
+            ]
+          ],
+          "outside01LoopRatio": 0.0
+        }
+      ],
+      "customNormals": false,
+      "nonFinitePolygonNormals": 0,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "skinWeightsPositiveInfluencesPerVertex": {
+        "0": 42
+      },
+      "zeroWeightVertices": 42,
+      "vertexGroups": [],
+      "armatureModifiers": []
+    }
+  ],
+  "armatures": [
+    {
+      "name": "Warga Chibi Rig",
+      "boneCount": 16,
+      "bones": [
+        {
+          "name": "root",
+          "parent": null,
+          "head": [
+            -0.0,
+            0.0,
+            0.08
+          ],
+          "tail": [
+            -0.0,
+            0.0,
+            0.62
+          ],
+          "deform": true
+        },
+        {
+          "name": "spine",
+          "parent": "root",
+          "head": [
+            -0.0,
+            0.0,
+            0.62
+          ],
+          "tail": [
+            -0.0,
+            0.0,
+            1.15712
+          ],
+          "deform": true
+        },
+        {
+          "name": "neck",
+          "parent": "spine",
+          "head": [
+            -0.0,
+            0.0,
+            1.19
+          ],
+          "tail": [
+            -0.0,
+            0.0,
+            1.34
+          ],
+          "deform": true
+        },
+        {
+          "name": "head",
+          "parent": "neck",
+          "head": [
+            -0.0,
+            0.0,
+            1.34
+          ],
+          "tail": [
+            -0.0,
+            0.0,
+            1.49
+          ],
+          "deform": true
+        },
+        {
+          "name": "upper_arm.L",
+          "parent": "spine",
+          "head": [
+            -0.22,
+            0.0,
+            1.11
+          ],
+          "tail": [
+            -0.29,
+            0.0,
+            0.91
+          ],
+          "deform": true
+        },
+        {
+          "name": "forearm.L",
+          "parent": "upper_arm.L",
+          "head": [
+            -0.29,
+            -0.0,
+            0.91
+          ],
+          "tail": [
+            -0.32,
+            -0.0,
+            0.68
+          ],
+          "deform": true
+        },
+        {
+          "name": "hand.L",
+          "parent": "forearm.L",
+          "head": [
+            -0.32,
+            -0.0,
+            0.68
+          ],
+          "tail": [
+            -0.34081,
+            -0.03121,
+            0.45111
+          ],
+          "deform": true
+        },
+        {
+          "name": "upper_arm.R",
+          "parent": "spine",
+          "head": [
+            0.22,
+            0.0,
+            1.11
+          ],
+          "tail": [
+            0.29,
+            0.0,
+            0.91
+          ],
+          "deform": true
+        },
+        {
+          "name": "forearm.R",
+          "parent": "upper_arm.R",
+          "head": [
+            0.29,
+            0.0,
+            0.91
+          ],
+          "tail": [
+            0.32,
+            -0.0,
+            0.68
+          ],
+          "deform": true
+        },
+        {
+          "name": "hand.R",
+          "parent": "forearm.R",
+          "head": [
+            0.32,
+            -0.0,
+            0.68
+          ],
+          "tail": [
+            0.34081,
+            -0.03121,
+            0.45111
+          ],
+          "deform": true
+        },
+        {
+          "name": "thigh.L",
+          "parent": "root",
+          "head": [
+            -0.13,
+            0.0,
+            0.68
+          ],
+          "tail": [
+            -0.14,
+            -0.0,
+            0.39
+          ],
+          "deform": true
+        },
+        {
+          "name": "calf.L",
+          "parent": "thigh.L",
+          "head": [
+            -0.14,
+            -0.0,
+            0.39
+          ],
+          "tail": [
+            -0.14,
+            -0.0,
+            0.18
+          ],
+          "deform": true
+        },
+        {
+          "name": "foot.L",
+          "parent": "calf.L",
+          "head": [
+            -0.14,
+            -0.0,
+            0.18
+          ],
+          "tail": [
+            -0.14,
+            -0.19922,
+            0.11359
+          ],
+          "deform": true
+        },
+        {
+          "name": "thigh.R",
+          "parent": "root",
+          "head": [
+            0.13,
+            0.0,
+            0.68
+          ],
+          "tail": [
+            0.14,
+            -0.0,
+            0.39
+          ],
+          "deform": true
+        },
+        {
+          "name": "calf.R",
+          "parent": "thigh.R",
+          "head": [
+            0.14,
+            -0.0,
+            0.39
+          ],
+          "tail": [
+            0.14,
+            -0.0,
+            0.18
+          ],
+          "deform": true
+        },
+        {
+          "name": "foot.R",
+          "parent": "calf.R",
+          "head": [
+            0.14,
+            -0.0,
+            0.18
+          ],
+          "tail": [
+            0.14,
+            -0.19922,
+            0.11359
+          ],
+          "deform": true
+        }
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "name": "Batik · indigo motif",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.2, 0.105, 0.055, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.84, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Canvas · cedar brown",
+      "users": 10,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.9, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"canvas-brown\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Cotton · warm ivory",
+      "users": 7,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.9, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"cotton-cream\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Denim · indigo blue",
+      "users": 21,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.92, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"denim-weave\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Eye · catchlight",
+      "users": 3,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [1.0, 0.98, 0.9, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.18, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Eye · deep brown",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.045, 0.027, 0.02, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.25, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Eye · ivory",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.97, 0.94, 0.84, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.36, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Eye · warm hazel",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.2, 0.095, 0.045, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.3, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Hair · chestnut",
+      "users": 7,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.86, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"hair-chestnut\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Headwear · dark cloth",
+      "users": 4,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.045, 0.045, 0.055, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.75, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Headwear · safety yellow",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.9, 0.54, 0.045, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.45, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Headwear · woven straw",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.58, 0.39, 0.16, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.9, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Leader Trousers · cream",
+      "users": 3,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.88, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"uniform-cream\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Leader Uniform · cream",
+      "users": 3,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.86, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"uniform-cream\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Leather · umber",
+      "users": 3,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.2, 0.105, 0.055, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.55, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Mouth · muted rose",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.43, 0.15, 0.13, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.78, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Pack · terracotta canvas",
+      "users": 1,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.9, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"canvas-brown\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Rubber · dark brown",
+      "users": 3,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.075, 0.055, 0.04, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.68, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Sarong · woven indigo",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.25, 0.18, 0.33, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.9, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Scarf · persimmon",
+      "users": 9,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.72, 0.13, 0.09, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.82, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Skin · honey",
+      "users": 9,
+      "signature": "{\"links\": [[\"Image Texture\", \"Color\", \"Principled BSDF\", \"Base Color\"], [\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.8, 0.8, 0.8, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.68, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}, {\"image\": \"skin-soft\", \"name\": \"Image Texture\", \"type\": \"ShaderNodeTexImage\"}]}"
+    },
+    {
+      "name": "Stitch · golden thread",
+      "users": 16,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.83, 0.61, 0.25, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.65, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Vest · cooperative green",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.16, 0.39, 0.31, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.84, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    },
+    {
+      "name": "Vest · high visibility",
+      "users": 1,
+      "signature": "{\"links\": [[\"Principled BSDF\", \"BSDF\", \"Material Output\", \"Surface\"]], \"nodes\": [{\"Alpha\": 1.0, \"Base Color\": [0.9, 0.56, 0.08, 1.0], \"Metallic\": 0.0, \"Roughness\": 0.78, \"name\": \"Principled BSDF\", \"type\": \"ShaderNodeBsdfPrincipled\"}, {\"name\": \"Material Output\", \"type\": \"ShaderNodeOutputMaterial\"}]}"
+    }
+  ],
+  "duplicateMaterialSignatureGroups": [
+    [
+      "Canvas · cedar brown",
+      "Pack · terracotta canvas"
+    ]
+  ],
+  "images": [
+    {
+      "name": "canvas-brown",
+      "filepath": "",
+      "size": [
+        512,
+        512
+      ],
+      "channels": 4,
+      "packed": true,
+      "source": "FILE"
+    },
+    {
+      "name": "cotton-cream",
+      "filepath": "",
+      "size": [
+        512,
+        512
+      ],
+      "channels": 4,
+      "packed": true,
+      "source": "FILE"
+    },
+    {
+      "name": "denim-weave",
+      "filepath": "",
+      "size": [
+        512,
+        512
+      ],
+      "channels": 4,
+      "packed": true,
+      "source": "FILE"
+    },
+    {
+      "name": "hair-chestnut",
+      "filepath": "",
+      "size": [
+        512,
+        512
+      ],
+      "channels": 4,
+      "packed": true,
+      "source": "FILE"
+    },
+    {
+      "name": "skin-soft",
+      "filepath": "",
+      "size": [
+        512,
+        512
+      ],
+      "channels": 4,
+      "packed": true,
+      "source": "FILE"
+    },
+    {
+      "name": "uniform-cream",
+      "filepath": "",
+      "size": [
+        512,
+        512
+      ],
+      "channels": 4,
+      "packed": true,
+      "source": "FILE"
+    }
+  ],
+  "actions": [
+    {
+      "name": "Idle",
+      "frameRange": [
+        1.0,
+        13.0
+      ],
+      "channelCount": 160,
+      "paths": {
+        "location": 48,
+        "rotation_quaternion": 64,
+        "scale": 48
+      },
+      "boneTargets": [
+        "calf.L",
+        "calf.R",
+        "foot.L",
+        "foot.R",
+        "forearm.L",
+        "forearm.R",
+        "hand.L",
+        "hand.R",
+        "head",
+        "neck",
+        "root",
+        "spine",
+        "thigh.L",
+        "thigh.R",
+        "upper_arm.L",
+        "upper_arm.R"
+      ]
+    }
+  ],
+  "sceneBounds": {
+    "min": [
+      -0.95106,
+      -1.0,
+      -1.0
+    ],
+    "max": [
+      0.95106,
+      1.0,
+      1.8
+    ],
+    "size": [
+      1.90212,
+      2.0,
+      2.8
+    ]
+  },
+  "manualReviewRequired": [
+    "front/back orientation and approved style silhouette",
+    "UV island overlap and texel density",
+    "facial quality and shading",
+    "joint deformation under required animation poses",
+    "clothing/body intersection",
+    "hat/hair/accessory attachment and floating checks"
+  ],
+  "automationLimits": [
+    "No topology edits, decimation, retopology, UV repair, weight painting, rig retargeting, or animation fabrication are performed."
+  ],
+  "exportedFrom": "/www/wwwroot/semesta/public/models/characters/warga-chibi-base.blend",
+  "sourceAuditSummary": {
+    "meshObjectCount": 77,
+    "armatureCount": 1,
+    "actionCount": 1
+  },
+  "roundTripValidated": true,
+  "roundTripNote": "Structural reimport only; visual, rigging, materials, and animation deformation still require artist review."
+}

@@ -1,0 +1,146 @@
+{
+    "region": "kota",
+    "updated_before": "2026-11-04T15:41:39+08:00",
+    "objects": [
+        {
+            "id": "starter-road",
+            "type": "road",
+            "x": 1,
+            "z": -1.5,
+            "rotation": 90,
+            "length": 24,
+            "width": 3.8,
+            "scale": 1
+        },
+        {
+            "id": "starter-house",
+            "type": "house",
+            "x": -8,
+            "z": 5,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1.25
+        },
+        {
+            "id": "starter-school",
+            "type": "school",
+            "x": -9,
+            "z": 14,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1
+        },
+        {
+            "id": "starter-mbg",
+            "type": "mbg",
+            "x": -27.5,
+            "z": -4.5,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1.25
+        },
+        {
+            "id": "starter-kopdes",
+            "type": "kopdes",
+            "x": 12.5,
+            "z": 3,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1.2
+        },
+        {
+            "id": "starter-river",
+            "type": "river",
+            "x": 21.5,
+            "z": -3,
+            "rotation": 90,
+            "length": 24,
+            "width": 3.5,
+            "scale": 1
+        },
+        {
+            "id": "starter-bridge",
+            "type": "bridge",
+            "x": 18.5,
+            "z": 7,
+            "rotation": 90,
+            "length": 6,
+            "width": 2.5,
+            "scale": 1
+        },
+        {
+            "id": "starter-tree-west",
+            "type": "tree",
+            "x": -20,
+            "z": -5,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1.3
+        },
+        {
+            "id": "starter-tree-east",
+            "type": "forest",
+            "x": 22,
+            "z": 18,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1.25
+        },
+        {
+            "id": "asset-mw0n0k1b-c4bc5",
+            "type": "kopdes",
+            "x": 7.5,
+            "z": -17,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1
+        },
+        {
+            "id": "asset-mw0n14y1-7521k",
+            "type": "river",
+            "x": 17,
+            "z": 22.5,
+            "rotation": 0,
+            "length": 12,
+            "width": 4,
+            "scale": 1
+        },
+        {
+            "id": "asset-mw0n2nmi-jy7cn",
+            "type": "road",
+            "x": 19.5,
+            "z": -5,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1
+        },
+        {
+            "id": "asset-mw1izjly-kqaoo",
+            "type": "sppg",
+            "x": -19,
+            "z": 15,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1
+        },
+        {
+            "id": "asset-mw1izoc3-lriwz",
+            "type": "duck",
+            "x": -6,
+            "z": 42,
+            "rotation": 0,
+            "length": 9,
+            "width": 3,
+            "scale": 1
+        }
+    ]
+}

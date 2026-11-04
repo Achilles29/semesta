@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semesta.projectpintar.com/schemas/avatar-v2-asset-registry.json",
+  "title": "SEMESTA Avatar V2 Asset Registry",
+  "type": "object",
+  "required": ["schemaVersion", "skeletonVersion", "assets"],
+  "properties": {
+    "schemaVersion": { "type": "string", "const": "1.0.0" },
+    "skeletonVersion": { "type": "string", "const": "semesta-humanoid-v2.0" },
+    "assets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/asset" }
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "required": ["assetId", "displayName", "category", "version", "file", "compatibleBaseBodies", "skeletonVersion", "attachment", "materialVariants", "appearanceChannels", "hideBodyRegions", "incompatibleEquipment", "occupiedSlots", "license", "validation", "visualReview"],
+      "properties": {
+        "assetId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]+$" },
+        "displayName": { "type": "string", "minLength": 1 },
+        "category": { "enum": ["base_body", "face", "hair", "top", "bottom", "footwear", "headwear", "facial_hair", "accessory", "animation"] },
+        "version": { "type": "string" },
+        "file": { "type": "string" },
+        "compatibleBaseBodies": { "type": "array", "items": { "type": "string" } },
+        "skeletonVersion": { "type": "string" },
+        "attachment": {
+          "type": "object",
+          "required": ["method"],
+          "properties": {
+            "method": { "enum": ["skinned", "rigid_attachment", "morph_compatible", "none"] },
+            "bone": { "type": ["string", "null"] },
+            "translation": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+            "rotationEuler": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+            "scale": { "type": "array", "items": { "type": "number", "exclusiveMinimum": 0 }, "minItems": 3, "maxItems": 3 }
+          },
+          "additionalProperties": false
+        },
+        "materialVariants": { "type": "array", "items": { "type": "object", "required": ["variantId", "materialModel", "textures"], "properties": { "variantId": { "type": "string" }, "materialModel": { "type": "string" }, "textures": { "type": "object", "additionalProperties": { "type": "string" } }, "colorSpaceByMap": { "type": "object", "additionalProperties": { "enum": ["sRGB", "linear"] } } }, "additionalProperties": false } },
+        "appearanceChannels": { "type": "array", "items": { "type": "object", "required": ["channelId", "method", "materialSlots", "variantIds"], "properties": { "channelId": { "enum": ["skin", "hair", "top", "bottom", "footwear", "headwear", "facial_hair", "accessory"] }, "method": { "enum": ["base_color_factor", "tinted_texture", "material_variant", "mesh_variant"] }, "materialSlots": { "type": "array", "items": { "type": "string" } }, "variantIds": { "type": "array", "items": { "type": "string" } }, "dyeable": { "type": "boolean" } }, "additionalProperties": false } },
+        "hideBodyRegions": { "type": "array", "items": { "enum": ["head", "neck", "torso", "pelvis", "upper_arm_L", "lower_arm_L", "hand_L", "upper_arm_R", "lower_arm_R", "hand_R", "upper_leg_L", "lower_leg_L", "foot_L", "upper_leg_R", "lower_leg_R", "foot_R"] } },
+        "incompatibleEquipment": { "type": "array", "items": { "type": "string" } },
+        "occupiedSlots": { "type": "array", "items": { "enum": ["head", "face", "back", "waist", "hand_L", "hand_R", "chest", "feet"] } },
+        "license": { "type": "object", "required": ["status", "source", "recordedAt"], "properties": { "status": { "enum": ["original_commission", "cc0", "cc_by", "cc_by_sa", "commercial_license", "internal_original", "pending", "unknown"] }, "source": { "type": "string" }, "creator": { "type": "string" }, "urlOrReceipt": { "type": "string" }, "attribution": { "type": "string" }, "recordedAt": { "type": "string", "format": "date" } }, "additionalProperties": false },
+        "validation": { "type": "object", "required": ["status"], "properties": { "status": { "enum": ["pending", "structural_pass", "visual_pass", "rejected"] }, "report": { "type": "string" }, "notes": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": false },
+        "visualReview": { "type": "object", "required": ["status"], "properties": { "status": { "enum": ["pending", "approved", "rejected"] }, "reviewer": { "type": "string" }, "date": { "type": "string", "format": "date" }, "views": { "type": "array", "items": { "type": "string" } }, "notes": { "type": "array", "items": { "type": "string" } } }, "additionalProperties": false }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
