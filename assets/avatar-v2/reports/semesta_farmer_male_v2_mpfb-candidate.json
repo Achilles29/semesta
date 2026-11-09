@@ -1,0 +1,145 @@
+{
+  "source": "/www/wwwroot/semesta/assets/avatar-v2/source/semesta_farmer_male_v2_mpfb-candidate.blend",
+  "render": "/www/wwwroot/semesta/assets/avatar-v2/previews/semesta_farmer_male_v2_mpfb-face-closeup.png",
+  "objects": [
+    {
+      "name": "Key softbox",
+      "type": "LIGHT"
+    },
+    {
+      "name": "Fill softbox",
+      "type": "LIGHT"
+    },
+    {
+      "name": "Rim softbox",
+      "type": "LIGHT"
+    },
+    {
+      "name": "ReviewCamera",
+      "type": "CAMERA"
+    },
+    {
+      "name": "Human",
+      "type": "MESH",
+      "vertices": 19158,
+      "faces": 18486,
+      "materials": [
+        "Human.body"
+      ]
+    },
+    {
+      "name": "Human.rig",
+      "type": "ARMATURE",
+      "bones": 53,
+      "bone_names": [
+        "Root",
+        "pelvis",
+        "spine_01",
+        "spine_02",
+        "spine_03",
+        "clavicle_l",
+        "upperarm_l",
+        "lowerarm_l",
+        "hand_l",
+        "index_01_l",
+        "index_02_l",
+        "index_03_l",
+        "middle_01_l",
+        "middle_02_l",
+        "middle_03_l",
+        "pinky_01_l",
+        "pinky_02_l",
+        "pinky_03_l",
+        "ring_01_l",
+        "ring_02_l",
+        "ring_03_l",
+        "thumb_01_l",
+        "thumb_02_l",
+        "thumb_03_l",
+        "clavicle_r",
+        "upperarm_r",
+        "lowerarm_r",
+        "hand_r",
+        "index_01_r",
+        "index_02_r",
+        "index_03_r",
+        "middle_01_r",
+        "middle_02_r",
+        "middle_03_r",
+        "pinky_01_r",
+        "pinky_02_r",
+        "pinky_03_r",
+        "ring_01_r",
+        "ring_02_r",
+        "ring_03_r",
+        "thumb_01_r",
+        "thumb_02_r",
+        "thumb_03_r",
+        "neck_01",
+        "head",
+        "thigh_l",
+        "calf_l",
+        "foot_l",
+        "ball_l",
+        "thigh_r",
+        "calf_r",
+        "foot_r",
+        "ball_r"
+      ]
+    },
+    {
+      "name": "FarmerV2_Shirt",
+      "type": "MESH",
+      "vertices": 2189,
+      "faces": 2053,
+      "materials": [
+        "Human.namuhekam_male_polo_shirt"
+      ]
+    },
+    {
+      "name": "FarmerV2_Pants",
+      "type": "MESH",
+      "vertices": 1372,
+      "faces": 1337,
+      "materials": [
+        "Human.toigo_wool_pants"
+      ]
+    },
+    {
+      "name": "FarmerV2_Boots",
+      "type": "MESH",
+      "vertices": 2222,
+      "faces": 2064,
+      "materials": [
+        "Human.shoes03"
+      ]
+    },
+    {
+      "name": "FarmerV2_Hair",
+      "type": "MESH",
+      "vertices": 1755,
+      "faces": 1672,
+      "materials": [
+        "Human.short02"
+      ]
+    },
+    {
+      "name": "FarmerV2_Eyes",
+      "type": "MESH",
+      "vertices": 1064,
+      "faces": 1020,
+      "materials": [
+        "SEMESTA dark brown eyes"
+      ]
+    },
+    {
+      "name": "ReviewGround",
+      "type": "MESH",
+      "vertices": 4,
+      "faces": 1,
+      "materials": [
+        "Warm neutral ground"
+      ]
+    }
+  ]
+}

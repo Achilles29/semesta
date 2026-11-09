@@ -20,11 +20,20 @@ class Semesta_model extends CI_Model
     {
         $json = json_encode($objects, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         if ($json === FALSE) return FALSE;
-        $existing = $this->db->select('region')->where('region', $region)->get('world_scenes')->row_array();
-        $record = array('scene_json' => $json, 'updated_at' => date('Y-m-d H:i:s'));
-        if ($existing) return $this->db->where('region', $region)->update('world_scenes', $record);
-        $record['region'] = $region;
-        return $this->db->insert('world_scenes', $record);
+        $updated_at = date('Y-m-d H:i:s');
+        // A single upsert avoids the SELECT-then-INSERT race when two editor
+        // tabs save the same region at nearly the same time.
+        $saved = $this->db->query(
+            'INSERT INTO world_scenes (region, scene_json, updated_at) VALUES (?, ?, ?) '
+            . 'ON DUPLICATE KEY UPDATE scene_json = VALUES(scene_json), updated_at = VALUES(updated_at)',
+            array($region, $json, $updated_at)
+        );
+        if (!$saved) return FALSE;
+
+        // Confirm the value that a fresh page load will read. A successful
+        // query call alone is not enough to tell the editor that it persisted.
+        $row = $this->db->select('scene_json')->where('region', $region)->get('world_scenes')->row_array();
+        return $row && $row['scene_json'] === $json;
     }
 
     public function get_case($slug = 'kasus-01')

@@ -14,6 +14,14 @@ The portable Blender 4.5.15 runtime, existing pipeline, manifests, and V2 direct
 
 **Status (4 November 2026):** Blender import → export → reimport is now exercised with Blender 4.5.15 LTS on both an isolated synthetic fixture and a copy of the legacy GLB. The pipeline is structurally tested. A premium V2 character is **not produced**: no suitable source mesh was supplied, and no model has passed visual, deformation, animation, and Studio acceptance. No live assets or game runtime were changed by this Task A continuation.
 
+## Free MPFB source candidate — 5 November 2026
+
+To explore a no-API route, generated a real editable humanoid mesh using MPFB 2.0.18 inside the portable Blender 4.5.15 runtime. No paid service or API credits were used. The source is `assets/avatar-v2/source/semesta_farmer_male_v2_mpfb-candidate.blend`; its provenance and known limits are in `assets/avatar-v2/source/semesta_farmer_male_v2_mpfb-provenance.json`. The model has a 19,158-vertex base body, a 53-bone MPFB game-engine rig, packed textures, a blue top, olive trousers, boots, short hair and dark-brown eyes. This is a source candidate only. It is **not** a premium or production-approved SEMESTA character.
+
+Five inspection renders are in `assets/avatar-v2/previews/semesta_farmer_male_v2_mpfb-*.png`. Visual review found forehead texture marks, a generic face, eyes that lack the approved character appeal, and body proportions that are more realistic than the approved 3.5–4-head style. The rig has not been retargeted to `semesta-humanoid-v2.0`, clothing deformation has not been checked, and no animations are included. Do not put this candidate in the live game or `assets/avatar-v2/characters/`.
+
+The generation script is `tools/generate_avatar_v2_mpfb_candidate.py`. It requires Blender 4.2+ with MPFB installed and the MakeHuman system assets, `shirts01`, and `pants01` packs available in MPFB's data library. Those packs are CC0; the exact source and license records are in the provenance JSON. The `.blend` packs its referenced image textures.
+
 ## 1. Pekerjaan yang benar-benar selesai
 
 - Audited the legacy GLB, Blender source, gallery images, skeleton, weights, materials, UV numeric ranges, textures, and animation channels. Findings: [source audit](AVATAR_V2_SOURCE_AUDIT.md), [Raka audit](AVATAR_V2_RAKA_SOURCE_AUDIT.md), [visual review](AVATAR_V2_VISUAL_REVIEW.md).
@@ -32,7 +40,7 @@ The portable Blender 4.5.15 runtime, existing pipeline, manifests, and V2 direct
 - `assets/avatar-v2/source/README.md` — source file formats, provenance details, and handoff requirements.
 - `assets/avatar-v2/characters/` — only approved exported base characters. `semesta_farmer_male_v2.glb` and `semesta_farmer_female_v2.glb` **do not exist yet**.
 - `assets/avatar-v2/bodies/`, `faces/`, `hair/`, `tops/`, `bottoms/`, `footwear/`, `headwear/`, `facial_hair/`, `accessories/`, `animations/` — modular categories, currently without approved production components.
-- `assets/avatar-v2/previews/` — approved review renders, currently no V2 renders.
+- `assets/avatar-v2/previews/` — includes five unapproved MPFB source-candidate renders; no production-approved V2 renders.
 - `assets/avatar-v2/reports/` — structural reports, including the Blender round-trip logs.
 - `assets/avatar-v2/asset_registry.json`, `asset_registry.schema.json`, `semesta_character_manifest.json`, `semesta_animation_manifest.json` — registry/schema/manifests.
 

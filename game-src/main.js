@@ -1235,6 +1235,9 @@ async function initWorldEditor() {
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(10000000, 10000000), new THREE.MeshStandardMaterial({ color: '#a9c487', roughness: 1 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -.04; ground.receiveShadow = true; ground.frustumCulled = false; scene.add(ground);
   const grid = new THREE.GridHelper(5000, 1000, '#708d71', '#dce7cc'); grid.position.y = -.015; grid.frustumCulled = false; scene.add(grid);
   const objects = new Map(); const raycaster = new THREE.Raycaster(); const pointer = new THREE.Vector2(); const groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0); const highlight = new THREE.BoxHelper(new THREE.Group(), '#ef9e52'); highlight.visible = false; scene.add(highlight);
+  const validRegions = ['kota', 'desa', 'hutan'];
+  const requestedRegion = new URLSearchParams(location.search).get('region');
+  if (validRegions.includes(requestedRegion)) $('#sceneRegion').value = requestedRegion;
   let currentRegion = $('#sceneRegion').value; let entries = []; let selectedId = null; let pendingType = null; let movingId = null; let panPointer = null; let orbitPointer = null; let lastPan = null; let viewCenterX = 0; let viewCenterZ = 0; let viewYaw = Math.atan2(31, 34); let viewElevation = Math.asin(39 / Math.hypot(31, 39, 34)); let orbitMode = false; let dirty = false; let sceneLoaded = false; let regionLoadSequence = 0;
   const coordinateLimit = 1000000;
   function updateEditorView() {
@@ -1316,10 +1319,11 @@ async function initWorldEditor() {
   }
   function loadRegion(region, force = false) {
     if (dirty && (region !== currentRegion || force) && !window.confirm('Ada perubahan yang belum disimpan. Muat ulang tanpa menyimpan?')) { $('#sceneRegion').value = currentRegion; return; }
+    const params = new URLSearchParams(location.search); params.set('view', 'world'); params.set('region', region); history.replaceState(history.state, '', `${location.pathname}?${params.toString()}${location.hash}`);
     if (region !== currentRegion) { viewCenterX = 0; viewCenterZ = 0; updateEditorView(); }
     currentRegion = region; selectedId = null; pendingType = null; dirty = false; sceneLoaded = false; setStatus('Memuat tata wilayah dari server…', false);
     const sequence = ++regionLoadSequence;
-    fetch(`/api?resource=world_scene&region=${encodeURIComponent(region)}`, { headers: { Accept: 'application/json' }, cache: 'no-store' }).then(async (response) => { const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Tata wilayah belum dapat dimuat.'); if (sequence !== regionLoadSequence) return; if (!Array.isArray(data.objects)) throw new Error('Format tata wilayah dari server tidak valid.'); const hasSavedObjects=data.customized&&data.objects.length>0;entries=hasSavedObjects?data.objects:getDefaultWorldScene(region);sceneLoaded=true;editorReady=true;const rendered=drawObjects();requestAnimationFrame(()=>{resize();renderer.render(scene,camera);});const detail=rendered.failed.length?` · ${rendered.failed.length} aset gagal dirender`:'';setStatus(`${rendered.rendered} dari ${entries.length} objek tampil${hasSavedObjects?' · tersimpan':' · tata awal'}.${detail} Klik aset untuk menambah.`, rendered.failed.length>0); }).catch((error) => { if (sequence !== regionLoadSequence) return; sceneLoaded=false;editorReady=false;const rendered=drawObjects();renderer.render(scene,camera);setStatus(`${error.message} · data lama tidak diubah. Periksa koneksi lalu tekan Muat Ulang.`, true);console.error('Tata wilayah gagal dimuat:',error); });
+    fetch(`/api?resource=world_scene&region=${encodeURIComponent(region)}`, { headers: { Accept: 'application/json' }, cache: 'no-store' }).then(async (response) => { const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Tata wilayah belum dapat dimuat.'); if (sequence !== regionLoadSequence) return; if (!Array.isArray(data.objects)) throw new Error('Format tata wilayah dari server tidak valid.'); const hasSavedScene=Boolean(data.customized);entries=hasSavedScene?data.objects:getDefaultWorldScene(region);sceneLoaded=true;editorReady=true;const rendered=drawObjects();requestAnimationFrame(()=>{resize();renderer.render(scene,camera);});const detail=rendered.failed.length?` · ${rendered.failed.length} aset gagal dirender`:'';setStatus(`${rendered.rendered} dari ${entries.length} objek tampil${hasSavedScene?' · tersimpan':' · tata awal'}.${detail} Klik aset untuk menambah.`, rendered.failed.length>0); }).catch((error) => { if (sequence !== regionLoadSequence) return; sceneLoaded=false;editorReady=false;const rendered=drawObjects();renderer.render(scene,camera);setStatus(`${error.message} · data lama tidak diubah. Periksa koneksi lalu tekan Muat Ulang.`, true);console.error('Tata wilayah gagal dimuat:',error); });
   }
   async function saveRegion() {
     if (!sceneLoaded) { setStatus('Tata wilayah belum dimuat dari server. Muat ulang dulu sebelum menyimpan agar data lama tetap aman.', true); return; }
@@ -1327,7 +1331,8 @@ async function initWorldEditor() {
     try {
       const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'world_scene', region: currentRegion, objects: entries }) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Tata wilayah belum tersimpan.');
-      entries = result.objects; dirty = false; drawObjects(); setStatus(`${entries.length} objek tersimpan. Perubahan muncul saat wilayah dibuka ulang.`, false);
+      if (result.region !== currentRegion || !Array.isArray(result.objects)) throw new Error('Server mengembalikan wilayah yang berbeda. Perubahan belum dikonfirmasi.');
+      entries = result.objects; dirty = false; drawObjects(); setStatus(`${entries.length} objek tersimpan dan sudah dikonfirmasi server.`, false);
     } catch (error) { setStatus(error.message); }
     finally { button.disabled = false; }
   }
@@ -1358,7 +1363,7 @@ async function initWorldEditor() {
   Object.entries(numericFields).forEach(([id, key]) => $(`#${id}`).addEventListener('input', (event) => {
     const entry = entries.find((item) => item.id === selectedId); const value = Number(event.target.value); if (!entry || !Number.isFinite(value)) return;
     if (key === 'x' || key === 'z') { entry[key] = clamp(value, -coordinateLimit, coordinateLimit); const range = $(`#${id}Range`); if (entry[key] < Number(range.min) || entry[key] > Number(range.max)) { range.min = Math.floor(entry[key] - 500); range.max = Math.ceil(entry[key] + 500); } }
-    else if (key === 'length') entry[key] = clamp(value, 1, 24);
+    else if (key === 'length') entry[key] = clamp(value, 1, 1000);
     else if (key === 'width') entry[key] = clamp(value, .5, 16);
     else if (key === 'scale') entry[key] = clamp(value, .25, 4);
     else if (key === 'rotation') entry[key] = clamp(value, -360, 360);

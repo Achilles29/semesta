@@ -1,0 +1,71 @@
+{
+  "assetId": "semesta_farmer_male_v2_mpfb_candidate",
+  "displayName": "SEMESTA Farmer Male V2 — MPFB source candidate",
+  "status": "source-candidate-not-approved",
+  "createdAt": "2026-11-05",
+  "sourceFile": "semesta_farmer_male_v2_mpfb-candidate.blend",
+  "sourceMethod": "Generated locally with MPFB 2.0.18 in Blender 4.5.15 LTS; no paid API used.",
+  "sourceSoftware": {
+    "blender": "4.5.15 LTS",
+    "mpfb": "2.0.18",
+    "mpfbCodeLicense": "GPL-3.0-or-later"
+  },
+  "assetProvenance": [
+    {
+      "asset": "MPFB parametric base mesh and rigging tools",
+      "license": "MPFB code GPL-3.0-or-later; generated character graphics may be used under the MakeHuman/MPFB graphics asset terms",
+      "source": "https://github.com/makehumancommunity/mpfb2"
+    },
+    {
+      "asset": "MakeHuman system assets: young_asian_male skin, short02 hair, shoes03 boots, high-poly eyes and brown eye material",
+      "license": "CC0",
+      "source": "https://www.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html"
+    },
+    {
+      "asset": "namuhekam_male_polo_shirt",
+      "license": "CC0",
+      "source": "https://www.makehumancommunity.org/assets/assetpacks/shirts01.html"
+    },
+    {
+      "asset": "toigo_wool_pants",
+      "license": "CC0",
+      "source": "https://www.makehumancommunity.org/assets/assetpacks/pants01.html"
+    }
+  ],
+  "characterDesign": {
+    "description": "Young adult male farmer, Asian phenotype starting point, medium build, blue polo shirt, olive trousers, brown work boots and short dark chestnut hair.",
+    "references": [
+      "semesta_farmer_male_v2-r1-front.png",
+      "semesta_farmer_male_v2-r1-left-profile.png",
+      "semesta_farmer_male_v2-r1-back.png",
+      "semesta_farmer_male_v2-r1-front-three-quarter.png"
+    ],
+    "note": "The MPFB output is a new exploratory style candidate and does not reproduce or pass acceptance against the approved stylized reference design."
+  },
+  "structure": {
+    "baseMeshVertices": 19158,
+    "baseMeshPolygons": 18486,
+    "rig": "MPFB game_engine rig",
+    "boneCount": 53,
+    "animations": [],
+    "texturesPackedIntoBlend": true
+  },
+  "review": {
+    "renders": [
+      "../previews/semesta_farmer_male_v2_mpfb-front.png",
+      "../previews/semesta_farmer_male_v2_mpfb-side.png",
+      "../previews/semesta_farmer_male_v2_mpfb-back.png",
+      "../previews/semesta_farmer_male_v2_mpfb-three-quarter.png",
+      "../previews/semesta_farmer_male_v2_mpfb-face-closeup.png"
+    ],
+    "knownIssues": [
+      "Face has visible forehead texture artifacts and generic facial expression.",
+      "Eye appearance is not expressive enough for the approved stylized farming-game target.",
+      "Body proportions are more realistic than the approved 3.5-4-head SEMESTA style guide.",
+      "The current MPFB rig has not been retargeted or validated against semesta-humanoid-v2.0.",
+      "No Idle, Walk, Run, or Interact animations are present.",
+      "Clothing deformation and shoulder, elbow, wrist, hip, knee, ankle and neck poses have not been reviewed."
+    ],
+    "productionApproved": false
+  }
+}

@@ -76,7 +76,11 @@ class Api extends CI_Controller
             $length = isset($object['length']) && is_numeric($object['length']) ? (float) $object['length'] : 9;
             $width = isset($object['width']) && is_numeric($object['width']) ? (float) $object['width'] : 3;
             $scale = isset($object['scale']) && is_numeric($object['scale']) ? (float) $object['scale'] : 1;
-            if ($id === '' || isset($ids[$id]) || abs($x) > 1000000 || abs($z) > 1000000 || abs($rotation) > 1000 || $length < 1 || $length > 24 || $width < .5 || $width > 16 || $scale < .25 || $scale > 4) return $this->output->set_status_header(422)->set_output('{"error":"Posisi, ukuran, rotasi, atau ID objek di luar batas."}');
+            if ($id === '' || isset($ids[$id]) || abs($x) > 1000000 || abs($z) > 1000000 || abs($rotation) > 1000 || $scale < .25 || $scale > 4) return $this->output->set_status_header(422)->set_output('{"error":"Posisi, skala, rotasi, atau ID objek di luar batas."}');
+            // The default city, village, and forest scenes contain roads and
+            // rivers longer than 24 units. Validate against the editor's
+            // actual supported range so moving an unrelated building can save.
+            if ($length < 1 || $length > 1000 || $width < .5 || $width > 16) return $this->output->set_status_header(422)->set_output('{"error":"Panjang atau lebar objek di luar batas."}');
             $ids[$id] = TRUE;
             $clean[] = array('id' => $id, 'type' => $object['type'], 'x' => $x, 'z' => $z, 'rotation' => $rotation, 'length' => $length, 'width' => $width, 'scale' => $scale);
         }
