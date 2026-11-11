@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farmer V10 — variasi bentuk</title>
+<style>
+*{box-sizing:border-box}body{margin:0;display:grid;grid-template-columns:350px 1fr;height:100vh;background:#1c2429;color:#edf1ee;font:14px system-ui}aside{padding:22px;overflow:auto;background:#182126}h1{font-size:23px;margin:0 0 6px}p{color:#bccbc9;line-height:1.5}h2{font-size:15px;margin:20px 0 8px;color:#d6b685}label{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:10px 0}select,button{border:1px solid #516269;background:#29383f;color:#fff;border-radius:6px;padding:8px;max-width:175px}button{cursor:pointer}button:hover{background:#3c535b}nav{display:flex;gap:5px;flex-wrap:wrap;margin:14px 0}input[type=color]{width:70px;height:30px;border:0;background:none}main{position:relative;min-width:0}canvas{display:block;width:100%;height:100%}.hint{position:absolute;bottom:16px;left:16px;padding:9px;background:#182126c9;border-radius:6px;pointer-events:none}#status{font-size:12px;white-space:pre-line}a{color:#a8d7e3}#colors{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}@media(max-width:720px){body{display:flex;flex-direction:column;height:auto}main{height:70vh;order:-1}aside{overflow:visible}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../node_modules/three/build/three.module.js","three/addons/":"../../../node_modules/three/examples/jsm/"}}</script>
+<aside>
+<h1>Farmer V10</h1>
+<p>Variasi bentuk asli pada satu rig. Pakaian memiliki kelonggaran berbeda; fitur wajah dapat dipilih terpisah.</p>
+<nav><button data-preset="farmer">Petani</button><button data-preset="casual">Santai</button><button data-preset="worker">Kemeja</button><button data-preset="traveler">Pelancong</button></nav>
+<nav><button data-view="front">Depan</button><button data-view="left">Kiri</button><button data-view="back">Belakang</button><button data-view="three">3/4</button><button data-view="face">Wajah</button><button data-view="faceLeft">Profil wajah</button></nav>
+<form id="appearance"><h2>Rambut, pakaian & aksesori</h2><div id="slots"></div><h2>Bentuk wajah</h2><div id="face"></div><h2>Warna</h2><div id="colors"></div></form>
+<label>Animasi<select id="animation"><option value="rest">Pose dasar</option></select></label>
+<label>Wireframe<input id="wire" type="checkbox"></label>
+<button id="save">Unduh konfigurasi</button>
+<p id="status">Memuat model…</p>
+<p><a href="farmer-v10-customization.glb">GLB</a> · <a href="farmer-v10-customization.blend">Blender</a> · <a href="../farmer-v9-friendly-face/preview.html">Bandingkan V9</a> · <a href="../farmer-v11-body-wardrobe/preview.html">Lanjut V11: postur dan outfit</a></p>
+</aside><main><canvas id="view"></canvas><div class="hint">Seret untuk memutar · Scroll untuk zoom</div></main>
+<script type="module" src="./preview.js"></script>
+</html>

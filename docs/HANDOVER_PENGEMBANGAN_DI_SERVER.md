@@ -1,12 +1,13 @@
-# Handover Semesta Nyasar untuk Server
+# Handover Republik WkWkWk untuk Server
 
-Dokumen ini menjadi panduan memindahkan prototipe dari XAMPP lokal ke server dan melanjutkan pengembangan. Aplikasi memakai CodeIgniter 3, PHP, MySQL, serta frontend Three.js yang dibangun dengan Vite.
+Dokumen ini menjadi panduan memindahkan prototipe dari XAMPP lokal ke server dan melanjutkan pengembangan. Aplikasi memakai CodeIgniter 3, PHP, MySQL, serta frontend Three.js yang dibangun dengan Vite. Konsep produk aktif tercatat di [Konsep Republik WkWkWk](KONSEP_REPUBLIK_WKWKWK.md); dokumen Semesta Nyasar adalah arsip.
 
 ## Status pengembangan saat ini
 
-- Kunjungan pertama membuka scene 3D **Dunia Warga** di **Alun-Alun Republik**; peta Indonesia dan peta kawasan tetap tersedia melalui navigasi.
+- Kunjungan baru membuka **Peta Utama Indonesia**. Pemain memilih kota, lalu wilayah di Peta Kawasan sebelum masuk ke scene 3D. Peta utama dan peta kawasan dapat dibuka kembali dari navigasi.
 - Pemimpin yang dikendalikan pemain disebut **Presiden Republik WkWkWk**. Avatar pemain dapat dipilih dari profil warga.
 - Peta kawasan membagi eksplorasi ke Kota Warga, Desa Tumbuh, dan Hutan Warga. Setiap wilayah punya susunan, warna, petunjuk, dan penanda area berbeda; MBG, sekolah, Kopdes, dan pasar adalah fasilitas di dalam kawasan.
+- Peta Kawasan saat ini mempunyai satu pin masuk, Permukiman Warga. Tab wilayah memilih scene 3D; fasilitas belum bisa dimasuki sebagai area mandiri.
 - Dapur MBG pada scene 3D memakai satu model. Hewan ternak bergerak mengikuti jalur di kawasan.
 - Akun warga memakai email dan kata sandi; profil menyimpan avatar serta tipe rumah. Verifikasi email dapat diwajibkan lewat Pengaturan Admin.
 - Pengiriman verifikasi memerlukan variabel SMTP server. Skema `citizens` dan `app_settings` tersedia di `database/schema.sql` dan dibuat/ditingkatkan oleh `tools/setup_database.php`.
@@ -50,13 +51,13 @@ Jangan mengunggah `node_modules`. Pasang ulang dependensi dari `package-lock.jso
 4. Buat database `semesta_nyasar` dan user database khusus aplikasi. Hindari memakai user `root` di server.
 5. Atur `application/config/database.php` dengan hostname, username, password, dan nama database server.
 6. Jalankan `tools/setup_database.php` melalui CLI dengan environment `SEMESTA_DB_HOST`, `SEMESTA_DB_USER`, `SEMESTA_DB_PASSWORD`, dan bila perlu `SEMESTA_DB_PORT`. Skrip ini membuat tabel dan mengisi episode awal; akun provisioning database perlu izin membuat database/tabel. Setelah setup, gunakan user database aplikasi dengan izin seperlunya pada database `semesta_nyasar`. Jika database dibuat manual, impor `database/schema.sql` dan pastikan episode `kasus-01` juga di-seed sebelum halaman game dipakai.
-7. Sesuaikan `RewriteBase` pada `.htaccess` dengan lokasi deploy. Untuk domain root, gunakan `/`; untuk subfolder, gunakan nama subfolder yang benar. Pastikan `mod_rewrite` dan `AllowOverride All` aktif.
+7. Pastikan `mod_rewrite` dan `AllowOverride All` aktif. `.htaccess` tidak menetapkan `RewriteBase` supaya rute dapat bekerja di root domain maupun subfolder seperti `/project/` pada XAMPP.
 8. Pastikan `application/cache/sessions/` dapat ditulis oleh proses PHP.
 9. Atur `application/config/config.php` sebelum membuka aplikasi ke publik:
    - ganti `encryption_key` dengan nilai acak yang kuat dan simpan cadangannya;
    - gunakan HTTPS dan atur cookie secure;
    - pastikan `db_debug` nonaktif pada environment produksi;
-   - periksa `base_url` jika host/proxy server membuat deteksi otomatis keliru.
+   - atur environment `SEMESTA_BASE_URL` ke URL publik lengkap yang diakhiri `/`.
 10. Buat `application/config/admin_credentials.php` di server secara manual. Simpan username admin dan hash password, bukan password teks biasa. File ini tidak masuk Git.
 11. Periksa aturan akses admin di `application/controllers/Admin.php` dan API admin di `application/controllers/Api.php`. Keduanya menolak koneksi non-localhost. Pertahankan aturan ini sampai mekanisme autentikasi dan pembatasan akses untuk server selesai dirancang.
 12. Muat aplikasi melalui domain server dan lakukan pemeriksaan manual di bagian berikut.
@@ -75,8 +76,8 @@ Buat hash di komputer tepercaya dengan `password_hash()` PHP. Jangan menaruh pas
 ## Pemeriksaan setelah deploy
 
 - Halaman awal terbuka melalui domain dan tidak meminta port Vite.
-- Peta utama berpindah ke peta Kampung Sore.
-- Kunjungan baru membuka Dunia Warga 3D; tombol Peta Kawasan dan Peta Utama kembali ke layar yang benar.
+- Pin pada Peta Utama memilih kota yang sesuai, kemudian tombol masuk membuka Peta Kawasan.
+- Peta Kawasan membuka wilayah yang dipilih; tombol Peta Kawasan dan Peta Utama kembali ke layar yang benar.
 - Kota, desa, dan hutan menampilkan lingkungan serta cerita berbeda. MBG muncul satu kali di wilayah kota.
 - Jika area 3D kosong, panel diagnostik tampil. Catat pesan di panel dan periksa Console browser serta dukungan WebGL.
 - Pemain dapat berjalan, berhenti di penghalang, dan berjalan melewati jembatan.
@@ -89,13 +90,14 @@ Buat hash di komputer tepercaya dengan `password_hash()` PHP. Jangan menaruh pas
 - Posisi dan progres permainan saat ini tersimpan di browser pengguna. Data itu tidak mengikuti pengguna ke perangkat/browser lain dan tidak disimpan sebagai akun di server.
 - Komentar media sosial belum diambil otomatis. Inbox ide masih bergantung pada alur input yang disediakan aplikasi.
 - Lingkungan regional sudah berbeda, tetapi aset dan navigasi masih berupa prototipe yang perlu diperluas.
-- Aplikasi belum menyediakan akun pemain, multiplayer, pembayaran, atau penyimpanan cloud untuk progres.
+- Akun warga, profil avatar, dan obrolan sesama warga tersedia; ini masih prototipe, bukan layanan multiplayer berskala produksi.
+- Progres permainan masih tersimpan pada browser dan belum disinkronkan lintas perangkat.
 - Vite saat build memberi peringatan ukuran bundel JavaScript di atas 500 KB karena Three.js masih berada dalam satu bundel.
 
 ## Pengembangan berikutnya
 
 - Tinjau pesan diagnostik bila render 3D masih gagal di browser server.
-- Selesaikan visual dan collision untuk Dapur MBG sebelum membuka titik lain.
-- Bangun area 3D unik untuk satu titik berikutnya, lalu hubungkan pintu/jalurnya ke peta kampung.
+- Lanjutkan pemeriksaan konsistensi navigasi Peta Utama, Peta Kawasan, dan scene 3D setelah deploy.
+- Tingkatkan visual dan collision tiap wilayah tanpa menganggap Dapur MBG sebagai satu-satunya scene aktif.
 - Aktifkan HTTPS, gunakan kredensial admin yang kuat, dan pasang konfigurasi SMTP sebelum mewajibkan verifikasi email.
 - Jika progres harus lintas perangkat, pindahkan penyimpanan pemain dari localStorage ke tabel database dan tambahkan identitas pemain.

@@ -160,7 +160,7 @@ def inspect(path):
     elif report['missingExpectedClips']:
         warnings.append('Klip belum tersedia: ' + ', '.join(report['missingExpectedClips']) + '.')
     source = Path('tools/create_chibi_avatar.py')
-    if source.exists() and 'primitive_uv_sphere_add' in source.read_text(errors='ignore'):
+    if path.name == 'warga-chibi-base.glb' and source.exists() and 'primitive_uv_sphere_add' in source.read_text(errors='ignore'):
         warnings.append('Riwayat generator lokal membuat bagian tubuh dari primitive Blender lalu menggabungkannya; GLB valid dan terskeleton, tetapi belum memenuhi target karakter produksi premium pada task.md.')
     bounds_min_y = report['bounds']['min'][1] if report['bounds'] else None
     report['groundClearance'] = bounds_min_y

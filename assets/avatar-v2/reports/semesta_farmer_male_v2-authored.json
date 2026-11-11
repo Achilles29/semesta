@@ -1,0 +1,63 @@
+{
+  "status": "authored-source-candidate-needs-visual-review",
+  "source": "assets/avatar-v2/source/semesta_farmer_male_v2-authored.blend",
+  "glb": "assets/avatar-v2/source/semesta_farmer_male_v2-authored-candidate.glb",
+  "preview": [
+    "assets/avatar-v2/previews/semesta_farmer_male_v2-authored/back.png",
+    "assets/avatar-v2/previews/semesta_farmer_male_v2-authored/front.png",
+    "assets/avatar-v2/previews/semesta_farmer_male_v2-authored/left.png",
+    "assets/avatar-v2/previews/semesta_farmer_male_v2-authored/three-quarter.png"
+  ],
+  "meshObjects": 15,
+  "triangles": 7624,
+  "bones": [
+    "root",
+    "spine",
+    "chest",
+    "neck",
+    "head",
+    "clavicle.L",
+    "upper_arm.L",
+    "forearm.L",
+    "hand.L",
+    "clavicle.R",
+    "upper_arm.R",
+    "forearm.R",
+    "hand.R",
+    "thigh.L",
+    "calf.L",
+    "foot.L",
+    "thigh.R",
+    "calf.R",
+    "foot.R"
+  ],
+  "actions": [
+    "Harvest",
+    "Hoe",
+    "Idle",
+    "Interact",
+    "Run",
+    "Walk",
+    "Watering",
+    "Wave"
+  ],
+  "materials": [
+    "Button Amber",
+    "Canvas Seams",
+    "Canvas Work Blue",
+    "Denim Olive",
+    "Denim Seams",
+    "Eye Dark Brown",
+    "Eye Glint",
+    "Eye Pupil",
+    "Eye Sclera",
+    "Face Line",
+    "Hair Chestnut",
+    "Hair Chestnut Highlight",
+    "Leather Sole",
+    "Leather Umber",
+    "Skin Ear Shadow",
+    "Skin Warm Brown"
+  ],
+  "note": "Original procedural surface model. Human visual and deformation review still required before live installation."
+}

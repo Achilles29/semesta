@@ -1,0 +1,42 @@
+{
+  "contract": "semesta-farmer-v8-legacy19",
+  "source": "Blender Studio CC0 topology from V6",
+  "headScale": 0.92,
+  "torsoWidthScale": 1.09,
+  "torsoDepthScale": 1.12,
+  "outfits": [
+    "overalls",
+    "tee"
+  ],
+  "slots": {
+    "headwear": [
+      "cap",
+      "none"
+    ],
+    "accessory": [
+      "satchel",
+      "none"
+    ],
+    "gloves": [
+      "work",
+      "none"
+    ],
+    "hair": [
+      "short",
+      "none"
+    ]
+  },
+  "colorChannels": [
+    "skin",
+    "hair",
+    "shirt",
+    "trousers",
+    "footwear",
+    "gloves",
+    "headwear",
+    "pack"
+  ],
+  "bones": 19,
+  "meshes": 41,
+  "note": "Dedicated legacy19 contract, not the draft humanoid-v2 skeleton. Body morphology is fixed; slots and colors are runtime selectable."
+}

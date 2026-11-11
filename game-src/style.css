@@ -431,6 +431,28 @@ body.exploring .explore-top{padding-right:170px}
 .avatar-customizer-profile img{width:74px;height:74px;object-fit:cover;border:2px solid #fff;border-radius:12px;box-shadow:0 3px 10px #344d3822}
 .avatar-customizer-profile div{display:grid;gap:5px}.avatar-customizer-profile b{color:#344d3e;font:700 15px var(--display)}.avatar-customizer-profile small{color:#818a79;font-size:10px;line-height:1.45}
 .explore-avatar-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 11px}
+.farmer-editor{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;border:1px solid #c4cec0;border-radius:10px;padding:12px;margin:0 0 12px;min-width:0}
+.avatar-model-field{grid-column:1/-1}
+.farmer-control-group{grid-column:1/-1;border-top:1px solid #dce4dd;padding-top:10px}
+.farmer-control-group summary{cursor:pointer;font-weight:700;font-size:12px;padding:4px 0 10px;color:#3c584e}
+.farmer-control-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ready-avatar-field{grid-column:1/-1}
+.avatar-preview-card{align-self:start;position:sticky;top:14px}
+.avatar-preview-card canvas{flex:0 0 auto;height:clamp(300px,48vh,520px);min-height:0}
+@media(max-width:820px){.avatar-preview-card{position:static}.avatar-preview-card canvas{height:340px}}
+.admin-nav>a[data-admin-view]{display:flex;align-items:center;gap:10px;text-align:left;padding:11px 10px;background:transparent;border:0;border-radius:9px;color:#566681;font-size:12px;font-weight:700;text-decoration:none}
+.admin-nav>a[data-admin-view]>span{width:20px;text-align:center;color:#9475c8;font-size:16px}
+.admin-nav>a[data-admin-view]>b{margin-left:auto;min-width:22px;padding:3px 6px;background:#fff0d8;border-radius:12px;color:#aa7043;font:700 10px var(--mono);text-align:center}
+.admin-nav>a[data-admin-view].active{background:linear-gradient(100deg,#e8f6ed,#f0eaff);color:#2a634f;box-shadow:inset 3px 0 #48a582}
+.admin-nav>a[data-admin-view][hidden]{display:none}
+.admin-nav>a[data-admin-view]:focus-visible{outline:2px solid #48a582;outline-offset:2px}
+@media(max-width:820px){.admin-nav>a[data-admin-view]{flex:0 0 auto;white-space:nowrap;padding:9px}.admin-nav>a[data-admin-view]>b{margin-left:0}}
+@media(max-width:540px){.admin-nav>a[data-admin-view]{font-size:10px}.admin-nav>a[data-admin-view]>span{display:none}}
+.farmer-editor[hidden],.explore-avatar-form label[hidden],.avatar-options label[hidden]{display:none!important}
+.farmer-editor legend{font-weight:700;font-size:13px;padding:0 5px}
+.farmer-editor p{grid-column:1/-1;font-size:11px;margin:0 0 4px;line-height:1.5}
+.farmer-editor label{display:grid;gap:5px;font-size:11px;min-width:0}
+.farmer-editor select,.farmer-editor input[type=color]{width:100%;min-width:0;height:36px;border:1px solid #c4cec0;border-radius:6px;background:#fff;color:#243e31}
 .avatar-style-preset{width:100%;margin:0 0 13px;padding:11px;border:1px solid #b6c79e;border-radius:9px;background:#eef3e5;color:#405b3f;font:800 9px var(--mono);letter-spacing:.04em;cursor:pointer}
 .avatar-style-preset:hover{background:#e2ecd5;border-color:#8fa777}
 .character-preview-toolbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:10px}

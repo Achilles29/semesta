@@ -1,4 +1,6 @@
-# Semesta Nyasar
+# Arsip Konsep Lama — Semesta Nyasar
+
+> **Dokumen historis.** Arah produk telah berubah menjadi Republik WkWkWk. Nama, karakter, struktur peta, dan alur dalam dokumen ini sudah tidak menjadi spesifikasi aktif. Gunakan [Konsep Produk Republik WkWkWk](KONSEP_REPUBLIK_WKWKWK.md) dan [handover terbaru](HANDOVER_PENGEMBANGAN_DI_SERVER.md) sebagai acuan.
 
 ## Konsep Konten dan Spesifikasi Game
 

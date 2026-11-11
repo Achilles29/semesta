@@ -1,0 +1,26 @@
+{
+  "kind": "actual Blender mesh blockout; no AI-rendered geometry",
+  "source": "assets\\avatar-v2\\source\\semesta_farmer_v3-blockout.blend",
+  "glb": "assets\\avatar-v2\\source\\semesta_farmer_v3-blockout.glb",
+  "views": [
+    "ilustrasi\\avatar-v2\\semesta_farmer_v3-blockout\\back.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v3-blockout\\front.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v3-blockout\\gameplay.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v3-blockout\\left.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v3-blockout\\three-quarter.png"
+  ],
+  "meshObjects": 36,
+  "triangles": 7126,
+  "bones": 19,
+  "actions": [
+    "Harvest",
+    "Hoe",
+    "Idle",
+    "Interact",
+    "Run",
+    "Walk",
+    "Watering",
+    "Wave"
+  ],
+  "liveAssetChanged": false
+}

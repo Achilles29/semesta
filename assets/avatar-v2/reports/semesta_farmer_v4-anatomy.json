@@ -1,0 +1,27 @@
+{
+  "kind": "actual rigged Blender mesh, anatomical correction candidate",
+  "blend": "assets\\avatar-v2\\source\\semesta_farmer_v4-anatomy.blend",
+  "glb": "assets\\avatar-v2\\source\\semesta_farmer_v4-anatomy.glb",
+  "views": [
+    "ilustrasi\\avatar-v2\\semesta_farmer_v4-anatomy\\back.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v4-anatomy\\front.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v4-anatomy\\gameplay.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v4-anatomy\\left.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v4-anatomy\\three-quarter.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v4-anatomy\\walk-pose.png"
+  ],
+  "meshObjects": 35,
+  "triangles": 33776,
+  "bones": 19,
+  "actions": [
+    "Harvest",
+    "Hoe",
+    "Idle",
+    "Interact",
+    "Run",
+    "Walk",
+    "Watering",
+    "Wave"
+  ],
+  "liveAssetChanged": false
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "original editable skinned 3D character; PS2-era farming-game style candidate",
+  "blend": "assets\\avatar-v2\\source\\semesta_farmer_v5-ps2-style.blend",
+  "editableBlend": "assets\\avatar-v2\\source\\semesta_farmer_v5-ps2-style-editable.blend",
+  "glb": "assets\\avatar-v2\\source\\semesta_farmer_v5-ps2-style.glb",
+  "views": [
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\back.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\front.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\gameplay.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\harvest-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\hoe-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\idle-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\interact-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\left.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\run-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\three-quarter.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\walk-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\watering-pose.png",
+    "ilustrasi\\avatar-v2\\semesta_farmer_v5-ps2-style\\wave-pose.png"
+  ],
+  "meshObjects": 8,
+  "materialCount": 8,
+  "triangles": 20886,
+  "bones": 19,
+  "actions": [
+    "Harvest",
+    "Hoe",
+    "Idle",
+    "Interact",
+    "Run",
+    "Walk",
+    "Watering",
+    "Wave"
+  ],
+  "liveAssetChanged": false
+}

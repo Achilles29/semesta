@@ -23,7 +23,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://semesta.projectpintar.com/';
+$configured_base_url = getenv('SEMESTA_BASE_URL');
+if ($configured_base_url !== false && trim($configured_base_url) !== '') {
+    $config['base_url'] = rtrim(trim($configured_base_url), '/') . '/';
+} else {
+    $request_host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+    $request_host = preg_replace('/:\\d+$/', '', $request_host);
+    $is_local_host = in_array($request_host, ['localhost', '127.0.0.1', '::1'], true) || substr($request_host, -10) === '.localhost';
+
+    if ($is_local_host) {
+        $is_https = (!empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off')
+            || (($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https');
+        $protocol = $is_https ? 'https://' : 'http://';
+        $application_path = realpath(FCPATH);
+        $document_root_path = realpath((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''));
+        $script_directory = '';
+        if ($application_path !== false && $document_root_path !== false) {
+            $application_path = rtrim(str_replace('\\', '/', $application_path), '/');
+            $document_root_path = rtrim(str_replace('\\', '/', $document_root_path), '/');
+            $document_prefix = $document_root_path . '/';
+            if (strncasecmp($application_path, $document_prefix, strlen($document_prefix)) === 0) {
+                $script_directory = substr($application_path, strlen($document_prefix));
+            }
+        }
+        if ($script_directory === '') {
+            $script_directory = str_replace('\\', '/', dirname((string) ($_SERVER['SCRIPT_NAME'] ?? '/')));
+        }
+        $script_directory = trim($script_directory, '/');
+        $config['base_url'] = $protocol . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/' . ($script_directory !== '' ? $script_directory . '/' : '');
+    } else {
+        $config['base_url'] = 'https://semesta.projectpintar.com/';
+    }
+}
 
 /*
 |--------------------------------------------------------------------------

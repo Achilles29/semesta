@@ -1,0 +1,121 @@
+{
+  "revision": "farmer-v11-body-wardrobe",
+  "capabilities": {
+    "outfit": [
+      "overalls",
+      "tee",
+      "loose-tee",
+      "work-shirt",
+      "batik",
+      "koko",
+      "kebaya",
+      "hoodie",
+      "tunic",
+      "blazer"
+    ],
+    "hairStyle": [
+      "short",
+      "swept",
+      "curtain",
+      "tied",
+      "bob",
+      "none"
+    ],
+    "headwear": [
+      "cap",
+      "beanie",
+      "peci",
+      "hijab",
+      "none"
+    ],
+    "accessory": [
+      "satchel",
+      "backpack",
+      "scarf",
+      "none"
+    ],
+    "gloves": [
+      "work",
+      "none"
+    ],
+    "faceShape": [
+      "oval",
+      "round",
+      "angular"
+    ],
+    "eyeStyle": [
+      "almond",
+      "round",
+      "relaxed"
+    ],
+    "noseStyle": [
+      "defined",
+      "button",
+      "upturned"
+    ],
+    "mouthStyle": [
+      "smile",
+      "neutral",
+      "grin"
+    ],
+    "colors": [
+      "skin",
+      "hair",
+      "shirt",
+      "trousers",
+      "footwear",
+      "headwearColor",
+      "gloveColor",
+      "pack"
+    ],
+    "bodyFrame": [
+      "male",
+      "female"
+    ],
+    "bodyType": [
+      "skinny",
+      "slender",
+      "muscular",
+      "full",
+      "plus",
+      "fit",
+      "mature",
+      "soft-mature"
+    ],
+    "bottomStyle": [
+      "relaxed",
+      "cargo",
+      "sarong",
+      "skirt"
+    ],
+    "footwearStyle": [
+      "boots",
+      "sandals"
+    ]
+  },
+  "bodyMorphs": {
+    "male/skinny": "Body_male_skinny",
+    "male/slender": "Body_male_slender",
+    "male/muscular": "Body_male_muscular",
+    "male/full": "Body_male_full",
+    "male/plus": "Body_male_plus",
+    "male/fit": "Body_male_fit",
+    "male/mature": "Body_male_mature",
+    "male/soft-mature": "Body_male_soft-mature",
+    "female/skinny": "Body_female_skinny",
+    "female/slender": "Body_female_slender",
+    "female/muscular": "Body_female_muscular",
+    "female/full": "Body_female_full",
+    "female/plus": "Body_female_plus",
+    "female/fit": "Body_female_fit",
+    "female/mature": "Body_female_mature",
+    "female/soft-mature": "Body_female_soft-mature"
+  },
+  "source": "V10 saved blend + original CC0 V6 feet; new garment meshes",
+  "defaultGameChanged": false,
+  "limitations": [
+    "Stylized clothed body shapes, not anatomical simulation",
+    "Sarong/skirt use blended leg skinning, not cloth physics; extreme poses require visual review",
+    "Batik-inspired geometric motif and simplified kebaya are game adaptations, not exhaustive regional costumes"
+  ]
+}

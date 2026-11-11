@@ -10,7 +10,8 @@
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();
     $entry = isset($manifest['game-src/main.js']) ? $manifest['game-src/main.js'] : NULL;
-    $character_model_path = is_file($manifest_path) ? 'assets/game/models/characters/warga-chibi-base.glb' : 'public/models/characters/warga-chibi-base.glb';
+    $character_model_path = is_file($manifest_path) ? 'assets/game/models/characters/semesta-farmer-v2.glb' : 'public/models/characters/semesta-farmer-v2.glb';
+    $farmer_model_path = is_file($manifest_path) ? 'assets/game/models/characters/semesta-farmer-v11.glb' : 'public/models/characters/semesta-farmer-v11.glb';
     $map_asset_root = is_file(FCPATH . 'assets/game/map-assets/kawasan-warga.webp') ? 'assets/game/map-assets/' : 'public/map-assets/';
     $source_css_version = is_file(FCPATH . 'game-src/style.css') ? filemtime(FCPATH . 'game-src/style.css') : time();
     $source_js_version = is_file(FCPATH . 'game-src/main.js') ? filemtime(FCPATH . 'game-src/main.js') : time();
@@ -58,7 +59,7 @@
                 <button class="citizen-close" id="closeAvatarCustomizer" type="button" aria-label="Tutup">×</button>
                 <span class="kicker">PENAMPILAN WARGA · BISA DIGANTI KAPAN SAJA</span><h2 id="avatarCustomizerTitle">Racik avatar</h2>
                 <div class="avatar-customizer-profile"><img src="<?= base_url('public/images/avatar/potret-warga-gaya-realistis.jpg?v=1'); ?>" alt="Potret ilustratif warga dengan gaya kartun realistis"><div><b id="customAvatarName">Warga</b><small>Potret profil · model karakter 3D tampil di peta</small></div></div>
-                <button type="button" class="avatar-style-preset" id="applyHarvestAvatarPreset">🌾 PAKAI GAYA PETANI PANEN PAGI</button>
+                <button type="button" class="avatar-style-preset" id="applyHarvestAvatarPreset">🌾 PAKAI AVATAR V11 · TUBUH & PAKAIAN BARU</button>
                 <form id="exploreAvatarForm" class="explore-avatar-form">
                     <label>Warna kulit<select name="skin"><option value="sawo">Sawo matang</option><option value="kuning">Kuning langsat</option><option value="gelap">Gelap</option><option value="zaitun">Zaitun</option><option value="pucat">Terang</option><option value="coklat">Cokelat</option></select></label>
                     <label>Rambut<select name="hair"><option value="pendek">Pendek</option><option value="cepak">Cepak</option><option value="ikal">Ikal</option><option value="panjang">Panjang</option><option value="keriting">Keriting</option><option value="kuncir">Kuncir</option><option value="hijab">Hijab</option><option value="botak">Botak</option></select></label>
@@ -155,8 +156,10 @@
             <div class="explore-toast" id="toast"></div><div class="capture-exit" id="captureExit"><button id="exitCapture">KELUAR DARI MODE REKAM <span>×</span></button></div>
         </section>
     </main>
+    <script>window.SEMESTA_API_URL = <?= json_encode(base_url('api'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/warga-chibi-base.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/semesta-farmer-v2.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_FARMER_MODEL = <?= json_encode(base_url($farmer_model_path . '?v=' . filemtime(FCPATH . $farmer_model_path)), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . $source_js_version); ?>"></script><?php endif; ?>
 </body>

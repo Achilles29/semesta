@@ -1,0 +1,15 @@
+<!doctype html><html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Galeri V11 — postur dan outfit</title>
+<style>body{margin:0;padding:28px;background:#182126;color:#eff3ef;font:15px system-ui}h1{margin:0 0 8px}p{line-height:1.6;color:#bfcbc8}a{color:#a3d5e6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}figure{margin:0;background:#26343a;border-radius:8px;overflow:hidden}img{width:100%;display:block}figcaption{padding:12px}h2{margin-top:36px}nav{margin:20px 0}button{padding:9px;border:1px solid #668077;background:#304840;color:#fff;cursor:pointer}</style>
+<h1>Farmer V11 · Galeri hasil model</h1><p>Render Blender dari sumber model yang diekspor ke GLB, bukan concept art. Tubuh menggunakan kamera depan yang sama. Label postur adalah kategori artistik, bukan penilaian kesehatan.</p>
+<nav><a href="preview.html">Buka kustomisasi 3D</a> · <a href="README.md">Catatan implementasi</a></nav>
+<h2>Postur cowok</h2><section id="male" class="grid"></section><h2>Postur cewek</h2><section id="female" class="grid"></section>
+<h2>Outfit dan kombinasi Indonesia</h2><section id="outfits" class="grid"></section>
+<h2>Sudut & pose uji</h2><section id="views" class="grid"></section>
+<script>
+const bodies={skinny:'Kurus',slender:'Langsing',muscular:'Berotot',full:'Berisi / gendut',plus:'Besar / obesitas',fit:'Atletis / body goals',mature:'Dewasa / bapak-bapak','soft-mature':'Dewasa berisi / ibu-ibu'};
+function card(target,file,label){const figure=document.createElement('figure');const link=document.createElement('a');link.href=file+'.png';const image=new Image();image.src=file+'.png';image.alt=label;image.loading='lazy';link.append(image);const caption=document.createElement('figcaption');caption.textContent=label;figure.append(link,caption);document.getElementById(target).append(figure);}
+for(const frame of ['male','female'])for(const [type,label] of Object.entries(bodies))card(frame,'body-'+frame+'-'+type,label);
+for(const [type,label] of Object.entries({overalls:'Overall + kaus',tee:'Kaos oblong + sarung','loose-tee':'Kaos oversized','work-shirt':'Kemeja kerja',batik:'Kemeja motif batik',koko:'Baju koko + sarung',kebaya:'Kebaya sederhana + rok',hoodie:'Hoodie',tunic:'Tunik',blazer:'Blazer santai','hijab-tunic':'Hijab + tunik','oblong-sarong':'Oblong + sarung + peci'}))card('outfits','outfit-'+type,label);
+for(const [file,label] of Object.entries({front:'Depan',left:'Kiri',back:'Belakang','pose-walk':'Jalan','pose-run':'Lari','pose-hoe':'Mencangkul','pose-wave':'Melambaikan tangan'}))card('views',file,label);
+</script></html>

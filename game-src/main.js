@@ -1,10 +1,16 @@
 import { createWorldAsset, getDefaultWorldScene, preloadWorldAssets, WORLD_ASSET_LIBRARY } from './world-assets-3d-v2.js?v=map-asset-3d-hotfix-20261104-4';
-import { createHumanModel, hasHumanAsset, setHumanAsset } from './avatar-character-3d.js?v=avatar-model-20261104-17';
+import { createHumanModel, hasHumanAsset, hasFarmerAsset, setHumanAsset, setFarmerAsset } from './avatar-character-3d.js?v=avatar-model-20261109-v5';
 import { inspectCharacterAsset, formatCharacterAssetSummary } from './character-asset-validator.js?v=character-validation-20261104-1';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { FARMER_PRESET, FARMER_SCHEMA, farmerCharacterOptions, mountFarmerEditor } from './avatar-farmer-config.js';
+import { isFarmerV8 } from './avatar-farmer-v8.js';
+import { FARMER_PRESETS, FARMER_COLLECTIONS } from './avatar-farmer-presets.js';
+import { createAvatarThumbnails } from './avatar-catalog-thumbnails.js';
+import { createStudioClock, createStudioAnimation } from './avatar-studio-playback.js';
 
 const $ = (selector) => document.querySelector(selector);
+const API_URL = window.SEMESTA_API_URL || new URL('api', document.baseURI).href;
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 const isTypingTarget = (target) => target instanceof Element && !!target.closest('input, textarea, select, [contenteditable="true"], [role="textbox"]');
 const GAME_STATE_KEY = 'republik-wkwkwk-state-v2';
@@ -25,12 +31,14 @@ function parsedAvatarConfig(value) {
 }
 function citizenCharacterOptions(citizen, fallbackLook) {
   const config = parsedAvatarConfig(citizen?.avatar_config);
+  if (config?.special === 'farmer-ps2') return farmerCharacterOptions(config, avatarColors);
   if (!config) return { shirt:fallbackLook.shirt, trousers:'#35485a', pack:fallbackLook.pack, apron:fallbackLook.apron, topStyle:fallbackLook.topStyle, bottomStyle:fallbackLook.bottomStyle, accessory:fallbackLook.accessory, headwear:fallbackLook.headwear, facialHair:fallbackLook.facialHair, hairStyle:'pendek', hair:'#302824', skin:'#d99770' };
   return {
     skin:avatarColors.skin[config.skin] || '#c9825c', hair:avatarColors.hair[config.hairColor] || '#292522', hairStyle:config.hair || 'pendek',
     shirt:avatarColors.top[config.top] || '#e6e0cd', trousers:avatarColors.bottom[config.bottom] || '#314256',
     topStyle:config.top || 'kemeja', bottomStyle:config.bottom || 'celana', headwear:config.headwear || 'tanpa', accessory:config.accessory || 'tanpa', facialHair:config.facialHair || 'tanpa',
     pack:config.accessory === 'ransel' ? '#9d6948' : null, showBackpack:config.accessory === 'ransel',
+    ps2Farmer:config.special === 'farmer-ps2',
   };
 }
 const houseNames = { 'rumah-kayu': 'Rumah Kayu', 'rumah-bata': 'Rumah Bata', 'rumah-panggung': 'Rumah Panggung' };
@@ -44,6 +52,7 @@ function updateAdminQuery(values) {
   history.replaceState(history.state, '', url);
 }
 let activeCitizen = null;
+let updateCitizenHeader = () => {};
 let authMode = 'login';
 function reportWorldIssue(error) {
   const panel = $('#worldError');
@@ -99,7 +108,7 @@ async function initCitizen() {
     for (const [field, column] of Object.entries(profileFieldNames)) $('#citizenForm').elements[field].value = citizen?.[column] || '';
     $('#citizenForm').elements.avatar.value = citizen?.avatar || 'warga';
   };
-  const updateHeader = (citizen) => {
+  const updateHeader = updateCitizenHeader = (citizen) => {
     activeCitizen = citizen;
     document.body.classList.toggle('has-citizen', !!citizen);
     $('#headerAvatar').textContent = citizen ? (citizen.display_name?.trim()?.[0]?.toUpperCase() || 'W') : '↗';
@@ -161,7 +170,7 @@ async function initCitizen() {
     for (const field of Object.keys(profileFieldNames)) payload[field] = form.get(field) || '';
     $('#citizenError').textContent = '';
     try {
-      const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
+      const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Profil warga belum bisa disimpan.');
       if (result.verificationRequired) {
@@ -182,10 +191,10 @@ async function initCitizen() {
     const verificationEmail = $('#citizenForm').elements.verificationEmail;
     const email = verificationEmail.value.trim();
     if (!email) { verificationEmail.closest('label').hidden = false; verificationEmail.focus(); return; }
-    try { const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'citizen', action: 'resend', email }) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal mengirim email.'); $('#citizenError').classList.add('success'); $('#citizenError').textContent = result.message || 'Tautan verifikasi dikirim.'; } catch (error) { $('#citizenError').classList.remove('success'); $('#citizenError').textContent = error.message; }
+    try { const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'citizen', action: 'resend', email }) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal mengirim email.'); $('#citizenError').classList.add('success'); $('#citizenError').textContent = result.message || 'Tautan verifikasi dikirim.'; } catch (error) { $('#citizenError').classList.remove('success'); $('#citizenError').textContent = error.message; }
   });
   $('#citizenLogout').addEventListener('click', async () => {
-    await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ resource: 'citizen', action: 'logout' }) });
+    await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ resource: 'citizen', action: 'logout' }) });
     updateHeader(null); panel.hidden = true;
     $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.remove('active'); $('#worldScreen').classList.add('active');
     saveGameState({ screen: 'world' });
@@ -196,7 +205,7 @@ async function initCitizen() {
     $('#citizenAvatarHint').textContent = selected?.avatarStyle ? 'Avatar disarankan mengikuti pekerjaan. Anda tetap dapat memilih gaya lain.' : 'Pekerjaan belum dipilih; avatar dapat ditentukan sendiri.';
   });
   try {
-    const masterResponse = await fetch('/api?resource=citizen_options', { headers: { Accept: 'application/json' } });
+    const masterResponse = await fetch(`${API_URL}?resource=citizen_options`, { headers: { Accept: 'application/json' } });
     const masterResult = await masterResponse.json(); if (!masterResponse.ok) throw new Error(masterResult.error || 'Pilihan biodata belum tersedia.');
     const options = masterResult.options || {}; window.citizenMasterOptions = options;
     fillMasterSelect('gender', options.gender); fillMasterSelect('religion', options.religion); fillMasterSelect('birthProvince', options.province); fillMasterSelect('domicileProvince', options.province); fillMasterSelect('occupation', options.occupation); fillMasterSelect('educationLevel', options.education);
@@ -206,7 +215,7 @@ async function initCitizen() {
     if (activeCitizen && !profileFields.hidden) fillProfileForm(activeCitizen);
   } catch (error) { $('#citizenError').textContent = error.message; }
   try {
-    const response = await fetch('/api?resource=citizen', { headers: { Accept: 'application/json' } });
+    const response = await fetch(`${API_URL}?resource=citizen`, { headers: { Accept: 'application/json' } });
     const result = await response.json();
     updateHeader(result.citizen || null);
   } catch (_) { updateHeader(null); }
@@ -215,21 +224,46 @@ async function initCitizen() {
 function initExploreAvatarCustomizer() {
   const panel = $('#avatarCustomizer'); const form = $('#exploreAvatarForm'); const status = $('#exploreAvatarStatus');
   if (!panel || !form) return;
+  let selectedSpecial = '';
+  const legacyKeys = ['skin','hair','hairColor','top','bottom','headwear','accessory','facialHair'];
+  const farmerEditor = mountFarmerEditor(form, () => { status.textContent='Racikan V11 diubah. Simpan untuk menerapkannya di peta.'; });
+  const modelLabel = document.createElement('label'); modelLabel.textContent='Model avatar';
+  const modelSelect = document.createElement('select'); modelSelect.add(new Option('Avatar modular lama','')); modelSelect.add(new Option('Avatar V11','farmer-ps2'));
+  modelLabel.append(modelSelect); form.prepend(modelLabel);
+  const readyLabel=document.createElement('label');readyLabel.className='ready-avatar-field';readyLabel.textContent='Avatar siap pakai · V11';
+  const readySelect=document.createElement('select');readySelect.add(new Option('Pilih gaya awal…',''));
+  FARMER_PRESETS.forEach(preset=>readySelect.add(new Option(preset.name,preset.id)));readyLabel.append(readySelect);modelLabel.after(readyLabel);
+  readySelect.addEventListener('change',()=>{
+    const preset=FARMER_PRESETS.find(item=>item.id===readySelect.value);if(!preset)return;
+    legacyKeys.forEach(key=>{form.elements[key].value=preset.config[key];});
+    selectedSpecial='farmer-ps2';farmerEditor.set(preset.config);showModel();
+    status.textContent=`${preset.name} dipilih. Kamu masih bisa mengubah setiap bagian sebelum menyimpan.`;
+  });
+  const showModel = () => {
+    modelSelect.value=selectedSpecial; farmerEditor.show(selectedSpecial==='farmer-ps2');
+    legacyKeys.forEach(key => { form.elements[key].closest('label').hidden=!!selectedSpecial; form.elements[key].disabled=!!selectedSpecial; });
+  };
+  modelSelect.addEventListener('change', () => { selectedSpecial=modelSelect.value; showModel(); });
   const fill = () => {
+    readySelect.value='';
     const saved = parsedAvatarConfig(activeCitizen?.avatar_config) || {};
+    selectedSpecial = saved.special === 'farmer-ps2' ? 'farmer-ps2' : '';
     const look = avatarLooks[activeCitizen?.avatar] || avatarLooks.warga;
     const defaults = { skin:'sawo', hair:'pendek', hairColor:'hitam', top:look.topStyle || 'kemeja', bottom:look.bottomStyle || 'celana', headwear:look.headwear || 'tanpa', accessory:look.accessory || 'tanpa', facialHair:look.facialHair || 'tanpa' };
     Object.keys(defaults).forEach((key) => { form.elements[key].value = saved[key] || defaults[key]; });
+    farmerEditor.set(saved.special ? saved : FARMER_PRESET, avatarColors); showModel();
     $('#customAvatarName').textContent = activeCitizen?.display_name || 'Warga';
   };
   $('#openAvatarCustomizer').addEventListener('click', () => {
     if (!activeCitizen) { $('#profileButton').click(); return; }
-    fill(); status.textContent='Pilih bagian avatar, lalu simpan.'; panel.hidden=false;
+    fill(); status.textContent=selectedSpecial ? 'Avatar V11 aktif. Postur, wajah, dan pakaian bisa diganti tanpa berganti model.' : 'Pilih Avatar V11 untuk memakai tubuh dan pakaian terbaru.'; panel.hidden=false;
   });
   $('#applyHarvestAvatarPreset').addEventListener('click', () => {
-    const preset={skin:'sawo',hair:'pendek',hairColor:'hitam',top:'flanel',bottom:'cargo',headwear:'caping',accessory:'tas-anyaman',facialHair:'kumis-janggut'};
+    const preset={skin:'sawo',hair:'pendek',hairColor:'coklat',top:'petani',bottom:'jeans',headwear:'topi',accessory:'tas-anyaman',facialHair:'tanpa'};
     Object.entries(preset).forEach(([key,value])=>{form.elements[key].value=value;});
-    status.textContent='Gaya Petani Panen Pagi dipilih. Simpan untuk memakainya di peta.';
+    selectedSpecial='farmer-ps2';
+    farmerEditor.set(FARMER_PRESET, avatarColors); showModel();
+    status.textContent='Avatar V11 dipilih. Atur tubuh, wajah, dan pakaian, lalu simpan untuk memakainya di peta.';
   });
   $('#closeAvatarCustomizer').addEventListener('click', () => { panel.hidden=true; });
   panel.addEventListener('click', (event) => { if (event.target === panel) panel.hidden=true; });
@@ -237,11 +271,13 @@ function initExploreAvatarCustomizer() {
     event.preventDefault();
     if (!activeCitizen) { status.textContent='Masuk sebagai warga untuk menyimpan avatar.'; return; }
     const avatarConfig = Object.fromEntries(['skin','hair','hairColor','top','bottom','headwear','accessory','facialHair'].map((key) => [key, form.elements[key].value]));
+    if (selectedSpecial) avatarConfig.special = selectedSpecial;
+    if (selectedSpecial === 'farmer-ps2') avatarConfig.farmer = farmerEditor.get();
     const button = form.querySelector('button[type="submit"]'); button.disabled=true; status.textContent='Menyimpan avatar warga…';
     try {
-      const response = await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen',action:'update_avatar',avatarConfig})});
+      const response = await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen',action:'update_avatar',avatarConfig})});
       const result=await response.json(); if(!response.ok)throw new Error(result.error||'Avatar belum tersimpan.');
-      updateHeader(result.citizen); status.textContent='Avatar tersimpan. Penampilanmu sudah diperbarui di peta.'; panel.hidden=true;
+      updateCitizenHeader(result.citizen); status.textContent='Avatar tersimpan. Penampilanmu sudah diperbarui di peta.'; panel.hidden=true;
     } catch(error) { status.textContent=error.message; }
     finally { button.disabled=false; }
   });
@@ -298,12 +334,12 @@ function startCanvasFallback(sourceCanvas, place, city, entries, reason) {
   let fallbackPeers = []; let fallbackChatTarget = null; let fallbackCanChat = false; let fallbackAfterId = 0; let fallbackSyncAt = 0; let fallbackSyncBusy = false;
   const chatPanel = $('#citizenChat'); const chatLog = $('#citizenChatLog'); const chatInput = $('#citizenChatForm').elements.message;
   function addFallbackChatMessage(message) { if(chatLog.querySelector(`[data-message-id="${Number(message.id)||0}"]`))return;chatLog.querySelector('.citizen-chat-empty')?.remove(); const bubble=document.createElement('article');bubble.dataset.messageId=String(Number(message.id)||0);bubble.className=`citizen-chat-message${Number(message.sender_id)===Number(activeCitizen?.id)?' mine':''}`;const by=document.createElement('b');by.textContent=Number(message.sender_id)===Number(activeCitizen?.id)?'KAMU':(message.sender_name||fallbackChatTarget?.displayName||'WARGA');const text=document.createElement('span');text.textContent=message.message;bubble.append(by,text);chatLog.append(bubble);chatLog.scrollTop=chatLog.scrollHeight; }
-  async function syncFallbackChat(now) { if(!activeCitizen||fallbackSyncBusy||now-fallbackSyncAt<1700)return;fallbackSyncBusy=true;fallbackSyncAt=now;try{const response=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'sync',destination:city.id,region:place.id,x:px,z:pz,targetId:fallbackChatTarget?.id||0,after:fallbackAfterId})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Obrolan warga belum tersambung.');fallbackPeers=Array.isArray(data.players)?data.players:[];fallbackCanChat=!!data.canChat;(data.messages||[]).forEach((message)=>{addFallbackChatMessage(message);fallbackAfterId=Math.max(fallbackAfterId,Number(message.id)||0);});if(fallbackChatTarget&&!chatPanel.hidden){$('#citizenChatStatus').textContent=fallbackCanChat?'Kalian berdekatan · pesan masuk langsung.':'Dekati lagi warga ini untuk melanjutkan obrolan.';$('#citizenChatStatus').classList.toggle('error',!fallbackCanChat);$('#citizenChatForm').querySelector('button').disabled=!fallbackCanChat;}}catch(error){if(fallbackChatTarget&&!chatPanel.hidden){$('#citizenChatStatus').textContent=error.message;$('#citizenChatStatus').classList.add('error');}}finally{fallbackSyncBusy=false;} }
+  async function syncFallbackChat(now) { if(!activeCitizen||fallbackSyncBusy||now-fallbackSyncAt<1700)return;fallbackSyncBusy=true;fallbackSyncAt=now;try{const response=await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'sync',destination:city.id,region:place.id,x:px,z:pz,targetId:fallbackChatTarget?.id||0,after:fallbackAfterId})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Obrolan warga belum tersambung.');fallbackPeers=Array.isArray(data.players)?data.players:[];fallbackCanChat=!!data.canChat;(data.messages||[]).forEach((message)=>{addFallbackChatMessage(message);fallbackAfterId=Math.max(fallbackAfterId,Number(message.id)||0);});if(fallbackChatTarget&&!chatPanel.hidden){$('#citizenChatStatus').textContent=fallbackCanChat?'Kalian berdekatan · pesan masuk langsung.':'Dekati lagi warga ini untuk melanjutkan obrolan.';$('#citizenChatStatus').classList.toggle('error',!fallbackCanChat);$('#citizenChatForm').querySelector('button').disabled=!fallbackCanChat;}}catch(error){if(fallbackChatTarget&&!chatPanel.hidden){$('#citizenChatStatus').textContent=error.message;$('#citizenChatStatus').classList.add('error');}}finally{fallbackSyncBusy=false;} }
   function nearestFallbackPeer() { let peer=null,distance=5;fallbackPeers.forEach((item)=>{const d=Math.hypot(px-item.x,pz-item.z);if(d<distance){peer=item;distance=d;}});return peer; }
   function openFallbackChat(peer) { if(!activeCitizen){$('#profileButton').click();return;}fallbackChatTarget=peer;fallbackAfterId=0;fallbackCanChat=false;chatLog.replaceChildren();$('#citizenChatName').textContent=peer.displayName;$('#citizenChatStatus').textContent='Mendekat untuk mulai bertukar pesan.';$('#citizenChatStatus').classList.remove('error');$('#citizenChatForm').querySelector('button').disabled=true;$('#dialogue').classList.remove('visible');chatPanel.hidden=false;fallbackSyncAt=0;chatInput.focus({preventScroll:true}); }
   $('#citizenChatClose').onclick=()=>{chatPanel.hidden=true;fallbackChatTarget=null;fallbackCanChat=false;fallbackAfterId=0;};
-  $('#citizenChatForm').onsubmit=async(event)=>{event.preventDefault();if(!fallbackChatTarget||!fallbackCanChat||!chatInput.value.trim())return;const message=chatInput.value.trim();const send=$('#citizenChatForm').querySelector('button');send.disabled=true;try{const response=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'send',destination:city.id,region:place.id,targetId:fallbackChatTarget.id,message})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Pesan belum terkirim.');addFallbackChatMessage(data.message);fallbackAfterId=Math.max(fallbackAfterId,Number(data.message.id)||0);chatInput.value='';$('#citizenChatStatus').textContent='Pesan terkirim.';}catch(error){$('#citizenChatStatus').textContent=error.message;$('#citizenChatStatus').classList.add('error');}finally{send.disabled=!fallbackCanChat;chatInput.focus({preventScroll:true});}};
-  window.addEventListener('semesta:citizen-change',(event)=>{if(!event.detail?.citizen){fetch('/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'leave'})}).catch(()=>{});fallbackPeers=[];chatPanel.hidden=true;fallbackChatTarget=null;}});
+  $('#citizenChatForm').onsubmit=async(event)=>{event.preventDefault();if(!fallbackChatTarget||!fallbackCanChat||!chatInput.value.trim())return;const message=chatInput.value.trim();const send=$('#citizenChatForm').querySelector('button');send.disabled=true;try{const response=await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'send',destination:city.id,region:place.id,targetId:fallbackChatTarget.id,message})});const data=await response.json();if(!response.ok)throw new Error(data.error||'Pesan belum terkirim.');addFallbackChatMessage(data.message);fallbackAfterId=Math.max(fallbackAfterId,Number(data.message.id)||0);chatInput.value='';$('#citizenChatStatus').textContent='Pesan terkirim.';}catch(error){$('#citizenChatStatus').textContent=error.message;$('#citizenChatStatus').classList.add('error');}finally{send.disabled=!fallbackCanChat;chatInput.focus({preventScroll:true});}};
+  window.addEventListener('semesta:citizen-change',(event)=>{if(!event.detail?.citizen){fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'leave'})}).catch(()=>{});fallbackPeers=[];chatPanel.hidden=true;fallbackChatTarget=null;}});
   const view = () => {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const w = Math.max(1, screen.clientWidth); const h = Math.max(1, screen.clientHeight);
@@ -518,7 +554,7 @@ async function runArea(place, city) {
   let placedObjects = getDefaultWorldScene(place.id);
   let sceneCustomized = true;
   try {
-    const sceneResponse = await fetch(`/api?resource=world_scene&region=${encodeURIComponent(place.id)}`, { headers: { Accept: 'application/json' } });
+    const sceneResponse = await fetch(`${API_URL}?resource=world_scene&region=${encodeURIComponent(place.id)}`, { headers: { Accept: 'application/json' } });
     const sceneData = await sceneResponse.json();
     if (sceneResponse.ok && Array.isArray(sceneData.objects)) {
       sceneCustomized = true;
@@ -531,10 +567,14 @@ async function runArea(place, city) {
   let THREE;
   try { THREE = await import('three'); }
   catch (error) { startCanvasFallback($('#world'), place, city, placedObjects, error); return; }
-  try {
-    const characterAsset = await new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL);
-    setHumanAsset(characterAsset);
-  } catch (error) { console.warn('Aset karakter GLB tidak dapat dimuat; memakai cadangan.', error); }
+  await Promise.all([
+    new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL)
+      .then(setHumanAsset)
+      .catch((error) => console.warn('Aset karakter GLB tidak dapat dimuat; memakai cadangan.', error)),
+    new GLTFLoader().loadAsync(window.SEMESTA_FARMER_MODEL)
+      .then(setFarmerAsset)
+      .catch((error) => console.warn('Aset petani 3D PS2 tidak dapat dimuat; memakai avatar standar.', error)),
+  ]);
   const canvas = $('#world'); let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' }); }
   catch (error) { startCanvasFallback(canvas, place, city, placedObjects, error); return; }
@@ -847,11 +887,13 @@ async function runArea(place, city) {
     let newArrival = null;
     players.forEach((peer) => {
       let item = onlineCitizens.get(peer.id);
+      const appearanceKey = JSON.stringify([peer.avatar, peer.avatar_config, peer.displayName]);
+      if (item && item.appearanceKey !== appearanceKey) { removeOnlineCitizen(peer.id); item=null; }
       if (!item) {
         const root = new THREE.Group(); root.position.set(peer.x, 0, peer.z); world.add(root);
         const look = paletteForCitizen(peer.avatar); const model = makeHuman(root, citizenCharacterOptions(peer, look));
         const tag = makeText(peer.displayName.toUpperCase(), 'fffdf1', '347b68'); tag.position.set(0, 2.32, 0); root.add(tag);
-        item = { root, model, displayName:peer.displayName, avatar:peer.avatar }; onlineCitizens.set(peer.id, item); if (!firstCitizenSync) newArrival = peer.displayName;
+        item = { root, model, displayName:peer.displayName, avatar:peer.avatar, appearanceKey }; onlineCitizens.set(peer.id, item); if (!firstCitizenSync) newArrival = peer.displayName;
       }
       item.root.userData.targetX = peer.x; item.root.userData.targetZ = peer.z; item.root.userData.peerId = peer.id;
     });
@@ -870,7 +912,7 @@ async function runArea(place, city) {
     if (!activeCitizen || chatSyncInFlight || now - lastChatSync < 1700) return;
     chatSyncInFlight = true; lastChatSync = now;
     try {
-      const response = await fetch('/api', { method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body:JSON.stringify({resource:'citizen_chat',action:'sync',destination:city.id,region:place.id,x:player.position.x,z:player.position.z,targetId:chatTarget?.id || 0,after:chatAfterId}) });
+      const response = await fetch(`${API_URL}`, { method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body:JSON.stringify({resource:'citizen_chat',action:'sync',destination:city.id,region:place.id,x:player.position.x,z:player.position.z,targetId:chatTarget?.id || 0,after:chatAfterId}) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Obrolan warga belum tersambung.');
       updateOnlineCitizens(Array.isArray(result.players) ? result.players : []); chatCanSend = !!result.canChat;
       (result.messages || []).forEach((message) => { appendChatMessage(message); chatAfterId = Math.max(chatAfterId, Number(message.id) || 0); });
@@ -899,14 +941,14 @@ async function runArea(place, city) {
     event.preventDefault(); if (!chatTarget || !chatCanSend || !chatInput.value.trim()) return;
     const message = chatInput.value.trim(); const sendButton = $('#citizenChatForm').querySelector('button'); sendButton.disabled = true;
     try {
-      const response = await fetch('/api', { method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body:JSON.stringify({resource:'citizen_chat',action:'send',destination:city.id,region:place.id,targetId:chatTarget.id,message}) });
+      const response = await fetch(`${API_URL}`, { method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body:JSON.stringify({resource:'citizen_chat',action:'send',destination:city.id,region:place.id,targetId:chatTarget.id,message}) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Pesan belum terkirim.');
       appendChatMessage(result.message); chatAfterId = Math.max(chatAfterId, Number(result.message.id) || 0); chatInput.value = ''; $('#citizenChatStatus').textContent = 'Pesan terkirim.'; $('#citizenChatStatus').classList.remove('error');
     } catch (error) { $('#citizenChatStatus').textContent = error.message; $('#citizenChatStatus').classList.add('error'); }
     finally { sendButton.disabled = !chatCanSend; chatInput.focus({ preventScroll:true }); }
   });
   window.addEventListener('semesta:citizen-change', (event) => {
-    if (!event.detail?.citizen) { fetch('/api',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'leave'})}).catch(()=>{}); chatPanel.hidden=true;chatTarget=null;nearbyCitizens=[];[...onlineCitizens.keys()].forEach(removeOnlineCitizen); }
+    if (!event.detail?.citizen) { fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'leave'})}).catch(()=>{}); chatPanel.hidden=true;chatTarget=null;nearbyCitizens=[];[...onlineCitizens.keys()].forEach(removeOnlineCitizen); }
   });
 
   if (!sceneCustomized && place.id !== 'hutan') for (let row = 0; row < 2; row++) for (let column = 0; column < 4; column++) {
@@ -1002,7 +1044,7 @@ async function initIdeasInbox() {
   search.value = params.get('ideaQ') || ''; statusFilter.value = params.get('ideaStatus') || 'all';
   const updateIdea = async (idea) => {
     try {
-      const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ resource: 'ideas', ...idea }) });
+      const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ resource: 'ideas', ...idea }) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal memperbarui ide.');
       ideas = result.ideas; render(); status.textContent = 'Status ide diperbarui.'; status.className = 'save-status saved';
     } catch (error) { status.textContent = error.message; status.className = 'save-status error'; }
@@ -1036,7 +1078,7 @@ async function initIdeasInbox() {
     });
   };
   try {
-    const response = await fetch('/api?resource=ideas');
+    const response = await fetch(`${API_URL}?resource=ideas`);
     const result = await response.json();
     if (!response.ok || !Array.isArray(result)) throw new Error(result.error || 'Inbox warga belum tersedia.');
     ideas = result; render();
@@ -1050,7 +1092,7 @@ async function initIdeasInbox() {
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); const idea = Object.fromEntries(new FormData(form).entries()); idea.resource = 'ideas'; idea.status = 'baru';
     status.textContent = 'Menyimpan…';
-    try { const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(idea) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal menyimpan ide.'); ideas = result.ideas; form.reset(); render(); status.textContent = 'Ide tersimpan lokal.'; status.className = 'save-status saved'; }
+    try { const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(idea) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal menyimpan ide.'); ideas = result.ideas; form.reset(); render(); status.textContent = 'Ide tersimpan lokal.'; status.className = 'save-status saved'; }
     catch (error) { status.textContent = error.message; status.className = 'save-status error'; }
   });
 }
@@ -1070,7 +1112,7 @@ async function initVisitorLogs() {
     const query = new URLSearchParams({ resource: 'visitor_logs', days: controls.days.value, device: controls.device.value, traffic: controls.traffic.value, page: String(page) });
     if (controls.q.value.trim()) query.set('q', controls.q.value.trim()); if (controls.from.value) query.set('from', controls.from.value); if (controls.to.value) query.set('to', controls.to.value);
     try {
-      const response = await fetch(`/api?${query}`, { headers: { Accept: 'application/json' }, cache: 'no-store' }); const result = await response.json();
+      const response = await fetch(`${API_URL}?${query}`, { headers: { Accept: 'application/json' }, cache: 'no-store' }); const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Log pengunjung belum dapat dimuat.'); if (thisRequest !== requestId) return;
       page = Number(result.page) || 1; pages = Number(result.pages) || 1;
       setText('#visitorStatViews', Number(result.stats?.views || 0).toLocaleString('id-ID')); setText('#visitorStatUnique', Number(result.stats?.visitors || 0).toLocaleString('id-ID')); setText('#visitorStatIps', Number(result.stats?.addresses || 0).toLocaleString('id-ID')); setText('#visitorStatReferred', Number(result.stats?.referred || 0).toLocaleString('id-ID'));
@@ -1112,7 +1154,7 @@ async function initCitizenDirectory() {
     status.textContent = 'Memuat daftar warga…'; status.className = 'citizen-admin-status';
     try {
       const query = new URLSearchParams({ resource:'citizen_admin', q:search.value.trim(), status:filter.value, page:String(page) });
-      const response = await fetch(`/api?${query}`, { headers:{ Accept:'application/json' } });
+      const response = await fetch(`${API_URL}?${query}`, { headers:{ Accept:'application/json' } });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Direktori warga belum dapat dimuat.');
       page = result.page; pages = result.pages;
       $('#citizenStatTotal').textContent = Number(result.stats.total || 0).toLocaleString('id-ID');
@@ -1133,12 +1175,12 @@ async function initCitizenDirectory() {
         const badges = make('div','citizen-admin-badges'); badges.append(make('span',`citizen-account-badge ${Number(citizen.is_active)?'active':'inactive'}`,Number(citizen.is_active)?'AKTIF':'NONAKTIF')); badges.append(make('span',`citizen-email-badge ${Number(citizen.email_verified)?'verified':'pending'}`,Number(citizen.email_verified)?'EMAIL TERVERIFIKASI':'EMAIL MENUNGGU'));
         const details = make('div','citizen-admin-details'); const joined=String(citizen.created_at||'').slice(0,10); details.append(make('span','',`${citizen.occupation_label || 'Pekerjaan belum diisi'} · ${citizen.avatar_label || 'Warga umum'}`),make('span','',`Bergabung ${joined || '—'}`),make('span',`citizen-online ${Number(citizen.is_online)?'online':''}`,Number(citizen.is_online)?'● Sedang menjelajah':'○ Tidak sedang menjelajah'));
         const personal = make('details','citizen-admin-personal'); const summary = make('summary','','Lihat biodata privat'); const personalContent = make('div','citizen-admin-personal-content'); personal.append(summary,personalContent);
-        personal.addEventListener('toggle',async()=>{if(!personal.open||personal.dataset.loaded)return;personal.dataset.loaded='loading';personalContent.textContent='Memuat biodata…';try{const response=await fetch(`/api?resource=citizen_admin_detail&id=${Number(citizen.id)}`,{headers:{Accept:'application/json'}});const data=await response.json();if(!response.ok)throw new Error(data.error||'Biodata tidak dapat dimuat.');const profile=data.citizen;const values=[['Jenis kelamin',profile.gender_label],['Agama/kepercayaan',profile.religion_label],['Tempat lahir',[profile.birth_city,profile.birth_province_label].filter(Boolean).join(', ')],['Tanggal lahir',profile.birth_date],['Pekerjaan',profile.occupation_label],['Pendidikan',profile.education_label],['Domisili',[profile.domicile_city,profile.domicile_province_label].filter(Boolean).join(', ')],['Gaya avatar',profile.avatar_label]];const dl=make('dl','');values.forEach(([label,value])=>{const group=make('div','');group.append(make('dt','',label),make('dd','',value||'Belum diisi'));dl.append(group);});personalContent.replaceChildren(dl);personal.dataset.loaded='true';}catch(error){personalContent.textContent=error.message;personal.dataset.loaded='';}});
+        personal.addEventListener('toggle',async()=>{if(!personal.open||personal.dataset.loaded)return;personal.dataset.loaded='loading';personalContent.textContent='Memuat biodata…';try{const response=await fetch(`${API_URL}?resource=citizen_admin_detail&id=${Number(citizen.id)}`,{headers:{Accept:'application/json'}});const data=await response.json();if(!response.ok)throw new Error(data.error||'Biodata tidak dapat dimuat.');const profile=data.citizen;const values=[['Jenis kelamin',profile.gender_label],['Agama/kepercayaan',profile.religion_label],['Tempat lahir',[profile.birth_city,profile.birth_province_label].filter(Boolean).join(', ')],['Tanggal lahir',profile.birth_date],['Pekerjaan',profile.occupation_label],['Pendidikan',profile.education_label],['Domisili',[profile.domicile_city,profile.domicile_province_label].filter(Boolean).join(', ')],['Gaya avatar',profile.avatar_label]];const dl=make('dl','');values.forEach(([label,value])=>{const group=make('div','');group.append(make('dt','',label),make('dd','',value||'Belum diisi'));dl.append(group);});personalContent.replaceChildren(dl);personal.dataset.loaded='true';}catch(error){personalContent.textContent=error.message;personal.dataset.loaded='';}});
         const action = make('button',`citizen-admin-toggle ${Number(citizen.is_active)?'deactivate':'activate'}`,Number(citizen.is_active)?'NONAKTIFKAN':'AKTIFKAN KEMBALI'); action.type='button'; action.addEventListener('click',async()=>{
           const activating=!Number(citizen.is_active); const verb=activating?'mengaktifkan kembali':'menonaktifkan';
           if (!window.confirm(`Yakin ingin ${verb} akun ${citizen.display_name} (@${citizen.username})?`)) return;
           action.disabled=true;
-          try { const update=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen_admin',action:'set_active',citizenId:Number(citizen.id),active:activating})});const data=await update.json();if(!update.ok)throw new Error(data.error||'Status akun belum berubah.');await load(); }
+          try { const update=await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen_admin',action:'set_active',citizenId:Number(citizen.id),active:activating})});const data=await update.json();if(!update.ok)throw new Error(data.error||'Status akun belum berubah.');await load(); }
           catch(error){status.textContent=error.message;status.className='citizen-admin-status error';action.disabled=false;}
         });
         card.append(identity,badges,details,action,personal);list.append(card);
@@ -1165,7 +1207,7 @@ async function initMailSettings() {
     status.classList.toggle('ready', !!settings.smtpConfigured);
   };
   try {
-    const response = await fetch('/api?resource=settings', { headers: { Accept: 'application/json' } });
+    const response = await fetch(`${API_URL}?resource=settings`, { headers: { Accept: 'application/json' } });
     const settings = await response.json();
     if (!response.ok) throw new Error(settings.error || 'Gagal memuat pengaturan email.');
     show(settings);
@@ -1175,7 +1217,7 @@ async function initMailSettings() {
     status.classList.remove('error');
     status.textContent = 'Menyimpan pengaturan…';
     try {
-      const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'settings', requireEmailVerification: verification.checked }) });
+      const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'settings', requireEmailVerification: verification.checked }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Pengaturan tidak berhasil disimpan.');
       show(result); status.textContent = result.requireEmailVerification ? 'Verifikasi email diwajibkan untuk pendaftaran baru.' : 'Pendaftaran email tidak mewajibkan verifikasi.';
@@ -1319,17 +1361,18 @@ async function initWorldEditor() {
   }
   function loadRegion(region, force = false) {
     if (dirty && (region !== currentRegion || force) && !window.confirm('Ada perubahan yang belum disimpan. Muat ulang tanpa menyimpan?')) { $('#sceneRegion').value = currentRegion; return; }
-    const params = new URLSearchParams(location.search); params.set('view', 'world'); params.set('region', region); history.replaceState(history.state, '', `${location.pathname}?${params.toString()}${location.hash}`);
+    // Loading the hidden world editor must not replace the active sidebar view.
+    updateAdminQuery({region});
     if (region !== currentRegion) { viewCenterX = 0; viewCenterZ = 0; updateEditorView(); }
     currentRegion = region; selectedId = null; pendingType = null; dirty = false; sceneLoaded = false; setStatus('Memuat tata wilayah dari server…', false);
     const sequence = ++regionLoadSequence;
-    fetch(`/api?resource=world_scene&region=${encodeURIComponent(region)}`, { headers: { Accept: 'application/json' }, cache: 'no-store' }).then(async (response) => { const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Tata wilayah belum dapat dimuat.'); if (sequence !== regionLoadSequence) return; if (!Array.isArray(data.objects)) throw new Error('Format tata wilayah dari server tidak valid.'); const hasSavedScene=Boolean(data.customized);entries=hasSavedScene?data.objects:getDefaultWorldScene(region);sceneLoaded=true;editorReady=true;const rendered=drawObjects();requestAnimationFrame(()=>{resize();renderer.render(scene,camera);});const detail=rendered.failed.length?` · ${rendered.failed.length} aset gagal dirender`:'';setStatus(`${rendered.rendered} dari ${entries.length} objek tampil${hasSavedScene?' · tersimpan':' · tata awal'}.${detail} Klik aset untuk menambah.`, rendered.failed.length>0); }).catch((error) => { if (sequence !== regionLoadSequence) return; sceneLoaded=false;editorReady=false;const rendered=drawObjects();renderer.render(scene,camera);setStatus(`${error.message} · data lama tidak diubah. Periksa koneksi lalu tekan Muat Ulang.`, true);console.error('Tata wilayah gagal dimuat:',error); });
+    fetch(`${API_URL}?resource=world_scene&region=${encodeURIComponent(region)}`, { headers: { Accept: 'application/json' }, cache: 'no-store' }).then(async (response) => { const data = await response.json(); if (!response.ok) throw new Error(data.error || 'Tata wilayah belum dapat dimuat.'); if (sequence !== regionLoadSequence) return; if (!Array.isArray(data.objects)) throw new Error('Format tata wilayah dari server tidak valid.'); const hasSavedScene=Boolean(data.customized);entries=hasSavedScene?data.objects:getDefaultWorldScene(region);sceneLoaded=true;editorReady=true;const rendered=drawObjects();requestAnimationFrame(()=>{resize();renderer.render(scene,camera);});const detail=rendered.failed.length?` · ${rendered.failed.length} aset gagal dirender`:'';setStatus(`${rendered.rendered} dari ${entries.length} objek tampil${hasSavedScene?' · tersimpan':' · tata awal'}.${detail} Klik aset untuk menambah.`, rendered.failed.length>0); }).catch((error) => { if (sequence !== regionLoadSequence) return; sceneLoaded=false;editorReady=false;const rendered=drawObjects();renderer.render(scene,camera);setStatus(`${error.message} · data lama tidak diubah. Periksa koneksi lalu tekan Muat Ulang.`, true);console.error('Tata wilayah gagal dimuat:',error); });
   }
   async function saveRegion() {
     if (!sceneLoaded) { setStatus('Tata wilayah belum dimuat dari server. Muat ulang dulu sebelum menyimpan agar data lama tetap aman.', true); return; }
     const button = $('#saveWorldScene'); button.disabled = true; setStatus('Menyimpan tata wilayah…');
     try {
-      const response = await fetch('/api', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'world_scene', region: currentRegion, objects: entries }) });
+      const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'world_scene', region: currentRegion, objects: entries }) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Tata wilayah belum tersimpan.');
       if (result.region !== currentRegion || !Array.isArray(result.objects)) throw new Error('Server mengembalikan wilayah yang berbeda. Perubahan belum dikonfirmasi.');
       entries = result.objects; dirty = false; drawObjects(); setStatus(`${entries.length} objek tersimpan dan sudah dikonfirmasi server.`, false);
@@ -1515,6 +1558,20 @@ async function initObjectGallery() {
 async function initAvatarStudio() {
   const canvas = $('#avatarPreviewCanvas'); if (!canvas) return;
   const form = $('#avatarOptionsForm'); const catalog = $('#avatarCatalog'); const status = $('#avatarSaveStatus');
+  const studio=canvas.closest('.avatar-studio'),preview=canvas.closest('.avatar-preview-card'),catalogPanel=catalog.closest('.avatar-catalog-card');
+  const workbench=document.createElement('div');workbench.className='avatar-workbench';
+  const tabs=document.createElement('div');tabs.className='avatar-workbench-tabs';tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Panel Studio Avatar');
+  const panels=document.createElement('div');panels.className='avatar-workbench-panels';
+  catalogPanel.id='avatarCatalogPanel';panels.append(catalogPanel,form);workbench.append(tabs,panels);studio.append(workbench);
+  const studioTabs=[['Koleksi avatar',catalogPanel],['Racik & simpan',form]].map(([label,panel],index)=>{
+    const button=document.createElement('button');button.type='button';button.textContent=label;button.id=`avatarStudioTab${index}`;button.setAttribute('role','tab');button.setAttribute('aria-controls',panel.id);
+    panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',button.id);tabs.append(button);
+    button.addEventListener('click',()=>selectStudioTab(index));
+    button.addEventListener('keydown',event=>{const next=event.key==='ArrowRight'?(index+1)%2:event.key==='ArrowLeft'?(index+1)%2:event.key==='Home'?0:event.key==='End'?1:null;if(next!==null){event.preventDefault();selectStudioTab(next);studioTabs[next].button.focus();}});
+    return {button,panel};
+  });
+  function selectStudioTab(index){studioTabs.forEach(({button,panel},i)=>{button.setAttribute('aria-selected',String(i===index));button.tabIndex=i===index?0:-1;panel.hidden=i!==index;});panels.scrollTop=0;}
+  selectStudioTab(0);
   const options = {
     skin: [['sawo','Sawo matang'],['kuning','Kuning langsat'],['gelap','Gelap'],['zaitun','Zaitun'],['pucat','Terang'],['coklat','Cokelat']],
     hair: [['pendek','Pendek'],['cepak','Cepak'],['ikal','Ikal'],['panjang','Panjang'],['keriting','Keriting'],['kuncir','Kuncir'],['hijab','Hijab'],['botak','Botak']],
@@ -1527,16 +1584,56 @@ async function initAvatarStudio() {
   };
   const colors = { skin:{sawo:'#c9825c',kuning:'#e0a477',gelap:'#75472f',zaitun:'#ad7052',pucat:'#f0c29b',coklat:'#985c3e'}, hairColor:{hitam:'#292522',coklat:'#51362d','coklat-tua':'#35251f',pirang:'#bd8c49',uban:'#aaa9a2',merah:'#74382d'}, top:{kemeja:'#e6e0cd',flanel:'#455f82',batik:'#a34c3e',seragam:'#527aa3',jaket:'#537a64',hoodie:'#617b91',jas:'#44566b',kaos:'#d99445',kebaya:'#b66c78',petani:'#77844d',pekerja:'#dfae40',koko:'#e9e4d7',rompi:'#3a827b'}, bottom:{celana:'#314256',jeans:'#41658b',cargo:'#586746',sarung:'#9c674f',rok:'#563e54',pendek:'#536a52',kulot:'#705b52'} };
   // Open with the new harvest-life-sim farmer so the reference is visible immediately.
-  const defaults = { skin:'sawo',hair:'pendek',hairColor:'hitam',top:'flanel',bottom:'cargo',headwear:'caping',accessory:'tas-anyaman',facialHair:'kumis-janggut',special:'' };
+  const defaults = {...FARMER_PRESETS[0].config};
   for (const [key, values] of Object.entries(options)) { const select = form.elements[key]; select.innerHTML = values.map(([value,label]) => `<option value="${value}">${label}</option>`).join(''); select.value = defaults[key]; }
   const comboCount = Object.values(options).reduce((sum, list) => sum * list.length, 1);
   $('#avatarComboCount').textContent = `${comboCount.toLocaleString('id-ID')}+`;
-  $('#avatarPresetName').value='Racikan Warga'; $('#avatarPreviewName').textContent='Racikan Warga';
+  $('#avatarPresetName').value=FARMER_PRESETS[0].name; $('#avatarPreviewName').textContent=FARMER_PRESETS[0].name;
   let THREE, renderer, scene, camera, model, presets = [], activeSpecial = '', yaw = .35, pitch = .08, distance = 4.7, pointer = null;
-  let currentAssetReport=null,previewAnimation='Idle',previewScale=1,wireframeEnabled=false,skeletonVisible=false,skeletonHelper=null,lastStatsAt=0;
+  const farmerEditor = mountFarmerEditor(form, () => showConfig(chosen()));
+  let thumbnailService=null;
+  const studioModel = $('#avatarStudioModel');
+  const modelLabel = studioModel.closest('label'); form.prepend(modelLabel);
+  const quickLabel=document.createElement('label');quickLabel.className='avatar-name-field';quickLabel.textContent='Mulai dari avatar siap pakai';
+  const quickPreset=document.createElement('select');quickPreset.id='avatarQuickPreset';quickPreset.add(new Option('Pilih racikan V11…',''));
+  FARMER_PRESETS.forEach(preset=>quickPreset.add(new Option(preset.name,preset.id)));quickLabel.append(quickPreset);
+  const switcher=document.createElement('div');switcher.className='avatar-quick-switcher';
+  const previousPreset=document.createElement('button'),nextPreset=document.createElement('button');
+  previousPreset.type=nextPreset.type='button';previousPreset.textContent='←';nextPreset.textContent='→';previousPreset.setAttribute('aria-label','Racikan V11 sebelumnya');nextPreset.setAttribute('aria-label','Racikan V11 berikutnya');
+  switcher.append(previousPreset,quickLabel,nextPreset);preview.querySelector('.builder-subhead').after(switcher);
+  const stepPreset=step=>{const current=FARMER_PRESETS.findIndex(p=>p.id===quickPreset.value);const index=current<0?(step>0?0:FARMER_PRESETS.length-1):(current+step+FARMER_PRESETS.length)%FARMER_PRESETS.length;quickPreset.value=FARMER_PRESETS[index].id;quickPreset.dispatchEvent(new Event('change'));};
+  previousPreset.addEventListener('click',()=>stepPreset(-1));nextPreset.addEventListener('click',()=>stepPreset(1));
+  quickPreset.value=FARMER_PRESETS[0].id;
+  quickPreset.addEventListener('change',()=>{
+    const preset=FARMER_PRESETS.find(item=>item.id===quickPreset.value);if(!preset)return;
+    $('#avatarPresetName').value=preset.name;$('#avatarPreviewName').textContent=preset.name;showConfig(preset.config);quickPreset.value=preset.id;markSelectedPreset(preset.id);
+    status.textContent='Racikan V11 dimuat. Sesuaikan bagian yang kamu inginkan sebelum menyimpan.';
+  });
+  studioModel.addEventListener('change', () => {
+    const config=chosen(); config.special=studioModel.value;
+    showConfig(config); status.textContent=config.special==='farmer-ps2'?'Model V11 aktif · sama dengan avatar game.':'Model modular lama aktif.';
+  });
+  form.addEventListener('submit', event => event.preventDefault());
+  let currentAssetReport=null,humanAssetReport=null,farmerAssetReport=null,previewAnimation='Idle',previewScale=1,wireframeEnabled=false,skeletonVisible=false,skeletonHelper=null,lastStatsAt=0;
   const assetStatus=$('#avatarAssetStatus');const materialReport=$('#avatarMaterialReport');const animationSelect=$('#avatarPreviewAnimation');const statsReadout=$('#avatarAssetStatus');
   const assetFile=$('#avatarAssetFile');const lightingSelect=$('#avatarPreviewLighting');const scaleInput=$('#avatarPreviewScale');const scaleValue=$('#avatarPreviewScaleValue');
+  const playbackClock=createStudioClock();let playbackPaused=false,playbackSpeed=1;
+  const playbackBar=document.createElement('div');playbackBar.className='avatar-playback-bar';
+  playbackBar.innerHTML='<button type="button" id="avatarPlaybackPause" aria-pressed="false">Jeda</button><button type="button" id="avatarPlaybackRestart">Ulangi</button><label>Kecepatan<select id="avatarPlaybackSpeed"><option value="0.25">0,25×</option><option value="0.5">0,5×</option><option value="0.75">0,75×</option><option value="1" selected>1× · normal</option><option value="1.5">1,5×</option><option value="2">2×</option></select></label>';
+  preview.querySelector('.character-preview-toolbar').before(playbackBar);
+  $('#avatarPlaybackPause').addEventListener('click',event=>{playbackPaused=!playbackPaused;event.currentTarget.setAttribute('aria-pressed',String(playbackPaused));event.currentTarget.textContent=playbackPaused?'Lanjutkan':'Jeda';playbackClock.reset();});
+  $('#avatarPlaybackRestart').addEventListener('click',()=>{model?.userData.setAnimation?.(previewAnimation,true);playbackClock.reset();});
+  $('#avatarPlaybackSpeed').addEventListener('change',event=>{playbackSpeed=Number(event.target.value);playbackClock.reset();});
+  const viewBar=document.createElement('div');viewBar.className='avatar-view-buttons';
+  for(const [label,angle] of [['Depan',0],['Kiri',-Math.PI/2],['Belakang',Math.PI],['3/4',.35]]){const button=document.createElement('button');button.type='button';button.textContent=label;button.addEventListener('click',()=>{yaw=angle;pitch=.08;distance=4.7;positionPreviewCamera();});viewBar.append(button);}
+  canvas.after(viewBar);
+  const advanced=document.createElement('details');advanced.className='avatar-preview-advanced';const advancedTitle=document.createElement('summary');advancedTitle.textContent='Alat teknis & impor GLB';advanced.append(advancedTitle,preview.querySelector('.character-asset-import'),preview.querySelector('.character-material-details'));preview.append(advanced);
+  const debugControls=document.createElement('div');debugControls.className='avatar-debug-controls';debugControls.append($('#avatarWireframe'),$('#avatarSkeleton'),preview.querySelector('.character-scale'));advancedTitle.after(debugControls);
+  function positionPreviewCamera(){if(!camera)return;camera.position.set(Math.sin(yaw)*distance,1.7+pitch,Math.cos(yaw)*distance);camera.lookAt(0,1.02,0);}
+  let selectedPresetId=FARMER_PRESETS[0].id;
+  function markSelectedPreset(id){selectedPresetId=id;catalog.querySelectorAll('[data-preset]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.preset===id)));}
   const builtIns = [
+    ...FARMER_PRESETS,
     ['Pak Lurah','sawo','pendek','hitam','batik','celana','peci','lencana'],['Bu Guru','kuning','hijab','coklat','seragam','rok','tanpa','kacamata'],['Petani Pagi','gelap','ikal','hitam','petani','sarung','caping','ransel'],['Pelajar Ceria','pucat','panjang','coklat','seragam','rok','bandana','ransel'],['Pedagang Pasar','coklat','keriting','coklat-tua','kaos','kulot','tanpa','selempang'],['Relawan Desa','zaitun','pendek','hitam','rompi','jeans','topi','lencana'],['Koki Dapur','kuning','pendek','coklat','kemeja','celana','bandana','map'],['Bunda Warga','sawo','hijab','hitam','kebaya','rok','tanpa','selempang'],['Pekerja Jalan','gelap','pendek','hitam','pekerja','celana','helm','ransel'],['Penjaga Hutan','coklat','ikal','coklat','jaket','kulot','topi','map'],['Pemuda Pesisir','zaitun','keriting','merah','kaos','pendek','bandana','tanpa'],['Kakak Koperasi','pucat','panjang','uban','koko','celana','peci','kacamata'],['Ibu Petani','gelap','hijab','coklat-tua','petani','sarung','caping','ransel'],['Seniman Kampung','kuning','panjang','merah','kaos','kulot','tanpa','syal'],['Ketua RT','sawo','pendek','uban','kemeja','celana','peci','map'],['Mekanik Warga','coklat','ikal','hitam','jaket','jeans','topi','lencana'],['Penjaga Sekolah','zaitun','pendek','coklat','seragam','celana','topi','kacamata'],['Sahabat Sungai','gelap','keriting','coklat','rompi','pendek','bandana','ransel'],
     { name:'Garuda Merah Putih', icon:'🦅', config:{skin:'pucat',hair:'botak',hairColor:'uban',top:'seragam',bottom:'celana',headwear:'bandana',accessory:'lencana',special:'garuda'} },
     { name:'Pemimpin Berseragam', icon:'🪖', config:{skin:'sawo',hair:'pendek',hairColor:'hitam',top:'kemeja',bottom:'celana',headwear:'peci',accessory:'lencana',special:'pemimpin'} },
@@ -1545,32 +1642,34 @@ async function initAvatarStudio() {
     { name:'Nadia Warga', icon:'🌼', config:{skin:'kuning',hair:'kuncir',hairColor:'coklat-tua',top:'kebaya',bottom:'rok',headwear:'tanpa',accessory:'selempang'} },
     { name:'Petani Panen Pagi', icon:'🌾', thumbnail:`${window.SEMESTA_AVATAR_GALLERY_ROOT}karakter-harvestmoon-warga-3d.png`, config:{skin:'sawo',hair:'pendek',hairColor:'hitam',top:'flanel',bottom:'cargo',headwear:'caping',accessory:'tas-anyaman',facialHair:'kumis-janggut'} },
   ];
-  builtIns.sort((a,b)=>Number(!!b.modelFile)-Number(!!a.modelFile)||Number(!!b.config?.special)-Number(!!a.config?.special));
+  builtIns.sort((a,b)=>Number(b.config?.special==='farmer-ps2')-Number(a.config?.special==='farmer-ps2')||Number(!!b.modelFile)-Number(!!a.modelFile)||Number(!!b.config?.special)-Number(!!a.config?.special));
   const configFrom = (preset) => preset.config || { skin:preset[1],hair:preset[2],hairColor:preset[3],top:preset[4],bottom:preset[5],headwear:preset[6],accessory:preset[7] };
   const labelFor = (key,value) => (options[key].find(([id]) => id === value) || [value,value])[1];
-  const chosen = () => ({...Object.fromEntries(Object.keys(options).map((key) => [key, form.elements[key].value])), ...(activeSpecial?{special:activeSpecial}:{})});
+  const chosen = () => ({...Object.fromEntries(Object.keys(options).map((key) => [key, form.elements[key].value])), ...(activeSpecial?{special:activeSpecial}:{}), ...(activeSpecial==='farmer-ps2'?{farmer:farmerEditor.get()}:{})});
   function material(hex, roughness=.82) { return new THREE.MeshStandardMaterial({ color:hex, roughness }); }
   function add(parent, geometry, mat, position, scale, rotation=0) { const mesh = new THREE.Mesh(geometry,mat); mesh.position.set(...position); if (scale) mesh.scale.set(...scale); mesh.rotation.z=rotation; mesh.castShadow=true; mesh.receiveShadow=true; parent.add(mesh); return mesh; }
   function makeModularAvatar(config) {
-    if(!hasHumanAsset()){const unavailable=new THREE.Group();unavailable.userData.assetUnavailable=true;return unavailable;}
+    if(config.special==='farmer-ps2' && !hasFarmerAsset()) { status.textContent='Aset V11 gagal dimuat. Muat ulang halaman; model lama tidak dipakai sebagai pengganti.'; const unavailable=new THREE.Group();unavailable.userData.assetUnavailable=true;return unavailable; }
+    if(!hasHumanAsset() && !(config.special==='farmer-ps2' && hasFarmerAsset())){const unavailable=new THREE.Group();unavailable.userData.assetUnavailable=true;return unavailable;}
     const parts=createHumanModel(THREE,{
       skin:colors.skin[config.skin], hair:colors.hairColor[config.hairColor], hairStyle:config.hair,
       shirt:colors.top[config.top], trousers:colors.bottom[config.bottom], topStyle:config.top, bottomStyle:config.bottom,
       role:config.special==='pemimpin'?'pemimpin':undefined, headwear:config.headwear,
+      ps2Farmer:config.special==='farmer-ps2',
       accessory:config.accessory, facialHair:config.facialHair, pack:config.accessory==='ransel'?'#9d6948':null,
       showBackpack:config.accessory==='ransel',
       apron:config.top==='petani'?'#8b7449':undefined,
+      ...(config.special==='farmer-ps2' ? farmerCharacterOptions(config, avatarColors) : {}),
     });
     const root=parts.figure;
-    let activeClip=parts.activeAction||'Idle';
+    const animation=createStudioAnimation(parts);
     root.userData.availableAnimations=Object.keys(parts.actions||{});
-    root.userData.setAnimation=(name)=>{
-      const next=parts.actions?.[name];if(!next)return false;if(activeClip===name)return true;
-      parts.actions?.[activeClip]?.fadeOut(.18);next.reset().fadeIn(.18).play();activeClip=name;return true;
-    };
-    root.userData.animate=(time)=>{
+    root.userData.setAnimation=animation.select;
+    root.userData.disposeAnimation=animation.dispose;
+    root.userData.animate=(time,delta)=>{
       const phase=time*.0017;
-      parts.mixer?.update(1/60);
+      animation.update(delta);
+      if (parts.mixer) return; // Authored clips own both V11 and legacy skeletons.
       parts.head.rotation.z=Math.sin(phase*.55)*.016;
       if(config.special==='pemimpin')parts.arms[1].rotation.z=2.35+Math.sin(phase*.7)*.025;
       else parts.arms.forEach((arm,index)=>{arm.rotation.z=(index?1:-1)*(.045+Math.sin(phase+index*Math.PI)*.018);});
@@ -1665,7 +1764,7 @@ async function initAvatarStudio() {
     return root;
   }
   function refreshAnimationOptions(){
-    const clips=currentAssetReport?.clips||[];
+    const clips=activeSpecial==='garuda'?[]:(currentAssetReport?.clips||[]);
     animationSelect.replaceChildren(...(clips.length?clips.map((clip)=>new Option(`${clip.name} · ${clip.duration}s`,clip.name)): [new Option('Tidak ada klip GLB','')]));
     const available=new Set(clips.map((clip)=>clip.name.toLowerCase()));
     const missing=(currentAssetReport?.missingClips||[]).filter((name)=>!available.has(name.toLowerCase()));
@@ -1701,52 +1800,114 @@ async function initAvatarStudio() {
     else if(!model?.userData.setAnimation)status.textContent='Avatar ini tidak memiliki klip animasi GLB.';
   }
   function installPreviewAsset(gltf,sourceLabel){
-    currentAssetReport=inspectCharacterAsset(gltf);setHumanAsset(currentAssetReport.valid?gltf:null);refreshAnimationOptions();updateMaterialReport();
-    assetStatus.textContent=`${formatCharacterAssetSummary(currentAssetReport)} · ${sourceLabel}${currentAssetReport.valid?'':' · PRATINJAU ASET TIDAK VALID'}`;
-    showConfig(chosen());
+    const report=inspectCharacterAsset(gltf);
+    if(!report.valid) throw new Error('GLB tidak memiliki mesh karakter yang valid.');
+    const farmer=isFarmerV8(gltf.scene);
+    if(farmer){farmerAssetReport=report;setFarmerAsset(gltf);thumbnailService?.dispose();thumbnailService=null;renderCatalog();}
+    else{humanAssetReport=report;setHumanAsset(gltf);}
+    showConfig({...chosen(),special:farmer?'farmer-ps2':''},{rebuild:true});
+    status.textContent=`${sourceLabel} · ${farmer?'model keluarga V11':'model modular'} aktif. Impor lokal hanya untuk pratinjau, bukan penggantian aset game.`;
   }
-  function showConfig(config) {
+  function showConfig(config,{rebuild=false}={}) {
+    quickPreset.value='';
+    markSelectedPreset('');
+    const sameFarmer=!rebuild&&activeSpecial==='farmer-ps2'&&config.special==='farmer-ps2'&&model?.userData.setAppearance;
     activeSpecial=config.special||'';
+    studioModel.value=activeSpecial;
+    $('#avatarResetAsset').textContent=activeSpecial==='farmer-ps2'?'Muat ulang V11 game':'Muat ulang model lama';
+    const combinations=activeSpecial==='farmer-ps2'?Object.values(FARMER_SCHEMA.fields).reduce((total,field)=>total*Object.keys(field.options).length,1):comboCount;
+    $('#avatarComboCount').textContent=combinations.toLocaleString('id-ID');
+    $('#avatarComboCount').title='Kombinasi pilihan bentuk, tidak termasuk warna; bukan jumlah model yang diuji visual satu per satu.';
+    if (!humanAssetReport && currentAssetReport && !farmerAssetReport) humanAssetReport=currentAssetReport;
+    currentAssetReport=activeSpecial==='farmer-ps2'?farmerAssetReport:humanAssetReport;
+    refreshAnimationOptions(); updateMaterialReport();
+    farmerEditor.set(config, avatarColors); farmerEditor.show(activeSpecial==='farmer-ps2');
     for (const key of Object.keys(options)) form.elements[key].value = config[key] || defaults[key];
-    for (const key of Object.keys(options)) form.elements[key].disabled=activeSpecial==='garuda';
+    for (const key of Object.keys(options)) { form.elements[key].disabled=['garuda','farmer-ps2'].includes(activeSpecial); form.elements[key].closest('label').hidden=activeSpecial==='farmer-ps2'; }
     const clean=chosen();
     $('#avatarPreviewParts').textContent=[clean.hair,clean.top,clean.bottom,clean.headwear,clean.accessory,clean.facialHair].map((part,i)=>labelFor(['hair','top','bottom','headwear','accessory','facialHair'][i],part).toUpperCase()).join(' · ');
+    if (activeSpecial==='farmer-ps2') $('#avatarPreviewParts').textContent=['bodyFrame','bodyType','outfit','bottomStyle'].map(key=>FARMER_SCHEMA.fields[key].options[clean.farmer[key]]).join(' · ');
     if(!THREE || !scene)return;
-    if(model){scene.remove(model);model.traverse((node)=>{if(!node.userData.sharedCharacterGeometry)node.geometry?.dispose(); if(node.material){const list=Array.isArray(node.material)?node.material:[node.material];list.forEach((mat)=>{if(!mat.userData.sharedCharacterTexture)mat.map?.dispose();mat.dispose();});}});}
+    if(sameFarmer){model.userData.setAppearance(farmerCharacterOptions(clean,avatarColors));return;}
+    if(model){model.userData.disposeAnimation?.();scene.remove(model);const skeletons=new Set();model.traverse((node)=>{if(node.skeleton)skeletons.add(node.skeleton);if(!node.userData.sharedCharacterGeometry)node.geometry?.dispose(); if(node.material){const list=Array.isArray(node.material)?node.material:[node.material];list.forEach((mat)=>{if(!mat.userData.sharedCharacterTexture)mat.map?.dispose();mat.dispose();});}});skeletons.forEach(skeleton=>skeleton.dispose());}
     model=clean.special==='garuda'?makeSpecialAvatar(clean):makeModularAvatar(clean);scene.add(model);model.scale.setScalar(previewScale);model.userData.setAnimation?.(previewAnimation);applyWireframe();updateSkeletonHelper();
+    playbackClock.reset();
   }
   const catalogSearch = $('#avatarCatalogSearch'); const catalogParams = new URLSearchParams(location.search); let catalogPage = Math.max(1, Number(catalogParams.get('avatarPage')) || 1); const catalogPageSize = 12;
+  const catalogFilter=$('#avatarCatalogFilter');
+  const initialFilter=catalogParams.get('avatarCollection')||'v11';
+  if([...catalogFilter.options].some(option=>option.value===initialFilter))catalogFilter.value=initialFilter;
+  const catalogDescription = config => {
+    if(config.special==='farmer-ps2') { const appearance=farmerCharacterOptions(config,avatarColors); return 'V11 · '+['bodyFrame','bodyType','outfit','bottomStyle'].map(key=>FARMER_SCHEMA.fields[key].options[appearance[key]]).join(' · '); }
+    if(config.special==='garuda') return 'Maskot Garuda 3D';
+    if(config.special==='pemimpin') return 'Pemimpin · model lama';
+    return `Model lama · ${labelFor('top',config.top)} · ${labelFor('hair',config.hair)}`;
+  };
   catalogSearch.value = catalogParams.get('avatarQ') || '';
   function renderCatalog() {
-    const items=[...builtIns.map((preset,index)=>({id:`builtin-${index}`,name:Array.isArray(preset)?preset[0]:preset.name,icon:preset.icon,thumbnail:preset.thumbnail,modelFile:preset.modelFile,config:configFrom(preset),builtIn:true})),...presets];
-    const query=catalogSearch.value.trim().toLocaleLowerCase('id-ID'); const filtered=items.filter((item)=>`${item.name} ${labelFor('top',item.config.top)} ${labelFor('hair',item.config.hair)} ${item.config.special||''}`.toLocaleLowerCase('id-ID').includes(query));
+    const items=[...builtIns.map((preset,index)=>({id:preset.id||`builtin-${index}`,name:Array.isArray(preset)?preset[0]:preset.name,collection:preset.collection,icon:preset.icon,thumbnail:preset.thumbnail,modelFile:preset.modelFile,config:configFrom(preset),builtIn:true})),...presets];
+    const query=catalogSearch.value.trim().toLocaleLowerCase('id-ID'); const filtered=items.filter((item)=>{
+      const group=catalogFilter.value;
+      const matches=group==='all'||(group==='saved'&&!item.builtIn)||(group==='v11'&&item.config.special==='farmer-ps2')||(group==='legacy'&&item.config.special!=='farmer-ps2')||item.collection===group;
+      return matches&&`${item.name} ${catalogDescription(item.config)} ${item.config.special||''}`.toLocaleLowerCase('id-ID').includes(query);
+    });
     const pages=Math.max(1,Math.ceil(filtered.length/catalogPageSize));catalogPage=Math.min(catalogPage,pages);const visible=filtered.slice((catalogPage-1)*catalogPageSize,catalogPage*catalogPageSize);
     $('#avatarCatalogCount').textContent=`${filtered.length} DARI ${items.length} GAYA`;$('#avatarCatalogPage').textContent=`Halaman ${catalogPage} dari ${pages}`;$('#avatarCatalogPrev').disabled=catalogPage<=1;$('#avatarCatalogNext').disabled=catalogPage>=pages;
-    catalog.innerHTML=visible.map((item)=>`<article class="avatar-catalog-item"><button type="button" class="avatar-preset" data-preset="${item.id}"><i style="--avatar-color:${colors.top[item.config.top]}">${item.thumbnail?`<img src="${item.thumbnail}" alt="" loading="lazy">`:item.icon|| (item.config.special==='garuda'?'🦅':item.config.special==='pemimpin'?'🪖':'♙')}</i><span><b>${item.name.replace(/[<>"&]/g,'')}</b><small>${item.modelFile?'Kemeja · Jins · Peci · Lencana':item.config.special==='garuda'?'Maskot Garuda 3D':item.config.special==='pemimpin'?'Seragam krem · pose tangan terangkat':`${labelFor('top',item.config.top)} · ${labelFor('hair',item.config.hair)}`}</small></span></button>${item.modelFile?`<a class="avatar-file-download" href="${item.modelFile}" download>UNDUH FILE GLB ↧</a>`:''}${item.builtIn?'':`<button class="avatar-delete" data-delete-avatar="${item.id}" aria-label="Hapus ${item.name}">×</button>`}</article>`).join('')||'<p class="ideas-empty">Tidak ada avatar yang cocok.</p>';
-    catalog.querySelectorAll('[data-preset]').forEach((button)=>button.addEventListener('click',()=>{const item=items.find((entry)=>entry.id===button.dataset.preset);if(!item)return;$('#avatarPresetName').value=item.name;$('#avatarPreviewName').textContent=item.name;showConfig(item.config);status.textContent=item.config.special==='garuda'?'Model maskot Garuda dipilih. Bentuk khas maskot dijaga tetap utuh.':item.config.special==='pemimpin'?'Model karakter hidup dipilih. Warna dan pakaian masih bisa diracik.':`Racikan “${item.name}” dimuat. Kamu masih bisa mengganti setiap bagiannya.`;}));
+    catalog.replaceChildren();const thumbnailJobs=[];
+    visible.forEach(item=>{
+      const card=document.createElement('article');card.className='avatar-catalog-item';
+      const button=document.createElement('button');button.type='button';button.className='avatar-preset';button.dataset.preset=item.id;
+      button.setAttribute('aria-pressed',String(item.id===selectedPresetId));
+      const portrait=document.createElement('i');portrait.className='avatar-card-portrait';
+      const placeholder=document.createElement('span');placeholder.className='avatar-card-placeholder';placeholder.textContent=item.config.special==='farmer-ps2'?'V11':(item.icon||'♙');portrait.append(placeholder);
+      const image=document.createElement('img');image.alt='';image.hidden=true;portrait.append(image);
+      if(item.config.special==='farmer-ps2')thumbnailJobs.push({image,config:item.config});
+      else if(item.thumbnail){image.src=item.thumbnail;image.hidden=false;image.loading='lazy';portrait.classList.add('has-preview');}
+      const info=document.createElement('span');info.className='avatar-preset-info';
+      const tag=document.createElement('em');tag.className='avatar-card-kicker';tag.textContent=FARMER_COLLECTIONS[item.collection]||(item.builtIn?'Koleksi lama':'Racikan tersimpan');
+      const title=document.createElement('b');title.textContent=item.name;
+      const description=document.createElement('small');description.textContent=catalogDescription(item.config);
+      const action=document.createElement('span');action.className='avatar-card-action';action.textContent='Gunakan racikan ↗';
+      info.append(tag,title,description,action);button.append(portrait,info);card.append(button);
+      if(item.modelFile){const link=document.createElement('a');link.className='avatar-file-download';link.href=item.modelFile;link.download='';link.textContent='Unduh model GLB ↧';card.append(link);}
+      if(!item.builtIn){const remove=document.createElement('button');remove.type='button';remove.className='avatar-delete';remove.dataset.deleteAvatar=item.id;remove.setAttribute('aria-label',`Hapus ${item.name}`);remove.textContent='×';card.append(remove);}
+      catalog.append(card);
+    });
+    if(!visible.length){const empty=document.createElement('p');empty.className='avatar-catalog-empty';empty.textContent=catalogFilter.value==='saved'?'Belum ada racikan tersimpan. Pilih avatar, sesuaikan, lalu simpan dari studio.':'Tidak ada avatar yang cocok. Coba kata kunci atau koleksi lain.';catalog.append(empty);}
+    if(THREE&&scene&&hasFarmerAsset()&&thumbnailJobs.length){try{thumbnailService ||= createAvatarThumbnails(THREE);thumbnailService.fill(thumbnailJobs).catch(error=>console.warn('Pratinjau katalog tidak tersedia:',error));}catch(error){console.warn('Renderer katalog tidak tersedia:',error);}}
+    catalog.querySelectorAll('[data-preset]').forEach((button)=>button.addEventListener('click',()=>{const item=items.find((entry)=>entry.id===button.dataset.preset);if(!item)return;$('#avatarPresetName').value=item.name;$('#avatarPreviewName').textContent=item.name;showConfig(item.config);quickPreset.value=item.id;markSelectedPreset(item.id);status.textContent=item.config.special==='garuda'?'Model maskot Garuda dipilih. Bentuk khas maskot dijaga tetap utuh.':item.config.special==='farmer-ps2'?'Avatar V11 dipilih. Mengganti postur, wajah, atau pakaian tetap memakai model V11.':item.config.special==='pemimpin'?'Model karakter hidup dipilih. Warna dan pakaian masih bisa diracik.':`Racikan “${item.name}” dimuat. Kamu masih bisa mengganti setiap bagiannya.`;}));
     catalog.querySelectorAll('[data-delete-avatar]').forEach((button)=>button.addEventListener('click',()=>saveLibrary(presets.filter((item)=>item.id!==button.dataset.deleteAvatar))));
   }
-  const syncCatalogUrl=()=>updateAdminQuery({avatarQ:catalogSearch.value.trim(),avatarPage:catalogPage});
+  const syncCatalogUrl=()=>updateAdminQuery({avatarQ:catalogSearch.value.trim(),avatarPage:catalogPage,avatarCollection:catalogFilter.value});
+  catalogFilter.addEventListener('change',()=>{catalogPage=1;renderCatalog();syncCatalogUrl();});
   catalogSearch.addEventListener('input',()=>{catalogPage=1;renderCatalog();syncCatalogUrl();});
   $('#avatarCatalogPrev').addEventListener('click',()=>{if(catalogPage>1){catalogPage--;renderCatalog();syncCatalogUrl();}});$('#avatarCatalogNext').addEventListener('click',()=>{catalogPage++;renderCatalog();syncCatalogUrl();});
   async function saveLibrary(next) {
     status.textContent='Menyimpan katalog avatar…';
-    try { const response=await fetch('/api',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'avatar_library',presets:next})});const result=await response.json();if(!response.ok)throw new Error(result.error||'Katalog belum tersimpan.');presets=result.presets;renderCatalog();status.textContent=`Katalog tersimpan · ${presets.length} avatar khusus.`; }
+    try { const response=await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'avatar_library',presets:next})});const result=await response.json();if(!response.ok)throw new Error(result.error||'Katalog belum tersimpan.');presets=result.presets;renderCatalog();status.textContent=`Katalog tersimpan · ${presets.length} avatar khusus.`; }
     catch(error){status.textContent=error.message;}
   }
   for(const key of Object.keys(options)) form.elements[key].addEventListener('change',()=>{if(activeSpecial==='pemimpin')activeSpecial='';showConfig(chosen());$('#avatarPreviewName').textContent=$('#avatarPresetName').value||'Racikan avatar';});
   $('#avatarPresetName').addEventListener('input',(event)=>$('#avatarPreviewName').textContent=event.target.value||'Racikan avatar');
-  $('#randomAvatar').addEventListener('click',()=>{const config={};for(const [key,values] of Object.entries(options))config[key]=values[Math.floor(Math.random()*values.length)][0];showConfig(config);$('#avatarPresetName').value='Racikan baru';$('#avatarPreviewName').textContent='Racikan baru';status.textContent='Kombinasi acak dibuat. Ubah bagian yang kamu mau, lalu simpan.';});
+  $('#randomAvatar').addEventListener('click',()=>{
+    const config=activeSpecial==='farmer-ps2'?chosen():{};
+    if(activeSpecial==='farmer-ps2') for(const [key,field] of Object.entries(FARMER_SCHEMA.fields)){const values=Object.keys(field.options);config.farmer[key]=values[Math.floor(Math.random()*values.length)];}
+    else for(const [key,values] of Object.entries(options))config[key]=values[Math.floor(Math.random()*values.length)][0];
+    showConfig(config);$('#avatarPresetName').value='Racikan baru';$('#avatarPreviewName').textContent='Racikan baru';status.textContent='Kombinasi acak dibuat. Ubah bagian yang kamu mau, lalu simpan.';
+  });
   $('#saveAvatarPreset').addEventListener('click',()=>{if(presets.length>=100){status.textContent='Katalog mencapai batas 100 avatar tersimpan.';return;}const name=$('#avatarPresetName').value.trim();if(!name){status.textContent='Isi nama avatar sebelum menyimpan.';return;}const id=`avatar-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,6)}`;saveLibrary([...presets,{id,name,config:chosen()}]);});
-  renderCatalog();
+  showConfig(defaults);quickPreset.value=FARMER_PRESETS[0].id;markSelectedPreset(FARMER_PRESETS[0].id);renderCatalog();
   try {
-    const libraryResponse=await fetch('/api?resource=avatar_library',{headers:{Accept:'application/json'}});
+    const libraryResponse=await fetch(`${API_URL}?resource=avatar_library`,{headers:{Accept:'application/json'}});
     if(libraryResponse.ok){const data=await libraryResponse.json();presets=Array.isArray(data.presets)?data.presets:[];renderCatalog();}
   } catch(error) { status.textContent='Katalog belum dapat dimuat dari server.'; }
   try {
     THREE=await import('three');
-    try { const gltf=await new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL);currentAssetReport=inspectCharacterAsset(gltf);setHumanAsset(currentAssetReport.valid?gltf:null);refreshAnimationOptions();updateMaterialReport();assetStatus.textContent=`${formatCharacterAssetSummary(currentAssetReport)} · ASET SITUS · file belum memenuhi gate premium.`; }
+    try { const gltf=await new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL);currentAssetReport=inspectCharacterAsset(gltf);setHumanAsset(currentAssetReport.valid?gltf:null);refreshAnimationOptions();updateMaterialReport();assetStatus.textContent=`${formatCharacterAssetSummary(currentAssetReport)} · ASET SITUS · ${currentAssetReport.missingClips.length?'animasi belum lengkap':'lulus pemeriksaan teknis awal; kualitas visual tetap perlu ditinjau'}.`; }
     catch (error) { setHumanAsset(null);currentAssetReport=null;refreshAnimationOptions();updateMaterialReport();assetStatus.textContent=`Aset GLB situs gagal dimuat. Preview cadangan bukan karakter produksi. ${error.message||''}`;console.warn('Pratinjau aset karakter GLB gagal dimuat.', error); }
+    humanAssetReport=currentAssetReport;
+    try { const gltf=await new GLTFLoader().loadAsync(window.SEMESTA_FARMER_MODEL);const report=inspectCharacterAsset(gltf);farmerAssetReport=report;setFarmerAsset(report.valid?gltf:null); }
+    catch (error) { setFarmerAsset(null);console.warn('Aset petani 3D PS2 gagal dimuat.',error); }
     renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;renderer.shadowMap.enabled=true;const pmrem=new THREE.PMREMGenerator(renderer);const roomEnvironment=new RoomEnvironment();const environment=pmrem.fromScene(roomEnvironment,.04).texture;roomEnvironment.dispose();pmrem.dispose();
     scene=new THREE.Scene();scene.environment=environment;scene.background=new THREE.Color('#cfddce');camera=new THREE.PerspectiveCamera(34,1,.1,50);const ambient=new THREE.HemisphereLight('#fff5df','#62735c',1.5);scene.add(ambient);const keyLight=new THREE.DirectionalLight('#fff4dc',2.4);keyLight.position.set(3,5,4);keyLight.castShadow=true;scene.add(keyLight);const fill=new THREE.DirectionalLight('#bdd9ef',.9);fill.position.set(-4,2,-3);scene.add(fill);
     const lightingPresets={studio:{background:'#cfddce',ambient:1.5,key:2.4,fill:.9,keyColor:'#fff4dc',fillColor:'#bdd9ef'},daylight:{background:'#bcd4e0',ambient:1.8,key:2.9,fill:.65,keyColor:'#fff8e9',fillColor:'#d7e9ff'},warm:{background:'#dfc7a9',ambient:1.35,key:2.4,fill:.7,keyColor:'#ffdda8',fillColor:'#f3b58d'}};
@@ -1757,11 +1918,25 @@ async function initAvatarStudio() {
     $('#avatarSkeleton').addEventListener('click',(event)=>{skeletonVisible=!skeletonVisible;event.currentTarget.setAttribute('aria-pressed',String(skeletonVisible));updateSkeletonHelper();});
     scaleInput.addEventListener('input',()=>{previewScale=Number(scaleInput.value)||1;scaleValue.value=`${previewScale.toFixed(2)}×`;scaleValue.textContent=scaleValue.value;if(model)model.scale.setScalar(previewScale);});
     assetFile.addEventListener('change',async()=>{const file=assetFile.files?.[0];if(!file)return;assetStatus.textContent=`Membaca ${file.name}…`;try{const data=await file.arrayBuffer();const gltf=await new GLTFLoader().parseAsync(data,'');installPreviewAsset(gltf,`FILE LOKAL · ${file.name} (tidak diunggah)`);}catch(error){assetStatus.textContent=`GLB gagal dibaca: ${error.message||'file tidak valid atau memakai tekstur eksternal'}. Gunakan GLB dengan tekstur tertanam.`;console.error('Impor pratinjau GLB:',error);}});
-    $('#avatarResetAsset').addEventListener('click',async()=>{assetStatus.textContent='Memuat ulang aset karakter situs…';try{installPreviewAsset(await new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL),'ASET SITUS');assetFile.value='';}catch(error){assetStatus.textContent=`Aset GLB situs gagal dimuat: ${error.message||error}`;}});
+    $('#avatarResetAsset').addEventListener('click',async()=>{assetStatus.textContent='Memuat ulang aset karakter situs…';const source=activeSpecial==='farmer-ps2'?window.SEMESTA_FARMER_MODEL:window.SEMESTA_CHARACTER_MODEL;try{installPreviewAsset(await new GLTFLoader().loadAsync(source),'ASET GAME');assetFile.value='';status.textContent='Aset studio sudah dimuat ulang dari model game yang dipilih.';}catch(error){assetStatus.textContent=`Aset GLB situs gagal dimuat: ${error.message||error}`;}});
     const ground=new THREE.Mesh(new THREE.CircleGeometry(2.2,48),new THREE.MeshStandardMaterial({color:'#b9c99f',roughness:1}));ground.rotation.x=-Math.PI/2;ground.position.y=-.025;ground.receiveShadow=true;scene.add(ground);const ring=new THREE.Mesh(new THREE.TorusGeometry(1.15,.018,6,48),new THREE.MeshStandardMaterial({color:'#e4c170'}));ring.rotation.x=Math.PI/2;ring.position.y=.01;scene.add(ring);
     const resize=()=>{const box=canvas.getBoundingClientRect();if(!box.width||!box.height)return;renderer.setSize(box.width,box.height,false);camera.aspect=box.width/box.height;camera.updateProjectionMatrix();};new ResizeObserver(resize).observe(canvas.parentElement);window.addEventListener('resize',resize);resize();
-    const moveCamera=()=>{camera.position.set(Math.sin(yaw)*distance,1.7+pitch,Math.cos(yaw)*distance);camera.lookAt(0,1.02,0);};moveCamera();canvas.addEventListener('pointerdown',(event)=>{pointer={x:event.clientX,y:event.clientY};canvas.setPointerCapture(event.pointerId);});canvas.addEventListener('pointermove',(event)=>{if(!pointer)return;yaw+=(event.clientX-pointer.x)*.008;pitch=clamp(pitch+(event.clientY-pointer.y)*.004,-.35,.55);pointer={x:event.clientX,y:event.clientY};moveCamera();});canvas.addEventListener('pointerup',()=>pointer=null);canvas.addEventListener('pointercancel',()=>pointer=null);canvas.addEventListener('wheel',(event)=>{event.preventDefault();distance=clamp(distance+event.deltaY*.008,3.3,7);moveCamera();},{passive:false});
-    showConfig(defaults);let frame=0;let lastFpsAt=performance.now();let framesSinceStats=0;const draw=()=>{requestAnimationFrame(draw);if($('#adminView-avatars')?.classList.contains('active')){if(model){const now=performance.now();model.rotation.y=Math.sin(now*.0008)*.09;model.userData.animate?.(now);}if(skeletonHelper)skeletonHelper.update();renderer.render(scene,camera);framesSinceStats++;const now=performance.now();if(now-lastStatsAt>600){const info=renderer.info;const fps=Math.round(framesSinceStats*1000/Math.max(1,now-lastFpsAt));lastStatsAt=lastFpsAt=now;framesSinceStats=0;const base=currentAssetReport?formatCharacterAssetSummary(currentAssetReport):'Aset GLB tidak tersedia.';statsReadout.textContent=`${base} · Preview ${fps} FPS · ${info.render.calls} draw calls · ${info.render.triangles.toLocaleString('id-ID')} segitiga scene · ${info.memory.geometries} geometri · ${info.memory.textures} tekstur GPU`;}}frame++;};draw();
+    positionPreviewCamera();canvas.addEventListener('pointerdown',(event)=>{pointer={x:event.clientX,y:event.clientY};canvas.setPointerCapture(event.pointerId);});canvas.addEventListener('pointermove',(event)=>{if(!pointer)return;yaw+=(event.clientX-pointer.x)*.008;pitch=clamp(pitch+(event.clientY-pointer.y)*.004,-.35,.55);pointer={x:event.clientX,y:event.clientY};positionPreviewCamera();});canvas.addEventListener('pointerup',()=>pointer=null);canvas.addEventListener('pointercancel',()=>pointer=null);canvas.addEventListener('wheel',(event)=>{event.preventDefault();distance=clamp(distance+event.deltaY*.008,3.3,7);positionPreviewCamera();},{passive:false});
+    const pendingPreset=selectedPresetId,pendingQuick=quickPreset.value;
+    showConfig(chosen());quickPreset.value=pendingQuick;markSelectedPreset(pendingPreset);renderCatalog();
+    let lastFpsAt=performance.now(),framesSinceStats=0;
+    const studioActive=()=>!document.hidden&&$('#adminView-avatars')?.classList.contains('active');
+    const resetTiming=()=>{playbackClock.reset();lastFpsAt=performance.now();framesSinceStats=0;};
+    document.addEventListener('visibilitychange',resetTiming);window.addEventListener('semesta:admin-view-change',resetTiming);
+    const draw=now=>{
+      requestAnimationFrame(draw);
+      const active=studioActive(),tick=playbackClock.tick(now,{active,paused:playbackPaused,speed:playbackSpeed});
+      if(!active)return;
+      model?.userData.animate?.(tick.time*1000,tick.delta);
+      if(skeletonHelper)skeletonHelper.update();renderer.render(scene,camera);framesSinceStats++;
+      if(now-lastStatsAt>600){const info=renderer.info;const fps=Math.round(framesSinceStats*1000/Math.max(1,now-lastFpsAt));lastStatsAt=lastFpsAt=now;framesSinceStats=0;statsReadout.textContent=`${playbackPaused?'Dijeda':`${playbackSpeed}× waktu nyata`} · ${activeSpecial==='farmer-ps2'?'V11':'Model lama'} · ${fps} FPS render · ${info.render.calls} draw calls`;}
+    };
+    requestAnimationFrame(draw);
   } catch(error) { renderCatalog();status.textContent='Pratinjau 3D belum dapat dibuka di perangkat ini.'; console.error('Studio avatar:',error); }
 }
 

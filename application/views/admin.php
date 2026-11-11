@@ -10,7 +10,8 @@
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();
     $entry = isset($manifest['game-src/main.js']) ? $manifest['game-src/main.js'] : NULL;
-    $character_model_path = is_file($manifest_path) ? 'assets/game/models/characters/warga-chibi-base.glb' : 'public/models/characters/warga-chibi-base.glb';
+    $character_model_path = is_file($manifest_path) ? 'assets/game/models/characters/semesta-farmer-v2.glb' : 'public/models/characters/semesta-farmer-v2.glb';
+    $farmer_model_path = is_file($manifest_path) ? 'assets/game/models/characters/semesta-farmer-v11.glb' : 'public/models/characters/semesta-farmer-v11.glb';
     if ($entry && !empty($entry['css'])):
         foreach ($entry['css'] as $css): ?>
             <link rel="stylesheet" href="<?= base_url('assets/game/' . $css); ?>">
@@ -18,51 +19,53 @@
     else: ?>
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . filemtime(FCPATH . 'game-src/style.css')); ?>">
     <?php endif; ?>
+    <link rel="stylesheet" href="<?= base_url('game-src/admin.css?v=' . filemtime(FCPATH . 'game-src/admin.css')); ?>">
 </head>
 <body class="admin-body">
     <main class="editor-shell">
         <header class="editor-header">
             <a class="brand" href="<?= base_url(); ?>"><span class="brand-mark">✳</span><span><b>REPUBLIK</b><small>WKWKWK</small></span></a>
-            <div class="editor-heading"><span class="eyebrow">PANEL ADMIN</span><h1>Panel Admin Semesta</h1></div>
+            <div class="editor-heading"><span class="eyebrow">WORKSPACE</span><h1>Studio Republik</h1></div>
             <label class="admin-command-search"><span>⌕</span><input id="adminMenuSearch" type="search" placeholder="Cari menu admin…" aria-label="Cari menu admin"><kbd>CTRL K</kbd></label>
             <div class="editor-header-actions"><a class="back-link" href="<?= base_url(); ?>">Lihat dunia ↗</a><form method="post" action="<?= site_url('admin/logout/'); ?>"><button class="logout-button" type="submit">Keluar ↗</button></form></div>
         </header>
-        <div class="local-banner"><span>●</span> DATA TERSIMPAN DI DATABASE LOKAL · BELUM TERHUBUNG KE MEDIA SOSIAL</div>
+        <div class="local-banner"><span class="workspace-dot" aria-hidden="true"></span><strong>Ruang kerja pengembangan</strong><span>Karakter, dunia, dan komunitas dalam satu studio.</span><small>Perubahan dipublikasikan saat disimpan</small></div>
         <div class="admin-layout">
             <nav class="admin-nav" aria-label="Menu panel admin">
                 <span class="admin-nav-label">PANEL ADMIN</span>
-                <button type="button" class="active" data-admin-view="overview"><span>⌂</span> Ringkasan</button>
-                <button type="button" data-admin-view="avatars"><span>♙</span> Studio avatar</button>
-                <button type="button" data-admin-view="world"><span>▧</span> Tata wilayah</button>
-                <button type="button" data-admin-view="objects"><span>◇</span> Galeri object</button>
-                <button type="button" data-admin-view="ideas"><span>✳</span> Inbox warga <b id="ideasNavCount">—</b></button>
-                <button type="button" data-admin-view="citizens"><span>♙</span> Direktori warga <b id="citizenNavCount">—</b></button>
-                <button type="button" data-admin-view="visitors"><span>◉</span> Log pengunjung <b id="visitorNavCount">—</b></button>
-                <button type="button" data-admin-view="settings"><span>⚙</span> Data & pengaturan</button>
-                <div class="admin-nav-note"><b>STUDIO WILAYAH</b><p>Susun jalan, rumah, fasilitas, sungai, kendaraan, dan suasana tiap wilayah.</p></div>
+                <a href="<?= site_url('admin/'); ?>?view=overview" class="active" data-admin-view="overview"><span>⌂</span> Ringkasan</a>
+                <a href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars"><span>♙</span> Studio avatar</a>
+                <a href="<?= site_url('admin/'); ?>?view=world" data-admin-view="world"><span>▧</span> Tata wilayah</a>
+                <a href="<?= site_url('admin/'); ?>?view=objects" data-admin-view="objects"><span>◇</span> Galeri object</a>
+                <a href="<?= site_url('admin/'); ?>?view=ideas" data-admin-view="ideas"><span>✳</span> Inbox warga <b id="ideasNavCount">—</b></a>
+                <a href="<?= site_url('admin/'); ?>?view=citizens" data-admin-view="citizens"><span>♙</span> Direktori warga <b id="citizenNavCount">—</b></a>
+                <a href="<?= site_url('admin/'); ?>?view=visitors" data-admin-view="visitors"><span>◉</span> Log pengunjung <b id="visitorNavCount">—</b></a>
+                <a href="<?= site_url('admin/'); ?>?view=settings" data-admin-view="settings"><span>⚙</span> Data & pengaturan</a>
+                <div class="admin-nav-note"><b>AVATAR SYSTEM · V11</b><p>16 postur tubuh.<br>20 racikan siap pakai.<br>Satu sistem dengan game.</p><a href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars">Jelajahi koleksi ↗</a></div>
             </nav>
             <div class="admin-content">
                 <section class="admin-view active" id="adminView-overview">
-                    <div class="admin-page-intro"><div><span class="eyebrow">SELAMAT DATANG DI STUDIO</span><h2>Bangun ruang bermainnya.</h2><p>Tata wilayah 3D dengan aset yang dapat dipindah, diputar, dan diatur ukurannya.</p></div><button class="save-button" type="button" data-admin-view="world">BUKA STUDIO WILAYAH ↗</button></div>
+                    <div class="admin-page-intro admin-welcome"><div><span class="eyebrow">REPUBLIK WKWKWK / CONTROL ROOM</span><h2>Dunia yang hidup,<br>dimulai dari studio.</h2><p>Rancang karakter yang beragam, bangun lingkungan bermain, dan kelola cerita dari komunitas.</p><div class="welcome-actions"><a class="save-button" href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars">Buka Studio Avatar ↗</a><a class="welcome-secondary" href="<?= site_url('admin/'); ?>?view=world" data-admin-view="world">Tata wilayah →</a></div></div><div class="welcome-system"><span>CHARACTER SYSTEM</span><strong>V11<span>Modular avatars</span></strong><p>Postur · Wajah · Wardrobe</p><span class="welcome-version">20 racikan siap dikembangkan</span></div></div>
                     <div class="overview-grid">
                         <article class="overview-card overview-feature"><span class="overview-icon">▧</span><span class="eyebrow">STUDIO TATA WILAYAH</span><h3>Bangun peta bermain</h3><p>Atur jalan, bangunan, kendaraan, hewan, sungai, dan fasilitas publik.</p><button type="button" class="text-action" data-admin-view="world">Buka studio wilayah <b>↗</b></button></article>
                         <article class="overview-card overview-stat"><span class="overview-icon">✳</span><span class="eyebrow">MASUKAN WARGA</span><strong id="overviewIdeaCount">—</strong><p>Gagasan yang tercatat untuk pengembangan dunia.</p><button type="button" class="text-action" data-admin-view="ideas">Lihat masukan <b>↗</b></button></article>
-                        <article class="overview-card overview-stat"><span class="overview-icon">⌂</span><span class="eyebrow">KOTA PERDANA</span><strong>Kawasan Warga</strong><p>Satu kota yang sedang kita rapikan sampai siap direkam.</p><a class="text-action" href="<?= base_url(); ?>">Masuk ke kota <b>↗</b></a></article>
+                        <article class="overview-card overview-stat"><span class="overview-icon">⌂</span><span class="eyebrow">DUNIA REPUBLIK</span><strong>Kawasan Warga</strong><p>Atur dunia cerita dan wilayah yang bisa dijelajahi warga.</p><a class="text-action" href="<?= base_url(); ?>">Buka Peta Utama <b>↗</b></a></article>
                     </div>
                 </section>
 
                 <section class="admin-view" id="adminView-avatars">
-                    <div class="admin-page-intro"><div><span class="eyebrow">KREATOR KARAKTER 3D</span><h2>Studio avatar</h2><p>Karakter berproporsi utuh dengan gerak napas dan kedipan. Pilih pakaian dan aksesori, lalu putar pratinjaunya.</p></div><div class="avatar-combo-count"><b id="avatarComboCount">100.000+</b><span>RACIKAN TERSEDIA</span></div></div>
+                    <div class="admin-page-intro"><div><span class="eyebrow">KREATOR KARAKTER 3D</span><h2>Studio avatar</h2><p>Avatar V11: 16 postur cowok/cewek, wajah, pakaian, dan aksesori. Pilih racikan, putar model, lalu uji animasinya.</p></div><div class="avatar-combo-count"><b id="avatarComboCount">—</b><span>KOMBINASI PILIHAN</span></div></div>
                     <div class="avatar-studio">
                         <div class="avatar-preview-card"><div class="builder-subhead"><b>PRATINJAU ASET GLB</b><small>Seret untuk 360° · scroll untuk zoom</small></div><canvas id="avatarPreviewCanvas" aria-label="Pratinjau karakter avatar 3D"></canvas><div class="avatar-preview-caption"><b id="avatarPreviewName">Warga Semesta</b><span id="avatarPreviewParts">WARGA · GAYA BEBAS</span></div><div class="character-preview-toolbar"><label>Animasi<select id="avatarPreviewAnimation" aria-label="Pilih klip animasi"></select></label><label>Pencahayaan<select id="avatarPreviewLighting"><option value="studio">Studio</option><option value="daylight">Siang</option><option value="warm">Hangat</option></select></label><button type="button" id="avatarWireframe" aria-pressed="false">WIRE</button><button type="button" id="avatarSkeleton" aria-pressed="false">TULANG</button><label class="character-scale">Skala<input type="range" id="avatarPreviewScale" min="0.75" max="1.25" step="0.01" value="1"><output id="avatarPreviewScaleValue">1.00×</output></label></div><div class="character-asset-import"><label for="avatarAssetFile">Uji GLB lokal</label><input id="avatarAssetFile" type="file" accept=".glb,model/gltf-binary"><button type="button" id="avatarResetAsset">Kembali ke aset situs</button></div><p class="character-preview-stats" id="avatarAssetStatus" role="status">Memeriksa aset GLB…</p><details class="character-material-details"><summary>Validasi dan material</summary><pre id="avatarMaterialReport">Menunggu GLB dimuat.</pre></details></div>
                         <form class="avatar-options" id="avatarOptionsForm">
+                            <label class="avatar-model-field">Model avatar<select id="avatarStudioModel"><option value="farmer-ps2">V11 · sama dengan game</option><option value="">Modular lama</option><option value="garuda" disabled>Maskot Garuda · dari katalog</option><option value="pemimpin" disabled>Pemimpin · dari katalog</option></select></label>
                             <div class="builder-subhead"><b>RACIK BAGIAN AVATAR</b><small>Pilih kombinasi bagian sesukamu</small></div>
                             <label>Warna kulit<select name="skin"></select></label><label>Gaya rambut<select name="hair"></select></label><label>Warna rambut<select name="hairColor"></select></label><label>Atasan<select name="top"></select></label><label>Bawahan<select name="bottom"></select></label><label>Penutup kepala<select name="headwear"></select></label><label>Aksesori<select name="accessory"></select></label><label>Rambut wajah<select name="facialHair"></select></label>
                             <label class="avatar-name-field">Nama racikan<input id="avatarPresetName" maxlength="40" value="Warga Semesta" placeholder="contoh: Relawan Pesisir"></label><div class="avatar-option-actions"><button type="button" class="text-action" id="randomAvatar">🎲 Acak racikan</button><button type="button" class="save-button" id="saveAvatarPreset">SIMPAN AVATAR <span>＋</span></button></div>
                             <p class="avatar-save-status" id="avatarSaveStatus" role="status">Pilih bagian untuk melihat perubahan 3D.</p>
                         </form>
                     </div>
-                    <section class="avatar-catalog-card"><div class="section-heading"><div><span class="eyebrow">KATALOG RACIKAN</span><h2>Avatar siap pakai</h2></div><span class="draft-tag" id="avatarCatalogCount">20 GAYA AWAL</span></div><p class="avatar-catalog-note">Pilih gaya awal lalu ubah bagian mana pun. Racikan yang disimpan tersedia kembali saat panel admin dibuka.</p><label class="catalog-search">Cari avatar<input id="avatarCatalogSearch" type="search" placeholder="Contoh: petani, guru, relawan"></label><div class="avatar-catalog" id="avatarCatalog" aria-live="polite"></div><div class="admin-list-pages"><button id="avatarCatalogPrev" type="button">← Sebelumnya</button><span id="avatarCatalogPage">Halaman 1</span><button id="avatarCatalogNext" type="button">Berikutnya →</button></div></section>
+                    <section class="avatar-catalog-card"><div class="section-heading"><div><span class="eyebrow">CHARACTER LIBRARY / V11</span><h2>Temukan karakter duniamu.</h2></div><span class="draft-tag" id="avatarCatalogCount">20 RACIKAN V11</span></div><p class="avatar-catalog-note">20 karakter siap pakai, dari kebun hingga kota. Pratinjau dirender dari model game; setiap postur, wajah, pakaian, dan warna tetap bisa kamu ubah.</p><div class="avatar-catalog-filters"><label class="catalog-search">Cari karakter<input id="avatarCatalogSearch" type="search" placeholder="Nama, outfit, atau postur…"></label><label class="catalog-search">Koleksi<select id="avatarCatalogFilter"><option value="v11">Semua karakter V11</option><option value="nusantara">Nusantara</option><option value="kasual">Kasual</option><option value="kerja">Kerja & kebun</option><option value="formal">Formal</option><option value="saved">Racikan tersimpan</option><option value="legacy">Arsip model lama</option><option value="all">Semua model</option></select></label></div><div class="avatar-catalog" id="avatarCatalog" aria-live="polite"></div><div class="admin-list-pages"><button id="avatarCatalogPrev" type="button">← Sebelumnya</button><span id="avatarCatalogPage">Halaman 1</span><button id="avatarCatalogNext" type="button">Berikutnya →</button></div></section>
                 </section>
 
                 <section class="admin-view" id="adminView-world">
@@ -128,17 +131,18 @@
     (function () {
         var validViews = ['overview','avatars','world','objects','ideas','citizens','visitors','settings'];
         var activeView = 'overview';
+        var adminUrl = new URL(<?= json_encode(site_url('admin/'), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>, location.href);
         var viewFromUrl = function () { var candidate = new URLSearchParams(location.search).get('view'); return validViews.indexOf(candidate) >= 0 ? candidate : 'overview'; };
         var scrollQueued = false;
-        var saveScroll = function () { if (scrollQueued) return; scrollQueued = true; requestAnimationFrame(function () { scrollQueued = false; try { sessionStorage.setItem('semesta.admin.scroll.' + activeView, String(window.scrollY || 0)); } catch (_) {} }); };
+        var saveScroll = function () { if (scrollQueued) return; scrollQueued = true; var view = activeView; var y = window.scrollY || 0; requestAnimationFrame(function () { scrollQueued = false; try { sessionStorage.setItem('semesta.admin.scroll.' + view, String(y)); } catch (_) {} }); };
         window.semestaAdminNavigate = function (name, mode) {
             if (validViews.indexOf(name) < 0) return;
             var previous = activeView;
             if (previous !== name) saveScroll();
             activeView = name;
             document.querySelectorAll('.admin-view').forEach(function (view) { view.classList.toggle('active', view.id === 'adminView-' + name); });
-            document.querySelectorAll('.admin-nav [data-admin-view]').forEach(function (button) { button.classList.toggle('active', button.dataset.adminView === name); });
-            if (mode === 'push') { var url = new URL(location.href); url.pathname = '/admin/'; url.searchParams.set('view', name); history.pushState({ view: name }, '', url); }
+            document.querySelectorAll('.admin-nav > [data-admin-view]').forEach(function (button) { var selected = button.dataset.adminView === name; button.classList.toggle('active', selected); if (selected) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current'); });
+            if (mode === 'push') { var url = new URL(location.href); url.pathname = adminUrl.pathname; url.searchParams.set('view', name); url.hash = ''; if (url.href !== location.href) history.pushState({ view: name }, '', url); }
             try { sessionStorage.setItem('semesta.admin.lastView', name); } catch (_) {}
             window.dispatchEvent(new CustomEvent('semesta:admin-view-change', { detail: { view: name } }));
             requestAnimationFrame(function () {
@@ -148,13 +152,14 @@
         };
         document.addEventListener('click', function (event) {
             var trigger = event.target.closest('[data-admin-view]');
-            if (trigger) window.semestaAdminNavigate(trigger.dataset.adminView, 'push');
+            if (!trigger || event.defaultPrevented || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || (event.button !== undefined && event.button !== 0)) return;
+            event.preventDefault(); window.semestaAdminNavigate(trigger.dataset.adminView, 'push');
         });
         window.addEventListener('popstate', function () { window.semestaAdminNavigate(viewFromUrl(), 'restore'); });
         window.addEventListener('scroll', saveScroll, { passive: true });
         window.addEventListener('pagehide', saveScroll);
         var search = document.getElementById('adminMenuSearch');
-        var navItems = Array.prototype.slice.call(document.querySelectorAll('.admin-nav [data-admin-view]'));
+        var navItems = Array.prototype.slice.call(document.querySelectorAll('.admin-nav > [data-admin-view]'));
         var matches = function () {
             var q = (search.value || '').trim().toLocaleLowerCase('id-ID');
             navItems.forEach(function (button) { button.hidden = !!q && !button.textContent.toLocaleLowerCase('id-ID').includes(q); });
@@ -166,8 +171,11 @@
         window.semestaAdminNavigate(viewFromUrl(), 'restore');
     })();
     </script>
+    <script>window.SEMESTA_API_URL = <?= json_encode(base_url('api'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/warga-chibi-base.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/semesta-farmer-v2.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_FARMER_MODEL = <?= json_encode(base_url($farmer_model_path . '?v=' . filemtime(FCPATH . $farmer_model_path)), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_FARMER_THUMB = <?= json_encode(base_url('public/models/characters/semesta-farmer-v11-thumb.png?v=' . filemtime(FCPATH . 'public/models/characters/semesta-farmer-v11-thumb.png')), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_AVATAR_GALLERY_ROOT = <?= json_encode(base_url('public/models/characters/gallery/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . filemtime(FCPATH . 'game-src/main.js')); ?>"></script><?php endif; ?>

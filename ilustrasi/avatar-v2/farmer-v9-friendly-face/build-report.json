@@ -1,0 +1,8 @@
+{
+  "faceRevision": "v9-jrpg-friendly",
+  "contract": "semesta-farmer-v8-legacy19",
+  "reference": "Local Zidane FF9 / Cloud FF7 gameplay turnaround sheets; stylistic reference, not extracted meshes",
+  "preserved": "V8 CC0 body, torso/head scale envelope, hair, clothes, boots, customization slots, legacy19 rig and eight clips",
+  "changed": "Continuous stylized head/neck, small integrated nose, conforming almond eyes, teal irises, brows and subtle smile",
+  "defaultGameChanged": false
+}

@@ -1,0 +1,18 @@
+{
+  "status": "anatomy sculpt foundation only; not an approved final character",
+  "source": "assets\\avatar-v2\\source\\semesta_farmer_v5-ps2-style.blend",
+  "meshVertices": 30804,
+  "meshPolygons": 30802,
+  "bones": 19,
+  "actions": [
+    "Harvest",
+    "Hoe",
+    "Idle",
+    "Interact",
+    "Run",
+    "Walk",
+    "Watering",
+    "Wave"
+  ],
+  "liveAssetChanged": false
+}

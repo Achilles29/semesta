@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Farmer V9 — wajah JRPG</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px system-ui;color:#eee;background:#22252a;display:grid;grid-template-columns:310px 1fr;min-height:100vh}aside{padding:24px;background:#181c20;overflow:auto;max-height:100vh}h1{font-size:22px;margin:0 0 8px}p{line-height:1.5;color:#b6c0c6}label{display:flex;justify-content:space-between;align-items:center;margin:13px 0;gap:12px}select,button{color:#eee;background:#30383e;border:1px solid #5e6970;padding:8px;border-radius:5px}input[type=color]{width:75px;height:32px;background:none;border:0}button{cursor:pointer}nav{display:flex;gap:5px;flex-wrap:wrap;margin:16px 0}canvas{width:100%;height:100%;display:block}main{min-height:70vh;position:relative}#status{font-size:12px;white-space:pre-line}.hint{position:absolute;bottom:20px;left:20px;pointer-events:none;background:#181c20c0;padding:10px;border-radius:5px}a{color:#b9dcf4}@media(max-width:700px){body{grid-template-columns:1fr}aside{max-height:none}main{height:75vh;grid-row:1}}
+</style>
+<script type="importmap">{"imports":{"three":"../../../node_modules/three/build/three.module.js","three/addons/":"../../../node_modules/three/examples/jsm/"}}</script>
+<aside>
+<h1>Farmer V9 · Wajah JRPG</h1>
+<p>Wajah bergaya gameplay FF9, tubuh dan kustomisasi V8. Model GLB asli.</p>
+<nav><button data-appearance="farmer">Petani lengkap</button><button data-appearance="casual">Kaus tanpa aksesori</button><button data-appearance="dark">Kulit gelap</button></nav>
+<nav><button data-view="face">Wajah</button><button data-view="faceLeft">Profil wajah</button><button data-view="front">Depan</button><button data-view="left">Kiri</button><button data-view="back">Belakang</button><button data-view="three">3/4</button></nav>
+<form id="appearance">
+<label>Pakaian<select name="outfit"><option value="overalls">Overall + kaus</option><option value="tee">Kaus + celana</option></select></label>
+<label>Rambut<select name="hairStyle"><option value="short">Pendek berlapis</option><option value="none">Tanpa rambut</option></select></label>
+<label>Topi<select name="headwear"><option value="cap">Topi terbalik</option><option value="none">Tanpa topi</option></select></label>
+<label>Tas<select name="accessory"><option value="satchel">Selempang</option><option value="none">Tanpa tas</option></select></label>
+<label>Sarung tangan<select name="gloves"><option value="work">Kerja</option><option value="none">Tangan biasa</option></select></label>
+<label>Kulit<input name="skin" type="color" value="#c18b60"></label>
+<label>Rambut<input name="hair" type="color" value="#483024"></label>
+<label>Kaus<input name="shirt" type="color" value="#ddd7c9"></label>
+<label>Celana / overall<input name="trousers" type="color" value="#354f79"></label>
+<label>Sepatu<input name="footwear" type="color" value="#70482e"></label>
+<label>Topi<input name="headwearColor" type="color" value="#344f7c"></label>
+<label>Sarung tangan<input name="gloveColor" type="color" value="#a42a29"></label>
+<label>Tas<input name="pack" type="color" value="#79502d"></label>
+</form>
+<label>Animasi<select id="animation"><option value="rest">Pose dasar</option></select></label>
+<label>Wireframe<input id="wire" type="checkbox"></label>
+<button id="save">Unduh konfigurasi JSON</button>
+<p id="status">Memuat GLB…</p>
+<p><a href="farmer-v9-friendly-face.glb" download>GLB</a> · <a href="farmer-v9-friendly-face.blend" download>Blender</a> · <a href="../farmer-v8-modular/preview.html">Bandingkan V8</a></p>
+</aside>
+<main><canvas id="view" data-model="./farmer-v9-friendly-face.glb"></canvas><div class="hint">Seret untuk memutar · scroll untuk mendekat</div></main>
+<script type="module" src="../farmer-v8-modular/preview.js?v=v9-face-1"></script>
+</html>

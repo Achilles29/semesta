@@ -1,0 +1,28 @@
+{
+  "revision": "farmer-v11-body-wardrobe",
+  "fields": {
+    "bodyFrame": {"label":"Bentuk tubuh", "default":"male", "options":{"male":"Cowok","female":"Cewek"}},
+    "bodyType": {"label":"Postur", "default":"slender", "options":{"skinny":"Kurus","slender":"Langsing","muscular":"Berotot","full":"Berisi","plus":"Sangat berisi","fit":"Atletis / body goals","mature":"Dewasa berperut lembut","soft-mature":"Dewasa berlekuk lembut"}},
+    "outfit": {"label":"Atasan", "default":"overalls", "options":{"overalls":"Overall petani","tee":"Kaos","loose-tee":"Kaos oblong longgar","work-shirt":"Kemeja kerja","batik":"Batik","koko":"Baju koko","kebaya":"Kebaya","hoodie":"Hoodie","tunic":"Tunik","blazer":"Blazer"}},
+    "bottomStyle": {"label":"Bawahan", "default":"relaxed", "options":{"relaxed":"Celana longgar","cargo":"Celana kargo","sarong":"Sarung","skirt":"Rok"}},
+    "footwearStyle": {"label":"Alas kaki", "default":"sandals", "options":{"boots":"Sepatu bot","sandals":"Sandal"}},
+    "hairStyle": {"label":"Rambut", "default":"short", "options":{"short":"Pendek","swept":"Belah samping","curtain":"Belah tengah","tied":"Diikat","bob":"Bob","none":"Tanpa rambut"}},
+    "headwear": {"label":"Penutup kepala", "default":"cap", "options":{"cap":"Topi","beanie":"Kupluk","peci":"Peci","hijab":"Hijab","none":"Tanpa penutup"}},
+    "accessory": {"label":"Aksesori", "default":"satchel", "options":{"satchel":"Tas selempang","backpack":"Ransel","scarf":"Syal","none":"Tanpa aksesori"}},
+    "gloves": {"label":"Sarung tangan", "default":"work", "options":{"work":"Sarung tangan kerja","none":"Tanpa sarung tangan"}},
+    "faceShape": {"label":"Bentuk wajah", "default":"oval", "options":{"oval":"Oval","round":"Bulat","angular":"Tegas"}},
+    "eyeStyle": {"label":"Mata", "default":"almond", "options":{"almond":"Almond","round":"Bulat","relaxed":"Santai"}},
+    "noseStyle": {"label":"Hidung", "default":"defined", "options":{"defined":"Tegas","button":"Mungil","upturned":"Sedikit terangkat"}},
+    "mouthStyle": {"label":"Mulut", "default":"smile", "options":{"smile":"Senyum","neutral":"Netral","grin":"Senyum lebar"}}
+  },
+  "colors": {
+    "skin":{"label":"Warna kulit","default":"#c18b60"},
+    "hair":{"label":"Warna rambut","default":"#483024"},
+    "shirt":{"label":"Warna atasan","default":"#ddd7c9"},
+    "trousers":{"label":"Warna bawahan","default":"#354f79"},
+    "footwear":{"label":"Warna alas kaki","default":"#70482e"},
+    "headwearColor":{"label":"Warna penutup kepala","default":"#344f7c"},
+    "gloveColor":{"label":"Warna sarung tangan","default":"#a42a29"},
+    "pack":{"label":"Warna aksesori","default":"#79502d"}
+  }
+}

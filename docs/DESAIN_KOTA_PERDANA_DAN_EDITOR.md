@@ -1,4 +1,6 @@
-# Desain Kota Perdana dan Ruang Editor
+# Arsip Desain Kota Perdana dan Ruang Editor — Semesta Nyasar
+
+> **Dokumen historis.** Spesifikasi Cempluk dan kota perdana di bawah ini berasal dari konsep lama. Acuan produk sekarang adalah [Konsep Republik WkWkWk](KONSEP_REPUBLIK_WKWKWK.md).
 
 ## Tujuan tahap
 

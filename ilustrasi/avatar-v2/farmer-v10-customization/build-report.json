@@ -1,0 +1,85 @@
+{
+  "revision": "farmer-v10-customization",
+  "contract": "semesta-farmer-v8-legacy19",
+  "capabilities": {
+    "outfit": [
+      "overalls",
+      "tee",
+      "loose-tee",
+      "work-shirt"
+    ],
+    "hairStyle": [
+      "short",
+      "swept",
+      "curtain",
+      "tied",
+      "none"
+    ],
+    "headwear": [
+      "cap",
+      "beanie",
+      "none"
+    ],
+    "accessory": [
+      "satchel",
+      "backpack",
+      "scarf",
+      "none"
+    ],
+    "gloves": [
+      "work",
+      "none"
+    ],
+    "faceShape": [
+      "oval",
+      "round",
+      "angular"
+    ],
+    "eyeStyle": [
+      "almond",
+      "round",
+      "relaxed"
+    ],
+    "noseStyle": [
+      "defined",
+      "button",
+      "upturned"
+    ],
+    "mouthStyle": [
+      "smile",
+      "neutral",
+      "grin"
+    ],
+    "colors": [
+      "skin",
+      "hair",
+      "shirt",
+      "trousers",
+      "footwear",
+      "headwearColor",
+      "gloveColor",
+      "pack"
+    ]
+  },
+  "morphs": {
+    "faceShape": {
+      "round": "Face_Round",
+      "angular": "Face_Angular"
+    },
+    "eyeStyle": {
+      "round": "Eye_Round",
+      "relaxed": "Eye_Relaxed"
+    },
+    "noseStyle": {
+      "button": "Nose_Button",
+      "upturned": "Nose_Upturned"
+    },
+    "mouthStyle": {
+      "neutral": "Mouth_Neutral",
+      "grin": "Mouth_Grin"
+    }
+  },
+  "source": "V9 saved blend; original CC0 body preserved",
+  "defaultGameChanged": false,
+  "note": "Morph combinations are additive; inspect extreme combinations in WebGL."
+}

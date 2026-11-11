@@ -1,11 +1,15 @@
 import { clone as cloneSkeleton } from 'three/addons/utils/SkeletonUtils.js';
+import { isFarmerV8, createFarmerV8 } from './avatar-farmer-v8.js';
 
 // Shared Blender-authored character asset used by Avatar Studio and the live world.
 let chibiAsset = null;
+let farmerAsset = null;
 let flannelTexture = null;
 let wovenTexture = null;
 export function setHumanAsset(gltf) { chibiAsset = gltf || null; }
 export function hasHumanAsset() { return Boolean(chibiAsset?.scene); }
+export function setFarmerAsset(gltf) { farmerAsset = gltf || null; }
+export function hasFarmerAsset() { return Boolean(farmerAsset?.scene); }
 
 function fabricTexture(THREE, woven = false) {
   let texture = woven ? wovenTexture : flannelTexture;
@@ -42,8 +46,11 @@ function addFlannelPattern(THREE, figure) {
   }
 }
 
-function cloneChibiAsset(THREE, options) {
-  const figure = cloneSkeleton(chibiAsset.scene);
+function cloneChibiAsset(THREE, options, sourceAsset = chibiAsset) {
+  if (isFarmerV8(sourceAsset.scene)) return createFarmerV8(THREE, sourceAsset, options);
+  const figure = cloneSkeleton(sourceAsset.scene);
+  const ps2Farmer = sourceAsset === farmerAsset;
+  const authoredV2 = Boolean(figure.getObjectByName('SemestaV2_Rig'));
   const leader = options.role === 'pemimpin';
   const selectedHeadwear = options.headwear || (leader ? 'peci' : 'tanpa');
   const hasHeadwear = selectedHeadwear !== 'tanpa' && options.hairStyle !== 'hijab';
@@ -54,10 +61,18 @@ function cloneChibiAsset(THREE, options) {
       node.castShadow = true; node.receiveShadow = true;
       const recolor = (source) => {
         const material = source.clone();
+        if (material.map) material.map.userData.sharedCharacterTexture = true;
+        // The PS2-style preset is a deliberately authored costume with eight
+        // packed atlases. Do not strip those maps as V2 color variants do.
+        if (ps2Farmer) return material;
         const name = material.name.toLowerCase();
         const selectedColor = ['skin','hair','canvas','denim','cotton','sarong','leader uniform','leader trousers','pack'].some((key) => name.startsWith(key));
         if (material.map && selectedColor) material.map = null;
-        if (node.name.startsWith('Hair_Hijab')) tint(material, options.hair);
+        if (authoredV2 && name.startsWith('canvas seams')) tint(material, new THREE.Color(options.shirt || '#455f82').multiplyScalar(.62));
+        else if (authoredV2 && name.startsWith('denim seams')) tint(material, new THREE.Color(options.trousers || '#586746').multiplyScalar(.65));
+        else if (authoredV2 && name.startsWith('hair chestnut highlight')) tint(material, new THREE.Color(options.hair || '#51362d').multiplyScalar(1.28));
+        else if (authoredV2 && name.startsWith('skin ear shadow')) tint(material, new THREE.Color(options.skin || '#c9825c').multiplyScalar(.70));
+        else if (node.name.startsWith('Hair_Hijab')) tint(material, options.hair);
         else if (name.startsWith('skin')) tint(material, options.skin);
         else if (name.startsWith('hair')) tint(material, options.hair);
         else if (name.startsWith('canvas')) tint(material, node.name.startsWith('Top_Petani_') ? '#785638' : options.shirt);
@@ -114,15 +129,15 @@ function cloneChibiAsset(THREE, options) {
   figure.scale.setScalar(options.scale || 1);
   const bone = (name) => figure.getObjectByName(name) || new THREE.Group();
   const head = bone('head');
-  if (!leader && ['kumis','kumis-janggut'].includes(options.facialHair)) {
+  if (!authoredV2 && !leader && ['kumis','kumis-janggut'].includes(options.facialHair)) {
     const facialHair = new THREE.Group(); const hairMat = new THREE.MeshStandardMaterial({ color:options.hair||'#292522', roughness:.92 });
     const addHair = (position, scale) => { const mesh=new THREE.Mesh(new THREE.SphereGeometry(1,16,12),hairMat);mesh.position.set(...position);mesh.scale.set(...scale);mesh.castShadow=true;facialHair.add(mesh); };
     addHair([-.035,1.492,.166],[.042,.018,.016]);addHair([.035,1.492,.166],[.042,.018,.016]);
     if(options.facialHair==='kumis-janggut')addHair([0,1.425,.15],[.026,.045,.02]);
     figure.add(facialHair);figure.updateMatrixWorld(true);head.attach(facialHair);
   }
-  if (!leader && options.topStyle === 'flanel') addFlannelPattern(THREE,figure);
-  if (!leader && options.accessory === 'tas-anyaman') {
+  if (!authoredV2 && !leader && options.topStyle === 'flanel') addFlannelPattern(THREE,figure);
+  if (!authoredV2 && !leader && options.accessory === 'tas-anyaman') {
     const satchel=new THREE.Group();const bagMat=new THREE.MeshStandardMaterial({color:'#ffffff',map:fabricTexture(THREE,true),roughness:.96});const strapMat=new THREE.MeshStandardMaterial({color:'#8b5a31',roughness:.94});
     const strapCurve=new THREE.CatmullRomCurve3([new THREE.Vector3(.19,1.24,.11),new THREE.Vector3(.11,1.08,.17),new THREE.Vector3(-.04,.91,.18),new THREE.Vector3(-.2,.72,.16)]);
     const strap=new THREE.Mesh(new THREE.TubeGeometry(strapCurve,24,.025,8,false),strapMat);satchel.add(strap);
@@ -131,9 +146,9 @@ function cloneChibiAsset(THREE, options) {
     const button=new THREE.Mesh(new THREE.SphereGeometry(.018,12,10),new THREE.MeshStandardMaterial({color:'#dbaf5b',roughness:.45}));button.position.set(-.2,.76,.25);satchel.add(button);
     satchel.traverse((node)=>{if(node.isMesh){node.castShadow=true;node.receiveShadow=true;}});figure.add(satchel);
   }
-  figure.userData.animations = chibiAsset.animations || [];
+  figure.userData.animations = sourceAsset.animations || [];
   const mixer = new THREE.AnimationMixer(figure);
-  const actions = Object.fromEntries((chibiAsset.animations || []).map((clip) => [clip.name, mixer.clipAction(clip)]));
+  const actions = Object.fromEntries((sourceAsset.animations || []).map((clip) => [clip.name, mixer.clipAction(clip)]));
   actions.Idle?.play();
   figure.userData.animate = (time) => { head.rotation.z = Math.sin(time * .0007) * .012; };
   return {
@@ -154,6 +169,7 @@ function cloneChibiAsset(THREE, options) {
 
 // Procedural fallback stays available for devices where the GLB cannot load.
 export function createHumanModel(THREE, options = {}) {
+  if (options.ps2Farmer && farmerAsset?.scene) return cloneChibiAsset(THREE, options, farmerAsset);
   if (chibiAsset?.scene) return cloneChibiAsset(THREE, options);
   const figure = new THREE.Group();
   const mat = (color, roughness = .78) => new THREE.MeshStandardMaterial({ color: color || '#888888', roughness });

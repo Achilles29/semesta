@@ -229,7 +229,7 @@ class Api extends CI_Controller
             foreach ($players as $player) {
                 $distance = hypot($x - (float) $player['x'], $z - (float) $player['z']);
                 if ($distance > 55) continue;
-                $nearby[] = array('id' => (int) $player['id'], 'displayName' => $player['display_name'], 'avatar' => $player['avatar'], 'house' => $player['house'], 'x' => (float) $player['x'], 'z' => (float) $player['z'], 'distance' => round($distance, 2));
+                $nearby[] = array('id' => (int) $player['id'], 'displayName' => $player['display_name'], 'avatar' => $player['avatar'], 'avatar_config' => $player['avatar_config'], 'house' => $player['house'], 'x' => (float) $player['x'], 'z' => (float) $player['z'], 'distance' => round($distance, 2));
                 if ((int) $player['id'] === $target) $targetDistance = $distance;
             }
             $messages = array();
@@ -325,6 +325,15 @@ class Api extends CI_Controller
             );
             foreach ($allowed as $key => $values) if (!isset($config[$key]) || !in_array($config[$key], $values, TRUE)) return $this->output->set_status_header(422)->set_output('{"error":"Ada bagian avatar yang belum valid."}');
             $saved = array_intersect_key($config, $allowed);
+            if (isset($config['special'])) {
+                if ($config['special'] !== 'farmer-ps2') return $this->output->set_status_header(422)->set_output('{"error":"Gaya avatar khusus belum valid."}');
+                $saved['special'] = 'farmer-ps2';
+                if (array_key_exists('farmer', $config)) {
+                    $this->load->helper('farmer_avatar');
+                    $saved['farmer'] = validate_farmer_appearance($config['farmer']);
+                    if ($saved['farmer'] === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Pilihan tubuh, wajah, pakaian, atau warna V11 belum valid."}');
+                }
+            }
             if (!$this->semesta->update_citizen($id, array('avatar_config' => json_encode($saved, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)))) return $this->database_error();
             return $this->output->set_output(json_encode(array('ok' => TRUE, 'citizen' => $this->semesta->get_citizen_profile($id)), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         }
@@ -464,7 +473,7 @@ class Api extends CI_Controller
     {
         if (!$this->require_admin()) return;
         if (!$this->database_ready() || !$this->db->table_exists('app_settings')) return $this->database_error();
-        if (strlen($this->input->raw_input_stream) > 100000) return $this->output->set_status_header(413)->set_output('{"error":"Katalog avatar terlalu besar."}');
+        if (strlen($this->input->raw_input_stream) > 200000) return $this->output->set_status_header(413)->set_output('{"error":"Katalog avatar terlalu besar."}');
         $presets = isset($payload['presets']) && is_array($payload['presets']) ? $payload['presets'] : NULL;
         if ($presets === NULL || count($presets) > 100) return $this->output->set_status_header(422)->set_output('{"error":"Daftar avatar belum valid atau terlalu banyak."}');
         $allowed = array(
@@ -476,7 +485,7 @@ class Api extends CI_Controller
             'headwear' => array('tanpa','peci','topi','helm','bandana','caping'),
             'accessory' => array('tanpa','kacamata','ransel','tas-anyaman','lencana','selempang','syal','map','jam'),
             'facialHair' => array('tanpa','kumis','kumis-janggut'),
-            'special' => array('garuda','pemimpin'),
+            'special' => array('garuda','pemimpin','farmer-ps2'),
         );
         $clean = array(); $ids = array();
         foreach ($presets as $preset) {
@@ -490,6 +499,11 @@ class Api extends CI_Controller
                 $value = isset($preset['config'][$key]) ? (string) $preset['config'][$key] : ($key === 'facialHair' ? 'tanpa' : '');
                 if (!in_array($value, $values, TRUE)) return $this->output->set_status_header(422)->set_output('{"error":"Ada bagian avatar yang belum dikenal."}');
                 $config[$key] = $value;
+            }
+            if (($config['special'] ?? '') === 'farmer-ps2' && array_key_exists('farmer', $preset['config'])) {
+                $this->load->helper('farmer_avatar');
+                $config['farmer'] = validate_farmer_appearance($preset['config']['farmer']);
+                if ($config['farmer'] === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Racikan avatar V11 belum valid."}');
             }
             $ids[$id] = TRUE;
             $clean[] = array('id' => $id, 'name' => $name, 'config' => $config);

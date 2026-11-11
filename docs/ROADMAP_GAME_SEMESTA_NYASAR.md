@@ -1,4 +1,6 @@
-# Roadmap Aplikasi Semesta Nyasar
+# Arsip Roadmap Lama — Semesta Nyasar
+
+> **Dokumen historis.** Roadmap ini ditulis untuk konsep Semesta Nyasar dan tidak menggambarkan tahap aktif Republik WkWkWk. Gunakan [Konsep Produk Republik WkWkWk](KONSEP_REPUBLIK_WKWKWK.md) dan [handover terbaru](HANDOVER_PENGEMBANGAN_DI_SERVER.md) sebelum menetapkan pekerjaan berikutnya.
 
 **Status:** prototipe lokal dalam pengerjaan  
 **Cara kerja:** dibangun dan dimainkan di komputer lokal terlebih dahulu  
