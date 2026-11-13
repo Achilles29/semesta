@@ -297,6 +297,37 @@ class Api extends CI_Controller
         return $fields;
     }
 
+    private function sanitize_avatar_config($config)
+    {
+        if (!is_array($config)) return FALSE;
+        $allowed = array(
+            'skin' => array('sawo','kuning','gelap','zaitun','pucat','coklat'),
+            'hair' => array('pendek','cepak','ikal','panjang','keriting','kuncir','hijab','botak'),
+            'hairColor' => array('hitam','coklat','coklat-tua','pirang','uban','merah'),
+            'top' => array('kemeja','flanel','batik','seragam','jaket','hoodie','jas','kaos','kebaya','petani','pekerja','koko','rompi'),
+            'bottom' => array('celana','jeans','cargo','sarung','rok','pendek','kulot'),
+            'headwear' => array('tanpa','peci','topi','helm','bandana','caping'),
+            'accessory' => array('tanpa','kacamata','ransel','tas-anyaman','lencana','selempang','syal','map','jam'),
+            'facialHair' => array('tanpa','kumis','kumis-janggut'),
+        );
+        foreach ($allowed as $key => $values) if (!isset($config[$key]) || !in_array($config[$key], $values, TRUE)) return FALSE;
+        $saved = array_intersect_key($config, $allowed);
+        if (isset($config['presetId'])) {
+            $presets = array('v11-arka','v11-laras','v11-bima','v11-ayu','v11-nino','v11-sari','v11-danu','v11-naya','v11-raka','v11-mira','v11-aji','v11-tara','v11-pak-hadi','v11-bu-ratna','v11-pak-surya','v11-bu-wulan','v11-fajar','v11-sekar','v11-revan','v11-intan');
+            if (!is_string($config['presetId']) || !in_array($config['presetId'], $presets, TRUE)) return FALSE;
+            $saved['presetId'] = $config['presetId'];
+        }
+        if (isset($config['special'])) {
+            if ($config['special'] !== 'farmer-ps2') return FALSE;
+            $this->load->helper('farmer_avatar');
+            $farmer = validate_farmer_appearance(isset($config['farmer']) ? $config['farmer'] : array());
+            if ($farmer === FALSE) return FALSE;
+            $saved['special'] = 'farmer-ps2';
+            $saved['farmer'] = $farmer;
+        } elseif (isset($config['farmer'])) return FALSE;
+        return $saved;
+    }
+
     private function citizen_action($payload)
     {
         if (!$this->database_ready() || !$this->db->table_exists('citizens') || !$this->db->table_exists('app_settings')) return $this->database_error();
@@ -312,28 +343,9 @@ class Api extends CI_Controller
             if (!$id) return $this->output->set_status_header(401)->set_output('{"error":"Masuk sebagai warga untuk mengganti avatar."}');
             $status = $this->db->select('is_active')->where('id', $id)->get('citizens')->row_array();
             if (!$status || !(int) $status['is_active']) return $this->output->set_status_header(403)->set_output('{"error":"Akun warga ini sedang dinonaktifkan."}');
-            $config = isset($payload['avatarConfig']) && is_array($payload['avatarConfig']) ? $payload['avatarConfig'] : array();
-            $allowed = array(
-                'skin' => array('sawo','kuning','gelap','zaitun','pucat','coklat'),
-                'hair' => array('pendek','cepak','ikal','panjang','keriting','kuncir','hijab','botak'),
-                'hairColor' => array('hitam','coklat','coklat-tua','pirang','uban','merah'),
-                'top' => array('kemeja','flanel','batik','seragam','jaket','hoodie','jas','kaos','kebaya','petani','pekerja','koko','rompi'),
-                'bottom' => array('celana','jeans','cargo','sarung','rok','pendek','kulot'),
-                'headwear' => array('tanpa','peci','topi','helm','bandana','caping'),
-                'accessory' => array('tanpa','kacamata','ransel','tas-anyaman','lencana','selempang','syal','map','jam'),
-                'facialHair' => array('tanpa','kumis','kumis-janggut'),
-            );
-            foreach ($allowed as $key => $values) if (!isset($config[$key]) || !in_array($config[$key], $values, TRUE)) return $this->output->set_status_header(422)->set_output('{"error":"Ada bagian avatar yang belum valid."}');
-            $saved = array_intersect_key($config, $allowed);
-            if (isset($config['special'])) {
-                if ($config['special'] !== 'farmer-ps2') return $this->output->set_status_header(422)->set_output('{"error":"Gaya avatar khusus belum valid."}');
-                $saved['special'] = 'farmer-ps2';
-                if (array_key_exists('farmer', $config)) {
-                    $this->load->helper('farmer_avatar');
-                    $saved['farmer'] = validate_farmer_appearance($config['farmer']);
-                    if ($saved['farmer'] === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Pilihan tubuh, wajah, pakaian, atau warna V11 belum valid."}');
-                }
-            }
+            $config = isset($payload['avatarConfig']) ? $payload['avatarConfig'] : array();
+            $saved = $this->sanitize_avatar_config($config);
+            if ($saved === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Pilihan avatar belum valid. Periksa bagian tubuh, wajah, pakaian, dan warna."}');
             if (!$this->semesta->update_citizen($id, array('avatar_config' => json_encode($saved, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)))) return $this->database_error();
             return $this->output->set_output(json_encode(array('ok' => TRUE, 'citizen' => $this->semesta->get_citizen_profile($id)), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         }
@@ -375,6 +387,12 @@ class Api extends CI_Controller
             $avatar = isset($payload['avatar']) ? $payload['avatar'] : 'warga';
             $house = isset($payload['house']) ? $payload['house'] : 'rumah-kayu';
             $profileFields = $this->collect_citizen_profile_fields($payload);
+            $avatarConfig = NULL;
+            if (array_key_exists('avatarConfig', $payload)) {
+                $cleanAvatar = $this->sanitize_avatar_config($payload['avatarConfig']);
+                if ($cleanAvatar === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Pilihan avatar belum valid. Periksa bagian tubuh, wajah, pakaian, dan warna."}');
+                $avatarConfig = json_encode($cleanAvatar, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            }
             if (strlen($display) < 2 || strlen($display) > 40 || !$this->citizen_master_has_value('avatar', $avatar) || !in_array($house, array('rumah-kayu','rumah-bata','rumah-panggung'), TRUE) || $profileFields === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Nama, biodata, avatar, atau pilihan rumah belum valid."}');
             if ($this->semesta->find_citizen_by_email($email)) return $this->output->set_status_header(409)->set_output('{"error":"Email sudah terdaftar. Coba masuk atau kirim ulang verifikasi."}');
             if ($this->semesta->find_citizen_by_username($username)) return $this->output->set_status_header(409)->set_output('{"error":"Username sudah dipakai. Pilih username lain."}');
@@ -383,7 +401,7 @@ class Api extends CI_Controller
             $id = $this->semesta->create_citizen(array(
                 'username' => $username, 'email' => $email, 'display_name' => $display, 'password_hash' => password_hash($password, PASSWORD_DEFAULT),
                 'email_verified' => $verificationRequired ? 0 : 1, 'verification_token_hash' => $token ? hash('sha256', $token) : NULL,
-                'verification_expires_at' => $token ? date('Y-m-d H:i:s', time() + 172800) : NULL, 'avatar' => $avatar, 'house' => $house,
+                'verification_expires_at' => $token ? date('Y-m-d H:i:s', time() + 172800) : NULL, 'avatar' => $avatar, 'avatar_config' => $avatarConfig, 'house' => $house,
                 'account_type' => 'citizen',
             ) + $profileFields);
             if (!$id) return $this->database_error();
@@ -629,10 +647,18 @@ class Api extends CI_Controller
         if (!$this->database_ready() || !$this->db->table_exists('citizens')) return $this->database_error();
         $token = (string) $this->input->get('token', TRUE);
         $citizen = preg_match('/^[a-f0-9]{64}$/', $token) ? $this->semesta->find_citizen_by_verification_hash(hash('sha256', $token)) : NULL;
-        $this->output->set_content_type('text/html', 'utf-8');
-        if (!$citizen) return $this->output->set_status_header(400)->set_output('<!doctype html><meta charset="utf-8"><title>Tautan tidak berlaku</title><p>Tautan verifikasi sudah dipakai atau kedaluwarsa. Kembali ke game untuk meminta tautan baru.</p>');
+        if (!$citizen) {
+            $this->output->set_status_header(400);
+            return $this->load->view('email_verification', array(
+                'title' => 'Tautan verifikasi tidak berlaku',
+                'message' => 'Tautan ini mungkin sudah pernah digunakan atau masa berlakunya habis.',
+                'next_step' => 'Kembali ke permainan, masuk dengan username, lalu minta tautan verifikasi baru.',
+                'back_url' => base_url(),
+                'success' => FALSE,
+            ));
+        }
         $this->semesta->update_citizen($citizen['id'], array('email_verified' => 1, 'verification_token_hash' => NULL, 'verification_expires_at' => NULL));
-        return $this->output->set_output('<!doctype html><meta charset="utf-8"><title>Email terverifikasi</title><h1>Email berhasil diverifikasi</h1><p>Silakan kembali ke Republik WkWkWk dan masuk menggunakan username Anda.</p>');
+        return redirect(base_url('?email_verified=1'));
     }
 
     private function ideas($method)

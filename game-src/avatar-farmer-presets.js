@@ -4,7 +4,7 @@ import { FARMER_PRESET, farmerAppearance } from './avatar-farmer-config.js';
 // Names are fictional; frame, physique and clothing remain independently editable.
 const make = (id, name, collection, appearance, colors) => ({
   id:`v11-${id}`, name, collection,
-  config:{...FARMER_PRESET, farmer:farmerAppearance({farmer:{
+  config:{...FARMER_PRESET, presetId:`v11-${id}`, farmer:farmerAppearance({farmer:{
     headwear:'none', accessory:'none', gloves:'none', ...appearance, colors,
   }})},
 });
