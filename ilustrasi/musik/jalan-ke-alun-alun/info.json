@@ -1,0 +1,31 @@
+{
+  "title": "Jalan ke Alun-Alun",
+  "type": "original town instrumental demo",
+  "creative_direction": "Warm, cheerful small-town life-sim atmosphere; user reference: Harvest Moon Back to Nature, Town. Not a cover or transcription.",
+  "tempo_bpm": 112,
+  "meter": "4/4",
+  "key": "F major",
+  "bars": 32,
+  "seconds": 71.77142857142857,
+  "sample_rate": 44100,
+  "channels": 2,
+  "pcm_bits": 16,
+  "instruments": [
+    "synthetic accordion",
+    "flute",
+    "plucked guitar",
+    "bass",
+    "wooden bell",
+    "brush percussion",
+    "shaker"
+  ],
+  "peak_dbfs": -1.5,
+  "rms_dbfs": -17.04,
+  "clipped_samples": 0,
+  "note_events": 829,
+  "external_audio_or_midi_used": false,
+  "game_modified": false,
+  "first_song_modified": false,
+  "reference_catalog": "https://musicbrainz.org/release/751562c2-18e8-4da7-9197-ca47a63b56c4",
+  "notes": "Listening version with composed ending, not seamless loop. Synthetic demo, not studio instruments. MIDI is editable and may sound different. Technical validation does not replace human listening."
+}

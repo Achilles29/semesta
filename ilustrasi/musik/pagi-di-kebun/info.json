@@ -1,0 +1,28 @@
+{
+  "title": "Pagi di Kebun",
+  "type": "original instrumental demo",
+  "tempo_bpm": 96,
+  "meter": "3/4",
+  "key": "G major",
+  "bars": 32,
+  "seconds": 63.5,
+  "sample_rate": 44100,
+  "channels": 2,
+  "pcm_bits": 16,
+  "instruments": [
+    "synthetic flute",
+    "plucked guitar",
+    "acoustic-style bass",
+    "wooden mallet",
+    "soft sustained harmony",
+    "shaker",
+    "wood percussion"
+  ],
+  "peak_dbfs": -1.5,
+  "rms_dbfs": -17.37,
+  "clipped_samples": 0,
+  "note_events": 592,
+  "external_samples": false,
+  "game_modified": false,
+  "notes": "Standalone listening version with ending and reverb tail; not a seamless game loop. MIDI uses General MIDI patches and will sound different from the custom WAV synthesizer. Technical checks only; no claim of studio mastering or subjective listening verification."
+}
