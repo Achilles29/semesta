@@ -133,6 +133,94 @@ function locationFor(cityId, locationId) {
   return locations[locationId];
 }
 
+// Keep the soundtrack mapping keyed by the playable region ID. New areas can
+// point at their own track ID while sharing the default until a song exists.
+const AREA_MUSIC_CATALOG = {
+  'jalan-ke-alun-alun': {
+    title: 'Jalan ke Alun-Alun',
+    path: 'jalan-ke-alun-alun/jalan-ke-alun-alun.wav',
+  },
+};
+const AREA_MUSIC_BY_REGION = {
+  kota: 'jalan-ke-alun-alun',
+  desa: 'jalan-ke-alun-alun',
+  hutan: 'jalan-ke-alun-alun',
+};
+const DEFAULT_AREA_MUSIC = 'jalan-ke-alun-alun';
+
+function initAreaMusic() {
+  const audio = new Audio();
+  const toggle = $('#areaMusicToggle');
+  const volume = $('#areaMusicVolume');
+  const label = $('#areaMusicToggleLabel');
+  const trackName = $('#areaMusicTrackName');
+  const status = $('#areaMusicStatus');
+  const volumeKey = 'semesta-area-music-volume-v1';
+  let trackId = '';
+  let shouldPlay = false;
+  audio.loop = true;
+  audio.preload = 'none';
+
+  try {
+    const savedVolume = Number(localStorage.getItem(volumeKey));
+    if (Number.isFinite(savedVolume) && localStorage.getItem(volumeKey) !== null) audio.volume = clamp(savedVolume, 0, 1);
+    else audio.volume = .35;
+  } catch (_) { audio.volume = .35; }
+  if (volume) volume.value = String(audio.volume);
+
+  const updateControls = () => {
+    const playing = !audio.paused && !audio.ended;
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', String(playing));
+      toggle.setAttribute('aria-label', playing ? 'Jeda musik area' : 'Putar musik area');
+      if (label) label.textContent = playing ? 'JEDA MUSIK' : 'PUTAR MUSIK';
+    }
+    if (playing && status) status.textContent = 'Musik area sedang diputar.';
+    else if (status && !audio.error && status.textContent !== 'Musik siap diputar saat masuk area.') status.textContent = 'Musik dijeda.';
+  };
+  const setTrack = (regionId) => {
+    const nextId = AREA_MUSIC_BY_REGION[regionId] || DEFAULT_AREA_MUSIC;
+    const track = AREA_MUSIC_CATALOG[nextId] || AREA_MUSIC_CATALOG[DEFAULT_AREA_MUSIC];
+    if (!track) return;
+    if (trackName) trackName.textContent = track.title;
+    if (trackId === nextId) return;
+    const wasPlaying = !audio.paused;
+    trackId = nextId;
+    audio.src = new URL(track.path, window.SEMESTA_AREA_MUSIC_BASE || `${document.baseURI}ilustrasi/musik/`).href;
+    if (wasPlaying) audio.play().catch(() => {
+      updateControls();
+      if (status) status.textContent = 'Tekan Putar Musik untuk melanjutkan.';
+    });
+  };
+  const play = (regionId) => {
+    if (regionId) setTrack(regionId);
+    else if (!trackId) setTrack(DEFAULT_AREA_MUSIC);
+    shouldPlay = true;
+    audio.play().then(updateControls).catch(() => {
+      updateControls();
+      if (status) status.textContent = 'Musik belum bisa diputar. Tekan tombol putar untuk mencoba lagi.';
+    });
+  };
+  const pause = () => { shouldPlay = false; audio.pause(); updateControls(); };
+  toggle?.addEventListener('click', () => audio.paused ? play() : pause());
+  volume?.addEventListener('input', () => {
+    audio.volume = clamp(Number(volume.value), 0, 1);
+    try { localStorage.setItem(volumeKey, String(audio.volume)); } catch (_) { /* Volume remains active for this visit. */ }
+  });
+  audio.addEventListener('play', updateControls);
+  audio.addEventListener('playing', updateControls);
+  audio.addEventListener('pause', updateControls);
+  audio.addEventListener('ended', updateControls);
+  audio.addEventListener('error', () => {
+    if (status) status.textContent = 'Berkas musik area belum dapat dimuat.';
+    updateControls();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && shouldPlay && $('#exploreScreen')?.classList.contains('active')) play();
+  });
+  return { setTrack, play, pause };
+}
+
 async function initCitizen() {
   const panel = $('#citizenPanel');
   const profileFieldNames = { gender:'gender', religion:'religion', birthProvince:'birth_province', birthCity:'birth_city', birthDate:'birth_date', occupation:'occupation', educationLevel:'education_level', domicileProvince:'domicile_province', domicileCity:'domicile_city' };
@@ -546,6 +634,7 @@ function startCanvasFallback(sourceCanvas, place, city, entries, reason) {
 }
 
 function initWorld() {
+  const areaMusic = initAreaMusic();
   const savedState = readGameState();
   let destination = destinationInfo[savedState.destination] ? savedState.destination : 'jakarta';
   let location = 'kampung';
@@ -606,6 +695,7 @@ function initWorld() {
   function selectRegion(id) {
     if (!regions[id]) return;
     region = id; const area = regions[id];
+    areaMusic.setTrack(id);
     document.querySelectorAll('.region-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.region === id));
     zones.forEach((zone) => zone.classList.remove('selected'));
     $('#locationEmoji').textContent = area.emoji;
@@ -645,11 +735,12 @@ function initWorld() {
   $('#enterLocation').addEventListener('click', () => {
     $('#cityScreen').classList.remove('active'); $('#exploreScreen').classList.add('active');
     document.body.classList.add('exploring');
+    areaMusic.play(region);
     saveGameState({ screen: 'explore', destination, location: region, region, worldAvatar: { x: avatar.x, y: avatar.y }, playerPosition: null, foundClues: [], cameraYaw: 0 });
     runArea(regions[region], destinationInfo[destination]);
   });
-  function showCityMap() { $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.add('active'); saveGameState({ screen: 'city', destination, location, region, worldAvatar: { x: avatar.x, y: avatar.y } }); }
-  function showWorldMap() { $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.remove('active'); $('#worldScreen').classList.add('active'); saveGameState({ screen: 'world', destination, location, region, worldAvatar: { x: avatar.x, y: avatar.y } }); }
+  function showCityMap() { areaMusic.pause(); $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.add('active'); saveGameState({ screen: 'city', destination, location, region, worldAvatar: { x: avatar.x, y: avatar.y } }); }
+  function showWorldMap() { areaMusic.pause(); $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.remove('active'); $('#worldScreen').classList.add('active'); saveGameState({ screen: 'world', destination, location, region, worldAvatar: { x: avatar.x, y: avatar.y } }); }
   $('#backToCity').addEventListener('click', showCityMap);
   $('#backToCityQuick').addEventListener('click', showCityMap);
   $('#backToWorldFromExplore').addEventListener('click', showWorldMap);
@@ -696,7 +787,7 @@ function initWorld() {
     $('#cityTitle').textContent = `Kawasan Warga, ${data.name}`; $('#cityIntro').textContent = `${data.intro} Cerita dan isu bisa berkembang mengikuti suara warga.`;
     $('#cityCountry').textContent = data.country; $('#cityCoordinates').textContent = data.coordinates; $('#exploreCityName').textContent = data.name.toUpperCase();
   }
-  if (restoredScreen === 'explore') runArea(regions[region], destinationInfo[destination]);
+  if (restoredScreen === 'explore') { areaMusic.setTrack(region); runArea(regions[region], destinationInfo[destination]); }
 }
 
 async function runArea(place, city) {
