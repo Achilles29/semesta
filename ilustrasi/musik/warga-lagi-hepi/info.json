@@ -1,0 +1,40 @@
+{
+  "title": "Warga Lagi Hepi",
+  "tempo_bpm": 128,
+  "key": "C major",
+  "meter": "4/4",
+  "sample_rate": 44100,
+  "pcm_bits": 16,
+  "channels": 2,
+  "note_events": 936,
+  "files": [
+    {
+      "file": "warga-lagi-hepi.wav",
+      "seconds": 50.25,
+      "peak_dbfs": -1.5,
+      "rms_dbfs": -16.13,
+      "clipped_samples": 0,
+      "first_second_rms": 0.17616690763179332
+    },
+    {
+      "file": "warga-lagi-hepi-hook.wav",
+      "seconds": 16.5,
+      "peak_dbfs": -1.5,
+      "rms_dbfs": -14.69,
+      "clipped_samples": 0,
+      "first_second_rms": 0.2068358365154151
+    }
+  ],
+  "direction": "Original cheerful comic theme; immediate whistle motif, plucked offbeats, marimba answers and stop-time jokes.",
+  "instruments": [
+    "synthetic whistle",
+    "marimba",
+    "plucked strings",
+    "bass",
+    "comic low reed",
+    "light percussion"
+  ],
+  "external_audio_or_midi_used": false,
+  "game_modified": false,
+  "notes": "Synthetic instrumental demo, not live instruments. Listening endings, not seamless loops. MIDI timbres depend on player. QA is technical, not a human listening test."
+}

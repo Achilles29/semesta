@@ -1,0 +1,11 @@
+Generator: built-in imagegen
+Reference: republik-wkwkwk-profil-v1.png
+
+Use case: stylized-concept.
+Asset type: square Instagram / TikTok profile mascot for Republik WkWkWk, a humorous Indonesian fictional republic.
+Input image 1: previous mascot identity and palette reference. Create a substantially stronger, more recognizable second-version profile portrait, not an exact duplicate.
+Keep the cream Garuda-inspired eagle, golden hooked beak, red-and-white neckerchief, teal backdrop, premium sculpted 3D cartoon finish. Reframe to a large HEAD portrait with only the small neckerchief knot visible below, not a bust. Face is the immediate focal point.
+New personality: a mischievous charismatic fictional 'Pak Presiden' who just thought of a very funny joke. Head tilted slightly, looking straight at viewer; distinctly asymmetric eyebrows, ONE eyebrow raised high, the opposite eye slightly narrowed in amused disbelief, both eyes readable. A broad lopsided open-beak chuckle, cheeky yet warm, not angry or evil, no human teeth. Wear a plain Indonesian BLACK PECI cap, flat-topped brimless velvet songkok, tilted playfully about 12 degrees, with a small golden feather tuft peeking out. This cap is the iconic memorable silhouette. No badges.
+Simplify feathers into a few broad clean sculpted clumps, reduce fine texture, bold readable facial shapes and eye highlights. Strong ivory/gold/red against rich saturated deep teal; subtle warm rim light around cap and cheeks, soft front light. Elegant polished game-character rendering, not generic corporate mascot or aggressive sports logo.
+Composition: single centered character in a 1:1 full-bleed square. All cap, face and scarf tips fit safely inside an imaginary centered circular crop with 7% padding from circle boundary. Head fills most of the safe circle; face much larger proportionally than the reference. Background simple teal with subtle lighter center, no scenery. Design to remain expressive at 48px.
+No text, letters, typography, watermarks, frames, extra characters, hands, props, official coat of arms, uniforms, medals, or real-person likeness. Deliver the actual profile image, not a mockup or comparison sheet.

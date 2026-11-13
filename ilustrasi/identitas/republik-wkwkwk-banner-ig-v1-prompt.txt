@@ -1,0 +1,23 @@
+Generator: built-in imagegen
+Reference: republik-wkwkwk-profil-v2.png
+Deliverable: single panoramic master artwork, not yet split into upload panels.
+
+Use case: ads-marketing.
+Create a finished premium Instagram brand banner master artwork for REPUBLIK WKWKWK. Wide landscape canvas, exact 9:4 aspect ratio if possible, ideally 2304 x 1024. A continuous panoramic design with three equally wide portrait zones, composed so it could later be sliced into three posts, no visible dividers. Deliver ONE full banner, not a device mockup.
+Image 1 is the established mascot identity reference: preserve this ivory cartoon Garuda/eagle, yellow hooked beak, tilted black peci, raised eyebrow, cheeky laughing expression, red-white neckerchief, polished stylized 3D materials.
+Visual direction: instantly welcoming, funny, distinctly Indonesian fictional republic, bold graphic composition and premium 3D mascot. Deep teal background with soft glow, warm cream and golden-yellow typography, vivid red accents. A red and white flowing ribbon gently connects the lower portion of all three zones. Faint simplified Indonesian village rooftops along bottom only, tonal and secondary. Generous negative space, do not clutter.
+LEFT THIRD: very large charismatic head-and-neckerchief portrait of the same mascot, fully contained inside this third with safe margins, not cut across zone boundaries. No additional characters.
+CENTER THIRD: editorial stacked typography as the principal brand statement, exactly:
+"SELAMAT DATANG DI"
+"REPUBLIK"
+"WKWKWK"
+"Negara fiktif."
+"Kelakuan warga realistis."
+REPUBLIK and WKWKWK very large, bold rounded display lettering, cream and golden yellow, excellent spacing, strong legibility; the introductory line small but readable. Keep all words fully within center third, not crossing slice boundaries. WKWKWK is exactly six alternating letters W K W K W K.
+RIGHT THIRD: confident punchy stacked headline exactly:
+"KETAWA BARENG."
+"MIKIR BARENG."
+Below it a red rounded label with cream text exactly:
+"GABUNG JADI WARGA!"
+Headlines bold cream, friendly contemporary lettering, line breaks can adapt to fit. Small simple speech-bubble graphic integrated behind headline, no extra copy.
+All important elements stay 7% away from each third's edges and 10% from top and bottom of overall canvas. Cohesive visual flow across thirds while each panel reads independently. Render Indonesian wording exactly as supplied, no extra text, no invented username or URL, no watermark, no official national emblems, no real politicians, no Instagram UI. Professionally art-directed campaign image, rich but clean, not generic clipart.
