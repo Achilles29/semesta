@@ -1,0 +1,262 @@
+{
+  "status": "generated-file-verified-listening-review-pending",
+  "voice": "Lucian - Conversational & Easygoing",
+  "speed": 1,
+  "pronunciation": {
+    "written": "WKWKWK",
+    "spoken": "wekawekaweka"
+  },
+  "review": "File integrity, duration and placement checked. No listening/independent transcription available; user review required.",
+  "format": {
+    "channels": 1,
+    "bit_depth": 16,
+    "sample_rate_hz": 44100
+  },
+  "clips": [
+    {
+      "id": "001",
+      "start": 0,
+      "end": 8,
+      "role": "pemandu",
+      "file": "001-pemandu.wav",
+      "measured_duration_seconds": 5.674331065759637,
+      "master_start_seconds": 0,
+      "play_master_start_seconds": 3,
+      "master_audio_end_seconds": 5.674331065759637,
+      "source_frame_count": 250238
+    },
+    {
+      "id": "002",
+      "start": 8,
+      "end": 11,
+      "role": "pak-sandal",
+      "file": "002-pak-sandal.wav",
+      "measured_duration_seconds": 2.4815873015873016,
+      "master_start_seconds": 8,
+      "play_master_start_seconds": 11,
+      "master_audio_end_seconds": 10.481587301587302,
+      "source_frame_count": 109438
+    },
+    {
+      "id": "003",
+      "start": 11,
+      "end": 15,
+      "role": "pemandu",
+      "file": "003-pemandu.wav",
+      "measured_duration_seconds": 2.9459863945578233,
+      "master_start_seconds": 11,
+      "play_master_start_seconds": 14,
+      "master_audio_end_seconds": 13.945986394557824,
+      "source_frame_count": 129918
+    },
+    {
+      "id": "004",
+      "start": 15,
+      "end": 19,
+      "role": "pak-sandal",
+      "file": "004-pak-sandal.wav",
+      "measured_duration_seconds": 2.690566893424036,
+      "master_start_seconds": 15,
+      "play_master_start_seconds": 18,
+      "master_audio_end_seconds": 17.690566893424037,
+      "source_frame_count": 118654
+    },
+    {
+      "id": "005",
+      "start": 19,
+      "end": 21,
+      "role": "bahlil",
+      "file": "005-bahlil.wav",
+      "measured_duration_seconds": 1.253718820861678,
+      "master_start_seconds": 19,
+      "play_master_start_seconds": 22,
+      "master_audio_end_seconds": 20.25371882086168,
+      "source_frame_count": 55289
+    },
+    {
+      "id": "006",
+      "start": 21,
+      "end": 24,
+      "role": "pemandu",
+      "file": "006-pemandu.wav",
+      "measured_duration_seconds": 1.9578684807256235,
+      "master_start_seconds": 21,
+      "play_master_start_seconds": 24,
+      "master_audio_end_seconds": 22.957868480725622,
+      "source_frame_count": 86342
+    },
+    {
+      "id": "007",
+      "start": 24,
+      "end": 26,
+      "role": "bahlil",
+      "file": "007-bahlil.wav",
+      "measured_duration_seconds": 1.1260090702947845,
+      "master_start_seconds": 24,
+      "play_master_start_seconds": 27,
+      "master_audio_end_seconds": 25.126009070294785,
+      "source_frame_count": 49657
+    },
+    {
+      "id": "008",
+      "start": 26,
+      "end": 29,
+      "role": "pemandu",
+      "file": "008-pemandu.wav",
+      "measured_duration_seconds": 1.7056009070294784,
+      "master_start_seconds": 26,
+      "play_master_start_seconds": 29,
+      "master_audio_end_seconds": 27.705600907029478,
+      "source_frame_count": 75217
+    },
+    {
+      "id": "009",
+      "start": 29,
+      "end": 33,
+      "role": "mama-ghufron",
+      "file": "009-mama-ghufron.wav",
+      "measured_duration_seconds": 2.2443537414965986,
+      "master_start_seconds": 29,
+      "play_master_start_seconds": 32,
+      "master_audio_end_seconds": 31.2443537414966,
+      "source_frame_count": 98976
+    },
+    {
+      "id": "010",
+      "start": 33,
+      "end": 36,
+      "role": "pemandu",
+      "file": "010-pemandu.wav",
+      "measured_duration_seconds": 1.2317006802721089,
+      "master_start_seconds": 33,
+      "play_master_start_seconds": 36,
+      "master_audio_end_seconds": 34.23170068027211,
+      "source_frame_count": 54318
+    },
+    {
+      "id": "011",
+      "start": 36,
+      "end": 40,
+      "role": "mama-ghufron",
+      "file": "011-mama-ghufron.wav",
+      "measured_duration_seconds": 1.3401814058956916,
+      "master_start_seconds": 36,
+      "play_master_start_seconds": 39,
+      "master_audio_end_seconds": 37.34018140589569,
+      "source_frame_count": 59102
+    },
+    {
+      "id": "012",
+      "start": 40,
+      "end": 43,
+      "role": "komeng",
+      "file": "012-komeng.wav",
+      "measured_duration_seconds": 1.2214285714285715,
+      "master_start_seconds": 40,
+      "play_master_start_seconds": 43,
+      "master_audio_end_seconds": 41.221428571428575,
+      "source_frame_count": 53865
+    },
+    {
+      "id": "013",
+      "start": 43,
+      "end": 46,
+      "role": "pemandu",
+      "file": "013-pemandu.wav",
+      "measured_duration_seconds": 1.5914285714285714,
+      "master_start_seconds": 43,
+      "play_master_start_seconds": 46,
+      "master_audio_end_seconds": 44.59142857142857,
+      "source_frame_count": 70182
+    },
+    {
+      "id": "014",
+      "start": 46,
+      "end": 50,
+      "role": "komeng",
+      "file": "014-komeng.wav",
+      "measured_duration_seconds": 2.3263265306122447,
+      "master_start_seconds": 46,
+      "play_master_start_seconds": 49,
+      "master_audio_end_seconds": 48.32632653061224,
+      "source_frame_count": 102591
+    },
+    {
+      "id": "015",
+      "start": 50,
+      "end": 62,
+      "role": "pemandu",
+      "file": "015-pemandu.wav",
+      "measured_duration_seconds": 9.935192743764173,
+      "master_start_seconds": 50,
+      "play_master_start_seconds": 53,
+      "master_audio_end_seconds": 59.935192743764176,
+      "source_frame_count": 438142
+    },
+    {
+      "id": "016",
+      "start": 62,
+      "end": 65,
+      "role": "pak-sandal",
+      "file": "016-pak-sandal.wav",
+      "measured_duration_seconds": 2.4351473922902493,
+      "master_start_seconds": 62,
+      "play_master_start_seconds": 65,
+      "master_audio_end_seconds": 64.43514739229025,
+      "source_frame_count": 107390
+    },
+    {
+      "id": "017",
+      "start": 65,
+      "end": 81,
+      "role": "pemandu",
+      "file": "017-pemandu.wav",
+      "measured_duration_seconds": 9.88875283446712,
+      "master_start_seconds": 65,
+      "play_master_start_seconds": 68,
+      "master_audio_end_seconds": 74.88875283446711,
+      "source_frame_count": 436094
+    },
+    {
+      "id": "018",
+      "start": 81,
+      "end": 85,
+      "role": "pak-sandal",
+      "file": "018-pak-sandal.wav",
+      "measured_duration_seconds": 2.5164172335600905,
+      "master_start_seconds": 81,
+      "play_master_start_seconds": 84,
+      "master_audio_end_seconds": 83.51641723356009,
+      "source_frame_count": 110974
+    },
+    {
+      "id": "019",
+      "start": 85,
+      "end": 90,
+      "role": "pemandu",
+      "file": "019-pemandu.wav",
+      "measured_duration_seconds": 2.037936507936508,
+      "master_start_seconds": 85,
+      "play_master_start_seconds": 88,
+      "master_audio_end_seconds": 87.03793650793651,
+      "source_frame_count": 89873
+    }
+  ],
+  "masters": [
+    {
+      "file": "episode-002-vo-timeline-90s.wav",
+      "measured_duration_seconds": 90,
+      "lead_in_seconds": 0,
+      "speed": 1,
+      "source_samples_unchanged": true
+    },
+    {
+      "file": "episode-002-vo-play-93s.wav",
+      "measured_duration_seconds": 93,
+      "lead_in_seconds": 3,
+      "speed": 1,
+      "source_samples_unchanged": true
+    }
+  ],
+  "total_original_speech_seconds": 56.60453514739229
+}

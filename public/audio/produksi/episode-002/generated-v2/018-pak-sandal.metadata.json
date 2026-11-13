@@ -1,0 +1,246 @@
+{
+  "id": "018",
+  "role": "pak-sandal",
+  "written_text": "Kalau nggak kepilih, masih boleh makan?",
+  "request": {
+    "text": "Kalau nggak kepilih, masih boleh makan?",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=76db630e857f416bacce9f1089ec6950.wav",
+    "duration": 2.5164172335600905,
+    "original_characters": [
+      {
+        "text": "K",
+        "start_time": 0.256,
+        "end_time": 0.384
+      },
+      {
+        "text": "a",
+        "start_time": 0.384,
+        "end_time": 0.427
+      },
+      {
+        "text": "l",
+        "start_time": 0.427,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.491
+      },
+      {
+        "text": "u",
+        "start_time": 0.491,
+        "end_time": 0.512
+      },
+      {
+        "text": " ",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": "n",
+        "start_time": 0.555,
+        "end_time": 0.597
+      },
+      {
+        "text": "g",
+        "start_time": 0.597,
+        "end_time": 0.64
+      },
+      {
+        "text": "g",
+        "start_time": 0.64,
+        "end_time": 0.661
+      },
+      {
+        "text": "a",
+        "start_time": 0.661,
+        "end_time": 0.683
+      },
+      {
+        "text": "k",
+        "start_time": 0.683,
+        "end_time": 0.725
+      },
+      {
+        "text": " ",
+        "start_time": 0.725,
+        "end_time": 0.768
+      },
+      {
+        "text": "k",
+        "start_time": 0.768,
+        "end_time": 0.789
+      },
+      {
+        "text": "e",
+        "start_time": 0.789,
+        "end_time": 0.811
+      },
+      {
+        "text": "p",
+        "start_time": 0.811,
+        "end_time": 0.853
+      },
+      {
+        "text": "i",
+        "start_time": 0.853,
+        "end_time": 0.896
+      },
+      {
+        "text": "l",
+        "start_time": 0.896,
+        "end_time": 0.939
+      },
+      {
+        "text": "i",
+        "start_time": 0.939,
+        "end_time": 0.981
+      },
+      {
+        "text": "h",
+        "start_time": 0.981,
+        "end_time": 1.152
+      },
+      {
+        "text": ",",
+        "start_time": 1.152,
+        "end_time": 1.323
+      },
+      {
+        "text": " ",
+        "start_time": 1.323,
+        "end_time": 1.493
+      },
+      {
+        "text": "m",
+        "start_time": 1.493,
+        "end_time": 1.522
+      },
+      {
+        "text": "a",
+        "start_time": 1.522,
+        "end_time": 1.55
+      },
+      {
+        "text": "s",
+        "start_time": 1.55,
+        "end_time": 1.579
+      },
+      {
+        "text": "i",
+        "start_time": 1.579,
+        "end_time": 1.664
+      },
+      {
+        "text": "h",
+        "start_time": 1.664,
+        "end_time": 1.7067
+      },
+      {
+        "text": " ",
+        "start_time": 1.707,
+        "end_time": 1.749
+      },
+      {
+        "text": "b",
+        "start_time": 1.749,
+        "end_time": 1.771
+      },
+      {
+        "text": "o",
+        "start_time": 1.771,
+        "end_time": 1.792
+      },
+      {
+        "text": "l",
+        "start_time": 1.792,
+        "end_time": 1.813
+      },
+      {
+        "text": "e",
+        "start_time": 1.813,
+        "end_time": 1.835
+      },
+      {
+        "text": "h",
+        "start_time": 1.835,
+        "end_time": 1.877
+      },
+      {
+        "text": " ",
+        "start_time": 1.877,
+        "end_time": 1.92
+      },
+      {
+        "text": "m",
+        "start_time": 1.92,
+        "end_time": 1.941
+      },
+      {
+        "text": "a",
+        "start_time": 1.941,
+        "end_time": 1.963
+      },
+      {
+        "text": "k",
+        "start_time": 1.963,
+        "end_time": 2.005
+      },
+      {
+        "text": "a",
+        "start_time": 2.005,
+        "end_time": 2.091
+      },
+      {
+        "text": "n",
+        "start_time": 2.091,
+        "end_time": 2.176
+      },
+      {
+        "text": "?",
+        "start_time": 2.176,
+        "end_time": 2.396689342403628
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Kalau",
+        "start_time": 0.256,
+        "end_time": 0.512
+      },
+      {
+        "text": "nggak",
+        "start_time": 0.555,
+        "end_time": 0.725
+      },
+      {
+        "text": "kepilih",
+        "start_time": 0.768,
+        "end_time": 1.152
+      },
+      {
+        "text": "masih",
+        "start_time": 1.493,
+        "end_time": 1.7067
+      },
+      {
+        "text": "boleh",
+        "start_time": 1.749,
+        "end_time": 1.877
+      },
+      {
+        "text": "makan",
+        "start_time": 1.92,
+        "end_time": 2.176
+      }
+    ]
+  },
+  "provider_error": false
+}

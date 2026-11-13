@@ -22,6 +22,7 @@
     else: ?>
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . $source_css_version); ?>">
     <?php endif; ?>
+    <link rel="stylesheet" href="<?= base_url('game-src/production-district.css?v=' . filemtime(FCPATH . 'game-src/production-district.css')); ?>">
 </head>
 <body class="world-body">
     <main id="app" class="app-shell">
@@ -112,7 +113,7 @@
             <div class="region-strip" aria-label="Pilih wilayah untuk dijelajahi"><span>WILAYAH CERITA</span><div><button type="button" class="region-tab active" data-region="kota">🏙️ KOTA WARGA <small>TERBUKA</small></button><button type="button" class="region-tab" data-region="desa">🌾 DESA TUMBUH <small>TERBUKA</small></button><button type="button" class="region-tab" data-region="hutan">🌳 HUTAN WARGA <small>TERBUKA</small></button></div></div>
             <div class="city-map-layout">
                 <div class="city-map-card">
-                    <div class="city-map-head"><span>PETA JALAN <b>— SATU PINTU PERMUKIMAN</b></span><span class="sunny-weather">☀ &nbsp; KAWASAN WARGA</span></div>
+                    <div class="city-map-head"><span>PETA JALAN <b>— PILIH TITIK MASUK</b></span><span class="sunny-weather">☀ &nbsp; KAWASAN WARGA</span></div>
                     <div class="city-map-art" id="cityMapArt">
                         <img class="map-background" src="<?= base_url($map_asset_root . 'kawasan-warga.webp?v=' . filemtime(FCPATH . $map_asset_root . 'kawasan-warga.webp')); ?>" alt="Ilustrasi kawasan warga Indonesia dengan permukiman, pasar, sungai, dan lahan fasilitas umum" draggable="false">
                         <img class="village-home village-home-back" src="<?= base_url($map_asset_root . 'rumah-warga-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'rumah-warga-v2.webp')); ?>" alt="" draggable="false">
@@ -124,7 +125,9 @@
                         <div class="facility-brand facility-brand-mbg" aria-label="SPPG Badan Gizi Nasional"><span class="facility-logo facility-logo-bgn" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="29" fill="#071e49" stroke="#d1b06c" stroke-width="3"/><path d="M14 27 26 22 32 25 38 22 50 27 43 30 38 28 32 32 26 28 21 30z" fill="#d1b06c"/><circle cx="32" cy="30" r="3" fill="#fff4d2"/><circle cx="24" cy="35" r="3" fill="#d1b06c"/><circle cx="40" cy="35" r="3" fill="#d1b06c"/><path d="M17 43q7-8 14 0M47 43q-7-8-14 0M21 48q11-8 22 0" fill="none" stroke="#92d05d" stroke-width="3" stroke-linecap="round"/></svg></span><span><b>SPPG</b><small>BGN · GIZI</small></span></div>
                         <div class="facility-brand facility-brand-kopdes" aria-label="Koperasi Desa Merah Putih"><span class="facility-logo facility-logo-kopdes" aria-hidden="true"><svg viewBox="0 0 64 52"><path d="M5 23 32 4l27 19H49v24H15V23z" fill="#fff" stroke="#b51f2a" stroke-width="4" stroke-linejoin="round"/><path d="M20 27h24v8H20z" fill="#d62332"/><path d="M20 35h24v8H20z" fill="#fff"/><path d="M26 23h12v18H26z" fill="#d62332"/></svg></span><span><b>KOPDES</b><small>MERAH PUTIH</small></span></div>
                         <button class="zone-pin zone-kampung selected" data-location="kampung"><span>🏠</span><b>PERMUKIMAN WARGA</b></button>
-                        <div class="city-map-note">SATU PINTU MASUK · DUNIA WARGA</div>
+                        <svg id="productionMapRoute" class="production-map-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 75 H20 V22" /></svg>
+                        <button class="zone-pin zone-production" data-location="balai-produksi" aria-label="Masuk langsung ke Balai Produksi, barat laut Kota Warga"><span>🎬</span><b>BALAI PRODUKSI<small>BARAT LAUT · SET PARODI</small></b></button>
+                        <div class="city-map-note" id="productionMapNote">JALUR SKEMATIS · KE BARAT LALU UTARA DARI KOTA</div>
                     </div>
                 </div>
                 <div class="asset-library" aria-hidden="true"><img class="asset-house" src="<?= base_url($map_asset_root . 'rumah-warga-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'rumah-warga-v2.webp')); ?>" alt=""><img class="asset-tree" src="<?= base_url($map_asset_root . 'pohon-rindang-v2.webp?v=' . filemtime(FCPATH . $map_asset_root . 'pohon-rindang-v2.webp')); ?>" alt=""></div>
@@ -152,6 +155,7 @@
     <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/semesta-farmer-v2.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_FARMER_MODEL = <?= json_encode(base_url($farmer_model_path . '?v=' . filemtime(FCPATH . $farmer_model_path)), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_AREA_MUSIC_BASE = <?= json_encode(base_url('ilustrasi/musik/'), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_PRODUCTION_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . $source_js_version); ?>"></script><?php endif; ?>
 </body>

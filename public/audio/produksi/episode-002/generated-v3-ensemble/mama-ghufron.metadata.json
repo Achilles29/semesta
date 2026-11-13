@@ -1,0 +1,20 @@
+{
+  "role": "mama-ghufron",
+  "request": {
+    "text": "Visi-misi sudah saya siapkan.\n\nJudulnya dihitung?",
+    "voiceId": "a3a4aa242aaf431ea8ec2c4b3bb332fa",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "provider": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"audio_url\":\"https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/a3a4aa242aaf431ea8ec2c4b3bb332fa/id=7eb3663aa3d04dbc8a660465fc08d632.wav\",\"duration\":3.456825396825397,\"original_characters\":[{\"text\":\"V\",\"start_time\":0.256,\"end_time\":0.384},{\"text\":\"i\",\"start_time\":0.384,\"end_time\":0.448},{\"text\":\"s\",\"start_time\":0.448,\"end_time\":0.512},{\"text\":\"i\",\"start_time\":0.512,\"end_time\":0.683},{\"text\":\"-\",\"start_time\":0.683,\"end_time\":0.725},{\"text\":\"m\",\"start_time\":0.725,\"end_time\":0.768},{\"text\":\"i\",\"start_time\":0.768,\"end_time\":0.811},{\"text\":\"s\",\"start_time\":0.811,\"end_time\":0.853},{\"text\":\"i\",\"start_time\":0.853,\"end_time\":1.024},{\"text\":\" \",\"start_time\":1.024,\"end_time\":1.109},{\"text\":\"s\",\"start_time\":1.109,\"end_time\":1.173},{\"text\":\"u\",\"start_time\":1.173,\"end_time\":1.237},{\"text\":\"d\",\"start_time\":1.237,\"end_time\":1.28},{\"text\":\"a\",\"start_time\":1.28,\"end_time\":1.323},{\"text\":\"h\",\"start_time\":1.323,\"end_time\":1.365},{\"text\":\" \",\"start_time\":1.365,\"end_time\":1.408},{\"text\":\"s\",\"start_time\":1.408,\"end_time\":1.451},{\"text\":\"a\",\"start_time\":1.451,\"end_time\":1.493},{\"text\":\"y\",\"start_time\":1.493,\"end_time\":1.536},{\"text\":\"a\",\"start_time\":1.536,\"end_time\":1.5787},{\"text\":\" \",\"start_time\":1.579,\"end_time\":1.621},{\"text\":\"s\",\"start_time\":1.621,\"end_time\":1.664},{\"text\":\"i\",\"start_time\":1.664,\"end_time\":1.707},{\"text\":\"a\",\"start_time\":1.707,\"end_time\":1.771},{\"text\":\"p\",\"start_time\":1.771,\"end_time\":1.835},{\"text\":\"k\",\"start_time\":1.835,\"end_time\":1.877},{\"text\":\"a\",\"start_time\":1.877,\"end_time\":1.963},{\"text\":\"n\",\"start_time\":1.963,\"end_time\":2.048},{\"text\":\".\",\"start_time\":2.048,\"end_time\":2.176},{\"text\":\"\\n\",\"start_time\":2.176,\"end_time\":2.304},{\"text\":\"\\n\",\"start_time\":2.304,\"end_time\":2.432},{\"text\":\"J\",\"start_time\":2.432,\"end_time\":2.475},{\"text\":\"u\",\"start_time\":2.475,\"end_time\":2.539},{\"text\":\"d\",\"start_time\":2.539,\"end_time\":2.603},{\"text\":\"u\",\"start_time\":2.603,\"end_time\":2.667},{\"text\":\"l\",\"start_time\":2.667,\"end_time\":2.731},{\"text\":\"n\",\"start_time\":2.731,\"end_time\":2.752},{\"text\":\"y\",\"start_time\":2.752,\"end_time\":2.773},{\"text\":\"a\",\"start_time\":2.773,\"end_time\":2.8587},{\"text\":\" \",\"start_time\":2.859,\"end_time\":2.901},{\"text\":\"d\",\"start_time\":2.901,\"end_time\":2.923},{\"text\":\"i\",\"start_time\":2.923,\"end_time\":2.944},{\"text\":\"h\",\"start_time\":2.944,\"end_time\":2.987},{\"text\":\"i\",\"start_time\":2.987,\"end_time\":3.029},{\"text\":\"t\",\"start_time\":3.029,\"end_time\":3.072},{\"text\":\"u\",\"start_time\":3.072,\"end_time\":3.115},{\"text\":\"n\",\"start_time\":3.115,\"end_time\":3.157},{\"text\":\"g\",\"start_time\":3.157,\"end_time\":3.2},{\"text\":\"?\",\"start_time\":3.2,\"end_time\":3.2568253968253966}],\"original_words\":[{\"text\":\"Visi\",\"start_time\":0.256,\"end_time\":0.683},{\"text\":\"misi\",\"start_time\":0.725,\"end_time\":1.024},{\"text\":\"sudah\",\"start_time\":1.109,\"end_time\":1.365},{\"text\":\"saya\",\"start_time\":1.408,\"end_time\":1.5787},{\"text\":\"siapkan\",\"start_time\":1.621,\"end_time\":2.048},{\"text\":\"Judulnya\",\"start_time\":2.432,\"end_time\":2.8587},{\"text\":\"dihitung\",\"start_time\":2.901,\"end_time\":3.2}]}"
+      }
+    ],
+    "isError": false
+  }
+}
+

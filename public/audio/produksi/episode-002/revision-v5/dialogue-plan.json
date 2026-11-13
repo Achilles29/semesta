@@ -1,0 +1,53 @@
+{
+  "version": "v5",
+  "title": "Tes Antre, Sandalnya Lolos",
+  "status": "blocked-awaiting-authorized-voices",
+  "audio_generated": false,
+  "script_source": "docs/script/002-kursi-kosong-proses-pengganti-wapres-2026-11-13.md",
+  "language": "id",
+  "checked_on": "2026-11-13",
+  "service_check": {
+    "subscription_plan": "free",
+    "private_voice_count": 0,
+    "previous_clone_result": "HTTP 402: voice cloning is not available on the free tier",
+    "new_clone_request_submitted": false,
+    "new_speech_request_submitted": false
+  },
+  "voice_requirements": {
+    "bahlil": "Gunakan suara pemeran tim dari rekaman berizin; jangan otomatis mengganti dengan suara katalog generik.",
+    "ghufron": "Gunakan sumber suara yang izinnya telah dikonfirmasi; jangan otomatis mengganti dengan suara katalog generik.",
+    "komeng": "Gunakan suara pemeran tim dari rekaman berizin; jangan otomatis mengganti dengan suara katalog generik.",
+    "pemandu": "Pertahankan identitas suara V3 yang sudah disetujui; verifikasi ID masih aktif sebelum sintesis.",
+    "pak-sandal": "Pertahankan identitas suara V3 yang sudah disetujui; verifikasi ID masih aktif sebelum sintesis."
+  },
+  "pronunciation_review": {
+    "bahlil": {"required_literal": "Dindaaa!", "delivery_note_not_spoken": "Sapaan di awal kalimat; bunyi a akhir dipanjangkan secara wajar, jangan dihilangkan atau dibaca sebagai arahan."},
+    "ghufron": {"required_literals": ["Betul apa tidak?", "Keprok atuh!"], "delivery_note_not_spoken": "Dua frasa wajib terdengar utuh, dengan pembawaan percakapan."},
+    "wkwkwk": {"pronunciation": "wekawekaweka", "occurs_in_this_script": false}
+  },
+  "review_gate": [
+    "Kirim hanya spoken_text ke sintesis, bukan nama pemeran atau catatan aksi.",
+    "Periksa seluruh audio terhadap naskah. Metadata input atau timestamp saja tidak membuktikan frasa benar-benar terdengar.",
+    "Pastikan Dindaaa, Betul apa tidak, dan Keprok atuh ada pada hasil audio sebelum perakitan master.",
+    "Minta pengguna menilai kemiripan dan karakter suara; jangan mengklaim kemiripan tanpa pemeriksaan pendengaran.",
+    "Jangan memangkas sapaan pada awal klip atau merusak konsonan/bunyi akhir saat pemotongan.",
+    "Pertahankan kecepatan dan pitch; ukur durasi dari hasil nyata, bukan memaksa durasi perkiraan.",
+    "Jangan mengganti playback game dengan versi ini sebelum audio dan timing final tersedia."
+  ],
+  "cues": [
+    {"id": "001", "role": "pemandu", "spoken_text": "Kalian bikin tesnya, mereka yang menjalani. Tes pertama: antre. Ini kok sandalnya duluan?"},
+    {"id": "002", "role": "pak-sandal", "spoken_text": "Saya titip posisi."},
+    {"id": "003", "role": "bahlil", "spoken_text": "Dindaaa! Saya siap di depan!"},
+    {"id": "004", "role": "komeng", "spoken_text": "Belakang, Pak. Ini antrean, bukan foto bersama."},
+    {"id": "005", "role": "ghufron", "spoken_text": "Antre itu harus tertib. Betul apa tidak?"},
+    {"id": "006", "role": "pemandu", "spoken_text": "Betul. Silakan paling belakang."},
+    {"id": "007", "role": "ghufron", "spoken_text": "Nah, beri contoh. Keprok atuh!"},
+    {"id": "008", "role": "komeng", "spoken_text": "Yang paling tertib malah sandalnya. Dari tadi nggak pindah."},
+    {"id": "009", "role": "pemandu", "spoken_text": "Yang lolos antre: sandal. Pemiliknya ulang."},
+    {"id": "010", "role": "pak-sandal", "spoken_text": "Lho, yang capek berdiri saya!"},
+    {"id": "011", "role": "komeng", "spoken_text": "Makanya, jangan kirim perwakilan."},
+    {"id": "012", "role": "pemandu", "spoken_text": "Besok mereka dites apa? Tulis di komentar. Satu ide yang aman kita mainkan. Ikuti buat lihat siapa yang gagal."},
+    {"id": "013", "role": "pak-sandal", "spoken_text": "Kalau kursinya ikut antre, boleh?"},
+    {"id": "014", "role": "komeng", "spoken_text": "Orangnya, Pak. ORANGNYA."}
+  ]
+}

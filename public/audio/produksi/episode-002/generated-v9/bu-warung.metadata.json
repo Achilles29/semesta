@@ -1,0 +1,18 @@
+{
+  "request": {
+    "voiceId": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+    "text": "Sapu dulu. Duduk belakangan!",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "provider": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"audio_url\":\"https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/cf4f0a4bfd6f4ed585f8799ed27707f1/id=79df7d5b2c9241e9be06460f4e1b50ac.wav\",\"duration\":2.436984126984127,\"original_characters\":[{\"text\":\"S\",\"start_time\":0.299,\"end_time\":0.341},{\"text\":\"a\",\"start_time\":0.341,\"end_time\":0.427},{\"text\":\"p\",\"start_time\":0.427,\"end_time\":0.512},{\"text\":\"u\",\"start_time\":0.512,\"end_time\":0.64},{\"text\":\" \",\"start_time\":0.64,\"end_time\":0.683},{\"text\":\"d\",\"start_time\":0.683,\"end_time\":0.725},{\"text\":\"u\",\"start_time\":0.725,\"end_time\":0.768},{\"text\":\"l\",\"start_time\":0.768,\"end_time\":0.811},{\"text\":\"u\",\"start_time\":0.811,\"end_time\":0.896},{\"text\":\".\",\"start_time\":0.896,\"end_time\":1.173},{\"text\":\" \",\"start_time\":1.173,\"end_time\":1.451},{\"text\":\"D\",\"start_time\":1.451,\"end_time\":1.493},{\"text\":\"u\",\"start_time\":1.493,\"end_time\":1.579},{\"text\":\"d\",\"start_time\":1.579,\"end_time\":1.6},{\"text\":\"u\",\"start_time\":1.6,\"end_time\":1.621},{\"text\":\"k\",\"start_time\":1.621,\"end_time\":1.664},{\"text\":\" \",\"start_time\":1.664,\"end_time\":1.707},{\"text\":\"b\",\"start_time\":1.707,\"end_time\":1.735},{\"text\":\"e\",\"start_time\":1.735,\"end_time\":1.764},{\"text\":\"l\",\"start_time\":1.764,\"end_time\":1.792},{\"text\":\"a\",\"start_time\":1.792,\"end_time\":1.835},{\"text\":\"k\",\"start_time\":1.835,\"end_time\":1.877},{\"text\":\"a\",\"start_time\":1.877,\"end_time\":1.934},{\"text\":\"n\",\"start_time\":1.934,\"end_time\":1.991},{\"text\":\"g\",\"start_time\":1.991,\"end_time\":2.048},{\"text\":\"a\",\"start_time\":2.048,\"end_time\":2.133},{\"text\":\"n\",\"start_time\":2.133,\"end_time\":2.219},{\"text\":\"!\",\"start_time\":2.219,\"end_time\":2.436984126984127}],\"original_words\":[{\"text\":\"Sapu\",\"start_time\":0.299,\"end_time\":0.64},{\"text\":\"dulu\",\"start_time\":0.683,\"end_time\":0.896},{\"text\":\"Duduk\",\"start_time\":1.451,\"end_time\":1.664},{\"text\":\"belakangan\",\"start_time\":1.707,\"end_time\":2.219}]}"
+      }
+    ],
+    "isError": false
+  }
+}

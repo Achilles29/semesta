@@ -1,0 +1,319 @@
+{
+  "version": "v6",
+  "duration": 63.65151927437642,
+  "scenes": [
+    {
+      "id": "v6-1",
+      "name": "Sapu sebelum pidato",
+      "start": 0.0,
+      "end": 6.302063492063492
+    },
+    {
+      "id": "v6-2",
+      "name": "Warga memberi tugas",
+      "start": 6.302063492063492,
+      "end": 11.097074829931973
+    },
+    {
+      "id": "v6-3",
+      "name": "Kursi diangkat",
+      "start": 11.097074829931973,
+      "end": 20.674104308390024
+    },
+    {
+      "id": "v6-4",
+      "name": "Melayani es teh",
+      "start": 20.674104308390024,
+      "end": 35.68585034013606
+    },
+    {
+      "id": "v6-5",
+      "name": "Kursi untuk pelanggan",
+      "start": 35.68585034013606,
+      "end": 46.213696145124715
+    },
+    {
+      "id": "v6-6",
+      "name": "Follow menjadi warga",
+      "start": 46.213696145124715,
+      "end": 63.65151927437642
+    }
+  ],
+  "cues": [
+    {
+      "id": "001",
+      "scene": 1,
+      "role": "bu-warung",
+      "spoken_text": "Mau jadi wapres? Sapu dulu.",
+      "start": 0.0,
+      "audio_end": 2.1535374149659865,
+      "end": 2.4035374149659865,
+      "gain_db": -4.437,
+      "source": {
+        "file": "001-bu-warung.wav",
+        "source_start_frame": 7893,
+        "source_end_frame": 102864
+      },
+      "file": "001-bu-warung.wav"
+    },
+    {
+      "id": "002",
+      "scene": 1,
+      "role": "bahlil",
+      "spoken_text": "Dindaaa... ini audisi apa kerja bakti?",
+      "start": 2.4035374149659865,
+      "audio_end": 5.652063492063492,
+      "end": 6.302063492063492,
+      "gain_db": -4.437,
+      "source": {
+        "file": "002-bahlil.wav",
+        "source_start_frame": 7893,
+        "source_end_frame": 151153
+      },
+      "file": "002-bahlil.wav"
+    },
+    {
+      "id": "003",
+      "scene": 2,
+      "role": "pemandu",
+      "display_text": "Di Republik WKWKWK, kalian kasih tugas. Mereka yang kerja.",
+      "spoken_text": "Di Republik wekawekaweka, kalian kasih tugas. Mereka yang kerja.",
+      "start": 6.302063492063492,
+      "audio_end": 10.697074829931973,
+      "end": 11.097074829931973,
+      "gain_db": -4.437,
+      "source": {
+        "file": "003-pemandu.wav",
+        "source_start_frame": 9746,
+        "source_end_frame": 203566
+      },
+      "file": "003-pemandu.wav"
+    },
+    {
+      "id": "004",
+      "scene": 3,
+      "role": "bahlil",
+      "spoken_text": "Saya kira langsung dapat kursi.",
+      "start": 11.097074829931973,
+      "audio_end": 12.875079365079365,
+      "end": 13.175079365079364,
+      "gain_db": -1.483,
+      "source": {
+        "file": "004-bahlil.wav",
+        "source_start_frame": 150866,
+        "source_end_frame": 229276
+      },
+      "file": "004-bahlil.wav"
+    },
+    {
+      "id": "005",
+      "scene": 3,
+      "role": "bu-warung",
+      "spoken_text": "Dapat. Angkat dulu. Bawahnya belum disapu.",
+      "start": 13.175079365079364,
+      "audio_end": 16.47410430839002,
+      "end": 20.674104308390024,
+      "gain_db": -3.149,
+      "source": {
+        "file": "005-bu-warung.wav",
+        "source_start_frame": 103855,
+        "source_end_frame": 249342
+      },
+      "file": "005-bu-warung.wav"
+    },
+    {
+      "id": "006",
+      "scene": 4,
+      "role": "ghufron",
+      "spoken_text": "Pemimpin harus melayani. Betul apa tidak?",
+      "start": 20.674104308390024,
+      "audio_end": 23.263106575963718,
+      "end": 23.513106575963718,
+      "gain_db": -4.437,
+      "source": {
+        "file": "006-ghufron.wav",
+        "source_start_frame": 9746,
+        "source_end_frame": 123921
+      },
+      "file": "006-ghufron.wav"
+    },
+    {
+      "id": "007",
+      "scene": 4,
+      "role": "bu-warung",
+      "spoken_text": "Betul. Dua es teh. Gulanya sedikit.",
+      "start": 23.513106575963718,
+      "audio_end": 26.670136054421768,
+      "end": 27.670136054421768,
+      "gain_db": -2.904,
+      "source": {
+        "file": "007-bu-warung.wav",
+        "source_start_frame": 252472,
+        "source_end_frame": 391697
+      },
+      "file": "007-bu-warung.wav"
+    },
+    {
+      "id": "008",
+      "scene": 4,
+      "role": "ghufron",
+      "spoken_text": "Keprok atuh!",
+      "start": 27.670136054421768,
+      "audio_end": 28.728820861678006,
+      "end": 29.828820861678004,
+      "gain_db": -4.437,
+      "source": {
+        "file": "008-ghufron.wav",
+        "source_start_frame": 128286,
+        "source_end_frame": 174974
+      },
+      "file": "008-ghufron.wav"
+    },
+    {
+      "id": "009",
+      "scene": 4,
+      "role": "komeng",
+      "spoken_text": "Es tehnya dulu, Pak. Penontonnya haus.",
+      "start": 29.828820861678004,
+      "audio_end": 32.485850340136054,
+      "end": 35.68585034013606,
+      "gain_db": -4.437,
+      "source": {
+        "file": "komeng.source.wav",
+        "source_start_frame": 7893,
+        "source_end_frame": 125068
+      },
+      "file": "009-komeng.wav"
+    },
+    {
+      "id": "010",
+      "scene": 5,
+      "role": "bu-warung",
+      "spoken_text": "Sudah bersih. Silakan duduk.",
+      "start": 35.68585034013606,
+      "audio_end": 37.98986394557823,
+      "end": 39.08986394557823,
+      "gain_db": -1.982,
+      "source": {
+        "file": "010-bu-warung.wav",
+        "source_start_frame": 393592,
+        "source_end_frame": 495199
+      },
+      "file": "010-bu-warung.wav"
+    },
+    {
+      "id": "011",
+      "scene": 5,
+      "role": "bu-warung",
+      "spoken_text": "Bukan Bapak. Pelanggan.",
+      "start": 39.08986394557823,
+      "audio_end": 41.104784580498865,
+      "end": 43.30478458049887,
+      "gain_db": -1.921,
+      "source": {
+        "file": "011-bu-warung.wav",
+        "source_start_frame": 497095,
+        "source_end_frame": 585953
+      },
+      "file": "011-bu-warung.wav"
+    },
+    {
+      "id": "012",
+      "scene": 5,
+      "role": "komeng",
+      "spoken_text": "Yang dapat kursi malah yang pesan es teh.",
+      "start": 43.30478458049887,
+      "audio_end": 45.563696145124716,
+      "end": 46.213696145124715,
+      "gain_db": -4.437,
+      "source": {
+        "file": "komeng.source.wav",
+        "source_start_frame": 135828,
+        "source_end_frame": 235446
+      },
+      "file": "012-komeng.wav"
+    },
+    {
+      "id": "013",
+      "scene": 6,
+      "role": "pemandu",
+      "display_text": "Follow buat jadi warga Republik WKWKWK. Di sini, warga yang kasih tugas! Mau mereka disuruh kerja apa? Tulis di komentar. Satu ide kita mainkan di episode berikutnya.",
+      "spoken_text": "Follow buat jadi warga Republik wekawekaweka. Di sini, warga yang kasih tugas! Mau mereka disuruh kerja apa? Tulis di komentar. Satu ide kita mainkan di episode berikutnya.",
+      "start": 46.213696145124715,
+      "audio_end": 56.94673469387755,
+      "end": 57.29673469387755,
+      "gain_db": -4.437,
+      "source": {
+        "file": "013-pemandu.wav",
+        "source_start_frame": 205461,
+        "source_end_frame": 678788
+      },
+      "file": "013-pemandu.wav"
+    },
+    {
+      "id": "014",
+      "scene": 6,
+      "role": "bahlil",
+      "spoken_text": "Dindaaa... warganya nambah, kerjaan saya nambah dong?",
+      "start": 57.29673469387755,
+      "audio_end": 61.15151927437642,
+      "end": 63.65151927437642,
+      "gain_db": -3.399,
+      "source": {
+        "file": "014-bahlil.wav",
+        "source_start_frame": 233685,
+        "source_end_frame": 403681
+      },
+      "file": "014-bahlil.wav"
+    }
+  ],
+  "effects": [
+    {
+      "type": "chair",
+      "time": 17.72410430839002,
+      "duration": 0.16
+    },
+    {
+      "type": "sweep",
+      "time": 18.17410430839002,
+      "duration": 0.45
+    },
+    {
+      "type": "sweep",
+      "time": 18.87410430839002,
+      "duration": 0.45
+    },
+    {
+      "type": "sweep",
+      "time": 19.574104308390023,
+      "duration": 0.45
+    },
+    {
+      "type": "clap",
+      "time": 28.878820861678005,
+      "duration": 0.14
+    },
+    {
+      "type": "clap",
+      "time": 29.208820861678007,
+      "duration": 0.14
+    },
+    {
+      "type": "tray",
+      "time": 34.78585034013605,
+      "duration": 0.12
+    },
+    {
+      "type": "chair",
+      "time": 42.20478458049887,
+      "duration": 0.14
+    }
+  ],
+  "audio_url": "public/audio/produksi/episode-002/release-v6/episode-002-v6-master.wav",
+  "voice_note": "Bahlil/Ghufron authorized clones; Komeng approved generic V3 Lewis; Lucian narrator; Maren fictional shopkeeper.",
+  "review_status": "technical-checks-passed-listening-and-visual-review-pending",
+  "speed": 1,
+  "peak_dbfs": -2.1558254232147216,
+  "speech_changed": "gain only; no pitch/speed changes",
+  "master_gain": 1
+}

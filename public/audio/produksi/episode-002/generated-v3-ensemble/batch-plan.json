@@ -1,0 +1,338 @@
+{
+  "episode": "002-kursi-di-booking",
+  "status": "planned",
+  "request_count": 5,
+  "dialogue_count": 22,
+  "source_language": "id",
+  "voice_selection": "Five distinct ACTIVE public instant voices; catalog native language en, output Indonesian. Generic parody performers, no cloning or verified resemblance.",
+  "model": "server-selected; omitted from request",
+  "review": "File and timing checks planned; listening review by user required.",
+  "game_playback_integrated": false,
+  "cues": [
+    {
+      "id": "001",
+      "role": "pemandu",
+      "written_text": "Stop! Belum ada yang kepilih, kursinya sudah di-booking!",
+      "spoken_text": "Stop! Belum ada yang kepilih, kursinya sudah di-booking!"
+    },
+    {
+      "id": "002",
+      "role": "pak-sandal",
+      "written_text": "Sandal saya duluan.",
+      "spoken_text": "Sandal saya duluan."
+    },
+    {
+      "id": "003",
+      "role": "komeng",
+      "written_text": "Kalau begitu, yang ikut audisi sandalnya?",
+      "spoken_text": "Kalau begitu, yang ikut audisi sandalnya?"
+    },
+    {
+      "id": "004",
+      "role": "pemandu",
+      "written_text": "Audisi wapres versi Republik WKWKWK. Satu-satu, jawab singkat!",
+      "spoken_text": "Audisi wapres versi Republik wekawekaweka. Satu-satu, jawab singkat!"
+    },
+    {
+      "id": "005",
+      "role": "bahlil",
+      "written_text": "Saya siap maju!",
+      "spoken_text": "Saya siap maju!"
+    },
+    {
+      "id": "006",
+      "role": "komeng",
+      "written_text": "Maju boleh. Nginjek saya jangan!",
+      "spoken_text": "Maju boleh. Nginjek saya jangan!"
+    },
+    {
+      "id": "007",
+      "role": "bahlil",
+      "written_text": "Oh. Saya kira garis start.",
+      "spoken_text": "Oh. Saya kira garis start."
+    },
+    {
+      "id": "008",
+      "role": "mama-ghufron",
+      "written_text": "Visi-misi sudah saya siapkan.",
+      "spoken_text": "Visi-misi sudah saya siapkan."
+    },
+    {
+      "id": "009",
+      "role": "pemandu",
+      "written_text": "Satu kalimat saja, ya.",
+      "spoken_text": "Satu kalimat saja, ya."
+    },
+    {
+      "id": "010",
+      "role": "mama-ghufron",
+      "written_text": "Judulnya dihitung?",
+      "spoken_text": "Judulnya dihitung?"
+    },
+    {
+      "id": "011",
+      "role": "komeng",
+      "written_text": "Ini visi-misi apa karpet?",
+      "spoken_text": "Ini visi-misi apa karpet?"
+    },
+    {
+      "id": "012",
+      "role": "pemandu",
+      "written_text": "Pak! Kenapa kursinya digeser?",
+      "spoken_text": "Pak! Kenapa kursinya digeser?"
+    },
+    {
+      "id": "013",
+      "role": "pak-sandal",
+      "written_text": "Biar dekat rakyat.",
+      "spoken_text": "Biar dekat rakyat."
+    },
+    {
+      "id": "014",
+      "role": "komeng",
+      "written_text": "Itu dekat rendang.",
+      "spoken_text": "Itu dekat rendang."
+    },
+    {
+      "id": "015",
+      "role": "pak-sandal",
+      "written_text": "Rakyat juga suka rendang.",
+      "spoken_text": "Rakyat juga suka rendang."
+    },
+    {
+      "id": "016",
+      "role": "pemandu",
+      "written_text": "Begini saja. Kalian yang bikin tes buat mereka.",
+      "spoken_text": "Begini saja. Kalian yang bikin tes buat mereka."
+    },
+    {
+      "id": "017",
+      "role": "komeng",
+      "written_text": "Contoh: Pak Sandal, antre tanpa nitip barang.",
+      "spoken_text": "Contoh: Pak Sandal, antre tanpa nitip barang."
+    },
+    {
+      "id": "018",
+      "role": "pemandu",
+      "written_text": "Tulis satu nama, satu tes. Boleh usul peserta lain. Satu usulan paling seru dan aman kita mainkan di episode berikutnya.",
+      "spoken_text": "Tulis satu nama, satu tes. Boleh usul peserta lain. Satu usulan paling seru dan aman kita mainkan di episode berikutnya."
+    },
+    {
+      "id": "019",
+      "role": "pak-sandal",
+      "written_text": "Kalau tes makan, saya siap.",
+      "spoken_text": "Kalau tes makan, saya siap."
+    },
+    {
+      "id": "020",
+      "role": "pemandu",
+      "written_text": "Bayar sendiri.",
+      "spoken_text": "Bayar sendiri."
+    },
+    {
+      "id": "021",
+      "role": "pak-sandal",
+      "written_text": "Saya mengundurkan diri.",
+      "spoken_text": "Saya mengundurkan diri."
+    },
+    {
+      "id": "022",
+      "role": "komeng",
+      "written_text": "Nah. Akhirnya kursinya kosong.",
+      "spoken_text": "Nah. Akhirnya kursinya kosong."
+    }
+  ],
+  "requests": [
+    {
+      "role": "pemandu",
+      "voice": {
+        "voice_id": "049413e41c334753984c294d694afb5c",
+        "name": "Lucian - Conversational & Easygoing"
+      },
+      "spans": [
+        {
+          "cue_id": "001",
+          "start": 0,
+          "end": 56
+        },
+        {
+          "cue_id": "004",
+          "start": 58,
+          "end": 126
+        },
+        {
+          "cue_id": "009",
+          "start": 128,
+          "end": 150
+        },
+        {
+          "cue_id": "012",
+          "start": 152,
+          "end": 181
+        },
+        {
+          "cue_id": "016",
+          "start": 183,
+          "end": 230
+        },
+        {
+          "cue_id": "018",
+          "start": 232,
+          "end": 352
+        },
+        {
+          "cue_id": "020",
+          "start": 354,
+          "end": 368
+        }
+      ],
+      "request": {
+        "text": "Stop! Belum ada yang kepilih, kursinya sudah di-booking!\n\nAudisi wapres versi Republik wekawekaweka. Satu-satu, jawab singkat!\n\nSatu kalimat saja, ya.\n\nPak! Kenapa kursinya digeser?\n\nBegini saja. Kalian yang bikin tes buat mereka.\n\nTulis satu nama, satu tes. Boleh usul peserta lain. Satu usulan paling seru dan aman kita mainkan di episode berikutnya.\n\nBayar sendiri.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "pak-sandal",
+      "voice": {
+        "voice_id": "96b762a3f37e44a78f3faf4d3490f96a",
+        "name": "Neville - Warm & Easygoing"
+      },
+      "spans": [
+        {
+          "cue_id": "002",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "cue_id": "013",
+          "start": 21,
+          "end": 39
+        },
+        {
+          "cue_id": "015",
+          "start": 41,
+          "end": 66
+        },
+        {
+          "cue_id": "019",
+          "start": 68,
+          "end": 95
+        },
+        {
+          "cue_id": "021",
+          "start": 97,
+          "end": 120
+        }
+      ],
+      "request": {
+        "text": "Sandal saya duluan.\n\nBiar dekat rakyat.\n\nRakyat juga suka rendang.\n\nKalau tes makan, saya siap.\n\nSaya mengundurkan diri.",
+        "voiceId": "96b762a3f37e44a78f3faf4d3490f96a",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "bahlil",
+      "voice": {
+        "voice_id": "f49763c1a284420b8f25f16472d8738e",
+        "name": "Garret - Bold & Persuasive"
+      },
+      "spans": [
+        {
+          "cue_id": "005",
+          "start": 0,
+          "end": 15
+        },
+        {
+          "cue_id": "007",
+          "start": 17,
+          "end": 43
+        }
+      ],
+      "request": {
+        "text": "Saya siap maju!\n\nOh. Saya kira garis start.",
+        "voiceId": "f49763c1a284420b8f25f16472d8738e",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "mama-ghufron",
+      "voice": {
+        "voice_id": "a3a4aa242aaf431ea8ec2c4b3bb332fa",
+        "name": "Wade - Resonant & Narrative"
+      },
+      "spans": [
+        {
+          "cue_id": "008",
+          "start": 0,
+          "end": 29
+        },
+        {
+          "cue_id": "010",
+          "start": 31,
+          "end": 49
+        }
+      ],
+      "request": {
+        "text": "Visi-misi sudah saya siapkan.\n\nJudulnya dihitung?",
+        "voiceId": "a3a4aa242aaf431ea8ec2c4b3bb332fa",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "komeng",
+      "voice": {
+        "voice_id": "80b17a1be1594e578b92c0ddf4a37fc8",
+        "name": "Lewis - Imaginative & Expressive"
+      },
+      "spans": [
+        {
+          "cue_id": "003",
+          "start": 0,
+          "end": 41
+        },
+        {
+          "cue_id": "006",
+          "start": 43,
+          "end": 75
+        },
+        {
+          "cue_id": "011",
+          "start": 77,
+          "end": 102
+        },
+        {
+          "cue_id": "014",
+          "start": 104,
+          "end": 122
+        },
+        {
+          "cue_id": "017",
+          "start": 124,
+          "end": 169
+        },
+        {
+          "cue_id": "022",
+          "start": 171,
+          "end": 201
+        }
+      ],
+      "request": {
+        "text": "Kalau begitu, yang ikut audisi sandalnya?\n\nMaju boleh. Nginjek saya jangan!\n\nIni visi-misi apa karpet?\n\nItu dekat rendang.\n\nContoh: Pak Sandal, antre tanpa nitip barang.\n\nNah. Akhirnya kursinya kosong.",
+        "voiceId": "80b17a1be1594e578b92c0ddf4a37fc8",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    }
+  ]
+}
+

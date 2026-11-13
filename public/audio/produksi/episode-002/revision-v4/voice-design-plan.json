@@ -1,0 +1,34 @@
+{
+  "status": "design-requested-awaiting-preview-approval",
+  "voices": [
+    {
+      "role": "mama-ghufron",
+      "name": "WKWK - Pencerita Tenang Sunda",
+      "description": "Original fictional Indonesian male voice, mature adult about 50 years old. Medium-low register with a lightly rough, warm, full resonance. Natural Indonesian pronunciation with a subtle Sundanese-influenced lilt, not exaggerated. Deliberate conversational pacing, relaxed confidence, clear question intonation, short pauses before an invitation to respond. Can deliver a humorous rhetorical question and an upbeat invitation to applaud without shouting. Everyday character comedy, not religious chanting. Create an original performer, not an imitation or clone of any specific real person."
+    },
+    {
+      "role": "bahlil",
+      "name": "WKWK - Pembicara Tegas Timur",
+      "description": "Original fictional Indonesian male voice, middle-aged adult. Medium to low register, slightly textured, assertive and energetic but friendly. Fluent Indonesian with a gentle eastern Indonesian Malay-influenced cadence, clear vowels, natural rhythmic stress, not an exaggerated caricature or a representation of all eastern Indonesian accents. An elongated friendly vocative followed by a confident short sentence should sound conversational, not like reading the news. Natural comic confidence, not shouting. Original performer, not an imitation or clone of any specific real person."
+    },
+    {
+      "role": "komeng",
+      "name": "WKWK - Warga Sengau Jenaka",
+      "description": "Original fictional Indonesian male voice, mature adult. Medium-high register with distinctly forward, mildly nasal or pinched resonance, still clear and intelligible; not muffled or cartoonishly congested. Casual Jakarta/Betawi-influenced Indonesian, agile short phrases, dry mischievous humor. Deliver punchlines matter-of-factly with a small pause and a light questioning lift, not constant laughing or yelling. Preserve clear consonants and natural breaths. Original comedic performer, not an imitation or clone of any specific real person."
+    }
+  ],
+  "references": {
+    "access": "YouTube fetch failed; no reference audio inspected. Traits from user's descriptions only.",
+    "urls": [
+      "https://www.youtube.com/shorts/E-cr-0G73lQ",
+      "https://www.youtube.com/watch?v=5Q3MK9Bvn-Y",
+      "https://www.youtube.com/shorts/juAMg_Vgh5s"
+    ]
+  },
+  "preserve_voices": [
+    "pemandu",
+    "pak-sandal"
+  ],
+  "synthesis_gate": "User listens to designed voice previews before full dialogue synthesis; no reference audio uploaded or cloned."
+}
+

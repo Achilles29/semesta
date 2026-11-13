@@ -8,6 +8,9 @@ import { isFarmerV8 } from './avatar-farmer-v8.js';
 import { FARMER_PRESETS, FARMER_COLLECTIONS } from './avatar-farmer-presets.js';
 import { createAvatarThumbnails } from './avatar-catalog-thumbnails.js';
 import { createStudioClock, createStudioAnimation } from './avatar-studio-playback.js';
+import { PRODUCTION_DISTRICT, insideProductionDistrict, productionReserved, productionEntry } from './production-district.js';
+import { buildProductionDistrict } from './production-district-scene.js';
+import { mountProductionDirector } from './production-director.js';
 
 const $ = (selector) => document.querySelector(selector);
 const API_URL = window.SEMESTA_API_URL || new URL('api', document.baseURI).href;
@@ -120,6 +123,7 @@ const destinationInfo = {
   makassar: { id: 'makassar', name: 'Makassar', country: 'INDONESIA · SULAWESI SELATAN', coordinates: '05°08′ S · 119°25′ E', icon: '⛵', desc: 'Kehidupan kota, pesisir, dan jalur ekonomi memberi banyak sudut pandang warga.', note: 'Cerita berikutnya terbuka untuk usulan dan pengalaman warga.', x: 66, y: 56, intro: 'Kawasan rekaan yang terinspirasi keseharian warga Sulawesi Selatan.' },
 };
 const locations = {
+  'balai-produksi': { name: 'Balai Produksi WkWkWk', emoji: '🎬', tag: 'KOTA WARGA · SET PARODI', desc: 'Kompleks baru di barat laut kota, terhubung jalan dua arah. Temui lima pemeran audisi parodi; bukan pencalonan nyata.', type: 'kota' },
   sekolah: { name: 'Sekolah Rusak', emoji: '🏫', tag: 'FASILITAS UMUM · PENDIDIKAN', desc: 'Sekolah warga yang butuh perhatian. Atapnya punya lebih banyak lubang daripada jadwal libur.', title: 'Bel Sekolah Minta Diperbaiki', hook: 'Bel sekolah berbunyi sendiri setiap kali hujan mulai turun.', witness: 'PAK GURU', type: 'sekolah', colors: ['#d97a5c', '#d8b46b', '#82a16c'] },
   dapur: { name: 'Dapur MBG', emoji: '🍱', tag: 'CERITA HARIAN · MBG', desc: 'Dapur sekolah yang ramai. Sendok sayurnya punya agenda sendiri.', title: 'Sendok Sayur Mengundurkan Diri', hook: 'Pagi ini sendok sayur pamit. Katanya capek mengaduk semuanya.', witness: 'BU NINING', type: 'dapur', colors: ['#f4d275', '#e98d67', '#87ad69'] },
   kopdes: { name: 'Kopdes Merah Putih', emoji: '🏪', tag: 'CERITA HARIAN · KOPDES', desc: 'Toko desa, ruang rapat, dan gudang beras. Semua punya kunci, kecuali lemari kuncinya.', title: 'Timbangan Minta Jadi Bendahara', hook: 'Timbangan di Kopdes menolak menimbang. Katanya mau menghitung kas saja.', witness: 'PAK DARTO', type: 'kopdes', colors: ['#88a872', '#d9a95d', '#93b6a1'] },
@@ -202,6 +206,7 @@ function initAreaMusic() {
     });
   };
   const pause = () => { shouldPlay = false; audio.pause(); updateControls(); };
+  window.addEventListener('semesta:production-start', pause);
   toggle?.addEventListener('click', () => audio.paused ? play() : pause());
   volume?.addEventListener('input', () => {
     audio.volume = clamp(Number(volume.value), 0, 1);
@@ -642,8 +647,9 @@ function initWorld() {
   const syncExploreAccess = () => {
     const button = $('#enterLocation');
     if (!button) return;
-    button.innerHTML = `JELAJAHI ${regions[region].name.toUpperCase()} <span>↗</span>`;
-    button.setAttribute('aria-label', `Jelajahi ${regions[region].name}${activeCitizen ? '' : ' sebagai tamu'}`);
+    const entryName = location === PRODUCTION_DISTRICT.id ? PRODUCTION_DISTRICT.name : regions[region].name;
+    button.innerHTML = `JELAJAHI ${entryName.toUpperCase()} <span>↗</span>`;
+    button.setAttribute('aria-label', `Jelajahi ${entryName}${activeCitizen ? '' : ' sebagai tamu'}`);
   };
   window.addEventListener('semesta:citizen-change', syncExploreAccess);
   let region = regions[savedState.region] ? savedState.region : 'kota';
@@ -694,7 +700,11 @@ function initWorld() {
 
   function selectRegion(id) {
     if (!regions[id]) return;
+    location = 'kampung';
     region = id; const area = regions[id];
+    $('#productionMapRoute')?.toggleAttribute('hidden', id !== 'kota');
+    $('#productionMapNote')?.toggleAttribute('hidden', id !== 'kota');
+    zones.forEach(zone => { if (zone.dataset.location === PRODUCTION_DISTRICT.id) zone.hidden = id !== 'kota'; });
     areaMusic.setTrack(id);
     document.querySelectorAll('.region-tab').forEach((tab) => tab.classList.toggle('active', tab.dataset.region === id));
     zones.forEach((zone) => zone.classList.remove('selected'));
@@ -710,6 +720,7 @@ function initWorld() {
 
   function selectLocation(id) {
     if (!locations[id]) return;
+    if (id === PRODUCTION_DISTRICT.id && region !== 'kota') selectRegion('kota');
     location = id; const data = locationFor(destination, id);
     saveGameState({ location, destination });
     zones.forEach((zone) => zone.classList.toggle('selected', zone.dataset.location === id));
@@ -729,14 +740,14 @@ function initWorld() {
   zones.forEach((zone) => zone.addEventListener('click', () => { selectLocation(zone.dataset.location); $('#enterLocation').click(); }));
   $('#cityMapArt').addEventListener('click', (event) => {
     if (event.target.closest('.zone-pin')) return;
-    const nearest = zones.map((zone) => { const r = zone.getBoundingClientRect(); return { id: zone.dataset.location, distance: Math.hypot(event.clientX - r.left - r.width / 2, event.clientY - r.top - r.height / 2) }; }).sort((a, b) => a.distance - b.distance)[0];
+    const nearest = zones.filter(zone => !zone.hidden).map((zone) => { const r = zone.getBoundingClientRect(); return { id: zone.dataset.location, distance: Math.hypot(event.clientX - r.left - r.width / 2, event.clientY - r.top - r.height / 2) }; }).sort((a, b) => a.distance - b.distance)[0];
     if (nearest) selectLocation(nearest.id);
   });
   $('#enterLocation').addEventListener('click', () => {
     $('#cityScreen').classList.remove('active'); $('#exploreScreen').classList.add('active');
     document.body.classList.add('exploring');
     areaMusic.play(region);
-    saveGameState({ screen: 'explore', destination, location: region, region, worldAvatar: { x: avatar.x, y: avatar.y }, playerPosition: null, foundClues: [], cameraYaw: 0 });
+    saveGameState({ screen: 'explore', destination, location: region, region, worldAvatar: { x: avatar.x, y: avatar.y }, playerPosition: productionEntry(location, region), foundClues: [], cameraYaw: 0, cameraPitch: .65 });
     runArea(regions[region], destinationInfo[destination]);
   });
   function showCityMap() { areaMusic.pause(); $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.add('active'); saveGameState({ screen: 'city', destination, location, region, worldAvatar: { x: avatar.x, y: avatar.y } }); }
@@ -790,7 +801,17 @@ function initWorld() {
   if (restoredScreen === 'explore') { areaMusic.setTrack(region); runArea(regions[region], destinationInfo[destination]); }
 }
 
+let areaRunToken = 0;
+let disposeActiveArea = () => {};
 async function runArea(place, city) {
+  const runToken = ++areaRunToken;
+  disposeActiveArea();
+  const events = new AbortController();
+  disposeActiveArea = () => events.abort();
+  const listen = (target, type, callback, options = {}) => target.addEventListener(type, callback, { ...options, signal: events.signal });
+  $('#worldError').classList.remove('visible');
+  $('#productionPanel')?.remove();
+  document.body.classList.remove('production-district', 'capture-mode');
   $('#worldFallback')?.remove();
   $('#world').style.display = '';
   const savedState = readGameState();
@@ -808,6 +829,7 @@ async function runArea(place, city) {
       placedObjects = sceneData.customized && sceneData.objects.length ? sceneData.objects : getDefaultWorldScene(place.id);
     }
   } catch (error) { console.info('Memakai tata wilayah bawaan.', error); }
+  if (runToken !== areaRunToken || !$('#exploreScreen').classList.contains('active')) return;
   let THREE;
   try { THREE = await import('three'); }
   catch (error) { startCanvasFallback($('#world'), place, city, placedObjects, error); return; }
@@ -818,15 +840,18 @@ async function runArea(place, city) {
     ensureFarmerAvatarAsset()
       .catch((error) => console.warn('Aset karakter V11 tidak dapat dimuat.', error)),
   ]);
+  if (runToken !== areaRunToken || !$('#exploreScreen').classList.contains('active')) return;
   const canvas = $('#world'); let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' }); }
   catch (error) { startCanvasFallback(canvas, place, city, placedObjects, error); return; }
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5)); renderer.setSize(innerWidth, innerHeight, false); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.12; renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
+  disposeActiveArea = () => { events.abort(); renderer.dispose(); $('#productionPanel')?.remove(); document.body.classList.remove('production-district'); };
   const regionLook = { kota: { sky: '#d0e4df', fog: '#d0e4df', grass: '#8bb666' }, desa: { sky: '#d8e3c2', fog: '#d8e3c2', grass: '#83ae58' }, hutan: { sky: '#b8d0bc', fog: '#b8d0bc', grass: '#5f8a56' } }[place.id] || { sky: '#d0e4df', fog: '#d0e4df', grass: '#8bb666' };
   scene.background = new THREE.Color(regionLook.sky); scene.fog = null;
   const camera = new THREE.PerspectiveCamera(43, innerWidth / innerHeight, .1, 180); const world = new THREE.Group(); scene.add(world);
-  let cameraDistance = clamp(Number(savedState.cameraZoom) || 20, 13, 34);
+  const savedInProduction = place.id === 'kota' && insideProductionDistrict(savedState.playerPosition?.x, savedState.playerPosition?.z);
+  let cameraDistance = clamp(Number(savedState.cameraZoom) || 20, savedInProduction ? 4 : 13, 34);
   function resizeGame() { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight, false); }
   resizeGame();
   scene.add(new THREE.HemisphereLight('#fff7e3', '#6e8557', 1.35)); const sun = new THREE.DirectionalLight('#fff1d3', 1.9); sun.position.set(-10, 22, 14); sun.castShadow = true; sun.shadow.mapSize.set(1024, 1024); sun.shadow.camera.left = -34; sun.shadow.camera.right = 34; sun.shadow.camera.top = 34; sun.shadow.camera.bottom = -34; sun.shadow.bias = -.0002; scene.add(sun, sun.target);
@@ -874,6 +899,7 @@ async function runArea(place, city) {
       const treeX = (cellX + (worldHash(cellX, cellZ, 11) - .5) * .48) * wildernessSpacing;
       const treeZ = (cellZ + (worldHash(cellX, cellZ, 29) - .5) * .48) * wildernessSpacing;
       if (Math.abs(treeX) < 42 && Math.abs(treeZ) < 42) continue;
+      if (place.id === 'kota' && productionReserved(treeX, treeZ)) continue;
       const size = .82 + worldHash(cellX, cellZ, 47) * .72;
       const rotation = worldHash(cellX, cellZ, 71) * Math.PI * 2;
       treeTransform.position.set(treeX, 1.4 * size, treeZ); treeTransform.rotation.set(0, rotation, 0); treeTransform.scale.setScalar(size); treeTransform.updateMatrix(); wildernessTrunk.setMatrixAt(index, treeTransform.matrix);
@@ -943,7 +969,7 @@ async function runArea(place, city) {
   }
   }
   function makeText(text, color = 'fff7df', background = '59784f') {
-    const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 100; const ctx = canvas.getContext('2d'); ctx.fillStyle = `#${background}`; ctx.beginPath(); if (typeof ctx.roundRect === 'function') ctx.roundRect(2, 2, 508, 96, 22); else ctx.rect(2, 2, 508, 96); ctx.fill(); ctx.fillStyle = `#${color}`; ctx.font = '700 31px Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 256, 51);
+    const canvas = document.createElement('canvas'); canvas.width = 512; canvas.height = 100; const ctx = canvas.getContext('2d'); ctx.fillStyle = `#${background}`; ctx.beginPath(); if (typeof ctx.roundRect === 'function') ctx.roundRect(2, 2, 508, 96, 22); else ctx.rect(2, 2, 508, 96); ctx.fill(); ctx.fillStyle = `#${color}`; ctx.font = '700 31px Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(text, 256, 51, 470);
     const texture = new THREE.CanvasTexture(canvas); texture.colorSpace = THREE.SRGBColorSpace; const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true, depthTest: false })); sprite.scale.set(3.2, .62, 1); return sprite;
   }
   function addGableRoof(parent, width, depth, eaveY, ridgeY, color) {
@@ -1087,6 +1113,8 @@ async function runArea(place, city) {
       addCollider(entity.x, entity.z, Math.abs(Math.cos(angle)) * dimensions[0] * scale + Math.abs(Math.sin(angle)) * dimensions[1] * scale, Math.abs(Math.sin(angle)) * dimensions[0] * scale + Math.abs(Math.cos(angle)) * dimensions[1] * scale);
     }
   }
+  const production = place.id === 'kota' ? buildProductionDistrict(THREE, { world, makeHuman, makeText, addCollider, createWorldAsset }) : null;
+  if (production) { npcCharacters.push(...production.cast); destinationSigns.push(...production.signs); }
   const player = new THREE.Group();
   const savedPosition = savedState.location === place.type && savedState.playerPosition ? savedState.playerPosition : null;
   player.position.set(savedPosition && Number.isFinite(savedPosition.x) ? savedPosition.x : 0, 0, savedPosition && Number.isFinite(savedPosition.z) ? savedPosition.z : 18); world.add(player);
@@ -1113,7 +1141,7 @@ async function runArea(place, city) {
   refreshPlayerModel(activeCitizen);
   updateWilderness(player.position.x, player.position.z);
   player.visible = !!activeCitizen;
-  window.addEventListener('semesta:citizen-change', (event) => {
+  listen(window, 'semesta:citizen-change', (event) => {
     const citizen = event.detail?.citizen || null;
     player.visible = !!citizen;
     refreshPlayerModel(citizen);
@@ -1182,8 +1210,8 @@ async function runArea(place, city) {
     $('#citizenChatName').textContent = peer.displayName; $('#citizenChatStatus').textContent = 'Mendekat untuk mulai bertukar pesan.'; $('#citizenChatStatus').classList.remove('error'); $('#citizenChatForm').querySelector('button').disabled = true;
     $('#dialogue').classList.remove('visible'); chatPanel.hidden = false; lastChatSync = 0; syncCitizenChat(performance.now()); chatInput.focus({ preventScroll:true });
   }
-  $('#citizenChatClose').addEventListener('click', () => { chatPanel.hidden = true; chatTarget = null; chatCanSend = false; chatAfterId = 0; });
-  $('#citizenChatForm').addEventListener('submit', async (event) => {
+  listen($('#citizenChatClose'), 'click', () => { chatPanel.hidden = true; chatTarget = null; chatCanSend = false; chatAfterId = 0; });
+  listen($('#citizenChatForm'), 'submit', async (event) => {
     event.preventDefault(); if (!chatTarget || !chatCanSend || !chatInput.value.trim()) return;
     const message = chatInput.value.trim(); const sendButton = $('#citizenChatForm').querySelector('button'); sendButton.disabled = true;
     try {
@@ -1193,7 +1221,7 @@ async function runArea(place, city) {
     } catch (error) { $('#citizenChatStatus').textContent = error.message; $('#citizenChatStatus').classList.add('error'); }
     finally { sendButton.disabled = !chatCanSend; chatInput.focus({ preventScroll:true }); }
   });
-  window.addEventListener('semesta:citizen-change', (event) => {
+  listen(window, 'semesta:citizen-change', (event) => {
     if (!event.detail?.citizen) { fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({resource:'citizen_chat',action:'leave'})}).catch(()=>{}); chatPanel.hidden=true;chatTarget=null;nearbyCitizens=[];[...onlineCitizens.keys()].forEach(removeOnlineCitizen); }
   });
 
@@ -1219,19 +1247,19 @@ async function runArea(place, city) {
   }
   $('#talkButton').onclick = talk; $('#dialogueNext').onclick = () => $('#dialogue').classList.remove('visible');
   $('#captureButton').onclick = () => document.body.classList.add('capture-mode'); $('#exitCapture').onclick = () => document.body.classList.remove('capture-mode');
-  const changeZoom = (amount) => { cameraDistance = clamp(cameraDistance + amount, 13, 34); saveGameState({ cameraZoom: cameraDistance }); };
+  const changeZoom = (amount) => { cameraDistance = clamp(cameraDistance + amount, production && insideProductionDistrict(player.position.x, player.position.z) ? 4 : 13, 34); saveGameState({ cameraZoom: cameraDistance }); };
   $('#zoomIn').onclick = () => changeZoom(-2);
   $('#zoomOut').onclick = () => changeZoom(2);
-  $('#exploreScreen').addEventListener('wheel', (event) => { event.preventDefault(); changeZoom(event.deltaY > 0 ? 2 : -2); }, { passive: false });
+  listen($('#exploreScreen'), 'wheel', (event) => { event.preventDefault(); changeZoom(event.deltaY > 0 ? 2 : -2); }, { passive: false });
   // Drag the 3D world to orbit the camera; pinch and wheel adjust zoom.
   const orbitPointers = new Map(); let pinchDistance = 0;
   canvas.style.touchAction = 'none';
-  canvas.addEventListener('pointerdown', (event) => {
+  listen(canvas, 'pointerdown', (event) => {
     orbitPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     canvas.setPointerCapture(event.pointerId);
     if (orbitPointers.size === 2) { const points = [...orbitPointers.values()]; pinchDistance = Math.hypot(points[0].x-points[1].x, points[0].y-points[1].y); }
   });
-  canvas.addEventListener('pointermove', (event) => {
+  listen(canvas, 'pointermove', (event) => {
     if (!orbitPointers.has(event.pointerId)) return;
     const previous = orbitPointers.get(event.pointerId); orbitPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
     if (orbitPointers.size > 1) {
@@ -1241,7 +1269,7 @@ async function runArea(place, city) {
     } else { yaw -= (event.clientX-previous.x)*.008; pitch = clamp(pitch+(event.clientY-previous.y)*.006, .3, 1.3); }
   });
   const stopOrbit = (event) => { orbitPointers.delete(event.pointerId); if (orbitPointers.size < 2) pinchDistance = 0; };
-  canvas.addEventListener('pointerup', stopOrbit); canvas.addEventListener('pointercancel', stopOrbit); canvas.addEventListener('lostpointercapture', stopOrbit);
+  listen(canvas, 'pointerup', stopOrbit); listen(canvas, 'pointercancel', stopOrbit); listen(canvas, 'lostpointercapture', stopOrbit);
   window.onkeydown = (event) => { if (isTypingTarget(event.target)) return; if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'].includes(event.code)) { keys.add(event.code); event.preventDefault(); } if (event.code === 'KeyE' || event.code === 'Space') talk(); if (event.code === 'Escape') document.body.classList.remove('capture-mode'); };
   window.onkeyup = (event) => keys.delete(event.code);
   const joystick = $('#joystick'); const knob = $('#joystickKnob');
@@ -1249,11 +1277,11 @@ async function runArea(place, city) {
     let activePointer = null;
     const moveStick = (event) => { const rect = joystick.getBoundingClientRect(); let x=event.clientX-rect.left-rect.width/2,y=event.clientY-rect.top-rect.height/2; const limit=rect.width*.34,distance=Math.hypot(x,y); if(distance>limit){x*=limit/distance;y*=limit/distance;}stick.x=x/limit;stick.y=y/limit;knob.style.transform=`translate(${x}px,${y}px)`; };
     const releaseStick = () => { activePointer=null;stick.x=stick.y=0;knob.style.transform='translate(0,0)'; };
-    joystick.addEventListener('pointerdown',(event)=>{event.preventDefault();activePointer=event.pointerId;joystick.setPointerCapture(event.pointerId);moveStick(event);});
-    joystick.addEventListener('pointermove',(event)=>{if(activePointer===event.pointerId)moveStick(event);});
-    joystick.addEventListener('pointerup',releaseStick);joystick.addEventListener('pointercancel',releaseStick);joystick.addEventListener('lostpointercapture',releaseStick);
+    listen(joystick,'pointerdown',(event)=>{event.preventDefault();activePointer=event.pointerId;joystick.setPointerCapture(event.pointerId);moveStick(event);});
+    listen(joystick,'pointermove',(event)=>{if(activePointer===event.pointerId)moveStick(event);});
+    listen(joystick,'pointerup',releaseStick);listen(joystick,'pointercancel',releaseStick);listen(joystick,'lostpointercapture',releaseStick);
   }
-  window.addEventListener('blur',()=>{keys.clear();if(knob)knob.style.transform='translate(0,0)';stick.x=stick.y=0;});
+  listen(window,'blur',()=>{keys.clear();if(knob)knob.style.transform='translate(0,0)';stick.x=stick.y=0;});
   function collides(x, z, ignore = null) {
     const radius = ignore?.kind === 'animal' ? .16 : .38;
     const overlaps = (item) => Math.abs(x-item.x) <= item.halfX + radius && Math.abs(z-item.z) <= item.halfZ + radius;
@@ -1268,8 +1296,43 @@ async function runArea(place, city) {
     });
   }
   if (collides(player.position.x, player.position.z)) player.position.set(0, 0, 18);
-  function frame(now) { if (!$('#exploreScreen').classList.contains('active')) { renderer.dispose(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * 4.1 * dt; const nextZ = player.position.z + moveZ * 4.1 * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = .025 + Math.abs(step) * .055; if (!animateCharacter(playerModel, true, dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
+  let productionPanel = null;
+  let productionDirector = null;
+  if (production) {
+    productionPanel = document.createElement('aside'); productionPanel.id = 'productionPanel'; productionPanel.className = 'production-panel'; productionPanel.hidden = true;
+    productionPanel.innerHTML = '<strong>Balai Produksi WkWkWk</strong><p class="production-disclaimer">PARODI · DIALOG REKAAN · BUKAN PENCALONAN NYATA</p><label for="productionCast">Pratinjau pemeran</label><select id="productionCast"><option value="">Pilih pemeran…</option></select><div class="production-actions"><button type="button" data-production-action="preview">Lihat dekat</button><button type="button" data-production-action="wide">Kamera lebar</button></div><p data-production-status role="status">Dekati pemeran lalu tekan E / BICARA.</p><details><summary>Lokasi & suara AI</summary><p>Area baru di barat laut Kota Warga. Jalan ke selatan, lalu timur untuk kembali. Tampilan tokoh merupakan interpretasi kartun, bukan potret akurat.</p><p>PLAY + SUARA memutar adegan beserta VO secara otomatis. Aktifkan audio tab/sistem saat merekam layar. File VO terpisah tetap ada di public/audio/produksi/episode-002/generated-v2 untuk editing. Dialog jelajah tetap berupa teks. Suara pemeran generik, bukan cloning tokoh asli.</p></details>';
+    $('#exploreScreen').append(productionPanel);
+    productionDirector=mountProductionDirector({THREE,production,world,camera,renderer,scene,panel:productionPanel,signal:events.signal,onStart:()=>{
+      keys.clear();stick.x=stick.y=0;$('#dialogue').classList.remove('visible');
+      window.dispatchEvent(new Event('semesta:production-start'));
+    }});
+    const castSelect = productionPanel.querySelector('select');
+    production.cast.forEach(npc => { const option = document.createElement('option'); option.value = npc.id; option.textContent = npc.name; castSelect.append(option); });
+    listen(productionPanel, 'click', event => {
+      const action = event.target.closest('[data-production-action]')?.dataset.productionAction;
+      if (!action) return;
+      keys.clear(); stick.x = stick.y = 0;
+      if (action === 'wide') { player.position.set(PRODUCTION_DISTRICT.spawn.x,0,PRODUCTION_DISTRICT.spawn.z);cameraDistance=24;pitch=.65;yaw=0;return; }
+      const npc = production.cast.find(n => n.id === castSelect.value);
+      if (!npc) { productionPanel.querySelector('[data-production-status]').textContent='Pilih pemeran terlebih dahulu.';return; }
+      const x=npc.root.position.x,z=npc.root.position.z+2.2;
+      if (collides(x,z)) { productionPanel.querySelector('[data-production-status]').textContent='Posisi dekat terhalang. Dekati melalui sisi panggung.';return; }
+      player.position.set(x,0,z);cameraDistance=5.5;pitch=.3;yaw=0;
+      showDialogue(npc.name,npc.lines[0],npc.icon);
+      productionPanel.querySelector('[data-production-status]').textContent=`${npc.name}: pratinjau kartun V11. Tekan E untuk dialog berikutnya.`;
+    });
+  }
+  function frame(now) { if (runToken !== areaRunToken || events.signal.aborted) return; if (!$('#exploreScreen').classList.contains('active')) { disposeActiveArea(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * 4.1 * dt; const nextZ = player.position.z + moveZ * 4.1 * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = .025 + Math.abs(step) * .055; if (!animateCharacter(playerModel, true, dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
+    if(productionDirector?.active){productionDirector.update(now);return;}
     if (activeCitizen && now - lastChatSync > 1700) syncCitizenChat(now);
+    if (productionPanel) {
+      production.updateLabels(document.body.classList.contains('capture-mode')?0:cameraDistance);
+      const inSet = insideProductionDistrict(player.position.x, player.position.z);
+      if(inSet)production.updateAtmosphere?.(now/1000);
+      productionPanel.hidden = !inSet;
+      document.body.classList.toggle('production-district',inSet);
+      $('#exploreLocationName').textContent = inSet ? PRODUCTION_DISTRICT.name.toUpperCase() : place.name.toUpperCase();
+    }
     onlineCitizens.forEach((item) => { const dx = item.root.userData.targetX - item.root.position.x; const dz = item.root.userData.targetZ - item.root.position.z; item.root.position.x += dx * Math.min(1, dt * 10); item.root.position.z += dz * Math.min(1, dt * 10); if (Math.hypot(dx, dz) > .02) item.root.rotation.y = Math.atan2(dx, dz); animateCharacter(item.model, Math.hypot(dx, dz) > .02, dt); });
     const groundX = Math.round(player.position.x / 400) * 400; const groundZ = Math.round(player.position.z / 400) * 400; endlessGround.position.set(groundX, -.08, groundZ); updateWilderness(player.position.x, player.position.z); sun.position.set(player.position.x - 10, 22, player.position.z + 14); sun.target.position.set(player.position.x, 0, player.position.z);
     const orbitRadius = cameraDistance; const horizontal = Math.cos(pitch) * orbitRadius;

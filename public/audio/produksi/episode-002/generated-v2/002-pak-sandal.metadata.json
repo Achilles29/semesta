@@ -1,0 +1,206 @@
+{
+  "id": "002",
+  "role": "pak-sandal",
+  "written_text": "Saya duluan. Sudah saya booking.",
+  "request": {
+    "text": "Saya duluan. Sudah saya booking.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=bee59c96af6345c8a29a45e6af91fbb1.wav",
+    "duration": 2.4815873015873016,
+    "original_characters": [
+      {
+        "text": "S",
+        "start_time": 0.256,
+        "end_time": 0.299
+      },
+      {
+        "text": "a",
+        "start_time": 0.299,
+        "end_time": 0.384
+      },
+      {
+        "text": "y",
+        "start_time": 0.384,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.5547
+      },
+      {
+        "text": " ",
+        "start_time": 0.555,
+        "end_time": 0.597
+      },
+      {
+        "text": "d",
+        "start_time": 0.597,
+        "end_time": 0.64
+      },
+      {
+        "text": "u",
+        "start_time": 0.64,
+        "end_time": 0.661
+      },
+      {
+        "text": "l",
+        "start_time": 0.661,
+        "end_time": 0.683
+      },
+      {
+        "text": "u",
+        "start_time": 0.683,
+        "end_time": 0.768
+      },
+      {
+        "text": "a",
+        "start_time": 0.768,
+        "end_time": 0.832
+      },
+      {
+        "text": "n",
+        "start_time": 0.832,
+        "end_time": 0.896
+      },
+      {
+        "text": ".",
+        "start_time": 0.896,
+        "end_time": 1.088
+      },
+      {
+        "text": " ",
+        "start_time": 1.088,
+        "end_time": 1.28
+      },
+      {
+        "text": "S",
+        "start_time": 1.28,
+        "end_time": 1.365
+      },
+      {
+        "text": "u",
+        "start_time": 1.365,
+        "end_time": 1.408
+      },
+      {
+        "text": "d",
+        "start_time": 1.408,
+        "end_time": 1.451
+      },
+      {
+        "text": "a",
+        "start_time": 1.451,
+        "end_time": 1.493
+      },
+      {
+        "text": "h",
+        "start_time": 1.493,
+        "end_time": 1.536
+      },
+      {
+        "text": " ",
+        "start_time": 1.536,
+        "end_time": 1.579
+      },
+      {
+        "text": "s",
+        "start_time": 1.579,
+        "end_time": 1.621
+      },
+      {
+        "text": "a",
+        "start_time": 1.621,
+        "end_time": 1.664
+      },
+      {
+        "text": "y",
+        "start_time": 1.664,
+        "end_time": 1.707
+      },
+      {
+        "text": "a",
+        "start_time": 1.707,
+        "end_time": 1.749
+      },
+      {
+        "text": " ",
+        "start_time": 1.749,
+        "end_time": 1.792
+      },
+      {
+        "text": "b",
+        "start_time": 1.792,
+        "end_time": 1.824
+      },
+      {
+        "text": "o",
+        "start_time": 1.824,
+        "end_time": 1.856
+      },
+      {
+        "text": "o",
+        "start_time": 1.856,
+        "end_time": 1.888
+      },
+      {
+        "text": "k",
+        "start_time": 1.888,
+        "end_time": 1.92
+      },
+      {
+        "text": "i",
+        "start_time": 1.92,
+        "end_time": 1.977
+      },
+      {
+        "text": "n",
+        "start_time": 1.977,
+        "end_time": 2.034
+      },
+      {
+        "text": "g",
+        "start_time": 2.034,
+        "end_time": 2.091
+      },
+      {
+        "text": ".",
+        "start_time": 2.091,
+        "end_time": 2.2815873015873014
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Saya",
+        "start_time": 0.256,
+        "end_time": 0.5547
+      },
+      {
+        "text": "duluan",
+        "start_time": 0.597,
+        "end_time": 0.896
+      },
+      {
+        "text": "Sudah",
+        "start_time": 1.28,
+        "end_time": 1.536
+      },
+      {
+        "text": "saya",
+        "start_time": 1.579,
+        "end_time": 1.749
+      },
+      {
+        "text": "booking",
+        "start_time": 1.792,
+        "end_time": 2.091
+      }
+    ]
+  },
+  "provider_error": false
+}

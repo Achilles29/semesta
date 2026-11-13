@@ -1,0 +1,120 @@
+{
+  "duration": 90,
+  "lead_in": 3,
+  "cues": [
+    {
+      "id": "001",
+      "start": 0,
+      "end": 8,
+      "role": "pemandu"
+    },
+    {
+      "id": "002",
+      "start": 8,
+      "end": 11,
+      "role": "pak-sandal"
+    },
+    {
+      "id": "003",
+      "start": 11,
+      "end": 15,
+      "role": "pemandu"
+    },
+    {
+      "id": "004",
+      "start": 15,
+      "end": 19,
+      "role": "pak-sandal"
+    },
+    {
+      "id": "005",
+      "start": 19,
+      "end": 21,
+      "role": "bahlil"
+    },
+    {
+      "id": "006",
+      "start": 21,
+      "end": 24,
+      "role": "pemandu"
+    },
+    {
+      "id": "007",
+      "start": 24,
+      "end": 26,
+      "role": "bahlil"
+    },
+    {
+      "id": "008",
+      "start": 26,
+      "end": 29,
+      "role": "pemandu"
+    },
+    {
+      "id": "009",
+      "start": 29,
+      "end": 33,
+      "role": "mama-ghufron"
+    },
+    {
+      "id": "010",
+      "start": 33,
+      "end": 36,
+      "role": "pemandu"
+    },
+    {
+      "id": "011",
+      "start": 36,
+      "end": 40,
+      "role": "mama-ghufron"
+    },
+    {
+      "id": "012",
+      "start": 40,
+      "end": 43,
+      "role": "komeng"
+    },
+    {
+      "id": "013",
+      "start": 43,
+      "end": 46,
+      "role": "pemandu"
+    },
+    {
+      "id": "014",
+      "start": 46,
+      "end": 50,
+      "role": "komeng"
+    },
+    {
+      "id": "015",
+      "start": 50,
+      "end": 62,
+      "role": "pemandu"
+    },
+    {
+      "id": "016",
+      "start": 62,
+      "end": 65,
+      "role": "pak-sandal"
+    },
+    {
+      "id": "017",
+      "start": 65,
+      "end": 81,
+      "role": "pemandu"
+    },
+    {
+      "id": "018",
+      "start": 81,
+      "end": 85,
+      "role": "pak-sandal"
+    },
+    {
+      "id": "019",
+      "start": 85,
+      "end": 90,
+      "role": "pemandu"
+    }
+  ]
+}

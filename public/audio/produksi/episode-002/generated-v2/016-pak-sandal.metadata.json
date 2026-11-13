@@ -1,0 +1,191 @@
+{
+  "id": "016",
+  "role": "pak-sandal",
+  "written_text": "Berarti sandal nggak dihitung.",
+  "request": {
+    "text": "Berarti sandal nggak dihitung.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=f1ce781bb6a14e338f81e3fa5edfcdcd.wav",
+    "duration": 2.4351473922902493,
+    "original_characters": [
+      {
+        "text": "B",
+        "start_time": 0.299,
+        "end_time": 0.384
+      },
+      {
+        "text": "e",
+        "start_time": 0.384,
+        "end_time": 0.427
+      },
+      {
+        "text": "r",
+        "start_time": 0.427,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.533
+      },
+      {
+        "text": "r",
+        "start_time": 0.533,
+        "end_time": 0.597
+      },
+      {
+        "text": "t",
+        "start_time": 0.597,
+        "end_time": 0.683
+      },
+      {
+        "text": "i",
+        "start_time": 0.683,
+        "end_time": 0.768
+      },
+      {
+        "text": " ",
+        "start_time": 0.768,
+        "end_time": 1.067
+      },
+      {
+        "text": "s",
+        "start_time": 1.067,
+        "end_time": 1.131
+      },
+      {
+        "text": "a",
+        "start_time": 1.131,
+        "end_time": 1.195
+      },
+      {
+        "text": "n",
+        "start_time": 1.195,
+        "end_time": 1.259
+      },
+      {
+        "text": "d",
+        "start_time": 1.259,
+        "end_time": 1.323
+      },
+      {
+        "text": "a",
+        "start_time": 1.323,
+        "end_time": 1.408
+      },
+      {
+        "text": "l",
+        "start_time": 1.408,
+        "end_time": 1.493
+      },
+      {
+        "text": " ",
+        "start_time": 1.493,
+        "end_time": 1.536
+      },
+      {
+        "text": "n",
+        "start_time": 1.536,
+        "end_time": 1.579
+      },
+      {
+        "text": "g",
+        "start_time": 1.579,
+        "end_time": 1.621
+      },
+      {
+        "text": "g",
+        "start_time": 1.621,
+        "end_time": 1.643
+      },
+      {
+        "text": "a",
+        "start_time": 1.643,
+        "end_time": 1.664
+      },
+      {
+        "text": "k",
+        "start_time": 1.664,
+        "end_time": 1.7067
+      },
+      {
+        "text": " ",
+        "start_time": 1.707,
+        "end_time": 1.707
+      },
+      {
+        "text": "d",
+        "start_time": 1.707,
+        "end_time": 1.749
+      },
+      {
+        "text": "i",
+        "start_time": 1.749,
+        "end_time": 1.792
+      },
+      {
+        "text": "h",
+        "start_time": 1.792,
+        "end_time": 1.835
+      },
+      {
+        "text": "i",
+        "start_time": 1.835,
+        "end_time": 1.877
+      },
+      {
+        "text": "t",
+        "start_time": 1.877,
+        "end_time": 1.92
+      },
+      {
+        "text": "u",
+        "start_time": 1.92,
+        "end_time": 1.977
+      },
+      {
+        "text": "n",
+        "start_time": 1.977,
+        "end_time": 2.034
+      },
+      {
+        "text": "g",
+        "start_time": 2.034,
+        "end_time": 2.091
+      },
+      {
+        "text": ".",
+        "start_time": 2.091,
+        "end_time": 2.315
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Berarti",
+        "start_time": 0.299,
+        "end_time": 0.768
+      },
+      {
+        "text": "sandal",
+        "start_time": 1.067,
+        "end_time": 1.493
+      },
+      {
+        "text": "nggak",
+        "start_time": 1.536,
+        "end_time": 1.7067
+      },
+      {
+        "text": "dihitung",
+        "start_time": 1.707,
+        "end_time": 2.091
+      }
+    ]
+  },
+  "provider_error": false
+}

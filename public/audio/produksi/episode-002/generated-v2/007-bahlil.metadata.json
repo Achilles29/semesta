@@ -1,0 +1,91 @@
+{
+  "id": "007",
+  "role": "bahlil",
+  "written_text": "Kok sedikit?",
+  "request": {
+    "text": "Kok sedikit?",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=a6a2a272fbde48348f142dd9a44b9940.wav",
+    "duration": 1.1260090702947845,
+    "original_characters": [
+      {
+        "text": "K",
+        "start_time": 0.256,
+        "end_time": 0.341
+      },
+      {
+        "text": "o",
+        "start_time": 0.341,
+        "end_time": 0.405
+      },
+      {
+        "text": "k",
+        "start_time": 0.405,
+        "end_time": 0.469
+      },
+      {
+        "text": " ",
+        "start_time": 0.469,
+        "end_time": 0.512
+      },
+      {
+        "text": "s",
+        "start_time": 0.512,
+        "end_time": 0.576
+      },
+      {
+        "text": "e",
+        "start_time": 0.576,
+        "end_time": 0.64
+      },
+      {
+        "text": "d",
+        "start_time": 0.64,
+        "end_time": 0.683
+      },
+      {
+        "text": "i",
+        "start_time": 0.683,
+        "end_time": 0.725
+      },
+      {
+        "text": "k",
+        "start_time": 0.725,
+        "end_time": 0.768
+      },
+      {
+        "text": "i",
+        "start_time": 0.768,
+        "end_time": 0.832
+      },
+      {
+        "text": "t",
+        "start_time": 0.832,
+        "end_time": 0.896
+      },
+      {
+        "text": "?",
+        "start_time": 0.896,
+        "end_time": 1.126
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Kok",
+        "start_time": 0.256,
+        "end_time": 0.469
+      },
+      {
+        "text": "sedikit",
+        "start_time": 0.512,
+        "end_time": 0.896
+      }
+    ]
+  },
+  "provider_error": false
+}

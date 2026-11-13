@@ -1,0 +1,96 @@
+{
+  "version": "v9",
+  "request_count": 4,
+  "requests": [
+    {
+      "role": "pemandu",
+      "spans": [
+        {
+          "cue_id": "001",
+          "start": 0,
+          "end": 108
+        },
+        {
+          "cue_id": "003",
+          "start": 110,
+          "end": 159
+        },
+        {
+          "cue_id": "004",
+          "start": 161,
+          "end": 197
+        },
+        {
+          "cue_id": "016",
+          "start": 199,
+          "end": 357
+        }
+      ],
+      "request": {
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "text": "Day one bangun Republik wekawekaweka! Negara game tempat netizen ngasih tugas, calon pemimpinnya yang kerja!\n\nBetul. Satu ide kalian kita mainkan tiap episode.\n\nUrusan pertama: kursi wapres kosong!\n\nHari pertama, warung beres. Besok republik ini punya masalah apa? Tulis di komentar—satu ide kita jadiin cerita. Follow buat jadi warga Republik wekawekaweka!",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "komeng",
+      "spans": [
+        {
+          "cue_id": "002",
+          "start": 0,
+          "end": 38
+        },
+        {
+          "cue_id": "015",
+          "start": 40,
+          "end": 88
+        }
+      ],
+      "request": {
+        "voiceId": "80b17a1be1594e578b92c0ddf4a37fc8",
+        "text": "Jadi kalian komentar, kita yang repot?\n\nWapresnya belum dapat. Pelanggannya sudah duduk.",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "bahlil",
+      "spans": [
+        {
+          "cue_id": "005",
+          "start": 0,
+          "end": 25
+        }
+      ],
+      "request": {
+        "voiceId": "233c3b208dff40e5b758c445086e1f57",
+        "text": "Dindaaa! Saya siap duduk!",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "bu-warung",
+      "spans": [
+        {
+          "cue_id": "006",
+          "start": 0,
+          "end": 28
+        }
+      ],
+      "request": {
+        "voiceId": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+        "text": "Sapu dulu. Duduk belakangan!",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    }
+  ],
+  "model": "server-selected",
+  "note": "User approved execution of series-direction intro and closing. Four requests, unchanged voices and rate. Existing unchanged cues reused."
+}

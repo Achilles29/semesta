@@ -1,0 +1,23 @@
+{
+  "role": "komeng",
+  "authorization": "User explicitly approved reuse of V3 generic Komeng voice (Lewis); not a clone.",
+  "spans": [
+    {
+      "cue_id": "009",
+      "start": 0,
+      "end": 38
+    },
+    {
+      "cue_id": "012",
+      "start": 40,
+      "end": 81
+    }
+  ],
+  "request": {
+    "voiceId": "80b17a1be1594e578b92c0ddf4a37fc8",
+    "text": "Es tehnya dulu, Pak. Penontonnya haus.\n\nYang dapat kursi malah yang pesan es teh.",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  }
+}

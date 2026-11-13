@@ -1,0 +1,184 @@
+{
+  "version": "v9",
+  "status": "generated-integrated-listening-and-browser-review-pending",
+  "title": "Day One Republik WKWKWK — komentar jadi cerita",
+  "audio_generated": true,
+  "game_integrated": true,
+  "duration_is_measured": true,
+  "measured_duration_seconds": 74.09124716553288,
+  "master": "../release-v9/episode-002-v9-master.wav",
+  "timeline": "../release-v9/timeline.json",
+  "listening_review_passed": false,
+  "browser_visual_review_passed": false,
+  "voice_assignments": {
+    "pemandu": "049413e41c334753984c294d694afb5c",
+    "komeng": "80b17a1be1594e578b92c0ddf4a37fc8",
+    "bahlil": "233c3b208dff40e5b758c445086e1f57",
+    "bu-warung": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+    "ghufron": "bb23d4e8919d4e20b55ea5b70159749c"
+  },
+  "cues": [
+    {
+      "id": "001",
+      "role": "pemandu",
+      "beat": "series",
+      "recipient": "camera",
+      "scene": 1,
+      "display_text": "Day one bangun Republik WKWKWK! Negara game tempat netizen ngasih tugas, calon pemimpinnya yang kerja!",
+      "spoken_text": "Day one bangun Republik wekawekaweka! Negara game tempat netizen ngasih tugas, calon pemimpinnya yang kerja!"
+    },
+    {
+      "id": "002",
+      "role": "komeng",
+      "beat": "comment_reply",
+      "recipient": "camera",
+      "scene": 1,
+      "display_text": "Jadi kalian komentar, kita yang repot?",
+      "spoken_text": "Jadi kalian komentar, kita yang repot?"
+    },
+    {
+      "id": "003",
+      "role": "pemandu",
+      "beat": "promise",
+      "recipient": "camera",
+      "scene": 1,
+      "display_text": "Betul. Satu ide kalian kita mainkan tiap episode.",
+      "spoken_text": "Betul. Satu ide kalian kita mainkan tiap episode."
+    },
+    {
+      "id": "004",
+      "role": "pemandu",
+      "beat": "vacancy",
+      "recipient": "camera",
+      "scene": 2,
+      "display_text": "Urusan pertama: kursi wapres kosong!",
+      "spoken_text": "Urusan pertama: kursi wapres kosong!"
+    },
+    {
+      "id": "005",
+      "role": "bahlil",
+      "beat": "volunteer",
+      "recipient": "bu-warung",
+      "scene": 2,
+      "display_text": "Dindaaa! Saya siap duduk!",
+      "spoken_text": "Dindaaa! Saya siap duduk!"
+    },
+    {
+      "id": "006",
+      "role": "bu-warung",
+      "beat": "handoff",
+      "recipient": "bahlil",
+      "scene": 2,
+      "display_text": "Sapu dulu. Duduk belakangan!",
+      "spoken_text": "Sapu dulu. Duduk belakangan!"
+    },
+    {
+      "id": "007",
+      "role": "bahlil",
+      "beat": "chair_request",
+      "recipient": "bu-warung",
+      "scene": 3,
+      "display_text": "Saya kira langsung dapat kursi.",
+      "spoken_text": "Saya kira langsung dapat kursi.",
+      "reuse_v6": "004"
+    },
+    {
+      "id": "008",
+      "role": "bu-warung",
+      "beat": "lift",
+      "recipient": "bahlil",
+      "scene": 3,
+      "display_text": "Dapat. Angkat dulu. Bawahnya belum disapu.",
+      "spoken_text": "Dapat. Angkat dulu. Bawahnya belum disapu.",
+      "reuse_v6": "005"
+    },
+    {
+      "id": "009",
+      "role": "ghufron",
+      "beat": "serve_claim",
+      "recipient": "bu-warung",
+      "scene": 4,
+      "display_text": "Pemimpin harus melayani. Betul apa tidak?",
+      "spoken_text": "Pemimpin harus melayani. Betul apa tidak?",
+      "reuse_v6": "006"
+    },
+    {
+      "id": "010",
+      "role": "bu-warung",
+      "beat": "order",
+      "recipient": "mama-ghufron",
+      "scene": 4,
+      "display_text": "Betul. Dua es teh. Gulanya sedikit.",
+      "spoken_text": "Betul. Dua es teh. Gulanya sedikit.",
+      "reuse_v6": "007"
+    },
+    {
+      "id": "011",
+      "role": "ghufron",
+      "beat": "clap",
+      "recipient": "crowd",
+      "scene": 4,
+      "display_text": "Keprok atuh!",
+      "spoken_text": "Keprok atuh!",
+      "reuse_v6": "008"
+    },
+    {
+      "id": "012",
+      "role": "komeng",
+      "beat": "deliver",
+      "recipient": "mama-ghufron",
+      "scene": 4,
+      "display_text": "Es tehnya dulu, Pak. Penontonnya haus.",
+      "spoken_text": "Es tehnya dulu, Pak. Penontonnya haus.",
+      "reuse_v6": "009"
+    },
+    {
+      "id": "013",
+      "role": "bu-warung",
+      "beat": "invite",
+      "recipient": "pak-sandal",
+      "scene": 5,
+      "display_text": "Sudah bersih. Silakan duduk.",
+      "spoken_text": "Sudah bersih. Silakan duduk.",
+      "reuse_v6": "010"
+    },
+    {
+      "id": "014",
+      "role": "bu-warung",
+      "beat": "customer",
+      "recipient": "bahlil",
+      "scene": 5,
+      "display_text": "Bukan Bapak. Pelanggan.",
+      "spoken_text": "Bukan Bapak. Pelanggan.",
+      "reuse_v6": "011"
+    },
+    {
+      "id": "015",
+      "role": "komeng",
+      "beat": "payoff",
+      "recipient": "bahlil",
+      "scene": 5,
+      "display_text": "Wapresnya belum dapat. Pelanggannya sudah duduk.",
+      "spoken_text": "Wapresnya belum dapat. Pelanggannya sudah duduk."
+    },
+    {
+      "id": "016",
+      "role": "pemandu",
+      "beat": "follow",
+      "recipient": "camera",
+      "scene": 6,
+      "display_text": "Hari pertama, warung beres. Besok republik ini punya masalah apa? Tulis di komentar—satu ide kita jadiin cerita. Follow buat jadi warga Republik WKWKWK!",
+      "spoken_text": "Hari pertama, warung beres. Besok republik ini punya masalah apa? Tulis di komentar—satu ide kita jadiin cerita. Follow buat jadi warga Republik wekawekaweka!"
+    },
+    {
+      "id": "017",
+      "role": "bahlil",
+      "beat": "end",
+      "recipient": "camera",
+      "scene": 6,
+      "display_text": "Dindaaa... warganya nambah, kerjaan saya nambah dong?",
+      "spoken_text": "Dindaaa... warganya nambah, kerjaan saya nambah dong?",
+      "reuse_v6": "014"
+    }
+  ]
+}

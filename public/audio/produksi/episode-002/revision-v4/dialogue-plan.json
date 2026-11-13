@@ -1,0 +1,160 @@
+{
+  "status": "script-revised-voice-design-error-awaiting-retry-approval",
+  "dialogue_count": 22,
+  "cues": [
+    {
+      "id": "001",
+      "role": "pemandu",
+      "written_text": "Stop! Belum ada yang kepilih, kursinya sudah di-booking!",
+      "spoken_text": "Stop! Belum ada yang kepilih, kursinya sudah di-booking!"
+    },
+    {
+      "id": "002",
+      "role": "pak-sandal",
+      "written_text": "Sandal saya duluan.",
+      "spoken_text": "Sandal saya duluan."
+    },
+    {
+      "id": "003",
+      "role": "komeng",
+      "written_text": "Kalau begitu, yang ikut audisi sandalnya?",
+      "spoken_text": "Kalau begitu, yang ikut audisi sandalnya?"
+    },
+    {
+      "id": "004",
+      "role": "pemandu",
+      "written_text": "Audisi wapres versi Republik WKWKWK. Satu-satu, jawab singkat!",
+      "spoken_text": "Audisi wapres versi Republik wekawekaweka. Satu-satu, jawab singkat!"
+    },
+    {
+      "id": "005",
+      "role": "bahlil",
+      "written_text": "Dindaaa... saya ini siap maju!",
+      "spoken_text": "Dindaaa... saya ini siap maju!"
+    },
+    {
+      "id": "006",
+      "role": "komeng",
+      "written_text": "Maju boleh. Nginjek saya jangan!",
+      "spoken_text": "Maju boleh. Nginjek saya jangan!"
+    },
+    {
+      "id": "007",
+      "role": "bahlil",
+      "written_text": "Pelan-pelan dulu. Saya kira itu garis start.",
+      "spoken_text": "Pelan-pelan dulu. Saya kira itu garis start."
+    },
+    {
+      "id": "008",
+      "role": "mama-ghufron",
+      "written_text": "Pemimpin harus punya visi. Betul apa tidak?",
+      "spoken_text": "Pemimpin harus punya visi. Betul apa tidak?"
+    },
+    {
+      "id": "009",
+      "role": "pemandu",
+      "written_text": "Betul. Sekarang isinya, satu kalimat saja.",
+      "spoken_text": "Betul. Sekarang isinya, satu kalimat saja."
+    },
+    {
+      "id": "010",
+      "role": "mama-ghufron",
+      "written_text": "Nah, itu baru judulnya. Keprok atuh!",
+      "spoken_text": "Nah, itu baru judulnya. Keprok atuh!"
+    },
+    {
+      "id": "011",
+      "role": "komeng",
+      "written_text": "Judul doang sudah tepuk tangan. Daftar isinya pakai kembang api?",
+      "spoken_text": "Judul doang sudah tepuk tangan. Daftar isinya pakai kembang api?"
+    },
+    {
+      "id": "012",
+      "role": "pemandu",
+      "written_text": "Pak! Kenapa kursinya digeser?",
+      "spoken_text": "Pak! Kenapa kursinya digeser?"
+    },
+    {
+      "id": "013",
+      "role": "pak-sandal",
+      "written_text": "Biar dekat rakyat.",
+      "spoken_text": "Biar dekat rakyat."
+    },
+    {
+      "id": "014",
+      "role": "komeng",
+      "written_text": "Itu dekat rendang.",
+      "spoken_text": "Itu dekat rendang."
+    },
+    {
+      "id": "015",
+      "role": "pak-sandal",
+      "written_text": "Rakyat juga suka rendang.",
+      "spoken_text": "Rakyat juga suka rendang."
+    },
+    {
+      "id": "016",
+      "role": "pemandu",
+      "written_text": "Begini saja. Kalian yang bikin tes buat mereka.",
+      "spoken_text": "Begini saja. Kalian yang bikin tes buat mereka."
+    },
+    {
+      "id": "017",
+      "role": "komeng",
+      "written_text": "Contoh: Pak Sandal, antre tanpa nitip barang.",
+      "spoken_text": "Contoh: Pak Sandal, antre tanpa nitip barang."
+    },
+    {
+      "id": "018",
+      "role": "pemandu",
+      "written_text": "Tulis satu nama, satu tes. Boleh usul peserta lain. Satu usulan paling seru dan aman kita mainkan di episode berikutnya.",
+      "spoken_text": "Tulis satu nama, satu tes. Boleh usul peserta lain. Satu usulan paling seru dan aman kita mainkan di episode berikutnya."
+    },
+    {
+      "id": "019",
+      "role": "pak-sandal",
+      "written_text": "Kalau tes makan, saya siap.",
+      "spoken_text": "Kalau tes makan, saya siap."
+    },
+    {
+      "id": "020",
+      "role": "pemandu",
+      "written_text": "Bayar sendiri.",
+      "spoken_text": "Bayar sendiri."
+    },
+    {
+      "id": "021",
+      "role": "pak-sandal",
+      "written_text": "Saya mengundurkan diri.",
+      "spoken_text": "Saya mengundurkan diri."
+    },
+    {
+      "id": "022",
+      "role": "komeng",
+      "written_text": "Nah. Akhirnya kursinya kosong.",
+      "spoken_text": "Nah. Akhirnya kursinya kosong."
+    }
+  ],
+  "source_revision": "generated-v3-ensemble/batch-plan.json",
+  "changed_cues": [
+    "005",
+    "007",
+    "008",
+    "009",
+    "010",
+    "011"
+  ],
+  "audio_generated": false,
+  "game_playback_integrated": false,
+  "new_voice_ids": {},
+  "reference_audio_inspected": false,
+  "failed_design": {
+    "role": "mama-ghufron",
+    "http_status": 500,
+    "error_code": "INVALID_ARGUMENT",
+    "private_list_after_error": "empty",
+    "other_design_requests": "not submitted"
+  },
+  "next_step": "Ask permission before another generation/design attempt. User must hear voice-design previews before full dialogue synthesis."
+}
+

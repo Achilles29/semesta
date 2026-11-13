@@ -1,0 +1,171 @@
+{
+  "id": "008",
+  "role": "pemandu",
+  "written_text": "Panggung kita sempit, Pak.",
+  "request": {
+    "text": "Panggung kita sempit, Pak.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=f5c32fe378294d5581935df43a2e85ca.wav",
+    "duration": 1.7056009070294784,
+    "original_characters": [
+      {
+        "text": "P",
+        "start_time": 0.256,
+        "end_time": 0.384
+      },
+      {
+        "text": "a",
+        "start_time": 0.384,
+        "end_time": 0.412
+      },
+      {
+        "text": "n",
+        "start_time": 0.412,
+        "end_time": 0.441
+      },
+      {
+        "text": "g",
+        "start_time": 0.441,
+        "end_time": 0.469
+      },
+      {
+        "text": "g",
+        "start_time": 0.469,
+        "end_time": 0.498
+      },
+      {
+        "text": "u",
+        "start_time": 0.498,
+        "end_time": 0.526
+      },
+      {
+        "text": "n",
+        "start_time": 0.526,
+        "end_time": 0.555
+      },
+      {
+        "text": "g",
+        "start_time": 0.555,
+        "end_time": 0.597
+      },
+      {
+        "text": " ",
+        "start_time": 0.597,
+        "end_time": 0.64
+      },
+      {
+        "text": "k",
+        "start_time": 0.64,
+        "end_time": 0.683
+      },
+      {
+        "text": "i",
+        "start_time": 0.683,
+        "end_time": 0.725
+      },
+      {
+        "text": "t",
+        "start_time": 0.725,
+        "end_time": 0.768
+      },
+      {
+        "text": "a",
+        "start_time": 0.768,
+        "end_time": 0.853
+      },
+      {
+        "text": " ",
+        "start_time": 0.853,
+        "end_time": 0.896
+      },
+      {
+        "text": "s",
+        "start_time": 0.896,
+        "end_time": 0.939
+      },
+      {
+        "text": "e",
+        "start_time": 0.939,
+        "end_time": 0.981
+      },
+      {
+        "text": "m",
+        "start_time": 0.981,
+        "end_time": 1.024
+      },
+      {
+        "text": "p",
+        "start_time": 1.024,
+        "end_time": 1.067
+      },
+      {
+        "text": "i",
+        "start_time": 1.067,
+        "end_time": 1.131
+      },
+      {
+        "text": "t",
+        "start_time": 1.131,
+        "end_time": 1.195
+      },
+      {
+        "text": ",",
+        "start_time": 1.195,
+        "end_time": 1.259
+      },
+      {
+        "text": " ",
+        "start_time": 1.259,
+        "end_time": 1.323
+      },
+      {
+        "text": "P",
+        "start_time": 1.323,
+        "end_time": 1.365
+      },
+      {
+        "text": "a",
+        "start_time": 1.365,
+        "end_time": 1.408
+      },
+      {
+        "text": "k",
+        "start_time": 1.408,
+        "end_time": 1.451
+      },
+      {
+        "text": ".",
+        "start_time": 1.451,
+        "end_time": 1.7056009070294784
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Panggung",
+        "start_time": 0.256,
+        "end_time": 0.597
+      },
+      {
+        "text": "kita",
+        "start_time": 0.64,
+        "end_time": 0.853
+      },
+      {
+        "text": "sempit",
+        "start_time": 0.896,
+        "end_time": 1.195
+      },
+      {
+        "text": "Pak",
+        "start_time": 1.323,
+        "end_time": 1.451
+      }
+    ]
+  },
+  "provider_error": false
+}

@@ -1,0 +1,126 @@
+{
+  "id": "011",
+  "role": "mama-ghufron",
+  "written_text": "Ini judulnya dulu.",
+  "request": {
+    "text": "Ini judulnya dulu.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=9e125034c95e4cd19de2ed37aa00dc3c.wav",
+    "duration": 1.3401814058956916,
+    "original_characters": [
+      {
+        "text": "I",
+        "start_time": 0.256,
+        "end_time": 0.341
+      },
+      {
+        "text": "n",
+        "start_time": 0.341,
+        "end_time": 0.427
+      },
+      {
+        "text": "i",
+        "start_time": 0.427,
+        "end_time": 0.512
+      },
+      {
+        "text": " ",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": "j",
+        "start_time": 0.555,
+        "end_time": 0.583
+      },
+      {
+        "text": "u",
+        "start_time": 0.583,
+        "end_time": 0.612
+      },
+      {
+        "text": "d",
+        "start_time": 0.612,
+        "end_time": 0.64
+      },
+      {
+        "text": "u",
+        "start_time": 0.64,
+        "end_time": 0.683
+      },
+      {
+        "text": "l",
+        "start_time": 0.683,
+        "end_time": 0.725
+      },
+      {
+        "text": "n",
+        "start_time": 0.725,
+        "end_time": 0.747
+      },
+      {
+        "text": "y",
+        "start_time": 0.747,
+        "end_time": 0.768
+      },
+      {
+        "text": "a",
+        "start_time": 0.768,
+        "end_time": 0.853
+      },
+      {
+        "text": " ",
+        "start_time": 0.853,
+        "end_time": 0.896
+      },
+      {
+        "text": "d",
+        "start_time": 0.896,
+        "end_time": 0.939
+      },
+      {
+        "text": "u",
+        "start_time": 0.939,
+        "end_time": 0.96
+      },
+      {
+        "text": "l",
+        "start_time": 0.96,
+        "end_time": 0.981
+      },
+      {
+        "text": "u",
+        "start_time": 0.981,
+        "end_time": 1.067
+      },
+      {
+        "text": ".",
+        "start_time": 1.067,
+        "end_time": 1.34
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Ini",
+        "start_time": 0.256,
+        "end_time": 0.512
+      },
+      {
+        "text": "judulnya",
+        "start_time": 0.555,
+        "end_time": 0.853
+      },
+      {
+        "text": "dulu",
+        "start_time": 0.896,
+        "end_time": 1.067
+      }
+    ]
+  },
+  "provider_error": false
+}

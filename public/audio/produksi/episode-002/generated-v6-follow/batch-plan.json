@@ -1,0 +1,116 @@
+{
+  "version": "v6-follow",
+  "status": "planned-partial-komeng-unresolved",
+  "request_count": 4,
+  "model": "server-selected",
+  "requests": [
+    {
+      "role": "bahlil",
+      "spans": [
+        {
+          "cue_id": "002",
+          "start": 0,
+          "end": 38
+        },
+        {
+          "cue_id": "004",
+          "start": 40,
+          "end": 71
+        },
+        {
+          "cue_id": "014",
+          "start": 73,
+          "end": 126
+        }
+      ],
+      "request": {
+        "voiceId": "233c3b208dff40e5b758c445086e1f57",
+        "text": "Dindaaa... ini audisi apa kerja bakti?\n\nSaya kira langsung dapat kursi.\n\nDindaaa... warganya nambah, kerjaan saya nambah dong?",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "ghufron",
+      "spans": [
+        {
+          "cue_id": "006",
+          "start": 0,
+          "end": 41
+        },
+        {
+          "cue_id": "008",
+          "start": 43,
+          "end": 55
+        }
+      ],
+      "request": {
+        "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+        "text": "Pemimpin harus melayani. Betul apa tidak?\n\nKeprok atuh!",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "pemandu",
+      "spans": [
+        {
+          "cue_id": "003",
+          "start": 0,
+          "end": 64
+        },
+        {
+          "cue_id": "013",
+          "start": 66,
+          "end": 238
+        }
+      ],
+      "request": {
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "text": "Di Republik wekawekaweka, kalian kasih tugas. Mereka yang kerja.\n\nFollow buat jadi warga Republik wekawekaweka. Di sini, warga yang kasih tugas! Mau mereka disuruh kerja apa? Tulis di komentar. Satu ide kita mainkan di episode berikutnya.",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "role": "bu-warung",
+      "spans": [
+        {
+          "cue_id": "001",
+          "start": 0,
+          "end": 27
+        },
+        {
+          "cue_id": "005",
+          "start": 29,
+          "end": 71
+        },
+        {
+          "cue_id": "007",
+          "start": 73,
+          "end": 108
+        },
+        {
+          "cue_id": "010",
+          "start": 110,
+          "end": 138
+        },
+        {
+          "cue_id": "011",
+          "start": 140,
+          "end": 163
+        }
+      ],
+      "request": {
+        "voiceId": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+        "text": "Mau jadi wapres? Sapu dulu.\n\nDapat. Angkat dulu. Bawahnya belum disapu.\n\nBetul. Dua es teh. Gulanya sedikit.\n\nSudah bersih. Silakan duduk.\n\nBukan Bapak. Pelanggan.",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    }
+  ]
+}

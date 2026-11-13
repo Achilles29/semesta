@@ -1,0 +1,3262 @@
+{
+  "title": "Antre Rendang",
+  "original_composition": true,
+  "duration_seconds": 80.0,
+  "bpm": 96,
+  "sample_rate_hz": 44100,
+  "channels": 2,
+  "peak_dbfs": -15.12,
+  "rms_dbfs": -32.59,
+  "events": [
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 0,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 2,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 1,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 1,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 1,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 3,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 3,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 3,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 0.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 1.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 2.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 3.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 0,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 79,
+      "beat": 0.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 1.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 2.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 4,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 6,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 5,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 5,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 5,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 7,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 7,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 7,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 4.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 5.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 6.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 7.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 4.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 5.25,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 69,
+      "beat": 6.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 8,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 10,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 9,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 9,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 9,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 11,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 11,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 11,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 8.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 9.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 10.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 11.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 8,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 77,
+      "beat": 9,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 9.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 11,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 12,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 14,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 13,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 13,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 13,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 15,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 15,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 15,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 12.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 13.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 14.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 15.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 12.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 71,
+      "beat": 13.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 67,
+      "beat": 14.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 16,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 18,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 17,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 17,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 17,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 19,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 19,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 19,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 16.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 17.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 18.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 19.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 20,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 22,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 21,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 21,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 21,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 23,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 23,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 23,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 20.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 21.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 22.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 23.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 22.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 23,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 23.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 24,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 26,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 25,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 25,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 25,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 27,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 27,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 27,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 24.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 25.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 26.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 27.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 28,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 30,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 29,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 29,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 29,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 31,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 31,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 31,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 28.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 29.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 30.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 31.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 30.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 31,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 31.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 32,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 34,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 33,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 33,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 33,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 35,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 35,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 35,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 32.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 33.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 34.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 35.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 32,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 79,
+      "beat": 32.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 33.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 34.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 36,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 38,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 37,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 37,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 37,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 39,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 39,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 39,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 36.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 37.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 38.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 39.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 36.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 37.25,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 69,
+      "beat": 38.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 40,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 42,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 41,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 41,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 41,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 43,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 43,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 43,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 40.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 41.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 42.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 43.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 40,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 77,
+      "beat": 41,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 41.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 43,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 44,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 46,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 45,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 45,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 45,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 47,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 47,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 47,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 44.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 45.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 46.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 47.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 44.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 71,
+      "beat": 45.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 67,
+      "beat": 46.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 48,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 50,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 49,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 49,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 49,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 51,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 51,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 51,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 48.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 49.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 50.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 51.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 52,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 54,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 53,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 53,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 53,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 55,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 55,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 55,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 52.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 53.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 54.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 55.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 54.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 55,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 55.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 56,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 58,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 57,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 57,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 57,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 59,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 59,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 59,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 56.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 57.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 58.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 59.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 60,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 62,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 61,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 61,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 61,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 63,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 63,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 63,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 60.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 61.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 62.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 63.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 62.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 63,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 63.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 64,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 66,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 65,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 65,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 65,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 67,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 67,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 67,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 64.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 65.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 66.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 67.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 64,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 79,
+      "beat": 64.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 65.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 66.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 68,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 70,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 69,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 69,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 69,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 71,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 71,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 71,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 68.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 69.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 70.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 71.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 68.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 69.25,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 69,
+      "beat": 70.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 72,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 74,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 73,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 73,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 73,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 75,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 75,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 75,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 72.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 73.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 74.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 75.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 72,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 77,
+      "beat": 73,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 73.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 76,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 78,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 77,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 77,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 77,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 79,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 79,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 79,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 76.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 77.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 78.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 79.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 76.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 71,
+      "beat": 77.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 67,
+      "beat": 78.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 80,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 82,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 81,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 81,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 81,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 83,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 83,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 83,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 80.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 81.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 82.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 83.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 84,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 86,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 85,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 85,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 85,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 87,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 87,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 87,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 84.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 85.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 86.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 87.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 86.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 87,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 87.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 88,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 90,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 89,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 89,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 89,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 91,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 91,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 91,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 88.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 89.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 90.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 91.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 92,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 94,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 93,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 93,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 93,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 95,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 95,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 95,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 92.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 93.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 94.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 95.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 94.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 95,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 95.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 96,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 98,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 97,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 97,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 97,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 99,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 99,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 99,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 96.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 97.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 98.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 99.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 96,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 79,
+      "beat": 96.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 97.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 98.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 100,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 102,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 101,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 101,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 101,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 103,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 103,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 103,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 100.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 101.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 102.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 103.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 100.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 101.25,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 69,
+      "beat": 102.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 104,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 106,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 105,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 105,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 105,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 107,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 107,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 107,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 104.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 105.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 106.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 107.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 104,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 77,
+      "beat": 105,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 76,
+      "beat": 105.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 72,
+      "beat": 107,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 108,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 110,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 109,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 109,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 109,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 111,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 111,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 111,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 108.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 109.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 110.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 111.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "mallet",
+      "midi": 74,
+      "beat": 108.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 71,
+      "beat": 109.5,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "mallet",
+      "midi": 67,
+      "beat": 110.75,
+      "length_beats": 0.28,
+      "volume": 0.085
+    },
+    {
+      "kind": "bass",
+      "midi": 48,
+      "beat": 112,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 114,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 113,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 113,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 113,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 115,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 115,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 115,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 112.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 113.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 114.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 115.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 45,
+      "beat": 116,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 52,
+      "beat": 118,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 117,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 117,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 117,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 57,
+      "beat": 119,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 119,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 64,
+      "beat": 119,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 116.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 117.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 118.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 119.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 118.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 119,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 119.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "bass",
+      "midi": 53,
+      "beat": 120,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 60,
+      "beat": 122,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 121,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 121,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 121,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 60,
+      "beat": 123,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 65,
+      "beat": 123,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 69,
+      "beat": 123,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 120.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 121.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 122.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 123.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "bass",
+      "midi": 55,
+      "beat": 124,
+      "length_beats": 0.75,
+      "volume": 0.15
+    },
+    {
+      "kind": "bass",
+      "midi": 62,
+      "beat": 126,
+      "length_beats": 0.6,
+      "volume": 0.12
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 125,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 125,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 125,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 59,
+      "beat": 127,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 62,
+      "beat": 127,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "pluck",
+      "midi": 67,
+      "beat": 127,
+      "length_beats": 0.2,
+      "volume": 0.052
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 124.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 89,
+      "beat": 125.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 126.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "wood",
+      "midi": 84,
+      "beat": 127.5,
+      "length_beats": 0.08,
+      "volume": 0.025
+    },
+    {
+      "kind": "pluck",
+      "midi": 72,
+      "beat": 126.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 76,
+      "beat": 127,
+      "length_beats": 0.18,
+      "volume": 0.055
+    },
+    {
+      "kind": "pluck",
+      "midi": 79,
+      "beat": 127.5,
+      "length_beats": 0.18,
+      "volume": 0.055
+    }
+  ],
+  "usage": "Music-only bed. Start low (about 0.15–0.25 gain) under dialogue; adjust by listening. Not yet mixed with new voices.",
+  "review": "Wave format, duration, finite samples and peak checked; listening review pending."
+}

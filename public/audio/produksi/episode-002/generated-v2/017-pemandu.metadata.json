@@ -1,0 +1,901 @@
+{
+  "id": "017",
+  "role": "pemandu",
+  "written_text": "Sekarang usulanmu: satu nama dan satu alasan. Boleh di luar yang muncul tadi. Tiga usulan dengan alasan yang bisa dicek kita bahas di rapat berikutnya.",
+  "request": {
+    "text": "Sekarang usulanmu: satu nama dan satu alasan. Boleh di luar yang muncul tadi. Tiga usulan dengan alasan yang bisa dicek kita bahas di rapat berikutnya.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=3e2c71b3e71f440aa29278a1494545f0.wav",
+    "duration": 9.88875283446712,
+    "original_characters": [
+      {
+        "text": "S",
+        "start_time": 0.213,
+        "end_time": 0.32
+      },
+      {
+        "text": "e",
+        "start_time": 0.32,
+        "end_time": 0.427
+      },
+      {
+        "text": "k",
+        "start_time": 0.427,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.512
+      },
+      {
+        "text": "r",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": "a",
+        "start_time": 0.555,
+        "end_time": 0.583
+      },
+      {
+        "text": "n",
+        "start_time": 0.583,
+        "end_time": 0.612
+      },
+      {
+        "text": "g",
+        "start_time": 0.612,
+        "end_time": 0.64
+      },
+      {
+        "text": " ",
+        "start_time": 0.64,
+        "end_time": 0.683
+      },
+      {
+        "text": "u",
+        "start_time": 0.683,
+        "end_time": 0.725
+      },
+      {
+        "text": "s",
+        "start_time": 0.725,
+        "end_time": 0.768
+      },
+      {
+        "text": "u",
+        "start_time": 0.768,
+        "end_time": 0.832
+      },
+      {
+        "text": "l",
+        "start_time": 0.832,
+        "end_time": 0.896
+      },
+      {
+        "text": "a",
+        "start_time": 0.896,
+        "end_time": 0.96
+      },
+      {
+        "text": "n",
+        "start_time": 0.96,
+        "end_time": 1.024
+      },
+      {
+        "text": "m",
+        "start_time": 1.024,
+        "end_time": 1.109
+      },
+      {
+        "text": "u",
+        "start_time": 1.109,
+        "end_time": 1.195
+      },
+      {
+        "text": ":",
+        "start_time": 1.195,
+        "end_time": 1.387
+      },
+      {
+        "text": " ",
+        "start_time": 1.387,
+        "end_time": 1.579
+      },
+      {
+        "text": "s",
+        "start_time": 1.579,
+        "end_time": 1.678
+      },
+      {
+        "text": "a",
+        "start_time": 1.678,
+        "end_time": 1.778
+      },
+      {
+        "text": "t",
+        "start_time": 1.778,
+        "end_time": 1.877
+      },
+      {
+        "text": "u",
+        "start_time": 1.877,
+        "end_time": 2.005
+      },
+      {
+        "text": " ",
+        "start_time": 2.005,
+        "end_time": 2.048
+      },
+      {
+        "text": "n",
+        "start_time": 2.048,
+        "end_time": 2.091
+      },
+      {
+        "text": "a",
+        "start_time": 2.091,
+        "end_time": 2.133
+      },
+      {
+        "text": "m",
+        "start_time": 2.133,
+        "end_time": 2.176
+      },
+      {
+        "text": "a",
+        "start_time": 2.176,
+        "end_time": 2.304
+      },
+      {
+        "text": " ",
+        "start_time": 2.304,
+        "end_time": 2.475
+      },
+      {
+        "text": "d",
+        "start_time": 2.475,
+        "end_time": 2.546
+      },
+      {
+        "text": "a",
+        "start_time": 2.546,
+        "end_time": 2.617
+      },
+      {
+        "text": "n",
+        "start_time": 2.617,
+        "end_time": 2.688
+      },
+      {
+        "text": " ",
+        "start_time": 2.688,
+        "end_time": 2.731
+      },
+      {
+        "text": "s",
+        "start_time": 2.731,
+        "end_time": 2.816
+      },
+      {
+        "text": "a",
+        "start_time": 2.816,
+        "end_time": 2.901
+      },
+      {
+        "text": "t",
+        "start_time": 2.901,
+        "end_time": 2.987
+      },
+      {
+        "text": "u",
+        "start_time": 2.987,
+        "end_time": 3.1147
+      },
+      {
+        "text": " ",
+        "start_time": 3.115,
+        "end_time": 3.157
+      },
+      {
+        "text": "a",
+        "start_time": 3.157,
+        "end_time": 3.2
+      },
+      {
+        "text": "l",
+        "start_time": 3.2,
+        "end_time": 3.243
+      },
+      {
+        "text": "a",
+        "start_time": 3.243,
+        "end_time": 3.307
+      },
+      {
+        "text": "s",
+        "start_time": 3.307,
+        "end_time": 3.371
+      },
+      {
+        "text": "a",
+        "start_time": 3.371,
+        "end_time": 3.477
+      },
+      {
+        "text": "n",
+        "start_time": 3.477,
+        "end_time": 3.584
+      },
+      {
+        "text": ".",
+        "start_time": 3.584,
+        "end_time": 3.776
+      },
+      {
+        "text": " ",
+        "start_time": 3.776,
+        "end_time": 3.968
+      },
+      {
+        "text": "B",
+        "start_time": 3.968,
+        "end_time": 4.032
+      },
+      {
+        "text": "o",
+        "start_time": 4.032,
+        "end_time": 4.096
+      },
+      {
+        "text": "l",
+        "start_time": 4.096,
+        "end_time": 4.117
+      },
+      {
+        "text": "e",
+        "start_time": 4.117,
+        "end_time": 4.139
+      },
+      {
+        "text": "h",
+        "start_time": 4.139,
+        "end_time": 4.181
+      },
+      {
+        "text": " ",
+        "start_time": 4.181,
+        "end_time": 4.224
+      },
+      {
+        "text": "d",
+        "start_time": 4.224,
+        "end_time": 4.288
+      },
+      {
+        "text": "i",
+        "start_time": 4.288,
+        "end_time": 4.352
+      },
+      {
+        "text": " ",
+        "start_time": 4.352,
+        "end_time": 4.395
+      },
+      {
+        "text": "l",
+        "start_time": 4.395,
+        "end_time": 4.416
+      },
+      {
+        "text": "u",
+        "start_time": 4.416,
+        "end_time": 4.437
+      },
+      {
+        "text": "a",
+        "start_time": 4.437,
+        "end_time": 4.48
+      },
+      {
+        "text": "r",
+        "start_time": 4.48,
+        "end_time": 4.523
+      },
+      {
+        "text": " ",
+        "start_time": 4.523,
+        "end_time": 4.565
+      },
+      {
+        "text": "y",
+        "start_time": 4.565,
+        "end_time": 4.608
+      },
+      {
+        "text": "a",
+        "start_time": 4.608,
+        "end_time": 4.622
+      },
+      {
+        "text": "n",
+        "start_time": 4.622,
+        "end_time": 4.636
+      },
+      {
+        "text": "g",
+        "start_time": 4.636,
+        "end_time": 4.6507
+      },
+      {
+        "text": " ",
+        "start_time": 4.651,
+        "end_time": 4.693
+      },
+      {
+        "text": "m",
+        "start_time": 4.693,
+        "end_time": 4.736
+      },
+      {
+        "text": "u",
+        "start_time": 4.736,
+        "end_time": 4.779
+      },
+      {
+        "text": "n",
+        "start_time": 4.779,
+        "end_time": 4.821
+      },
+      {
+        "text": "c",
+        "start_time": 4.821,
+        "end_time": 4.878
+      },
+      {
+        "text": "u",
+        "start_time": 4.878,
+        "end_time": 4.935
+      },
+      {
+        "text": "l",
+        "start_time": 4.935,
+        "end_time": 4.992
+      },
+      {
+        "text": " ",
+        "start_time": 4.992,
+        "end_time": 5.035
+      },
+      {
+        "text": "t",
+        "start_time": 5.035,
+        "end_time": 5.077
+      },
+      {
+        "text": "a",
+        "start_time": 5.077,
+        "end_time": 5.12
+      },
+      {
+        "text": "d",
+        "start_time": 5.12,
+        "end_time": 5.163
+      },
+      {
+        "text": "i",
+        "start_time": 5.163,
+        "end_time": 5.291
+      },
+      {
+        "text": ".",
+        "start_time": 5.291,
+        "end_time": 5.632
+      },
+      {
+        "text": " ",
+        "start_time": 5.632,
+        "end_time": 5.973
+      },
+      {
+        "text": "T",
+        "start_time": 5.973,
+        "end_time": 6.016
+      },
+      {
+        "text": "i",
+        "start_time": 6.016,
+        "end_time": 6.08
+      },
+      {
+        "text": "g",
+        "start_time": 6.08,
+        "end_time": 6.144
+      },
+      {
+        "text": "a",
+        "start_time": 6.144,
+        "end_time": 6.272
+      },
+      {
+        "text": " ",
+        "start_time": 6.272,
+        "end_time": 6.315
+      },
+      {
+        "text": "u",
+        "start_time": 6.315,
+        "end_time": 6.336
+      },
+      {
+        "text": "s",
+        "start_time": 6.336,
+        "end_time": 6.357
+      },
+      {
+        "text": "u",
+        "start_time": 6.357,
+        "end_time": 6.443
+      },
+      {
+        "text": "l",
+        "start_time": 6.443,
+        "end_time": 6.528
+      },
+      {
+        "text": "a",
+        "start_time": 6.528,
+        "end_time": 6.592
+      },
+      {
+        "text": "n",
+        "start_time": 6.592,
+        "end_time": 6.656
+      },
+      {
+        "text": " ",
+        "start_time": 6.656,
+        "end_time": 6.699
+      },
+      {
+        "text": "d",
+        "start_time": 6.699,
+        "end_time": 6.741
+      },
+      {
+        "text": "e",
+        "start_time": 6.741,
+        "end_time": 6.756
+      },
+      {
+        "text": "n",
+        "start_time": 6.756,
+        "end_time": 6.77
+      },
+      {
+        "text": "g",
+        "start_time": 6.77,
+        "end_time": 6.784
+      },
+      {
+        "text": "a",
+        "start_time": 6.784,
+        "end_time": 6.848
+      },
+      {
+        "text": "n",
+        "start_time": 6.848,
+        "end_time": 6.912
+      },
+      {
+        "text": " ",
+        "start_time": 6.912,
+        "end_time": 6.955
+      },
+      {
+        "text": "a",
+        "start_time": 6.955,
+        "end_time": 7.019
+      },
+      {
+        "text": "l",
+        "start_time": 7.019,
+        "end_time": 7.083
+      },
+      {
+        "text": "a",
+        "start_time": 7.083,
+        "end_time": 7.147
+      },
+      {
+        "text": "s",
+        "start_time": 7.147,
+        "end_time": 7.211
+      },
+      {
+        "text": "a",
+        "start_time": 7.211,
+        "end_time": 7.275
+      },
+      {
+        "text": "n",
+        "start_time": 7.275,
+        "end_time": 7.3387
+      },
+      {
+        "text": " ",
+        "start_time": 7.339,
+        "end_time": 7.424
+      },
+      {
+        "text": "y",
+        "start_time": 7.424,
+        "end_time": 7.467
+      },
+      {
+        "text": "a",
+        "start_time": 7.467,
+        "end_time": 7.481
+      },
+      {
+        "text": "n",
+        "start_time": 7.481,
+        "end_time": 7.495
+      },
+      {
+        "text": "g",
+        "start_time": 7.495,
+        "end_time": 7.509
+      },
+      {
+        "text": " ",
+        "start_time": 7.509,
+        "end_time": 7.552
+      },
+      {
+        "text": "b",
+        "start_time": 7.552,
+        "end_time": 7.595
+      },
+      {
+        "text": "i",
+        "start_time": 7.595,
+        "end_time": 7.616
+      },
+      {
+        "text": "s",
+        "start_time": 7.616,
+        "end_time": 7.637
+      },
+      {
+        "text": "a",
+        "start_time": 7.637,
+        "end_time": 7.7227
+      },
+      {
+        "text": " ",
+        "start_time": 7.723,
+        "end_time": 7.765
+      },
+      {
+        "text": "d",
+        "start_time": 7.765,
+        "end_time": 7.808
+      },
+      {
+        "text": "i",
+        "start_time": 7.808,
+        "end_time": 7.822
+      },
+      {
+        "text": "c",
+        "start_time": 7.822,
+        "end_time": 7.836
+      },
+      {
+        "text": "e",
+        "start_time": 7.836,
+        "end_time": 7.851
+      },
+      {
+        "text": "k",
+        "start_time": 7.851,
+        "end_time": 8.064
+      },
+      {
+        "text": " ",
+        "start_time": 8.064,
+        "end_time": 8.192
+      },
+      {
+        "text": "k",
+        "start_time": 8.192,
+        "end_time": 8.235
+      },
+      {
+        "text": "i",
+        "start_time": 8.235,
+        "end_time": 8.277
+      },
+      {
+        "text": "t",
+        "start_time": 8.277,
+        "end_time": 8.32
+      },
+      {
+        "text": "a",
+        "start_time": 8.32,
+        "end_time": 8.448
+      },
+      {
+        "text": " ",
+        "start_time": 8.448,
+        "end_time": 8.491
+      },
+      {
+        "text": "b",
+        "start_time": 8.491,
+        "end_time": 8.533
+      },
+      {
+        "text": "a",
+        "start_time": 8.533,
+        "end_time": 8.576
+      },
+      {
+        "text": "h",
+        "start_time": 8.576,
+        "end_time": 8.619
+      },
+      {
+        "text": "a",
+        "start_time": 8.619,
+        "end_time": 8.683
+      },
+      {
+        "text": "s",
+        "start_time": 8.683,
+        "end_time": 8.7467
+      },
+      {
+        "text": " ",
+        "start_time": 8.747,
+        "end_time": 8.789
+      },
+      {
+        "text": "d",
+        "start_time": 8.789,
+        "end_time": 8.853
+      },
+      {
+        "text": "i",
+        "start_time": 8.853,
+        "end_time": 8.917
+      },
+      {
+        "text": " ",
+        "start_time": 8.917,
+        "end_time": 8.96
+      },
+      {
+        "text": "r",
+        "start_time": 8.96,
+        "end_time": 8.988
+      },
+      {
+        "text": "a",
+        "start_time": 8.988,
+        "end_time": 9.017
+      },
+      {
+        "text": "p",
+        "start_time": 9.017,
+        "end_time": 9.045
+      },
+      {
+        "text": "a",
+        "start_time": 9.045,
+        "end_time": 9.109
+      },
+      {
+        "text": "t",
+        "start_time": 9.109,
+        "end_time": 9.173
+      },
+      {
+        "text": " ",
+        "start_time": 9.173,
+        "end_time": 9.216
+      },
+      {
+        "text": "b",
+        "start_time": 9.216,
+        "end_time": 9.244
+      },
+      {
+        "text": "e",
+        "start_time": 9.244,
+        "end_time": 9.273
+      },
+      {
+        "text": "r",
+        "start_time": 9.273,
+        "end_time": 9.301
+      },
+      {
+        "text": "i",
+        "start_time": 9.301,
+        "end_time": 9.344
+      },
+      {
+        "text": "k",
+        "start_time": 9.344,
+        "end_time": 9.387
+      },
+      {
+        "text": "u",
+        "start_time": 9.387,
+        "end_time": 9.429
+      },
+      {
+        "text": "t",
+        "start_time": 9.429,
+        "end_time": 9.472
+      },
+      {
+        "text": "n",
+        "start_time": 9.472,
+        "end_time": 9.493
+      },
+      {
+        "text": "y",
+        "start_time": 9.493,
+        "end_time": 9.515
+      },
+      {
+        "text": "a",
+        "start_time": 9.515,
+        "end_time": 9.643
+      },
+      {
+        "text": ".",
+        "start_time": 9.643,
+        "end_time": 9.769
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Sekarang",
+        "start_time": 0.213,
+        "end_time": 0.64
+      },
+      {
+        "text": "usulanmu",
+        "start_time": 0.683,
+        "end_time": 1.195
+      },
+      {
+        "text": "satu",
+        "start_time": 1.579,
+        "end_time": 2.005
+      },
+      {
+        "text": "nama",
+        "start_time": 2.048,
+        "end_time": 2.304
+      },
+      {
+        "text": "dan",
+        "start_time": 2.475,
+        "end_time": 2.688
+      },
+      {
+        "text": "satu",
+        "start_time": 2.731,
+        "end_time": 3.1147
+      },
+      {
+        "text": "alasan",
+        "start_time": 3.157,
+        "end_time": 3.584
+      },
+      {
+        "text": "Boleh",
+        "start_time": 3.968,
+        "end_time": 4.181
+      },
+      {
+        "text": "di",
+        "start_time": 4.224,
+        "end_time": 4.352
+      },
+      {
+        "text": "luar",
+        "start_time": 4.395,
+        "end_time": 4.523
+      },
+      {
+        "text": "yang",
+        "start_time": 4.565,
+        "end_time": 4.6507
+      },
+      {
+        "text": "muncul",
+        "start_time": 4.693,
+        "end_time": 4.992
+      },
+      {
+        "text": "tadi",
+        "start_time": 5.035,
+        "end_time": 5.291
+      },
+      {
+        "text": "Tiga",
+        "start_time": 5.973,
+        "end_time": 6.272
+      },
+      {
+        "text": "usulan",
+        "start_time": 6.315,
+        "end_time": 6.656
+      },
+      {
+        "text": "dengan",
+        "start_time": 6.699,
+        "end_time": 6.912
+      },
+      {
+        "text": "alasan",
+        "start_time": 6.955,
+        "end_time": 7.3387
+      },
+      {
+        "text": "yang",
+        "start_time": 7.424,
+        "end_time": 7.509
+      },
+      {
+        "text": "bisa",
+        "start_time": 7.552,
+        "end_time": 7.7227
+      },
+      {
+        "text": "dicek",
+        "start_time": 7.765,
+        "end_time": 8.064
+      },
+      {
+        "text": "kita",
+        "start_time": 8.192,
+        "end_time": 8.448
+      },
+      {
+        "text": "bahas",
+        "start_time": 8.491,
+        "end_time": 8.7467
+      },
+      {
+        "text": "di",
+        "start_time": 8.789,
+        "end_time": 8.917
+      },
+      {
+        "text": "rapat",
+        "start_time": 8.96,
+        "end_time": 9.173
+      },
+      {
+        "text": "berikutnya",
+        "start_time": 9.216,
+        "end_time": 9.643
+      }
+    ]
+  },
+  "provider_error": false
+}

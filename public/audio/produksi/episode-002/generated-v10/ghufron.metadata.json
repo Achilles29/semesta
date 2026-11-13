@@ -1,0 +1,24 @@
+{
+  "role": "ghufron",
+  "request": {
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "text": "Pemimpin harus melayani rakyat. Betul apa tidak?",
+    "language": "id",
+    "withTimestamps": true,
+    "outputFormat": {
+      "encoding": "pcm",
+      "sample_rate_hertz": 44100,
+      "num_channels": 1,
+      "bit_depth": 16
+    }
+  },
+  "provider": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"audio_url\":\"https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=8774ed3d067241e4be33990cf5974a7d.pcm\",\"duration\":3.421995464852608,\"original_characters\":[{\"text\":\"P\",\"start_time\":0.299,\"end_time\":0.384},{\"text\":\"e\",\"start_time\":0.384,\"end_time\":0.427},{\"text\":\"m\",\"start_time\":0.427,\"end_time\":0.469},{\"text\":\"i\",\"start_time\":0.469,\"end_time\":0.526},{\"text\":\"m\",\"start_time\":0.526,\"end_time\":0.583},{\"text\":\"p\",\"start_time\":0.583,\"end_time\":0.64},{\"text\":\"i\",\"start_time\":0.64,\"end_time\":0.747},{\"text\":\"n\",\"start_time\":0.747,\"end_time\":0.853},{\"text\":\" \",\"start_time\":0.853,\"end_time\":0.896},{\"text\":\"h\",\"start_time\":0.896,\"end_time\":0.939},{\"text\":\"a\",\"start_time\":0.939,\"end_time\":0.981},{\"text\":\"r\",\"start_time\":0.981,\"end_time\":1.024},{\"text\":\"u\",\"start_time\":1.024,\"end_time\":1.067},{\"text\":\"s\",\"start_time\":1.067,\"end_time\":1.109},{\"text\":\" \",\"start_time\":1.109,\"end_time\":1.195},{\"text\":\"m\",\"start_time\":1.195,\"end_time\":1.259},{\"text\":\"e\",\"start_time\":1.259,\"end_time\":1.323},{\"text\":\"l\",\"start_time\":1.323,\"end_time\":1.351},{\"text\":\"a\",\"start_time\":1.351,\"end_time\":1.38},{\"text\":\"y\",\"start_time\":1.38,\"end_time\":1.408},{\"text\":\"a\",\"start_time\":1.408,\"end_time\":1.472},{\"text\":\"n\",\"start_time\":1.472,\"end_time\":1.536},{\"text\":\"i\",\"start_time\":1.536,\"end_time\":1.664},{\"text\":\" \",\"start_time\":1.664,\"end_time\":1.707},{\"text\":\"r\",\"start_time\":1.707,\"end_time\":1.749},{\"text\":\"a\",\"start_time\":1.749,\"end_time\":1.792},{\"text\":\"k\",\"start_time\":1.792,\"end_time\":1.835},{\"text\":\"y\",\"start_time\":1.835,\"end_time\":1.877},{\"text\":\"a\",\"start_time\":1.877,\"end_time\":1.963},{\"text\":\"t\",\"start_time\":1.963,\"end_time\":2.048},{\"text\":\".\",\"start_time\":2.048,\"end_time\":2.219},{\"text\":\" \",\"start_time\":2.219,\"end_time\":2.389},{\"text\":\"B\",\"start_time\":2.389,\"end_time\":2.475},{\"text\":\"e\",\"start_time\":2.475,\"end_time\":2.496},{\"text\":\"t\",\"start_time\":2.496,\"end_time\":2.517},{\"text\":\"u\",\"start_time\":2.517,\"end_time\":2.581},{\"text\":\"l\",\"start_time\":2.581,\"end_time\":2.645},{\"text\":\" \",\"start_time\":2.645,\"end_time\":2.688},{\"text\":\"a\",\"start_time\":2.688,\"end_time\":2.709},{\"text\":\"p\",\"start_time\":2.709,\"end_time\":2.731},{\"text\":\"a\",\"start_time\":2.731,\"end_time\":2.816},{\"text\":\" \",\"start_time\":2.816,\"end_time\":2.859},{\"text\":\"t\",\"start_time\":2.859,\"end_time\":2.901},{\"text\":\"i\",\"start_time\":2.901,\"end_time\":2.923},{\"text\":\"d\",\"start_time\":2.923,\"end_time\":2.944},{\"text\":\"a\",\"start_time\":2.944,\"end_time\":3.029},{\"text\":\"k\",\"start_time\":3.029,\"end_time\":3.115},{\"text\":\"?\",\"start_time\":3.115,\"end_time\":3.421995464852608}],\"original_words\":[{\"text\":\"Pemimpin\",\"start_time\":0.299,\"end_time\":0.853},{\"text\":\"harus\",\"start_time\":0.896,\"end_time\":1.109},{\"text\":\"melayani\",\"start_time\":1.195,\"end_time\":1.664},{\"text\":\"rakyat\",\"start_time\":1.707,\"end_time\":2.048},{\"text\":\"Betul\",\"start_time\":2.389,\"end_time\":2.645},{\"text\":\"apa\",\"start_time\":2.688,\"end_time\":2.816},{\"text\":\"tidak\",\"start_time\":2.859,\"end_time\":3.115}]}"
+      }
+    ],
+    "isError": false
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "id": "019",
+  "role": "pemandu",
+  "written_text": "Bapak sebenarnya daftar apa?",
+  "request": {
+    "text": "Bapak sebenarnya daftar apa?",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=05a466ea6196432ca3fb51f88842791b.wav",
+    "duration": 2.037936507936508,
+    "original_characters": [
+      {
+        "text": "B",
+        "start_time": 0.213,
+        "end_time": 0.384
+      },
+      {
+        "text": "a",
+        "start_time": 0.384,
+        "end_time": 0.448
+      },
+      {
+        "text": "p",
+        "start_time": 0.448,
+        "end_time": 0.512
+      },
+      {
+        "text": "a",
+        "start_time": 0.512,
+        "end_time": 0.597
+      },
+      {
+        "text": "k",
+        "start_time": 0.597,
+        "end_time": 0.683
+      },
+      {
+        "text": " ",
+        "start_time": 0.683,
+        "end_time": 0.725
+      },
+      {
+        "text": "s",
+        "start_time": 0.725,
+        "end_time": 0.768
+      },
+      {
+        "text": "e",
+        "start_time": 0.768,
+        "end_time": 0.811
+      },
+      {
+        "text": "b",
+        "start_time": 0.811,
+        "end_time": 0.839
+      },
+      {
+        "text": "e",
+        "start_time": 0.839,
+        "end_time": 0.868
+      },
+      {
+        "text": "n",
+        "start_time": 0.868,
+        "end_time": 0.896
+      },
+      {
+        "text": "a",
+        "start_time": 0.896,
+        "end_time": 0.96
+      },
+      {
+        "text": "r",
+        "start_time": 0.96,
+        "end_time": 1.024
+      },
+      {
+        "text": "n",
+        "start_time": 1.024,
+        "end_time": 1.067
+      },
+      {
+        "text": "y",
+        "start_time": 1.067,
+        "end_time": 1.109
+      },
+      {
+        "text": "a",
+        "start_time": 1.109,
+        "end_time": 1.152
+      },
+      {
+        "text": " ",
+        "start_time": 1.152,
+        "end_time": 1.195
+      },
+      {
+        "text": "d",
+        "start_time": 1.195,
+        "end_time": 1.237
+      },
+      {
+        "text": "a",
+        "start_time": 1.237,
+        "end_time": 1.259
+      },
+      {
+        "text": "f",
+        "start_time": 1.259,
+        "end_time": 1.28
+      },
+      {
+        "text": "t",
+        "start_time": 1.28,
+        "end_time": 1.308
+      },
+      {
+        "text": "a",
+        "start_time": 1.308,
+        "end_time": 1.337
+      },
+      {
+        "text": "r",
+        "start_time": 1.337,
+        "end_time": 1.365
+      },
+      {
+        "text": " ",
+        "start_time": 1.365,
+        "end_time": 1.408
+      },
+      {
+        "text": "a",
+        "start_time": 1.408,
+        "end_time": 1.493
+      },
+      {
+        "text": "p",
+        "start_time": 1.493,
+        "end_time": 1.579
+      },
+      {
+        "text": "a",
+        "start_time": 1.579,
+        "end_time": 1.707
+      },
+      {
+        "text": "?",
+        "start_time": 1.707,
+        "end_time": 2.037936507936508
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Bapak",
+        "start_time": 0.213,
+        "end_time": 0.683
+      },
+      {
+        "text": "sebenarnya",
+        "start_time": 0.725,
+        "end_time": 1.152
+      },
+      {
+        "text": "daftar",
+        "start_time": 1.195,
+        "end_time": 1.365
+      },
+      {
+        "text": "apa",
+        "start_time": 1.408,
+        "end_time": 1.707
+      }
+    ]
+  },
+  "provider_error": false
+}

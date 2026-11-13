@@ -1,0 +1,26 @@
+{
+  "role": "mama-ghufron",
+  "request": {
+    "name": "WKWK - Pencerita Tenang Sunda",
+    "description": "Original fictional Indonesian male voice, mature adult about 50 years old. Medium-low register with a lightly rough, warm, full resonance. Natural Indonesian pronunciation with a subtle Sundanese-influenced lilt, not exaggerated. Deliberate conversational pacing, relaxed confidence, clear question intonation, short pauses before an invitation to respond. Can deliver a humorous rhetorical question and an upbeat invitation to applaud without shouting. Everyday character comedy, not religious chanting. Create an original performer, not an imitation or clone of any specific real person.",
+    "language": "id"
+  },
+  "provider": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"error\": true, \"retryable\": false, \"message\": \"The tool could not finish the request.\", \"next_steps\": \"The outcome may be unknown. Check the resource status before attempting the action again.\", \"status_code\": 500, \"error_code\": \"tool_execution_error\"}"
+      }
+    ],
+    "structuredContent": {
+      "error": true,
+      "retryable": false,
+      "message": "The tool could not finish the request.",
+      "next_steps": "The outcome may be unknown. Check the resource status before attempting the action again.",
+      "status_code": 500,
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  }
+}
+

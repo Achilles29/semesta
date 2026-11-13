@@ -1,0 +1,29 @@
+{
+  "version": "v8-editorial-draft",
+  "title": "Day One Republik WKWKWK: Kursi Wapres Kosong!",
+  "status": "draft-not-generated-not-game-integrated",
+  "audio_generated": false,
+  "game_integrated": false,
+  "duration_is_measured": false,
+  "estimated_duration_seconds": [65, 80],
+  "language": "id",
+  "production_note_not_spoken": "Fictional Republic WKWKWK, not a claim about a real vacancy. Preserve the full opening qualifier. Bahlil/Ghufron retain authorized voices; Komeng retains approved generic V3. Stage directions stay in the script document, not speech input. New audio and measured timing are required before integration.",
+  "cues": [
+    {"id":"001","role":"pemandu","display_text":"Day one di Republik WKWKWK. Kursi wapres kosong!","spoken_text":"Day one di Republik wekawekaweka. Kursi wapres kosong!"},
+    {"id":"002","role":"bahlil","spoken_text":"Dindaaa! Saya siap duduk!"},
+    {"id":"003","role":"bu-warung","spoken_text":"Yang kosong kursinya. Bukan kerjaannya. Nih, sapu."},
+    {"id":"004","role":"komeng","spoken_text":"Belum kerja, sudah cari sandaran."},
+    {"id":"005","role":"pemandu","spoken_text":"Di sini, warga yang ngetes. Hari ini: melayani pelanggan."},
+    {"id":"006","role":"bahlil","spoken_text":"Saya kira langsung dapat kursi."},
+    {"id":"007","role":"bu-warung","spoken_text":"Dapat. Angkat dulu. Bawahnya belum disapu."},
+    {"id":"008","role":"ghufron","spoken_text":"Pemimpin harus melayani. Betul apa tidak?"},
+    {"id":"009","role":"bu-warung","spoken_text":"Betul. Dua es teh. Gulanya sedikit."},
+    {"id":"010","role":"ghufron","spoken_text":"Keprok atuh!"},
+    {"id":"011","role":"komeng","spoken_text":"Es tehnya dulu, Pak. Penontonnya haus."},
+    {"id":"012","role":"bu-warung","spoken_text":"Sudah bersih. Silakan duduk."},
+    {"id":"013","role":"bu-warung","spoken_text":"Bukan Bapak. Pelanggan."},
+    {"id":"014","role":"komeng","spoken_text":"Wapresnya belum dapat. Pelanggannya sudah duduk."},
+    {"id":"015","role":"pemandu","display_text":"Besok tes apa? Jaga warung atau bersihin selokan? Usul di komentar. Satu kita mainkan. Follow buat jadi warga Republik WKWKWK!","spoken_text":"Besok tes apa? Jaga warung atau bersihin selokan? Usul di komentar. Satu kita mainkan. Follow buat jadi warga Republik wekawekaweka!"},
+    {"id":"016","role":"bahlil","spoken_text":"Dindaaa... warganya nambah, kerjaan saya nambah dong?"}
+  ]
+}

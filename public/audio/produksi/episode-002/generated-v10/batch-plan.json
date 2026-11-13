@@ -1,0 +1,190 @@
+{
+  "version": "v10",
+  "authorized_script": "revision-v10/dialogue-plan.json",
+  "speed": 1,
+  "pitch": 1,
+  "reuse": [
+    {
+      "cue_id": "002",
+      "old_id": "005",
+      "file": "release-v9/005-bahlil.wav"
+    },
+    {
+      "cue_id": "010",
+      "old_id": "011",
+      "file": "release-v9/011-ghufron.wav"
+    }
+  ],
+  "requests": [
+    {
+      "role": "pemandu",
+      "spans": [
+        {
+          "cue_id": "001",
+          "start": 0,
+          "end": 133
+        },
+        {
+          "cue_id": "005",
+          "start": 135,
+          "end": 205
+        },
+        {
+          "cue_id": "015",
+          "start": 207,
+          "end": 288
+        },
+        {
+          "cue_id": "017",
+          "start": 290,
+          "end": 399
+        }
+      ],
+      "request": {
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "text": "Day one Republik wekawekaweka, kursi wapres kosong! Di negara game ini, warga yang nguji pemimpinnya. Komentar kalian jadi ceritanya.\n\nSemua boleh ikut, termasuk Ibu. Tesnya: warga antre, air nggak keluar.\n\nWarga pilih yang kerjanya kelihatan. Bu Warung jadi wapres Republik wekawekaweka!\n\nBu Warung layak, atau ada calon lain? Komen nama dan bukti kerjanya. Follow jadi warga; satu usulan kita uji!",
+        "language": "id",
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "role": "komeng",
+      "spans": [
+        {
+          "cue_id": "004",
+          "start": 0,
+          "end": 60
+        },
+        {
+          "cue_id": "007",
+          "start": 62,
+          "end": 111
+        },
+        {
+          "cue_id": "011",
+          "start": 113,
+          "end": 165
+        },
+        {
+          "cue_id": "014",
+          "start": 167,
+          "end": 214
+        }
+      ],
+      "request": {
+        "voiceId": "80b17a1be1594e578b92c0ddf4a37fc8",
+        "text": "Bagus. Jangan kursinya sudah hangat, syaratnya baru dibahas.\n\nYang cepat nama timnya. Airnya masih nggak jalan.\n\nPak, mereka pegang ember. Tepuk tangannya pakai apa?\n\nIbu yang muter keran. Bapak yang muter kalimat.",
+        "language": "id",
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "role": "bahlil",
+      "spans": [
+        {
+          "cue_id": "006",
+          "start": 0,
+          "end": 51
+        },
+        {
+          "cue_id": "013",
+          "start": 53,
+          "end": 96
+        },
+        {
+          "cue_id": "018",
+          "start": 98,
+          "end": 128
+        }
+      ],
+      "request": {
+        "voiceId": "233c3b208dff40e5b758c445086e1f57",
+        "text": "Dindaaa! Kita bentuk tim percepatan pembahasan air!\n\nDindaaa! Nah, ini hasil kerja kita bersama!\n\nDindaaa! Saya dapat jatah apa?",
+        "language": "id",
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "role": "bu-warung",
+      "spans": [
+        {
+          "cue_id": "003",
+          "start": 0,
+          "end": 51
+        },
+        {
+          "cue_id": "009",
+          "start": 53,
+          "end": 85
+        },
+        {
+          "cue_id": "012",
+          "start": 87,
+          "end": 130
+        },
+        {
+          "cue_id": "016",
+          "start": 132,
+          "end": 203
+        },
+        {
+          "cue_id": "019",
+          "start": 205,
+          "end": 229
+        }
+      ],
+      "request": {
+        "voiceId": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+        "text": "Duduknya nanti. Berkas dicek dulu, terus tes kerja.\n\nBetul. Itu embernya, bantu bawa.\n\nIni keran utamanya masih ditutup. Sebentar.\n\nKalau saya cuma duduk doang, tagih kerjanya. Jangan malah tepuk tangan.\n\nJatah kerja. Bawa ember.",
+        "language": "id",
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "role": "ghufron",
+      "spans": [
+        {
+          "cue_id": "008",
+          "start": 0,
+          "end": 48
+        }
+      ],
+      "request": {
+        "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+        "text": "Pemimpin harus melayani rakyat. Betul apa tidak?",
+        "language": "id",
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    }
+  ]
+}

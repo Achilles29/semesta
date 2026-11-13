@@ -1,0 +1,286 @@
+{
+  "id": "003",
+  "role": "pemandu",
+  "written_text": "Ini kursi jabatan, Pak. Bukan kursi kondangan.",
+  "request": {
+    "text": "Ini kursi jabatan, Pak. Bukan kursi kondangan.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=6adba111d1ce46158d9b9b108ae97aa4.wav",
+    "duration": 2.9459863945578233,
+    "original_characters": [
+      {
+        "text": "I",
+        "start_time": 0.256,
+        "end_time": 0.341
+      },
+      {
+        "text": "n",
+        "start_time": 0.341,
+        "end_time": 0.427
+      },
+      {
+        "text": "i",
+        "start_time": 0.427,
+        "end_time": 0.469
+      },
+      {
+        "text": " ",
+        "start_time": 0.469,
+        "end_time": 0.512
+      },
+      {
+        "text": "k",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": "u",
+        "start_time": 0.555,
+        "end_time": 0.597
+      },
+      {
+        "text": "r",
+        "start_time": 0.597,
+        "end_time": 0.64
+      },
+      {
+        "text": "s",
+        "start_time": 0.64,
+        "end_time": 0.704
+      },
+      {
+        "text": "i",
+        "start_time": 0.704,
+        "end_time": 0.768
+      },
+      {
+        "text": " ",
+        "start_time": 0.768,
+        "end_time": 0.811
+      },
+      {
+        "text": "j",
+        "start_time": 0.811,
+        "end_time": 0.853
+      },
+      {
+        "text": "a",
+        "start_time": 0.853,
+        "end_time": 0.875
+      },
+      {
+        "text": "b",
+        "start_time": 0.875,
+        "end_time": 0.896
+      },
+      {
+        "text": "a",
+        "start_time": 0.896,
+        "end_time": 0.981
+      },
+      {
+        "text": "t",
+        "start_time": 0.981,
+        "end_time": 1.067
+      },
+      {
+        "text": "a",
+        "start_time": 1.067,
+        "end_time": 1.131
+      },
+      {
+        "text": "n",
+        "start_time": 1.131,
+        "end_time": 1.195
+      },
+      {
+        "text": ",",
+        "start_time": 1.195,
+        "end_time": 1.259
+      },
+      {
+        "text": " ",
+        "start_time": 1.259,
+        "end_time": 1.323
+      },
+      {
+        "text": "P",
+        "start_time": 1.323,
+        "end_time": 1.365
+      },
+      {
+        "text": "a",
+        "start_time": 1.365,
+        "end_time": 1.408
+      },
+      {
+        "text": "k",
+        "start_time": 1.408,
+        "end_time": 1.451
+      },
+      {
+        "text": ".",
+        "start_time": 1.451,
+        "end_time": 1.579
+      },
+      {
+        "text": " ",
+        "start_time": 1.579,
+        "end_time": 1.707
+      },
+      {
+        "text": "B",
+        "start_time": 1.707,
+        "end_time": 1.749
+      },
+      {
+        "text": "u",
+        "start_time": 1.749,
+        "end_time": 1.792
+      },
+      {
+        "text": "k",
+        "start_time": 1.792,
+        "end_time": 1.835
+      },
+      {
+        "text": "a",
+        "start_time": 1.835,
+        "end_time": 1.877
+      },
+      {
+        "text": "n",
+        "start_time": 1.877,
+        "end_time": 1.92
+      },
+      {
+        "text": " ",
+        "start_time": 1.92,
+        "end_time": 1.963
+      },
+      {
+        "text": "k",
+        "start_time": 1.963,
+        "end_time": 2.005
+      },
+      {
+        "text": "u",
+        "start_time": 2.005,
+        "end_time": 2.048
+      },
+      {
+        "text": "r",
+        "start_time": 2.048,
+        "end_time": 2.091
+      },
+      {
+        "text": "s",
+        "start_time": 2.091,
+        "end_time": 2.155
+      },
+      {
+        "text": "i",
+        "start_time": 2.155,
+        "end_time": 2.2187
+      },
+      {
+        "text": " ",
+        "start_time": 2.219,
+        "end_time": 2.219
+      },
+      {
+        "text": "k",
+        "start_time": 2.219,
+        "end_time": 2.261
+      },
+      {
+        "text": "o",
+        "start_time": 2.261,
+        "end_time": 2.29
+      },
+      {
+        "text": "n",
+        "start_time": 2.29,
+        "end_time": 2.318
+      },
+      {
+        "text": "d",
+        "start_time": 2.318,
+        "end_time": 2.347
+      },
+      {
+        "text": "a",
+        "start_time": 2.347,
+        "end_time": 2.404
+      },
+      {
+        "text": "n",
+        "start_time": 2.404,
+        "end_time": 2.46
+      },
+      {
+        "text": "g",
+        "start_time": 2.46,
+        "end_time": 2.517
+      },
+      {
+        "text": "a",
+        "start_time": 2.517,
+        "end_time": 2.603
+      },
+      {
+        "text": "n",
+        "start_time": 2.603,
+        "end_time": 2.688
+      },
+      {
+        "text": ".",
+        "start_time": 2.688,
+        "end_time": 2.751
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Ini",
+        "start_time": 0.256,
+        "end_time": 0.469
+      },
+      {
+        "text": "kursi",
+        "start_time": 0.512,
+        "end_time": 0.768
+      },
+      {
+        "text": "jabatan",
+        "start_time": 0.811,
+        "end_time": 1.195
+      },
+      {
+        "text": "Pak",
+        "start_time": 1.323,
+        "end_time": 1.451
+      },
+      {
+        "text": "Bukan",
+        "start_time": 1.707,
+        "end_time": 1.92
+      },
+      {
+        "text": "kursi",
+        "start_time": 1.963,
+        "end_time": 2.2187
+      },
+      {
+        "text": "kondangan",
+        "start_time": 2.219,
+        "end_time": 2.688
+      }
+    ]
+  },
+  "provider_error": false
+}

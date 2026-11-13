@@ -1,0 +1,106 @@
+{
+  "id": "010",
+  "role": "pemandu",
+  "written_text": "Bisa diringkas?",
+  "request": {
+    "text": "Bisa diringkas?",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=d488d66862db46a8bae2ab46c76aa73d.wav",
+    "duration": 1.2317006802721089,
+    "original_characters": [
+      {
+        "text": "B",
+        "start_time": 0.299,
+        "end_time": 0.427
+      },
+      {
+        "text": "i",
+        "start_time": 0.427,
+        "end_time": 0.448
+      },
+      {
+        "text": "s",
+        "start_time": 0.448,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.597
+      },
+      {
+        "text": " ",
+        "start_time": 0.597,
+        "end_time": 0.597
+      },
+      {
+        "text": "d",
+        "start_time": 0.597,
+        "end_time": 0.64
+      },
+      {
+        "text": "i",
+        "start_time": 0.64,
+        "end_time": 0.661
+      },
+      {
+        "text": "r",
+        "start_time": 0.661,
+        "end_time": 0.683
+      },
+      {
+        "text": "i",
+        "start_time": 0.683,
+        "end_time": 0.711
+      },
+      {
+        "text": "n",
+        "start_time": 0.711,
+        "end_time": 0.74
+      },
+      {
+        "text": "g",
+        "start_time": 0.74,
+        "end_time": 0.768
+      },
+      {
+        "text": "k",
+        "start_time": 0.768,
+        "end_time": 0.811
+      },
+      {
+        "text": "a",
+        "start_time": 0.811,
+        "end_time": 0.875
+      },
+      {
+        "text": "s",
+        "start_time": 0.875,
+        "end_time": 0.939
+      },
+      {
+        "text": "?",
+        "start_time": 0.939,
+        "end_time": 1.2317006802721089
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Bisa",
+        "start_time": 0.299,
+        "end_time": 0.597
+      },
+      {
+        "text": "diringkas",
+        "start_time": 0.597,
+        "end_time": 0.939
+      }
+    ]
+  },
+  "provider_error": false
+}

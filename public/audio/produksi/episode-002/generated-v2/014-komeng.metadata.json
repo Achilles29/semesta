@@ -1,0 +1,171 @@
+{
+  "id": "014",
+  "role": "komeng",
+  "written_text": "Biar ada ruang buat maju.",
+  "request": {
+    "text": "Biar ada ruang buat maju.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=8a428b9023ef49d9871a431e31def38c.wav",
+    "duration": 2.3263265306122447,
+    "original_characters": [
+      {
+        "text": "B",
+        "start_time": 0.299,
+        "end_time": 0.341
+      },
+      {
+        "text": "i",
+        "start_time": 0.341,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.512
+      },
+      {
+        "text": "r",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": " ",
+        "start_time": 0.555,
+        "end_time": 0.597
+      },
+      {
+        "text": "a",
+        "start_time": 0.597,
+        "end_time": 0.654
+      },
+      {
+        "text": "d",
+        "start_time": 0.654,
+        "end_time": 0.711
+      },
+      {
+        "text": "a",
+        "start_time": 0.711,
+        "end_time": 0.768
+      },
+      {
+        "text": " ",
+        "start_time": 0.768,
+        "end_time": 0.896
+      },
+      {
+        "text": "r",
+        "start_time": 0.896,
+        "end_time": 1.003
+      },
+      {
+        "text": "u",
+        "start_time": 1.003,
+        "end_time": 1.109
+      },
+      {
+        "text": "a",
+        "start_time": 1.109,
+        "end_time": 1.166
+      },
+      {
+        "text": "n",
+        "start_time": 1.166,
+        "end_time": 1.223
+      },
+      {
+        "text": "g",
+        "start_time": 1.223,
+        "end_time": 1.28
+      },
+      {
+        "text": " ",
+        "start_time": 1.28,
+        "end_time": 1.365
+      },
+      {
+        "text": "b",
+        "start_time": 1.365,
+        "end_time": 1.429
+      },
+      {
+        "text": "u",
+        "start_time": 1.429,
+        "end_time": 1.493
+      },
+      {
+        "text": "a",
+        "start_time": 1.493,
+        "end_time": 1.515
+      },
+      {
+        "text": "t",
+        "start_time": 1.515,
+        "end_time": 1.536
+      },
+      {
+        "text": " ",
+        "start_time": 1.536,
+        "end_time": 1.621
+      },
+      {
+        "text": "m",
+        "start_time": 1.621,
+        "end_time": 1.685
+      },
+      {
+        "text": "a",
+        "start_time": 1.685,
+        "end_time": 1.749
+      },
+      {
+        "text": "j",
+        "start_time": 1.749,
+        "end_time": 1.835
+      },
+      {
+        "text": "u",
+        "start_time": 1.835,
+        "end_time": 1.92
+      },
+      {
+        "text": ".",
+        "start_time": 1.92,
+        "end_time": 2.326
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Biar",
+        "start_time": 0.299,
+        "end_time": 0.555
+      },
+      {
+        "text": "ada",
+        "start_time": 0.597,
+        "end_time": 0.768
+      },
+      {
+        "text": "ruang",
+        "start_time": 0.896,
+        "end_time": 1.28
+      },
+      {
+        "text": "buat",
+        "start_time": 1.365,
+        "end_time": 1.536
+      },
+      {
+        "text": "maju",
+        "start_time": 1.621,
+        "end_time": 1.92
+      }
+    ]
+  },
+  "provider_error": false
+}

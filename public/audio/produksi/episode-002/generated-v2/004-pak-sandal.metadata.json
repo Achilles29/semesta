@@ -1,0 +1,211 @@
+{
+  "id": "004",
+  "role": "pak-sandal",
+  "written_text": "Sama-sama ada yang rebutan, kan?",
+  "request": {
+    "text": "Sama-sama ada yang rebutan, kan?",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=a5ce7fec51ff406eb48db17522b308fe.wav",
+    "duration": 2.690566893424036,
+    "original_characters": [
+      {
+        "text": "S",
+        "start_time": 0.256,
+        "end_time": 0.341
+      },
+      {
+        "text": "a",
+        "start_time": 0.341,
+        "end_time": 0.398
+      },
+      {
+        "text": "m",
+        "start_time": 0.398,
+        "end_time": 0.455
+      },
+      {
+        "text": "a",
+        "start_time": 0.455,
+        "end_time": 0.512
+      },
+      {
+        "text": "-",
+        "start_time": 0.512,
+        "end_time": 0.683
+      },
+      {
+        "text": "s",
+        "start_time": 0.683,
+        "end_time": 0.853
+      },
+      {
+        "text": "a",
+        "start_time": 0.853,
+        "end_time": 0.91
+      },
+      {
+        "text": "m",
+        "start_time": 0.91,
+        "end_time": 0.967
+      },
+      {
+        "text": "a",
+        "start_time": 0.967,
+        "end_time": 1.024
+      },
+      {
+        "text": " ",
+        "start_time": 1.024,
+        "end_time": 1.152
+      },
+      {
+        "text": "a",
+        "start_time": 1.152,
+        "end_time": 1.252
+      },
+      {
+        "text": "d",
+        "start_time": 1.252,
+        "end_time": 1.351
+      },
+      {
+        "text": "a",
+        "start_time": 1.351,
+        "end_time": 1.4507
+      },
+      {
+        "text": " ",
+        "start_time": 1.451,
+        "end_time": 1.579
+      },
+      {
+        "text": "y",
+        "start_time": 1.579,
+        "end_time": 1.621
+      },
+      {
+        "text": "a",
+        "start_time": 1.621,
+        "end_time": 1.636
+      },
+      {
+        "text": "n",
+        "start_time": 1.636,
+        "end_time": 1.65
+      },
+      {
+        "text": "g",
+        "start_time": 1.65,
+        "end_time": 1.664
+      },
+      {
+        "text": " ",
+        "start_time": 1.664,
+        "end_time": 1.707
+      },
+      {
+        "text": "r",
+        "start_time": 1.707,
+        "end_time": 1.749
+      },
+      {
+        "text": "e",
+        "start_time": 1.749,
+        "end_time": 1.792
+      },
+      {
+        "text": "b",
+        "start_time": 1.792,
+        "end_time": 1.835
+      },
+      {
+        "text": "u",
+        "start_time": 1.835,
+        "end_time": 1.877
+      },
+      {
+        "text": "t",
+        "start_time": 1.877,
+        "end_time": 1.92
+      },
+      {
+        "text": "a",
+        "start_time": 1.92,
+        "end_time": 2.005
+      },
+      {
+        "text": "n",
+        "start_time": 2.005,
+        "end_time": 2.091
+      },
+      {
+        "text": ",",
+        "start_time": 2.091,
+        "end_time": 2.197
+      },
+      {
+        "text": " ",
+        "start_time": 2.197,
+        "end_time": 2.304
+      },
+      {
+        "text": "k",
+        "start_time": 2.304,
+        "end_time": 2.347
+      },
+      {
+        "text": "a",
+        "start_time": 2.347,
+        "end_time": 2.389
+      },
+      {
+        "text": "n",
+        "start_time": 2.389,
+        "end_time": 2.432
+      },
+      {
+        "text": "?",
+        "start_time": 2.432,
+        "end_time": 2.496
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Sama",
+        "start_time": 0.256,
+        "end_time": 0.512
+      },
+      {
+        "text": "sama",
+        "start_time": 0.683,
+        "end_time": 1.024
+      },
+      {
+        "text": "ada",
+        "start_time": 1.152,
+        "end_time": 1.4507
+      },
+      {
+        "text": "yang",
+        "start_time": 1.579,
+        "end_time": 1.664
+      },
+      {
+        "text": "rebutan",
+        "start_time": 1.707,
+        "end_time": 2.091
+      },
+      {
+        "text": "kan",
+        "start_time": 2.304,
+        "end_time": 2.432
+      }
+    ]
+  },
+  "provider_error": false
+}

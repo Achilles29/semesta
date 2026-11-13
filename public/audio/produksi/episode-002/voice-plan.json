@@ -1,0 +1,186 @@
+{
+  "episode": "002-satu-kursi-banyak-yang-siap",
+  "status": "generated-awaiting-listening-review",
+  "language": "id",
+  "disclosure": "Parodi. Seluruh dialog tokoh nyata adalah rekaan, bukan kutipan atau pencalonan nyata. Gunakan suara AI generik, bukan cloning tokoh.",
+  "workflow": [
+    "Pilih suara Indonesia generik dari katalog penyedia; gunakan preview katalog sebelum membuat audio.",
+    "Konfirmasi teks dan biaya/kuota sebelum sintesis. Jangan membuat sampel berulang tanpa persetujuan.",
+    "Buat suara per giliran dialog, simpan WAV asli dan metadata voice ID serta durasi yang benar-benar diukur.",
+    "Dengarkan setiap hasil, periksa pengucapan nama dan singkatan. Jangan mempercepat suara untuk memaksa durasi.",
+    "Susun jeda komedi saat editing. Buat subtitle dari audio final, bukan perkiraan pembagian waktu.",
+    "PLAY + SUARA memutar VO tersimpan bersama adegan, termasuk jeda, ulang, dan pindah adegan. Dialog NPC saat jelajah tetap berupa teks; tidak ada panggilan TTS eksternal dari browser."
+  ],
+  "roles": {
+    "pemandu": {
+      "delivery": "Dewasa, percakapan santai, tenang, humor datar, bukan pembaca berita.",
+      "voice_id": "049413e41c334753984c294d694afb5c"
+    },
+    "pak-sandal": {
+      "delivery": "Dewasa, hangat, percaya diri dan antusias, bukan berteriak.",
+      "voice_id": "049413e41c334753984c294d694afb5c"
+    },
+    "bahlil": {
+      "delivery": "Suara pemeran generik, tegas dan bersemangat; jangan menyerupai suara Bahlil asli.",
+      "voice_id": "049413e41c334753984c294d694afb5c"
+    },
+    "mama-ghufron": {
+      "delivery": "Suara pemeran generik yang tenang; jangan meniru suara atau bahasa keagamaan tokoh asli.",
+      "voice_id": "049413e41c334753984c294d694afb5c"
+    },
+    "komeng": {
+      "delivery": "Suara pemeran generik, santai dan ringan; bukan impersonasi suara/catchphrase Komeng.",
+      "voice_id": "049413e41c334753984c294d694afb5c"
+    }
+  },
+  "cues": [
+    {
+      "id": "001",
+      "role": "pemandu",
+      "text": "Kalau boleh usul wapres, kamu pilih siapa? Ini audisi versi Republik WKWKWK!",
+      "audio": "generated-v2/001-pemandu.wav",
+      "spoken_text": "Kalau boleh usul wapres, kamu pilih siapa? Ini audisi versi Republik wekawekaweka!"
+    },
+    {
+      "id": "002",
+      "role": "pak-sandal",
+      "text": "Saya duluan. Sudah saya booking.",
+      "audio": "generated-v2/002-pak-sandal.wav",
+      "spoken_text": "Saya duluan. Sudah saya booking."
+    },
+    {
+      "id": "003",
+      "role": "pemandu",
+      "text": "Ini kursi jabatan, Pak. Bukan kursi kondangan.",
+      "audio": "generated-v2/003-pemandu.wav",
+      "spoken_text": "Ini kursi jabatan, Pak. Bukan kursi kondangan."
+    },
+    {
+      "id": "004",
+      "role": "pak-sandal",
+      "text": "Sama-sama ada yang rebutan, kan?",
+      "audio": "generated-v2/004-pak-sandal.wav",
+      "spoken_text": "Sama-sama ada yang rebutan, kan?"
+    },
+    {
+      "id": "005",
+      "role": "bahlil",
+      "text": "Saya siap maju!",
+      "audio": "generated-v2/005-bahlil.wav",
+      "spoken_text": "Saya siap maju!"
+    },
+    {
+      "id": "006",
+      "role": "pemandu",
+      "text": "Silakan. Satu langkah.",
+      "audio": "generated-v2/006-pemandu.wav",
+      "spoken_text": "Silakan. Satu langkah."
+    },
+    {
+      "id": "007",
+      "role": "bahlil",
+      "text": "Kok sedikit?",
+      "audio": "generated-v2/007-bahlil.wav",
+      "spoken_text": "Kok sedikit?"
+    },
+    {
+      "id": "008",
+      "role": "pemandu",
+      "text": "Panggung kita sempit, Pak.",
+      "audio": "generated-v2/008-pemandu.wav",
+      "spoken_text": "Panggung kita sempit, Pak."
+    },
+    {
+      "id": "009",
+      "role": "mama-ghufron",
+      "text": "Visi-misi sudah saya siapkan.",
+      "audio": "generated-v2/009-mama-ghufron.wav",
+      "spoken_text": "Visi-misi sudah saya siapkan."
+    },
+    {
+      "id": "010",
+      "role": "pemandu",
+      "text": "Bisa diringkas?",
+      "audio": "generated-v2/010-pemandu.wav",
+      "spoken_text": "Bisa diringkas?"
+    },
+    {
+      "id": "011",
+      "role": "mama-ghufron",
+      "text": "Ini judulnya dulu.",
+      "audio": "generated-v2/011-mama-ghufron.wav",
+      "spoken_text": "Ini judulnya dulu."
+    },
+    {
+      "id": "012",
+      "role": "komeng",
+      "text": "Saya mundur dulu.",
+      "audio": "generated-v2/012-komeng.wav",
+      "spoken_text": "Saya mundur dulu."
+    },
+    {
+      "id": "013",
+      "role": "pemandu",
+      "text": "Lho, belum mulai!",
+      "audio": "generated-v2/013-pemandu.wav",
+      "spoken_text": "Lho, belum mulai!"
+    },
+    {
+      "id": "014",
+      "role": "komeng",
+      "text": "Biar ada ruang buat maju.",
+      "audio": "generated-v2/014-komeng.wav",
+      "spoken_text": "Biar ada ruang buat maju."
+    },
+    {
+      "id": "015",
+      "role": "pemandu",
+      "text": "Oke, audisinya cuma parodi. Kalau jabatan wapres kosong, Presiden mengusulkan dua calon. MPR yang memilih. Bukan siapa paling cepat datang.",
+      "audio": "generated-v2/015-pemandu.wav",
+      "spoken_text": "Oke, audisinya cuma parodi. Kalau jabatan wapres kosong, Presiden mengusulkan dua calon. MPR yang memilih. Bukan siapa paling cepat datang."
+    },
+    {
+      "id": "016",
+      "role": "pak-sandal",
+      "text": "Berarti sandal nggak dihitung.",
+      "audio": "generated-v2/016-pak-sandal.wav",
+      "spoken_text": "Berarti sandal nggak dihitung."
+    },
+    {
+      "id": "017",
+      "role": "pemandu",
+      "text": "Sekarang usulanmu: satu nama dan satu alasan. Boleh di luar yang muncul tadi. Tiga usulan dengan alasan yang bisa dicek kita bahas di rapat berikutnya.",
+      "audio": "generated-v2/017-pemandu.wav",
+      "spoken_text": "Sekarang usulanmu: satu nama dan satu alasan. Boleh di luar yang muncul tadi. Tiga usulan dengan alasan yang bisa dicek kita bahas di rapat berikutnya."
+    },
+    {
+      "id": "018",
+      "role": "pak-sandal",
+      "text": "Kalau nggak kepilih, masih boleh makan?",
+      "audio": "generated-v2/018-pak-sandal.wav",
+      "spoken_text": "Kalau nggak kepilih, masih boleh makan?"
+    },
+    {
+      "id": "019",
+      "role": "pemandu",
+      "text": "Bapak sebenarnya daftar apa?",
+      "audio": "generated-v2/019-pemandu.wav",
+      "spoken_text": "Bapak sebenarnya daftar apa?"
+    }
+  ],
+  "pronunciation_review": [
+    "WKWKWK dibaca wekawekaweka (disetujui pengguna)",
+    "MPR: em pe er; perlu pemeriksaan hasil audio",
+    "wapres: wakil presiden"
+  ],
+  "source_for_constitutional_line": "https://jdih.dpr.go.id/setjen/index/id/UUD-1945-BAGIAN-PERTIMBANGAN-DAN-DOKUMENTASI-INFORMASI-HUKUM",
+  "uploaded_or_published": false,
+  "generation": {
+    "folder": "generated-v2",
+    "manifest": "generated-v2/verification.json",
+    "voice_name": "Lucian - Conversational & Easygoing",
+    "voice_reuse": "Same user-approved voice for all roles",
+    "game_playback_integrated": true,
+    "review": "File validation complete; listening review pending"
+  }
+}

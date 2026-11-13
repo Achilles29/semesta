@@ -1,0 +1,245 @@
+{
+  "version": "v10",
+  "status": "editorial-draft-researched-not-generated",
+  "title": "Day One Republik WKWKWK — Kursi Terisi, Kerja Jangan Kosong",
+  "research_as_of": "2026-11-13",
+  "audio_generated": false,
+  "game_integrated": false,
+  "duration_is_measured": false,
+  "estimated_duration_seconds": [
+    85,
+    100
+  ],
+  "runtime_still": "v9",
+  "word_count": 158,
+  "fiction_notice": "Parodi politik dalam republik game. Dialog rekaan, bukan pernyataan asli tokoh. Pemilihan Bu Warung bukan prosedur atau hasil pemilihan Wakil Presiden RI.",
+  "voice_assignments": {
+    "pemandu": "049413e41c334753984c294d694afb5c",
+    "komeng": "80b17a1be1594e578b92c0ddf4a37fc8",
+    "bahlil": "233c3b208dff40e5b758c445086e1f57",
+    "bu-warung": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+    "ghufron": "bb23d4e8919d4e20b55ea5b70159749c"
+  },
+  "production_notes": [
+    "Naskah saja; tidak mengizinkan tool produksi otomatis menganggap audio atau adegan sudah tersedia.",
+    "Durasi adegan perkiraan editorial, bukan timestamp. Ukur ulang setelah audio disetujui dan dibuat.",
+    "Hanya spoken_text dikirim ke TTS; pisahkan peran. Jangan kirim arahan visual atau label riset ke TTS.",
+    "WKWKWK diucapkan wekawekaweka. Dindaaa!, Betul apa tidak?, dan Keprok atuh! wajib terdengar utuh.",
+    "Komeng tetap suara V3 yang disetujui. Jangan mengganti voice identity.",
+    "Jangan memakai timestamp/master/speech-envelope V9 pada dialog V10.",
+    "Tetap clean HUD untuk perekaman; label parodi/dialog rekaan/suara AI ditambahkan dalam publikasi dan caption.",
+    "Follow dan komentar adalah satu ajakan menjadi warga pengawas; komentar tidak otomatis menjadi suara pemilihan atau membatalkan hasil episode.",
+    "Pilih satu usulan yang relevan untuk diuji pada episode berikutnya; bukan janji menjalankan semua komentar."
+  ],
+  "scenes": [
+    {
+      "scene": 1,
+      "title": "Kursi kosong dan janji serial",
+      "estimated_seconds": 13,
+      "visual": "Kursi utama kosong di tengah balai kampung. Pemandu, Bahlil, Gufron berpeci dengan rambut gondrong, Komeng, Bu Warung, dan sedikitnya delapan warga terlihat dalam establishing shot. Antrean warga berember di keran sudah terlihat di belakang. Bahlil maju hendak duduk; Bu Warung menghentikan dengan telapak tangan, bukan mendorong."
+    },
+    {
+      "scene": 2,
+      "title": "Syarat sebelum kursi",
+      "estimated_seconds": 17,
+      "visual": "Bu Warung membuka map calon di meja. Pemandu mengecek seluruh berkas, termasuk berkas Bu Warung, sebelum mempersilakan semua ikut tes. Map hanya properti fiktif tanpa meniru ijazah orang nyata. Komeng berbicara pada Bu Warung dengan Bahlil tetap tampak. Kamera beralih ke keran kering dan ember kosong. Aturan tes pelayanan sederhana khusus republik game; bukan mekanisme hukum Indonesia."
+    },
+    {
+      "scene": 3,
+      "title": "Rapat dan tepuk tangan tidak mengalirkan air",
+      "estimated_seconds": 25,
+      "visual": "Bahlil mengumpulkan dua warga untuk rapat kecil, belum menyentuh instalasi air. Gufron berpidato kepada antrean. Warga mengangkat ember saat diminta bertepuk tangan; mereka tidak dibuat mengerubungi atau mengejek identitas agama. Bu Warung sejak awal menelusuri pipa menuju keran utama, sehingga penemuan bukan sulap. Gufron kemudian mengambil ember."
+    },
+    {
+      "scene": 4,
+      "title": "Kerja yang terlihat dan perebutan kredit",
+      "estimated_seconds": 14,
+      "visual": "Insert keran utama posisi tertutup. Tangan Bu Warung memutar tuas, baru setelah itu air mengalir ke keran antrean; satu warga mengisi ember. Bahlil berpose mengklaim hasil dan Komeng menunjuk tangan Bu Warung yang masih di tuas. Tahan bukti air mengalir sebelum pindah adegan."
+    },
+    {
+      "scene": 5,
+      "title": "Keputusan: kursi wapres terisi",
+      "estimated_seconds": 14,
+      "visual": "Pemandu mengisyaratkan pemilihan warga. Perlihatkan mayoritas warga menunjuk atau mengangkat tangan memilih Bu Warung sebelum pengumuman. Bu Warung duduk pada kursi utama yang sama dengan shot pembuka. Kamera harus menangkap duduk sampai tuntas dan tahan sedikitnya dua detik. Gufron mulai hendak tepuk tangan lalu menahan diri pada kalimat Bu Warung. Ini pengangkatan tokoh fiktif di republik game, bukan klaim pengganti wapres RI."
+    },
+    {
+      "scene": 6,
+      "title": "Warga mengawasi, calon mendapat tugas",
+      "estimated_seconds": 12,
+      "visual": "Pemandu menghadap kamera untuk satu ajakan menjadi warga pengawas. Bu Warung tetap menduduki kursi utama saat Bahlil bertanya jatah. Bu Warung menunjuk ember yang sudah tersedia; Bahlil mengambilnya dan Gufron membantu antrean. Tutup pada three-shot Bu Warung, Bahlil, Komeng, kursi tidak kembali kosong. Sisakan satu detik reaksi datar sebelum cut."
+    }
+  ],
+  "cues": [
+    {
+      "id": "001",
+      "scene": 1,
+      "role": "pemandu",
+      "beat": "vacancy_promise",
+      "recipient": "camera",
+      "display_text": "Day one Republik WKWKWK, kursi wapres kosong! Di negara game ini, warga yang nguji pemimpinnya. Komentar kalian jadi ceritanya.",
+      "spoken_text": "Day one Republik wekawekaweka, kursi wapres kosong! Di negara game ini, warga yang nguji pemimpinnya. Komentar kalian jadi ceritanya."
+    },
+    {
+      "id": "002",
+      "scene": 1,
+      "role": "bahlil",
+      "beat": "claim_chair",
+      "recipient": "pemandu",
+      "display_text": "Dindaaa! Saya siap duduk!",
+      "spoken_text": "Dindaaa! Saya siap duduk!"
+    },
+    {
+      "id": "003",
+      "scene": 2,
+      "role": "bu-warung",
+      "beat": "check_before_seat",
+      "recipient": "bahlil",
+      "display_text": "Duduknya nanti. Berkas dicek dulu, terus tes kerja.",
+      "spoken_text": "Duduknya nanti. Berkas dicek dulu, terus tes kerja."
+    },
+    {
+      "id": "004",
+      "scene": 2,
+      "role": "komeng",
+      "beat": "verification_satire",
+      "recipient": "bu-warung",
+      "display_text": "Bagus. Jangan kursinya sudah hangat, syaratnya baru dibahas.",
+      "spoken_text": "Bagus. Jangan kursinya sudah hangat, syaratnya baru dibahas."
+    },
+    {
+      "id": "005",
+      "scene": 2,
+      "role": "pemandu",
+      "beat": "open_test",
+      "recipient": "ensemble",
+      "display_text": "Semua boleh ikut, termasuk Ibu. Tesnya: warga antre, air nggak keluar.",
+      "spoken_text": "Semua boleh ikut, termasuk Ibu. Tesnya: warga antre, air nggak keluar."
+    },
+    {
+      "id": "006",
+      "scene": 3,
+      "role": "bahlil",
+      "beat": "form_committee",
+      "recipient": "ensemble",
+      "display_text": "Dindaaa! Kita bentuk tim percepatan pembahasan air!",
+      "spoken_text": "Dindaaa! Kita bentuk tim percepatan pembahasan air!"
+    },
+    {
+      "id": "007",
+      "scene": 3,
+      "role": "komeng",
+      "beat": "committee_payoff",
+      "recipient": "bahlil",
+      "display_text": "Yang cepat nama timnya. Airnya masih nggak jalan.",
+      "spoken_text": "Yang cepat nama timnya. Airnya masih nggak jalan."
+    },
+    {
+      "id": "008",
+      "scene": 3,
+      "role": "ghufron",
+      "beat": "service_claim",
+      "recipient": "ensemble",
+      "display_text": "Pemimpin harus melayani rakyat. Betul apa tidak?",
+      "spoken_text": "Pemimpin harus melayani rakyat. Betul apa tidak?"
+    },
+    {
+      "id": "009",
+      "scene": 3,
+      "role": "bu-warung",
+      "beat": "ask_for_help",
+      "recipient": "ghufron",
+      "display_text": "Betul. Itu embernya, bantu bawa.",
+      "spoken_text": "Betul. Itu embernya, bantu bawa."
+    },
+    {
+      "id": "010",
+      "scene": 3,
+      "role": "ghufron",
+      "beat": "ask_applause",
+      "recipient": "extras",
+      "display_text": "Keprok atuh!",
+      "spoken_text": "Keprok atuh!"
+    },
+    {
+      "id": "011",
+      "scene": 3,
+      "role": "komeng",
+      "beat": "applause_payoff",
+      "recipient": "ghufron",
+      "display_text": "Pak, mereka pegang ember. Tepuk tangannya pakai apa?",
+      "spoken_text": "Pak, mereka pegang ember. Tepuk tangannya pakai apa?"
+    },
+    {
+      "id": "012",
+      "scene": 4,
+      "role": "bu-warung",
+      "beat": "open_valve",
+      "recipient": "ensemble",
+      "display_text": "Ini keran utamanya masih ditutup. Sebentar.",
+      "spoken_text": "Ini keran utamanya masih ditutup. Sebentar."
+    },
+    {
+      "id": "013",
+      "scene": 4,
+      "role": "bahlil",
+      "beat": "claim_credit",
+      "recipient": "camera",
+      "display_text": "Dindaaa! Nah, ini hasil kerja kita bersama!",
+      "spoken_text": "Dindaaa! Nah, ini hasil kerja kita bersama!"
+    },
+    {
+      "id": "014",
+      "scene": 4,
+      "role": "komeng",
+      "beat": "credit_payoff",
+      "recipient": "bahlil",
+      "display_text": "Ibu yang muter keran. Bapak yang muter kalimat.",
+      "spoken_text": "Ibu yang muter keran. Bapak yang muter kalimat."
+    },
+    {
+      "id": "015",
+      "scene": 5,
+      "role": "pemandu",
+      "beat": "declare_winner",
+      "recipient": "ensemble",
+      "display_text": "Warga pilih yang kerjanya kelihatan. Bu Warung jadi wapres Republik WKWKWK!",
+      "spoken_text": "Warga pilih yang kerjanya kelihatan. Bu Warung jadi wapres Republik wekawekaweka!"
+    },
+    {
+      "id": "016",
+      "scene": 5,
+      "role": "bu-warung",
+      "beat": "accept_and_serve",
+      "recipient": "ensemble",
+      "display_text": "Kalau saya cuma duduk doang, tagih kerjanya. Jangan malah tepuk tangan.",
+      "spoken_text": "Kalau saya cuma duduk doang, tagih kerjanya. Jangan malah tepuk tangan."
+    },
+    {
+      "id": "017",
+      "scene": 6,
+      "role": "pemandu",
+      "beat": "citizen_challenge",
+      "recipient": "camera",
+      "display_text": "Bu Warung layak, atau ada calon lain? Komen nama dan bukti kerjanya. Follow jadi warga; satu usulan kita uji!",
+      "spoken_text": "Bu Warung layak, atau ada calon lain? Komen nama dan bukti kerjanya. Follow jadi warga; satu usulan kita uji!"
+    },
+    {
+      "id": "018",
+      "scene": 6,
+      "role": "bahlil",
+      "beat": "ask_allocation",
+      "recipient": "bu-warung",
+      "display_text": "Dindaaa! Saya dapat jatah apa?",
+      "spoken_text": "Dindaaa! Saya dapat jatah apa?"
+    },
+    {
+      "id": "019",
+      "scene": 6,
+      "role": "bu-warung",
+      "beat": "work_not_spoils",
+      "recipient": "bahlil",
+      "display_text": "Jatah kerja. Bawa ember.",
+      "spoken_text": "Jatah kerja. Bawa ember."
+    }
+  ]
+}

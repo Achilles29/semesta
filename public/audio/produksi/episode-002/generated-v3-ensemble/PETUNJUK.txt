@@ -1,0 +1,49 @@
+EPISODE 002 — KURSI DI-BOOKING — LIMA SUARA
+
+PUTAR FILE INI:
+episode-002-dialogue-5-suara.wav
+
+Durasi terukur: 59,374 detik, termasuk jeda reaksi dan 1 detik hening akhir.
+22 giliran dialog. Kecepatan dan pitch asli dipertahankan; tidak dipercepat
+untuk mengejar durasi. Tanpa musik/SFX/ambience; ini master dialog untuk review.
+Tidak ada pegangan awal 3 detik. Belum dipasang ke game atau mengganti VO lama.
+
+PEMERAN SUARA GENERIK:
+- Pemandu: Lucian — Conversational & Easygoing (suara sebelumnya).
+- Pak Sandal: Neville — Warm & Easygoing.
+- Bahlil versi parodi: Garret — Bold & Persuasive.
+- Mama Ghufron versi parodi: Wade — Resonant & Narrative.
+- Komeng versi parodi: Lewis — Imaginative & Expressive.
+
+Ini bukan clone atau rekaman tokoh asli. Kelima voice ID berbeda dan aktif
+saat dipilih dari katalog. Bahasa asli katalog en, bahasa sintesis id.
+Kemiripan dengan tokoh, aksen, dan kelucuan pembawaan belum dinilai dengan
+pendengaran. Semua dialog adalah rekaan parodi, bukan kutipan tokoh nyata.
+WKWKWK dikirim ke sintesis sebagai wekawekaweka, sesuai persetujuan pengguna.
+
+ISI FOLDER:
+- *.source.wav: lima rekaman sumber asli per pemeran, jangan ditimpa.
+- 001-...wav hingga 022-...wav: potongan per giliran dialog.
+- *.metadata.json: request dan respons penyedia, termasuk alignment karakter.
+- batch-plan.json: naskah tertulis, teks yang dikirim, pemetaan lima suara.
+- edit-timing.json: posisi audio nyata untuk penyusunan video berikutnya.
+- verification.json: durasi, sumber, checksum, level, dan batas pemeriksaan.
+
+PEMERIKSAAN YANG SUDAH DILAKUKAN:
+Format PCM WAV 44100 Hz, mono, 16-bit; lima suara berbeda; 22 dialog lengkap
+sesuai urutan naskah; teks alignment sama dengan teks yang dikirim; durasi
+diukur dari file; tidak ada sampel sumber berubah pada master gabungan.
+Pemotongan mengikuti alignment penyedia, bukan pembagian waktu merata.
+
+PEMERIKSAAN YANG MASIH PERLU ANDA LAKUKAN:
+Dengarkan dari awal sampai akhir: aksen Indonesia, beda suara tiap pemeran,
+wekawekaweka, di-booking, rendang, dan apakah pergantian dialog terasa alami.
+Periksa khusus ujung kata pada potongan dan perbedaan keras-lembut suara.
+Tidak ada klaim bahwa audio sudah lolos listening review atau transkripsi
+independen. Bila perlu take pengganti, tentukan dialognya dahulu; sintesis
+ulang membutuhkan kuota baru. Sumber lama tetap dipertahankan.
+
+Pembuatan ulang susunan (ke folder baru agar tidak menimpa hasil):
+python tools/assemble_ensemble_voice.py <folder berisi batch-plan, metadata, sumber>
+
+Publikasi: tambahkan label PARODI / DIALOG REKAAN dan pengungkapan suara AI.

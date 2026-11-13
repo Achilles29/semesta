@@ -1,0 +1,241 @@
+{
+  "status": "generated-file-verified-listening-review-pending",
+  "voice_name": "Lucian - Conversational & Easygoing",
+  "voice_selection": "Reuse the user-approved voice and settings for all dialogue; no cloned public-figure voices.",
+  "chunk_count": 19,
+  "pronunciation": {
+    "written": "WKWKWK",
+    "spoken": "wekawekaweka"
+  },
+  "prior_take": "../generated/001-pemandu.wav (preserved)",
+  "requests": [
+    {
+      "id": "001",
+      "role": "pemandu",
+      "written_text": "Kalau boleh usul wapres, kamu pilih siapa? Ini audisi versi Republik WKWKWK!",
+      "request": {
+        "text": "Kalau boleh usul wapres, kamu pilih siapa? Ini audisi versi Republik wekawekaweka!",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "002",
+      "role": "pak-sandal",
+      "written_text": "Saya duluan. Sudah saya booking.",
+      "request": {
+        "text": "Saya duluan. Sudah saya booking.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "003",
+      "role": "pemandu",
+      "written_text": "Ini kursi jabatan, Pak. Bukan kursi kondangan.",
+      "request": {
+        "text": "Ini kursi jabatan, Pak. Bukan kursi kondangan.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "004",
+      "role": "pak-sandal",
+      "written_text": "Sama-sama ada yang rebutan, kan?",
+      "request": {
+        "text": "Sama-sama ada yang rebutan, kan?",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "005",
+      "role": "bahlil",
+      "written_text": "Saya siap maju!",
+      "request": {
+        "text": "Saya siap maju!",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "006",
+      "role": "pemandu",
+      "written_text": "Silakan. Satu langkah.",
+      "request": {
+        "text": "Silakan. Satu langkah.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "007",
+      "role": "bahlil",
+      "written_text": "Kok sedikit?",
+      "request": {
+        "text": "Kok sedikit?",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "008",
+      "role": "pemandu",
+      "written_text": "Panggung kita sempit, Pak.",
+      "request": {
+        "text": "Panggung kita sempit, Pak.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "009",
+      "role": "mama-ghufron",
+      "written_text": "Visi-misi sudah saya siapkan.",
+      "request": {
+        "text": "Visi-misi sudah saya siapkan.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "010",
+      "role": "pemandu",
+      "written_text": "Bisa diringkas?",
+      "request": {
+        "text": "Bisa diringkas?",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "011",
+      "role": "mama-ghufron",
+      "written_text": "Ini judulnya dulu.",
+      "request": {
+        "text": "Ini judulnya dulu.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "012",
+      "role": "komeng",
+      "written_text": "Saya mundur dulu.",
+      "request": {
+        "text": "Saya mundur dulu.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "013",
+      "role": "pemandu",
+      "written_text": "Lho, belum mulai!",
+      "request": {
+        "text": "Lho, belum mulai!",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "014",
+      "role": "komeng",
+      "written_text": "Biar ada ruang buat maju.",
+      "request": {
+        "text": "Biar ada ruang buat maju.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "015",
+      "role": "pemandu",
+      "written_text": "Oke, audisinya cuma parodi. Kalau jabatan wapres kosong, Presiden mengusulkan dua calon. MPR yang memilih. Bukan siapa paling cepat datang.",
+      "request": {
+        "text": "Oke, audisinya cuma parodi. Kalau jabatan wapres kosong, Presiden mengusulkan dua calon. MPR yang memilih. Bukan siapa paling cepat datang.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "016",
+      "role": "pak-sandal",
+      "written_text": "Berarti sandal nggak dihitung.",
+      "request": {
+        "text": "Berarti sandal nggak dihitung.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "017",
+      "role": "pemandu",
+      "written_text": "Sekarang usulanmu: satu nama dan satu alasan. Boleh di luar yang muncul tadi. Tiga usulan dengan alasan yang bisa dicek kita bahas di rapat berikutnya.",
+      "request": {
+        "text": "Sekarang usulanmu: satu nama dan satu alasan. Boleh di luar yang muncul tadi. Tiga usulan dengan alasan yang bisa dicek kita bahas di rapat berikutnya.",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "018",
+      "role": "pak-sandal",
+      "written_text": "Kalau nggak kepilih, masih boleh makan?",
+      "request": {
+        "text": "Kalau nggak kepilih, masih boleh makan?",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    },
+    {
+      "id": "019",
+      "role": "pemandu",
+      "written_text": "Bapak sebenarnya daftar apa?",
+      "request": {
+        "text": "Bapak sebenarnya daftar apa?",
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true
+      }
+    }
+  ]
+}

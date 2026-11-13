@@ -1,0 +1,40 @@
+{
+  "consent": "User explicitly confirmed creation/use of reusable voice clones and sending selected recordings to HeyGen. Third recording confirmed separately in async reply.",
+  "assets": {
+    "bahlil": "9fe1156504194855afd936078bdc0157",
+    "komeng": "375c75b6b17444af8b1c5bd94329d1a5",
+    "ghufron": "efdc47c52e2c42fd8ac68047db61250f"
+  },
+  "bahlil": {
+    "request": {
+      "audio": [
+        {
+          "type": "asset_id",
+          "asset_id": "9fe1156504194855afd936078bdc0157"
+        }
+      ],
+      "language": "id",
+      "name": "WKWK Bahlil - pemeran tim berizin",
+      "removeBackgroundNoise": true
+    },
+    "response": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"error\": true, \"message\": \"Voice cloning is not available on the free tier. See plans: https://app.heygen.com/home?surface=mcp_other_plans\", \"status_code\": 402, \"retryable\": false, \"error_code\": \"plan_upgrade_required\", \"plans_url\": \"https://app.heygen.com/home?surface=mcp_other_plans\", \"doc_url\": \"https://developers.heygen.com/docs/error-codes#plan-upgrade-required\", \"next_steps\": \"Explain the allowance and any stated renewal, and include this link in your reply: [See plans](https://app.heygen.com/home?surface=mcp_other_plans). Do not automatically retry or invent a reset time.\"}"
+        }
+      ],
+      "structuredContent": {
+        "error": true,
+        "message": "Voice cloning is not available on the free tier. See plans: https://app.heygen.com/home?surface=mcp_other_plans",
+        "status_code": 402,
+        "retryable": false,
+        "error_code": "INVALID_ARGUMENT",
+        "plans_url": "https://app.heygen.com/home?surface=mcp_other_plans",
+        "doc_url": "https://developers.heygen.com/docs/error-codes#plan-upgrade-required",
+        "next_steps": "Explain the allowance and any stated renewal, and include this link in your reply: [See plans](https://app.heygen.com/home?surface=mcp_other_plans). Do not automatically retry or invent a reset time."
+      },
+      "isError": true
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "id": "006",
+  "role": "pemandu",
+  "written_text": "Silakan. Satu langkah.",
+  "request": {
+    "text": "Silakan. Satu langkah.",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=d7b6592935224b1e9c7f57fb14345654.wav",
+    "duration": 1.9578684807256235,
+    "original_characters": [
+      {
+        "text": "S",
+        "start_time": 0.299,
+        "end_time": 0.341
+      },
+      {
+        "text": "i",
+        "start_time": 0.341,
+        "end_time": 0.405
+      },
+      {
+        "text": "l",
+        "start_time": 0.405,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.512
+      },
+      {
+        "text": "k",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": "a",
+        "start_time": 0.555,
+        "end_time": 0.64
+      },
+      {
+        "text": "n",
+        "start_time": 0.64,
+        "end_time": 0.725
+      },
+      {
+        "text": ".",
+        "start_time": 0.725,
+        "end_time": 0.896
+      },
+      {
+        "text": " ",
+        "start_time": 0.896,
+        "end_time": 1.067
+      },
+      {
+        "text": "S",
+        "start_time": 1.067,
+        "end_time": 1.152
+      },
+      {
+        "text": "a",
+        "start_time": 1.152,
+        "end_time": 1.237
+      },
+      {
+        "text": "t",
+        "start_time": 1.237,
+        "end_time": 1.323
+      },
+      {
+        "text": "u",
+        "start_time": 1.323,
+        "end_time": 1.408
+      },
+      {
+        "text": " ",
+        "start_time": 1.408,
+        "end_time": 1.451
+      },
+      {
+        "text": "l",
+        "start_time": 1.451,
+        "end_time": 1.493
+      },
+      {
+        "text": "a",
+        "start_time": 1.493,
+        "end_time": 1.522
+      },
+      {
+        "text": "n",
+        "start_time": 1.522,
+        "end_time": 1.55
+      },
+      {
+        "text": "g",
+        "start_time": 1.55,
+        "end_time": 1.579
+      },
+      {
+        "text": "k",
+        "start_time": 1.579,
+        "end_time": 1.621
+      },
+      {
+        "text": "a",
+        "start_time": 1.621,
+        "end_time": 1.685
+      },
+      {
+        "text": "h",
+        "start_time": 1.685,
+        "end_time": 1.749
+      },
+      {
+        "text": ".",
+        "start_time": 1.749,
+        "end_time": 1.9578684807256235
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Silakan",
+        "start_time": 0.299,
+        "end_time": 0.725
+      },
+      {
+        "text": "Satu",
+        "start_time": 1.067,
+        "end_time": 1.408
+      },
+      {
+        "text": "langkah",
+        "start_time": 1.451,
+        "end_time": 1.749
+      }
+    ]
+  },
+  "provider_error": false
+}

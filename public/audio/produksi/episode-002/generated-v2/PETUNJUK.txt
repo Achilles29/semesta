@@ -1,0 +1,35 @@
+VO EPISODE 002 — REPUBLIK WKWKWK
+
+Merek ditulis WKWKWK; teks sintesis pembuka: wekawekaweka.
+Semua dialog memakai suara Lucian yang disetujui pengguna, bahasa keluaran Indonesia,
+kecepatan 1.0x. Bukan cloning suara tokoh asli. Suara tiap tokoh tidak dibedakan dengan voice ID baru.
+
+FILE YANG DIPAKAI
+1. episode-002-vo-play-93s.wav
+   Gabungan untuk Play Bersih: 3 detik pegangan awal + timeline adegan 90 detik.
+   Selaraskan awal file ini dengan frame pertama setelah menekan Play Bersih.
+   Potong bagian rekaman sebelum tombol Play ditekan; jangan dihitung dari awal merekam layar.
+2. episode-002-vo-timeline-90s.wav
+   Gabungan tanpa pegangan awal, jika 3 detik pertama video sudah dipotong.
+3. 001-pemandu.wav sampai 019-pemandu.wav
+   19 dialog asli per giliran, bernama berdasarkan nomor dan pemerannya.
+   Gunakan untuk mengubah timing atau memperpendek jeda saat editing.
+
+TIDAK ADA MUSIK, EFEK SUARA, PERCEPATAN, ATAU PERUBAHAN PITCH.
+Jeda panjang pada gabungan memang mengikuti durasi adegan game yang sudah dibuat.
+Audio tidak otomatis diputar di game. Rekam gambar, lalu gabungkan di editor.
+Jika Play dijeda atau komputer tersendat, sesuaikan kembali posisi audio pada titik itu.
+
+PENGECEKAN
+Format WAV PCM, panjang, kelengkapan file dan penempatan klip telah diperiksa.
+Sampel tiap klip dalam gabungan identik dengan sumbernya (byte-for-byte).
+Sesi asisten tidak mendukung mendengarkan audio; belum ada pemeriksaan pelafalan
+dan intonasi secara mandiri. Dengarkan semua dialog sebelum publikasi, terutama
+wekawekaweka dan MPR. Timestamp penyedia bukan transkripsi verifikasi independen.
+Tambahkan label Parodi / Dialog Rekaan dan pengungkapan Suara AI saat editing.
+
+batch-plan.json: naskah tertulis, teks persis yang dikirim, suara, dan pengaturan.
+*.metadata.json: hasil penyedia beserta URL dan timestamp asli.
+edit-timing.json: waktu adegan / dialog dari game saat audio ini dibuat.
+verification.json: durasi aktual serta pemetaan sumber ke kedua file gabungan.
+Pembuka versi lama tetap disimpan di ../generated/; gunakan versi folder ini.

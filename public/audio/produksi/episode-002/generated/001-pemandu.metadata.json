@@ -1,0 +1,477 @@
+{
+  "cue": "001",
+  "status": "generated-awaiting-listening-review",
+  "file_validation": {
+    "format": "WAV PCM",
+    "channels": 1,
+    "sample_rate_hz": 44100,
+    "bit_depth": 16,
+    "frames": 296830,
+    "measured_duration_seconds": 6.730839002267573,
+    "audio_inspection_limitation": "Audio input is unavailable in this session; listening and pronunciation review require the user. No replacement generation was requested."
+  },
+  "request": {
+    "text": "Kalau boleh usul wapres, kamu pilih siapa? Ini audisi versi Republik WkWkWk!",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "voice_name": "Lucian - Conversational & Easygoing",
+  "voice_native_language": "en",
+  "plan": "free",
+  "model": "server-selected; not returned",
+  "local_audio": "001-pemandu.wav",
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=fd691b161e3a4048a0ec8e64d15d61a3.wav",
+  "duration": 6.730839002267573,
+  "original_characters": [
+    {
+      "text": "K",
+      "start_time": 0.256,
+      "end_time": 0.341
+    },
+    {
+      "text": "a",
+      "start_time": 0.341,
+      "end_time": 0.405
+    },
+    {
+      "text": "l",
+      "start_time": 0.405,
+      "end_time": 0.469
+    },
+    {
+      "text": "a",
+      "start_time": 0.469,
+      "end_time": 0.512
+    },
+    {
+      "text": "u",
+      "start_time": 0.512,
+      "end_time": 0.5547
+    },
+    {
+      "text": " ",
+      "start_time": 0.555,
+      "end_time": 0.597
+    },
+    {
+      "text": "b",
+      "start_time": 0.597,
+      "end_time": 0.619
+    },
+    {
+      "text": "o",
+      "start_time": 0.619,
+      "end_time": 0.64
+    },
+    {
+      "text": "l",
+      "start_time": 0.64,
+      "end_time": 0.661
+    },
+    {
+      "text": "e",
+      "start_time": 0.661,
+      "end_time": 0.683
+    },
+    {
+      "text": "h",
+      "start_time": 0.683,
+      "end_time": 0.725
+    },
+    {
+      "text": " ",
+      "start_time": 0.725,
+      "end_time": 0.768
+    },
+    {
+      "text": "u",
+      "start_time": 0.768,
+      "end_time": 0.811
+    },
+    {
+      "text": "s",
+      "start_time": 0.811,
+      "end_time": 0.853
+    },
+    {
+      "text": "u",
+      "start_time": 0.853,
+      "end_time": 0.917
+    },
+    {
+      "text": "l",
+      "start_time": 0.917,
+      "end_time": 0.981
+    },
+    {
+      "text": " ",
+      "start_time": 0.981,
+      "end_time": 1.024
+    },
+    {
+      "text": "w",
+      "start_time": 1.024,
+      "end_time": 1.067
+    },
+    {
+      "text": "a",
+      "start_time": 1.067,
+      "end_time": 1.109
+    },
+    {
+      "text": "p",
+      "start_time": 1.109,
+      "end_time": 1.152
+    },
+    {
+      "text": "r",
+      "start_time": 1.152,
+      "end_time": 1.209
+    },
+    {
+      "text": "e",
+      "start_time": 1.209,
+      "end_time": 1.266
+    },
+    {
+      "text": "s",
+      "start_time": 1.266,
+      "end_time": 1.323
+    },
+    {
+      "text": ",",
+      "start_time": 1.323,
+      "end_time": 1.493
+    },
+    {
+      "text": " ",
+      "start_time": 1.493,
+      "end_time": 1.664
+    },
+    {
+      "text": "k",
+      "start_time": 1.664,
+      "end_time": 1.707
+    },
+    {
+      "text": "a",
+      "start_time": 1.707,
+      "end_time": 1.749
+    },
+    {
+      "text": "m",
+      "start_time": 1.749,
+      "end_time": 1.792
+    },
+    {
+      "text": "u",
+      "start_time": 1.792,
+      "end_time": 1.8347
+    },
+    {
+      "text": " ",
+      "start_time": 1.835,
+      "end_time": 1.877
+    },
+    {
+      "text": "p",
+      "start_time": 1.877,
+      "end_time": 1.92
+    },
+    {
+      "text": "i",
+      "start_time": 1.92,
+      "end_time": 1.934
+    },
+    {
+      "text": "l",
+      "start_time": 1.934,
+      "end_time": 1.948
+    },
+    {
+      "text": "i",
+      "start_time": 1.948,
+      "end_time": 1.963
+    },
+    {
+      "text": "h",
+      "start_time": 1.963,
+      "end_time": 2.0907
+    },
+    {
+      "text": " ",
+      "start_time": 2.091,
+      "end_time": 2.133
+    },
+    {
+      "text": "s",
+      "start_time": 2.133,
+      "end_time": 2.155
+    },
+    {
+      "text": "i",
+      "start_time": 2.155,
+      "end_time": 2.176
+    },
+    {
+      "text": "a",
+      "start_time": 2.176,
+      "end_time": 2.219
+    },
+    {
+      "text": "p",
+      "start_time": 2.219,
+      "end_time": 2.261
+    },
+    {
+      "text": "a",
+      "start_time": 2.261,
+      "end_time": 2.389
+    },
+    {
+      "text": "?",
+      "start_time": 2.389,
+      "end_time": 2.581
+    },
+    {
+      "text": " ",
+      "start_time": 2.581,
+      "end_time": 2.773
+    },
+    {
+      "text": "I",
+      "start_time": 2.773,
+      "end_time": 3.029
+    },
+    {
+      "text": "n",
+      "start_time": 3.029,
+      "end_time": 3.285
+    },
+    {
+      "text": "i",
+      "start_time": 3.285,
+      "end_time": 3.413
+    },
+    {
+      "text": " ",
+      "start_time": 3.413,
+      "end_time": 3.456
+    },
+    {
+      "text": "a",
+      "start_time": 3.456,
+      "end_time": 3.499
+    },
+    {
+      "text": "u",
+      "start_time": 3.499,
+      "end_time": 3.541
+    },
+    {
+      "text": "d",
+      "start_time": 3.541,
+      "end_time": 3.584
+    },
+    {
+      "text": "i",
+      "start_time": 3.584,
+      "end_time": 3.627
+    },
+    {
+      "text": "s",
+      "start_time": 3.627,
+      "end_time": 3.669
+    },
+    {
+      "text": "i",
+      "start_time": 3.669,
+      "end_time": 3.7547
+    },
+    {
+      "text": " ",
+      "start_time": 3.755,
+      "end_time": 3.797
+    },
+    {
+      "text": "v",
+      "start_time": 3.797,
+      "end_time": 3.868
+    },
+    {
+      "text": "e",
+      "start_time": 3.868,
+      "end_time": 3.94
+    },
+    {
+      "text": "r",
+      "start_time": 3.94,
+      "end_time": 4.011
+    },
+    {
+      "text": "s",
+      "start_time": 4.011,
+      "end_time": 4.096
+    },
+    {
+      "text": "i",
+      "start_time": 4.096,
+      "end_time": 4.181
+    },
+    {
+      "text": " ",
+      "start_time": 4.181,
+      "end_time": 4.224
+    },
+    {
+      "text": "R",
+      "start_time": 4.224,
+      "end_time": 4.281
+    },
+    {
+      "text": "e",
+      "start_time": 4.281,
+      "end_time": 4.338
+    },
+    {
+      "text": "p",
+      "start_time": 4.338,
+      "end_time": 4.395
+    },
+    {
+      "text": "u",
+      "start_time": 4.395,
+      "end_time": 4.459
+    },
+    {
+      "text": "b",
+      "start_time": 4.459,
+      "end_time": 4.523
+    },
+    {
+      "text": "l",
+      "start_time": 4.523,
+      "end_time": 4.565
+    },
+    {
+      "text": "i",
+      "start_time": 4.565,
+      "end_time": 4.608
+    },
+    {
+      "text": "k",
+      "start_time": 4.608,
+      "end_time": 4.693
+    },
+    {
+      "text": " ",
+      "start_time": 4.693,
+      "end_time": 4.779
+    },
+    {
+      "text": "W",
+      "start_time": 4.779,
+      "end_time": 4.949
+    },
+    {
+      "text": "k",
+      "start_time": 4.949,
+      "end_time": 5.205
+    },
+    {
+      "text": "W",
+      "start_time": 5.205,
+      "end_time": 6.485
+    },
+    {
+      "text": "k",
+      "start_time": 6.485,
+      "end_time": 6.528
+    },
+    {
+      "text": "W",
+      "start_time": 6.528,
+      "end_time": 6.571
+    },
+    {
+      "text": "k",
+      "start_time": 6.571,
+      "end_time": 6.613
+    },
+    {
+      "text": "!",
+      "start_time": 6.613,
+      "end_time": 6.613
+    }
+  ],
+  "original_words": [
+    {
+      "text": "Kalau",
+      "start_time": 0.256,
+      "end_time": 0.5547
+    },
+    {
+      "text": "boleh",
+      "start_time": 0.597,
+      "end_time": 0.725
+    },
+    {
+      "text": "usul",
+      "start_time": 0.768,
+      "end_time": 0.981
+    },
+    {
+      "text": "wapres",
+      "start_time": 1.024,
+      "end_time": 1.323
+    },
+    {
+      "text": "kamu",
+      "start_time": 1.664,
+      "end_time": 1.8347
+    },
+    {
+      "text": "pilih",
+      "start_time": 1.877,
+      "end_time": 2.0907
+    },
+    {
+      "text": "siapa",
+      "start_time": 2.133,
+      "end_time": 2.389
+    },
+    {
+      "text": "Ini",
+      "start_time": 2.773,
+      "end_time": 3.413
+    },
+    {
+      "text": "audisi",
+      "start_time": 3.456,
+      "end_time": 3.7547
+    },
+    {
+      "text": "versi",
+      "start_time": 3.797,
+      "end_time": 4.181
+    },
+    {
+      "text": "Republik",
+      "start_time": 4.224,
+      "end_time": 4.693
+    },
+    {
+      "text": "WkWkWk",
+      "start_time": 4.779,
+      "end_time": 6.613
+    }
+  ],
+  "next_step": "If this voiceover is the user's final deliverable rather than narration for a larger video, offer once to have an avatar present it in a video. If they accept, have them pick an avatar, then call create_video_from_avatar with this audio_url.",
+  "review": {
+    "listened": false,
+    "transcript_checked": false,
+    "notes": "Timestamps are supplied by the provider, not an independent transcription. Verify Indonesian delivery and pronunciation of WkWkWk."
+  }
+}

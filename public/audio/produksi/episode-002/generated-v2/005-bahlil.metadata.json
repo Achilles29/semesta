@@ -1,0 +1,111 @@
+{
+  "id": "005",
+  "role": "bahlil",
+  "written_text": "Saya siap maju!",
+  "request": {
+    "text": "Saya siap maju!",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=f3dbe58d112f40f5a0acd094012d74d2.wav",
+    "duration": 1.253718820861678,
+    "original_characters": [
+      {
+        "text": "S",
+        "start_time": 0.256,
+        "end_time": 0.341
+      },
+      {
+        "text": "a",
+        "start_time": 0.341,
+        "end_time": 0.405
+      },
+      {
+        "text": "y",
+        "start_time": 0.405,
+        "end_time": 0.469
+      },
+      {
+        "text": "a",
+        "start_time": 0.469,
+        "end_time": 0.512
+      },
+      {
+        "text": " ",
+        "start_time": 0.512,
+        "end_time": 0.555
+      },
+      {
+        "text": "s",
+        "start_time": 0.555,
+        "end_time": 0.619
+      },
+      {
+        "text": "i",
+        "start_time": 0.619,
+        "end_time": 0.683
+      },
+      {
+        "text": "a",
+        "start_time": 0.683,
+        "end_time": 0.704
+      },
+      {
+        "text": "p",
+        "start_time": 0.704,
+        "end_time": 0.725
+      },
+      {
+        "text": " ",
+        "start_time": 0.725,
+        "end_time": 0.768
+      },
+      {
+        "text": "m",
+        "start_time": 0.768,
+        "end_time": 0.832
+      },
+      {
+        "text": "a",
+        "start_time": 0.832,
+        "end_time": 0.896
+      },
+      {
+        "text": "j",
+        "start_time": 0.896,
+        "end_time": 0.981
+      },
+      {
+        "text": "u",
+        "start_time": 0.981,
+        "end_time": 1.067
+      },
+      {
+        "text": "!",
+        "start_time": 1.067,
+        "end_time": 1.253718820861678
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Saya",
+        "start_time": 0.256,
+        "end_time": 0.512
+      },
+      {
+        "text": "siap",
+        "start_time": 0.555,
+        "end_time": 0.725
+      },
+      {
+        "text": "maju",
+        "start_time": 0.768,
+        "end_time": 1.067
+      }
+    ]
+  },
+  "provider_error": false
+}

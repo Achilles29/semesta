@@ -1,0 +1,121 @@
+{
+  "id": "013",
+  "role": "pemandu",
+  "written_text": "Lho, belum mulai!",
+  "request": {
+    "text": "Lho, belum mulai!",
+    "voiceId": "049413e41c334753984c294d694afb5c",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "result": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/049413e41c334753984c294d694afb5c/id=63ae91faa6b045368c3796a6329f346e.wav",
+    "duration": 1.5914285714285714,
+    "original_characters": [
+      {
+        "text": "L",
+        "start_time": 0.213,
+        "end_time": 0.384
+      },
+      {
+        "text": "h",
+        "start_time": 0.384,
+        "end_time": 0.448
+      },
+      {
+        "text": "o",
+        "start_time": 0.448,
+        "end_time": 0.512
+      },
+      {
+        "text": ",",
+        "start_time": 0.512,
+        "end_time": 0.704
+      },
+      {
+        "text": " ",
+        "start_time": 0.704,
+        "end_time": 0.896
+      },
+      {
+        "text": "b",
+        "start_time": 0.896,
+        "end_time": 0.939
+      },
+      {
+        "text": "e",
+        "start_time": 0.939,
+        "end_time": 0.981
+      },
+      {
+        "text": "l",
+        "start_time": 0.981,
+        "end_time": 1.024
+      },
+      {
+        "text": "u",
+        "start_time": 1.024,
+        "end_time": 1.045
+      },
+      {
+        "text": "m",
+        "start_time": 1.045,
+        "end_time": 1.067
+      },
+      {
+        "text": " ",
+        "start_time": 1.067,
+        "end_time": 1.109
+      },
+      {
+        "text": "m",
+        "start_time": 1.109,
+        "end_time": 1.152
+      },
+      {
+        "text": "u",
+        "start_time": 1.152,
+        "end_time": 1.195
+      },
+      {
+        "text": "l",
+        "start_time": 1.195,
+        "end_time": 1.237
+      },
+      {
+        "text": "a",
+        "start_time": 1.237,
+        "end_time": 1.301
+      },
+      {
+        "text": "i",
+        "start_time": 1.301,
+        "end_time": 1.365
+      },
+      {
+        "text": "!",
+        "start_time": 1.365,
+        "end_time": 1.591
+      }
+    ],
+    "original_words": [
+      {
+        "text": "Lho",
+        "start_time": 0.213,
+        "end_time": 0.512
+      },
+      {
+        "text": "belum",
+        "start_time": 0.896,
+        "end_time": 1.067
+      },
+      {
+        "text": "mulai",
+        "start_time": 1.109,
+        "end_time": 1.365
+      }
+    ]
+  },
+  "provider_error": false
+}

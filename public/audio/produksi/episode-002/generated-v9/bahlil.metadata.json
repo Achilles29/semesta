@@ -1,0 +1,18 @@
+{
+  "request": {
+    "voiceId": "233c3b208dff40e5b758c445086e1f57",
+    "text": "Dindaaa! Saya siap duduk!",
+    "language": "id",
+    "speed": 1,
+    "withTimestamps": true
+  },
+  "provider": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"audio_url\":\"https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/233c3b208dff40e5b758c445086e1f57/id=64c3a1cc1023416ba6a985038bfd46f5.wav\",\"duration\":1.9710430839002269,\"original_characters\":[{\"text\":\"D\",\"start_time\":0.341,\"end_time\":0.427},{\"text\":\"i\",\"start_time\":0.427,\"end_time\":0.441},{\"text\":\"n\",\"start_time\":0.441,\"end_time\":0.455},{\"text\":\"d\",\"start_time\":0.455,\"end_time\":0.469},{\"text\":\"a\",\"start_time\":0.469,\"end_time\":0.683},{\"text\":\"a\",\"start_time\":0.683,\"end_time\":0.768},{\"text\":\"a\",\"start_time\":0.768,\"end_time\":0.896},{\"text\":\"!\",\"start_time\":0.896,\"end_time\":0.939},{\"text\":\" \",\"start_time\":0.939,\"end_time\":0.981},{\"text\":\"S\",\"start_time\":0.981,\"end_time\":1.024},{\"text\":\"a\",\"start_time\":1.024,\"end_time\":1.088},{\"text\":\"y\",\"start_time\":1.088,\"end_time\":1.152},{\"text\":\"a\",\"start_time\":1.152,\"end_time\":1.195},{\"text\":\" \",\"start_time\":1.195,\"end_time\":1.237},{\"text\":\"s\",\"start_time\":1.237,\"end_time\":1.301},{\"text\":\"i\",\"start_time\":1.301,\"end_time\":1.365},{\"text\":\"a\",\"start_time\":1.365,\"end_time\":1.408},{\"text\":\"p\",\"start_time\":1.408,\"end_time\":1.451},{\"text\":\" \",\"start_time\":1.451,\"end_time\":1.493},{\"text\":\"d\",\"start_time\":1.493,\"end_time\":1.557},{\"text\":\"u\",\"start_time\":1.557,\"end_time\":1.621},{\"text\":\"d\",\"start_time\":1.621,\"end_time\":1.685},{\"text\":\"u\",\"start_time\":1.685,\"end_time\":1.749},{\"text\":\"k\",\"start_time\":1.749,\"end_time\":1.792},{\"text\":\"!\",\"start_time\":1.792,\"end_time\":1.971}],\"original_words\":[{\"text\":\"Dindaaa\",\"start_time\":0.341,\"end_time\":0.896},{\"text\":\"Saya\",\"start_time\":0.981,\"end_time\":1.195},{\"text\":\"siap\",\"start_time\":1.237,\"end_time\":1.451},{\"text\":\"duduk\",\"start_time\":1.493,\"end_time\":1.792}]}"
+      }
+    ],
+    "isError": false
+  }
+}

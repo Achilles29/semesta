@@ -1,0 +1,28 @@
+.world-body .city-map-art .zone-pin.zone-production {display:flex;left:20%;top:22%;background:#20545a;color:#fff4d9;border-color:#cdb07a;z-index:5;padding:12px 16px;border-radius:12px}
+.zone-production b {font-size:9px;line-height:1.5}
+.zone-production small {display:block;font-size:7px;color:#e2d2a8}
+.zone-pin[hidden],#productionMapRoute[hidden] {display:none!important}
+.world-body .city-map-art .production-map-route {display:block;z-index:3;pointer-events:none;opacity:.85}
+.production-map-route path {fill:none;stroke:#fff0b5;stroke-width:1.2;stroke-dasharray:2 1;stroke-linejoin:round}
+.world-body .city-map-art .city-map-note {display:block!important;z-index:4}
+.world-body .city-map-art #productionMapNote[hidden] {display:none!important}
+.production-panel {position:absolute;z-index:3;left:18px;top:110px;width:min(300px,calc(100vw - 36px));padding:14px;background:#173e43ed;color:#fff4df;border:1px solid #bfa06a;border-radius:12px;box-shadow:0 8px 30px #152f3433;font:12px/1.5 sans-serif}
+.production-panel[hidden] {display:none}
+.production-panel strong {display:block;font-size:15px}
+.production-panel p {margin:7px 0;color:#e4ddc7}
+.production-panel select,.production-panel button {font:inherit;max-width:100%;padding:7px;border-radius:6px;border:1px solid #bca474;background:#fff3d9;color:#25484b;cursor:pointer}
+.production-panel select {width:100%;margin:7px 0}
+.production-panel .production-actions {display:flex;gap:6px;flex-wrap:wrap}
+.production-panel .production-disclaimer {font-size:10px;color:#ffe5a0;font-weight:700}
+.production-panel details {margin-top:8px}
+.production-panel {max-height:calc(100dvh - 145px);overflow-y:auto}
+.production-playback {border-top:1px solid #78908b;margin-top:12px;padding-top:12px}
+.production-playback [data-film-play] {background:#ffe09b;font-weight:700}
+/* A recording gets only the canvas: no nameplates, hint, wash, footer or exit text. */
+body.production-filming #app>:not(#exploreScreen),
+body.production-filming #exploreScreen>:not(#world),
+body.production-district.capture-mode #app>:not(#exploreScreen),
+body.production-district.capture-mode #exploreScreen>:not(#world) {display:none!important}
+body.production-filming,body.production-filming * {cursor:none!important}
+body.production-filming #world {pointer-events:none}
+@media(max-width:620px){.production-panel{top:116px;left:10px;width:220px;padding:9px;font-size:11px}.production-panel strong{font-size:12px}.production-panel details{display:none}.zone-production b{font-size:7px}.zone-production small{font-size:6px}}
