@@ -1,4 +1,135 @@
-# Naskah 002 — V10: Kursi Terisi, Kerja Jangan Kosong
+# Naskah 002 — V11: Tepuk Tangan Kok Jadi Suara?
+
+## Revisi dua pembicara — 14 November 2026
+
+**Status: draft skenario baru, belum disintesis atau diterapkan.** Runtime
+game yang tersedia masih V10, dengan master 93,911 detik. Keterangan “belum
+audio” pada arsip editorial V10 di bawah merupakan catatan saat draft itu
+ditulis, bukan status runtime terbaru.
+
+V11 memakai **dua pembicara saja: Bahlil dan Gufron**. Tidak ada narator.
+Bu Warung, Komeng, dan figuran tetap hadir, tetapi tidak bersuara.
+19 giliran dialog, 109 kata; perkiraan **65–80 detik** dengan aksi dan jeda.
+Durasi sebenarnya baru diketahui setelah rekaman dibuat.
+
+### Premis dan penyelesaian
+
+Bahlil ingin langsung duduk di kursi wapres yang kosong. Gufron menahannya
+karena belum dipilih, tetapi kemudian justru menganggap tepuk tangan sebagai
+dukungan untuk dirinya. Bahlil protes; Gufron bangkit. Mereka sepakat meminta
+usulan warga. Pada penutup, Bahlil menolak bertepuk tangan lagi.
+
+**Yang selesai:** usaha mengangkat diri sendiri dibatalkan, salah paham
+tepuk tangan diluruskan, kedua tokoh mengembalikan urusan usulan kepada warga.
+**Yang belum selesai:** pemilihan wapres; kursi sengaja tetap kosong untuk
+cerita lanjutan. Ini perubahan struktur dari V10, bukan klaim kursi sudah
+terisi. Episode pertama tidak menjanjikan pengumuman pemenang.
+
+Karakter ingin sesuatu yang sederhana: Bahlil merasa datang lebih dulu;
+Gufron juga tertarik pada kursinya. Keduanya boleh terlihat canggung dan
+menahan malu, bukan satu tokoh selalu benar dan satu selalu bodoh.
+Sindiran muncul dari tindakan mengambil dukungan sepihak, bukan ceramah.
+
+### Naskah lengkap
+
+Semua dialog berikut rekaan parodi. Nama peran dan arahan visual tidak dibaca
+oleh TTS. Bukan kutipan tokoh asli, bukan kabar pencalonan, dan bukan simulasi
+prosedur konstitusional Indonesia.
+
+#### 1. Sama-sama mengincar kursi — sekitar 17 detik
+
+Satu kursi utama kosong di depan warung. Bahlil sudah hampir duduk ketika Gufron datang membawa map. Bahlil berhenti setengah membungkuk lalu berdiri lagi. Gufron berpeci dengan rambut tetap gondrong. Bu Warung melayani pelanggan di belakang; Komeng menonton sambil memegang gelas. Kamera two-shot sejak awal, bukan perkenalan tokoh satu-satu.
+
+- **Bahlil:** “Dindaaa! Kursi wapres Republik WKWKWK kosong. Saya duduk, ya?”
+- **Gufron:** “Eh, tunggu. Siapa yang milih Bapak?”
+- **Bahlil:** “Belum ada. Daripada kosong.”
+- **Gufron:** “Oh, kalau begitu saya juga boleh?”
+- **Bahlil:** “Lho, saya duluan.”
+
+#### 2. Tepuk tangan disangka memilih — sekitar 19 detik
+
+Gufron menjelaskan kepada Bahlil, bukan berpidato panjang ke kamera. Setelah Bahlil setuju bahwa warga yang memilih, Gufron meminta tepuk tangan. Bahlil menepuk tangan dua kali; hanya dua figuran ikut, lainnya masih minum atau melirik. Gufron tersenyum, merapikan baju, lalu duduk dan mengucapkan terima kasih. Beri setengah detik agar Bahlil menyadari apa yang terjadi.
+
+- **Gufron:** “Ini milih wapres, bukan antre gorengan.”
+- **Gufron:** “Yang milih itu warga. Betul apa tidak?”
+- **Bahlil:** “Ya, betul.”
+- **Gufron:** “Nah, keprok atuh!”
+- **Gufron:** “Terima kasih. Saya terima amanahnya.”
+
+#### 3. Bahlil meluruskan — sekitar 16 detik
+
+Bahlil langsung berhenti menepuk tangan dan memandang Gufron. Komeng menurunkan gelas, tersenyum tipis, tanpa suara. Gufron menjawab canggung, kemudian bangkit sendiri setelah Bahlil menjelaskan maksudnya. Tidak ada dorongan atau rebutan kasar. Keduanya berdiri di sisi kursi yang sama; calon tidak jadi mengangkat diri sendiri.
+
+- **Bahlil:** “Eh! Saya tepuk tangan, bukan milih Bapak!”
+- **Gufron:** “Oh... saya kira tadi setuju.”
+- **Bahlil:** “Setuju warga yang milih. Bukan setuju Bapak.”
+- **Gufron:** “Ya sudah. Tanya mereka.”
+
+#### 4. Usulan warga dan lelucon penutup — sekitar 18 detik
+
+Keduanya menghadap kamera dengan kursi kosong tetap di tengah. Ajakan komentar menjadi bagian dari keputusan mereka meminta usulan warga game. Saat Gufron kembali meminta tepuk tangan, Bahlil langsung menyembunyikan kedua tangan di belakang badan dan melirik kursi. Gufron melihat tangan Bahlil lalu menahan senyum. Tahan reaksi sekitar satu detik, baru cut; jangan tambah pidato atau CTA setelah punchline.
+
+- **Bahlil:** “Warga, kalian maunya siapa? Tulis nama sama alasannya. Follow jadi warga Republik WKWKWK. Pilihan kalian kita bahas di episode berikutnya.”
+- **Gufron:** “Saya juga boleh diusulin, ya.”
+- **Bahlil:** “Iya, boleh.”
+- **Gufron:** “Keprok atuh!”
+- **Bahlil:** “Nggak, ah. Nanti dihitung suara lagi.”
+
+### Cara membawakan
+
+- Bahlil membuka dengan antusias, lalu menjawab Gufron seperti orang sedang
+  membela keinginannya. Tidak semua kalimat diteriakkan. “Dindaaa” cukup sekali.
+- Gufron awalnya menahan orang yang hendak duduk, bukan langsung berpidato.
+  “Betul apa tidak” diarahkan kepada Bahlil; “keprok atuh” baru kepada kerumunan.
+- “Oh... saya kira tadi setuju” dibaca sedikit canggung, bukan jahat atau
+  mengancam. Sisakan jeda sebelum ia berdiri.
+- Dialog terakhir Bahlil dibaca pelan sambil menyimpan tangan di belakang:
+  ia sudah belajar dari kejadian tadi. Jangan menambahkan efek tawa panjang.
+- Musik tipis masuk setelah percakapan berjalan, turun saat dialog dan
+  berhenti sejenak ketika Bahlil memprotes. Bunyi tepuk tangan hanya setelah
+  permintaan pertama; permintaan kedua diakhiri hening dan reaksi.
+- Mulai dengan two-shot Bahlil–Gufron dan kursi. Mayoritas percakapan tetap
+  dalam bingkai yang sama. Close-up hanya pada salah paham dan penolakan akhir.
+  Jangan memotong kamera tiap satu kalimat.
+- Tetap ramai: Bu Warung melayani, seorang warga membawa gelas, dua orang
+  mengobrol tanpa suara di kejauhan, Komeng menurunkan gelas saat terkejut.
+  Hanya dua warga ikut bertepuk; jangan semua figuran bereaksi serempak.
+- Gufron tetap peci dan gondrong. Warna kulit hasil revisi terakhir dipertahankan;
+  Bahlil tidak diubah. Tidak ada perubahan model pada giliran penulisan ini.
+
+### Interaksi dan publikasi
+
+Ajakan komentar mengikuti keputusan kedua tokoh: penonton mengusulkan nama
+dan alasan untuk dibahas, bukan diminta menjawab pertanyaan yang tidak terkait.
+Episode berikut harus menanggapi usulan nyata; tidak menjanjikan komentar
+terbanyak otomatis memenangkan jabatan.
+
+Judul publik: **Day One Republik WKWKWK — Tepuk Tangan Kok Jadi Suara?**
+
+Caption ringkas:
+
+> Baru mau cari wapres, tepuk tangan sudah dianggap milih.
+> Kalau jadi warga Republik WKWKWK, kamu usulin siapa? Nama + alasannya.
+> Parodi dalam republik game. Dialog rekaan, suara AI; bukan pernyataan asli tokoh.
+
+HUD game tetap bersih. Penanda PARODI / DIALOG REKAAN / SUARA AI ditambahkan
+pada publikasi. Tidak perlu grafik politik atau penjelasan hukum di tengah sketsa.
+Tidak menyalin dialog Kampung Komen; yang dipakai adalah prinsip pemeran sedikit
+dan situasi percakapan kelompok. Naskah ini tidak membuat klaim berita baru.
+Riset politik pada arsip V10 tetap bertanggal 13 November, bukan pembaruan hari ini.
+
+### Berkas
+
+- Dialog lisan: `public/audio/produksi/episode-002/revision-v11/dialogue-plan.json`.
+- Hanya voice ID Bahlil/Gufron yang sudah dipakai sebelumnya dicantumkan.
+- Belum ada audio, timestamp terukur, atau aksi game V11; audio/game V10 tidak
+  diganti. Jangan memutar master V10 sambil memakai dialog/aksi V11.
+- Penulisan mengikuti pemeriksaan Script Writer: satu keinginan, satu hambatan,
+  respons yang berkaitan, serta lelucon penutup yang mengingatkan kejadian awal.
+
+---
+
+## Arsip editorial V10 — Kursi Terisi, Kerja Jangan Kosong
 
 ## Revisi editorial terbaru — 13 November 2026
 

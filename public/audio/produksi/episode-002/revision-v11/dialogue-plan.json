@@ -1,0 +1,232 @@
+{
+  "version": "v11",
+  "status": "editorial-draft-not-generated",
+  "title": "Day One Republik WKWKWK — Tepuk Tangan Kok Jadi Suara?",
+  "audio_generated": false,
+  "game_integrated": false,
+  "runtime_still": "v10",
+  "duration_is_measured": false,
+  "estimated_duration_seconds": [
+    65,
+    80
+  ],
+  "word_count": 109,
+  "voice_assignments": {
+    "bahlil": "233c3b208dff40e5b758c445086e1f57",
+    "ghufron": "bb23d4e8919d4e20b55ea5b70159749c"
+  },
+  "fiction_notice": "Dialog rekaan tokoh parodi dalam republik game, bukan ucapan asli atau pencalonan nyata. Usulan komentar bukan pemilihan Wakil Presiden RI.",
+  "story_resolution": "Usaha mengangkat diri sendiri dibatalkan: Gufron bangkit, Bahlil tidak mengambil kursi. Keduanya sepakat meminta usulan warga. Belum ada wapres terpilih; hasil pemilihan sengaja menjadi cerita lanjutan, bukan dijanjikan selesai di episode ini.",
+  "production_notes": [
+    "Hanya dua suara: Bahlil dan Gufron. Tanpa narator, tanpa dialog Bu Warung/Komeng/figuran.",
+    "Kirim hanya spoken_text ke TTS setelah produksi diminta; stage direction bukan dialog.",
+    "WKWKWK dibaca wekawekaweka. Pertahankan Dindaaa, Betul apa tidak, dan Keprok atuh.",
+    "Dindaaa hanya sekali pada pembuka. Gufron meminta tepuk tangan dua kali karena permintaan kedua adalah lelucon penutup.",
+    "Pemeran lain bereaksi secara visual, tidak ada gumaman berbahasa yang menambah pembicara.",
+    "Perkiraan durasi bukan timestamp; jangan gunakan master atau timeline V10 untuk naskah ini.",
+    "Warna kulit lebih terang dari revisi terakhir tetap dipertahankan; Bahlil tidak diubah. Gufron berpeci dan gondrong.",
+    "Episode berikut membahas setidaknya satu usulan yang masuk. Bukan janji nama terbanyak otomatis menang atau kandidat tersebut langsung menjadi wapres.",
+    "Saat publikasi sertakan penanda PARODI / DIALOG REKAAN / SUARA AI. HUD game tetap bersih.",
+    "Tidak menambahkan klaim faktual politik terbaru. Catatan riset V10 adalah arsip bertanggal, bukan verifikasi per 14 November.",
+    "Tidak ada keran, tes kerja, verifikasi berkas, atau pengangkatan Bu Warung pada versi ini."
+  ],
+  "scenes": [
+    {
+      "scene": 1,
+      "title": "Sama-sama mengincar kursi",
+      "estimated_seconds": 17,
+      "visual": "Satu kursi utama kosong di depan warung. Bahlil sudah hampir duduk ketika Gufron datang membawa map. Bahlil berhenti setengah membungkuk lalu berdiri lagi. Gufron berpeci dengan rambut tetap gondrong. Bu Warung melayani pelanggan di belakang; Komeng menonton sambil memegang gelas. Kamera two-shot sejak awal, bukan perkenalan tokoh satu-satu."
+    },
+    {
+      "scene": 2,
+      "title": "Tepuk tangan disangka memilih",
+      "estimated_seconds": 19,
+      "visual": "Gufron menjelaskan kepada Bahlil, bukan berpidato panjang ke kamera. Setelah Bahlil setuju bahwa warga yang memilih, Gufron meminta tepuk tangan. Bahlil menepuk tangan dua kali; hanya dua figuran ikut, lainnya masih minum atau melirik. Gufron tersenyum, merapikan baju, lalu duduk dan mengucapkan terima kasih. Beri setengah detik agar Bahlil menyadari apa yang terjadi."
+    },
+    {
+      "scene": 3,
+      "title": "Bahlil meluruskan",
+      "estimated_seconds": 16,
+      "visual": "Bahlil langsung berhenti menepuk tangan dan memandang Gufron. Komeng menurunkan gelas, tersenyum tipis, tanpa suara. Gufron menjawab canggung, kemudian bangkit sendiri setelah Bahlil menjelaskan maksudnya. Tidak ada dorongan atau rebutan kasar. Keduanya berdiri di sisi kursi yang sama; calon tidak jadi mengangkat diri sendiri."
+    },
+    {
+      "scene": 4,
+      "title": "Usulan warga dan lelucon penutup",
+      "estimated_seconds": 18,
+      "visual": "Keduanya menghadap kamera dengan kursi kosong tetap di tengah. Ajakan komentar menjadi bagian dari keputusan mereka meminta usulan warga game. Saat Gufron kembali meminta tepuk tangan, Bahlil langsung menyembunyikan kedua tangan di belakang badan dan melirik kursi. Gufron melihat tangan Bahlil lalu menahan senyum. Tahan reaksi sekitar satu detik, baru cut; jangan tambah pidato atau CTA setelah punchline."
+    }
+  ],
+  "cues": [
+    {
+      "id": "001",
+      "scene": 1,
+      "role": "bahlil",
+      "beat": "claim_empty_chair",
+      "recipient": "ghufron",
+      "display_text": "Dindaaa! Kursi wapres Republik WKWKWK kosong. Saya duduk, ya?",
+      "spoken_text": "Dindaaa! Kursi wapres Republik wekawekaweka kosong. Saya duduk, ya?"
+    },
+    {
+      "id": "002",
+      "scene": 1,
+      "role": "ghufron",
+      "beat": "who_chose_you",
+      "recipient": "bahlil",
+      "display_text": "Eh, tunggu. Siapa yang milih Bapak?",
+      "spoken_text": "Eh, tunggu. Siapa yang milih Bapak?"
+    },
+    {
+      "id": "003",
+      "scene": 1,
+      "role": "bahlil",
+      "beat": "nobody_yet",
+      "recipient": "ghufron",
+      "display_text": "Belum ada. Daripada kosong.",
+      "spoken_text": "Belum ada. Daripada kosong."
+    },
+    {
+      "id": "004",
+      "scene": 1,
+      "role": "ghufron",
+      "beat": "i_want_it_too",
+      "recipient": "bahlil",
+      "display_text": "Oh, kalau begitu saya juga boleh?",
+      "spoken_text": "Oh, kalau begitu saya juga boleh?"
+    },
+    {
+      "id": "005",
+      "scene": 1,
+      "role": "bahlil",
+      "beat": "first_in_line",
+      "recipient": "ghufron",
+      "display_text": "Lho, saya duluan.",
+      "spoken_text": "Lho, saya duluan."
+    },
+    {
+      "id": "006",
+      "scene": 2,
+      "role": "ghufron",
+      "beat": "not_a_queue",
+      "recipient": "bahlil",
+      "display_text": "Ini milih wapres, bukan antre gorengan.",
+      "spoken_text": "Ini milih wapres, bukan antre gorengan."
+    },
+    {
+      "id": "007",
+      "scene": 2,
+      "role": "ghufron",
+      "beat": "ask_agreement",
+      "recipient": "bahlil",
+      "display_text": "Yang milih itu warga. Betul apa tidak?",
+      "spoken_text": "Yang milih itu warga. Betul apa tidak?"
+    },
+    {
+      "id": "008",
+      "scene": 2,
+      "role": "bahlil",
+      "beat": "agree_with_rule",
+      "recipient": "ghufron",
+      "display_text": "Ya, betul.",
+      "spoken_text": "Ya, betul."
+    },
+    {
+      "id": "009",
+      "scene": 2,
+      "role": "ghufron",
+      "beat": "invite_applause",
+      "recipient": "ensemble",
+      "display_text": "Nah, keprok atuh!",
+      "spoken_text": "Nah, keprok atuh!"
+    },
+    {
+      "id": "010",
+      "scene": 2,
+      "role": "ghufron",
+      "beat": "claim_mandate",
+      "recipient": "ensemble",
+      "display_text": "Terima kasih. Saya terima amanahnya.",
+      "spoken_text": "Terima kasih. Saya terima amanahnya."
+    },
+    {
+      "id": "011",
+      "scene": 3,
+      "role": "bahlil",
+      "beat": "stop_false_mandate",
+      "recipient": "ghufron",
+      "display_text": "Eh! Saya tepuk tangan, bukan milih Bapak!",
+      "spoken_text": "Eh! Saya tepuk tangan, bukan milih Bapak!"
+    },
+    {
+      "id": "012",
+      "scene": 3,
+      "role": "ghufron",
+      "beat": "awkward_explanation",
+      "recipient": "bahlil",
+      "display_text": "Oh... saya kira tadi setuju.",
+      "spoken_text": "Oh... saya kira tadi setuju."
+    },
+    {
+      "id": "013",
+      "scene": 3,
+      "role": "bahlil",
+      "beat": "clarify_agreement",
+      "recipient": "ghufron",
+      "display_text": "Setuju warga yang milih. Bukan setuju Bapak.",
+      "spoken_text": "Setuju warga yang milih. Bukan setuju Bapak."
+    },
+    {
+      "id": "014",
+      "scene": 3,
+      "role": "ghufron",
+      "beat": "ask_the_citizens",
+      "recipient": "camera",
+      "display_text": "Ya sudah. Tanya mereka.",
+      "spoken_text": "Ya sudah. Tanya mereka."
+    },
+    {
+      "id": "015",
+      "scene": 4,
+      "role": "bahlil",
+      "beat": "citizen_invitation",
+      "recipient": "camera",
+      "display_text": "Warga, kalian maunya siapa? Tulis nama sama alasannya. Follow jadi warga Republik WKWKWK. Pilihan kalian kita bahas di episode berikutnya.",
+      "spoken_text": "Warga, kalian maunya siapa? Tulis nama sama alasannya. Follow jadi warga Republik wekawekaweka. Pilihan kalian kita bahas di episode berikutnya."
+    },
+    {
+      "id": "016",
+      "scene": 4,
+      "role": "ghufron",
+      "beat": "nominate_me_too",
+      "recipient": "camera",
+      "display_text": "Saya juga boleh diusulin, ya.",
+      "spoken_text": "Saya juga boleh diusulin, ya."
+    },
+    {
+      "id": "017",
+      "scene": 4,
+      "role": "bahlil",
+      "beat": "allow_suggestion",
+      "recipient": "ghufron",
+      "display_text": "Iya, boleh.",
+      "spoken_text": "Iya, boleh."
+    },
+    {
+      "id": "018",
+      "scene": 4,
+      "role": "ghufron",
+      "beat": "repeat_applause",
+      "recipient": "ensemble",
+      "display_text": "Keprok atuh!",
+      "spoken_text": "Keprok atuh!"
+    },
+    {
+      "id": "019",
+      "scene": 4,
+      "role": "bahlil",
+      "beat": "refuse_applause",
+      "recipient": "ghufron",
+      "display_text": "Nggak, ah. Nanti dihitung suara lagi.",
+      "spoken_text": "Nggak, ah. Nanti dihitung suara lagi."
+    }
+  ]
+}
