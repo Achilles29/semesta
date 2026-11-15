@@ -156,6 +156,7 @@
     <script>window.SEMESTA_FARMER_MODEL = <?= json_encode(base_url($farmer_model_path . '?v=' . filemtime(FCPATH . $farmer_model_path)), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_AREA_MUSIC_BASE = <?= json_encode(base_url('ilustrasi/musik/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_PRODUCTION_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
+    <script>window.SEMESTA_PRODUCTION_V13_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v13/episode-002-v13-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . $source_js_version); ?>"></script><?php endif; ?>
 </body>

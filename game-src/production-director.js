@@ -1,5 +1,6 @@
 import * as legacyEpisode from './production-episode.js';
 import * as previewEpisode from './production-v13-episode.js';
+import * as currentEpisode from './production-v13-audio-episode.js';
 import {createProductionVoice} from './production-voice-playback.js';
 import {createV10Props} from './production-v10-props.js';
 import {createV13Props} from './production-v13-props.js';
@@ -9,20 +10,21 @@ import {createCastPerformance} from './production-performance.js';
 export function mountProductionDirector({THREE,production,world,camera,renderer,scene,panel,signal,onStart=()=>{}}){
   const audioClock=createProductionVoice({url:window.SEMESTA_PRODUCTION_VO_URL||new URL('public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav',document.baseURI).href});
   const previewClock=previewEpisode.createPreviewClock();
-  let clock=previewClock,episode=previewEpisode;
+  const currentClock=createProductionVoice({url:window.SEMESTA_PRODUCTION_V13_VO_URL||new URL('public/audio/produksi/episode-002/release-v13/episode-002-v13-master.wav',document.baseURI).href,duration:currentEpisode.EPISODE_DURATION});
+  let clock=currentClock,episode=currentEpisode;
   let {EPISODE_SCENES,EPISODE_DURATION,sampleEpisode,episodeCueSheet}=episode;
   let snapshot=null,aspect=9/16,selection='',selectedEnd=EPISODE_DURATION;
   const controls=document.createElement('section');controls.className='production-playback';
   controls.innerHTML=`<strong>Episode 002 · Yang Dilihat Kursinya</strong>
-    <p data-film-description>V13: 4 adegan, narator di luar layar, gerobak tersangkut, Komeng membantu, Bu Warung istirahat. Preview tanpa suara; timing 96 detik sementara, belum sinkron dengan VO baru.</p>
-    <label>Versi <select data-film-version><option value="v13">V13 · Adegan baru / tanpa suara</option><option value="v10">V10 · Arsip dengan suara lama</option></select></label>
+    <p data-film-description>V13 terbaru: 4 adegan + narator, Bahlil, Gufron, musik dan efek. Gerakan mengikuti timing rekaman; narator di luar layar. Durasi ${EPISODE_DURATION.toFixed(2)} detik.</p>
+    <label>Versi <select data-film-version><option value="v13">V13 · Terbaru / gambar + suara</option><option value="preview">V13 · Animatic lama / tanpa suara</option><option value="v10">V10 · Arsip dengan suara lama</option></select></label>
     <label>Putar <select data-film-scene><option value="">Semua adegan · ${EPISODE_DURATION.toFixed(2)} detik</option>${EPISODE_SCENES.map((s,i)=>`<option value="${s.id}">${i+1}. ${s.name} · ${(s.end-s.start).toFixed(1)} dtk</option>`).join('')}</select></label>
     <label>Bingkai <select data-film-aspect><option value="portrait">Vertikal 9:16 · IG/TikTok</option><option value="landscape">Mendatar 16:9</option></select></label>
     <label>Volume suara <input data-film-volume type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume voice over"></label>
-    <div class="production-actions"><button type="button" data-film-play>▶ PREVIEW V13</button><button type="button" data-film-sheet>Unduh panduan adegan / VO</button></div>
-    <p data-film-status role="status">V13 siap dipreview tanpa suara dan tanpa HUD, setelah pegangan awal 3 detik. Audio V10 tidak digunakan untuk adegan V13.</p>
+    <div class="production-actions"><button type="button" data-film-play>▶ PLAY V13 + SUARA</button><button type="button" data-film-sheet>Unduh panduan adegan / VO</button></div>
+    <p data-film-status role="status">V13: suara dan gambar bersama setelah pegangan awal 3 detik. Rekam audio tab/sistem. HUD disembunyikan; suara V10 tidak digunakan pada V13.</p>
     <p>Spasi: jeda/lanjut · R: ulang · ←/→: adegan · Esc: keluar. Penutup fade ke hitam, lalu Esc untuk kembali. Gunakan F11 sebelum merekam; crop bidang video bila ada sisi hitam.</p>
-    <details><summary>Catatan editing</summary><p>V13 adalah animatic tanpa audio dan tanpa lip-sync; timing perlu disesuaikan setelah narasi baru tersedia. V10 merupakan arsip yang memutar audio lama. Tidak ada ekspor video otomatis. Tambahkan label PARODI / DIALOG REKAAN dan pengungkapan suara AI jika digunakan saat publikasi.</p></details>`;
+    <details><summary>Catatan editing</summary><p>V13 memakai master rekaman baru dengan kecepatan suara 1x. Gerak mulut berbasis energi suara, bukan fonem. Intonasi dan kemiripan perlu cek dengar. Pilihan animatic tanpa suara dan V10 hanya arsip. Tidak ada ekspor MP4 otomatis. Tambahkan label PARODI / DIALOG REKAAN / SUARA AI saat publikasi.</p></details>`;
   panel.append(controls);
   const status=controls.querySelector('[data-film-status]');
   const playButton=controls.querySelector('[data-film-play]');
@@ -57,7 +59,7 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
   async function start(){
     stop();selection=controls.querySelector('[data-film-scene]').value;
     const selected=EPISODE_SCENES.find(s=>s.id===selection);selectedEnd=selected?.end??EPISODE_DURATION;
-    playButton.disabled=true;status.textContent=episode===previewEpisode?'Menyiapkan preview V13 tanpa suara…':'Menyiapkan suara V10…';
+    playButton.disabled=true;status.textContent=episode===previewEpisode?'Menyiapkan animatic tanpa suara…':episode===currentEpisode?'Menyiapkan gambar + suara V13…':'Menyiapkan arsip V10…';
     onStart();
     try{if(!await clock.start(selected?.start??0,selectedEnd))return;}catch(error){audioError(error);return;}finally{playButton.disabled=false;}
     aspect=controls.querySelector('[data-film-aspect]').value==='portrait'?9/16:16/9;
@@ -98,18 +100,19 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
     // Finished playback stays black until Escape; no HUD contaminates the recording.
   }
   listen(controls.querySelector('[data-film-play]'),'click',start);
-  controls.querySelector('[data-film-volume]').disabled=true;
+  controls.querySelector('[data-film-volume]').disabled=false;
   listen(controls.querySelector('[data-film-version]'),'change',event=>{
-    stop();const preview=event.target.value==='v13';
-    episode=preview?previewEpisode:legacyEpisode;
+    stop();const preview=event.target.value==='preview',current=event.target.value==='v13';
+    episode=preview?previewEpisode:current?currentEpisode:legacyEpisode;
     ({EPISODE_SCENES,EPISODE_DURATION,sampleEpisode,episodeCueSheet}=episode);
-    clock=preview?previewClock:audioClock;v6=preview?previewProps:legacyProps;props=v6.group;
+    clock=preview?previewClock:current?currentClock:audioClock;v6=preview||current?previewProps:legacyProps;props=v6.group;
+    clock.setVolume(controls.querySelector('[data-film-volume]').value);
     selection='';selectedEnd=EPISODE_DURATION;
     controls.querySelector('[data-film-scene]').innerHTML=`<option value="">Semua adegan · ${EPISODE_DURATION.toFixed(2)} detik</option>${EPISODE_SCENES.map((s,i)=>`<option value="${s.id}">${i+1}. ${s.name} · ${(s.end-s.start).toFixed(1)} dtk</option>`).join('')}`;
     controls.querySelector('[data-film-volume]').disabled=preview;
-    controls.querySelector('[data-film-description]').textContent=preview?'V13: 4 adegan baru, tanpa suara. Gerobak dibantu keluar; kursi dipakai istirahat, bukan pelantikan. Timing sementara.':'Arsip V10: 6 adegan dengan 19 dialog, musik dan efek lama. Bukan naskah V13.';
-    playButton.textContent=preview?'▶ PREVIEW V13':'▶ PLAY V10 + SUARA';
-    status.textContent=preview?'Preview V13 tanpa suara; belum sinkron VO.':'Arsip V10 dengan suara lama.';
+    controls.querySelector('[data-film-description]').textContent=preview?'Animatic V13 lama: 96 detik tanpa suara.':current?`V13 terbaru: 4 adegan dan 9 cue suara, ${EPISODE_DURATION.toFixed(2)} detik. Narator off-screen; musik dan efek dalam master.`:'Arsip V10: 6 adegan dengan 19 dialog, musik dan efek lama. Bukan naskah V13.';
+    playButton.textContent=preview?'▶ ANIMATIC V13':current?'▶ PLAY V13 + SUARA':'▶ PLAY V10 + SUARA';
+    status.textContent=preview?'Animatic tanpa suara.':current?'V13 gambar + suara. Rekam audio tab/sistem; jangan tumpuk VO tambahan.':'Arsip V10 dengan suara lama.';
   });
   listen(controls.querySelector('[data-film-volume]'),'input',event=>clock.setVolume(event.target.value));
   listen(controls.querySelector('[data-film-sheet]'),'click',()=>{
@@ -131,6 +134,6 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
     }
   },{capture:true});
   listen(document,'visibilitychange',()=>{if(clock.state==='playing'&&document.hidden)clock.pause().catch(audioError);});
-  signal.addEventListener('abort',()=>{stop();previewClock.dispose();audioClock.dispose();performance.dispose();previewProps.dispose();legacyProps.dispose();endPlane.geometry.dispose();endMaterial.dispose();controls.remove();},{once:true});
+  signal.addEventListener('abort',()=>{stop();previewClock.dispose();audioClock.dispose();currentClock.dispose();performance.dispose();previewProps.dispose();legacyProps.dispose();endPlane.geometry.dispose();endMaterial.dispose();controls.remove();},{once:true});
   return {get active(){return !!snapshot&&clock.active;},update,stop};
 }

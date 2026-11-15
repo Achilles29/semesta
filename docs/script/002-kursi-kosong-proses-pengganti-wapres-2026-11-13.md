@@ -2,35 +2,63 @@
 
 ## Revisi narasi dan pembawaan — 15 November 2026
 
-**Status: naskah V13 + preview adegan game tanpa suara. Audio V13 belum dibuat.**
+**Status: V13 memiliki master audio baru dan adegan yang mengikuti waktu audio.**
+Durasi master **76,764 detik**, ditambah pegangan awal 3 detik saat Play.
+Pemeriksaan teknis lolos; cek dengar intonasi/kemiripan dan pemeriksaan visual
+browser akhir belum diklaim selesai.
 Bagian V13 ini menjadi usulan naskah terbaru; V12 dan versi sebelumnya
 disimpan sebagai arsip di bawah. JSON `revision-v12/dialogue-plan.json`
-belum diperbarui dan tidak sama dengan naskah V13. Runtime menyediakan preview
-V13 sebagai pilihan utama dan mempertahankan V10 bersuara sebagai arsip.
+belum diperbarui dan tidak sama dengan naskah V13. Runtime menyediakan V13
+gambar + suara sebagai pilihan utama; animatic V13 dan V10 menjadi arsip.
 
 ### Preview adegan yang sudah diimplementasikan
 
-Buka Peta Jalan → Balai Produksi → pilih **V13 · Adegan baru / tanpa suara**
-→ **PREVIEW V13**. Empat adegan berjalan otomatis, HUD disembunyikan.
+Buka Peta Jalan → Balai Produksi → pilih **V13 · Terbaru / gambar + suara**
+→ **PLAY V13 + SUARA**. Empat adegan berjalan otomatis, HUD disembunyikan.
 Pilih 9:16 atau 16:9. Spasi: jeda/lanjut; R: ulang; panah: pindah adegan;
 Esc: keluar. Bisa memilih satu adegan dari menu Putar.
 
-- 0–27 detik: kursi kosong, Bahlil datang, gerobak Bu Warung tersangkut.
-- 27–55 detik: Gufron datang, gestur sambutan, dua warga tepuk singkat.
-- 55–66 detik: Komeng selesai menaruh gelas, mendekat bersama seorang warga,
+- 0–19,515 detik: kursi kosong, Bahlil datang, gerobak Bu Warung tersangkut.
+- 19,515–39,817 detik: Gufron datang, sambutan, dua warga tepuk singkat.
+- 39,817–53,559 detik: Komeng menaruh gelas, mendekat bersama seorang warga,
   mengangkat sisi gerobak; Bu Warung mendorong hingga rodanya bebas.
-- 66–96 detik: Bu Warung berjalan mengitari calon, duduk untuk istirahat;
+- 53,559–76,764 detik: Bu Warung berjalan mengitari calon, duduk untuk istirahat;
   keduanya menoleh, kamera menahan hasil, lalu fade ke hitam.
 
-Durasi 96 detik adalah **timing animatic sementara**, bukan durasi rekaman.
-Tidak menggunakan suara atau speech-envelope V10 untuk V13. Mulut tidak
-dibuat bergerak acak ketika belum ada rekaman. Mode V10 tetap dapat diputar
-dengan audio lamanya melalui pilihan versi. Belum ada ekspor MP4 otomatis.
+Animatic lama 96 detik tetap tersedia sebagai pilihan tanpa suara. V13
+bersuara tidak menggunakan rekaman atau speech-envelope V10. Mulut hanya
+Bahlil/Gufron mengikuti RMS dialog mereka; bukan lip-sync fonem. Narator
+tetap off-screen. Mode V10 tetap tersedia dengan audio lamanya.
+Belum ada ekspor MP4 otomatis: rekam layar beserta audio tab/sistem.
 Properti sinematik tidak disimpan ke data dunia/admin; keluar memulihkan
 posisi pemeran, kamera dan lingkungan jelajah.
 
-Sumber adegan: `game-src/production-v13-episode.js`; properti:
-`game-src/production-v13-props.js`; pengujian: `tools/test_production_v13.mjs`.
+Sumber visual: `game-src/production-v13-episode.js`; pemetaan audio:
+`game-src/production-v13-audio-episode.js`; properti: `game-src/production-v13-props.js`.
+Pengujian: `tools/test_production_v13.mjs`, `tools/test_production_v13_audio.mjs`,
+`tools/test_production_voice_playback.mjs`.
+
+### Berkas audio V13
+
+- Master: `public/audio/produksi/episode-002/release-v13/episode-002-v13-master.wav`.
+- Stem terpisah: `episode-002-v13-dialogue.wav`, `episode-002-v13-music.wav`,
+  `episode-002-v13-fx.wav` di folder yang sama.
+- Sembilan cue WAV, `timeline.json`, dan `speech-envelope.json` di `release-v13`.
+- Sumber asli, request, dan metadata penyedia di `generated-v13`; jangan
+  menggunakan `revision-v5` atau `revision-v12` sebagai sumber audio terbaru.
+- Tiga sintesis: narator Lucian yang sudah dipilih, clone Bahlil dan clone
+  Gufron yang telah diizinkan. Tidak ada pergantian voice ID atau voice Komeng.
+- Teks sesuai naskah di bawah, dengan WKWKWK dibaca `wekawekaweka`.
+  Parameter ekspresivitas narator 0,4; bahasa `id`, kecepatan 1x. Model
+  dipilih server; respons tidak menyebut nama model yang akhirnya dipakai.
+- Jeda aksi ditambahkan di batas frasa. Mapping sumber-ke-final disimpan;
+  tidak mempercepat atau mengubah pitch suara untuk mengejar durasi.
+- Musik memakai instrumental orisinal proyek yang sudah ada, diturunkan
+  saat dialog. Efek pendek untuk tepuk, gelas, roda, dan kursi; seed 13013.
+- Sample peak master sekitar -3,60 dBFS; bukan pengukuran LUFS atau true peak.
+  Timing berasal dari alignment penyedia, bukan transkripsi independen.
+- Pelafalan `Diindaa` dan rasa intonasi **masih perlu cek dengar**, bukan
+  dinyatakan benar hanya karena teks/alignment cocok.
 
 ### Arah cerita
 
@@ -103,8 +131,8 @@ bawah adalah desain pembawaan baru; bukan hasil pengukuran audio referensi.
 
 Arahan jeda merupakan perkiraan editorial, bukan timestamp audio. Jangan
 mengubah seluruh track menjadi cepat untuk mengejar durasi. Estimasi
-keseluruhan **80–100 detik**, termasuk respons, gerak dan jeda; perlu
-diukur lagi setelah rekaman. WKWKWK tetap dibaca **wekawekaweka**.
+awal **80–100 detik** sudah digantikan durasi master terukur **76,764 detik**.
+WKWKWK tetap dibaca **wekawekaweka**.
 
 ### Visual pendukung, bukan percakapan tambahan
 
@@ -139,8 +167,10 @@ memakai suara sintetis, sertakan penanda suara AI.
 Skill Script Writer dipakai untuk memusatkan cerita pada satu kebutuhan
 warga, membatasi dialog tokoh, serta memisahkan naskah bersih dari arah
 pembawaan. Pelafalan dan intonasi belum dinyatakan lolos uji audio.
-Voice ID lama tidak diganti; tidak ada sintesis, penggunaan kredit atau
-perubahan JSON audio produksi. Sinkronisasi ke rekaman V13 menunggu audio baru.
+Voice ID lama tidak diganti. Tiga rekaman V13 sudah disintesis dan dirakit
+menjadi master. Runtime bersuara mengikuti master ini, sementara animatic
+lama tetap dipertahankan untuk perbandingan. Panduan Video Editing dipakai
+untuk menjaga kecepatan suara, pemetaan timing, stem terpisah, dan headroom.
 
 ---
 

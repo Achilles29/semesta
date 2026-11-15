@@ -40,7 +40,13 @@ let release;const pending=fixture();const delayed=createProductionVoice({url:'fi
 const starting=delayed.start();await Promise.resolve();delayed.stop();release(new ArrayBuffer(2));assert.equal(await starting,false);assert.ok(!delayed.active);
 const view=readFileSync('application/views/game.php','utf8'),director=readFileSync('game-src/production-director.js','utf8');
 assert.ok(view.includes("base_url('public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav')"));
-assert.ok(director.includes('await clock.start'));assert.ok(director.includes('clock.dispose()'));
+assert.ok(director.includes('await clock.start'));assert.ok(director.includes('audioClock.dispose()'));assert.ok(director.includes('currentClock.dispose()'));
+assert.ok(view.includes('SEMESTA_PRODUCTION_V13_VO_URL'));
+const v13=JSON.parse(readFileSync('public/audio/produksi/episode-002/release-v13/timeline.json','utf8'));
+const newer=fixture({duration:v13.duration});
+const v13Clock=createProductionVoice({url:'v13.wav',duration:v13.duration,createContext:()=>newer.ctx,load:async()=>new ArrayBuffer(2)});
+await v13Clock.start();assert.deepEqual(newer.sources.at(-1).args,[3,0,v13.duration]);
+await v13Clock.start(v13.scenes[2].start,v13.scenes[2].end);assert.deepEqual(newer.sources.at(-1).args,[3,v13.scenes[2].start,v13.scenes[2].end-v13.scenes[2].start]);v13Clock.dispose();
 if(process.env.TEST_LOCAL_API==='1'){
   const res=await fetch('http://localhost/project/public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav');
   assert.equal(res.status,200);const bytes=Buffer.from(await res.arrayBuffer());assert.equal(bytes.toString('ascii',0,4),'RIFF');

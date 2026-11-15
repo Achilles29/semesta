@@ -1,0 +1,187 @@
+{
+  "version": "v13",
+  "status": "generated-and-integrated-v13",
+  "requests": [
+    {
+      "role": "narator",
+      "spans": [
+        {
+          "cue_id": "v13-1",
+          "start": 0,
+          "end": 113
+        },
+        {
+          "cue_id": "v13-3",
+          "start": 115,
+          "end": 262
+        },
+        {
+          "cue_id": "v13-4",
+          "start": 264,
+          "end": 317
+        },
+        {
+          "cue_id": "v13-6",
+          "start": 319,
+          "end": 487
+        },
+        {
+          "cue_id": "v13-7",
+          "start": 489,
+          "end": 590
+        },
+        {
+          "cue_id": "v13-8",
+          "start": 592,
+          "end": 764
+        },
+        {
+          "cue_id": "v13-9",
+          "start": 766,
+          "end": 885
+        }
+      ],
+      "request": {
+        "voiceId": "049413e41c334753984c294d694afb5c",
+        "text": "Day one di Republik wekawekaweka. Kursi wapres kosong. Yang mau duduk sudah ada. Yang mau kerja? Kita lihat dulu.\n\nBahlil datang duluan. Belum ditanya, sudah siap. Di belakangnya, gerobak Bu Warung nyangkut di lubang. Ibu ini mau jualan, bukan mau ikut kampanye.\n\nTerus Gufron datang. Nah, mungkin yang ini mau bantu.\n\nOh, minta tepuk tangan. Gerobaknya masih di situ. Coba bayangin jadi Bu Warung. Di depan mata ada dua calon pemimpin. Tapi buat lewat depan warung sendiri, masih susah.\n\nKomeng akhirnya taruh gelas. Ajak satu warga, angkat rodanya. Gerobaknya jalan. Nggak pakai sambutan.\n\nBu Warung kecapekan, terus duduk di kursi tadi. Bahlil sama Gufron langsung nengok. Dari tadi orangnya kesusahan nggak dilihat. Begitu kursinya didudukin, baru diperhatiin.\n\nHari ini belum ada yang dipilih. Dua-duanya masih harus dites. Kalau kamu warga sini, tes pertama mereka harus ngapain?",
+        "language": "id",
+        "speed": 1,
+        "expressivenessBoost": 0.4,
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "role": "bahlil",
+      "spans": [
+        {
+          "cue_id": "v13-2",
+          "start": 0,
+          "end": 19
+        }
+      ],
+      "request": {
+        "voiceId": "233c3b208dff40e5b758c445086e1f57",
+        "text": "Diindaa! Saya siap!",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    },
+    {
+      "role": "mama-ghufron",
+      "spans": [
+        {
+          "cue_id": "v13-5",
+          "start": 0,
+          "end": 65
+        }
+      ],
+      "request": {
+        "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+        "text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!",
+        "language": "id",
+        "speed": 1,
+        "withTimestamps": true,
+        "outputFormat": {
+          "encoding": "pcm",
+          "sample_rate_hertz": 44100,
+          "num_channels": 1,
+          "bit_depth": 16
+        }
+      }
+    }
+  ],
+  "cues": [
+    {
+      "id": "v13-1",
+      "start": 0,
+      "end": 11,
+      "role": "narator",
+      "text": "Day one di Republik WKWKWK. Kursi wapres kosong. Yang mau duduk sudah ada. Yang mau kerja? Kita lihat dulu.",
+      "provisional": true
+    },
+    {
+      "id": "v13-2",
+      "start": 11,
+      "end": 13,
+      "role": "bahlil",
+      "text": "Diindaa! Saya siap!",
+      "provisional": true
+    },
+    {
+      "id": "v13-3",
+      "start": 13,
+      "end": 27,
+      "role": "narator",
+      "text": "Bahlil datang duluan. Belum ditanya, sudah siap. Di belakangnya, gerobak Bu Warung nyangkut di lubang. Ibu ini mau jualan, bukan mau ikut kampanye.",
+      "provisional": true
+    },
+    {
+      "id": "v13-4",
+      "start": 27,
+      "end": 32,
+      "role": "narator",
+      "text": "Terus Gufron datang. Nah, mungkin yang ini mau bantu.",
+      "provisional": true
+    },
+    {
+      "id": "v13-5",
+      "start": 32,
+      "end": 39,
+      "role": "mama-ghufron",
+      "text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!",
+      "provisional": true
+    },
+    {
+      "id": "v13-6",
+      "start": 39,
+      "end": 55,
+      "role": "narator",
+      "text": "Oh, minta tepuk tangan. Gerobaknya masih di situ. Coba bayangin jadi Bu Warung. Di depan mata ada dua calon pemimpin. Tapi buat lewat depan warung sendiri, masih susah.",
+      "provisional": true
+    },
+    {
+      "id": "v13-7",
+      "start": 55,
+      "end": 66,
+      "role": "narator",
+      "text": "Komeng akhirnya taruh gelas. Ajak satu warga, angkat rodanya. Gerobaknya jalan. Nggak pakai sambutan.",
+      "provisional": true
+    },
+    {
+      "id": "v13-8",
+      "start": 66,
+      "end": 83,
+      "role": "narator",
+      "text": "Bu Warung kecapekan, terus duduk di kursi tadi. Bahlil sama Gufron langsung nengok. Dari tadi orangnya kesusahan nggak dilihat. Begitu kursinya didudukin, baru diperhatiin.",
+      "provisional": true
+    },
+    {
+      "id": "v13-9",
+      "start": 83,
+      "end": 96,
+      "role": "narator",
+      "text": "Hari ini belum ada yang dipilih. Dua-duanya masih harus dites. Kalau kamu warga sini, tes pertama mereka harus ngapain?",
+      "provisional": true
+    }
+  ],
+  "pronunciation": {
+    "WKWKWK": "wekawekaweka",
+    "Diindaa": "DIIN–DAA, kedua suku kata ditekankan; perlu cek dengar"
+  },
+  "review": "Three source takes generated; release-v13 master and runtime integrated. Technical timing, exact provider text and PCM integrity checked. No independent listening, pronunciation or browser visual approval.",
+  "models": "Server-selected; no explicit model.",
+  "source": "docs/script/002-kursi-kosong-proses-pengganti-wapres-2026-11-13.md"
+}
