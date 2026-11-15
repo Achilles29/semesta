@@ -1,0 +1,169 @@
+{
+  "version": "v12",
+  "status": "editorial-draft-not-generated",
+  "title": "Day One Republik WKWKWK — Ditanya Kerja Apa, Kok Diam?",
+  "audio_generated": false,
+  "game_integrated": false,
+  "runtime_still": "v10",
+  "duration_is_measured": false,
+  "estimated_duration_seconds": [
+    65,
+    80
+  ],
+  "word_count": 126,
+  "narrator_word_count": 109,
+  "narrator_share_by_words": 87,
+  "audience_assumption": "Penonton Indonesia di Reels/TikTok yang menikmati komedi sehari-hari dan sindiran politik yang langsung dipahami, tanpa perlu mengikuti istilah politik. Ini asumsi editorial dari brief, bukan data analitik audiens.",
+  "story_promise": "Dua tokoh datang melamar wapres, tetapi tidak siap menjawab mau mengerjakan apa. Penonton memahami mengapa keduanya diminta kembali membawa rencana.",
+  "story_resolution": "Lamaran keduanya belum diterima hari itu; mereka menerima kertas untuk menyiapkan rencana, kursi disimpan. Tidak ada pemenang wapres. Episode berikut dapat menguji tugas usulan warga; bukan pemilihan resmi atau voting komentar.",
+  "fiction_notice": "Semua dialog dan proses audisi merupakan rekaan parodi dalam republik game. Tidak menyatakan tokoh nyata melamar atau gagal menjalankan jabatan.",
+  "voice_assignments": {
+    "pemandu": "049413e41c334753984c294d694afb5c",
+    "bahlil": "233c3b208dff40e5b758c445086e1f57",
+    "ghufron": "bb23d4e8919d4e20b55ea5b70159749c"
+  },
+  "pronunciation": {
+    "bahlil_call": {
+      "display": "Diindaa!",
+      "spoken_text": "Diindaa!",
+      "delivery": "Dua suku kata DIIN–DAA. Tekankan keduanya. Panjangkan vokal i pada diin dan a pada daa secukupnya; jangan hanya memanjangkan akhiran daaa.",
+      "replaces": "Dindaaa",
+      "audio_review_passed": false,
+      "note": "Catatan delivery tidak dikirim sebagai dialog. Ejaan saja belum membuktikan hasil TTS sesuai; perlu pemeriksaan dengar saat produksi."
+    },
+    "brand": {
+      "display": "WKWKWK",
+      "spoken_text": "wekawekaweka"
+    }
+  },
+  "production_notes": [
+    "Narator off-screen membawa alur; pemeran narator tidak perlu muncul di set dan tidak menggerakkan mulut karakter lain.",
+    "Hanya empat cue dialog tokoh: Bahlil dua, Gufron dua. Bu Warung, Komeng, dan warga tidak memiliki dialog.",
+    "Bukan versi lama yang sekadar ditambahi penjelasan: salah paham tepuk tangan dan perebutan mandat dihapus, diganti satu situasi lamaran kerja.",
+    "Tidak ada syarat pendidikan, tes keran, pemilihan Bu Warung, atau pembahasan proses hukum dalam sketsa ini.",
+    "Narator seperti teman menceritakan kejadian, bukan pembaca berita. Kalimat pertanyaan diberi jeda agar respons kedua calon terbaca.",
+    "CTA utama meminta satu tugas konkret untuk diuji pada tokoh berikutnya. Follow adalah ajakan bergabung sebagai warga, bukan permintaan terpisah untuk like/share/tag.",
+    "Jika format serial disetujui, pilih usulan nyata dan tanggapi dalam episode berikutnya. Tidak menjanjikan semua komentar dimainkan.",
+    "Warna kulit revisi sebelumnya tetap; Bahlil tidak berubah. Gufron tetap berpeci dan gondrong.",
+    "Teks ujaran hanya spoken_text. Jangan kirim judul, instruksi intonasi, atau visual ke TTS.",
+    "V12 belum memiliki audio atau timestamp; jangan gunakan audio V10 untuk naskah ini. Versi lama dengan Dindaaa adalah arsip, bukan sumber pelafalan terbaru.",
+    "Sertakan penanda PARODI / DIALOG REKAAN / SUARA AI saat publikasi, HUD game tetap bersih.",
+    "Tidak ada klaim politik aktual baru. Riset di arsip V10 tidak diperbarui pada revisi kreatif ini."
+  ],
+  "scenes": [
+    {
+      "scene": 1,
+      "title": "Lowongan yang langsung diserbu",
+      "estimated_seconds": 10,
+      "visual": "Kursi baru diletakkan Bu Warung di depan warung. Bahlil segera masuk bingkai dan mengangkat tangan. Kalimat pertama narator langsung diikuti aksi, tanpa logo pembuka. Kamera memperlihatkan kursi, Bu Warung, dan Bahlil sekaligus."
+    },
+    {
+      "scene": 2,
+      "title": "Kenali dua pelamarnya",
+      "estimated_seconds": 18,
+      "visual": "Bahlil mencoba duduk sebentar dan merapikan baju sambil menunggu. Pada pengenalan Gufron, Gufron berpeci dengan rambut gondrong masuk dari sisi lain, melirik kursi dan maju menyapa warga. Ia berbicara hanya pada cue miliknya. Dua warga merespons dengan tepuk pendek; Komeng tetap minum tanpa dialog. Bu Warung meminta Bahlil berdiri dengan isyarat agar kedua calon menghadap meja kecil yang sama."
+    },
+    {
+      "scene": 3,
+      "title": "Pertanyaan yang bikin keduanya diam",
+      "estimated_seconds": 17,
+      "visual": "Bu Warung meletakkan dua lembar kertas kosong dan dua pensil di meja, menghadap kedua calon. Narator menyampaikan pertanyaannya; Bu Warung tidak menggerakkan mulut seperti sedang berbicara. Bahlil dan Gufron saling melihat, menatap kertas, lalu saling mempersilakan. Sisakan hening sekitar 1,5 detik sebelum kalimat narator tentang saling menyuruh. Tidak ada efek teriakan atau tawa panjang."
+    },
+    {
+      "scene": 4,
+      "title": "Belum diterima, harus kembali dengan rencana",
+      "estimated_seconds": 25,
+      "visual": "Bu Warung mengembalikan kertas kosong kepada masing-masing calon sambil menunjuk pensil, lalu memberi isyarat kembali setelah diisi. Bahlil dan Gufron menerima, bukan tiba-tiba dinyatakan kalah tanpa reaksi. Kursi utama dibawa ke dalam warung oleh Bu Warung dengan bantuan seorang figuran; Bahlil melihat kursi pergi, lalu kembali menatap kertasnya. Saat ajakan komentar, kedua calon berdiri membawa kertas: penonton tahu usulnya akan menjadi tugas mereka. Tutup pada ekspresi keduanya, bukan pidato tambahan."
+    }
+  ],
+  "cues": [
+    {
+      "id": "001",
+      "scene": 1,
+      "role": "pemandu",
+      "beat": "opening",
+      "display_text": "Day one di Republik WKWKWK. Ada lowongan wapres. Baru ditaruh kursinya, sudah ada yang mau duduk.",
+      "spoken_text": "Day one di Republik wekawekaweka. Ada lowongan wapres. Baru ditaruh kursinya, sudah ada yang mau duduk."
+    },
+    {
+      "id": "002",
+      "scene": 1,
+      "role": "bahlil",
+      "beat": "volunteer",
+      "display_text": "Diindaa! Saya siap!",
+      "spoken_text": "Diindaa! Saya siap!"
+    },
+    {
+      "id": "003",
+      "scene": 2,
+      "role": "pemandu",
+      "beat": "introduce_bahlil",
+      "display_text": "Ini Bahlil. Datang paling cepat. Warga belum nanya apa-apa, dia sudah nyobain kursinya.",
+      "spoken_text": "Ini Bahlil. Datang paling cepat. Warga belum nanya apa-apa, dia sudah nyobain kursinya."
+    },
+    {
+      "id": "004",
+      "scene": 2,
+      "role": "pemandu",
+      "beat": "introduce_gufron",
+      "display_text": "Gufron nggak mau ketinggalan. Dia pilih kenalan dulu sama warga.",
+      "spoken_text": "Gufron nggak mau ketinggalan. Dia pilih kenalan dulu sama warga."
+    },
+    {
+      "id": "005",
+      "scene": 2,
+      "role": "ghufron",
+      "beat": "greet_crowd",
+      "display_text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!",
+      "spoken_text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!"
+    },
+    {
+      "id": "006",
+      "scene": 3,
+      "role": "pemandu",
+      "beat": "one_question",
+      "display_text": "Oke, dua calon sudah datang. Bu Warung cuma mau tahu satu hal: kalau kepilih, mau ngerjain apa dulu?",
+      "spoken_text": "Oke, dua calon sudah datang. Bu Warung cuma mau tahu satu hal: kalau kepilih, mau ngerjain apa dulu?"
+    },
+    {
+      "id": "007",
+      "scene": 3,
+      "role": "bahlil",
+      "beat": "you_first",
+      "display_text": "Beliau dulu.",
+      "spoken_text": "Beliau dulu."
+    },
+    {
+      "id": "008",
+      "scene": 3,
+      "role": "ghufron",
+      "beat": "no_you_first",
+      "display_text": "Bapak saja.",
+      "spoken_text": "Bapak saja."
+    },
+    {
+      "id": "009",
+      "scene": 3,
+      "role": "pemandu",
+      "beat": "reversal",
+      "display_text": "Lho, tadi rebutan maju. Sekarang saling nyuruh.",
+      "spoken_text": "Lho, tadi rebutan maju. Sekarang saling nyuruh."
+    },
+    {
+      "id": "010",
+      "scene": 4,
+      "role": "pemandu",
+      "beat": "decision",
+      "display_text": "Hari ini, dua-duanya belum diterima. Bu Warung minta mereka balik bawa rencana kerja. Kursinya? Disimpan dulu. Biar nggak ada yang nyelonong duduk.",
+      "spoken_text": "Hari ini, dua-duanya belum diterima. Bu Warung minta mereka balik bawa rencana kerja. Kursinya? Disimpan dulu. Biar nggak ada yang nyelonong duduk."
+    },
+    {
+      "id": "011",
+      "scene": 4,
+      "role": "pemandu",
+      "beat": "citizen_task",
+      "display_text": "Kalau kalian yang ngetes, dua orang ini disuruh ngapain? Tulis satu tugas di komentar. Follow jadi warga Republik WKWKWK. Kita cobain usulan kalian.",
+      "spoken_text": "Kalau kalian yang ngetes, dua orang ini disuruh ngapain? Tulis satu tugas di komentar. Follow jadi warga Republik wekawekaweka. Kita cobain usulan kalian."
+    }
+  ]
+}

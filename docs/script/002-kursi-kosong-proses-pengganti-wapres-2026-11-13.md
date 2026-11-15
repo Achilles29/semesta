@@ -1,4 +1,314 @@
-# Naskah 002 — V11: Tepuk Tangan Kok Jadi Suara?
+# Naskah 002 — V13: Yang Dilihat Kursinya
+
+## Revisi narasi dan pembawaan — 15 November 2026
+
+**Status: naskah V13 + preview adegan game tanpa suara. Audio V13 belum dibuat.**
+Bagian V13 ini menjadi usulan naskah terbaru; V12 dan versi sebelumnya
+disimpan sebagai arsip di bawah. JSON `revision-v12/dialogue-plan.json`
+belum diperbarui dan tidak sama dengan naskah V13. Runtime menyediakan preview
+V13 sebagai pilihan utama dan mempertahankan V10 bersuara sebagai arsip.
+
+### Preview adegan yang sudah diimplementasikan
+
+Buka Peta Jalan → Balai Produksi → pilih **V13 · Adegan baru / tanpa suara**
+→ **PREVIEW V13**. Empat adegan berjalan otomatis, HUD disembunyikan.
+Pilih 9:16 atau 16:9. Spasi: jeda/lanjut; R: ulang; panah: pindah adegan;
+Esc: keluar. Bisa memilih satu adegan dari menu Putar.
+
+- 0–27 detik: kursi kosong, Bahlil datang, gerobak Bu Warung tersangkut.
+- 27–55 detik: Gufron datang, gestur sambutan, dua warga tepuk singkat.
+- 55–66 detik: Komeng selesai menaruh gelas, mendekat bersama seorang warga,
+  mengangkat sisi gerobak; Bu Warung mendorong hingga rodanya bebas.
+- 66–96 detik: Bu Warung berjalan mengitari calon, duduk untuk istirahat;
+  keduanya menoleh, kamera menahan hasil, lalu fade ke hitam.
+
+Durasi 96 detik adalah **timing animatic sementara**, bukan durasi rekaman.
+Tidak menggunakan suara atau speech-envelope V10 untuk V13. Mulut tidak
+dibuat bergerak acak ketika belum ada rekaman. Mode V10 tetap dapat diputar
+dengan audio lamanya melalui pilihan versi. Belum ada ekspor MP4 otomatis.
+Properti sinematik tidak disimpan ke data dunia/admin; keluar memulihkan
+posisi pemeran, kamera dan lingkungan jelajah.
+
+Sumber adegan: `game-src/production-v13-episode.js`; properti:
+`game-src/production-v13-props.js`; pengujian: `tools/test_production_v13.mjs`.
+
+### Arah cerita
+
+Narator menjadi teman yang menceritakan kejadian, bukan MC atau pembaca
+berita. Ia mula-mula memberi kedua calon kesempatan, lalu makin heran
+melihat kebutuhan warga diabaikan. Sindiran paling kuat datang dari
+perbedaan reaksi calon terhadap warga dan terhadap kursi, bukan pidato
+tentang moral. Tokoh hanya menyela dua kali; figuran memperagakan cerita.
+
+Semua tindakan dan dialog merupakan rekaan parodi dalam Republik WKWKWK,
+bukan klaim peristiwa, pencalonan, atau ucapan asli tokoh nyata. Tidak ada
+klaim berita baru tentang jabatan wapres Indonesia dalam naskah ini.
+
+Prinsip yang diadaptasi dari referensi Arsenal: satu narator, satu masalah,
+akibat yang terlihat, lalu penutup yang kembali ke pembuka. Dialog,
+metafora sepak bola, dan rekaman sumber tidak disalin. Arahan intonasi di
+bawah adalah desain pembawaan baru; bukan hasil pengukuran audio referensi.
+
+### Naskah bersih — hanya kutipan yang dibacakan
+
+#### 01 — Narator
+
+“Day one di Republik WKWKWK. Kursi wapres kosong. Yang mau duduk sudah ada. Yang mau kerja? Kita lihat dulu.”
+
+#### 02 — Bahlil
+
+“Diindaa! Saya siap!”
+
+#### 03 — Narator
+
+“Bahlil datang duluan. Belum ditanya, sudah siap. Di belakangnya, gerobak Bu Warung nyangkut di lubang. Ibu ini mau jualan, bukan mau ikut kampanye.”
+
+#### 04 — Narator
+
+“Terus Gufron datang. Nah, mungkin yang ini mau bantu.”
+
+#### 05 — Gufron
+
+“Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!”
+
+#### 06 — Narator
+
+“Oh, minta tepuk tangan. Gerobaknya masih di situ. Coba bayangin jadi Bu Warung. Di depan mata ada dua calon pemimpin. Tapi buat lewat depan warung sendiri, masih susah.”
+
+#### 07 — Narator
+
+“Komeng akhirnya taruh gelas. Ajak satu warga, angkat rodanya. Gerobaknya jalan. Nggak pakai sambutan.”
+
+#### 08 — Narator
+
+“Bu Warung kecapekan, terus duduk di kursi tadi. Bahlil sama Gufron langsung nengok. Dari tadi orangnya kesusahan nggak dilihat. Begitu kursinya didudukin, baru diperhatiin.”
+
+#### 09 — Narator
+
+“Hari ini belum ada yang dipilih. Dua-duanya masih harus dites. Kalau kamu warga sini, tes pertama mereka harus ngapain?”
+
+### Arahan intonasi — tidak ikut dibacakan
+
+| Cue | Pembawaan dan tekanan | Jeda yang direncanakan |
+| --- | --- | --- |
+| 01 | Akrab, mengajak penasaran. Tekan ringan `duduk`, lalu naik sedikit pada `kerja?`. `Kita lihat dulu` mengecil, bukan teriakan pembuka. | Sekitar 0,4 detik setelah pertanyaan. |
+| 02 | Bahlil percaya diri. `Diindaa` dibaca **DIIN–DAA**, kedua suku kata mendapat tekanan dan pemanjangan secukupnya. | Jangan memanjangkan akhir sampai memotong ritme narator. |
+| 03 | Mengalir seperti cerita, bukan kalimat-kalimat slogan. `Belum ditanya` bernada geli; saat beralih ke Bu Warung, nada lebih peduli. Akhiri `kampanye` datar. | Napas biasa; jangan beri jeda dramatis di setiap titik. |
+| 04 | Sedikit berharap, seolah memberi calon kedua kesempatan. Tekan `yang ini` tanpa sinis berlebihan. | Beri tempat Gufron masuk dan menyahut. |
+| 05 | Sapaan pendek, yakin, terdengar mengajak warga. Pertahankan dua frasa khas tanpa tambahan improvisasi. | Tepuk figuran pendek setelah dialog, bukan menimpa narator. |
+| 06 | `Oh` turun, kecewa kecil, bukan kaget berteriak. `Coba bayangin` lebih dekat dan sungguh-sungguh; `masih susah` menunjukkan masalahnya tanpa menggurui. | Sekitar 0,5 detik setelah `tepuk tangan`. |
+| 07 | Sedikit lebih ringan saat solusi muncul. `Nggak pakai sambutan` dibaca pelan dan datar, tanpa menertawakan lelucon sendiri. | Sekitar 0,7 detik sebelum kalimat terakhir, setelah gerobak terlihat bergerak. |
+| 08 | Awalnya biasa. Naik sedikit pada `langsung nengok`; perlambat perbandingan `orangnya` dan `kursinya`, tetapi jangan mengeja setiap kata. | Sekitar 0,8 detik setelah `baru diperhatiin`, untuk reaksi visual. |
+| 09 | Keputusan tenang, lalu pertanyaan sungguhan kepada satu penonton. Bukan suara iklan atau teriakan CTA. | Selesai utuh; tahan gambar akhir sekitar 1 detik. |
+
+Arahan jeda merupakan perkiraan editorial, bukan timestamp audio. Jangan
+mengubah seluruh track menjadi cepat untuk mengejar durasi. Estimasi
+keseluruhan **80–100 detik**, termasuk respons, gerak dan jeda; perlu
+diukur lagi setelah rekaman. WKWKWK tetap dibaca **wekawekaweka**.
+
+### Visual pendukung, bukan percakapan tambahan
+
+1. **Pembuka:** kursi di depan warung, dua calon mendekat. Gerobak dan
+   lubangnya sudah terlihat di latar sehingga tidak muncul mendadak.
+2. **Janji dan kebutuhan:** calon menghadap beberapa warga, membelakangi
+   Bu Warung yang berusaha mengeluarkan roda. Gufron berpeci, rambut tetap
+   gondrong. Komeng baru menyadari masalah saat menaruh gelas; jangan
+   menggambarkannya sengaja menonton penderitaan sepanjang episode.
+3. **Tindakan:** Komeng dan satu warga mengangkat sisi roda, Bu Warung
+   mendorong. Gerobak benar-benar keluar lalu diparkir di depan warung.
+   Bukan jalan/lubangnya yang tiba-tiba selesai diperbaiki.
+4. **Penutup:** Bu Warung duduk untuk istirahat. Kedua calon baru menoleh
+   ketika kursinya terpakai. Tidak ada pelantikan Bu Warung atau kemenangan
+   Komeng; keputusan hari itu belum memilih, calon perlu diuji.
+
+Narator di luar layar. Lip-sync hanya pada Bahlil cue 02 dan Gufron cue 05.
+Bu Warung, Komeng, dan figuran tidak memperoleh dialog tambahan. Musik
+pendukung tidak menimpa kata; kurangi saat sindiran cue 07–08. HUD tetap
+bersih. Preview menambahkan properti dan arahan kamera, tanpa mengganti model
+atau warna kulit karakter.
+
+### Ajakan dan status produksi
+
+Satu CTA lisan: usulkan tes pertama untuk kedua calon. Usulan harus bisa
+dijadikan tindakan nyata pada episode berikutnya, bukan sekadar memilih
+siapa paling disukai. Ajakan follow ditempatkan dalam caption agar tidak
+menimpa penutup: **“Follow jadi warga Republik WKWKWK. Tes pertama buat
+dua calon ini apa?”** Sertakan penanda parodi/dialog rekaan; jika nanti
+memakai suara sintetis, sertakan penanda suara AI.
+
+Skill Script Writer dipakai untuk memusatkan cerita pada satu kebutuhan
+warga, membatasi dialog tokoh, serta memisahkan naskah bersih dari arah
+pembawaan. Pelafalan dan intonasi belum dinyatakan lolos uji audio.
+Voice ID lama tidak diganti; tidak ada sintesis, penggunaan kredit atau
+perubahan JSON audio produksi. Sinkronisasi ke rekaman V13 menunggu audio baru.
+
+---
+
+## Arsip V12 — Ditanya Kerja Apa, Kok Diam?
+
+## Revisi narator dominan — 14 November 2026
+
+**Status: draft naskah, belum audio atau implementasi game baru.**
+Runtime tetap V10. V11 di bawah menjadi arsip, termasuk pelafalan lamanya.
+
+Perubahan sesuai arahan pengguna:
+- Narator membawa cerita; Bahlil dan Gufron cukup memberi respons pendek.
+- Pelafalan terbaru Bahlil adalah **Diindaa!**, dengan tekanan pada **DIIN–DAA**,
+  bukan hanya memanjangkan suku kata terakhir.
+- Satu situasi yang mudah dikenali: melamar pekerjaan, lalu ditanya apa yang
+  akan dikerjakan. Tidak ada lagi salah paham tepuk tangan menjadi mandat.
+- 11 cue, 126 kata; 109 kata milik narator
+  (sekitar 87% berdasarkan jumlah kata, bukan durasi).
+  Hanya empat balasan tokoh: Bahlil dua dan Gufron dua.
+- Estimasi 65–80 detik dengan jeda; durasi belum terukur.
+
+### Untuk siapa dan kenapa ceritanya dipilih
+
+Asumsi editorial: penonton Indonesia di Reels/TikTok yang datang untuk
+hiburan ringan, mengenali suasana warung, dan menikmati sindiran politik
+tanpa harus mengikuti istilah hukum atau berita harian. Ini **bukan data
+demografi atau temuan analitik**; belum ada data audiens akun yang diberikan.
+
+Hubungan dengan keseharian: orang mudah memahami pelamar yang antusias,
+ditanya rencana kerja, lalu saling mempersilakan menjawab. Tidak perlu
+mengerti arti koalisi, verifikasi, atau mandat untuk mengikuti lelucon.
+Yang disindir adalah kesiapan merebut jabatan tanpa kesiapan menjawab
+pekerjaannya, bukan orang yang kesulitan mendapat pekerjaan.
+
+Narator berbicara seperti teman menceritakan kejadian. Ia memberi informasi
+yang perlu: siapa kedua tokoh, apa yang mereka inginkan, pertanyaan yang
+membuat mereka terdiam, dan hasil hari itu. Dialog tokoh tidak dibebani
+menjelaskan konsep serial sekaligus menyampaikan punchline.
+
+### Alur dan keputusan episode
+
+Lowongan wapres republik game dibuka → dua calon datang dengan percaya diri
+→ ditanya ingin mengerjakan apa → saling menyuruh menjawab → belum diterima,
+diminta kembali membawa rencana → warga mengusulkan tugas untuk menguji mereka.
+
+Keputusan hari itu jelas: **dua lamaran belum diterima, kursi disimpan**.
+Tidak ada pengangkatan tokoh secara mendadak. Pemilihan wapres tetap menjadi
+alur serial; episode ini tidak menjanjikan kursi pasti terisi di akhir.
+Kertas kosong yang dibawa pulang menjadi penghubung ke usulan penonton.
+
+### Skenario lengkap
+
+Semua adegan dan dialog merupakan rekaan parodi dalam republik game,
+bukan ucapan asli atau klaim pencalonan tokoh nyata. Arahan visual dan
+label pemeran tidak dibacakan oleh suara AI.
+
+#### 1. Lowongan yang langsung diserbu — perkiraan 10 detik
+
+Kursi baru diletakkan Bu Warung di depan warung. Bahlil segera masuk bingkai dan mengangkat tangan. Kalimat pertama narator langsung diikuti aksi, tanpa logo pembuka. Kamera memperlihatkan kursi, Bu Warung, dan Bahlil sekaligus.
+
+- **Narator:** “Day one di Republik WKWKWK. Ada lowongan wapres. Baru ditaruh kursinya, sudah ada yang mau duduk.”
+- **Bahlil:** “Diindaa! Saya siap!”
+
+#### 2. Kenali dua pelamarnya — perkiraan 18 detik
+
+Bahlil mencoba duduk sebentar dan merapikan baju sambil menunggu. Pada pengenalan Gufron, Gufron berpeci dengan rambut gondrong masuk dari sisi lain, melirik kursi dan maju menyapa warga. Ia berbicara hanya pada cue miliknya. Dua warga merespons dengan tepuk pendek; Komeng tetap minum tanpa dialog. Bu Warung meminta Bahlil berdiri dengan isyarat agar kedua calon menghadap meja kecil yang sama.
+
+- **Narator:** “Ini Bahlil. Datang paling cepat. Warga belum nanya apa-apa, dia sudah nyobain kursinya.”
+- **Narator:** “Gufron nggak mau ketinggalan. Dia pilih kenalan dulu sama warga.”
+- **Gufron:** “Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!”
+
+#### 3. Pertanyaan yang bikin keduanya diam — perkiraan 17 detik
+
+Bu Warung meletakkan dua lembar kertas kosong dan dua pensil di meja, menghadap kedua calon. Narator menyampaikan pertanyaannya; Bu Warung tidak menggerakkan mulut seperti sedang berbicara. Bahlil dan Gufron saling melihat, menatap kertas, lalu saling mempersilakan. Sisakan hening sekitar 1,5 detik sebelum kalimat narator tentang saling menyuruh. Tidak ada efek teriakan atau tawa panjang.
+
+- **Narator:** “Oke, dua calon sudah datang. Bu Warung cuma mau tahu satu hal: kalau kepilih, mau ngerjain apa dulu?”
+- **Bahlil:** “Beliau dulu.”
+- **Gufron:** “Bapak saja.”
+- **Narator:** “Lho, tadi rebutan maju. Sekarang saling nyuruh.”
+
+#### 4. Belum diterima, harus kembali dengan rencana — perkiraan 25 detik
+
+Bu Warung mengembalikan kertas kosong kepada masing-masing calon sambil menunjuk pensil, lalu memberi isyarat kembali setelah diisi. Bahlil dan Gufron menerima, bukan tiba-tiba dinyatakan kalah tanpa reaksi. Kursi utama dibawa ke dalam warung oleh Bu Warung dengan bantuan seorang figuran; Bahlil melihat kursi pergi, lalu kembali menatap kertasnya. Saat ajakan komentar, kedua calon berdiri membawa kertas: penonton tahu usulnya akan menjadi tugas mereka. Tutup pada ekspresi keduanya, bukan pidato tambahan.
+
+- **Narator:** “Hari ini, dua-duanya belum diterima. Bu Warung minta mereka balik bawa rencana kerja. Kursinya? Disimpan dulu. Biar nggak ada yang nyelonong duduk.”
+- **Narator:** “Kalau kalian yang ngetes, dua orang ini disuruh ngapain? Tulis satu tugas di komentar. Follow jadi warga Republik WKWKWK. Kita cobain usulan kalian.”
+
+### Arahan suara yang tidak boleh hilang
+
+**Bahlil — “Diindaa!”**
+- Dua suku kata: **DIIN–DAA**, keduanya diberi tekanan.
+- Vokal pada “diin” ikut dipanjangkan; bukan “din” pendek disusul “daaaa”.
+- Teks dialog dan teks speech-ready sama-sama memakai **Diindaa!**.
+- Catatan intonasi ini bukan kata yang dibacakan. Jangan kirim “tekan dua
+  suku kata” atau label emosi sebagai dialog.
+- Ejaan tidak menjamin hasil mesin sesuai. Saat produksi, dengarkan hasil
+  sebelum menerima take; jangan menandai pelafalan benar hanya karena teks benar.
+- Tetap suara Bahlil yang sudah disetujui, bukan mengganti voice ID.
+
+**Gufron:** pertahankan “Betul apa tidak?” dan “Keprok atuh!” dalam satu
+sapaan pendek. Suara kedua, “Bapak saja”, dibawa lebih kecil/canggung.
+Peci dan rambut gondrong tetap.
+
+**Narator:** pakai identitas pemandu yang sudah disetujui, tetapi menjadi
+suara di luar layar. Nada akrab, bukan pembaca berita atau MC acara resmi.
+Tekankan pertanyaan “mau ngerjain apa dulu?”, lalu beri ruang untuk dua
+balasan singkat. Tidak perlu menertawakan setiap kalimat sendiri.
+WKWKWK tetap dibaca **wekawekaweka**.
+
+### Visual dan ritme
+
+- Narasi tidak membuat mulut tokoh di layar bergerak. Lip-sync hanya pada
+  cue Bahlil atau Gufron yang sedang berbicara.
+- Jangan sekadar menampilkan kepala diam selama narasi: calon datang,
+  mencoba kursi, menyapa, menerima kertas, saling melihat, lalu membawa
+  kertas pulang. Satu tindakan yang jelas per bagian.
+- Bu Warung dan Komeng tetap karakter visual, tanpa dialog tambahan.
+  Pertanyaan Bu Warung disampaikan narator sebagai cerita, bukan suara
+  narator yang pura-pura keluar dari mulut Bu Warung.
+- Sisakan hening sekitar 1,5 detik setelah “Bapak saja”. Warga menunggu;
+  humor muncul dari rasa canggung, bukan efek suara berlebihan.
+- Figuran tetap hidup: ada yang memesan, lewat, membawa gelas, atau menoleh.
+  Jangan semua berhenti dan menatap kamera bersamaan.
+- Musik komedi lembut di bawah narasi, turun saat pertanyaan, diam pada jeda
+  canggung, masuk pelan kembali pada keputusan. Tidak perlu tawa rekaman.
+- Warna kulit karakter hasil revisi sebelumnya dipertahankan, Bahlil tetap.
+  Tidak ada perubahan model atau animasi pada giliran penulisan ini.
+
+### Interaksi yang berkaitan dengan cerita
+
+**Satu pertanyaan utama:** dua calon ini sebaiknya dites mengerjakan apa?
+Penonton boleh memberi satu tugas sehari-hari yang bisa dimainkan di game.
+Contoh pemantik untuk caption, bukan daftar yang dibacakan:
+mengatur antrean atau menanggapi keluhan warga. Jangan memasukkan semuanya
+ke episode pertama.
+
+Ajakan follow berarti bergabung sebagai warga yang memberi tugas. Jika
+diproduksi menjadi serial, pilih usulan nyata untuk dimainkan dan diakui
+pada episode selanjutnya. Tidak menjanjikan semua usulan dilaksanakan.
+Pengajuan nama calon lain boleh muncul di komentar, tetapi bukan CTA kedua
+yang membuat penonton kembali bingung.
+
+Caption usulan:
+
+> Day one Republik WKWKWK: pelamarnya sudah siap, jawabannya belum.
+> Kalau kamu yang ngetes, dua orang ini disuruh ngapain dulu?
+> Parodi dalam republik game. Dialog rekaan, suara AI.
+
+Saat publikasi sertakan penanda PARODI / DIALOG REKAAN / SUARA AI.
+HUD game tetap bersih. Tidak menambahkan tuduhan atau klaim berita baru;
+riset di arsip V10 tetap bertanggal 13 November, bukan pembaruan fakta hari ini.
+
+### Berkas dan batas pekerjaan
+
+- Sumber dialog terbaru: `public/audio/produksi/episode-002/revision-v12/dialogue-plan.json`.
+  Tab revision-v5 bukan naskah terbaru.
+- Voice ID narator, Bahlil, Gufron dipertahankan. Tidak ada panggilan sintesis,
+  kredit suara, atau perubahan runtime dalam revisi ini.
+- V12 belum mempunyai audio, timestamp, atau speech envelope. Game tetap V10.
+- V11 dan versi lama disimpan di bawah sebagai riwayat; pelafalan lama dalam
+  arsip tidak boleh dipakai untuk produksi berikutnya.
+- Pemeriksaan Script Writer dipakai untuk membatasi cerita ke satu situasi,
+  menjaga narator sebagai penghubung, dan memberi keputusan yang dipahami
+  sebelum ajakan komentar.
+
+---
+
+## Arsip V11 — Tepuk Tangan Kok Jadi Suara?
 
 ## Revisi dua pembicara — 14 November 2026
 
