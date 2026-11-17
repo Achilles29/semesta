@@ -8,3 +8,8 @@
 /node_modules/
 /n
 /n.pub
+/docs/record/production-v14-review/*.json
+/docs/record/production-v15-review/*.json
+/docs/record/production-v16-review/*.json
+/docs/record/production-v16-r3-review/[0-9]*.json
+__pycache__/

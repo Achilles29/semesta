@@ -1,0 +1,11 @@
+{
+  "version": "v16",
+  "duration_seconds": 59.364013605442175,
+  "integrated_loudness_lufs": -16.4,
+  "true_peak_dbtp": -2.3,
+  "measurement": "FFmpeg ebur128=peak=true, whole PCM master decoded",
+  "technical_checks": ["17 approved cues match submitted text and provider character timestamps", "3 original source takes retained", "source-to-cue mappings at 1x speed and pitch", "stereo stems have identical lengths and no sample clipping", "real game entry module registry and entire director timeline tested", "real V11 rigs and full-body framing tested in portrait and landscape", "still geometry previews inspected; not browser captures"],
+  "not_verified": ["Full listening review", "Pronunciation of Diindaa and intonation similarity to supplied reference", "Full browser playback and audiovisual sync review"],
+  "browser_blocker": "Browser access host is unavailable",
+  "output_kind": "WAV audio master plus live in-game cutscene, not an exported MP4"
+}

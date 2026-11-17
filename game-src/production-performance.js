@@ -74,7 +74,7 @@ export function createCastPerformance(THREE,cast){
   }
   return {
     update(npc,pose){const r=records.get(npc.id);if(!r)return;
-      const amount=pose.mouthOpen??0;r.mouth.visible=amount>.045;r.smile.visible=!r.mouth.visible;
+      const amount=pose.mouthOpen??0;r.mouth.visible=amount>.045||(pose.smile??1)<.5;r.smile.visible=!r.mouth.visible;
       r.mouth.scale.y=.003+amount*.017;
       r.head.rotation.y+=pose.headYaw??0;r.head.rotation.x+=pose.headNod??0;
     },

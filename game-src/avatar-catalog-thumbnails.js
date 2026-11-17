@@ -1,4 +1,4 @@
-import { createHumanModel } from './avatar-character-3d.js?v=avatar-model-20261109-v5';
+import { createHumanModel } from './avatar-character-3d.js';
 import { farmerCharacterOptions } from './avatar-farmer-config.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 

@@ -1,0 +1,5448 @@
+{
+  "version": "v15",
+  "duration": 67.65818594104309,
+  "sample_rate": 44100,
+  "cues": [
+    {
+      "id": "v15-1",
+      "role": "narator",
+      "text": "Day one di Republik WKWKWK. Kursi wapres kosong. Kita cari pengganti, bukan ahli waris.",
+      "display_text": "Day one di Republik WKWKWK. Kursi wapres kosong. Kita cari pengganti, bukan ahli waris.",
+      "spoken_text": "Day one di Republik wekawekaweka. Kursi wapres kosong. Kita cari pengganti, bukan ahli waris.",
+      "start": 0.0,
+      "audio_end": 6.740022675736961,
+      "end": 6.900022675736961,
+      "file": "v15-1-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -2.9561325836810353,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 5997,
+          "source_end_frame": 303232,
+          "cue_start_frame": 0,
+          "cue_end_frame": 297235
+        }
+      ],
+      "characters": [
+        {
+          "text": "D",
+          "start_time": 0.12001360544217687,
+          "end_time": 0.16301360544217686
+        },
+        {
+          "text": "a",
+          "start_time": 0.16301360544217686,
+          "end_time": 0.24801360544217688
+        },
+        {
+          "text": "y",
+          "start_time": 0.24801360544217688,
+          "end_time": 0.33301360544217684
+        },
+        {
+          "text": " ",
+          "start_time": 0.33301360544217684,
+          "end_time": 0.4190136054421769
+        },
+        {
+          "text": "o",
+          "start_time": 0.4190136054421769,
+          "end_time": 0.47601360544217686
+        },
+        {
+          "text": "n",
+          "start_time": 0.47601360544217686,
+          "end_time": 0.5320136054421769
+        },
+        {
+          "text": "e",
+          "start_time": 0.5320136054421769,
+          "end_time": 0.5890136054421768
+        },
+        {
+          "text": " ",
+          "start_time": 0.5890136054421768,
+          "end_time": 0.8030136054421768
+        },
+        {
+          "text": "d",
+          "start_time": 0.8030136054421768,
+          "end_time": 0.8450136054421769
+        },
+        {
+          "text": "i",
+          "start_time": 0.8450136054421769,
+          "end_time": 0.8880136054421769
+        },
+        {
+          "text": " ",
+          "start_time": 0.8880136054421769,
+          "end_time": 0.9310136054421768
+        },
+        {
+          "text": "R",
+          "start_time": 0.9310136054421768,
+          "end_time": 0.9730136054421769
+        },
+        {
+          "text": "e",
+          "start_time": 0.9730136054421769,
+          "end_time": 1.016013605442177
+        },
+        {
+          "text": "p",
+          "start_time": 1.016013605442177,
+          "end_time": 1.059013605442177
+        },
+        {
+          "text": "u",
+          "start_time": 1.059013605442177,
+          "end_time": 1.1230136054421767
+        },
+        {
+          "text": "b",
+          "start_time": 1.1230136054421767,
+          "end_time": 1.1870136054421767
+        },
+        {
+          "text": "l",
+          "start_time": 1.1870136054421767,
+          "end_time": 1.2510136054421768
+        },
+        {
+          "text": "i",
+          "start_time": 1.2510136054421768,
+          "end_time": 1.3150136054421768
+        },
+        {
+          "text": "k",
+          "start_time": 1.3150136054421768,
+          "end_time": 1.357013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 1.357013605442177,
+          "end_time": 1.4000136054421768
+        },
+        {
+          "text": "w",
+          "start_time": 1.4000136054421768,
+          "end_time": 1.4640136054421768
+        },
+        {
+          "text": "e",
+          "start_time": 1.4640136054421768,
+          "end_time": 1.528013605442177
+        },
+        {
+          "text": "k",
+          "start_time": 1.528013605442177,
+          "end_time": 1.571013605442177
+        },
+        {
+          "text": "a",
+          "start_time": 1.571013605442177,
+          "end_time": 1.6130136054421769
+        },
+        {
+          "text": "w",
+          "start_time": 1.6130136054421769,
+          "end_time": 1.656013605442177
+        },
+        {
+          "text": "e",
+          "start_time": 1.656013605442177,
+          "end_time": 1.6990136054421767
+        },
+        {
+          "text": "k",
+          "start_time": 1.6990136054421767,
+          "end_time": 1.7840136054421767
+        },
+        {
+          "text": "a",
+          "start_time": 1.7840136054421767,
+          "end_time": 1.8270136054421768
+        },
+        {
+          "text": "w",
+          "start_time": 1.8270136054421768,
+          "end_time": 1.8690136054421767
+        },
+        {
+          "text": "e",
+          "start_time": 1.8690136054421767,
+          "end_time": 1.9120136054421768
+        },
+        {
+          "text": "k",
+          "start_time": 1.9120136054421768,
+          "end_time": 1.9970136054421768
+        },
+        {
+          "text": "a",
+          "start_time": 1.9970136054421768,
+          "end_time": 2.0830136054421766
+        },
+        {
+          "text": ".",
+          "start_time": 2.0830136054421766,
+          "end_time": 2.4450136054421767
+        },
+        {
+          "text": " ",
+          "start_time": 2.4450136054421767,
+          "end_time": 2.8080136054421767
+        },
+        {
+          "text": "K",
+          "start_time": 2.8080136054421767,
+          "end_time": 2.851013605442177
+        },
+        {
+          "text": "u",
+          "start_time": 2.851013605442177,
+          "end_time": 2.915013605442177
+        },
+        {
+          "text": "r",
+          "start_time": 2.915013605442177,
+          "end_time": 2.979013605442177
+        },
+        {
+          "text": "s",
+          "start_time": 2.979013605442177,
+          "end_time": 3.064013605442177
+        },
+        {
+          "text": "i",
+          "start_time": 3.064013605442177,
+          "end_time": 3.149013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 3.149013605442177,
+          "end_time": 3.1920136054421766
+        },
+        {
+          "text": "w",
+          "start_time": 3.1920136054421766,
+          "end_time": 3.2350136054421768
+        },
+        {
+          "text": "a",
+          "start_time": 3.2350136054421768,
+          "end_time": 3.2770136054421766
+        },
+        {
+          "text": "p",
+          "start_time": 3.2770136054421766,
+          "end_time": 3.3200136054421767
+        },
+        {
+          "text": "r",
+          "start_time": 3.3200136054421767,
+          "end_time": 3.3770136054421767
+        },
+        {
+          "text": "e",
+          "start_time": 3.3770136054421767,
+          "end_time": 3.4340136054421766
+        },
+        {
+          "text": "s",
+          "start_time": 3.4340136054421766,
+          "end_time": 3.490713605442177
+        },
+        {
+          "text": " ",
+          "start_time": 3.4910136054421765,
+          "end_time": 3.533013605442177
+        },
+        {
+          "text": "k",
+          "start_time": 3.533013605442177,
+          "end_time": 3.576013605442177
+        },
+        {
+          "text": "o",
+          "start_time": 3.576013605442177,
+          "end_time": 3.6190136054421767
+        },
+        {
+          "text": "s",
+          "start_time": 3.6190136054421767,
+          "end_time": 3.661013605442177
+        },
+        {
+          "text": "o",
+          "start_time": 3.661013605442177,
+          "end_time": 3.718013605442177
+        },
+        {
+          "text": "n",
+          "start_time": 3.718013605442177,
+          "end_time": 3.775013605442177
+        },
+        {
+          "text": "g",
+          "start_time": 3.775013605442177,
+          "end_time": 3.8320136054421767
+        },
+        {
+          "text": ".",
+          "start_time": 3.8320136054421767,
+          "end_time": 4.1520136054421775
+        },
+        {
+          "text": " ",
+          "start_time": 4.1520136054421775,
+          "end_time": 4.472013605442177
+        },
+        {
+          "text": "K",
+          "start_time": 4.472013605442177,
+          "end_time": 4.515013605442177
+        },
+        {
+          "text": "i",
+          "start_time": 4.515013605442177,
+          "end_time": 4.557013605442177
+        },
+        {
+          "text": "t",
+          "start_time": 4.557013605442177,
+          "end_time": 4.600013605442177
+        },
+        {
+          "text": "a",
+          "start_time": 4.600013605442177,
+          "end_time": 4.685013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 4.685013605442177,
+          "end_time": 4.728013605442177
+        },
+        {
+          "text": "c",
+          "start_time": 4.728013605442177,
+          "end_time": 4.7560136054421775
+        },
+        {
+          "text": "a",
+          "start_time": 4.7560136054421775,
+          "end_time": 4.7850136054421775
+        },
+        {
+          "text": "r",
+          "start_time": 4.7850136054421775,
+          "end_time": 4.813013605442177
+        },
+        {
+          "text": "i",
+          "start_time": 4.813013605442177,
+          "end_time": 4.856013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 4.856013605442177,
+          "end_time": 4.899013605442177
+        },
+        {
+          "text": "p",
+          "start_time": 4.899013605442177,
+          "end_time": 4.941013605442177
+        },
+        {
+          "text": "e",
+          "start_time": 4.941013605442177,
+          "end_time": 4.970013605442177
+        },
+        {
+          "text": "n",
+          "start_time": 4.970013605442177,
+          "end_time": 4.9980136054421775
+        },
+        {
+          "text": "g",
+          "start_time": 4.9980136054421775,
+          "end_time": 5.0270136054421775
+        },
+        {
+          "text": "g",
+          "start_time": 5.0270136054421775,
+          "end_time": 5.084013605442177
+        },
+        {
+          "text": "a",
+          "start_time": 5.084013605442177,
+          "end_time": 5.140013605442177
+        },
+        {
+          "text": "n",
+          "start_time": 5.140013605442177,
+          "end_time": 5.197013605442177
+        },
+        {
+          "text": "t",
+          "start_time": 5.197013605442177,
+          "end_time": 5.283013605442177
+        },
+        {
+          "text": "i",
+          "start_time": 5.283013605442177,
+          "end_time": 5.368013605442177
+        },
+        {
+          "text": ",",
+          "start_time": 5.368013605442177,
+          "end_time": 5.496013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 5.496013605442177,
+          "end_time": 5.624013605442177
+        },
+        {
+          "text": "b",
+          "start_time": 5.624013605442177,
+          "end_time": 5.667013605442177
+        },
+        {
+          "text": "u",
+          "start_time": 5.667013605442177,
+          "end_time": 5.709013605442177
+        },
+        {
+          "text": "k",
+          "start_time": 5.709013605442177,
+          "end_time": 5.752013605442177
+        },
+        {
+          "text": "a",
+          "start_time": 5.752013605442177,
+          "end_time": 5.816013605442177
+        },
+        {
+          "text": "n",
+          "start_time": 5.816013605442177,
+          "end_time": 5.880013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 5.880013605442177,
+          "end_time": 5.923013605442177
+        },
+        {
+          "text": "a",
+          "start_time": 5.923013605442177,
+          "end_time": 5.965013605442177
+        },
+        {
+          "text": "h",
+          "start_time": 5.965013605442177,
+          "end_time": 6.008013605442177
+        },
+        {
+          "text": "l",
+          "start_time": 6.008013605442177,
+          "end_time": 6.0510136054421775
+        },
+        {
+          "text": "i",
+          "start_time": 6.0510136054421775,
+          "end_time": 6.093013605442177
+        },
+        {
+          "text": " ",
+          "start_time": 6.093013605442177,
+          "end_time": 6.136013605442177
+        },
+        {
+          "text": "w",
+          "start_time": 6.136013605442177,
+          "end_time": 6.179013605442178
+        },
+        {
+          "text": "a",
+          "start_time": 6.179013605442178,
+          "end_time": 6.221013605442177
+        },
+        {
+          "text": "r",
+          "start_time": 6.221013605442177,
+          "end_time": 6.264013605442178
+        },
+        {
+          "text": "i",
+          "start_time": 6.264013605442178,
+          "end_time": 6.328013605442178
+        },
+        {
+          "text": "s",
+          "start_time": 6.328013605442178,
+          "end_time": 6.392013605442177
+        },
+        {
+          "text": ".",
+          "start_time": 6.392013605442177,
+          "end_time": 6.620013605442177
+        }
+      ]
+    },
+    {
+      "id": "v15-2",
+      "role": "bahlil",
+      "text": "Diindaa! Saya siap!",
+      "display_text": "Diindaa! Saya siap!",
+      "spoken_text": "Diindaa! Saya siap!",
+      "start": 6.900022675736961,
+      "audio_end": 8.605555555555556,
+      "end": 8.765555555555556,
+      "file": "v15-2-bahlil.wav",
+      "voice_id": "233c3b208dff40e5b758c445086e1f57",
+      "source_file": "generated-v13/bahlil.source.pcm",
+      "gain_db": -3.9971100990023354,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 9746,
+          "source_end_frame": 84960,
+          "cue_start_frame": 0,
+          "cue_end_frame": 75214
+        }
+      ],
+      "characters": [
+        {
+          "text": "D",
+          "start_time": 7.020024943310657,
+          "end_time": 7.0630249433106576
+        },
+        {
+          "text": "i",
+          "start_time": 7.0630249433106576,
+          "end_time": 7.1480249433106575
+        },
+        {
+          "text": "i",
+          "start_time": 7.1480249433106575,
+          "end_time": 7.191024943310658
+        },
+        {
+          "text": "n",
+          "start_time": 7.191024943310658,
+          "end_time": 7.234024943310657
+        },
+        {
+          "text": "d",
+          "start_time": 7.234024943310657,
+          "end_time": 7.276024943310657
+        },
+        {
+          "text": "a",
+          "start_time": 7.276024943310657,
+          "end_time": 7.447024943310657
+        },
+        {
+          "text": "a",
+          "start_time": 7.447024943310657,
+          "end_time": 7.532024943310657
+        },
+        {
+          "text": "!",
+          "start_time": 7.532024943310657,
+          "end_time": 7.682024943310657
+        },
+        {
+          "text": " ",
+          "start_time": 7.682024943310657,
+          "end_time": 7.8310249433106565
+        },
+        {
+          "text": "S",
+          "start_time": 7.8310249433106565,
+          "end_time": 7.916024943310657
+        },
+        {
+          "text": "a",
+          "start_time": 7.916024943310657,
+          "end_time": 7.980024943310657
+        },
+        {
+          "text": "y",
+          "start_time": 7.980024943310657,
+          "end_time": 8.044024943310658
+        },
+        {
+          "text": "a",
+          "start_time": 8.044024943310658,
+          "end_time": 8.087024943310658
+        },
+        {
+          "text": " ",
+          "start_time": 8.087024943310658,
+          "end_time": 8.130024943310659
+        },
+        {
+          "text": "s",
+          "start_time": 8.130024943310659,
+          "end_time": 8.194024943310659
+        },
+        {
+          "text": "i",
+          "start_time": 8.194024943310659,
+          "end_time": 8.258024943310659
+        },
+        {
+          "text": "a",
+          "start_time": 8.258024943310659,
+          "end_time": 8.322024943310659
+        },
+        {
+          "text": "p",
+          "start_time": 8.322024943310659,
+          "end_time": 8.386024943310659
+        },
+        {
+          "text": "!",
+          "start_time": 8.386024943310659,
+          "end_time": 8.605555555555556
+        }
+      ]
+    },
+    {
+      "id": "v15-3",
+      "role": "narator",
+      "text": "Bahlil sudah siap duduk. Kerjaannya belum dibahas.",
+      "display_text": "Bahlil sudah siap duduk. Kerjaannya belum dibahas.",
+      "spoken_text": "Bahlil sudah siap duduk. Kerjaannya belum dibahas.",
+      "start": 8.765555555555556,
+      "audio_end": 11.977573696145125,
+      "end": 12.137573696145125,
+      "file": "v15-3-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -2.996639115179799,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 312713,
+          "source_end_frame": 454363,
+          "cue_start_frame": 0,
+          "cue_end_frame": 141650
+        }
+      ],
+      "characters": [
+        {
+          "text": "B",
+          "start_time": 8.885557823129252,
+          "end_time": 8.970557823129253
+        },
+        {
+          "text": "a",
+          "start_time": 8.970557823129253,
+          "end_time": 9.034557823129253
+        },
+        {
+          "text": "h",
+          "start_time": 9.034557823129253,
+          "end_time": 9.098557823129253
+        },
+        {
+          "text": "l",
+          "start_time": 9.098557823129253,
+          "end_time": 9.162557823129253
+        },
+        {
+          "text": "i",
+          "start_time": 9.162557823129253,
+          "end_time": 9.226557823129253
+        },
+        {
+          "text": "l",
+          "start_time": 9.226557823129253,
+          "end_time": 9.26925782312925
+        },
+        {
+          "text": " ",
+          "start_time": 9.269557823129253,
+          "end_time": 9.354557823129253
+        },
+        {
+          "text": "s",
+          "start_time": 9.354557823129253,
+          "end_time": 9.418557823129253
+        },
+        {
+          "text": "u",
+          "start_time": 9.418557823129253,
+          "end_time": 9.482557823129254
+        },
+        {
+          "text": "d",
+          "start_time": 9.482557823129254,
+          "end_time": 9.525557823129253
+        },
+        {
+          "text": "a",
+          "start_time": 9.525557823129253,
+          "end_time": 9.546557823129254
+        },
+        {
+          "text": "h",
+          "start_time": 9.546557823129254,
+          "end_time": 9.56755782312925
+        },
+        {
+          "text": " ",
+          "start_time": 9.56755782312925,
+          "end_time": 9.610557823129254
+        },
+        {
+          "text": "s",
+          "start_time": 9.610557823129254,
+          "end_time": 9.653557823129253
+        },
+        {
+          "text": "i",
+          "start_time": 9.653557823129253,
+          "end_time": 9.695557823129255
+        },
+        {
+          "text": "a",
+          "start_time": 9.695557823129255,
+          "end_time": 9.738557823129254
+        },
+        {
+          "text": "p",
+          "start_time": 9.738557823129254,
+          "end_time": 9.78125782312925
+        },
+        {
+          "text": " ",
+          "start_time": 9.781557823129253,
+          "end_time": 9.866557823129254
+        },
+        {
+          "text": "d",
+          "start_time": 9.866557823129254,
+          "end_time": 9.909557823129253
+        },
+        {
+          "text": "u",
+          "start_time": 9.909557823129253,
+          "end_time": 9.951557823129251
+        },
+        {
+          "text": "d",
+          "start_time": 9.951557823129251,
+          "end_time": 10.015557823129251
+        },
+        {
+          "text": "u",
+          "start_time": 10.015557823129251,
+          "end_time": 10.079557823129251
+        },
+        {
+          "text": "k",
+          "start_time": 10.079557823129251,
+          "end_time": 10.122557823129254
+        },
+        {
+          "text": ".",
+          "start_time": 10.122557823129254,
+          "end_time": 10.357557823129254
+        },
+        {
+          "text": " ",
+          "start_time": 10.357557823129254,
+          "end_time": 10.591557823129252
+        },
+        {
+          "text": "K",
+          "start_time": 10.591557823129252,
+          "end_time": 10.634557823129255
+        },
+        {
+          "text": "e",
+          "start_time": 10.634557823129255,
+          "end_time": 10.677557823129254
+        },
+        {
+          "text": "r",
+          "start_time": 10.677557823129254,
+          "end_time": 10.719557823129252
+        },
+        {
+          "text": "j",
+          "start_time": 10.719557823129252,
+          "end_time": 10.762557823129251
+        },
+        {
+          "text": "a",
+          "start_time": 10.762557823129251,
+          "end_time": 10.890557823129251
+        },
+        {
+          "text": "a",
+          "start_time": 10.890557823129251,
+          "end_time": 10.933557823129254
+        },
+        {
+          "text": "n",
+          "start_time": 10.933557823129254,
+          "end_time": 10.975557823129252
+        },
+        {
+          "text": "n",
+          "start_time": 10.975557823129252,
+          "end_time": 10.997557823129254
+        },
+        {
+          "text": "y",
+          "start_time": 10.997557823129254,
+          "end_time": 11.018557823129251
+        },
+        {
+          "text": "a",
+          "start_time": 11.018557823129251,
+          "end_time": 11.103557823129252
+        },
+        {
+          "text": " ",
+          "start_time": 11.103557823129252,
+          "end_time": 11.146557823129251
+        },
+        {
+          "text": "b",
+          "start_time": 11.146557823129251,
+          "end_time": 11.174557823129254
+        },
+        {
+          "text": "e",
+          "start_time": 11.174557823129254,
+          "end_time": 11.20355782312925
+        },
+        {
+          "text": "l",
+          "start_time": 11.20355782312925,
+          "end_time": 11.231557823129252
+        },
+        {
+          "text": "u",
+          "start_time": 11.231557823129252,
+          "end_time": 11.253557823129254
+        },
+        {
+          "text": "m",
+          "start_time": 11.253557823129254,
+          "end_time": 11.274557823129252
+        },
+        {
+          "text": " ",
+          "start_time": 11.274557823129252,
+          "end_time": 11.317557823129254
+        },
+        {
+          "text": "d",
+          "start_time": 11.317557823129254,
+          "end_time": 11.359557823129252
+        },
+        {
+          "text": "i",
+          "start_time": 11.359557823129252,
+          "end_time": 11.402557823129252
+        },
+        {
+          "text": "b",
+          "start_time": 11.402557823129252,
+          "end_time": 11.445557823129255
+        },
+        {
+          "text": "a",
+          "start_time": 11.445557823129255,
+          "end_time": 11.487557823129253
+        },
+        {
+          "text": "h",
+          "start_time": 11.487557823129253,
+          "end_time": 11.530557823129252
+        },
+        {
+          "text": "a",
+          "start_time": 11.530557823129252,
+          "end_time": 11.615557823129253
+        },
+        {
+          "text": "s",
+          "start_time": 11.615557823129253,
+          "end_time": 11.701557823129251
+        },
+        {
+          "text": ".",
+          "start_time": 11.701557823129251,
+          "end_time": 11.857557823129254
+        }
+      ]
+    },
+    {
+      "id": "v15-4",
+      "role": "narator",
+      "text": "Sebelahnya bawa foto keluarga. Yang ditanya pengalaman, yang ditunjukin bapaknya. Syaratnya belum cocok? Malah syaratnya yang diganti.",
+      "display_text": "Sebelahnya bawa foto keluarga. Yang ditanya pengalaman, yang ditunjukin bapaknya. Syaratnya belum cocok? Malah syaratnya yang diganti.",
+      "spoken_text": "Sebelahnya bawa foto keluarga. Yang ditanya pengalaman, yang ditunjukin bapaknya. Syaratnya belum cocok? Malah syaratnya yang diganti.",
+      "start": 12.137573696145125,
+      "audio_end": 20.480589569160998,
+      "end": 20.640589569160998,
+      "file": "v15-4-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -3.680599636826128,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 457581,
+          "source_end_frame": 825508,
+          "cue_start_frame": 0,
+          "cue_end_frame": 367927
+        }
+      ],
+      "characters": [
+        {
+          "text": "S",
+          "start_time": 12.257587301587304,
+          "end_time": 12.321587301587304
+        },
+        {
+          "text": "e",
+          "start_time": 12.321587301587304,
+          "end_time": 12.385587301587304
+        },
+        {
+          "text": "b",
+          "start_time": 12.385587301587304,
+          "end_time": 12.413587301587302
+        },
+        {
+          "text": "e",
+          "start_time": 12.413587301587302,
+          "end_time": 12.442587301587299
+        },
+        {
+          "text": "l",
+          "start_time": 12.442587301587299,
+          "end_time": 12.470587301587301
+        },
+        {
+          "text": "a",
+          "start_time": 12.470587301587301,
+          "end_time": 12.534587301587301
+        },
+        {
+          "text": "h",
+          "start_time": 12.534587301587301,
+          "end_time": 12.598587301587301
+        },
+        {
+          "text": "n",
+          "start_time": 12.598587301587301,
+          "end_time": 12.620587301587303
+        },
+        {
+          "text": "y",
+          "start_time": 12.620587301587303,
+          "end_time": 12.641587301587304
+        },
+        {
+          "text": "a",
+          "start_time": 12.641587301587304,
+          "end_time": 12.726587301587301
+        },
+        {
+          "text": " ",
+          "start_time": 12.726587301587301,
+          "end_time": 12.7695873015873
+        },
+        {
+          "text": "b",
+          "start_time": 12.7695873015873,
+          "end_time": 12.812587301587303
+        },
+        {
+          "text": "a",
+          "start_time": 12.812587301587303,
+          "end_time": 12.854587301587301
+        },
+        {
+          "text": "w",
+          "start_time": 12.854587301587301,
+          "end_time": 12.876587301587303
+        },
+        {
+          "text": "a",
+          "start_time": 12.876587301587303,
+          "end_time": 12.8975873015873
+        },
+        {
+          "text": " ",
+          "start_time": 12.8975873015873,
+          "end_time": 12.940587301587303
+        },
+        {
+          "text": "f",
+          "start_time": 12.940587301587303,
+          "end_time": 13.004587301587303
+        },
+        {
+          "text": "o",
+          "start_time": 13.004587301587303,
+          "end_time": 13.068587301587304
+        },
+        {
+          "text": "t",
+          "start_time": 13.068587301587304,
+          "end_time": 13.132587301587304
+        },
+        {
+          "text": "o",
+          "start_time": 13.132587301587304,
+          "end_time": 13.1962873015873
+        },
+        {
+          "text": " ",
+          "start_time": 13.196587301587304,
+          "end_time": 13.196587301587304
+        },
+        {
+          "text": "k",
+          "start_time": 13.196587301587304,
+          "end_time": 13.238587301587302
+        },
+        {
+          "text": "e",
+          "start_time": 13.238587301587302,
+          "end_time": 13.281587301587301
+        },
+        {
+          "text": "l",
+          "start_time": 13.281587301587301,
+          "end_time": 13.324587301587304
+        },
+        {
+          "text": "u",
+          "start_time": 13.324587301587304,
+          "end_time": 13.366587301587302
+        },
+        {
+          "text": "a",
+          "start_time": 13.366587301587302,
+          "end_time": 13.409587301587301
+        },
+        {
+          "text": "r",
+          "start_time": 13.409587301587301,
+          "end_time": 13.452587301587304
+        },
+        {
+          "text": "g",
+          "start_time": 13.452587301587304,
+          "end_time": 13.537587301587301
+        },
+        {
+          "text": "a",
+          "start_time": 13.537587301587301,
+          "end_time": 13.622587301587302
+        },
+        {
+          "text": ".",
+          "start_time": 13.622587301587302,
+          "end_time": 13.791587301587303
+        },
+        {
+          "text": " ",
+          "start_time": 13.791587301587303,
+          "end_time": 13.9605873015873
+        },
+        {
+          "text": "Y",
+          "start_time": 13.9605873015873,
+          "end_time": 14.0455873015873
+        },
+        {
+          "text": "a",
+          "start_time": 14.0455873015873,
+          "end_time": 14.074587301587304
+        },
+        {
+          "text": "n",
+          "start_time": 14.074587301587304,
+          "end_time": 14.102587301587302
+        },
+        {
+          "text": "g",
+          "start_time": 14.102587301587302,
+          "end_time": 14.1311873015873
+        },
+        {
+          "text": " ",
+          "start_time": 14.131587301587299,
+          "end_time": 14.1735873015873
+        },
+        {
+          "text": "d",
+          "start_time": 14.1735873015873,
+          "end_time": 14.2165873015873
+        },
+        {
+          "text": "i",
+          "start_time": 14.2165873015873,
+          "end_time": 14.2375873015873
+        },
+        {
+          "text": "t",
+          "start_time": 14.2375873015873,
+          "end_time": 14.259587301587299
+        },
+        {
+          "text": "a",
+          "start_time": 14.259587301587299,
+          "end_time": 14.3015873015873
+        },
+        {
+          "text": "n",
+          "start_time": 14.3015873015873,
+          "end_time": 14.3445873015873
+        },
+        {
+          "text": "y",
+          "start_time": 14.3445873015873,
+          "end_time": 14.387587301587299
+        },
+        {
+          "text": "a",
+          "start_time": 14.387587301587299,
+          "end_time": 14.4725873015873
+        },
+        {
+          "text": " ",
+          "start_time": 14.4725873015873,
+          "end_time": 14.5155873015873
+        },
+        {
+          "text": "p",
+          "start_time": 14.5155873015873,
+          "end_time": 14.5575873015873
+        },
+        {
+          "text": "e",
+          "start_time": 14.5575873015873,
+          "end_time": 14.571587301587304
+        },
+        {
+          "text": "n",
+          "start_time": 14.571587301587304,
+          "end_time": 14.5865873015873
+        },
+        {
+          "text": "g",
+          "start_time": 14.5865873015873,
+          "end_time": 14.6005873015873
+        },
+        {
+          "text": "a",
+          "start_time": 14.6005873015873,
+          "end_time": 14.6435873015873
+        },
+        {
+          "text": "l",
+          "start_time": 14.6435873015873,
+          "end_time": 14.6855873015873
+        },
+        {
+          "text": "a",
+          "start_time": 14.6855873015873,
+          "end_time": 14.7715873015873
+        },
+        {
+          "text": "m",
+          "start_time": 14.7715873015873,
+          "end_time": 14.8565873015873
+        },
+        {
+          "text": "a",
+          "start_time": 14.8565873015873,
+          "end_time": 14.9635873015873
+        },
+        {
+          "text": "n",
+          "start_time": 14.9635873015873,
+          "end_time": 15.069587301587301
+        },
+        {
+          "text": ",",
+          "start_time": 15.069587301587301,
+          "end_time": 15.3475873015873
+        },
+        {
+          "text": " ",
+          "start_time": 15.3475873015873,
+          "end_time": 15.624587301587301
+        },
+        {
+          "text": "y",
+          "start_time": 15.624587301587301,
+          "end_time": 15.6675873015873
+        },
+        {
+          "text": "a",
+          "start_time": 15.6675873015873,
+          "end_time": 15.681587301587303
+        },
+        {
+          "text": "n",
+          "start_time": 15.681587301587303,
+          "end_time": 15.695587301587299
+        },
+        {
+          "text": "g",
+          "start_time": 15.695587301587299,
+          "end_time": 15.709587301587302
+        },
+        {
+          "text": " ",
+          "start_time": 15.709587301587302,
+          "end_time": 15.752587301587301
+        },
+        {
+          "text": "d",
+          "start_time": 15.752587301587301,
+          "end_time": 15.7955873015873
+        },
+        {
+          "text": "i",
+          "start_time": 15.7955873015873,
+          "end_time": 15.837587301587302
+        },
+        {
+          "text": "t",
+          "start_time": 15.837587301587302,
+          "end_time": 15.880587301587301
+        },
+        {
+          "text": "u",
+          "start_time": 15.880587301587301,
+          "end_time": 15.944587301587301
+        },
+        {
+          "text": "n",
+          "start_time": 15.944587301587301,
+          "end_time": 16.0085873015873
+        },
+        {
+          "text": "j",
+          "start_time": 16.0085873015873,
+          "end_time": 16.0515873015873
+        },
+        {
+          "text": "u",
+          "start_time": 16.0515873015873,
+          "end_time": 16.093587301587302
+        },
+        {
+          "text": "k",
+          "start_time": 16.093587301587302,
+          "end_time": 16.1365873015873
+        },
+        {
+          "text": "i",
+          "start_time": 16.1365873015873,
+          "end_time": 16.1795873015873
+        },
+        {
+          "text": "n",
+          "start_time": 16.1795873015873,
+          "end_time": 16.221587301587302
+        },
+        {
+          "text": " ",
+          "start_time": 16.221587301587302,
+          "end_time": 16.2645873015873
+        },
+        {
+          "text": "b",
+          "start_time": 16.2645873015873,
+          "end_time": 16.3075873015873
+        },
+        {
+          "text": "a",
+          "start_time": 16.3075873015873,
+          "end_time": 16.349587301587302
+        },
+        {
+          "text": "p",
+          "start_time": 16.349587301587302,
+          "end_time": 16.3925873015873
+        },
+        {
+          "text": "a",
+          "start_time": 16.3925873015873,
+          "end_time": 16.477587301587302
+        },
+        {
+          "text": "k",
+          "start_time": 16.477587301587302,
+          "end_time": 16.5635873015873
+        },
+        {
+          "text": "n",
+          "start_time": 16.5635873015873,
+          "end_time": 16.5845873015873
+        },
+        {
+          "text": "y",
+          "start_time": 16.5845873015873,
+          "end_time": 16.605587301587303
+        },
+        {
+          "text": "a",
+          "start_time": 16.605587301587303,
+          "end_time": 16.733587301587303
+        },
+        {
+          "text": ".",
+          "start_time": 16.733587301587303,
+          "end_time": 17.0755873015873
+        },
+        {
+          "text": " ",
+          "start_time": 17.0755873015873,
+          "end_time": 17.416587301587303
+        },
+        {
+          "text": "S",
+          "start_time": 17.416587301587303,
+          "end_time": 17.4595873015873
+        },
+        {
+          "text": "y",
+          "start_time": 17.4595873015873,
+          "end_time": 17.544587301587303
+        },
+        {
+          "text": "a",
+          "start_time": 17.544587301587303,
+          "end_time": 17.565587301587303
+        },
+        {
+          "text": "r",
+          "start_time": 17.565587301587303,
+          "end_time": 17.587587301587302
+        },
+        {
+          "text": "a",
+          "start_time": 17.587587301587302,
+          "end_time": 17.629587301587303
+        },
+        {
+          "text": "t",
+          "start_time": 17.629587301587303,
+          "end_time": 17.672587301587303
+        },
+        {
+          "text": "n",
+          "start_time": 17.672587301587303,
+          "end_time": 17.693587301587304
+        },
+        {
+          "text": "y",
+          "start_time": 17.693587301587304,
+          "end_time": 17.715587301587302
+        },
+        {
+          "text": "a",
+          "start_time": 17.715587301587302,
+          "end_time": 17.757587301587304
+        },
+        {
+          "text": " ",
+          "start_time": 17.757587301587304,
+          "end_time": 17.800587301587303
+        },
+        {
+          "text": "b",
+          "start_time": 17.800587301587303,
+          "end_time": 17.8285873015873
+        },
+        {
+          "text": "e",
+          "start_time": 17.8285873015873,
+          "end_time": 17.8575873015873
+        },
+        {
+          "text": "l",
+          "start_time": 17.8575873015873,
+          "end_time": 17.8855873015873
+        },
+        {
+          "text": "u",
+          "start_time": 17.8855873015873,
+          "end_time": 17.907587301587302
+        },
+        {
+          "text": "m",
+          "start_time": 17.907587301587302,
+          "end_time": 17.928587301587303
+        },
+        {
+          "text": " ",
+          "start_time": 17.928587301587303,
+          "end_time": 17.971587301587302
+        },
+        {
+          "text": "c",
+          "start_time": 17.971587301587302,
+          "end_time": 18.035587301587302
+        },
+        {
+          "text": "o",
+          "start_time": 18.035587301587302,
+          "end_time": 18.099587301587302
+        },
+        {
+          "text": "c",
+          "start_time": 18.099587301587302,
+          "end_time": 18.163587301587302
+        },
+        {
+          "text": "o",
+          "start_time": 18.163587301587302,
+          "end_time": 18.227587301587302
+        },
+        {
+          "text": "k",
+          "start_time": 18.227587301587302,
+          "end_time": 18.3125873015873
+        },
+        {
+          "text": "?",
+          "start_time": 18.3125873015873,
+          "end_time": 18.739587301587303
+        },
+        {
+          "text": " ",
+          "start_time": 18.739587301587303,
+          "end_time": 19.1655873015873
+        },
+        {
+          "text": "M",
+          "start_time": 19.1655873015873,
+          "end_time": 19.2085873015873
+        },
+        {
+          "text": "a",
+          "start_time": 19.2085873015873,
+          "end_time": 19.2515873015873
+        },
+        {
+          "text": "l",
+          "start_time": 19.2515873015873,
+          "end_time": 19.2935873015873
+        },
+        {
+          "text": "a",
+          "start_time": 19.2935873015873,
+          "end_time": 19.3365873015873
+        },
+        {
+          "text": "h",
+          "start_time": 19.3365873015873,
+          "end_time": 19.3791873015873
+        },
+        {
+          "text": " ",
+          "start_time": 19.3795873015873,
+          "end_time": 19.4215873015873
+        },
+        {
+          "text": "s",
+          "start_time": 19.4215873015873,
+          "end_time": 19.4645873015873
+        },
+        {
+          "text": "y",
+          "start_time": 19.4645873015873,
+          "end_time": 19.5075873015873
+        },
+        {
+          "text": "a",
+          "start_time": 19.5075873015873,
+          "end_time": 19.5285873015873
+        },
+        {
+          "text": "r",
+          "start_time": 19.5285873015873,
+          "end_time": 19.5495873015873
+        },
+        {
+          "text": "a",
+          "start_time": 19.5495873015873,
+          "end_time": 19.6135873015873
+        },
+        {
+          "text": "t",
+          "start_time": 19.6135873015873,
+          "end_time": 19.6775873015873
+        },
+        {
+          "text": "n",
+          "start_time": 19.6775873015873,
+          "end_time": 19.7205873015873
+        },
+        {
+          "text": "y",
+          "start_time": 19.7205873015873,
+          "end_time": 19.7635873015873
+        },
+        {
+          "text": "a",
+          "start_time": 19.7635873015873,
+          "end_time": 19.805587301587302
+        },
+        {
+          "text": " ",
+          "start_time": 19.805587301587302,
+          "end_time": 19.8485873015873
+        },
+        {
+          "text": "y",
+          "start_time": 19.8485873015873,
+          "end_time": 19.8915873015873
+        },
+        {
+          "text": "a",
+          "start_time": 19.8915873015873,
+          "end_time": 19.9055873015873
+        },
+        {
+          "text": "n",
+          "start_time": 19.9055873015873,
+          "end_time": 19.919587301587303
+        },
+        {
+          "text": "g",
+          "start_time": 19.919587301587303,
+          "end_time": 19.933587301587302
+        },
+        {
+          "text": " ",
+          "start_time": 19.933587301587302,
+          "end_time": 19.9765873015873
+        },
+        {
+          "text": "d",
+          "start_time": 19.9765873015873,
+          "end_time": 19.9905873015873
+        },
+        {
+          "text": "i",
+          "start_time": 19.9905873015873,
+          "end_time": 20.0045873015873
+        },
+        {
+          "text": "g",
+          "start_time": 20.0045873015873,
+          "end_time": 20.0195873015873
+        },
+        {
+          "text": "a",
+          "start_time": 20.0195873015873,
+          "end_time": 20.0405873015873
+        },
+        {
+          "text": "n",
+          "start_time": 20.0405873015873,
+          "end_time": 20.061587301587302
+        },
+        {
+          "text": "t",
+          "start_time": 20.061587301587302,
+          "end_time": 20.0835873015873
+        },
+        {
+          "text": "i",
+          "start_time": 20.0835873015873,
+          "end_time": 20.1045873015873
+        },
+        {
+          "text": ".",
+          "start_time": 20.1045873015873,
+          "end_time": 20.3605873015873
+        }
+      ]
+    },
+    {
+      "id": "v15-5",
+      "role": "narator",
+      "text": "Pak Ketua mau hemat. Tapi buat milih satu orang, panitianya nambah terus. Ada ketua, wakil, penasihat. Ini nyari pengganti apa bagi-bagi kursi?",
+      "display_text": "Pak Ketua mau hemat. Tapi buat milih satu orang, panitianya nambah terus. Ada ketua, wakil, penasihat. Ini nyari pengganti apa bagi-bagi kursi?",
+      "spoken_text": "Pak Ketua mau hemat. Tapi buat milih satu orang, panitianya nambah terus. Ada ketua, wakil, penasihat. Ini nyari pengganti apa bagi-bagi kursi?",
+      "start": 20.640589569160998,
+      "audio_end": 30.654603174603174,
+      "end": 30.814603174603175,
+      "file": "v15-5-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -3.9449945092421137,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 837503,
+          "source_end_frame": 1279121,
+          "cue_start_frame": 0,
+          "cue_end_frame": 441618
+        }
+      ],
+      "characters": [
+        {
+          "text": "P",
+          "start_time": 20.760591836734694,
+          "end_time": 20.803591836734693
+        },
+        {
+          "text": "a",
+          "start_time": 20.803591836734693,
+          "end_time": 20.867591836734693
+        },
+        {
+          "text": "k",
+          "start_time": 20.867591836734693,
+          "end_time": 20.931191836734694
+        },
+        {
+          "text": " ",
+          "start_time": 20.931591836734693,
+          "end_time": 20.973591836734695
+        },
+        {
+          "text": "K",
+          "start_time": 20.973591836734695,
+          "end_time": 21.016591836734694
+        },
+        {
+          "text": "e",
+          "start_time": 21.016591836734694,
+          "end_time": 21.037591836734695
+        },
+        {
+          "text": "t",
+          "start_time": 21.037591836734695,
+          "end_time": 21.059591836734693
+        },
+        {
+          "text": "u",
+          "start_time": 21.059591836734693,
+          "end_time": 21.187591836734693
+        },
+        {
+          "text": "a",
+          "start_time": 21.187591836734693,
+          "end_time": 21.229591836734688
+        },
+        {
+          "text": " ",
+          "start_time": 21.229591836734688,
+          "end_time": 21.272591836734694
+        },
+        {
+          "text": "m",
+          "start_time": 21.272591836734694,
+          "end_time": 21.315591836734693
+        },
+        {
+          "text": "a",
+          "start_time": 21.315591836734693,
+          "end_time": 21.357591836734688
+        },
+        {
+          "text": "u",
+          "start_time": 21.357591836734688,
+          "end_time": 21.400591836734694
+        },
+        {
+          "text": " ",
+          "start_time": 21.400591836734694,
+          "end_time": 21.443591836734694
+        },
+        {
+          "text": "h",
+          "start_time": 21.443591836734694,
+          "end_time": 21.485591836734688
+        },
+        {
+          "text": "e",
+          "start_time": 21.485591836734688,
+          "end_time": 21.528591836734694
+        },
+        {
+          "text": "m",
+          "start_time": 21.528591836734694,
+          "end_time": 21.585591836734697
+        },
+        {
+          "text": "a",
+          "start_time": 21.585591836734697,
+          "end_time": 21.64259183673469
+        },
+        {
+          "text": "t",
+          "start_time": 21.64259183673469,
+          "end_time": 21.699591836734694
+        },
+        {
+          "text": ".",
+          "start_time": 21.699591836734694,
+          "end_time": 21.99759183673469
+        },
+        {
+          "text": " ",
+          "start_time": 21.99759183673469,
+          "end_time": 22.296591836734695
+        },
+        {
+          "text": "T",
+          "start_time": 22.296591836734695,
+          "end_time": 22.339591836734694
+        },
+        {
+          "text": "a",
+          "start_time": 22.339591836734694,
+          "end_time": 22.38159183673469
+        },
+        {
+          "text": "p",
+          "start_time": 22.38159183673469,
+          "end_time": 22.424591836734695
+        },
+        {
+          "text": "i",
+          "start_time": 22.424591836734695,
+          "end_time": 22.50959183673469
+        },
+        {
+          "text": " ",
+          "start_time": 22.50959183673469,
+          "end_time": 22.552591836734695
+        },
+        {
+          "text": "b",
+          "start_time": 22.552591836734695,
+          "end_time": 22.595591836734695
+        },
+        {
+          "text": "u",
+          "start_time": 22.595591836734695,
+          "end_time": 22.63759183673469
+        },
+        {
+          "text": "a",
+          "start_time": 22.63759183673469,
+          "end_time": 22.680591836734695
+        },
+        {
+          "text": "t",
+          "start_time": 22.680591836734695,
+          "end_time": 22.72319183673469
+        },
+        {
+          "text": " ",
+          "start_time": 22.723591836734695,
+          "end_time": 22.76559183673469
+        },
+        {
+          "text": "m",
+          "start_time": 22.76559183673469,
+          "end_time": 22.808591836734696
+        },
+        {
+          "text": "i",
+          "start_time": 22.808591836734696,
+          "end_time": 22.851591836734695
+        },
+        {
+          "text": "l",
+          "start_time": 22.851591836734695,
+          "end_time": 22.89359183673469
+        },
+        {
+          "text": "i",
+          "start_time": 22.89359183673469,
+          "end_time": 22.936591836734696
+        },
+        {
+          "text": "h",
+          "start_time": 22.936591836734696,
+          "end_time": 22.97919183673469
+        },
+        {
+          "text": " ",
+          "start_time": 22.979591836734688,
+          "end_time": 23.02159183673469
+        },
+        {
+          "text": "s",
+          "start_time": 23.02159183673469,
+          "end_time": 23.050591836734693
+        },
+        {
+          "text": "a",
+          "start_time": 23.050591836734693,
+          "end_time": 23.07859183673469
+        },
+        {
+          "text": "t",
+          "start_time": 23.07859183673469,
+          "end_time": 23.107591836734688
+        },
+        {
+          "text": "u",
+          "start_time": 23.107591836734688,
+          "end_time": 23.23519183673469
+        },
+        {
+          "text": " ",
+          "start_time": 23.235591836734688,
+          "end_time": 23.27759183673469
+        },
+        {
+          "text": "o",
+          "start_time": 23.27759183673469,
+          "end_time": 23.341591836734697
+        },
+        {
+          "text": "r",
+          "start_time": 23.341591836734697,
+          "end_time": 23.40559183673469
+        },
+        {
+          "text": "a",
+          "start_time": 23.40559183673469,
+          "end_time": 23.448591836734696
+        },
+        {
+          "text": "n",
+          "start_time": 23.448591836734696,
+          "end_time": 23.49159183673469
+        },
+        {
+          "text": "g",
+          "start_time": 23.49159183673469,
+          "end_time": 23.53359183673469
+        },
+        {
+          "text": ",",
+          "start_time": 23.53359183673469,
+          "end_time": 23.74759183673469
+        },
+        {
+          "text": " ",
+          "start_time": 23.74759183673469,
+          "end_time": 23.960591836734697
+        },
+        {
+          "text": "p",
+          "start_time": 23.960591836734697,
+          "end_time": 24.00359183673469
+        },
+        {
+          "text": "a",
+          "start_time": 24.00359183673469,
+          "end_time": 24.04559183673469
+        },
+        {
+          "text": "n",
+          "start_time": 24.04559183673469,
+          "end_time": 24.088591836734697
+        },
+        {
+          "text": "i",
+          "start_time": 24.088591836734697,
+          "end_time": 24.13159183673469
+        },
+        {
+          "text": "t",
+          "start_time": 24.13159183673469,
+          "end_time": 24.17359183673469
+        },
+        {
+          "text": "i",
+          "start_time": 24.17359183673469,
+          "end_time": 24.30159183673469
+        },
+        {
+          "text": "a",
+          "start_time": 24.30159183673469,
+          "end_time": 24.315591836734693
+        },
+        {
+          "text": "n",
+          "start_time": 24.315591836734693,
+          "end_time": 24.330591836734694
+        },
+        {
+          "text": "y",
+          "start_time": 24.330591836734694,
+          "end_time": 24.344591836734697
+        },
+        {
+          "text": "a",
+          "start_time": 24.344591836734697,
+          "end_time": 24.472591836734697
+        },
+        {
+          "text": " ",
+          "start_time": 24.472591836734697,
+          "end_time": 24.51559183673469
+        },
+        {
+          "text": "n",
+          "start_time": 24.51559183673469,
+          "end_time": 24.543591836734695
+        },
+        {
+          "text": "a",
+          "start_time": 24.543591836734695,
+          "end_time": 24.571591836734694
+        },
+        {
+          "text": "m",
+          "start_time": 24.571591836734694,
+          "end_time": 24.600591836734697
+        },
+        {
+          "text": "b",
+          "start_time": 24.600591836734697,
+          "end_time": 24.64359183673469
+        },
+        {
+          "text": "a",
+          "start_time": 24.64359183673469,
+          "end_time": 24.707591836734696
+        },
+        {
+          "text": "h",
+          "start_time": 24.707591836734696,
+          "end_time": 24.77119183673469
+        },
+        {
+          "text": " ",
+          "start_time": 24.77159183673469,
+          "end_time": 24.81359183673469
+        },
+        {
+          "text": "t",
+          "start_time": 24.81359183673469,
+          "end_time": 24.842591836734695
+        },
+        {
+          "text": "e",
+          "start_time": 24.842591836734695,
+          "end_time": 24.870591836734693
+        },
+        {
+          "text": "r",
+          "start_time": 24.870591836734693,
+          "end_time": 24.89959183673469
+        },
+        {
+          "text": "u",
+          "start_time": 24.89959183673469,
+          "end_time": 24.94159183673469
+        },
+        {
+          "text": "s",
+          "start_time": 24.94159183673469,
+          "end_time": 24.984591836734698
+        },
+        {
+          "text": ".",
+          "start_time": 24.984591836734698,
+          "end_time": 25.270591836734692
+        },
+        {
+          "text": " ",
+          "start_time": 25.270591836734692,
+          "end_time": 25.556591836734693
+        },
+        {
+          "text": "A",
+          "start_time": 25.556591836734693,
+          "end_time": 25.727591836734693
+        },
+        {
+          "text": "d",
+          "start_time": 25.727591836734693,
+          "end_time": 25.748591836734693
+        },
+        {
+          "text": "a",
+          "start_time": 25.748591836734693,
+          "end_time": 25.769591836734694
+        },
+        {
+          "text": " ",
+          "start_time": 25.769591836734694,
+          "end_time": 25.812591836734693
+        },
+        {
+          "text": "k",
+          "start_time": 25.812591836734693,
+          "end_time": 25.840591836734692
+        },
+        {
+          "text": "e",
+          "start_time": 25.840591836734692,
+          "end_time": 25.86959183673469
+        },
+        {
+          "text": "t",
+          "start_time": 25.86959183673469,
+          "end_time": 25.897591836734694
+        },
+        {
+          "text": "u",
+          "start_time": 25.897591836734694,
+          "end_time": 26.025591836734694
+        },
+        {
+          "text": "a",
+          "start_time": 26.025591836734694,
+          "end_time": 26.239591836734693
+        },
+        {
+          "text": ",",
+          "start_time": 26.239591836734693,
+          "end_time": 26.409591836734695
+        },
+        {
+          "text": " ",
+          "start_time": 26.409591836734695,
+          "end_time": 26.580591836734694
+        },
+        {
+          "text": "w",
+          "start_time": 26.580591836734694,
+          "end_time": 26.623591836734693
+        },
+        {
+          "text": "a",
+          "start_time": 26.623591836734693,
+          "end_time": 26.708591836734694
+        },
+        {
+          "text": "k",
+          "start_time": 26.708591836734694,
+          "end_time": 26.793591836734695
+        },
+        {
+          "text": "i",
+          "start_time": 26.793591836734695,
+          "end_time": 26.900591836734694
+        },
+        {
+          "text": "l",
+          "start_time": 26.900591836734694,
+          "end_time": 27.007591836734694
+        },
+        {
+          "text": ",",
+          "start_time": 27.007591836734694,
+          "end_time": 27.177591836734695
+        },
+        {
+          "text": " ",
+          "start_time": 27.177591836734695,
+          "end_time": 27.348591836734695
+        },
+        {
+          "text": "p",
+          "start_time": 27.348591836734695,
+          "end_time": 27.391591836734694
+        },
+        {
+          "text": "e",
+          "start_time": 27.391591836734694,
+          "end_time": 27.433591836734696
+        },
+        {
+          "text": "n",
+          "start_time": 27.433591836734696,
+          "end_time": 27.476591836734695
+        },
+        {
+          "text": "a",
+          "start_time": 27.476591836734695,
+          "end_time": 27.540591836734695
+        },
+        {
+          "text": "s",
+          "start_time": 27.540591836734695,
+          "end_time": 27.604591836734688
+        },
+        {
+          "text": "i",
+          "start_time": 27.604591836734688,
+          "end_time": 27.732591836734688
+        },
+        {
+          "text": "h",
+          "start_time": 27.732591836734688,
+          "end_time": 27.78959183673469
+        },
+        {
+          "text": "a",
+          "start_time": 27.78959183673469,
+          "end_time": 27.846591836734692
+        },
+        {
+          "text": "t",
+          "start_time": 27.846591836734692,
+          "end_time": 27.903591836734694
+        },
+        {
+          "text": ".",
+          "start_time": 27.903591836734694,
+          "end_time": 28.180591836734695
+        },
+        {
+          "text": " ",
+          "start_time": 28.180591836734695,
+          "end_time": 28.457591836734696
+        },
+        {
+          "text": "I",
+          "start_time": 28.457591836734696,
+          "end_time": 28.50059183673469
+        },
+        {
+          "text": "n",
+          "start_time": 28.50059183673469,
+          "end_time": 28.543591836734695
+        },
+        {
+          "text": "i",
+          "start_time": 28.543591836734695,
+          "end_time": 28.628491836734693
+        },
+        {
+          "text": " ",
+          "start_time": 28.62859183673469,
+          "end_time": 28.671591836734695
+        },
+        {
+          "text": "n",
+          "start_time": 28.671591836734695,
+          "end_time": 28.692591836734696
+        },
+        {
+          "text": "y",
+          "start_time": 28.692591836734696,
+          "end_time": 28.713591836734697
+        },
+        {
+          "text": "a",
+          "start_time": 28.713591836734697,
+          "end_time": 28.735591836734688
+        },
+        {
+          "text": "r",
+          "start_time": 28.735591836734688,
+          "end_time": 28.75659183673469
+        },
+        {
+          "text": "i",
+          "start_time": 28.75659183673469,
+          "end_time": 28.841591836734697
+        },
+        {
+          "text": " ",
+          "start_time": 28.841591836734697,
+          "end_time": 28.88459183673469
+        },
+        {
+          "text": "p",
+          "start_time": 28.88459183673469,
+          "end_time": 28.927591836734695
+        },
+        {
+          "text": "e",
+          "start_time": 28.927591836734695,
+          "end_time": 28.94159183673469
+        },
+        {
+          "text": "n",
+          "start_time": 28.94159183673469,
+          "end_time": 28.955591836734694
+        },
+        {
+          "text": "g",
+          "start_time": 28.955591836734694,
+          "end_time": 28.969591836734697
+        },
+        {
+          "text": "g",
+          "start_time": 28.969591836734697,
+          "end_time": 29.026591836734692
+        },
+        {
+          "text": "a",
+          "start_time": 29.026591836734692,
+          "end_time": 29.083591836734694
+        },
+        {
+          "text": "n",
+          "start_time": 29.083591836734694,
+          "end_time": 29.14059183673469
+        },
+        {
+          "text": "t",
+          "start_time": 29.14059183673469,
+          "end_time": 29.204591836734696
+        },
+        {
+          "text": "i",
+          "start_time": 29.204591836734696,
+          "end_time": 29.268491836734693
+        },
+        {
+          "text": " ",
+          "start_time": 29.26859183673469,
+          "end_time": 29.311591836734696
+        },
+        {
+          "text": "a",
+          "start_time": 29.311591836734696,
+          "end_time": 29.37559183673469
+        },
+        {
+          "text": "p",
+          "start_time": 29.37559183673469,
+          "end_time": 29.439591836734696
+        },
+        {
+          "text": "a",
+          "start_time": 29.439591836734696,
+          "end_time": 29.567191836734697
+        },
+        {
+          "text": " ",
+          "start_time": 29.567591836734696,
+          "end_time": 29.609591836734698
+        },
+        {
+          "text": "b",
+          "start_time": 29.609591836734698,
+          "end_time": 29.638591836734694
+        },
+        {
+          "text": "a",
+          "start_time": 29.638591836734694,
+          "end_time": 29.666591836734693
+        },
+        {
+          "text": "g",
+          "start_time": 29.666591836734693,
+          "end_time": 29.695591836734696
+        },
+        {
+          "text": "i",
+          "start_time": 29.695591836734696,
+          "end_time": 29.737591836734698
+        },
+        {
+          "text": "-",
+          "start_time": 29.737591836734698,
+          "end_time": 29.78059183673469
+        },
+        {
+          "text": "b",
+          "start_time": 29.78059183673469,
+          "end_time": 29.808591836734696
+        },
+        {
+          "text": "a",
+          "start_time": 29.808591836734696,
+          "end_time": 29.837591836734692
+        },
+        {
+          "text": "g",
+          "start_time": 29.837591836734692,
+          "end_time": 29.865591836734698
+        },
+        {
+          "text": "i",
+          "start_time": 29.865591836734698,
+          "end_time": 29.908491836734694
+        },
+        {
+          "text": " ",
+          "start_time": 29.90859183673469,
+          "end_time": 29.951591836734696
+        },
+        {
+          "text": "k",
+          "start_time": 29.951591836734696,
+          "end_time": 29.993591836734698
+        },
+        {
+          "text": "u",
+          "start_time": 29.993591836734698,
+          "end_time": 30.05759183673469
+        },
+        {
+          "text": "r",
+          "start_time": 30.05759183673469,
+          "end_time": 30.121591836734698
+        },
+        {
+          "text": "s",
+          "start_time": 30.121591836734698,
+          "end_time": 30.228591836734697
+        },
+        {
+          "text": "i",
+          "start_time": 30.228591836734697,
+          "end_time": 30.335591836734697
+        },
+        {
+          "text": "?",
+          "start_time": 30.335591836734697,
+          "end_time": 30.534591836734695
+        }
+      ]
+    },
+    {
+      "id": "v15-6",
+      "role": "mama-ghufron",
+      "text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!",
+      "display_text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!",
+      "spoken_text": "Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!",
+      "start": 30.814603174603175,
+      "audio_end": 35.11412698412698,
+      "end": 35.27412698412699,
+      "file": "v15-6-mama-ghufron.wav",
+      "voice_id": "bb23d4e8919d4e20b55ea5b70159749c",
+      "source_file": "generated-v13/mama-ghufron.source.pcm",
+      "gain_db": -3.6168308780173253,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 7893,
+          "source_end_frame": 197502,
+          "cue_start_frame": 0,
+          "cue_end_frame": 189609
+        }
+      ],
+      "characters": [
+        {
+          "text": "P",
+          "start_time": 30.934623582766438,
+          "end_time": 31.01962358276644
+        },
+        {
+          "text": "e",
+          "start_time": 31.01962358276644,
+          "end_time": 31.062623582766438
+        },
+        {
+          "text": "m",
+          "start_time": 31.062623582766438,
+          "end_time": 31.10462358276644
+        },
+        {
+          "text": "i",
+          "start_time": 31.10462358276644,
+          "end_time": 31.14762358276644
+        },
+        {
+          "text": "m",
+          "start_time": 31.14762358276644,
+          "end_time": 31.190623582766438
+        },
+        {
+          "text": "p",
+          "start_time": 31.190623582766438,
+          "end_time": 31.23262358276644
+        },
+        {
+          "text": "i",
+          "start_time": 31.23262358276644,
+          "end_time": 31.31862358276644
+        },
+        {
+          "text": "n",
+          "start_time": 31.31862358276644,
+          "end_time": 31.40362358276644
+        },
+        {
+          "text": " ",
+          "start_time": 31.40362358276644,
+          "end_time": 31.44662358276644
+        },
+        {
+          "text": "h",
+          "start_time": 31.44662358276644,
+          "end_time": 31.474623582766437
+        },
+        {
+          "text": "a",
+          "start_time": 31.474623582766437,
+          "end_time": 31.503623582766437
+        },
+        {
+          "text": "r",
+          "start_time": 31.503623582766437,
+          "end_time": 31.53162358276644
+        },
+        {
+          "text": "u",
+          "start_time": 31.53162358276644,
+          "end_time": 31.57462358276644
+        },
+        {
+          "text": "s",
+          "start_time": 31.57462358276644,
+          "end_time": 31.61662358276644
+        },
+        {
+          "text": " ",
+          "start_time": 31.61662358276644,
+          "end_time": 31.70262358276644
+        },
+        {
+          "text": "d",
+          "start_time": 31.70262358276644,
+          "end_time": 31.744623582766437
+        },
+        {
+          "text": "e",
+          "start_time": 31.744623582766437,
+          "end_time": 31.78762358276644
+        },
+        {
+          "text": "k",
+          "start_time": 31.78762358276644,
+          "end_time": 31.830623582766435
+        },
+        {
+          "text": "a",
+          "start_time": 31.830623582766435,
+          "end_time": 31.915623582766436
+        },
+        {
+          "text": "t",
+          "start_time": 31.915623582766436,
+          "end_time": 32.00062358276644
+        },
+        {
+          "text": " ",
+          "start_time": 32.00062358276644,
+          "end_time": 32.043623582766436
+        },
+        {
+          "text": "d",
+          "start_time": 32.043623582766436,
+          "end_time": 32.086623582766435
+        },
+        {
+          "text": "e",
+          "start_time": 32.086623582766435,
+          "end_time": 32.10062358276644
+        },
+        {
+          "text": "n",
+          "start_time": 32.10062358276644,
+          "end_time": 32.11462358276644
+        },
+        {
+          "text": "g",
+          "start_time": 32.11462358276644,
+          "end_time": 32.12862358276644
+        },
+        {
+          "text": "a",
+          "start_time": 32.12862358276644,
+          "end_time": 32.19262358276644
+        },
+        {
+          "text": "n",
+          "start_time": 32.19262358276644,
+          "end_time": 32.25662358276644
+        },
+        {
+          "text": " ",
+          "start_time": 32.25662358276644,
+          "end_time": 32.299623582766436
+        },
+        {
+          "text": "r",
+          "start_time": 32.299623582766436,
+          "end_time": 32.36362358276644
+        },
+        {
+          "text": "a",
+          "start_time": 32.36362358276644,
+          "end_time": 32.42762358276644
+        },
+        {
+          "text": "k",
+          "start_time": 32.42762358276644,
+          "end_time": 32.44862358276644
+        },
+        {
+          "text": "y",
+          "start_time": 32.44862358276644,
+          "end_time": 32.470623582766436
+        },
+        {
+          "text": "a",
+          "start_time": 32.470623582766436,
+          "end_time": 32.55562358276644
+        },
+        {
+          "text": "t",
+          "start_time": 32.55562358276644,
+          "end_time": 32.64062358276644
+        },
+        {
+          "text": ".",
+          "start_time": 32.64062358276644,
+          "end_time": 32.93962358276644
+        },
+        {
+          "text": " ",
+          "start_time": 32.93962358276644,
+          "end_time": 33.23862358276644
+        },
+        {
+          "text": "B",
+          "start_time": 33.23862358276644,
+          "end_time": 33.32362358276644
+        },
+        {
+          "text": "e",
+          "start_time": 33.32362358276644,
+          "end_time": 33.36662358276644
+        },
+        {
+          "text": "t",
+          "start_time": 33.36662358276644,
+          "end_time": 33.40862358276644
+        },
+        {
+          "text": "u",
+          "start_time": 33.40862358276644,
+          "end_time": 33.51562358276644
+        },
+        {
+          "text": "l",
+          "start_time": 33.51562358276644,
+          "end_time": 33.62232358276644
+        },
+        {
+          "text": " ",
+          "start_time": 33.62262358276644,
+          "end_time": 33.66462358276644
+        },
+        {
+          "text": "a",
+          "start_time": 33.66462358276644,
+          "end_time": 33.68662358276644
+        },
+        {
+          "text": "p",
+          "start_time": 33.68662358276644,
+          "end_time": 33.70762358276644
+        },
+        {
+          "text": "a",
+          "start_time": 33.70762358276644,
+          "end_time": 33.79262358276644
+        },
+        {
+          "text": " ",
+          "start_time": 33.79262358276644,
+          "end_time": 33.83562358276644
+        },
+        {
+          "text": "t",
+          "start_time": 33.83562358276644,
+          "end_time": 33.87862358276644
+        },
+        {
+          "text": "i",
+          "start_time": 33.87862358276644,
+          "end_time": 33.89962358276644
+        },
+        {
+          "text": "d",
+          "start_time": 33.89962358276644,
+          "end_time": 33.92062358276644
+        },
+        {
+          "text": "a",
+          "start_time": 33.92062358276644,
+          "end_time": 34.00662358276644
+        },
+        {
+          "text": "k",
+          "start_time": 34.00662358276644,
+          "end_time": 34.09162358276644
+        },
+        {
+          "text": "?",
+          "start_time": 34.09162358276644,
+          "end_time": 34.19862358276644
+        },
+        {
+          "text": " ",
+          "start_time": 34.19862358276644,
+          "end_time": 34.30462358276644
+        },
+        {
+          "text": "K",
+          "start_time": 34.30462358276644,
+          "end_time": 34.34762358276644
+        },
+        {
+          "text": "e",
+          "start_time": 34.34762358276644,
+          "end_time": 34.43262358276644
+        },
+        {
+          "text": "p",
+          "start_time": 34.43262358276644,
+          "end_time": 34.48962358276644
+        },
+        {
+          "text": "r",
+          "start_time": 34.48962358276644,
+          "end_time": 34.546623582766436
+        },
+        {
+          "text": "o",
+          "start_time": 34.546623582766436,
+          "end_time": 34.60362358276644
+        },
+        {
+          "text": "k",
+          "start_time": 34.60362358276644,
+          "end_time": 34.64632358276644
+        },
+        {
+          "text": " ",
+          "start_time": 34.64662358276644,
+          "end_time": 34.68862358276644
+        },
+        {
+          "text": "a",
+          "start_time": 34.68862358276644,
+          "end_time": 34.75262358276644
+        },
+        {
+          "text": "t",
+          "start_time": 34.75262358276644,
+          "end_time": 34.81662358276644
+        },
+        {
+          "text": "u",
+          "start_time": 34.81662358276644,
+          "end_time": 34.88062358276644
+        },
+        {
+          "text": "h",
+          "start_time": 34.88062358276644,
+          "end_time": 34.94462358276644
+        },
+        {
+          "text": "!",
+          "start_time": 34.94462358276644,
+          "end_time": 35.11412698412698
+        }
+      ]
+    },
+    {
+      "id": "v15-7",
+      "role": "narator",
+      "text": "Bu Warung nggak tepuk tangan. Dia maju bawa pengaduan. Sudah tiga kali bolak-balik, belum diurus.",
+      "display_text": "Bu Warung nggak tepuk tangan. Dia maju bawa pengaduan. Sudah tiga kali bolak-balik, belum diurus.",
+      "spoken_text": "Bu Warung nggak tepuk tangan. Dia maju bawa pengaduan. Sudah tiga kali bolak-balik, belum diurus.",
+      "start": 35.27412698412699,
+      "audio_end": 40.91814058956916,
+      "end": 41.07814058956916,
+      "file": "v15-7-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -4.097650363274305,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 1286088,
+          "source_end_frame": 1534989,
+          "cue_start_frame": 0,
+          "cue_end_frame": 248901
+        }
+      ],
+      "characters": [
+        {
+          "text": "B",
+          "start_time": 35.39413378684809,
+          "end_time": 35.43713378684808
+        },
+        {
+          "text": "u",
+          "start_time": 35.43713378684808,
+          "end_time": 35.56473378684808
+        },
+        {
+          "text": " ",
+          "start_time": 35.56513378684808,
+          "end_time": 35.60713378684808
+        },
+        {
+          "text": "W",
+          "start_time": 35.60713378684808,
+          "end_time": 35.63613378684808
+        },
+        {
+          "text": "a",
+          "start_time": 35.63613378684808,
+          "end_time": 35.66413378684808
+        },
+        {
+          "text": "r",
+          "start_time": 35.66413378684808,
+          "end_time": 35.69313378684808
+        },
+        {
+          "text": "u",
+          "start_time": 35.69313378684808,
+          "end_time": 35.721133786848085
+        },
+        {
+          "text": "n",
+          "start_time": 35.721133786848085,
+          "end_time": 35.75013378684808
+        },
+        {
+          "text": "g",
+          "start_time": 35.75013378684808,
+          "end_time": 35.77803378684807
+        },
+        {
+          "text": " ",
+          "start_time": 35.77813378684807,
+          "end_time": 35.82113378684808
+        },
+        {
+          "text": "n",
+          "start_time": 35.82113378684808,
+          "end_time": 35.86313378684808
+        },
+        {
+          "text": "g",
+          "start_time": 35.86313378684808,
+          "end_time": 35.90613378684809
+        },
+        {
+          "text": "g",
+          "start_time": 35.90613378684809,
+          "end_time": 35.927133786848074
+        },
+        {
+          "text": "a",
+          "start_time": 35.927133786848074,
+          "end_time": 35.94913378684808
+        },
+        {
+          "text": "k",
+          "start_time": 35.94913378684808,
+          "end_time": 35.99113378684808
+        },
+        {
+          "text": " ",
+          "start_time": 35.99113378684808,
+          "end_time": 36.034133786848074
+        },
+        {
+          "text": "t",
+          "start_time": 36.034133786848074,
+          "end_time": 36.055133786848074
+        },
+        {
+          "text": "e",
+          "start_time": 36.055133786848074,
+          "end_time": 36.07713378684808
+        },
+        {
+          "text": "p",
+          "start_time": 36.07713378684808,
+          "end_time": 36.09813378684808
+        },
+        {
+          "text": "u",
+          "start_time": 36.09813378684808,
+          "end_time": 36.11913378684808
+        },
+        {
+          "text": "k",
+          "start_time": 36.11913378684808,
+          "end_time": 36.162033786848085
+        },
+        {
+          "text": " ",
+          "start_time": 36.162133786848074,
+          "end_time": 36.20513378684808
+        },
+        {
+          "text": "t",
+          "start_time": 36.20513378684808,
+          "end_time": 36.24713378684808
+        },
+        {
+          "text": "a",
+          "start_time": 36.24713378684808,
+          "end_time": 36.27613378684808
+        },
+        {
+          "text": "n",
+          "start_time": 36.27613378684808,
+          "end_time": 36.304133786848084
+        },
+        {
+          "text": "g",
+          "start_time": 36.304133786848084,
+          "end_time": 36.33313378684808
+        },
+        {
+          "text": "a",
+          "start_time": 36.33313378684808,
+          "end_time": 36.418133786848074
+        },
+        {
+          "text": "n",
+          "start_time": 36.418133786848074,
+          "end_time": 36.50313378684808
+        },
+        {
+          "text": ".",
+          "start_time": 36.50313378684808,
+          "end_time": 36.674133786848074
+        },
+        {
+          "text": " ",
+          "start_time": 36.674133786848074,
+          "end_time": 36.84513378684808
+        },
+        {
+          "text": "D",
+          "start_time": 36.84513378684808,
+          "end_time": 36.930133786848074
+        },
+        {
+          "text": "i",
+          "start_time": 36.930133786848074,
+          "end_time": 36.97313378684808
+        },
+        {
+          "text": "a",
+          "start_time": 36.97313378684808,
+          "end_time": 37.01513378684808
+        },
+        {
+          "text": " ",
+          "start_time": 37.01513378684808,
+          "end_time": 37.058133786848074
+        },
+        {
+          "text": "m",
+          "start_time": 37.058133786848074,
+          "end_time": 37.14313378684808
+        },
+        {
+          "text": "a",
+          "start_time": 37.14313378684808,
+          "end_time": 37.22913378684808
+        },
+        {
+          "text": "j",
+          "start_time": 37.22913378684808,
+          "end_time": 37.293133786848074
+        },
+        {
+          "text": "u",
+          "start_time": 37.293133786848074,
+          "end_time": 37.35713378684808
+        },
+        {
+          "text": " ",
+          "start_time": 37.35713378684808,
+          "end_time": 37.39913378684808
+        },
+        {
+          "text": "b",
+          "start_time": 37.39913378684808,
+          "end_time": 37.442133786848075
+        },
+        {
+          "text": "a",
+          "start_time": 37.442133786848075,
+          "end_time": 37.48513378684808
+        },
+        {
+          "text": "w",
+          "start_time": 37.48513378684808,
+          "end_time": 37.50613378684808
+        },
+        {
+          "text": "a",
+          "start_time": 37.50613378684808,
+          "end_time": 37.52713378684808
+        },
+        {
+          "text": " ",
+          "start_time": 37.52713378684808,
+          "end_time": 37.570133786848075
+        },
+        {
+          "text": "p",
+          "start_time": 37.570133786848075,
+          "end_time": 37.61313378684808
+        },
+        {
+          "text": "e",
+          "start_time": 37.61313378684808,
+          "end_time": 37.64113378684807
+        },
+        {
+          "text": "n",
+          "start_time": 37.64113378684807,
+          "end_time": 37.66913378684808
+        },
+        {
+          "text": "g",
+          "start_time": 37.66913378684808,
+          "end_time": 37.698133786848075
+        },
+        {
+          "text": "a",
+          "start_time": 37.698133786848075,
+          "end_time": 37.74113378684808
+        },
+        {
+          "text": "d",
+          "start_time": 37.74113378684808,
+          "end_time": 37.78313378684808
+        },
+        {
+          "text": "u",
+          "start_time": 37.78313378684808,
+          "end_time": 37.91113378684808
+        },
+        {
+          "text": "a",
+          "start_time": 37.91113378684808,
+          "end_time": 37.975133786848076
+        },
+        {
+          "text": "n",
+          "start_time": 37.975133786848076,
+          "end_time": 38.03913378684808
+        },
+        {
+          "text": ".",
+          "start_time": 38.03913378684808,
+          "end_time": 38.25313378684808
+        },
+        {
+          "text": " ",
+          "start_time": 38.25313378684808,
+          "end_time": 38.466133786848076
+        },
+        {
+          "text": "S",
+          "start_time": 38.466133786848076,
+          "end_time": 38.50913378684808
+        },
+        {
+          "text": "u",
+          "start_time": 38.50913378684808,
+          "end_time": 38.57313378684809
+        },
+        {
+          "text": "d",
+          "start_time": 38.57313378684809,
+          "end_time": 38.63713378684808
+        },
+        {
+          "text": "a",
+          "start_time": 38.63713378684808,
+          "end_time": 38.679133786848084
+        },
+        {
+          "text": "h",
+          "start_time": 38.679133786848084,
+          "end_time": 38.72203378684809
+        },
+        {
+          "text": " ",
+          "start_time": 38.722133786848076,
+          "end_time": 38.76513378684808
+        },
+        {
+          "text": "t",
+          "start_time": 38.76513378684808,
+          "end_time": 38.80713378684807
+        },
+        {
+          "text": "i",
+          "start_time": 38.80713378684807,
+          "end_time": 38.850133786848076
+        },
+        {
+          "text": "g",
+          "start_time": 38.850133786848076,
+          "end_time": 38.89313378684808
+        },
+        {
+          "text": "a",
+          "start_time": 38.89313378684808,
+          "end_time": 38.935133786848084
+        },
+        {
+          "text": " ",
+          "start_time": 38.935133786848084,
+          "end_time": 38.978133786848076
+        },
+        {
+          "text": "k",
+          "start_time": 38.978133786848076,
+          "end_time": 39.02113378684807
+        },
+        {
+          "text": "a",
+          "start_time": 39.02113378684807,
+          "end_time": 39.04913378684809
+        },
+        {
+          "text": "l",
+          "start_time": 39.04913378684809,
+          "end_time": 39.078133786848085
+        },
+        {
+          "text": "i",
+          "start_time": 39.078133786848085,
+          "end_time": 39.10603378684807
+        },
+        {
+          "text": " ",
+          "start_time": 39.106133786848076,
+          "end_time": 39.234133786848076
+        },
+        {
+          "text": "b",
+          "start_time": 39.234133786848076,
+          "end_time": 39.27713378684807
+        },
+        {
+          "text": "o",
+          "start_time": 39.27713378684807,
+          "end_time": 39.31913378684807
+        },
+        {
+          "text": "l",
+          "start_time": 39.31913378684807,
+          "end_time": 39.36213378684808
+        },
+        {
+          "text": "a",
+          "start_time": 39.36213378684808,
+          "end_time": 39.38313378684808
+        },
+        {
+          "text": "k",
+          "start_time": 39.38313378684808,
+          "end_time": 39.40513378684808
+        },
+        {
+          "text": "-",
+          "start_time": 39.40513378684808,
+          "end_time": 39.447133786848084
+        },
+        {
+          "text": "b",
+          "start_time": 39.447133786848084,
+          "end_time": 39.51813378684808
+        },
+        {
+          "text": "a",
+          "start_time": 39.51813378684808,
+          "end_time": 39.58913378684808
+        },
+        {
+          "text": "l",
+          "start_time": 39.58913378684808,
+          "end_time": 39.66113378684808
+        },
+        {
+          "text": "i",
+          "start_time": 39.66113378684808,
+          "end_time": 39.74613378684808
+        },
+        {
+          "text": "k",
+          "start_time": 39.74613378684808,
+          "end_time": 39.78913378684807
+        },
+        {
+          "text": ",",
+          "start_time": 39.78913378684807,
+          "end_time": 39.93813378684807
+        },
+        {
+          "text": " ",
+          "start_time": 39.93813378684807,
+          "end_time": 40.08713378684807
+        },
+        {
+          "text": "b",
+          "start_time": 40.08713378684807,
+          "end_time": 40.13013378684808
+        },
+        {
+          "text": "e",
+          "start_time": 40.13013378684808,
+          "end_time": 40.173133786848084
+        },
+        {
+          "text": "l",
+          "start_time": 40.173133786848084,
+          "end_time": 40.215133786848085
+        },
+        {
+          "text": "u",
+          "start_time": 40.215133786848085,
+          "end_time": 40.23713378684808
+        },
+        {
+          "text": "m",
+          "start_time": 40.23713378684808,
+          "end_time": 40.25803378684809
+        },
+        {
+          "text": " ",
+          "start_time": 40.25813378684808,
+          "end_time": 40.30113378684807
+        },
+        {
+          "text": "d",
+          "start_time": 40.30113378684807,
+          "end_time": 40.36513378684808
+        },
+        {
+          "text": "i",
+          "start_time": 40.36513378684808,
+          "end_time": 40.429133786848084
+        },
+        {
+          "text": "u",
+          "start_time": 40.429133786848084,
+          "end_time": 40.471133786848085
+        },
+        {
+          "text": "r",
+          "start_time": 40.471133786848085,
+          "end_time": 40.51413378684808
+        },
+        {
+          "text": "u",
+          "start_time": 40.51413378684808,
+          "end_time": 40.578133786848085
+        },
+        {
+          "text": "s",
+          "start_time": 40.578133786848085,
+          "end_time": 40.64213378684808
+        },
+        {
+          "text": ".",
+          "start_time": 40.64213378684808,
+          "end_time": 40.798133786848084
+        }
+      ]
+    },
+    {
+      "id": "v15-8",
+      "role": "narator",
+      "text": "Nah, tesnya ketemu. Kursinya dipindah ke meja pengaduan. Bahlil, tadi paling siap, kan? Silakan duduk.",
+      "display_text": "Nah, tesnya ketemu. Kursinya dipindah ke meja pengaduan. Bahlil, tadi paling siap, kan? Silakan duduk.",
+      "spoken_text": "Nah, tesnya ketemu. Kursinya dipindah ke meja pengaduan. Bahlil, tadi paling siap, kan? Silakan duduk.",
+      "start": 41.07814058956916,
+      "audio_end": 47.53814058956916,
+      "end": 47.698140589569164,
+      "file": "v15-8-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -3.476569119101074,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 1538208,
+          "source_end_frame": 1823094,
+          "cue_start_frame": 0,
+          "cue_end_frame": 284886
+        }
+      ],
+      "characters": [
+        {
+          "text": "N",
+          "start_time": 41.19814058956916,
+          "end_time": 41.24114058956916
+        },
+        {
+          "text": "a",
+          "start_time": 41.24114058956916,
+          "end_time": 41.305140589569156
+        },
+        {
+          "text": "h",
+          "start_time": 41.305140589569156,
+          "end_time": 41.36914058956915
+        },
+        {
+          "text": ",",
+          "start_time": 41.36914058956915,
+          "end_time": 41.51814058956915
+        },
+        {
+          "text": " ",
+          "start_time": 41.51814058956915,
+          "end_time": 41.668140589569155
+        },
+        {
+          "text": "t",
+          "start_time": 41.668140589569155,
+          "end_time": 41.71014058956916
+        },
+        {
+          "text": "e",
+          "start_time": 41.71014058956916,
+          "end_time": 41.77414058956915
+        },
+        {
+          "text": "s",
+          "start_time": 41.77414058956915,
+          "end_time": 41.83814058956916
+        },
+        {
+          "text": "n",
+          "start_time": 41.83814058956916,
+          "end_time": 41.86014058956916
+        },
+        {
+          "text": "y",
+          "start_time": 41.86014058956916,
+          "end_time": 41.88114058956915
+        },
+        {
+          "text": "a",
+          "start_time": 41.88114058956915,
+          "end_time": 41.96614058956916
+        },
+        {
+          "text": " ",
+          "start_time": 41.96614058956916,
+          "end_time": 42.009140589569164
+        },
+        {
+          "text": "k",
+          "start_time": 42.009140589569164,
+          "end_time": 42.052140589569156
+        },
+        {
+          "text": "e",
+          "start_time": 42.052140589569156,
+          "end_time": 42.09414058956916
+        },
+        {
+          "text": "t",
+          "start_time": 42.09414058956916,
+          "end_time": 42.13714058956915
+        },
+        {
+          "text": "e",
+          "start_time": 42.13714058956915,
+          "end_time": 42.180140589569156
+        },
+        {
+          "text": "m",
+          "start_time": 42.180140589569156,
+          "end_time": 42.22214058956916
+        },
+        {
+          "text": "u",
+          "start_time": 42.22214058956916,
+          "end_time": 42.265140589569164
+        },
+        {
+          "text": ".",
+          "start_time": 42.265140589569164,
+          "end_time": 42.53014058956915
+        },
+        {
+          "text": " ",
+          "start_time": 42.53014058956915,
+          "end_time": 42.796140589569156
+        },
+        {
+          "text": "K",
+          "start_time": 42.796140589569156,
+          "end_time": 42.83914058956915
+        },
+        {
+          "text": "u",
+          "start_time": 42.83914058956915,
+          "end_time": 42.89514058956916
+        },
+        {
+          "text": "r",
+          "start_time": 42.89514058956916,
+          "end_time": 42.95214058956915
+        },
+        {
+          "text": "s",
+          "start_time": 42.95214058956915,
+          "end_time": 43.009140589569164
+        },
+        {
+          "text": "i",
+          "start_time": 43.009140589569164,
+          "end_time": 43.052140589569156
+        },
+        {
+          "text": "n",
+          "start_time": 43.052140589569156,
+          "end_time": 43.09514058956915
+        },
+        {
+          "text": "y",
+          "start_time": 43.09514058956915,
+          "end_time": 43.13714058956915
+        },
+        {
+          "text": "a",
+          "start_time": 43.13714058956915,
+          "end_time": 43.180140589569156
+        },
+        {
+          "text": " ",
+          "start_time": 43.180140589569156,
+          "end_time": 43.22314058956916
+        },
+        {
+          "text": "d",
+          "start_time": 43.22314058956916,
+          "end_time": 43.287140589569155
+        },
+        {
+          "text": "i",
+          "start_time": 43.287140589569155,
+          "end_time": 43.35114058956915
+        },
+        {
+          "text": "p",
+          "start_time": 43.35114058956915,
+          "end_time": 43.39314058956915
+        },
+        {
+          "text": "i",
+          "start_time": 43.39314058956915,
+          "end_time": 43.422140589569146
+        },
+        {
+          "text": "n",
+          "start_time": 43.422140589569146,
+          "end_time": 43.450140589569166
+        },
+        {
+          "text": "d",
+          "start_time": 43.450140589569166,
+          "end_time": 43.47914058956916
+        },
+        {
+          "text": "a",
+          "start_time": 43.47914058956916,
+          "end_time": 43.521140589569164
+        },
+        {
+          "text": "h",
+          "start_time": 43.521140589569164,
+          "end_time": 43.564140589569156
+        },
+        {
+          "text": " ",
+          "start_time": 43.564140589569156,
+          "end_time": 43.60714058956915
+        },
+        {
+          "text": "k",
+          "start_time": 43.60714058956915,
+          "end_time": 43.62814058956916
+        },
+        {
+          "text": "e",
+          "start_time": 43.62814058956916,
+          "end_time": 43.64914058956915
+        },
+        {
+          "text": " ",
+          "start_time": 43.64914058956915,
+          "end_time": 43.692140589569156
+        },
+        {
+          "text": "m",
+          "start_time": 43.692140589569156,
+          "end_time": 43.71314058956916
+        },
+        {
+          "text": "e",
+          "start_time": 43.71314058956916,
+          "end_time": 43.73514058956916
+        },
+        {
+          "text": "j",
+          "start_time": 43.73514058956916,
+          "end_time": 43.777140589569164
+        },
+        {
+          "text": "a",
+          "start_time": 43.777140589569164,
+          "end_time": 43.90514058956915
+        },
+        {
+          "text": " ",
+          "start_time": 43.90514058956915,
+          "end_time": 43.94814058956916
+        },
+        {
+          "text": "p",
+          "start_time": 43.94814058956916,
+          "end_time": 43.99114058956916
+        },
+        {
+          "text": "e",
+          "start_time": 43.99114058956916,
+          "end_time": 44.00514058956916
+        },
+        {
+          "text": "n",
+          "start_time": 44.00514058956916,
+          "end_time": 44.019140589569155
+        },
+        {
+          "text": "g",
+          "start_time": 44.019140589569155,
+          "end_time": 44.033140589569165
+        },
+        {
+          "text": "a",
+          "start_time": 44.033140589569165,
+          "end_time": 44.055140589569156
+        },
+        {
+          "text": "d",
+          "start_time": 44.055140589569156,
+          "end_time": 44.07614058956916
+        },
+        {
+          "text": "u",
+          "start_time": 44.07614058956916,
+          "end_time": 44.16114058956915
+        },
+        {
+          "text": "a",
+          "start_time": 44.16114058956915,
+          "end_time": 44.22514058956916
+        },
+        {
+          "text": "n",
+          "start_time": 44.22514058956916,
+          "end_time": 44.289140589569165
+        },
+        {
+          "text": ".",
+          "start_time": 44.289140589569165,
+          "end_time": 44.58814058956916
+        },
+        {
+          "text": " ",
+          "start_time": 44.58814058956916,
+          "end_time": 44.88714058956915
+        },
+        {
+          "text": "B",
+          "start_time": 44.88714058956915,
+          "end_time": 44.92914058956915
+        },
+        {
+          "text": "a",
+          "start_time": 44.92914058956915,
+          "end_time": 44.97214058956916
+        },
+        {
+          "text": "h",
+          "start_time": 44.97214058956916,
+          "end_time": 45.015140589569164
+        },
+        {
+          "text": "l",
+          "start_time": 45.015140589569164,
+          "end_time": 45.057140589569165
+        },
+        {
+          "text": "i",
+          "start_time": 45.057140589569165,
+          "end_time": 45.10014058956916
+        },
+        {
+          "text": "l",
+          "start_time": 45.10014058956916,
+          "end_time": 45.14314058956915
+        },
+        {
+          "text": ",",
+          "start_time": 45.14314058956915,
+          "end_time": 45.271140589569164
+        },
+        {
+          "text": " ",
+          "start_time": 45.271140589569164,
+          "end_time": 45.39914058956915
+        },
+        {
+          "text": "t",
+          "start_time": 45.39914058956915,
+          "end_time": 45.44114058956915
+        },
+        {
+          "text": "a",
+          "start_time": 45.44114058956915,
+          "end_time": 45.48414058956916
+        },
+        {
+          "text": "d",
+          "start_time": 45.48414058956916,
+          "end_time": 45.527140589569164
+        },
+        {
+          "text": "i",
+          "start_time": 45.527140589569164,
+          "end_time": 45.61214058956916
+        },
+        {
+          "text": " ",
+          "start_time": 45.61214058956916,
+          "end_time": 45.65514058956915
+        },
+        {
+          "text": "p",
+          "start_time": 45.65514058956915,
+          "end_time": 45.66914058956916
+        },
+        {
+          "text": "a",
+          "start_time": 45.66914058956916,
+          "end_time": 45.683140589569156
+        },
+        {
+          "text": "l",
+          "start_time": 45.683140589569156,
+          "end_time": 45.69714058956915
+        },
+        {
+          "text": "i",
+          "start_time": 45.69714058956915,
+          "end_time": 45.72614058956915
+        },
+        {
+          "text": "n",
+          "start_time": 45.72614058956915,
+          "end_time": 45.754140589569154
+        },
+        {
+          "text": "g",
+          "start_time": 45.754140589569154,
+          "end_time": 45.78274058956915
+        },
+        {
+          "text": " ",
+          "start_time": 45.783140589569165,
+          "end_time": 45.825140589569166
+        },
+        {
+          "text": "s",
+          "start_time": 45.825140589569166,
+          "end_time": 45.88914058956916
+        },
+        {
+          "text": "i",
+          "start_time": 45.88914058956916,
+          "end_time": 45.95314058956915
+        },
+        {
+          "text": "a",
+          "start_time": 45.95314058956915,
+          "end_time": 46.01714058956916
+        },
+        {
+          "text": "p",
+          "start_time": 46.01714058956916,
+          "end_time": 46.081140589569166
+        },
+        {
+          "text": ",",
+          "start_time": 46.081140589569166,
+          "end_time": 46.14514058956916
+        },
+        {
+          "text": " ",
+          "start_time": 46.14514058956916,
+          "end_time": 46.20914058956915
+        },
+        {
+          "text": "k",
+          "start_time": 46.20914058956915,
+          "end_time": 46.25214058956916
+        },
+        {
+          "text": "a",
+          "start_time": 46.25214058956916,
+          "end_time": 46.27314058956916
+        },
+        {
+          "text": "n",
+          "start_time": 46.27314058956916,
+          "end_time": 46.295140589569165
+        },
+        {
+          "text": "?",
+          "start_time": 46.295140589569165,
+          "end_time": 46.46514058956915
+        },
+        {
+          "text": " ",
+          "start_time": 46.46514058956915,
+          "end_time": 46.63614058956916
+        },
+        {
+          "text": "S",
+          "start_time": 46.63614058956916,
+          "end_time": 46.67914058956915
+        },
+        {
+          "text": "i",
+          "start_time": 46.67914058956915,
+          "end_time": 46.74314058956916
+        },
+        {
+          "text": "l",
+          "start_time": 46.74314058956916,
+          "end_time": 46.807140589569165
+        },
+        {
+          "text": "a",
+          "start_time": 46.807140589569165,
+          "end_time": 46.84914058956917
+        },
+        {
+          "text": "k",
+          "start_time": 46.84914058956917,
+          "end_time": 46.89214058956916
+        },
+        {
+          "text": "a",
+          "start_time": 46.89214058956916,
+          "end_time": 46.93514058956915
+        },
+        {
+          "text": "n",
+          "start_time": 46.93514058956915,
+          "end_time": 46.97714058956915
+        },
+        {
+          "text": " ",
+          "start_time": 46.97714058956915,
+          "end_time": 47.02014058956916
+        },
+        {
+          "text": "d",
+          "start_time": 47.02014058956916,
+          "end_time": 47.063140589569166
+        },
+        {
+          "text": "u",
+          "start_time": 47.063140589569166,
+          "end_time": 47.10514058956915
+        },
+        {
+          "text": "d",
+          "start_time": 47.10514058956915,
+          "end_time": 47.14814058956916
+        },
+        {
+          "text": "u",
+          "start_time": 47.14814058956916,
+          "end_time": 47.19114058956915
+        },
+        {
+          "text": "k",
+          "start_time": 47.19114058956915,
+          "end_time": 47.23314058956915
+        },
+        {
+          "text": ".",
+          "start_time": 47.23314058956915,
+          "end_time": 47.418140589569155
+        }
+      ]
+    },
+    {
+      "id": "v15-9",
+      "role": "narator",
+      "text": "Bukan dilantik. Disuruh dengerin warga dulu. Baru satu ibu, senyumnya sudah hilang. Di belakang masih antre.",
+      "display_text": "Bukan dilantik. Disuruh dengerin warga dulu. Baru satu ibu, senyumnya sudah hilang. Di belakang masih antre.",
+      "spoken_text": "Bukan dilantik. Disuruh dengerin warga dulu. Baru satu ibu, senyumnya sudah hilang. Di belakang masih antre.",
+      "start": 47.698140589569164,
+      "audio_end": 54.03115646258503,
+      "end": 54.191156462585035,
+      "file": "v15-9-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -2.8610467129854356,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 1828827,
+          "source_end_frame": 2108113,
+          "cue_start_frame": 0,
+          "cue_end_frame": 279286
+        }
+      ],
+      "characters": [
+        {
+          "text": "B",
+          "start_time": 47.81814058956917,
+          "end_time": 47.861140589569175
+        },
+        {
+          "text": "u",
+          "start_time": 47.861140589569175,
+          "end_time": 47.90314058956916
+        },
+        {
+          "text": "k",
+          "start_time": 47.90314058956916,
+          "end_time": 47.94614058956917
+        },
+        {
+          "text": "a",
+          "start_time": 47.94614058956917,
+          "end_time": 47.96714058956917
+        },
+        {
+          "text": "n",
+          "start_time": 47.96714058956917,
+          "end_time": 47.98874058956916
+        },
+        {
+          "text": " ",
+          "start_time": 47.98914058956916,
+          "end_time": 48.03114058956916
+        },
+        {
+          "text": "d",
+          "start_time": 48.03114058956916,
+          "end_time": 48.07414058956917
+        },
+        {
+          "text": "i",
+          "start_time": 48.07414058956917,
+          "end_time": 48.117140589569175
+        },
+        {
+          "text": "l",
+          "start_time": 48.117140589569175,
+          "end_time": 48.15914058956916
+        },
+        {
+          "text": "a",
+          "start_time": 48.15914058956916,
+          "end_time": 48.19114058956916
+        },
+        {
+          "text": "n",
+          "start_time": 48.19114058956916,
+          "end_time": 48.22314058956917
+        },
+        {
+          "text": "t",
+          "start_time": 48.22314058956917,
+          "end_time": 48.255140589569166
+        },
+        {
+          "text": "i",
+          "start_time": 48.255140589569166,
+          "end_time": 48.28714058956916
+        },
+        {
+          "text": "k",
+          "start_time": 48.28714058956916,
+          "end_time": 48.458140589569155
+        },
+        {
+          "text": ".",
+          "start_time": 48.458140589569155,
+          "end_time": 48.67114058956916
+        },
+        {
+          "text": " ",
+          "start_time": 48.67114058956916,
+          "end_time": 48.88514058956916
+        },
+        {
+          "text": "D",
+          "start_time": 48.88514058956916,
+          "end_time": 48.91314058956917
+        },
+        {
+          "text": "i",
+          "start_time": 48.91314058956917,
+          "end_time": 48.94214058956916
+        },
+        {
+          "text": "s",
+          "start_time": 48.94214058956916,
+          "end_time": 48.970140589569155
+        },
+        {
+          "text": "u",
+          "start_time": 48.970140589569155,
+          "end_time": 49.03414058956916
+        },
+        {
+          "text": "r",
+          "start_time": 49.03414058956916,
+          "end_time": 49.09814058956917
+        },
+        {
+          "text": "u",
+          "start_time": 49.09814058956917,
+          "end_time": 49.14114058956916
+        },
+        {
+          "text": "h",
+          "start_time": 49.14114058956916,
+          "end_time": 49.18314058956916
+        },
+        {
+          "text": " ",
+          "start_time": 49.18314058956916,
+          "end_time": 49.226140589569155
+        },
+        {
+          "text": "d",
+          "start_time": 49.226140589569155,
+          "end_time": 49.240140589569165
+        },
+        {
+          "text": "e",
+          "start_time": 49.240140589569165,
+          "end_time": 49.254140589569175
+        },
+        {
+          "text": "n",
+          "start_time": 49.254140589569175,
+          "end_time": 49.26914058956916
+        },
+        {
+          "text": "g",
+          "start_time": 49.26914058956916,
+          "end_time": 49.29714058956917
+        },
+        {
+          "text": "e",
+          "start_time": 49.29714058956917,
+          "end_time": 49.32514058956917
+        },
+        {
+          "text": "r",
+          "start_time": 49.32514058956917,
+          "end_time": 49.35414058956917
+        },
+        {
+          "text": "i",
+          "start_time": 49.35414058956917,
+          "end_time": 49.375140589569156
+        },
+        {
+          "text": "n",
+          "start_time": 49.375140589569156,
+          "end_time": 49.39674058956916
+        },
+        {
+          "text": " ",
+          "start_time": 49.39714058956916,
+          "end_time": 49.43914058956916
+        },
+        {
+          "text": "w",
+          "start_time": 49.43914058956916,
+          "end_time": 49.482140589569156
+        },
+        {
+          "text": "a",
+          "start_time": 49.482140589569156,
+          "end_time": 49.52514058956916
+        },
+        {
+          "text": "r",
+          "start_time": 49.52514058956916,
+          "end_time": 49.56714058956916
+        },
+        {
+          "text": "g",
+          "start_time": 49.56714058956916,
+          "end_time": 49.61014058956917
+        },
+        {
+          "text": "a",
+          "start_time": 49.61014058956917,
+          "end_time": 49.65274058956916
+        },
+        {
+          "text": " ",
+          "start_time": 49.65314058956916,
+          "end_time": 49.695140589569164
+        },
+        {
+          "text": "d",
+          "start_time": 49.695140589569164,
+          "end_time": 49.738140589569156
+        },
+        {
+          "text": "u",
+          "start_time": 49.738140589569156,
+          "end_time": 49.78114058956916
+        },
+        {
+          "text": "l",
+          "start_time": 49.78114058956916,
+          "end_time": 49.823140589569164
+        },
+        {
+          "text": "u",
+          "start_time": 49.823140589569164,
+          "end_time": 49.90914058956916
+        },
+        {
+          "text": ".",
+          "start_time": 49.90914058956916,
+          "end_time": 50.207140589569164
+        },
+        {
+          "text": " ",
+          "start_time": 50.207140589569164,
+          "end_time": 50.506140589569156
+        },
+        {
+          "text": "B",
+          "start_time": 50.506140589569156,
+          "end_time": 50.54914058956916
+        },
+        {
+          "text": "a",
+          "start_time": 50.54914058956916,
+          "end_time": 50.591140589569164
+        },
+        {
+          "text": "r",
+          "start_time": 50.591140589569164,
+          "end_time": 50.63414058956917
+        },
+        {
+          "text": "u",
+          "start_time": 50.63414058956917,
+          "end_time": 50.719140589569164
+        },
+        {
+          "text": " ",
+          "start_time": 50.719140589569164,
+          "end_time": 50.76214058956916
+        },
+        {
+          "text": "s",
+          "start_time": 50.76214058956916,
+          "end_time": 50.79014058956916
+        },
+        {
+          "text": "a",
+          "start_time": 50.79014058956916,
+          "end_time": 50.81914058956917
+        },
+        {
+          "text": "t",
+          "start_time": 50.81914058956917,
+          "end_time": 50.847140589569165
+        },
+        {
+          "text": "u",
+          "start_time": 50.847140589569165,
+          "end_time": 50.89014058956917
+        },
+        {
+          "text": " ",
+          "start_time": 50.89014058956917,
+          "end_time": 50.93314058956916
+        },
+        {
+          "text": "i",
+          "start_time": 50.93314058956916,
+          "end_time": 51.06114058956916
+        },
+        {
+          "text": "b",
+          "start_time": 51.06114058956916,
+          "end_time": 51.125140589569156
+        },
+        {
+          "text": "u",
+          "start_time": 51.125140589569156,
+          "end_time": 51.18914058956916
+        },
+        {
+          "text": ",",
+          "start_time": 51.18914058956916,
+          "end_time": 51.338140589569164
+        },
+        {
+          "text": " ",
+          "start_time": 51.338140589569164,
+          "end_time": 51.487140589569165
+        },
+        {
+          "text": "s",
+          "start_time": 51.487140589569165,
+          "end_time": 51.53014058956916
+        },
+        {
+          "text": "e",
+          "start_time": 51.53014058956916,
+          "end_time": 51.573140589569164
+        },
+        {
+          "text": "n",
+          "start_time": 51.573140589569164,
+          "end_time": 51.615140589569165
+        },
+        {
+          "text": "y",
+          "start_time": 51.615140589569165,
+          "end_time": 51.65814058956917
+        },
+        {
+          "text": "u",
+          "start_time": 51.65814058956917,
+          "end_time": 51.701140589569164
+        },
+        {
+          "text": "m",
+          "start_time": 51.701140589569164,
+          "end_time": 51.743140589569165
+        },
+        {
+          "text": "n",
+          "start_time": 51.743140589569165,
+          "end_time": 51.76514058956917
+        },
+        {
+          "text": "y",
+          "start_time": 51.76514058956917,
+          "end_time": 51.78614058956916
+        },
+        {
+          "text": "a",
+          "start_time": 51.78614058956916,
+          "end_time": 51.871140589569166
+        },
+        {
+          "text": " ",
+          "start_time": 51.871140589569166,
+          "end_time": 51.91414058956917
+        },
+        {
+          "text": "s",
+          "start_time": 51.91414058956917,
+          "end_time": 51.93514058956916
+        },
+        {
+          "text": "u",
+          "start_time": 51.93514058956916,
+          "end_time": 51.957140589569164
+        },
+        {
+          "text": "d",
+          "start_time": 51.957140589569164,
+          "end_time": 51.999140589569166
+        },
+        {
+          "text": "a",
+          "start_time": 51.999140589569166,
+          "end_time": 52.02114058956917
+        },
+        {
+          "text": "h",
+          "start_time": 52.02114058956917,
+          "end_time": 52.04214058956916
+        },
+        {
+          "text": " ",
+          "start_time": 52.04214058956916,
+          "end_time": 52.085140589569164
+        },
+        {
+          "text": "h",
+          "start_time": 52.085140589569164,
+          "end_time": 52.127140589569166
+        },
+        {
+          "text": "i",
+          "start_time": 52.127140589569166,
+          "end_time": 52.17014058956917
+        },
+        {
+          "text": "l",
+          "start_time": 52.17014058956917,
+          "end_time": 52.213140589569164
+        },
+        {
+          "text": "a",
+          "start_time": 52.213140589569164,
+          "end_time": 52.255140589569166
+        },
+        {
+          "text": "n",
+          "start_time": 52.255140589569166,
+          "end_time": 52.29814058956916
+        },
+        {
+          "text": "g",
+          "start_time": 52.29814058956916,
+          "end_time": 52.341140589569164
+        },
+        {
+          "text": ".",
+          "start_time": 52.341140589569164,
+          "end_time": 52.53314058956917
+        },
+        {
+          "text": " ",
+          "start_time": 52.53314058956917,
+          "end_time": 52.725140589569165
+        },
+        {
+          "text": "D",
+          "start_time": 52.725140589569165,
+          "end_time": 52.767140589569166
+        },
+        {
+          "text": "i",
+          "start_time": 52.767140589569166,
+          "end_time": 52.852740589569166
+        },
+        {
+          "text": " ",
+          "start_time": 52.853140589569165,
+          "end_time": 52.895140589569166
+        },
+        {
+          "text": "b",
+          "start_time": 52.895140589569166,
+          "end_time": 52.90914058956916
+        },
+        {
+          "text": "e",
+          "start_time": 52.90914058956916,
+          "end_time": 52.92414058956916
+        },
+        {
+          "text": "l",
+          "start_time": 52.92414058956916,
+          "end_time": 52.93814058956917
+        },
+        {
+          "text": "a",
+          "start_time": 52.93814058956917,
+          "end_time": 52.981140589569165
+        },
+        {
+          "text": "k",
+          "start_time": 52.981140589569165,
+          "end_time": 53.02314058956917
+        },
+        {
+          "text": "a",
+          "start_time": 53.02314058956917,
+          "end_time": 53.06614058956916
+        },
+        {
+          "text": "n",
+          "start_time": 53.06614058956916,
+          "end_time": 53.109140589569165
+        },
+        {
+          "text": "g",
+          "start_time": 53.109140589569165,
+          "end_time": 53.15114058956917
+        },
+        {
+          "text": " ",
+          "start_time": 53.15114058956917,
+          "end_time": 53.19414058956917
+        },
+        {
+          "text": "m",
+          "start_time": 53.19414058956917,
+          "end_time": 53.222140589569165
+        },
+        {
+          "text": "a",
+          "start_time": 53.222140589569165,
+          "end_time": 53.25114058956916
+        },
+        {
+          "text": "s",
+          "start_time": 53.25114058956916,
+          "end_time": 53.27914058956917
+        },
+        {
+          "text": "i",
+          "start_time": 53.27914058956917,
+          "end_time": 53.365140589569165
+        },
+        {
+          "text": "h",
+          "start_time": 53.365140589569165,
+          "end_time": 53.40714058956917
+        },
+        {
+          "text": " ",
+          "start_time": 53.40714058956917,
+          "end_time": 53.45014058956917
+        },
+        {
+          "text": "a",
+          "start_time": 53.45014058956917,
+          "end_time": 53.478140589569165
+        },
+        {
+          "text": "n",
+          "start_time": 53.478140589569165,
+          "end_time": 53.50714058956916
+        },
+        {
+          "text": "t",
+          "start_time": 53.50714058956916,
+          "end_time": 53.53514058956917
+        },
+        {
+          "text": "r",
+          "start_time": 53.53514058956917,
+          "end_time": 53.642140589569166
+        },
+        {
+          "text": "e",
+          "start_time": 53.642140589569166,
+          "end_time": 53.749140589569166
+        },
+        {
+          "text": ".",
+          "start_time": 53.749140589569166,
+          "end_time": 53.91114058956916
+        }
+      ]
+    },
+    {
+      "id": "v15-10",
+      "role": "narator",
+      "text": "Mau kursinya? Sekalian urus masalahnya. Komen: siapa yang harus dites berikutnya, dan dites apa? Follow jadi warga Republik WKWKWK. Di sini, calon pejabat kita kasih kerjaan.",
+      "display_text": "Mau kursinya? Sekalian urus masalahnya. Komen: siapa yang harus dites berikutnya, dan dites apa? Follow jadi warga Republik WKWKWK. Di sini, calon pejabat kita kasih kerjaan.",
+      "spoken_text": "Mau kursinya? Sekalian urus masalahnya. Komen: siapa yang harus dites berikutnya, dan dites apa? Follow jadi warga Republik wekawekaweka. Di sini, calon pejabat kita kasih kerjaan.",
+      "start": 54.191156462585035,
+      "audio_end": 66.90818594104309,
+      "end": 67.65818594104309,
+      "file": "v15-10-narator.wav",
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "source_file": "generated-v15/narator.source.pcm",
+      "gain_db": -3.905180890317369,
+      "inserted_holds": [],
+      "source_to_cue_mapping": [
+        {
+          "source_start_frame": 2111860,
+          "source_end_frame": 2672681,
+          "cue_start_frame": 0,
+          "cue_end_frame": 560821
+        }
+      ],
+      "characters": [
+        {
+          "text": "M",
+          "start_time": 54.31117460317461,
+          "end_time": 54.3961746031746
+        },
+        {
+          "text": "a",
+          "start_time": 54.3961746031746,
+          "end_time": 54.46017460317459
+        },
+        {
+          "text": "u",
+          "start_time": 54.46017460317459,
+          "end_time": 54.5241746031746
+        },
+        {
+          "text": " ",
+          "start_time": 54.5241746031746,
+          "end_time": 54.56717460317461
+        },
+        {
+          "text": "k",
+          "start_time": 54.56717460317461,
+          "end_time": 54.609174603174594
+        },
+        {
+          "text": "u",
+          "start_time": 54.609174603174594,
+          "end_time": 54.638174603174605
+        },
+        {
+          "text": "r",
+          "start_time": 54.638174603174605,
+          "end_time": 54.66617460317461
+        },
+        {
+          "text": "s",
+          "start_time": 54.66617460317461,
+          "end_time": 54.69517460317461
+        },
+        {
+          "text": "i",
+          "start_time": 54.69517460317461,
+          "end_time": 54.752174603174595
+        },
+        {
+          "text": "n",
+          "start_time": 54.752174603174595,
+          "end_time": 54.80917460317461
+        },
+        {
+          "text": "y",
+          "start_time": 54.80917460317461,
+          "end_time": 54.865174603174594
+        },
+        {
+          "text": "a",
+          "start_time": 54.865174603174594,
+          "end_time": 54.95117460317461
+        },
+        {
+          "text": "?",
+          "start_time": 54.95117460317461,
+          "end_time": 55.143174603174614
+        },
+        {
+          "text": " ",
+          "start_time": 55.143174603174614,
+          "end_time": 55.33517460317459
+        },
+        {
+          "text": "S",
+          "start_time": 55.33517460317459,
+          "end_time": 55.3781746031746
+        },
+        {
+          "text": "e",
+          "start_time": 55.3781746031746,
+          "end_time": 55.4201746031746
+        },
+        {
+          "text": "k",
+          "start_time": 55.4201746031746,
+          "end_time": 55.46317460317461
+        },
+        {
+          "text": "a",
+          "start_time": 55.46317460317461,
+          "end_time": 55.506174603174614
+        },
+        {
+          "text": "l",
+          "start_time": 55.506174603174614,
+          "end_time": 55.5481746031746
+        },
+        {
+          "text": "i",
+          "start_time": 55.5481746031746,
+          "end_time": 55.57717460317461
+        },
+        {
+          "text": "a",
+          "start_time": 55.57717460317461,
+          "end_time": 55.6051746031746
+        },
+        {
+          "text": "n",
+          "start_time": 55.6051746031746,
+          "end_time": 55.63367460317461
+        },
+        {
+          "text": " ",
+          "start_time": 55.6341746031746,
+          "end_time": 55.71917460317461
+        },
+        {
+          "text": "u",
+          "start_time": 55.71917460317461,
+          "end_time": 55.762174603174614
+        },
+        {
+          "text": "r",
+          "start_time": 55.762174603174614,
+          "end_time": 55.8041746031746
+        },
+        {
+          "text": "u",
+          "start_time": 55.8041746031746,
+          "end_time": 55.847174603174594
+        },
+        {
+          "text": "s",
+          "start_time": 55.847174603174594,
+          "end_time": 55.88967460317461
+        },
+        {
+          "text": " ",
+          "start_time": 55.8901746031746,
+          "end_time": 55.9321746031746
+        },
+        {
+          "text": "m",
+          "start_time": 55.9321746031746,
+          "end_time": 55.9611746031746
+        },
+        {
+          "text": "a",
+          "start_time": 55.9611746031746,
+          "end_time": 55.989174603174604
+        },
+        {
+          "text": "s",
+          "start_time": 55.989174603174604,
+          "end_time": 56.018174603174614
+        },
+        {
+          "text": "a",
+          "start_time": 56.018174603174614,
+          "end_time": 56.08217460317461
+        },
+        {
+          "text": "l",
+          "start_time": 56.08217460317461,
+          "end_time": 56.1461746031746
+        },
+        {
+          "text": "a",
+          "start_time": 56.1461746031746,
+          "end_time": 56.21017460317459
+        },
+        {
+          "text": "h",
+          "start_time": 56.21017460317459,
+          "end_time": 56.2741746031746
+        },
+        {
+          "text": "n",
+          "start_time": 56.2741746031746,
+          "end_time": 56.2951746031746
+        },
+        {
+          "text": "y",
+          "start_time": 56.2951746031746,
+          "end_time": 56.3161746031746
+        },
+        {
+          "text": "a",
+          "start_time": 56.3161746031746,
+          "end_time": 56.4021746031746
+        },
+        {
+          "text": ".",
+          "start_time": 56.4021746031746,
+          "end_time": 56.615174603174594
+        },
+        {
+          "text": " ",
+          "start_time": 56.615174603174594,
+          "end_time": 56.8281746031746
+        },
+        {
+          "text": "K",
+          "start_time": 56.8281746031746,
+          "end_time": 56.871174603174595
+        },
+        {
+          "text": "o",
+          "start_time": 56.871174603174595,
+          "end_time": 56.9561746031746
+        },
+        {
+          "text": "m",
+          "start_time": 56.9561746031746,
+          "end_time": 57.0421746031746
+        },
+        {
+          "text": "e",
+          "start_time": 57.0421746031746,
+          "end_time": 57.10617460317461
+        },
+        {
+          "text": "n",
+          "start_time": 57.10617460317461,
+          "end_time": 57.1701746031746
+        },
+        {
+          "text": ":",
+          "start_time": 57.1701746031746,
+          "end_time": 57.383174603174595
+        },
+        {
+          "text": " ",
+          "start_time": 57.383174603174595,
+          "end_time": 57.5961746031746
+        },
+        {
+          "text": "s",
+          "start_time": 57.5961746031746,
+          "end_time": 57.7031746031746
+        },
+        {
+          "text": "i",
+          "start_time": 57.7031746031746,
+          "end_time": 57.8101746031746
+        },
+        {
+          "text": "a",
+          "start_time": 57.8101746031746,
+          "end_time": 57.87417460317461
+        },
+        {
+          "text": "p",
+          "start_time": 57.87417460317461,
+          "end_time": 57.9381746031746
+        },
+        {
+          "text": "a",
+          "start_time": 57.9381746031746,
+          "end_time": 58.0661746031746
+        },
+        {
+          "text": " ",
+          "start_time": 58.0661746031746,
+          "end_time": 58.108174603174604
+        },
+        {
+          "text": "y",
+          "start_time": 58.108174603174604,
+          "end_time": 58.151174603174596
+        },
+        {
+          "text": "a",
+          "start_time": 58.151174603174596,
+          "end_time": 58.165174603174606
+        },
+        {
+          "text": "n",
+          "start_time": 58.165174603174606,
+          "end_time": 58.1791746031746
+        },
+        {
+          "text": "g",
+          "start_time": 58.1791746031746,
+          "end_time": 58.193674603174614
+        },
+        {
+          "text": " ",
+          "start_time": 58.1941746031746,
+          "end_time": 58.236174603174604
+        },
+        {
+          "text": "h",
+          "start_time": 58.236174603174604,
+          "end_time": 58.27917460317461
+        },
+        {
+          "text": "a",
+          "start_time": 58.27917460317461,
+          "end_time": 58.3221746031746
+        },
+        {
+          "text": "r",
+          "start_time": 58.3221746031746,
+          "end_time": 58.364174603174604
+        },
+        {
+          "text": "u",
+          "start_time": 58.364174603174604,
+          "end_time": 58.407174603174596
+        },
+        {
+          "text": "s",
+          "start_time": 58.407174603174596,
+          "end_time": 58.449674603174614
+        },
+        {
+          "text": " ",
+          "start_time": 58.4501746031746,
+          "end_time": 58.492174603174604
+        },
+        {
+          "text": "d",
+          "start_time": 58.492174603174604,
+          "end_time": 58.5781746031746
+        },
+        {
+          "text": "i",
+          "start_time": 58.5781746031746,
+          "end_time": 58.58817460317461
+        },
+        {
+          "text": "t",
+          "start_time": 58.58817460317461,
+          "end_time": 58.5991746031746
+        },
+        {
+          "text": "e",
+          "start_time": 58.5991746031746,
+          "end_time": 58.609174603174594
+        },
+        {
+          "text": "s",
+          "start_time": 58.609174603174594,
+          "end_time": 58.620174603174604
+        },
+        {
+          "text": " ",
+          "start_time": 58.620174603174604,
+          "end_time": 58.79117460317461
+        },
+        {
+          "text": "b",
+          "start_time": 58.79117460317461,
+          "end_time": 58.8341746031746
+        },
+        {
+          "text": "e",
+          "start_time": 58.8341746031746,
+          "end_time": 58.876174603174604
+        },
+        {
+          "text": "r",
+          "start_time": 58.876174603174604,
+          "end_time": 58.919174603174596
+        },
+        {
+          "text": "i",
+          "start_time": 58.919174603174596,
+          "end_time": 58.9611746031746
+        },
+        {
+          "text": "k",
+          "start_time": 58.9611746031746,
+          "end_time": 59.004174603174604
+        },
+        {
+          "text": "u",
+          "start_time": 59.004174603174604,
+          "end_time": 59.0681746031746
+        },
+        {
+          "text": "t",
+          "start_time": 59.0681746031746,
+          "end_time": 59.132174603174604
+        },
+        {
+          "text": "n",
+          "start_time": 59.132174603174604,
+          "end_time": 59.153174603174605
+        },
+        {
+          "text": "y",
+          "start_time": 59.153174603174605,
+          "end_time": 59.1751746031746
+        },
+        {
+          "text": "a",
+          "start_time": 59.1751746031746,
+          "end_time": 59.30317460317461
+        },
+        {
+          "text": ",",
+          "start_time": 59.30317460317461,
+          "end_time": 59.4311746031746
+        },
+        {
+          "text": " ",
+          "start_time": 59.4311746031746,
+          "end_time": 59.55917460317461
+        },
+        {
+          "text": "d",
+          "start_time": 59.55917460317461,
+          "end_time": 59.60117460317461
+        },
+        {
+          "text": "a",
+          "start_time": 59.60117460317461,
+          "end_time": 59.644174603174605
+        },
+        {
+          "text": "n",
+          "start_time": 59.644174603174605,
+          "end_time": 59.6871746031746
+        },
+        {
+          "text": " ",
+          "start_time": 59.6871746031746,
+          "end_time": 59.7291746031746
+        },
+        {
+          "text": "d",
+          "start_time": 59.7291746031746,
+          "end_time": 59.772174603174605
+        },
+        {
+          "text": "i",
+          "start_time": 59.772174603174605,
+          "end_time": 59.7831746031746
+        },
+        {
+          "text": "t",
+          "start_time": 59.7831746031746,
+          "end_time": 59.793174603174606
+        },
+        {
+          "text": "e",
+          "start_time": 59.793174603174606,
+          "end_time": 59.8041746031746
+        },
+        {
+          "text": "s",
+          "start_time": 59.8041746031746,
+          "end_time": 59.814974603174605
+        },
+        {
+          "text": " ",
+          "start_time": 59.81517460317461,
+          "end_time": 59.9431746031746
+        },
+        {
+          "text": "a",
+          "start_time": 59.9431746031746,
+          "end_time": 60.028174603174605
+        },
+        {
+          "text": "p",
+          "start_time": 60.028174603174605,
+          "end_time": 60.11317460317461
+        },
+        {
+          "text": "a",
+          "start_time": 60.11317460317461,
+          "end_time": 60.2411746031746
+        },
+        {
+          "text": "?",
+          "start_time": 60.2411746031746,
+          "end_time": 60.47617460317461
+        },
+        {
+          "text": " ",
+          "start_time": 60.47617460317461,
+          "end_time": 60.7111746031746
+        },
+        {
+          "text": "F",
+          "start_time": 60.7111746031746,
+          "end_time": 60.83917460317461
+        },
+        {
+          "text": "o",
+          "start_time": 60.83917460317461,
+          "end_time": 60.9671746031746
+        },
+        {
+          "text": "l",
+          "start_time": 60.9671746031746,
+          "end_time": 60.978174603174594
+        },
+        {
+          "text": "l",
+          "start_time": 60.978174603174594,
+          "end_time": 60.98817460317461
+        },
+        {
+          "text": "o",
+          "start_time": 60.98817460317461,
+          "end_time": 60.99917460317461
+        },
+        {
+          "text": "w",
+          "start_time": 60.99917460317461,
+          "end_time": 61.0091746031746
+        },
+        {
+          "text": " ",
+          "start_time": 61.0091746031746,
+          "end_time": 61.180174603174606
+        },
+        {
+          "text": "j",
+          "start_time": 61.180174603174606,
+          "end_time": 61.2651746031746
+        },
+        {
+          "text": "a",
+          "start_time": 61.2651746031746,
+          "end_time": 61.287174603174606
+        },
+        {
+          "text": "d",
+          "start_time": 61.287174603174606,
+          "end_time": 61.308174603174606
+        },
+        {
+          "text": "i",
+          "start_time": 61.308174603174606,
+          "end_time": 61.393174603174614
+        },
+        {
+          "text": " ",
+          "start_time": 61.393174603174614,
+          "end_time": 61.43617460317461
+        },
+        {
+          "text": "w",
+          "start_time": 61.43617460317461,
+          "end_time": 61.49317460317461
+        },
+        {
+          "text": "a",
+          "start_time": 61.49317460317461,
+          "end_time": 61.5501746031746
+        },
+        {
+          "text": "r",
+          "start_time": 61.5501746031746,
+          "end_time": 61.60717460317461
+        },
+        {
+          "text": "g",
+          "start_time": 61.60717460317461,
+          "end_time": 61.69217460317461
+        },
+        {
+          "text": "a",
+          "start_time": 61.69217460317461,
+          "end_time": 61.7771746031746
+        },
+        {
+          "text": " ",
+          "start_time": 61.7771746031746,
+          "end_time": 61.86317460317461
+        },
+        {
+          "text": "R",
+          "start_time": 61.86317460317461,
+          "end_time": 61.9201746031746
+        },
+        {
+          "text": "e",
+          "start_time": 61.9201746031746,
+          "end_time": 61.9771746031746
+        },
+        {
+          "text": "p",
+          "start_time": 61.9771746031746,
+          "end_time": 62.0331746031746
+        },
+        {
+          "text": "u",
+          "start_time": 62.0331746031746,
+          "end_time": 62.11917460317461
+        },
+        {
+          "text": "b",
+          "start_time": 62.11917460317461,
+          "end_time": 62.20417460317461
+        },
+        {
+          "text": "l",
+          "start_time": 62.20417460317461,
+          "end_time": 62.268174603174614
+        },
+        {
+          "text": "i",
+          "start_time": 62.268174603174614,
+          "end_time": 62.33217460317461
+        },
+        {
+          "text": "k",
+          "start_time": 62.33217460317461,
+          "end_time": 62.37497460317461
+        },
+        {
+          "text": " ",
+          "start_time": 62.375174603174614,
+          "end_time": 62.5031746031746
+        },
+        {
+          "text": "w",
+          "start_time": 62.5031746031746,
+          "end_time": 62.58817460317461
+        },
+        {
+          "text": "e",
+          "start_time": 62.58817460317461,
+          "end_time": 62.6731746031746
+        },
+        {
+          "text": "k",
+          "start_time": 62.6731746031746,
+          "end_time": 62.71617460317459
+        },
+        {
+          "text": "a",
+          "start_time": 62.71617460317459,
+          "end_time": 62.77317460317461
+        },
+        {
+          "text": "w",
+          "start_time": 62.77317460317461,
+          "end_time": 62.8301746031746
+        },
+        {
+          "text": "e",
+          "start_time": 62.8301746031746,
+          "end_time": 62.887174603174614
+        },
+        {
+          "text": "k",
+          "start_time": 62.887174603174614,
+          "end_time": 63.0151746031746
+        },
+        {
+          "text": "a",
+          "start_time": 63.0151746031746,
+          "end_time": 63.0721746031746
+        },
+        {
+          "text": "w",
+          "start_time": 63.0721746031746,
+          "end_time": 63.129174603174604
+        },
+        {
+          "text": "e",
+          "start_time": 63.129174603174604,
+          "end_time": 63.18617460317461
+        },
+        {
+          "text": "k",
+          "start_time": 63.18617460317461,
+          "end_time": 63.250174603174614
+        },
+        {
+          "text": "a",
+          "start_time": 63.250174603174614,
+          "end_time": 63.31417460317461
+        },
+        {
+          "text": ".",
+          "start_time": 63.31417460317461,
+          "end_time": 63.61217460317461
+        },
+        {
+          "text": " ",
+          "start_time": 63.61217460317461,
+          "end_time": 63.9111746031746
+        },
+        {
+          "text": "D",
+          "start_time": 63.9111746031746,
+          "end_time": 63.95417460317461
+        },
+        {
+          "text": "i",
+          "start_time": 63.95417460317461,
+          "end_time": 64.0389746031746
+        },
+        {
+          "text": " ",
+          "start_time": 64.0391746031746,
+          "end_time": 64.08217460317461
+        },
+        {
+          "text": "s",
+          "start_time": 64.08217460317461,
+          "end_time": 64.1101746031746
+        },
+        {
+          "text": "i",
+          "start_time": 64.1101746031746,
+          "end_time": 64.1381746031746
+        },
+        {
+          "text": "n",
+          "start_time": 64.1381746031746,
+          "end_time": 64.1671746031746
+        },
+        {
+          "text": "i",
+          "start_time": 64.1671746031746,
+          "end_time": 64.2951746031746
+        },
+        {
+          "text": ",",
+          "start_time": 64.2951746031746,
+          "end_time": 64.48717460317461
+        },
+        {
+          "text": " ",
+          "start_time": 64.48717460317461,
+          "end_time": 64.6791746031746
+        },
+        {
+          "text": "c",
+          "start_time": 64.6791746031746,
+          "end_time": 64.75017460317461
+        },
+        {
+          "text": "a",
+          "start_time": 64.75017460317461,
+          "end_time": 64.82117460317461
+        },
+        {
+          "text": "l",
+          "start_time": 64.82117460317461,
+          "end_time": 64.89217460317461
+        },
+        {
+          "text": "o",
+          "start_time": 64.89217460317461,
+          "end_time": 64.9351746031746
+        },
+        {
+          "text": "n",
+          "start_time": 64.9351746031746,
+          "end_time": 64.9776746031746
+        },
+        {
+          "text": " ",
+          "start_time": 64.9781746031746,
+          "end_time": 65.0201746031746
+        },
+        {
+          "text": "p",
+          "start_time": 65.0201746031746,
+          "end_time": 65.0631746031746
+        },
+        {
+          "text": "e",
+          "start_time": 65.0631746031746,
+          "end_time": 65.10617460317461
+        },
+        {
+          "text": "j",
+          "start_time": 65.10617460317461,
+          "end_time": 65.14817460317461
+        },
+        {
+          "text": "a",
+          "start_time": 65.14817460317461,
+          "end_time": 65.1911746031746
+        },
+        {
+          "text": "b",
+          "start_time": 65.1911746031746,
+          "end_time": 65.2341746031746
+        },
+        {
+          "text": "a",
+          "start_time": 65.2341746031746,
+          "end_time": 65.2981746031746
+        },
+        {
+          "text": "t",
+          "start_time": 65.2981746031746,
+          "end_time": 65.3616746031746
+        },
+        {
+          "text": " ",
+          "start_time": 65.36217460317461,
+          "end_time": 65.40417460317461
+        },
+        {
+          "text": "k",
+          "start_time": 65.40417460317461,
+          "end_time": 65.4471746031746
+        },
+        {
+          "text": "i",
+          "start_time": 65.4471746031746,
+          "end_time": 65.4681746031746
+        },
+        {
+          "text": "t",
+          "start_time": 65.4681746031746,
+          "end_time": 65.4901746031746
+        },
+        {
+          "text": "a",
+          "start_time": 65.4901746031746,
+          "end_time": 65.66017460317461
+        },
+        {
+          "text": " ",
+          "start_time": 65.66017460317461,
+          "end_time": 65.7881746031746
+        },
+        {
+          "text": "k",
+          "start_time": 65.7881746031746,
+          "end_time": 65.8311746031746
+        },
+        {
+          "text": "a",
+          "start_time": 65.8311746031746,
+          "end_time": 65.8951746031746
+        },
+        {
+          "text": "s",
+          "start_time": 65.8951746031746,
+          "end_time": 65.9591746031746
+        },
+        {
+          "text": "i",
+          "start_time": 65.9591746031746,
+          "end_time": 66.0871746031746
+        },
+        {
+          "text": "h",
+          "start_time": 66.0871746031746,
+          "end_time": 66.1296746031746
+        },
+        {
+          "text": " ",
+          "start_time": 66.13017460317461,
+          "end_time": 66.13017460317461
+        },
+        {
+          "text": "k",
+          "start_time": 66.13017460317461,
+          "end_time": 66.1441746031746
+        },
+        {
+          "text": "e",
+          "start_time": 66.1441746031746,
+          "end_time": 66.1581746031746
+        },
+        {
+          "text": "r",
+          "start_time": 66.1581746031746,
+          "end_time": 66.17217460317461
+        },
+        {
+          "text": "j",
+          "start_time": 66.17217460317461,
+          "end_time": 66.2581746031746
+        },
+        {
+          "text": "a",
+          "start_time": 66.2581746031746,
+          "end_time": 66.38617460317461
+        },
+        {
+          "text": "a",
+          "start_time": 66.38617460317461,
+          "end_time": 66.4501746031746
+        },
+        {
+          "text": "n",
+          "start_time": 66.4501746031746,
+          "end_time": 66.5141746031746
+        },
+        {
+          "text": ".",
+          "start_time": 66.5141746031746,
+          "end_time": 66.7881746031746
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "v15-scene-1",
+      "name": "Kursi bukan warisan",
+      "start": 0.0,
+      "end": 12.137573696145125
+    },
+    {
+      "id": "v15-scene-2",
+      "name": "Foto dan syarat",
+      "start": 12.137573696145125,
+      "end": 20.640589569160998
+    },
+    {
+      "id": "v15-scene-3",
+      "name": "Efisiensi kursi",
+      "start": 20.640589569160998,
+      "end": 30.814603174603175
+    },
+    {
+      "id": "v15-scene-4",
+      "name": "Pengaduan warga",
+      "start": 30.814603174603175,
+      "end": 41.07814058956916
+    },
+    {
+      "id": "v15-scene-5",
+      "name": "Tes pertama",
+      "start": 41.07814058956916,
+      "end": 47.698140589569164
+    },
+    {
+      "id": "v15-scene-6",
+      "name": "Mau kursi? Kerja.",
+      "start": 47.698140589569164,
+      "end": 67.65818594104309
+    }
+  ],
+  "shots": [
+    {
+      "id": "chair",
+      "name": "Kursi, bukan warisan",
+      "start": 0.0,
+      "end": 6.900022675736961
+    },
+    {
+      "id": "bahlil",
+      "name": "Saya siap",
+      "start": 6.900022675736961,
+      "end": 8.765555555555556
+    },
+    {
+      "id": "establish",
+      "name": "Pendaftaran",
+      "start": 8.765555555555556,
+      "end": 12.137573696145125
+    },
+    {
+      "id": "cv",
+      "name": "Pengalaman",
+      "start": 12.137573696145125,
+      "end": 12.940587301587303
+    },
+    {
+      "id": "photo",
+      "name": "Foto keluarga",
+      "start": 12.940587301587303,
+      "end": 17.416587301587303
+    },
+    {
+      "id": "rules",
+      "name": "Syarat berubah",
+      "start": 17.416587301587303,
+      "end": 20.640589569160998
+    },
+    {
+      "id": "leader",
+      "name": "Pak Ketua hemat",
+      "start": 20.640589569160998,
+      "end": 25.556591836734693
+    },
+    {
+      "id": "committee",
+      "name": "Kursi bertambah",
+      "start": 25.556591836734693,
+      "end": 28.457591836734696
+    },
+    {
+      "id": "reveal",
+      "name": "Jalur terhalang",
+      "start": 28.457591836734696,
+      "end": 30.814603174603175
+    },
+    {
+      "id": "gufron",
+      "name": "Keprok atuh",
+      "start": 30.814603174603175,
+      "end": 35.27412698412699
+    },
+    {
+      "id": "complaint",
+      "name": "Warga maju",
+      "start": 35.27412698412699,
+      "end": 38.466133786848076
+    },
+    {
+      "id": "receipts",
+      "name": "Tiga kunjungan",
+      "start": 38.466133786848076,
+      "end": 41.07814058956916
+    },
+    {
+      "id": "move",
+      "name": "Kursi dipindah",
+      "start": 41.07814058956916,
+      "end": 44.88714058956915
+    },
+    {
+      "id": "challenge",
+      "name": "Tadi paling siap",
+      "start": 44.88714058956915,
+      "end": 46.63614058956916
+    },
+    {
+      "id": "sit",
+      "name": "Silakan duduk",
+      "start": 46.63614058956916,
+      "end": 47.698140589569164
+    },
+    {
+      "id": "reaction",
+      "name": "Mulai bekerja",
+      "start": 47.698140589569164,
+      "end": 52.725140589569165
+    },
+    {
+      "id": "queue",
+      "name": "Antrean warga",
+      "start": 52.725140589569165,
+      "end": 54.191156462585035
+    },
+    {
+      "id": "ending",
+      "name": "Kursi dan kerjaan",
+      "start": 54.191156462585035,
+      "end": 67.65818594104309
+    }
+  ],
+  "events": {
+    "photo": 12.940587301587303,
+    "rules": 19.1655873015873,
+    "committee": [
+      25.812591836734693,
+      26.580591836734694,
+      27.348591836734695
+    ],
+    "complaint": 36.84513378684808,
+    "chair_move": 42.796140589569156,
+    "challenge": 44.88714058956915,
+    "sit": 46.63614058956916,
+    "folder": 47.698140589569164,
+    "smile_drop": 51.487140589569165,
+    "write": 52.725140589569165
+  },
+  "effects": [
+    {
+      "type": "paper",
+      "time": 19.1655873015873,
+      "duration": 0.3
+    },
+    {
+      "type": "chair",
+      "time": 26.062591836734693,
+      "duration": 0.15
+    },
+    {
+      "type": "chair",
+      "time": 26.830591836734694,
+      "duration": 0.15
+    },
+    {
+      "type": "chair",
+      "time": 27.598591836734695,
+      "duration": 0.15
+    },
+    {
+      "type": "slide",
+      "time": 42.796140589569156,
+      "duration": 1.4
+    },
+    {
+      "type": "chair",
+      "time": 47.28614058956916,
+      "duration": 0.15
+    },
+    {
+      "type": "paper",
+      "time": 47.89814058956917,
+      "duration": 0.25
+    }
+  ],
+  "sources": [
+    {
+      "file": "generated-v15/narator.source.pcm",
+      "sha256": "a71b3510e453b38880c2f17baaacbc8f5c2048f2a438eed16e7893972fc84e3b",
+      "duration": 60.679591836734694,
+      "voice_id": "049413e41c334753984c294d694afb5c",
+      "reused": false
+    },
+    {
+      "file": "generated-v13/bahlil.source.pcm",
+      "sha256": "8964bdf094ccf9e323f0d888d3d2b53031e4abe893b950a102fd0a4d5b0e3357",
+      "duration": 1.926530612244898,
+      "voice_id": "233c3b208dff40e5b758c445086e1f57",
+      "reused": true
+    },
+    {
+      "file": "generated-v13/mama-ghufron.source.pcm",
+      "sha256": "5d9b466deda6ae848026f717322182dfd013f08a1764059f64439d12ea126e31",
+      "duration": 4.478503401360544,
+      "voice_id": "bb23d4e8919d4e20b55ea5b70159749c",
+      "reused": true
+    }
+  ],
+  "speech_speed": 1,
+  "speech_pitch": 1,
+  "requested_model": "server-selected",
+  "returned_model": "not supplied",
+  "timing_provenance": "Provider character timestamps; not independent transcription",
+  "review_status": "Technical checks; listening not yet verified",
+  "sample_peak_dbfs": -2.8950563190446217,
+  "integrated_loudness_lufs": -16.73,
+  "true_peak_dbtp": -2.89,
+  "music_source": "music-v1/antre-rendang-komedi-80s.wav",
+  "music_provenance": "Existing original project instrumental",
+  "script_source": "docs/script/002-kursi-kosong-proses-pengganti-wapres-2026-11-13.md"
+}

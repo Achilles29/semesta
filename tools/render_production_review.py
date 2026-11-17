@@ -1,10 +1,16 @@
 """Flat CPU triangle previews, not the browser's lighting/shaders/shadows."""
-import json
+import json,sys
 from pathlib import Path
 from PIL import Image, ImageDraw
 import numpy as np
-folder=Path(__file__).resolve().parents[1]/'docs/record/production-v9-review'
+version='v16' if '--v16' in sys.argv else 'v15' if '--v15' in sys.argv else 'v14' if '--v14' in sys.argv else 'v9'
+review_name=next((a.split('=',1)[1] for a in sys.argv if a.startswith('--review-name=')),version)
+assert all(c.isascii() and (c.isalnum() or c=='-') for c in review_name)
+folder=Path(__file__).resolve().parents[1]/f'docs/record/production-{review_name}-review'
+selected=next((a.split('=',1)[1].split(',') for a in sys.argv if a.startswith('--shots=')),None)
 for source in folder.glob('*.json'):
+    if selected and source.stem[:2] not in selected:continue
+    if source.with_suffix('.png').exists() and source.with_suffix('.png').stat().st_mtime>=source.stat().st_mtime:continue
     triangles=json.loads(source.read_text())
     pixels=np.full((960,540,3),[198,210,213],dtype=np.uint8)
     depth=np.full((960,540),np.inf)
@@ -26,3 +32,10 @@ for source in folder.glob('*.json'):
     ImageDraw.Draw(image).text((12,12),'GEOMETRY REVIEW - NOT BROWSER CAPTURE',fill='#151515')
     image.save(source.with_suffix('.png'))
     print(source.with_suffix('.png'))
+if version!='v9':
+    frames=sorted(folder.glob('[0-9][0-9]-*.png'))
+    board=Image.new('RGB',(6*270,3*510),'#ddd8ca')
+    for i,path in enumerate(frames):
+        tile=Image.open(path).resize((270,480));x=(i%6)*270;y=(i//6)*510
+        board.paste(tile,(x,y+24));ImageDraw.Draw(board).text((x+8,y+6),path.stem,fill='#222222')
+    board.save(folder/'contact-sheet.jpg')

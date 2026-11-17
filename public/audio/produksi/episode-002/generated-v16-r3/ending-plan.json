@@ -1,0 +1,25 @@
+{
+  "version": "v16-r3",
+  "status": "generated-once-and-integrated-v16-r3-listening-review-pending",
+  "voice_name": "Jemmy - Bold & Upbeat",
+  "approved_text": "Pejabatnya dorong dulu. Sekarang, warga yang nentuin!\n\nFollow buat jadi warga Republik WKWKWK. Di sini, kalian bukan cuma penonton. Kalian ikut nentuin republik ini mau jadi apa!\n\nRepublik ini kita bangun dari komentar kalian.\n\nMulai dari jalan ini: mau ditambal, atau dibikin kolam lele?\n\nTulis usulanmu! Yang terpilih kita wujudkan di episode berikutnya.\n\nBiar yang nambah bukan spanduk doang!",
+  "request": {
+    "voiceId": "7a155d5e64ba4ef2867c3341d75f3598",
+    "text": "Pejabatnya dorong dulu. Sekarang, warga yang nentuin!\n\nFollow buat jadi warga Republik wekawekaweka. Di sini, kalian bukan cuma penonton. Kalian ikut nentuin republik ini mau jadi apa!\n\nRepublik ini kita bangun dari komentar kalian.\n\nMulai dari jalan ini: mau ditambal, atau dibikin kolam lele?\n\nTulis usulanmu! Yang terpilih kita wujudkan di episode berikutnya.\n\nBiar yang nambah bukan spanduk doang!",
+    "language": "id",
+    "speed": 1,
+    "expressivenessBoost": 1,
+    "withTimestamps": true,
+    "outputFormat": {
+      "encoding": "pcm",
+      "sample_rate_hertz": 44100,
+      "bit_depth": 16,
+      "num_channels": 1
+    }
+  },
+  "notes": [
+    "One ending take only, approved by user: oke eksekusi.",
+    "Retain V16 cues 1–16 and their audio/timing unchanged.",
+    "Fictional satire. Final speech speed/pitch 1x."
+  ]
+}

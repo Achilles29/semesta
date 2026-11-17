@@ -1,7 +1,7 @@
 import {EPISODE_DURATION as DEFAULT_DURATION,LEAD_IN} from './production-episode.js';
 
 /** One decoded master, one active source. Audio time drives picture time. */
-export function createProductionVoice({url,duration=DEFAULT_DURATION,createContext=()=>new AudioContext(),load=async(url)=>{
+export function createProductionVoice({url,duration=DEFAULT_DURATION,leadIn=LEAD_IN,createContext=()=>new AudioContext(),load=async(url)=>{
   const response=await fetch(url);if(!response.ok)throw new Error(`Audio HTTP ${response.status}`);return response.arrayBuffer();
 }}){
   const EPISODE_DURATION=duration;
@@ -31,16 +31,19 @@ export function createProductionVoice({url,duration=DEFAULT_DURATION,createConte
         if(run!==generation)return false;
         if(context.state!=='running')throw new Error('Browser belum mengizinkan audio. Tekan Play lagi.');
         if(Math.abs(buffer.duration-EPISODE_DURATION)>.05)throw new Error('Master audio tidak cocok dengan timeline ('+EPISODE_DURATION.toFixed(2)+' detik). Muat ulang halaman.');
-        floor=Math.max(0,start);limit=Math.min(EPISODE_DURATION,end);position=floor-LEAD_IN;lastPresented=position;
+        floor=Math.max(0,start);limit=Math.min(EPISODE_DURATION,end);position=floor-Math.max(0,leadIn);lastPresented=position;
         schedule();return true;
       }catch(error){if(run!==generation)return false;state='idle';silence();throw error;}
     },
     tick(now,hidden=false){
       if(state!=='playing'){lastFrame=null;return;}
-      // Restore the last shown frame after a stall, rather than skipping dialogue.
-      if(hidden||(lastFrame!==null&&now-lastFrame>500)||context.state!=='running'){
+      // Backgrounding or a suspended audio device needs an explicit resume.
+      if(hidden||context.state!=='running'){
         position=lastPresented;silence();state='paused';lastFrame=null;return;
       }
+      // A slow foreground render must not silently pause or restart speech.
+      // Like a video player, drop late picture frames and catch up to audio time.
+      // This also keeps playing on devices consistently slower than 2 FPS.
       lastFrame=now;lastPresented=current();
       if(lastPresented>=limit){position=limit;silence();state='finished';}
     },

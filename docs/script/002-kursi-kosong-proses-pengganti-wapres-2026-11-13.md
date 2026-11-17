@@ -1,4 +1,471 @@
-# Naskah 002 — V13: Yang Dilihat Kursinya
+# Produksi terbaru V16 revisi 3 — warga menentukan pembangunan republik
+
+17 November 2026. **Teks disetujui, satu take penutup sudah dibuat dan dipasang.**
+Default **PLAY V16 + SUARA** sekarang memakai revisi 3, bukan master revisi 2.
+Penutup baru berdurasi **24,620 detik**, total episode **79,580 detik**.
+Suara tetap Jemmy — Bold & Upbeat, bahasa Indonesia, speed 1, expressiveness 1.
+Tidak membuat ulang suara Bahlil/Gufron atau cue 1–16. Sampel keempat stem/master
+sebelum detik **53,860** identik dengan revisi 2; pemeriksaan membandingkan byte PCM.
+
+- Master: `public/audio/produksi/episode-002/release-v16-r3/episode-002-v16-r3-master.wav`.
+- Penutup saja: `public/audio/produksi/episode-002/release-v16-r3/v16-17-narator.wav`.
+- Naskah yang dikirim, metadata provider, dan take asli: `generated-v16-r3`.
+- Timeline, 47 frasa subtitle (JSON/SRT/VTT), stem terpisah, dan review: `release-v16-r3`.
+- Kini 23 potongan kamera dalam 6 rangkaian. Potongan 18–23 berpindah ke warga,
+  lubang jalan, lalu warga bersama panggung/spanduk. Kamera tetap full-body.
+- Musik melanjutkan aransemen revisi 2, diturunkan selama narasi, lalu ditutup
+  akor setelah kalimat terakhir. Fade tidak memotong ajakan atau kata terakhir.
+- Pengukuran master final: **-16,4 LUFS / -1,9 dBTP**; decode penuh berhasil.
+- Ctrl+F5 sebelum Play. Subtitle otomatis aktif; C untuk tampil/sembunyi.
+  Rekam layar/tab browser beserta audio sistem, bukan canvas WebGL saja.
+- Batas review: tes timeline, PCM, rig, framing, subtitle dan geometri; review
+  dengar serta pemutaran audiovisual browser penuh belum dilakukan. Akses host
+  browser otomatis masih tidak tersedia. Lihat `release-v16-r3/review.json`.
+
+Tujuan: follow berarti bergabung menjadi warga Republik WKWKWK; komentar warga
+menjadi bahan keputusan pembangunan dan cerita berikutnya. Bukan sekadar meminta
+pengalaman penonton tentang jalan rusak. Usulan terpilih diwujudkan, bukan janji
+bahwa semua komentar atau komentar dengan like terbanyak otomatis dilaksanakan.
+
+## Narasi penutup pengganti cue 17
+
+> Pejabatnya dorong dulu. Sekarang, warga yang nentuin!
+>
+> Follow buat jadi warga Republik WKWKWK. Di sini, kalian bukan cuma penonton. Kalian ikut nentuin republik ini mau jadi apa!
+>
+> Republik ini kita bangun dari komentar kalian.
+>
+> Mulai dari jalan ini: mau ditambal, atau dibikin kolam lele?
+>
+> Tulis usulanmu! Yang terpilih kita wujudkan di episode berikutnya.
+>
+> Biar yang nambah bukan spanduk doang!
+
+Narator tetap Jemmy. Pembawaan antusias dan mengajak, bukan membacakan pengumuman.
+Tekankan **warga yang nentuin**, **komentar kalian**, dan **kita wujudkan**.
+Jeda pendek sebelum “kolam lele” agar kelucuannya terbaca. WKWKWK tetap diucapkan
+“wekawekaweka”; catatan intonasi tidak ikut dikirim sebagai teks ucapan.
+Perkiraan awal 23–28 detik; hasil take **24,620 detik**. Seluruh take dipertahankan
+tanpa pemotongan kata, time-stretch, atau jeda buatan. Timestamp provider memandu
+subtitle dan pergantian kamera; kualitas intonasi masih memerlukan cek dengar.
+
+## Gambar dan suara penutup
+
+1. Pertahankan punchline cue 16 dan adegan pejabat mendorong mobil. Saat narator
+   mengatakan “Pejabatnya dorong dulu”, perlihatkan usaha mereka agar penutup
+   tersambung dengan kejadian, bukan tiba-tiba menjadi iklan follow.
+2. Pada “warga yang nentuin”, pindah ke warga dan Gufron yang menghadap kamera.
+   Framing tetap satu badan. Warga adalah pemilik keputusan, bukan figuran CTA.
+3. Saat pilihan ditambal/kolam lele, tampilkan lubang yang sama dan reaksi Gufron.
+   Jangan tiba-tiba menampilkan jalan mulus atau kolam: warga belum memilih.
+4. Pada sindiran “spanduk doang”, perlihatkan warga, lubang, dan spanduk peresmian
+   pada panggung yang sama. Spanduk properti bertuliskan PERESMIAN JALAN, bukan
+   kartu teks HUD. Setelah seluruh ajakan selesai, tahan singkat,
+   lalu musik menyelesaikan motif dan fade. Subtitle mengikuti semua kata narator;
+   jangan memotong kalimat terakhir atau menambah tulisan lain yang menumpuk.
+
+Caption publikasi / komentar tersemat: **Follow jadi warga Republik WKWKWK!
+Republik ini kita bangun dari komentar kalian. Usulan pertama: jalan ditambal,
+dibikin kolam lele, atau ada ide lain? Tulis usulanmu—yang terpilih kita wujudkan
+di episode berikutnya. Parodi fiksi / dialog rekaan / suara AI.**
+
+Build dari take yang sudah tersedia: `python tools/build_v16_r3.py` (menolak
+menimpa folder rilis). Tidak perlu sintesis lagi. Review:
+`python tools/review_v16_r2.py --v16-r3`. Tes:
+`node tools/test_production_v16.mjs`, `node tools/test_production_subtitles.mjs`,
+`node tools/test_production_director.mjs`, `node tools/test_production_voice_playback.mjs`.
+Semua rilis sebelumnya tetap disimpan; detail revisi 2 di bawah adalah arsip.
+
+---
+
+# Arsip V16 revisi 2 — Jalannya Rusak, Acaranya Mulus
+
+17 November 2026. Konsep baru yang disetujui: warga meminta jalan ditambal,
+rombongan mengadakan peresmian; lubang yang disembunyikan saat foto akhirnya
+menahan mobil rombongan. Bahlil dan panitia harus mendorong. Gufron menutup
+dengan “Nah! Sekarang baru turun langsung! Keprok atuh!” Narator dominan.
+Seluruh kejadian/dialog adalah parodi fiksi, bukan kutipan atau kejadian nyata.
+
+- Default Balai Produksi: **PLAY V16 + SUARA**. V15 tersedia sebagai arsip.
+- Audio terbaru **V16 revisi 2**: `public/audio/produksi/episode-002/release-v16-r2/episode-002-v16-r2-master.wav`.
+- Durasi hasil mix: **59,364 detik**, 17 cue dalam 6 rangkaian. Estimasi 80 detik
+  pada konsep bukan durasi wajib; tidak ada percepatan suara atau time-stretch.
+- Naskah persis, pembagian pemeran, dan permintaan suara:
+  `public/audio/produksi/episode-002/generated-v16/batch-plan.json`.
+- Narator baru: **Jemmy — Bold & Upbeat**, bahasa Indonesia, expressiveness 1,
+  speed 1. Dipilih untuk permintaan pembawaan lebih antusias, bukan clone narator
+  referensi. Bahlil dan Gufron memakai clone berizin yang sama, dengan dialog baru.
+- Tiga take asli, metadata provider, dan PCM disimpan di `generated-v16`.
+  Stem dialog/musik/efek, cue WAV, timestamp, dan speech envelope di `release-v16`.
+- Kata **Diindaa**, **Betul apa tidak**, dan **Keprok atuh** ada dalam teks sintesis
+  dan timestamp provider. Pelafalan/kemiripan belum dinyatakan lolos cek dengar.
+- Musik revisi 2 mengaransemen komposisi orisinal **Warga Lagi Hepi**: hook siulan,
+  petikan offbeat, bass sinkopasi, marimba, kick/rim/shaker pada 128 BPM.
+  Musik diturunkan saat dialog, berhenti saat mobil nyangkut, lalu hook kembali
+  saat dorong mobil. Tidak memakai soundtrack pihak lain. Dialog dan efek lama
+  dipertahankan identik (hash file sama), tanpa sintesis ulang atau time-stretch.
+- Pengukuran master revisi 2 FFmpeg: **-16,6 LUFS**, true peak **-1,9 dBTP**, decode penuh
+  berhasil. Pengukuran teknis tidak membuktikan kualitas intonasi.
+- Scene memakai model game, jalan berlubang, panggung, mobil, pita, sandal,
+  fotografer, dan delapan figuran. Set lama dipulihkan setelah Esc; tidak disimpan
+  sebagai perubahan peta permanen. Gerak mulut berbasis energi, bukan fonem.
+- Preview: `http://127.0.0.1:5173/assets/game/tools/preview-production-v16.html`.
+  Ini pemutar adegan langsung, **bukan file MP4**. Rekam audio tab/sistem.
+- Ajakan komentar diucapkan di akhir. Caption publikasi: **Parodi fiksi / dialog
+  rekaan / suara AI. Follow jadi warga Republik WKWKWK. Di tempatmu, duluan aspal
+  atau spanduk?** HUD disembunyikan; subtitle tetap tampil sesuai permintaan terbaru.
+- Subtitle **aktif otomatis**, 33 frasa, maksimum dua baris, ditambah label
+  Bahlil/Gufron. Tombol **C** untuk tampil/sembunyi; tersedia checkbox sebelum Play.
+  Timestamp mengikuti karakter audio final, bukan pembagian durasi rata-rata.
+  Font Arial Bold, posisi atas di dalam bingkai video agar tidak menutup wajah.
+  Tata letak memakai batas aman editorial sementara, bukan jaminan semua UI platform.
+- `release-v16-r2/subtitles.srt`, `.vtt`, dan `.json` tersedia untuk editing.
+  Tulisan WKWKWK mengikuti merek; audio tetap dibaca wekawekaweka.
+  Rekam **tab/jendela browser**, bukan ekspor canvas WebGL saja: subtitle adalah
+  overlay layar. Jangan menambahkan SRT lagi di atas rekaman yang sudah bersubtitle.
+- Dua frasa sedikit cepat (20,3–20,5 karakter/detik); tetap memakai ucapan asli,
+  tidak mengubah tempo dialog atau memunculkan punchline sebelum waktunya.
+- Batas review: tes rig/timeline/audio dan pratinjau geometri; belum ada review
+  audiovisual penuh di browser atau verifikasi dengar gaya referensi.
+
+Build asli: `python tools/build_v16_release.py`; build musik/subtitle revisi 2:
+`python tools/build_v16_r2.py` (keduanya menolak menimpa release yang sudah ada).
+Review teknis/layout: `python tools/review_v16_r2.py`. Tes:
+`node tools/test_production_v16.mjs`, `node tools/test_production_director.mjs`,
+`node tools/test_production_subtitles.mjs`. Sumber produksi suara tidak berubah.
+Gambar layout di `docs/record/production-v16-r2-review` adalah pratinjau geometri,
+bukan screenshot browser. Akses browser otomatis belum tersedia saat revisi ini;
+review dengar/pemutaran browser penuh belum dilakukan.
+
+---
+
+# Arsip Naskah 002 — V15: pembuka frontal, full body, grip properti
+
+## Revisi visual dan narator — 16 November 2026
+
+Default game sekarang **PLAY V15 + SUARA**, durasi **67,658 detik**.
+Naskah/dialog tetap V14; perubahan ini untuk delivery, framing, dan bug gerak.
+
+- Pembuka langsung dari depan, tanpa tangan meraih kursi di belakang badan.
+  Lead-in dipersingkat dari 3 detik menjadi 0,25 detik.
+- Semua shot menggunakan cakupan full body subjek utama. Kamera menghitung
+  ruang aman kepala–kaki secara perspektif, termasuk saat subjek masih berjalan.
+  Tidak ada lagi insert wajah/foto yang memenuhi layar.
+- Tidak menyembunyikan/memunculkan pemeran tiap ganti shot. Meja dipindahkan
+  ke sisi area agar tidak menutupi badan saat pembuka.
+- Siku/lutut memakai arah lokal badan, bukan pole dunia yang tetap saat badan
+  berputar. Pergelangan pemegang kertas mendapat orientasi tersendiri.
+- Foto, CV, dokumen, dan map antrean memakai koreksi anchor tulang tangan;
+  offset memperhitungkan perbedaan morph tangan pemeran. Map pengaduan
+  diturunkan dengan tangan kiri sampai meja, kemudian dilepas dan ditarik kembali.
+- Komeng tidak teleport setelah memindahkan kursi. Panitia tidak lagi meluncur
+  2,1 meter ke samping. Formulir kerja dan map warga adalah dua benda berbeda.
+- Tinggi kaki, kursi, meja, dan pegangan disamakan dengan lantai set (0,075 m)
+  agar telapak kaki tidak terkubur sebagian dalam lantai.
+- Mixer animasi di-reset/dipasang ulang setiap sampel agar cache frame pertama,
+  jeda, dan replay tidak mengembalikan karakter ke pose dasar.
+
+### Suara dan batas review
+
+Skill Narrator digunakan untuk satu take Lucian baru dengan ekspresi 0,85
+(sebelumnya 0,4), bahasa Indonesia, speed 1. Kata-kata tidak diubah.
+Bahlil/Gufron tetap take V13 berizin. Skill Video Editing menjaga pemetaan
+kata, cut, dan stem ke durasi baru tanpa time-stretch.
+Master diukur **-16,73 LUFS / -2,89 dBTP**; pengukuran tidak menerapkan normalisasi.
+
+Referensi `docs/record/Untung di Arsenal gak begini....mp4` terbaca dan stream
+audio berhasil didekode. Analisis sinyal menemukan jeda singkat 0,33–0,45 detik
+pada beberapa bagian dan ekor hening 2,25 detik; ini bukan analisis intonasi
+atau transkrip karena musik ikut berada dalam stream. **Belum ada verifikasi
+dengar penuh atau klaim kesamaan gaya suara.** Tidak mengkloning narator referensi.
+
+Pemeriksaan teknis: framing kepala–kaki 9:16 dan 16:9, kontinuitas posisi 60 Hz,
+IK pada model asli, vertex jari terhadap tujuh panel kertas pada 55 waktu
+(map pengaduan diperiksa ketika masih dipegang),
+kontak pena, replay/jeda, dan timestamp audio. Sampel panel diuji tanpa
+interseksi jari; ini bukan jaminan bebas benturan semua mesh di seluruh film.
+Render CPU 18 shot ada di `docs/record/production-v15-review/`; bukan capture browser.
+Koneksi browser mengembalikan `The browser access host is unavailable`;
+Chrome profil Namua dan review audiovisual bergerak penuh **belum teruji**.
+
+### Memutar dan sumber V15
+
+- Game: Peta Jalan → Balai Produksi → **PLAY V15 + SUARA**.
+- Preview: `http://127.0.0.1:5173/assets/game/tools/preview-production-v15.html`
+  dengan server `npm run dev` aktif.
+- Master: `public/audio/produksi/episode-002/release-v15/episode-002-v15-master.wav`.
+- Stem, cue, timeline, envelope: folder `release-v15`; original dan request:
+  `generated-v15`. V14 tidak ditimpa.
+- Implementasi: `production-v15-episode.js`, `production-v15-props.js`,
+  `production-grip-rig.js`, director, dan clock pemutaran.
+- Tes: `node tools/test_production_v15.mjs` dan
+  `node tools/test_production_voice_playback.mjs`.
+- Reproduksi audio: `python tools/build_v15_release.py` (menolak overwrite).
+- Ini playback untuk rekam layar, bukan MP4 final. Saat publikasi tambahkan
+  label **PARODI FIKSI / SUARA AI**; jangan menumpuk VO lain di master.
+
+## Catatan produksi V14 sebelumnya
+
+# Naskah 002 — V14: Mau Kursinya? Ini Kerjaannya.
+
+## Revisi skenario berbasis riset — 16 November 2026
+
+**Status produksi 16 November 2026: V14 sudah memiliki master audio dan runtime game.**
+Durasi terukur **71,486 detik**, 10 cue, 6 rangkaian dan 18 shot.
+Default player sekarang **PLAY V14 + SUARA**; V13 dan V10 tetap sebagai arsip.
+Narator direkam ulang; dua dialog identik Bahlil/Gufron memakai take V13
+yang sudah ada, bukan hasil kloning ulang atau suara pengganti.
+Tes kode/rig/audio serta build lolos. Review gambar geometri dilakukan;
+review audiovisual browser penuh dan penilaian kemiripan suara belum diklaim lolos.
+Percobaan akses browser pada turn produksi ini mengembalikan
+`The browser access host is unavailable` dan inventaris browser kosong.
+Karena itu pengujian Chrome profil Namua belum dapat dilakukan. HTTP preview,
+modul V14, dan WAV master berhasil merespons 200 melalui server Vite lokal.
+
+### Hasil produksi dan cara memutar
+
+- Di game: Peta Jalan → Balai Produksi → V14 → PLAY V14 + SUARA.
+- Preview mandiri tanpa database/login: jalankan `npm run dev`, buka
+  `http://127.0.0.1:5173/assets/game/tools/preview-production-v14.html`.
+- Master: `public/audio/produksi/episode-002/release-v14/episode-002-v14-master.wav`.
+- Folder yang sama berisi stem dialogue/music/fx, 10 cue WAV,
+  `timeline.json`, dan `speech-envelope.json` (RMS, bukan lip-sync fonem).
+- Sumber narator dan metadata: `generated-v14`; dua sumber cast tetap
+  merujuk `generated-v13`, dengan hash dan rentang sumber di timeline.
+- Master: stereo PCM 16-bit / 44,1 kHz; FFmpeg mengukur **−16,78 LUFS**
+  integrated dan **−2,67 dBTP**. Tidak ada time-stretch; tidak ada jeda
+  buatan di tengah kalimat. Jeda antarcue 0,16 detik, ekor akhir 0,75 detik.
+- Ini playback game siap untuk proses rekam layar, **bukan berkas MP4 final**.
+  Rekam audio tab/sistem, bukan mikrofon saja. F11 bila perlu; HUD hilang
+  saat Play, Spasi jeda, R ulang, panah pindah rangkaian, Esc keluar.
+- Gambar diagnostik di `docs/record/production-v14-review/` merupakan
+  render CPU geometri game, bukan screenshot Chrome atau bukti kelancaran gerak.
+  Warna, bayangan, dan shader browser dapat berbeda.
+- Implementasi: `game-src/production-v14-episode.js`,
+  `game-src/production-v14-props.js`, dan `production-director.js`.
+  Tiga tokoh tambahan milik cutscene saja, tidak masuk daftar interaksi dunia.
+- Tes: `node tools/test_production_v14.mjs` dan
+  `node tools/test_production_voice_playback.mjs`; tes regresi V13/V10 juga lolos.
+  Build aman untuk aset lama: `node --input-type=module -e "import {build} from 'vite'; await build({build:{emptyOutDir:false}});"`.
+- Reproduksi audio: `python tools/build_v14_release.py` membutuhkan NumPy,
+  menolak menimpa folder release yang sudah ada. FFmpeg tambahan dipakai
+  untuk pengukuran loudness, bukan mengubah kecepatan rekaman.
+
+Catatan implementasi: pergantian syarat diperlihatkan dengan perubahan status
+merah menjadi hijau pada dokumen ilustratif, bukan reproduksi dokumen MK.
+Komeng memindahkan kursi utama; panitia membawa kursinya sendiri ke samping.
+Detail foto keluarga memakai geometri ilustratif, bukan foto nyata.
+V13 beserta catatan implementasinya dipertahankan di bagian arsip bawah.
+
+### Keputusan editorial
+
+Cerita tentang perebutan kursi yang berubah menjadi tes pelayanan warga.
+Sindiran utama: koneksi keluarga dan kelonggaran aturan bukan pengganti
+kemampuan bekerja. Sindiran pendamping: semangat efisiensi berhadapan dengan
+bertambahnya kursi kekuasaan. Tidak memasukkan isu ijazah, tuduhan pidana,
+atau skandal lain yang memecah fokus dan membutuhkan pembuktian tersendiri.
+
+Narator dominan; hanya Bahlil dan Gufron menyela. Nama Jokowi, Gibran,
+dan Prabowo tidak diucapkan. Rujukan politik melalui metafora foto keluarga,
+syarat yang berubah, serta Pak Ketua dan kursi panitia. Ini parodi fiktif,
+bukan rekonstruksi rapat atau kutipan asli ketiga tokoh tersebut.
+
+**Hasil akhir episode:** Bahlil memperoleh kursi yang diperebutkan, tetapi
+sebagai peserta tes di meja pengaduan, bukan dilantik menjadi wapres.
+Ia mulai membaca berkas pertama di depan warga. Kursi berubah dari hadiah
+menjadi tanggung jawab. Tes pertama benar-benar dimulai sebelum ajakan follow.
+
+### Mengapa V13 terasa lambat dan kurang tajam
+
+- Alur gerobak membuat isu kursi menjadi latar, bukan pusat konflik.
+- Empat rentang adegan V13 sekitar 19,5 / 20,3 / 13,7 / 23,2 detik. Ini
+  rentang adegan, bukan bukti bahwa kamera sama sekali tidak bergerak;
+  tetapi rancangan barunya perlu coverage aksi dan reaksi yang lebih beragam.
+- `tools/build_v13_release.py` memasukkan total 9,55 detik jeda di dalam
+  narasi, ditambah 5,2 detik jeda antarcue/ekor. Ini hasil pemeriksaan kode,
+  bukan pengukuran ulang rasa intonasi lewat pendengaran.
+- Di versi lama, follow tidak diucapkan dan keputusan akhir hanya menunda
+  pemilihan. Pada V14, payoff visual selesai, baru penonton diajak terlibat.
+- Solusinya bukan mempercepat seluruh animasi atau audio: pendekkan lintasan,
+  jalankan aksi di bawah narasi, dan potong ke detail saat aksi penting terjadi.
+
+### Catatan riset: fakta, tafsir, dan rekaan dipisahkan
+
+Ditinjau 16 November 2026. Sumber di bawah mendasari kritik, bukan bukti
+bahwa adegan komedi ini sungguh terjadi. Tidak ada jaminan viral atau aman
+dari semua keberatan hanya karena nama tidak disebut.
+
+| Dasar yang diperiksa | Temuan dan batasnya | Penggunaan kreatif |
+| --- | --- | --- |
+| [ANTARA, 12 November 2026](https://www.antaranews.com/berita/5848915/berikut-isi-surat-pengunduran-diri-gibran-sebagai-wapres) | Laporan pembacaan surat pengunduran diri Gibran oleh pimpinan MPR; laporan menyebut jabatan kosong. Surat tidak merinci alasan khusus. Jangan mengarang motif pengunduran dirinya. | Relevansi isu kursi kosong; pembuka tetap berlokasi di Republik WKWKWK. `Day one` berarti hari pertama seri, bukan klaim tanggal kejadian nasional. |
+| [MK, amar Putusan 90/PUU-XXI/2023, 16 Oktober 2023](https://www.mkri.id/perkara/persidangan/putusan?page=78&perPage=20) | Syarat 40 tahun mendapat pengecualian bagi pemegang/pernah memegang jabatan hasil pemilu, termasuk kepala daerah. Bukan penghapusan semua syarat atau penurunan umum menjadi 35 tahun. | Kertas syarat diganti merupakan metafora kritik atas kelonggaran akses; bukan reka ulang putusan atau klaim siapa memerintah hakim. |
+| [MK, putusan etik MKMK, 7 November 2023](https://www.mkri.id/berita/mkmk-berhentikan-anwar-usman-dari-jabatan-ketua-mahkamah-konstitusi-19751) | Anwar Usman diberhentikan dari jabatan Ketua MK dan dibatasi dalam perkara berpotensi konflik kepentingan. Bedakan pemberhentian sebagai ketua dari pemberhentian sebagai hakim. Ini bukan putusan pidana terhadap Jokowi atau Gibran. | Kritik konflik kepentingan dan privilese keluarga; jangan menambahkan tuduhan suap atau transaksi yang tidak dibuktikan. |
+| [Sekretariat Kabinet, 22 Oktober 2024](https://setkab.go.id/inilah-kementerian-negara-kabinet-merah-putih/) dan [DJPb Kemenkeu, transisi kabinet](https://djpb.kemenkeu.go.id/kppn/kualatungkal/id/data-publikasi/pengumuman/2991-petunjuk-teknis-pelaksanaan-anggaran-kementerian-lembaga-satuan-kerja-dalam-masa-transisi-kabinet-merah-putih-periode-2024-2030.html) | Pembentukan kabinet 2024 memuat 48 kementerian; catatan transisi membandingkan dengan 34 sebelumnya. Angka historis pembentukan, bukan klaim jumlah mutakhir seluruh pejabat November 2026. | Kursi panitia bertambah. Metafora birokrasi melebar; tidak menyimpulkan semua kementerian tidak berguna. |
+| [JDIH BMKG, Inpres 1/2025](https://jdih.bmkg.go.id/dokumen/detail/4516) | Kebijakan efisiensi APBN/APBD tahun anggaran 2025, ditetapkan 22 Januari 2025 dan ditandatangani Prabowo. | Kontras efisiensi versus kursi bertambah adalah penilaian satiris, bukan bukti hukum pemborosan atau kutipan perintah presiden dalam rapat ini. |
+| [JDIH DPR, UUD 1945 Pasal 8 ayat (2)](https://jdih.dpr.go.id/setjen/index/id/UUD-1945-BAGIAN-PERTIMBANGAN-DAN-DOKUMENTASI-INFORMASI-HUKUM) | Kekosongan wapres diisi lewat sidang MPR paling lambat 60 hari, memilih dari dua calon usulan presiden. | Komentar penonton menentukan ide tes untuk seri parodi, bukan voting pengangkatan wapres sungguhan. |
+
+Halaman berita primer MPR tentang surat pengunduran diri muncul dalam hasil
+pencarian tetapi pembukaan langsung menghasilkan 403. Untuk detail aktual,
+catatan ini memakai laporan ANTARA yang dapat dibuka, bukan mengklaim telah
+membaca penuh halaman MPR tersebut. Status jabatan perlu diperiksa lagi
+menjelang publikasi karena isu ini bergerak cepat.
+
+Prinsip dari referensi Arsenal yang sudah ditinjau sebelumnya: satu narator
+menuntun analogi, contoh konkret memperjelas kritik, lalu ending kembali ke
+premis. Tidak menyalin kalimat, footage, atau suara referensi. Tidak ada
+analisis ulang audio referensi maupun data retensi platform pada revisi ini.
+
+### Naskah bersih V14 — hanya isi kutipan untuk suara
+
+#### V14-01 — Narator
+
+“Day one di Republik WKWKWK. Kursi wapres kosong. Kita cari pengganti, bukan ahli waris.”
+
+#### V14-02 — Bahlil
+
+“Diindaa! Saya siap!”
+
+#### V14-03 — Narator
+
+“Bahlil sudah siap duduk. Kerjaannya belum dibahas.”
+
+#### V14-04 — Narator
+
+“Sebelahnya bawa foto keluarga. Yang ditanya pengalaman, yang ditunjukin bapaknya. Syaratnya belum cocok? Malah syaratnya yang diganti.”
+
+#### V14-05 — Narator
+
+“Pak Ketua mau hemat. Tapi buat milih satu orang, panitianya nambah terus. Ada ketua, wakil, penasihat. Ini nyari pengganti apa bagi-bagi kursi?”
+
+#### V14-06 — Gufron
+
+“Pemimpin harus dekat dengan rakyat. Betul apa tidak? Keprok atuh!”
+
+#### V14-07 — Narator
+
+“Bu Warung nggak tepuk tangan. Dia maju bawa pengaduan. Sudah tiga kali bolak-balik, belum diurus.”
+
+#### V14-08 — Narator
+
+“Nah, tesnya ketemu. Kursinya dipindah ke meja pengaduan. Bahlil, tadi paling siap, kan? Silakan duduk.”
+
+#### V14-09 — Narator
+
+“Bukan dilantik. Disuruh dengerin warga dulu. Baru satu ibu, senyumnya sudah hilang. Di belakang masih antre.”
+
+#### V14-10 — Narator
+
+“Mau kursinya? Sekalian urus masalahnya. Komen: siapa yang harus dites berikutnya, dan dites apa? Follow jadi warga Republik WKWKWK. Di sini, calon pejabat kita kasih kerjaan.”
+
+### Pembawaan suara dan ritme
+
+- Narator tetap karakter suara yang sudah dipilih; jangan ganti identitas
+  tanpa permintaan. Gaya teman bercerita, geli tetapi ada rasa kesal yang
+  masuk akal. Bukan pembaca berita, bukan semua kalimat diteriakkan.
+- Cue 01 langsung masuk. Tekan `pengganti`, turunkan nada pada `ahli waris`.
+  Pembuka tidak membutuhkan logo, salam, atau jalan masuk tokoh.
+- Cue 02: `Diindaa` = **DIIN–DAA**, kedua suku kata mendapat tekanan. Jangan
+  kembali ke `Dindaaaa`. Buat uji dengar pendek sebelum generasi seluruhnya.
+- Cue 03: `belum dibahas` datar. Cue 04: mengalir, lalu heran pada `diganti`.
+  Tidak ada suara anak, bapak, atau Pak Ketua tambahan.
+- Cue 05: daftar ketua/wakil/penasihat naik sedikit tiap tambahan; pertanyaan
+  terakhir seperti spontan menyadari keanehan, bukan membacakan slogan.
+- Cue 06: Gufron yakin, mengajak. Dua frasa khas harus terdengar utuh.
+  Jangan sisipkan applause panjang; satu warga boleh baru mengangkat tangan
+  lalu berhenti ketika Bu Warung maju.
+- Cue 07 menurun dan lebih peduli. Cue 08 berubah ke nada `nah, sekarang
+  buktikan`; cue 09 geli datar. Beri reaksi wajah sekitar 0,3–0,5 detik,
+  bukan beberapa detik diam untuk menunggu jalan.
+- Cue 10 tegas pada hubungan kursi/kerja; pertanyaan komentar sungguhan,
+  follow seperti undangan bergabung. WKWKWK dilafalkan **wekawekaweka**.
+- Naskah bersih berisi sekitar 145 kata tertulis dalam 10 cue (pelafalan
+  WKWKWK menambah suku kata). Rencana durasi **65–85 detik**, bukan hasil ukur rekaman.
+  Prioritaskan narasi alami. Bila terlalu panjang setelah tes suara,
+  pangkas copy atau shot sekunder; jangan mempercepat master audio.
+
+### Shot plan: 6 rangkaian, 18 potongan yang punya fungsi
+
+Detik di bawah perkiraan editorial untuk versi sekitar 85 detik. Timestamp
+final mengikuti audio baru. Setiap gerakan mulai sebelum atau saat kata
+pemicunya terdengar; tidak menunggu narator selesai lalu berjalan panjang.
+
+| Rangkaian / perkiraan | Potongan dan aksi yang terlihat | Cue / tujuan |
+| --- | --- | --- |
+| A · 0–10 dtk | **01:** close-up kursi kosong, tangan Bahlil masuk dan memegang sandaran. **02:** medium close-up Bahlil menyahut, wajah Gufron terlihat di belakang sebagai reaksi. **03:** wide singkat menegaskan kursi, meja pelayanan dan antrean ada di satu lokasi. | 01–03. Subjek dan arah seri langsung jelas; tangan sudah bergerak sejak frame pembuka. |
+| B · 10–21 dtk | **04:** insert map pengalaman yang disodorkan warga biasa. **05:** calon muda di sebelah mengangkat foto dirinya bersama bapaknya; bapak berdiri dekat bahunya. **06:** close-up petugas mengganti lembar syarat setelah melirik mereka; cut reaksi warga biasa yang mapnya belum disentuh. | 04. Visual favoritisme fiktif, bukan foto/dokumen asli. Petugas mengubah perlakuan secara terlihat. |
+| C · 21–34 dtk | **07:** medium Pak Ketua merapatkan dua tangan mengisyaratkan penghematan. **08:** match cuts kursi tambahan dibawa masuk satu per satu bersama ketua, wakil, penasihat panitia. **09:** wide reveal jalur ke meja pelayanan justru terhalang deretan kursi; Pak Ketua melihat hasilnya. | 05. Sindiran kepada pelebaran struktur, bukan sekadar lelucon bentuk badan. Satu masalah makin membesar. |
+| D · 34–47 dtk | **10:** medium close-up Gufron, peci dan rambut gondrong terlihat, tangannya mengajak tepuk. **11:** reverse medium Bu Warung tidak ikut tepuk; ia mengangkat map dan maju selangkah. **12:** insert tiga bukti kunjungan dalam map, lalu wajahnya yang lelah. | 06–07. Reaksi warga memutus seremoni; tiga kunjungan hanya fakta fiktif tokoh ini. |
+| E · 47–63 dtk | **13:** two-shot Komeng dan warga menyingkirkan satu kursi panitia, membuka jalur; Komeng memindah kursi utama yang dekat ke meja pelayanan. **14:** POV dari depan meja: Bu Warung menunjuk kursi, semua menoleh ke Bahlil. **15:** match-on-action Bahlil menyelesaikan duduk, lalu map pertama diletakkan di depannya. | 08. Tes dimulai. Tidak ada penobatan atau warga memilih wapres melalui komentar. |
+| F · 63–85 dtk | **16:** close-up senyum Bahlil berubah; ia membuka map, bukan membeku atau kabur. **17:** over-shoulder memperlihatkan Bu Warung menunjuk berkas dan antrean di belakang; Gufron menurunkan tangan ajakan tepuk. **18:** medium ensemble Bahlil mulai mencatat, Bu Warung menunggu jawaban, warga berikutnya menyiapkan map; narator menyelesaikan payoff dan CTA. | 09–10. Akibat kursi diperlihatkan sampai tindakan kerja pertama; ending tetap hidup selama ajakan komentar/follow. |
+
+Shot 06 dan 08 boleh berisi insert reaksi singkat; 18 adalah rencana coverage,
+bukan kuota cut yang harus dipaksakan. Jangan memotong saat penonton belum
+sempat memahami foto, perpindahan kursi, atau perubahan ekspresi.
+
+### Blocking, pemain, dan kebutuhan implementasi berikutnya
+
+- Tiga pemilik suara saja: narator off-screen, Bahlil, Gufron. Mulut tokoh
+  lain tidak bergerak seolah mengucapkan narasi. Saat dialog, shot menampilkan
+  pembicara dan minimal satu reaksi supaya bukan bergantian monolog sendirian.
+- Bahlil/Gufron tetap karikatur parodi yang sudah ada. Bu Warung dan Komeng
+  berperan aktif tanpa dialog. Pak Ketua adalah karikatur pemimpin berbusana
+  safari, bukan avatar resmi atau pembacaan ucapan asli Prabowo.
+- Calon muda dan bapaknya tanpa nama menjadi ilustrasi privilese keluarga.
+  Pakai foto ilustratif dua karakter game tersebut, bukan foto privat atau
+  dokumen resmi. Jangan menampilkan stempel pengadilan atau uang suap.
+- Delapan figuran dapat dibagi menjadi petugas, tiga panitia, dan empat warga
+  antre. Aktifkan reaksi bergiliran: satu melirik foto, satu memindahkan map,
+  satu memberi ruang Bu Warung. Jangan semuanya mengangguk serempak.
+- Warung, balai kecil, teras rumah dan motor parkir membentuk latar kampung;
+  pergerakan latar tidak melintas menutupi pembicara atau tangan yang beraksi.
+- Tempatkan kursi utama sekitar satu langkah dari meja. Ambil lalu geser
+  dalam 1–2 detik yang tumpang tindih narasi. Jarak dan kecepatan disesuaikan
+  skala rig; tangan menempel pada sandaran, kaki tidak meluncur.
+- Gerak penting terdiri dari antisipasi singkat, aksi, lalu pose akhir yang
+  terbaca. Perubahan tatapan mengawali putaran kepala; jangan semua tulang
+  berayun terus-menerus. Duduk harus benar-benar bertemu dudukan kursi.
+- Pertahankan arah layar dan garis pandang. Gunakan close-up tangan/map,
+  medium dua tokoh, reverse reaction, dan wide reveal; jangan hanya zoom
+  pada kamera wide lama. Periksa framing 9:16 terlebih dahulu.
+- Properti baru: meja pengaduan, map, tiga bukti kunjungan ilustratif, foto
+  keluarga karakter, lembar syarat pengganti, dan kursi panitia. Semuanya
+  bisa berupa mesh sederhana/tekstur; tidak memerlukan mesin baru.
+- Tidak ada UI debug/nama pembicara melayang. Sediakan clean capture seperti
+  permintaan sebelumnya. Pada edit publikasi beri penanda ringkas
+  **Parodi fiksi · suara AI**; caption juga menjelaskan bahwa dialog rekaan.
+  Penanda tersebut bukan pengganti akurasi atau izin penggunaan suara.
+- Musik lucu ringan di bawah suara, turun saat pengaduan Bu Warung. Gunakan
+  bunyi kursi, map dan satu aksen pendek pada reveal; tanpa tawa rekaman
+  berulang atau efek setiap kata. Jangan mengambil musik referensi.
+
+### Caption / komentar tersemat yang selaras
+
+**Caption:**
+Kursinya boleh empuk. Kerjaannya jangan ikut lembek. Hari pertama Republik
+WKWKWK: yang paling siap duduk, kita suruh hadapi pengaduan dulu.
+Parodi fiksi dengan suara AI; bukan ucapan atau pencalonan asli tokoh.
+
+**Komentar tersemat:**
+Calon berikutnya siapa, dan tesnya apa? Contoh: urus satu pengaduan sampai
+selesai, bukan cuma foto sambil pegang map. Usulan untuk cerita parodi,
+bukan pemilihan pejabat sungguhan. Kritik kerja/kebijakannya, jangan serang keluarga pribadi.
+
+### Gerbang produksi berikutnya
+
+1. Uji satu take narator serta `Diindaa` dan dialog Gufron; cek dengar,
+   bukan hanya kecocokan teks alignment.
+2. Buat rekaman V14 dari naskah bersih, simpan versi terpisah. Pertahankan
+   identitas suara yang disetujui dan jangan gunakan kutipan fiktif tanpa label parodi.
+3. Ukur durasi, susun shot sesuai frasa, kemudian animasikan aksi pendek.
+4. Cek close-up, tangan/prop, duduk, tatapan, visibilitas pembicara, serta
+   apakah map benar-benar dibuka sebelum CTA. Uji clean capture + suara.
+5. Default player sudah V14 setelah cek teknis dan review geometri. Review
+   akhir dalam Chrome serta cek dengar tetap harus selesai sebelum menyatakan
+   hasil siap tayang; jangan samakan tes kode dengan verifikasi audiovisual.
+
+---
+
+# Arsip Naskah 002 — V13: Yang Dilihat Kursinya
 
 ## Revisi narasi dan pembawaan — 15 November 2026
 

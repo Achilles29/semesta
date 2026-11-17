@@ -1,0 +1,50 @@
+{
+  "version": "v16-r3",
+  "duration": 79.58049886621315,
+  "ending_source_duration": 24.620408163265306,
+  "retained_prefix_frames": 2375230,
+  "retained_prefix_seconds": 53.86009070294784,
+  "speech_speed": 1,
+  "speech_pitch": 1,
+  "peak_dbfs": -1.984512357222989,
+  "subtitles": 47,
+  "shots": 23,
+  "timing_warnings": [
+    {
+      "id": "v16-1-caption-6",
+      "cps": 20.5,
+      "duration": 1.3170000000000002
+    },
+    {
+      "id": "v16-6-caption-2",
+      "cps": 20.3,
+      "duration": 1.4288367346938777
+    },
+    {
+      "id": "v16-r3-ending-6",
+      "cps": 22.25,
+      "duration": 0.8539999999999992
+    },
+    {
+      "id": "v16-r3-ending-14",
+      "cps": 21.81,
+      "duration": 1.2379999999999995
+    }
+  ],
+  "full_spoken_text_covered": true,
+  "listening_review": "not_performed",
+  "browser_av_review": "not_performed",
+  "loudness_review": {
+    "integrated_lufs": -16.4,
+    "true_peak_dbtp": -1.9,
+    "full_decode": "passed"
+  },
+  "music_relative_to_active_voice_rms_db": -19.52,
+  "layout_review": {
+    "source": "Existing CPU geometry frames, not browser captures",
+    "samples": 6,
+    "all_cues_width_checked": true,
+    "safe_area": "Provisional editorial exclusions, not official platform UI",
+    "artifacts": "docs/record/production-v16-r3-review"
+  }
+}

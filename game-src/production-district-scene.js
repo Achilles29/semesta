@@ -87,5 +87,5 @@ export function buildProductionDistrict(THREE,{world,makeHuman,makeText,addColli
     return {...def,root,model,collider:addCollider(root.position.x,root.position.z,.42,.42,'npc'),lineIndex:0,path:null};
   });
   const neighborhood=buildProductionNeighborhood(THREE,{group,makeHuman,addCollider});
-  return {group,cast,signs,neighborhood,updateAtmosphere(time,options){neighborhood.update(time,options);},updateLabels(cameraDistance){labels.forEach(label=>{label.visible=cameraDistance>=10;});}};
+  return {group,cast,signs,neighborhood,createText:makeText,updateAtmosphere(time,options){neighborhood.update(time,options);},updateLabels(cameraDistance){labels.forEach(label=>{label.visible=cameraDistance>=10;});}};
 }

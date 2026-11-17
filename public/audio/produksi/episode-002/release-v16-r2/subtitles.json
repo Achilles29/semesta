@@ -1,0 +1,598 @@
+{
+  "version": "v16-r2",
+  "duration": 59.364013605442175,
+  "cues": [
+    {
+      "id": "v16-1-caption-1",
+      "cue_id": "v16-1",
+      "speaker": "narator",
+      "start": 0.12001360544217687,
+      "speech_end": 2.0190136054421766,
+      "end": 2.1990136054421767,
+      "text": "Warga sini minta jalannya ditambal.",
+      "spoken_text": "Warga sini minta jalannya ditambal.",
+      "lines": [
+        "Warga sini minta",
+        "jalannya ditambal."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 35,
+      "mode": "subtitle",
+      "characters_per_second": 16.84
+    },
+    {
+      "id": "v16-1-caption-6",
+      "cue_id": "v16-1",
+      "speaker": "narator",
+      "start": 2.2110136054421767,
+      "speech_end": 3.3480136054421767,
+      "end": 3.528013605442177,
+      "text": "Yang datang malah panggung.",
+      "spoken_text": "Yang datang malah panggung.",
+      "lines": [
+        "Yang datang",
+        "malah panggung."
+      ],
+      "source_character_start": 36,
+      "source_character_end": 63,
+      "mode": "subtitle",
+      "characters_per_second": 20.5
+    },
+    {
+      "id": "v16-2-caption-1",
+      "cue_id": "v16-2",
+      "speaker": "narator",
+      "start": 3.9260362811791385,
+      "speech_end": 6.0590362811791385,
+      "end": 6.239036281179138,
+      "text": "Selamat datang di Republik WKWKWK.",
+      "spoken_text": "Selamat datang di Republik wekawekaweka.",
+      "lines": [
+        "Selamat datang di",
+        "Republik WKWKWK."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 40,
+      "mode": "subtitle",
+      "characters_per_second": 14.7
+    },
+    {
+      "id": "v16-2-caption-6",
+      "cue_id": "v16-2",
+      "speaker": "narator",
+      "start": 6.273036281179139,
+      "speech_end": 7.041036281179138,
+      "end": 7.2210362811791375,
+      "text": "Hari pertama…",
+      "spoken_text": "Hari pertama…",
+      "lines": [
+        "Hari pertama…"
+      ],
+      "source_character_start": 41,
+      "source_character_end": 54,
+      "mode": "subtitle",
+      "characters_per_second": 13.71
+    },
+    {
+      "id": "v16-2-caption-8",
+      "cue_id": "v16-2",
+      "speaker": "narator",
+      "start": 7.297036281179138,
+      "speech_end": 8.634036281179139,
+      "end": 8.814036281179138,
+      "text": "kita mau meresmikan jalan.",
+      "spoken_text": "kita mau meresmikan jalan.",
+      "lines": [
+        "kita mau",
+        "meresmikan jalan."
+      ],
+      "source_character_start": 55,
+      "source_character_end": 81,
+      "mode": "subtitle",
+      "characters_per_second": 17.14
+    },
+    {
+      "id": "v16-3-caption-1",
+      "cue_id": "v16-3",
+      "speaker": "narator",
+      "start": 9.133058956916097,
+      "speech_end": 10.157058956916098,
+      "end": 10.337058956916097,
+      "text": "Jalannya belum jadi.",
+      "spoken_text": "Jalannya belum jadi.",
+      "lines": [
+        "Jalannya belum jadi."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 20,
+      "mode": "subtitle",
+      "characters_per_second": 16.61
+    },
+    {
+      "id": "v16-4-caption-1",
+      "cue_id": "v16-4",
+      "speaker": "narator",
+      "start": 10.777081632653061,
+      "speech_end": 12.246081632653063,
+      "end": 12.391081632653059,
+      "text": "Nah, Pak Bahlil datang.",
+      "spoken_text": "Nah, Pak Bahlil datang.",
+      "lines": [
+        "Nah, Pak Bahlil datang."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 23,
+      "mode": "subtitle",
+      "characters_per_second": 14.25
+    },
+    {
+      "id": "v16-4-caption-5",
+      "cue_id": "v16-4",
+      "speaker": "narator",
+      "start": 12.391081632653059,
+      "speech_end": 13.79908163265306,
+      "end": 13.97908163265306,
+      "text": "Warga langsung kumpul.",
+      "spoken_text": "Warga langsung kumpul.",
+      "lines": [
+        "Warga langsung",
+        "kumpul."
+      ],
+      "source_character_start": 24,
+      "source_character_end": 46,
+      "mode": "subtitle",
+      "characters_per_second": 13.85
+    },
+    {
+      "id": "v16-4-caption-8",
+      "cue_id": "v16-4",
+      "speaker": "narator",
+      "start": 14.05508163265306,
+      "speech_end": 15.453081632653063,
+      "end": 15.633081632653063,
+      "text": "Kirain mau dicek lubangnya…",
+      "spoken_text": "Kirain mau dicek lubangnya…",
+      "lines": [
+        "Kirain mau dicek",
+        "lubangnya…"
+      ],
+      "source_character_start": 47,
+      "source_character_end": 74,
+      "mode": "subtitle",
+      "characters_per_second": 17.11
+    },
+    {
+      "id": "v16-5-caption-1",
+      "cue_id": "v16-5",
+      "speaker": "narator",
+      "start": 15.907104308390023,
+      "speech_end": 17.50410430839002,
+      "end": 17.68410430839002,
+      "text": "…ternyata mau dipotong pitanya.",
+      "spoken_text": "…ternyata mau dipotong pitanya.",
+      "lines": [
+        "…ternyata mau",
+        "dipotong pitanya."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 31,
+      "mode": "subtitle",
+      "characters_per_second": 17.45
+    },
+    {
+      "id": "v16-6-caption-1",
+      "cue_id": "v16-6",
+      "speaker": "bahlil",
+      "start": 17.98763945578231,
+      "speech_end": 18.755639455782312,
+      "end": 18.93563945578231,
+      "text": "Diindaa!",
+      "spoken_text": "Diindaa!",
+      "lines": [
+        "Diindaa!"
+      ],
+      "source_character_start": 0,
+      "source_character_end": 8,
+      "mode": "subtitle",
+      "characters_per_second": 8.44
+    },
+    {
+      "id": "v16-6-caption-2",
+      "cue_id": "v16-6",
+      "speaker": "bahlil",
+      "start": 19.011639455782312,
+      "speech_end": 20.26047619047619,
+      "end": 20.44047619047619,
+      "text": "Yang penting kita mulai dulu!",
+      "spoken_text": "Yang penting kita mulai dulu!",
+      "lines": [
+        "Yang penting",
+        "kita mulai dulu!"
+      ],
+      "source_character_start": 9,
+      "source_character_end": 38,
+      "mode": "subtitle",
+      "characters_per_second": 20.3
+    },
+    {
+      "id": "v16-7-caption-1",
+      "cue_id": "v16-7",
+      "speaker": "mama-ghufron",
+      "start": 20.800496598639455,
+      "speech_end": 21.966496598639456,
+      "end": 22.146496598639455,
+      "text": "Mulai nambalnya kapan?",
+      "spoken_text": "Mulai nambalnya kapan?",
+      "lines": [
+        "Mulai nambalnya kapan?"
+      ],
+      "source_character_start": 0,
+      "source_character_end": 22,
+      "mode": "subtitle",
+      "characters_per_second": 16.34
+    },
+    {
+      "id": "v16-8-caption-1",
+      "cue_id": "v16-8",
+      "speaker": "narator",
+      "start": 22.750015873015872,
+      "speech_end": 23.73201587301587,
+      "end": 23.91201587301587,
+      "text": "Pertanyaan bagus.",
+      "spoken_text": "Pertanyaan bagus.",
+      "lines": [
+        "Pertanyaan bagus."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 17,
+      "mode": "subtitle",
+      "characters_per_second": 14.63
+    },
+    {
+      "id": "v16-8-caption-3",
+      "cue_id": "v16-8",
+      "speaker": "narator",
+      "start": 23.945015873015873,
+      "speech_end": 24.884015873015873,
+      "end": 25.054015873015874,
+      "text": "Sayangnya…",
+      "spoken_text": "Sayangnya…",
+      "lines": [
+        "Sayangnya…"
+      ],
+      "source_character_start": 18,
+      "source_character_end": 28,
+      "mode": "subtitle",
+      "characters_per_second": 9.02
+    },
+    {
+      "id": "v16-8-caption-4",
+      "cue_id": "v16-8",
+      "speaker": "narator",
+      "start": 25.054015873015874,
+      "speech_end": 26.56201587301587,
+      "end": 26.74201587301587,
+      "text": "nggak ada di susunan acara.",
+      "spoken_text": "nggak ada di susunan acara.",
+      "lines": [
+        "nggak ada di",
+        "susunan acara."
+      ],
+      "source_character_start": 29,
+      "source_character_end": 56,
+      "mode": "subtitle",
+      "characters_per_second": 16.0
+    },
+    {
+      "id": "v16-9-caption-1",
+      "cue_id": "v16-9",
+      "speaker": "narator",
+      "start": 27.05202494331066,
+      "speech_end": 29.578024943310663,
+      "end": 29.758024943310662,
+      "text": "Sebelum difoto, semua disuruh geser.",
+      "spoken_text": "Sebelum difoto, semua disuruh geser.",
+      "lines": [
+        "Sebelum difoto,",
+        "semua disuruh geser."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 36,
+      "mode": "subtitle",
+      "characters_per_second": 13.3
+    },
+    {
+      "id": "v16-9-caption-6",
+      "cue_id": "v16-9",
+      "speaker": "narator",
+      "start": 29.84202494331066,
+      "speech_end": 30.93002494331066,
+      "end": 31.11002494331066,
+      "text": "Bukan supaya muat…",
+      "spoken_text": "Bukan supaya muat…",
+      "lines": [
+        "Bukan supaya muat…"
+      ],
+      "source_character_start": 37,
+      "source_character_end": 55,
+      "mode": "subtitle",
+      "characters_per_second": 14.2
+    },
+    {
+      "id": "v16-10-caption-1",
+      "cue_id": "v16-10",
+      "speaker": "narator",
+      "start": 31.42004535147392,
+      "speech_end": 33.19104535147392,
+      "end": 33.37104535147392,
+      "text": "…supaya lubangnya nggak kelihatan.",
+      "spoken_text": "…supaya lubangnya nggak kelihatan.",
+      "lines": [
+        "…supaya lubangnya",
+        "nggak kelihatan."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 34,
+      "mode": "subtitle",
+      "characters_per_second": 17.43
+    },
+    {
+      "id": "v16-11-caption-1",
+      "cue_id": "v16-11",
+      "speaker": "mama-ghufron",
+      "start": 34.03107709750567,
+      "speech_end": 34.91207709750567,
+      "end": 35.09207709750567,
+      "text": "Keprok atuh!",
+      "spoken_text": "Keprok atuh!",
+      "lines": [
+        "Keprok atuh!"
+      ],
+      "source_character_start": 0,
+      "source_character_end": 12,
+      "mode": "subtitle",
+      "characters_per_second": 11.31
+    },
+    {
+      "id": "v16-12-caption-1",
+      "cue_id": "v16-12",
+      "speaker": "mama-ghufron",
+      "start": 35.45208616780046,
+      "speech_end": 37.180086167800454,
+      "end": 37.36008616780045,
+      "text": "Eh… ini jalan masih rusak.",
+      "spoken_text": "Eh… ini jalan masih rusak.",
+      "lines": [
+        "Eh… ini jalan",
+        "masih rusak."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 26,
+      "mode": "subtitle",
+      "characters_per_second": 13.63
+    },
+    {
+      "id": "v16-12-caption-6",
+      "cue_id": "v16-12",
+      "speaker": "mama-ghufron",
+      "start": 37.41508616780045,
+      "speech_end": 38.25408616780046,
+      "end": 38.43408616780046,
+      "text": "Betul apa tidak?",
+      "spoken_text": "Betul apa tidak?",
+      "lines": [
+        "Betul apa tidak?"
+      ],
+      "source_character_start": 27,
+      "source_character_end": 43,
+      "mode": "subtitle",
+      "characters_per_second": 15.7
+    },
+    {
+      "id": "v16-13-caption-1",
+      "cue_id": "v16-13",
+      "speaker": "narator",
+      "start": 38.94411111111111,
+      "speech_end": 39.8821111111111,
+      "end": 40.0621111111111,
+      "text": "Acara selesai.",
+      "spoken_text": "Acara selesai.",
+      "lines": [
+        "Acara selesai."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 14,
+      "mode": "subtitle",
+      "characters_per_second": 12.52
+    },
+    {
+      "id": "v16-13-caption-3",
+      "cue_id": "v16-13",
+      "speaker": "narator",
+      "start": 40.0961111111111,
+      "speech_end": 41.20511111111111,
+      "end": 41.38511111111111,
+      "text": "Foto sudah bagus.",
+      "spoken_text": "Foto sudah bagus.",
+      "lines": [
+        "Foto sudah bagus."
+      ],
+      "source_character_start": 15,
+      "source_character_end": 32,
+      "mode": "subtitle",
+      "characters_per_second": 13.19
+    },
+    {
+      "id": "v16-13-caption-6",
+      "cue_id": "v16-13",
+      "speaker": "narator",
+      "start": 41.46111111111111,
+      "speech_end": 42.2151111111111,
+      "end": 42.3951111111111,
+      "text": "Tinggal pulang.",
+      "spoken_text": "Tinggal pulang.",
+      "lines": [
+        "Tinggal pulang."
+      ],
+      "source_character_start": 33,
+      "source_character_end": 48,
+      "mode": "subtitle",
+      "characters_per_second": 16.06
+    },
+    {
+      "id": "v16-14-caption-1",
+      "cue_id": "v16-14",
+      "speaker": "narator",
+      "start": 43.192133786848075,
+      "speech_end": 45.51113378684808,
+      "end": 45.69113378684808,
+      "text": "Oh. Lubangnya belum ikut selesai.",
+      "spoken_text": "Oh. Lubangnya belum ikut selesai.",
+      "lines": [
+        "Oh. Lubangnya",
+        "belum ikut selesai."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 33,
+      "mode": "subtitle",
+      "characters_per_second": 13.21
+    },
+    {
+      "id": "v16-15-caption-1",
+      "cue_id": "v16-15",
+      "speaker": "mama-ghufron",
+      "start": 46.45113378684807,
+      "speech_end": 48.24313378684807,
+      "end": 48.32813378684807,
+      "text": "Nah! Sekarang baru turun langsung!",
+      "spoken_text": "Nah! Sekarang baru turun langsung!",
+      "lines": [
+        "Nah! Sekarang baru",
+        "turun langsung!"
+      ],
+      "source_character_start": 0,
+      "source_character_end": 34,
+      "mode": "subtitle",
+      "characters_per_second": 18.11
+    },
+    {
+      "id": "v16-15-caption-6",
+      "cue_id": "v16-15",
+      "speaker": "mama-ghufron",
+      "start": 48.32813378684807,
+      "speech_end": 49.02006802721088,
+      "end": 49.20006802721088,
+      "text": "Keprok atuh!",
+      "spoken_text": "Keprok atuh!",
+      "lines": [
+        "Keprok atuh!"
+      ],
+      "source_character_start": 35,
+      "source_character_end": 47,
+      "mode": "subtitle",
+      "characters_per_second": 13.76
+    },
+    {
+      "id": "v16-16-caption-1",
+      "cue_id": "v16-16",
+      "speaker": "narator",
+      "start": 49.71007709750567,
+      "speech_end": 51.361077097505664,
+      "end": 51.541077097505664,
+      "text": "Tadi warga yang disuruh sabar.",
+      "spoken_text": "Tadi warga yang disuruh sabar.",
+      "lines": [
+        "Tadi warga yang",
+        "disuruh sabar."
+      ],
+      "source_character_start": 0,
+      "source_character_end": 30,
+      "mode": "subtitle",
+      "characters_per_second": 16.38
+    },
+    {
+      "id": "v16-16-caption-6",
+      "cue_id": "v16-16",
+      "speaker": "narator",
+      "start": 51.605077097505664,
+      "speech_end": 53.34007709750568,
+      "end": 53.52007709750568,
+      "text": "Sekarang beliau yang disuruh dorong.",
+      "spoken_text": "Sekarang beliau yang disuruh dorong.",
+      "lines": [
+        "Sekarang beliau",
+        "yang disuruh dorong."
+      ],
+      "source_character_start": 31,
+      "source_character_end": 67,
+      "mode": "subtitle",
+      "characters_per_second": 18.8
+    },
+    {
+      "id": "v16-17-caption-1",
+      "cue_id": "v16-17",
+      "speaker": "narator",
+      "start": 53.98010657596371,
+      "speech_end": 55.64370657596371,
+      "end": 55.68610657596373,
+      "text": "Di tempatmu, yang duluan datang",
+      "spoken_text": "Di tempatmu, yang duluan datang",
+      "lines": [
+        "Di tempatmu, yang",
+        "duluan datang"
+      ],
+      "source_character_start": 0,
+      "source_character_end": 31,
+      "mode": "subtitle",
+      "characters_per_second": 18.17
+    },
+    {
+      "id": "v16-17-caption-6",
+      "cue_id": "v16-17",
+      "speaker": "narator",
+      "start": 55.68610657596373,
+      "speech_end": 56.79610657596371,
+      "end": 56.97610657596371,
+      "text": "aspal atau spanduk?",
+      "spoken_text": "aspal atau spanduk?",
+      "lines": [
+        "aspal atau spanduk?"
+      ],
+      "source_character_start": 32,
+      "source_character_end": 51,
+      "mode": "subtitle",
+      "characters_per_second": 14.73
+    },
+    {
+      "id": "v16-17-caption-9",
+      "cue_id": "v16-17",
+      "speaker": "narator",
+      "start": 57.00910657596372,
+      "speech_end": 58.244013605442184,
+      "end": 58.424013605442184,
+      "text": "Cerita di komentar.",
+      "spoken_text": "Cerita di komentar.",
+      "lines": [
+        "Cerita di komentar."
+      ],
+      "source_character_start": 52,
+      "source_character_end": 71,
+      "mode": "subtitle",
+      "characters_per_second": 13.43
+    }
+  ],
+  "timing_source": "../release-v16/timeline.json:characters",
+  "display_aliases": {
+    "wekawekaweka": "WKWKWK"
+  },
+  "layout": {
+    "font": "Arial Bold",
+    "reference_font_px": 52,
+    "frame_width": 1080,
+    "centered_width": 0.6,
+    "top": 0.19,
+    "max_lines": 2,
+    "safe_zone": "Editorial fallback only: L8%, R20%, T18%, B35%; not platform-certified."
+  },
+  "listening_review": "not_performed"
+}
