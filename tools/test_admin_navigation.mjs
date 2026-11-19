@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 
 const php=process.env.PHP_BINARY || (process.platform==='win32'?'C:/xampp/php/php.exe':'php');
-const views=['overview','avatars','world','objects','ideas','citizens','visitors','settings'];
+const views=['overview','avatars','world','production','objects','ideas','citizens','visitors','settings'];
 const main=readFileSync('game-src/main.js','utf8');
 const loadRegion=main.slice(main.indexOf('function loadRegion('),main.indexOf('function loadRegion(')+900);
 assert.ok(loadRegion.includes('updateAdminQuery({region})'),'Background region load only changes region');
@@ -48,4 +48,4 @@ for(const base of ['http://localhost/project/','http://localhost:8080/project/',
   search.value='avatars';handlers['search:input']();assert.equal(links.filter(n=>!n.hidden).length,1);
   handlers['search:keydown']({key:'Enter'});flush();assert.equal(location.searchParams.get('view'),'avatars');
 }
-console.log('PASS: rendered sidebar links and navigation across 6 deployment URLs; all 8 views, deep links, query retention, history, modified clicks, search and per-view scroll. Studio uses V11 asset and model selector.');
+console.log('PASS: rendered sidebar links and navigation across 6 deployment URLs; all 9 views, deep links, query retention, history, modified clicks, search and per-view scroll. Studio uses V11 asset and model selector.');

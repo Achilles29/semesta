@@ -1,0 +1,11 @@
+{
+  "id": "02",
+  "role": "narrator",
+  "text": "Presidennya belum ada. Undangan peresmiannya sudah.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "02-narrator.mp3",
+  "word_boundaries": [],
+  "source": "Edge TTS synthetic draft voice"
+}

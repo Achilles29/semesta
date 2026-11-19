@@ -1,0 +1,47 @@
+{
+  "id": "02",
+  "role": "narrator",
+  "text": "Baru terpilih, jadwal gunting pita sudah menunggu.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "02-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Baru",
+      "start": 0.1,
+      "duration": 0.348
+    },
+    {
+      "text": "terpilih",
+      "start": 0.448,
+      "duration": 0.76
+    },
+    {
+      "text": "jadwal",
+      "start": 1.582,
+      "duration": 0.477
+    },
+    {
+      "text": "gunting",
+      "start": 2.059,
+      "duration": 0.451
+    },
+    {
+      "text": "pita",
+      "start": 2.51,
+      "duration": 0.464
+    },
+    {
+      "text": "sudah",
+      "start": 2.974,
+      "duration": 0.464
+    },
+    {
+      "text": "menunggu",
+      "start": 3.438,
+      "duration": 0.747
+    }
+  ],
+  "source": "Edge TTS synthetic draft voice"
+}

@@ -1,0 +1,722 @@
+[
+  {
+    "id": "n1",
+    "role": "narrator",
+    "text": "Gufron buka kotak makan. Isinya pita peresmian. Makanannya? Menyusul.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n1-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Gufron",
+        "start": 0.1,
+        "duration": 0.619
+      },
+      {
+        "text": "buka",
+        "start": 0.719,
+        "duration": 0.4
+      },
+      {
+        "text": "kotak",
+        "start": 1.118,
+        "duration": 0.451
+      },
+      {
+        "text": "makan",
+        "start": 1.569,
+        "duration": 0.644
+      },
+      {
+        "text": "Isinya",
+        "start": 3.078,
+        "duration": 0.619
+      },
+      {
+        "text": "pita",
+        "start": 3.697,
+        "duration": 0.477
+      },
+      {
+        "text": "peresmian",
+        "start": 4.174,
+        "duration": 0.928
+      },
+      {
+        "text": "Makanannya",
+        "start": 5.965,
+        "duration": 1.121
+      },
+      {
+        "text": "Menyusul",
+        "start": 7.949,
+        "duration": 0.979
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "n2",
+    "role": "narrator",
+    "text": "Usulan warga memilih Pak Prabowow Subiyoyo. Baru duduk, dua gedung sudah antre di depan kamera.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n2-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Usulan",
+        "start": 0.1,
+        "duration": 0.515
+      },
+      {
+        "text": "warga",
+        "start": 0.615,
+        "duration": 0.438
+      },
+      {
+        "text": "memilih",
+        "start": 1.054,
+        "duration": 0.503
+      },
+      {
+        "text": "Pak",
+        "start": 1.556,
+        "duration": 0.271
+      },
+      {
+        "text": "Prabowow",
+        "start": 1.827,
+        "duration": 0.541
+      },
+      {
+        "text": "Subiyoyo",
+        "start": 2.368,
+        "duration": 0.928
+      },
+      {
+        "text": "Baru",
+        "start": 4.161,
+        "duration": 0.361
+      },
+      {
+        "text": "duduk",
+        "start": 4.522,
+        "duration": 0.593
+      },
+      {
+        "text": "dua",
+        "start": 5.475,
+        "duration": 0.283
+      },
+      {
+        "text": "gedung",
+        "start": 5.759,
+        "duration": 0.412
+      },
+      {
+        "text": "sudah",
+        "start": 6.171,
+        "duration": 0.322
+      },
+      {
+        "text": "antre",
+        "start": 6.493,
+        "duration": 0.541
+      },
+      {
+        "text": "di",
+        "start": 7.035,
+        "duration": 0.168
+      },
+      {
+        "text": "depan",
+        "start": 7.202,
+        "duration": 0.412
+      },
+      {
+        "text": "kamera",
+        "start": 7.614,
+        "duration": 0.709
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "t1",
+    "role": "tedi",
+    "text": "Pak, surat laik higiene dapurnya belum ada.",
+    "voice": "id-ID-ArdiNeural",
+    "rate": "+6%",
+    "pitch": "+8Hz",
+    "file": "t1-tedi.mp3",
+    "word_boundaries": [
+      {
+        "text": "Pak",
+        "start": 0.099,
+        "duration": 0.483
+      },
+      {
+        "text": "surat",
+        "start": 0.819,
+        "duration": 0.295
+      },
+      {
+        "text": "laik",
+        "start": 1.113,
+        "duration": 0.165
+      },
+      {
+        "text": "higiene",
+        "start": 1.279,
+        "duration": 0.413
+      },
+      {
+        "text": "dapurnya",
+        "start": 1.691,
+        "duration": 0.389
+      },
+      {
+        "text": "belum",
+        "start": 2.08,
+        "duration": 0.189
+      },
+      {
+        "text": "ada",
+        "start": 2.269,
+        "duration": 0.436
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "p1",
+    "role": "prabowow",
+    "text": "Gedungnya sudah ada, kan? Foto papan namanya dulu.",
+    "voice": "id-ID-ArdiNeural",
+    "rate": "-12%",
+    "pitch": "-28Hz",
+    "file": "p1-prabowow.mp3",
+    "word_boundaries": [
+      {
+        "text": "Gedungnya",
+        "start": 0.1,
+        "duration": 0.568
+      },
+      {
+        "text": "sudah",
+        "start": 0.668,
+        "duration": 0.284
+      },
+      {
+        "text": "ada",
+        "start": 0.952,
+        "duration": 0.54
+      },
+      {
+        "text": "kan",
+        "start": 1.79,
+        "duration": 0.44
+      },
+      {
+        "text": "Foto",
+        "start": 3.189,
+        "duration": 0.426
+      },
+      {
+        "text": "papan",
+        "start": 3.615,
+        "duration": 0.312
+      },
+      {
+        "text": "namanya",
+        "start": 3.928,
+        "duration": 0.369
+      },
+      {
+        "text": "dulu",
+        "start": 4.297,
+        "duration": 0.54
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "n3",
+    "role": "narrator",
+    "text": "Papan besar. Formulir pemeriksaan kosong.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n3-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Papan",
+        "start": 0.101,
+        "duration": 0.606
+      },
+      {
+        "text": "besar",
+        "start": 0.707,
+        "duration": 0.619
+      },
+      {
+        "text": "Formulir",
+        "start": 2.189,
+        "duration": 0.696
+      },
+      {
+        "text": "pemeriksaan",
+        "start": 2.885,
+        "duration": 0.838
+      },
+      {
+        "text": "kosong",
+        "start": 3.723,
+        "duration": 0.683
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "n4",
+    "role": "narrator",
+    "text": "Di koperasi, papan namanya sudah merah putih. Daftar anggota belum diisi. Harga beli hasil petani juga kosong.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n4-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Di",
+        "start": 0.1,
+        "duration": 0.206
+      },
+      {
+        "text": "koperasi",
+        "start": 0.306,
+        "duration": 0.863
+      },
+      {
+        "text": "papan",
+        "start": 1.53,
+        "duration": 0.335
+      },
+      {
+        "text": "namanya",
+        "start": 1.865,
+        "duration": 0.541
+      },
+      {
+        "text": "sudah",
+        "start": 2.407,
+        "duration": 0.425
+      },
+      {
+        "text": "merah",
+        "start": 2.832,
+        "duration": 0.361
+      },
+      {
+        "text": "putih",
+        "start": 3.193,
+        "duration": 0.644
+      },
+      {
+        "text": "Daftar",
+        "start": 4.702,
+        "duration": 0.58
+      },
+      {
+        "text": "anggota",
+        "start": 5.282,
+        "duration": 0.58
+      },
+      {
+        "text": "belum",
+        "start": 5.862,
+        "duration": 0.425
+      },
+      {
+        "text": "diisi",
+        "start": 6.287,
+        "duration": 0.709
+      },
+      {
+        "text": "Harga",
+        "start": 7.859,
+        "duration": 0.554
+      },
+      {
+        "text": "beli",
+        "start": 8.413,
+        "duration": 0.258
+      },
+      {
+        "text": "hasil",
+        "start": 8.671,
+        "duration": 0.425
+      },
+      {
+        "text": "petani",
+        "start": 9.096,
+        "duration": 0.606
+      },
+      {
+        "text": "juga",
+        "start": 9.702,
+        "duration": 0.425
+      },
+      {
+        "text": "kosong",
+        "start": 10.127,
+        "duration": 0.683
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "t2",
+    "role": "tedi",
+    "text": "Belum ditulis, Bu. Geser dulu, Bapak masuk foto.",
+    "voice": "id-ID-ArdiNeural",
+    "rate": "+6%",
+    "pitch": "+8Hz",
+    "file": "t2-tedi.mp3",
+    "word_boundaries": [
+      {
+        "text": "Belum",
+        "start": 0.1,
+        "duration": 0.33
+      },
+      {
+        "text": "ditulis",
+        "start": 0.43,
+        "duration": 0.566
+      },
+      {
+        "text": "Bu",
+        "start": 1.185,
+        "duration": 0.46
+      },
+      {
+        "text": "Geser",
+        "start": 2.431,
+        "duration": 0.366
+      },
+      {
+        "text": "dulu",
+        "start": 2.797,
+        "duration": 0.472
+      },
+      {
+        "text": "Bapak",
+        "start": 3.528,
+        "duration": 0.295
+      },
+      {
+        "text": "masuk",
+        "start": 3.823,
+        "duration": 0.236
+      },
+      {
+        "text": "foto",
+        "start": 4.059,
+        "duration": 0.472
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "n5",
+    "role": "narrator",
+    "text": "Dua foto jadi. Dua pertanyaan belum dijawab. Gufron masih pegang pita, petani masih pegang hasil panen.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n5-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Dua",
+        "start": 0.1,
+        "duration": 0.374
+      },
+      {
+        "text": "foto",
+        "start": 0.474,
+        "duration": 0.451
+      },
+      {
+        "text": "jadi",
+        "start": 0.925,
+        "duration": 0.657
+      },
+      {
+        "text": "Dua",
+        "start": 2.447,
+        "duration": 0.335
+      },
+      {
+        "text": "pertanyaan",
+        "start": 2.782,
+        "duration": 0.773
+      },
+      {
+        "text": "belum",
+        "start": 3.555,
+        "duration": 0.425
+      },
+      {
+        "text": "dijawab",
+        "start": 3.98,
+        "duration": 0.683
+      },
+      {
+        "text": "Gufron",
+        "start": 5.527,
+        "duration": 0.567
+      },
+      {
+        "text": "masih",
+        "start": 6.094,
+        "duration": 0.374
+      },
+      {
+        "text": "pegang",
+        "start": 6.468,
+        "duration": 0.348
+      },
+      {
+        "text": "pita",
+        "start": 6.815,
+        "duration": 0.567
+      },
+      {
+        "text": "petani",
+        "start": 7.73,
+        "duration": 0.554
+      },
+      {
+        "text": "masih",
+        "start": 8.285,
+        "duration": 0.361
+      },
+      {
+        "text": "pegang",
+        "start": 8.645,
+        "duration": 0.374
+      },
+      {
+        "text": "hasil",
+        "start": 9.019,
+        "duration": 0.464
+      },
+      {
+        "text": "panen",
+        "start": 9.483,
+        "duration": 0.631
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "n6",
+    "role": "narrator",
+    "text": "Yang kenyang cuma galeri foto.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n6-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Yang",
+        "start": 0.1,
+        "duration": 0.322
+      },
+      {
+        "text": "kenyang",
+        "start": 0.422,
+        "duration": 0.412
+      },
+      {
+        "text": "cuma",
+        "start": 0.835,
+        "duration": 0.374
+      },
+      {
+        "text": "galeri",
+        "start": 1.208,
+        "duration": 0.464
+      },
+      {
+        "text": "foto",
+        "start": 1.672,
+        "duration": 0.631
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  },
+  {
+    "id": "n7",
+    "role": "narrator",
+    "text": "Besok kita buka yang mana dulu: surat dapur, atau buku belanja koperasi? Tulis DAPUR atau KOPDES, lalu satu bukti yang wajib mereka tunjukkan. Follow, biar pertanyaan warga tidak ikut ditutup.",
+    "voice": "id-ID-GadisNeural",
+    "rate": "-3%",
+    "pitch": "-8Hz",
+    "file": "n7-narrator.mp3",
+    "word_boundaries": [
+      {
+        "text": "Besok",
+        "start": 0.1,
+        "duration": 0.477
+      },
+      {
+        "text": "kita",
+        "start": 0.577,
+        "duration": 0.309
+      },
+      {
+        "text": "buka",
+        "start": 0.886,
+        "duration": 0.4
+      },
+      {
+        "text": "yang",
+        "start": 1.286,
+        "duration": 0.219
+      },
+      {
+        "text": "mana",
+        "start": 1.505,
+        "duration": 0.296
+      },
+      {
+        "text": "dulu",
+        "start": 1.801,
+        "duration": 0.541
+      },
+      {
+        "text": "surat",
+        "start": 2.716,
+        "duration": 0.438
+      },
+      {
+        "text": "dapur",
+        "start": 3.154,
+        "duration": 0.593
+      },
+      {
+        "text": "atau",
+        "start": 4.056,
+        "duration": 0.309
+      },
+      {
+        "text": "buku",
+        "start": 4.365,
+        "duration": 0.4
+      },
+      {
+        "text": "belanja",
+        "start": 4.765,
+        "duration": 0.425
+      },
+      {
+        "text": "koperasi",
+        "start": 5.19,
+        "duration": 0.773
+      },
+      {
+        "text": "Tulis",
+        "start": 6.828,
+        "duration": 0.425
+      },
+      {
+        "text": "DAPUR",
+        "start": 7.254,
+        "duration": 0.464
+      },
+      {
+        "text": "atau",
+        "start": 7.718,
+        "duration": 0.374
+      },
+      {
+        "text": "KOPDES",
+        "start": 8.091,
+        "duration": 0.838
+      },
+      {
+        "text": "lalu",
+        "start": 9.277,
+        "duration": 0.348
+      },
+      {
+        "text": "satu",
+        "start": 9.625,
+        "duration": 0.309
+      },
+      {
+        "text": "bukti",
+        "start": 9.934,
+        "duration": 0.4
+      },
+      {
+        "text": "yang",
+        "start": 10.334,
+        "duration": 0.142
+      },
+      {
+        "text": "wajib",
+        "start": 10.475,
+        "duration": 0.464
+      },
+      {
+        "text": "mereka",
+        "start": 10.939,
+        "duration": 0.412
+      },
+      {
+        "text": "tunjukkan",
+        "start": 11.352,
+        "duration": 0.838
+      },
+      {
+        "text": "Follow",
+        "start": 13.053,
+        "duration": 0.67
+      },
+      {
+        "text": "biar",
+        "start": 14.135,
+        "duration": 0.296
+      },
+      {
+        "text": "pertanyaan",
+        "start": 14.431,
+        "duration": 0.631
+      },
+      {
+        "text": "warga",
+        "start": 15.063,
+        "duration": 0.451
+      },
+      {
+        "text": "tidak",
+        "start": 15.514,
+        "duration": 0.4
+      },
+      {
+        "text": "ikut",
+        "start": 15.913,
+        "duration": 0.451
+      },
+      {
+        "text": "ditutup",
+        "start": 16.364,
+        "duration": 0.554
+      }
+    ],
+    "source": "Edge TTS draft; distinct from private HeyGen clones"
+  }
+]

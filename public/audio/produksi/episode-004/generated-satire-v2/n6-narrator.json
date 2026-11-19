@@ -1,0 +1,37 @@
+{
+  "id": "n6",
+  "role": "narrator",
+  "text": "Yang kenyang cuma galeri foto.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "n6-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Yang",
+      "start": 0.1,
+      "duration": 0.322
+    },
+    {
+      "text": "kenyang",
+      "start": 0.422,
+      "duration": 0.412
+    },
+    {
+      "text": "cuma",
+      "start": 0.835,
+      "duration": 0.374
+    },
+    {
+      "text": "galeri",
+      "start": 1.208,
+      "duration": 0.464
+    },
+    {
+      "text": "foto",
+      "start": 1.672,
+      "duration": 0.631
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

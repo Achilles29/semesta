@@ -1,0 +1,47 @@
+{
+  "id": "11",
+  "role": "gufron",
+  "text": "Saya sudah bilang, pita dulu, jalan belakangan.",
+  "voice": "jv-ID-DimasNeural",
+  "rate": "+0%",
+  "pitch": "+8Hz",
+  "file": "11-gufron.mp3",
+  "word_boundaries": [
+    {
+      "text": "Saya",
+      "start": 0.138,
+      "duration": 0.275
+    },
+    {
+      "text": "sudah",
+      "start": 0.463,
+      "duration": 0.338
+    },
+    {
+      "text": "bilang",
+      "start": 0.8,
+      "duration": 0.4
+    },
+    {
+      "text": "pita",
+      "start": 1.275,
+      "duration": 0.275
+    },
+    {
+      "text": "dulu",
+      "start": 1.575,
+      "duration": 0.312
+    },
+    {
+      "text": "jalan",
+      "start": 2.075,
+      "duration": 0.35
+    },
+    {
+      "text": "belakangan",
+      "start": 2.438,
+      "duration": 0.6
+    }
+  ],
+  "source": "Edge TTS synthetic draft voice"
+}

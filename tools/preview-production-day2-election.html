@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Republik WKWKWK — Day 2 · Pagi Ditolak, Siang Lolos</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#142f39;color:#fff;font-family:Arial,Helvetica,sans-serif}canvas{position:absolute;inset:0;width:100%;height:100%}
+#grade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#0c2937f2 0%,#133645c9 21%,transparent 37%,transparent 67%,#102d3bd9 88%,#09242fea 100%)}
+#ui{position:absolute;inset:0;pointer-events:none}#brand{position:absolute;top:4%;left:5%;right:5%;display:flex;align-items:center;justify-content:space-between;color:#fff5d1;font-size:15px;font-weight:900;letter-spacing:.06em}#brand span:last-child{background:#f3d87c;color:#19343c;padding:7px 10px;border-radius:7px;font-size:12px}
+#headline{position:absolute;top:11%;left:5%;right:5%;font-size:clamp(34px,7vw,58px);font-weight:1000;line-height:1;letter-spacing:-.055em;text-shadow:0 5px 18px #102a36d9}#sub{position:absolute;top:24%;left:5%;right:6%;color:#ffeab3;font-size:clamp(17px,3vw,24px);font-weight:800;line-height:1.2;text-shadow:0 4px 13px #1b3338de}
+#proof{position:absolute;left:5%;right:5%;bottom:25%;display:none;gap:10px}#proof div{flex:1;min-width:0;background:#f5ead1;border-top:7px solid #d65a4b;border-radius:9px;padding:12px;color:#18323d;box-shadow:0 10px 23px #162c38a6}#proof div:last-child{border-color:#58a994}#proof small{display:block;font-weight:900;font-size:clamp(11px,1.8vw,16px);letter-spacing:.04em}#proof b{display:block;font-size:clamp(21px,3.5vw,32px);font-weight:1000;line-height:1.04;margin-top:6px}#proof i{display:block;font-size:clamp(12px,2vw,17px);font-style:normal;font-weight:800;margin-top:5px}
+#marker{position:absolute;left:5%;bottom:21%;padding:9px 13px;background:#183944e9;color:#fff;border-left:6px solid #f0d373;border-radius:7px;font-size:clamp(15px,2.5vw,21px);font-weight:900}#speaker{position:absolute;left:5%;bottom:16%;padding:6px 11px;background:#f5d87c;color:#17353e;border-radius:5px;font-size:14px;font-weight:900;display:none}
+#choice{position:absolute;left:5%;right:5%;bottom:23%;display:none;gap:10px}#choice div{flex:1;background:#f7eed9;color:#17343e;border-radius:9px;border-left:7px solid #d0aa63;padding:13px;text-align:center;font-size:clamp(23px,4vw,32px);font-weight:1000}#choice small{display:block;margin-top:4px;font-size:clamp(12px,2vw,16px)}
+#footer{position:absolute;left:5%;right:5%;bottom:10%;font-size:clamp(12px,1.9vw,15px);font-weight:700;color:#efe8db}#progress{position:absolute;bottom:0;left:0;height:7px;width:0;background:#f4d878}#flash{position:absolute;inset:0;background:white;opacity:0;pointer-events:none}#preview{position:fixed;left:14px;bottom:14px;z-index:10;background:#153440e8;padding:10px;border-radius:8px;display:flex;gap:8px;align-items:center;font:13px Arial}#preview input{width:190px}body.filming #preview{display:none}#error{position:fixed;left:10px;top:10px;right:10px;z-index:11;background:#9e2d2a;padding:12px;display:none}
+</style>
+<div id="grade"></div><div id="flash"></div><div id="ui"><div id="brand"><span>REPUBLIK WKWKWK</span><span>DAY 2 · PARODI FIKSI</span></div><div id="headline"></div><div id="sub"></div><div id="proof"></div><div id="marker"></div><div id="speaker"></div><div id="choice"><div>BERKAS<small>PERMOHONAN</small></div><div>SIDANG<small>CATATAN HAKIM</small></div></div><div id="footer">Cerita game · tokoh, dialog, dokumen, dan suara pemilihan adalah fiksi</div></div><div id="progress"></div><div id="preview"><button id="play">▶ Putar</button><input id="seek" type="range" min="0" max="150" step=".1"><span id="time">0:00</span></div><div id="error"></div>
+<script type="importmap">{"imports":{"three":"../node_modules/three/build/three.module.js","three/addons/":"../node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {createHumanModel,setFarmerAsset} from '../game-src/avatar-character-3d.js';
+import {buildProductionDistrict} from '../game-src/production-district-scene.js';
+import {createV16Props} from '../game-src/production-v16-props.js';
+import {createCastPerformance} from '../game-src/production-performance.js';
+const $=id=>document.getElementById(id),smooth=x=>{x=Math.max(0,Math.min(1,x));return x*x*(3-2*x)},lerp=(a,b,p)=>a+(b-a)*p;
+try{
+  setFarmerAsset(await new GLTFLoader().loadAsync('../public/models/characters/semesta-farmer-v11.glb'));
+  const timeline=await(await fetch('../public/audio/produksi/episode-003/release-v3-election/timeline.json')).json();
+  const duration=timeline.duration,scene=new THREE.Scene();scene.background=new THREE.Color('#cbd9db');
+  scene.add(new THREE.HemisphereLight('#fff7e7','#68838a',2.6));
+  const sun=new THREE.DirectionalLight('#fff1d7',2.8);sun.position.set(-38,18,-83);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-45;sun.shadow.camera.right=45;sun.shadow.camera.top=45;sun.shadow.camera.bottom=-45;scene.add(sun);
+  const world=new THREE.Group();scene.add(world);
+  const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(1);renderer.setSize(innerWidth,innerHeight);renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;document.body.prepend(renderer.domElement);
+  const camera=new THREE.PerspectiveCamera(39,innerWidth/innerHeight,.05,200);
+  const mat=c=>new THREE.MeshStandardMaterial({color:c,roughness:.78});
+  function box(parent,color,p,size){const mesh=new THREE.Mesh(new THREE.BoxGeometry(...size),mat(color));mesh.position.set(...p);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh}
+  function textPlane(value,width=3.2,color='#173842',background='#f4ead0'){
+    const c=document.createElement('canvas');c.width=1024;c.height=220;const x=c.getContext('2d');x.fillStyle=background;x.fillRect(0,0,1024,220);x.fillStyle=color;x.font='900 82px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText(value,512,110,980);
+    const texture=new THREE.CanvasTexture(c);texture.colorSpace=THREE.SRGBColorSpace;
+    const panel=new THREE.Mesh(new THREE.PlaneGeometry(width,width*.215),new THREE.MeshBasicMaterial({map:texture,side:THREE.DoubleSide}));return panel;
+  }
+  function makeText(value,fg='fff8e9',bg='20545a'){const p=textPlane(value,3,'#'+fg,'#'+bg);return new THREE.Sprite(new THREE.SpriteMaterial({map:p.material.map,transparent:true}));}
+  const production=buildProductionDistrict(THREE,{world,makeHuman(p,o){const m=createHumanModel(THREE,o);p.add(m.figure);return m;},makeText,addCollider(x,z){return{x,z};},createWorldAsset(){return new THREE.Group()}});
+  production.updateLabels(0);
+  const props=createV16Props(THREE,production);props.group.visible=true;props.activate();
+  for(const e of production.neighborhood.extras)e.root.visible=false;
+  // Day 1 introduced Kampung Komen. Day 2 reveals the hole in its entrance road.
+  for(const child of props.group.children)if(Math.abs(child.position.z+94.4)<.005)child.visible=false;
+  props.group.getObjectByName('V16UnnecessaryStage').visible=false;
+  const oldCar=props.group.getObjectByName('V16OfficialCar');oldCar.visible=false;
+  for(const name of ['V16HandScissors','V16MuddySandal','V16ShoppingBag','V16PhotographerCamera'])props.group.getObjectByName(name).visible=false;
+  const set=props.group;
+  const villageSign=textPlane('KAMPUNG KOMEN · WARGA 3',4.2,'#25442d','#ead4a4');villageSign.position.set(-52,2.9,-101);set.add(villageSign);
+  const barrier=new THREE.Group();set.add(barrier);barrier.position.set(-47.12,.30,-96);
+  for(const side of [-1,1]){
+    box(barrier,'#d28645',[side*1.34,.34,1.28],[.16,.68,.16]);
+    box(barrier,'#f2e5bd',[side*1.34,.71,1.28],[.30,.10,.30]);
+  }
+  box(barrier,'#ddaa48',[0,.64,1.28],[2.67,.10,.06]);
+  // Registration, court and vote are physical points on the same plaza.
+  const desk=new THREE.Group();set.add(desk);desk.position.set(-46.0,.30,-101.3);
+  box(desk,'#7d5942',[0,.72,0],[2.9,.13,1.35]);for(const x of [-1.25,1.25])for(const z of [-.48,.48])box(desk,'#614638',[x,.37,z],[.14,.68,.14]);
+  const paper=box(desk,'#f4ead6',[0,.81,.09],[1.13,.026,.78]);
+  const registration=textPlane('PENDAFTARAN',2.6);registration.position.set(-46,2.8,-103.1);set.add(registration);
+  const rule=textPlane('SYARAT 40 TAHUN',2.3);rule.position.set(-49.6,2.0,-102.9);set.add(rule);
+  const ballot=new THREE.Group();set.add(ballot);ballot.position.set(-48,.30,-106.3);box(ballot,'#d7b481',[0,.60,0],[1.45,1.20,1.1]);box(ballot,'#f5ead4',[0,1.22,0],[1.5,.10,1.15]);box(ballot,'#3b5e5f',[0,1.28,.08],[.70,.012,.055]);
+  const ballotLabel=textPlane('KOTAK SUARA · 10 WARGA',2.9,'#fff4da','#315c5f');ballotLabel.position.set(0,.9,.57);ballot.add(ballotLabel);
+  const chair=new THREE.Group();set.add(chair);chair.position.set(-49,.30,-109);
+  box(chair,'#7e4e3e',[0,.58,0],[1.05,.14,.95]);box(chair,'#76473a',[0,1.22,-.43],[1.05,1.24,.14]);for(const x of [-.42,.42])for(const z of [-.35,.35])box(chair,'#5b3d35',[x,.26,z],[.11,.52,.11]);
+  const sadChair=new THREE.Group();set.add(sadChair);sadChair.position.set(-49.8,.30,-95.5);
+  box(sadChair,'#6b503e',[0,.58,0],[1.05,.15,.88]);box(sadChair,'#624636',[0,1.07,-.4],[1.05,.94,.13]);for(const x of [-.41,.41])for(const z of [-.32,.32])box(sadChair,'#554235',[x,.28,z],[.1,.55,.1]);
+  const seatedPants=new THREE.Group();sadChair.add(seatedPants);
+  function softPart(geometry,color,p,scale=[1,1,1],rotation=[0,0,0]){const m=new THREE.Mesh(geometry,mat(color));m.position.set(...p);m.scale.set(...scale);m.rotation.set(...rotation);m.castShadow=true;seatedPants.add(m)}
+  for(const x of [-.17,.17]){
+    softPart(new THREE.CylinderGeometry(.11,.12,.46,12),'#e6dfcd',[x,.65,.20],[1,1,1],[Math.PI/2,0,0]);
+    softPart(new THREE.SphereGeometry(1,16,12),'#e6dfcd',[x,.58,.43],[.12,.12,.12]);
+    softPart(new THREE.CylinderGeometry(.11,.105,.47,12),'#e6dfcd',[x,.38,.48]);
+    softPart(new THREE.SphereGeometry(1,16,12),'#473c34',[x,.20,.72],[.13,.095,.23]);
+  }
+  const court=new THREE.Group();set.add(court);court.position.set(-29,0,-109);
+  box(court,'#dbd2be',[0,2.45,-.5],[10,4.9,.36]);box(court,'#e9e0ce',[0,.08,2.2],[10,.16,5.7]);
+  box(court,'#44656c',[0,2.0,-.22],[2.1,3.5,.10]);for(const x of [-4,-2.8,2.8,4])box(court,'#637e80',[x,2.4,-.18],[.36,4.1,.32]);
+  const courtSign=textPlane('MK WKWKWK',3.8,'#fff6de','#294f59');courtSign.position.set(0,4.5,-.25);court.add(courtSign);
+  const bench=new THREE.Group();court.add(bench);bench.position.set(0,0,1.20);box(bench,'#755b4a',[0,.76,0],[7.4,.88,.65]);box(bench,'#ad8668',[0,1.23,-.13],[7.6,.13,.75]);
+  const path=box(set,'#d7ccb4',[-37.5,.07,-104],[15,.08,2.6]);path.receiveShadow=true;
+  // Preserve the production district, then cast video-specific looks matching uploaded Day 1.
+  const byId=new Map();for(const n of production.cast){byId.set(n.id==='mama-ghufron'?'gufron':n.id==='pemandu'?'petugas':n.id,n);n.root.visible=false}
+  function naturalizeFace(figure){
+    figure.traverse(node=>{
+      if(!node.isMesh)return;
+      if(/^Face_Iris/.test(node.name))for(const material of (Array.isArray(node.material)?node.material:[node.material]))material.color.set('#544439');
+      if(!/^Face_(Eye|Iris|Pupil|Highlight|Brow)/.test(node.name))return;
+      node.geometry=node.geometry.clone();const p=node.geometry.attributes.position;
+      for(let i=0;i<p.count;i++){const x=p.getX(i),center=x<0?-.068:.068;p.setXYZ(i,center+(x-center)*.86,1.68+(p.getY(i)-1.68)*.78,p.getZ(i))}
+      for(const m of node.geometry.morphAttributes.position??[])for(let i=0;i<m.count;i++)m.setXYZ(i,m.getX(i)*.86,m.getY(i)*.78,m.getZ(i));
+      p.needsUpdate=true;node.geometry.computeVertexNormals();node.geometry.computeBoundingBox();node.geometry.computeBoundingSphere();
+    });
+  }
+  function addActor(id,look){const root=new THREE.Group();root.name='election-'+id;set.add(root);const model=createHumanModel(THREE,{ps2Farmer:true,accessory:'none',gloves:'none',footwearStyle:'boots',...look});root.add(model.figure);naturalizeFace(model.figure);const actor={id,root,model};byId.set(id,actor);return actor}
+  const palette={footwear:'#473c34',pack:'#715140'};
+  const gufron=addActor('gufron',{bodyFrame:'male',bodyType:'full',outfit:'batik',bottomStyle:'relaxed',headwear:'peci',hairStyle:'short',faceShape:'round',eyeStyle:'relaxed',mouthStyle:'neutral',colors:{...palette,skin:'#ad764f',hair:'#22211e',shirt:'#9d6d2e',trousers:'#e6dfcd',headwearColor:'#161919'}});
+  const moustache=new THREE.Group();gufron.model.figure.add(moustache);
+  for(const side of [-1,1]){const whisker=new THREE.Mesh(new THREE.SphereGeometry(1,12,8),mat('#25201a'));whisker.position.set(side*.041,1.584,.204);whisker.scale.set(.055,.018,.018);whisker.rotation.z=side*.20;moustache.add(whisker)}
+  gufron.model.figure.updateWorldMatrix(true,true);gufron.model.head.attach(moustache);
+  // Video-only clean costume: the original sandal variant cuts Bu Warung's feet off in close shots.
+  addActor('bu-warung',{bodyFrame:'female',bodyType:'mature',outfit:'loose-tee',bottomStyle:'relaxed',headwear:'hijab',hairStyle:'none',faceShape:'round',eyeStyle:'almond',mouthStyle:'smile',colors:{...palette,skin:'#d8ac88',hair:'#302820',shirt:'#ae7650',trousers:'#526a60',headwearColor:'#698779'}});
+  naturalizeFace(byId.get('petugas').model.figure);
+  addActor('prabowow',{bodyFrame:'male',bodyType:'full',outfit:'koko',bottomStyle:'relaxed',hairStyle:'short',headwear:'none',eyeStyle:'relaxed',faceShape:'round',mouthStyle:'neutral',colors:{...palette,skin:'#c19170',hair:'#343130',shirt:'#f0ece1',trousers:'#eee9dd'}});
+  addActor('gibrun',{bodyFrame:'male',bodyType:'slender',outfit:'blazer',bottomStyle:'relaxed',hairStyle:'swept',headwear:'none',eyeStyle:'relaxed',faceShape:'oval',mouthStyle:'neutral',colors:{...palette,skin:'#bd8a68',hair:'#282b2b',shirt:'#657e7f',trousers:'#384345'}});
+  addActor('jokowow',{bodyFrame:'male',bodyType:'mature',outfit:'work-shirt',bottomStyle:'relaxed',hairStyle:'short',headwear:'none',eyeStyle:'relaxed',faceShape:'angular',mouthStyle:'neutral',colors:{...palette,skin:'#bb8666',hair:'#32302c',shirt:'#eee9dd',trousers:'#333e41'}});
+  addActor('hakim',{bodyFrame:'male',bodyType:'mature',outfit:'blazer',bottomStyle:'relaxed',hairStyle:'short',headwear:'none',eyeStyle:'relaxed',faceShape:'angular',mouthStyle:'neutral',colors:{...palette,skin:'#c09675',hair:'#383738',shirt:'#34383d',trousers:'#2d3238'}});
+  addActor('hakim2',{bodyFrame:'female',bodyType:'mature',outfit:'blazer',bottomStyle:'relaxed',hairStyle:'tied',headwear:'none',eyeStyle:'relaxed',faceShape:'oval',mouthStyle:'neutral',colors:{...palette,skin:'#b68160',hair:'#292a29',shirt:'#30373c',trousers:'#30373c'}});
+  addActor('hakim3',{bodyFrame:'male',bodyType:'full',outfit:'blazer',bottomStyle:'relaxed',hairStyle:'short',headwear:'none',eyeStyle:'relaxed',faceShape:'round',mouthStyle:'neutral',colors:{...palette,skin:'#a87352',hair:'#454039',shirt:'#30373c',trousers:'#30373c'}});
+  const form=box(set,'#eadab0',[0,0,0],[.30,.43,.022]);form.visible=false;
+  const voters=[];for(let i=0;i<10;i++){const skin=['#be8a65','#d1a17e','#a77054','#cc9b70'][i%4],shirts=['#a86d56','#6d8b80','#b39b66','#68889b','#c38563'][i%5];const v=addActor('voter'+i,{bodyFrame:i%3===0?'female':'male',bodyType:'slender',outfit:i%3===0?'tunic':'work-shirt',bottomStyle:'relaxed',hairStyle:i%3===0?'tied':'short',headwear:'none',eyeStyle:'relaxed',faceShape:'oval',colors:{...palette,skin,hair:'#3e352e',shirt:shirts,trousers:'#40494b'}});voters.push(v)}
+  const performance=createCastPerformance(THREE,[...byId.values()]);
+  const main=['gufron','bu-warung','petugas','prabowow','gibrun','jokowow','hakim'];
+  function put(id,x,z,{y=0,walk=false,yaw=0,visible=true}={}){
+    const a=byId.get(id);a.root.visible=visible;if(!visible)return;
+    const ground=Math.abs(x+48)<2.35&&z>-112&&z<-88?.30:(x>-34&&x<-24&&z<-106?.16:.08);
+    a.root.position.set(x,y+ground,z);a.root.rotation.set(0,yaw,0);
+    const clip=walk?'Walk':'Idle';a.model.mixer.stopAllAction();const action=a.model.actions[clip]||a.model.actions.Idle;
+    if(action){action.reset().play();action.time=(lastTime*(walk?1.15:.45))%action.getClip().duration;a.model.mixer.update(0)}
+  }
+  let lastTime=0;
+  const sceneLook={
+    1:{h:'PAGI DITOLAK. SIANG LOLOS.',sub:'Gibrun tetap 36 tahun. Apa yang berubah?',m:'FORMULIR YANG SAMA'},
+    2:{h:'BARU 2 FOLLOWER. JALAN BOLONG.',sub:'Kampung Komen masih sepi. Gufron duduk murung.',m:'WARGA 1 → 3 · PAGI INI'},
+    3:{h:'ATURAN AWAL: 40 TAHUN.',sub:'Gufron 44 tahun. Berkas diterima.',m:'PENDAFTARAN PRESIDEN PERTAMA'},
+    4:{h:'GIBRUN 36 · DITOLAK.',sub:'Pengalaman wali kota belum menjadi jalur kedua.',m:'09.05 · MEJA PENDAFTARAN'},
+    5:{h:'AYAH CALON MENGAJUKAN UJI.',sub:'Jokowow membawa salinan formulir ke MK WKWKWK.',m:'PERMOHONAN · BUKAN PUTUSAN'},
+    6:{h:'PAMANNYA IKUT MEMUTUS.',sub:'Majelis membuka jalur kepala daerah terpilih.',m:'11.30 · MK WKWKWK · FIKSI'},
+    7:{h:'UMURNYA TETAP. ATURANNYA BERUBAH.',sub:'Putusan tertulis tiba; berkas diperiksa ulang.',m:'12.05 · DITOLAK → DITERIMA'},
+    8:{h:'10 PEMILIH · 10 SUARA.',sub:'Tidak ada surat suara tambahan.',m:'HASIL: 6–4'},
+    9:{h:'MENANG 6–4. JALAN TETAP BOLONG.',sub:'Presiden pertama memilih foto sebelum bekerja.',m:'PRABOWOW PRESIDEN · GIBRUN WAKIL'},
+    10:{h:'BUKA BERKAS ATAU SIDANG?',sub:'Proses sebelum pemilihan menjadi pertanyaan warga.',m:'KOMEN SATU PILIHAN · FOLLOW'}
+  };
+  const visualProof={
+    1:[['09.05 · GIBRUN 36','DITOLAK','SYARAT: 40'],['12.05 · GIBRUN 36','DITERIMA','ATURAN BERUBAH']],
+    3:[['ATURAN AWAL','MINIMAL 40','TIAP CALON'],['GUFRON','44 TAHUN','DITERIMA']],
+    4:[['GIBRUN','36 TAHUN','WALI KOTA TERPILIH'],['ATURAN PAGI','MINIMAL 40','DITOLAK']],
+    5:[['PEMOHON','JOKOWOW','AYAH GIBRUN'],['LOKET MK','PERMOHONAN MASUK','BELUM PUTUSAN']],
+    6:[['KETUA MAJELIS','PAMAN GIBRUN','IKUT MEMUTUS'],['SYARAT BARU','40 / KEPALA DAERAH','HASIL PEMILIHAN']],
+    7:[['09.05','DITOLAK','36 TAHUN'],['12.05','DITERIMA','BUKTI WALI KOTA']],
+    8:[['PEMILIH','10 ORANG','10 SURAT'],['HASIL','6–4','TOTAL 10']],
+    9:[['PRESIDEN','PRABOWOW','6 SUARA'],['JALAN DAY 1','BELUM DITAMBAL','FOTO DULU']],
+    10:[['BERKAS','FORMULIR + PERMOHONAN','PUTUSAN TERTULIS'],['SIDANG','DAFTAR HAKIM','CATATAN PERSIDANGAN']]
+  };
+  function layout(index,local,sceneDuration){
+    const p=local/sceneDuration;
+    if(index===1){put('gufron',-48,-96);put('bu-warung',-50,-95);return {pos:[-46.8,2.35,-91.5],at:[-48,1.25,-96.2]}}
+    if(index===2){put('bu-warung',-45.7,-95.0,{walk:p<.20});put('gufron',lerp(-49.8,-48.6,smooth((p-.42)/.26)),lerp(-95.5,-96.2,smooth((p-.42)/.26)),{walk:p>.42&&p<.68});put('petugas',-45.7,-101);return {pos:[-43.3,3.0,-89.1],at:[-48,1.2,-97]}}
+    if(index===3){put('gufron',lerp(-48.6,-47.5,smooth(p/.23)),lerp(-96.2,-100,smooth(p/.23)),{walk:p<.23});put('petugas',-46.1,-102.3);put('bu-warung',-50.1,-100.8);return {pos:[-47.3,2.55,-94.0],at:[-47,1.25,-100.7]}}
+    if(index===4){put('petugas',-46.0,-102.3);put('prabowow',lerp(-43.2,-44.4,smooth(p/.36)),-99.7,{walk:p<.36});put('gibrun',lerp(-42.0,-43.1,smooth(p/.36)),-99.6,{walk:p<.36});put('bu-warung',-49.7,-100.6);put('gufron',-51.2,-100.2);return {pos:[-41.6,2.35,-95.0],at:[-44.2,1.3,-100.4]}}
+    if(index===5){const x=lerp(-43.5,-31.5,smooth((p-.05)/.66));put('jokowow',x,-103.6,{walk:p>.05&&p<.72,yaw:p>.05&&p<.72?1.25:0});put('bu-warung',lerp(-46.8,-33.1,smooth((p-.12)/.75)),-102.9,{walk:p>.12&&p<.86,yaw:p>.12&&p<.86?1.20:0});return {pos:[x+2.8,2.45,-98.0],at:[x,1.25,-103.6]}}
+    if(index===6){put('hakim',-29,-108.3);put('hakim2',-31.2,-108.3);put('hakim3',-26.8,-108.3);put('jokowow',-30.7,-103.5);put('bu-warung',-33.2,-102.7);return {pos:[-29,2.8,-99.0],at:[-29,1.4,-108.0]}}
+    if(index===7){put('petugas',-46,-102.3);put('prabowow',-44.4,-99.7);put('gibrun',-43.1,-99.6);put('gufron',-51.2,-100.2);put('bu-warung',-49.8,-100.7);return {pos:[-41.6,2.35,-95.0],at:[-44.2,1.3,-100.4]}}
+    if(index===8){put('petugas',-46.2,-106.6);put('gufron',-52.2,-106.3);put('prabowow',-43.5,-106.1);put('gibrun',-42.5,-106.1);put('bu-warung',-49.7,-105.7);for(let i=0;i<10;i++){const v=voters[i],turn=Math.floor(p*10),fraction=p*10-turn,x=turn===i?lerp(-52,-48.5,smooth(fraction)):i<turn?-46.5-i*.03:-53.5-(i-turn)*.38,z=turn===i?lerp(-103.8,-105.6,smooth(fraction)):i<turn?-108.2:-103.8+(i%2)*.2;put(v.id,x,z,{walk:turn===i,visible:i<=turn+4})}return {pos:[-42,3.3,-96.1],at:[-48,1.15,-105.6]}}
+    if(index===9){put('prabowow',-49,-108.2);put('gibrun',-47.5,-108.8);put('petugas',-51.0,-107.8);put('gufron',-50.5,-97.4);put('bu-warung',-48.5,-95.0);return {pos:p<.47?[-45.0,2.8,-101.1]:[-45.0,2.65,-92.0],at:p<.47?[-49,1.35,-108]:[-49,1.1,-97]}}
+    put('bu-warung',-49.1,-95.5);put('gufron',-50.7,-96.2);put('prabowow',-49,-108.2);put('gibrun',-47.5,-108.8);return {pos:[-44,3.1,-89.8],at:[-49,1.25,-97]};
+  }
+  function renderDay2Frame(value){
+    const t=Math.max(0,Math.min(duration,Number(value)||0));lastTime=t;
+    const sc=timeline.scenes.find(s=>t>=s.start&&t<s.end)||timeline.scenes.at(-1),index=sc.index,local=t-sc.start,span=sc.end-sc.start;
+    for(const a of byId.values())a.root.visible=false;
+    const view=layout(index,local,span),copy=sceneLook[index];
+    $('headline').textContent=copy.h;$('sub').textContent=copy.sub;$('marker').textContent=copy.m;
+    $('proof').style.display=visualProof[index]?'flex':'none';$('proof').innerHTML=(visualProof[index]||[]).map(([small,big,tail])=>`<div><small>${small}</small><b>${big}</b><i>${tail}</i></div>`).join('');
+    $('choice').style.display=index===10&&local>span*.50?'flex':'none';if(index===10&&local>span*.50)$('proof').style.display='none';
+    const cue=timeline.cues.find(c=>t>=c.start&&t<c.end),names={gufron:'GUFRON',bu_warung:'BU WARUNG',petugas:'PETUGAS',prabowow:'PRABOWOW · PARODI',jokowow:'JOKOWOW · PARODI',hakim:'HAKIM PAMAN · PARODI'};
+    $('speaker').textContent=cue&&cue.role!=='narrator'?names[cue.role]||'':'';$('speaker').style.display=cue&&cue.role!=='narrator'?'block':'none';
+    const now=cue?Math.max(0,t-cue.start):0,frame=cue?now*cue.envelope_fps:0,low=Math.floor(frame),mix=frame-low,energy=cue?lerp(cue.envelope[low]||0,cue.envelope[low+1]||0,mix):0;
+    for(const id of main){const a=byId.get(id);if(!a.root.visible)continue;
+      const speaking=cue&&((cue.role==='bu_warung'?'bu-warung':cue.role)===id);
+      const h=a.model.head;if(h){h.rotation.y=.025*Math.sin(t*.7+id.length);h.rotation.x=.012*Math.sin(t*.53+id.length*.3)}
+      performance.update(a,{mouthOpen:speaking?energy:0,smile:1,headYaw:speaking ? .018*Math.sin(t*2.2) : 0,headNod:speaking ? .027*energy : 0});
+      if(speaking){const arm=a.model.arms?.[0];if(arm)arm.rotation.z+=.06*Math.sin(now*3)*Math.min(1,energy+.3)}
+    }
+    sadChair.visible=index===2&&local<span*.48;
+    if(sadChair.visible){
+      const a=byId.get('gufron'),seated=1-smooth((local/span-.24)/.22);
+      a.root.position.y-=.12*seated;
+      for(const side of ['L','R']){
+        const thigh=a.model.figure.getObjectByName('thigh'+side),calf=a.model.figure.getObjectByName('calf'+side);
+        if(thigh)thigh.rotation.x-=1.18*seated;if(calf)calf.rotation.x+=1.17*seated;
+      }
+      const spine=a.model.figure.getObjectByName('spine');if(spine)spine.rotation.x+=.16*seated;
+      if(a.model.head)a.model.head.rotation.x+=.14*seated;
+      seatedPants.visible=seated>.45;
+      for(const name of ['Garment_Trousers','Boot_Sole_L','Boot_Upper_L','Trouser_Cuff_L']){
+        const part=a.model.figure.getObjectByName(name);if(part)part.visible=seated<=.45;
+      }
+    }
+    else{for(const name of ['Garment_Trousers','Boot_Sole_L','Boot_Upper_L','Trouser_Cuff_L']){const part=byId.get('gufron').model.figure.getObjectByName(name);if(part)part.visible=true}}
+    const carrier=index===4?'gibrun':index===5||index===6?'jokowow':index===7?'petugas':null;
+    form.visible=Boolean(carrier);if(carrier){
+      scene.updateMatrixWorld(true);
+      const hand=byId.get(carrier).model.figure.getObjectByName('handR');
+      if(hand){form.position.copy(hand.localToWorld(new THREE.Vector3(.01,.06,.075)));form.quaternion.copy(hand.getWorldQuaternion(new THREE.Quaternion()));form.rotateX(-.35)}
+    }
+    const cueRole=cue?.role;
+    if(index===2&&local<span*.22){view.pos=[-48.4,2.6,-90.3];view.at=[-49.8,1.45,-95.5]}
+    else if(index===2&&cueRole==='bu_warung'){view.pos=[-43.8,2.35,-90.4];view.at=[-45.7,1.3,-95.0]}
+    if(index===2&&cueRole==='gufron'){const x=byId.get('gufron').root.position.x;view.pos=[x+1.6,2.25,-91.5];view.at=[x,1.3,-96.2]}
+    if(index===4&&cueRole==='prabowow'){view.pos=[-41.2,2.3,-95.5];view.at=[-44.1,1.35,-99.7]}
+    if(index===5&&cueRole==='bu_warung'){view.pos=[-30.0,2.45,-98.8];view.at=[-33.2,1.35,-103.0]}
+    if(index===6&&cueRole==='hakim'){view.pos=[-28.3,2.2,-104.8];view.at=[-29,1.5,-108.3]}
+    if(index===7&&cueRole==='gufron'){view.pos=[-46.8,2.4,-94.8];view.at=[-51,1.35,-100.2]}
+    if(index===9&&cueRole==='gufron'){view.pos=[-46.8,2.4,-91.4];view.at=[-50.5,1.35,-97.4]}
+    if(index===9&&cueRole==='prabowow'){view.pos=[-45.0,2.35,-101.1];view.at=[-49,1.35,-108.2]}
+    const push=.17*smooth(local/span);camera.position.set(view.pos[0]+push,view.pos[1],view.pos[2]);camera.lookAt(...view.at);camera.updateProjectionMatrix();
+    villageSign.visible=false;registration.visible=[2,3,4,7].includes(index);rule.visible=[3,4,7].includes(index);desk.visible=[1,3,4,7].includes(index);ballot.visible=index===8;chair.visible=[9,10].includes(index);court.visible=[5,6].includes(index);
+    $('flash').style.opacity=index===9&&Math.abs(t-timeline.events.camera_click)<.12?'.55':'0';
+    $('progress').style.width=(t/duration*100)+'%';$('time').textContent=Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');$('seek').value=t;
+    renderer.render(scene,camera);return {ready:true,time:t,scene:index,speaker:cueRole||null,energy};
+  }
+  window.renderDay2Frame=renderDay2Frame;window.DAY2_READY=true;$('seek').max=duration;renderDay2Frame(0);
+  const audio=new Audio('../public/audio/produksi/episode-003/release-v3-election/day2-master.wav');audio.preload='auto';
+  $('play').onclick=async()=>{if(audio.paused){audio.currentTime=lastTime;await audio.play();$('play').textContent='❚❚ Jeda';requestAnimationFrame(function loop(){if(!audio.paused){renderDay2Frame(audio.currentTime);requestAnimationFrame(loop)}})}else{audio.pause();$('play').textContent='▶ Putar'}};
+  $('seek').oninput=e=>{audio.currentTime=Number(e.target.value);renderDay2Frame(audio.currentTime)};audio.onended=()=>{$('play').textContent='▶ Putar'};
+}catch(e){$('error').style.display='block';$('error').textContent=e.stack;console.error(e);window.DAY2_ERROR=e.stack}
+</script></html>

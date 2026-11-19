@@ -1,0 +1,58 @@
+{
+  "id": "e17",
+  "scene": 8,
+  "role": "narrator",
+  "text": "Sepuluh warga masuk. Sepuluh surat suara keluar. Penghitungannya terbuka.",
+  "file": "e17-narrator.mp3",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-4%",
+  "pitch": "-12Hz",
+  "word_boundaries": [
+    {
+      "text": "Sepuluh",
+      "start": 0.1,
+      "duration": 0.729
+    },
+    {
+      "text": "warga",
+      "start": 0.829,
+      "duration": 0.417
+    },
+    {
+      "text": "masuk",
+      "start": 1.246,
+      "duration": 0.508
+    },
+    {
+      "text": "Sepuluh",
+      "start": 2.628,
+      "duration": 0.612
+    },
+    {
+      "text": "surat",
+      "start": 3.24,
+      "duration": 0.378
+    },
+    {
+      "text": "suara",
+      "start": 3.618,
+      "duration": 0.482
+    },
+    {
+      "text": "keluar",
+      "start": 4.099,
+      "duration": 0.742
+    },
+    {
+      "text": "Penghitungannya",
+      "start": 5.714,
+      "duration": 0.977
+    },
+    {
+      "text": "terbuka",
+      "start": 6.691,
+      "duration": 0.872
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

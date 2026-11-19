@@ -1,0 +1,63 @@
+{
+  "id": "e14",
+  "scene": 6,
+  "role": "bu_warung",
+  "text": "Pamannya ikut memutus? Catat. Putusannya ada, hubungan keluarganya juga ada.",
+  "file": "e14-bu_warung.mp3",
+  "voice": "su-ID-TutiNeural",
+  "rate": "-2%",
+  "pitch": "-5Hz",
+  "word_boundaries": [
+    {
+      "text": "Pamannya",
+      "start": 0.114,
+      "duration": 0.536
+    },
+    {
+      "text": "ikut",
+      "start": 0.726,
+      "duration": 0.319
+    },
+    {
+      "text": "memutus",
+      "start": 1.07,
+      "duration": 0.6
+    },
+    {
+      "text": "Catat",
+      "start": 2.679,
+      "duration": 0.523
+    },
+    {
+      "text": "Putusannya",
+      "start": 4.12,
+      "duration": 0.676
+    },
+    {
+      "text": "ada",
+      "start": 4.872,
+      "duration": 0.281
+    },
+    {
+      "text": "hubungan",
+      "start": 5.293,
+      "duration": 0.523
+    },
+    {
+      "text": "keluarganya",
+      "start": 5.855,
+      "duration": 0.765
+    },
+    {
+      "text": "juga",
+      "start": 6.658,
+      "duration": 0.306
+    },
+    {
+      "text": "ada",
+      "start": 7.028,
+      "duration": 0.293
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

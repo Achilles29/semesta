@@ -1,0 +1,11 @@
+{
+  "id": "04",
+  "role": "tedi",
+  "text": "Pak, jam sepuluh gunting pita dua gedung.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+6%",
+  "pitch": "+8Hz",
+  "file": "04-tedi.mp3",
+  "word_boundaries": [],
+  "source": "Edge TTS synthetic draft voice"
+}

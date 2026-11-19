@@ -1,0 +1,52 @@
+{
+  "id": "n3",
+  "role": "narrator",
+  "text": "Masaknya belum. Sayur dari koperasi pun belum dibeli.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "n3-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Masaknya",
+      "start": 0.1,
+      "duration": 0.773
+    },
+    {
+      "text": "belum",
+      "start": 0.873,
+      "duration": 0.631
+    },
+    {
+      "text": "Sayur",
+      "start": 2.37,
+      "duration": 0.657
+    },
+    {
+      "text": "dari",
+      "start": 3.027,
+      "duration": 0.232
+    },
+    {
+      "text": "koperasi",
+      "start": 3.259,
+      "duration": 0.554
+    },
+    {
+      "text": "pun",
+      "start": 3.813,
+      "duration": 0.348
+    },
+    {
+      "text": "belum",
+      "start": 4.161,
+      "duration": 0.399
+    },
+    {
+      "text": "dibeli",
+      "start": 4.56,
+      "duration": 0.631
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

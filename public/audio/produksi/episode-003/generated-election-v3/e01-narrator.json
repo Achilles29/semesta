@@ -1,0 +1,103 @@
+{
+  "id": "e01",
+  "scene": 1,
+  "role": "narrator",
+  "text": "Pagi Gibrun ditolak: umur tiga puluh enam, syarat empat puluh. Siang dia lolos. Umurnya tetap. Apa yang berubah?",
+  "file": "e01-narrator.mp3",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-4%",
+  "pitch": "-12Hz",
+  "word_boundaries": [
+    {
+      "text": "Pagi",
+      "start": 0.1,
+      "duration": 0.469
+    },
+    {
+      "text": "Gibrun",
+      "start": 0.569,
+      "duration": 0.456
+    },
+    {
+      "text": "ditolak",
+      "start": 1.024,
+      "duration": 0.573
+    },
+    {
+      "text": "umur",
+      "start": 1.988,
+      "duration": 0.391
+    },
+    {
+      "text": "tiga",
+      "start": 2.379,
+      "duration": 0.404
+    },
+    {
+      "text": "puluh",
+      "start": 2.782,
+      "duration": 0.299
+    },
+    {
+      "text": "enam",
+      "start": 3.082,
+      "duration": 0.573
+    },
+    {
+      "text": "syarat",
+      "start": 3.954,
+      "duration": 0.482
+    },
+    {
+      "text": "empat",
+      "start": 4.436,
+      "duration": 0.482
+    },
+    {
+      "text": "puluh",
+      "start": 4.918,
+      "duration": 0.586
+    },
+    {
+      "text": "Siang",
+      "start": 6.378,
+      "duration": 0.586
+    },
+    {
+      "text": "dia",
+      "start": 6.964,
+      "duration": 0.326
+    },
+    {
+      "text": "lolos",
+      "start": 7.29,
+      "duration": 0.846
+    },
+    {
+      "text": "Umurnya",
+      "start": 9.008,
+      "duration": 0.664
+    },
+    {
+      "text": "tetap",
+      "start": 9.672,
+      "duration": 0.495
+    },
+    {
+      "text": "Apa",
+      "start": 11.04,
+      "duration": 0.469
+    },
+    {
+      "text": "yang",
+      "start": 11.508,
+      "duration": 0.208
+    },
+    {
+      "text": "berubah",
+      "start": 11.717,
+      "duration": 0.638
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

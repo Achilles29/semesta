@@ -1,0 +1,92 @@
+{
+  "id": "05",
+  "role": "prabowow",
+  "text": "Tunggu. Program Kuliner Indonesia dulu. Dapur masak, makanan sampai ke warga, bahan dibeli dari petani sini.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-12%",
+  "pitch": "-28Hz",
+  "file": "05-prabowow.mp3",
+  "word_boundaries": [
+    {
+      "text": "Tunggu",
+      "start": 0.1,
+      "duration": 0.866
+    },
+    {
+      "text": "Program",
+      "start": 1.927,
+      "duration": 0.511
+    },
+    {
+      "text": "Kuliner",
+      "start": 2.438,
+      "duration": 0.455
+    },
+    {
+      "text": "Indonesia",
+      "start": 2.893,
+      "duration": 0.554
+    },
+    {
+      "text": "dulu",
+      "start": 3.447,
+      "duration": 0.526
+    },
+    {
+      "text": "Dapur",
+      "start": 4.943,
+      "duration": 0.327
+    },
+    {
+      "text": "masak",
+      "start": 5.27,
+      "duration": 0.625
+    },
+    {
+      "text": "makanan",
+      "start": 6.179,
+      "duration": 0.44
+    },
+    {
+      "text": "sampai",
+      "start": 6.619,
+      "duration": 0.312
+    },
+    {
+      "text": "ke",
+      "start": 6.932,
+      "duration": 0.099
+    },
+    {
+      "text": "warga",
+      "start": 7.031,
+      "duration": 0.639
+    },
+    {
+      "text": "bahan",
+      "start": 7.969,
+      "duration": 0.355
+    },
+    {
+      "text": "dibeli",
+      "start": 8.324,
+      "duration": 0.341
+    },
+    {
+      "text": "dari",
+      "start": 8.665,
+      "duration": 0.185
+    },
+    {
+      "text": "petani",
+      "start": 8.849,
+      "duration": 0.312
+    },
+    {
+      "text": "sini",
+      "start": 9.162,
+      "duration": 0.54
+    }
+  ],
+  "source": "Edge TTS synthetic draft voice"
+}

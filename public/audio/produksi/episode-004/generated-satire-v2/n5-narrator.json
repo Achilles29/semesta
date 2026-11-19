@@ -1,0 +1,92 @@
+{
+  "id": "n5",
+  "role": "narrator",
+  "text": "Dua foto jadi. Dua pertanyaan belum dijawab. Gufron masih pegang pita, petani masih pegang hasil panen.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "n5-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Dua",
+      "start": 0.1,
+      "duration": 0.374
+    },
+    {
+      "text": "foto",
+      "start": 0.474,
+      "duration": 0.451
+    },
+    {
+      "text": "jadi",
+      "start": 0.925,
+      "duration": 0.657
+    },
+    {
+      "text": "Dua",
+      "start": 2.447,
+      "duration": 0.335
+    },
+    {
+      "text": "pertanyaan",
+      "start": 2.782,
+      "duration": 0.773
+    },
+    {
+      "text": "belum",
+      "start": 3.555,
+      "duration": 0.425
+    },
+    {
+      "text": "dijawab",
+      "start": 3.98,
+      "duration": 0.683
+    },
+    {
+      "text": "Gufron",
+      "start": 5.527,
+      "duration": 0.567
+    },
+    {
+      "text": "masih",
+      "start": 6.094,
+      "duration": 0.374
+    },
+    {
+      "text": "pegang",
+      "start": 6.468,
+      "duration": 0.348
+    },
+    {
+      "text": "pita",
+      "start": 6.815,
+      "duration": 0.567
+    },
+    {
+      "text": "petani",
+      "start": 7.73,
+      "duration": 0.554
+    },
+    {
+      "text": "masih",
+      "start": 8.285,
+      "duration": 0.361
+    },
+    {
+      "text": "pegang",
+      "start": 8.645,
+      "duration": 0.374
+    },
+    {
+      "text": "hasil",
+      "start": 9.019,
+      "duration": 0.464
+    },
+    {
+      "text": "panen",
+      "start": 9.483,
+      "duration": 0.631
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

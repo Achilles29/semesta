@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Republik WKWKWK — Day 2</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#142b30;font-family:Arial,Helvetica,sans-serif;color:#fff}canvas{position:absolute;inset:0;width:100%;height:100%}#grade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#102c36 0%,#102c36 13%,transparent 32%,transparent 72%,#102c36d9 88%,#102c36 100%)}#ui{position:absolute;inset:0;pointer-events:none;padding:5.5% 5%}#brand{display:flex;justify-content:space-between;align-items:center;font-size:16px;font-weight:900;letter-spacing:.08em;color:#f8e9b0}#brand span:last-child{background:#f5db72;color:#102e35;padding:6px 10px;border-radius:6px;font-size:13px}#headline{position:absolute;left:5%;right:5%;top:11%;font-size:clamp(34px,7.1vw,58px);font-weight:1000;line-height:1.02;letter-spacing:-.05em;text-shadow:0 4px 15px #13363bdd}#sub{position:absolute;left:5%;right:6%;top:25%;font-size:clamp(16px,3vw,24px);font-weight:700;color:#ffe7aa;text-shadow:0 3px 12px #17343b}#news{position:absolute;top:39%;right:5%;width:48%;border:3px solid #e9dfc4;border-radius:18px;background:#17333de8;padding:16px 15px;box-shadow:0 12px 35px #10252d99;transform:rotate(5deg);font-weight:800;font-size:clamp(17px,3vw,24px);line-height:1.1}#news small{display:block;color:#f0d76f;font-size:.55em;letter-spacing:.08em;margin-bottom:12px}#news em{display:block;font-size:.57em;margin-top:13px;font-style:normal;color:#d2dce0}#alert{position:absolute;top:56%;left:7%;padding:12px 18px;border:5px solid #e8503d;background:#f9e9cf;color:#cb302a;font-size:clamp(28px,6vw,52px);font-weight:1000;transform:rotate(-12deg);box-shadow:0 8px 23px #1b272c70;opacity:0}#stats{position:absolute;left:5%;bottom:29%;padding:12px 16px;border-radius:12px;background:#15323dea;border-left:7px solid #f0cf5d;font-weight:900;font-size:clamp(19px,3.5vw,30px)}#speaker{position:absolute;left:5%;bottom:24%;padding:6px 13px;background:#f1d365;color:#17343b;border-radius:6px;font-size:15px;font-weight:900;letter-spacing:.08em;display:none}#choices{position:absolute;left:5%;right:5%;bottom:22%;display:none;gap:10px;flex-direction:column}#choices div{padding:11px 15px;background:#f3e8c8;color:#14313a;font-size:clamp(19px,4.2vw,32px);font-weight:900;border-radius:11px;border-left:9px solid #e6b74a}#choices div:nth-child(2){border-color:#dd7562}#choices div:nth-child(3){border-color:#6cae9f}#footer{position:absolute;left:5%;right:5%;bottom:6%;font-size:clamp(13px,2.2vw,17px);font-weight:700;color:#e4e1ce;line-height:1.25}#progress{position:absolute;bottom:0;left:0;height:7px;background:#f1cf57;width:0}#preview{position:fixed;left:15px;bottom:14px;z-index:8;background:#172e37eb;padding:10px;border-radius:10px;display:flex;gap:8px;align-items:center;font:13px Arial}#preview input{width:180px}body.filming #preview{display:none}#error{position:fixed;left:10px;top:10px;right:10px;background:#ba2b28;z-index:9;display:none;padding:10px}
+</style>
+<div id="grade"></div><div id="ui"><div id="brand"><span>REPUBLIK WKWKWK</span><span>DAY 2 · PARODI</span></div><div id="headline"></div><div id="sub"></div><div id="news"><small>BERITA NASIONAL · 17 NOV 2026</small><span>Bahlil disebut masuk bursa Wapres</span><em>Belum ada nama resmi yang diajukan.</em></div><div id="alert">TAHAN!</div><div id="stats"></div><div id="speaker"></div><div id="choices"></div><div id="footer">Cerita fiksi game · dialog rekaan · suara AI · bukan pencalonan atau pemilihan resmi</div></div><div id="progress"></div><div id="preview"><button id="play">▶ Putar</button><input id="seek" type="range" min="0" max="97.5" step=".1" value="0"><span id="time">0:00</span></div><div id="error"></div>
+<script type="importmap">{"imports":{"three":"../node_modules/three/build/three.module.js","three/addons/":"../node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {createHumanModel,setFarmerAsset} from '../game-src/avatar-character-3d.js';
+import {buildProductionDistrict} from '../game-src/production-district-scene.js';
+import {createV16Props} from '../game-src/production-v16-props.js';
+import {createCastPerformance} from '../game-src/production-performance.js';
+const $=id=>document.getElementById(id),W=innerWidth,H=innerHeight,duration=97.5;
+function makeText(value,fg='fff8e9',bg='20545a'){
+ const c=document.createElement('canvas');c.width=1024;c.height=180;const x=c.getContext('2d');x.fillStyle='#'+bg;x.fillRect(0,0,1024,180);x.fillStyle='#'+fg;x.font='bold 74px Arial';x.textAlign='center';x.textBaseline='middle';x.fillText(value,512,90,980);const tex=new THREE.CanvasTexture(c);return new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true}));
+}
+try{
+ setFarmerAsset(await new GLTFLoader().loadAsync('../public/models/characters/semesta-farmer-v11.glb'));
+ const scene=new THREE.Scene();scene.background=new THREE.Color('#cbdad8');
+ scene.add(new THREE.HemisphereLight('#fff3d9','#637c80',2.9));const sun=new THREE.DirectionalLight('#fff3dc',2.6);sun.position.set(-42,15,-86);scene.add(sun);
+ const world=new THREE.Group();scene.add(world);
+ const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(1);renderer.setSize(W,H);renderer.toneMapping=THREE.ACESFilmicToneMapping;document.body.prepend(renderer.domElement);
+ const camera=new THREE.PerspectiveCamera(39,W/H,.05,200);
+ const production=buildProductionDistrict(THREE,{world,makeHuman(p,o){const m=createHumanModel(THREE,o);p.add(m.figure);return m;},makeText,addCollider(x,z){return{x,z};},createWorldAsset(){return new THREE.Group();}});
+ const props=createV16Props(THREE,production);props.group.visible=true;props.activate();production.updateLabels(0);
+ for(const extra of production.neighborhood.extras)extra.root.visible=false;
+ // Day 1's cut ribbon is gone. The road defect remains.
+ for(const child of props.group.children)if(Math.abs(child.position.z+94.4)<.005)child.visible=false;
+ const car=props.group.getObjectByName('V16OfficialCar');car.position.set(-49.4,.3,-89.5);
+ for(const name of ['V16HandScissors','V16MuddySandal','V16ShoppingBag','V16PhotographerCamera'])props.group.getObjectByName(name).visible=false;
+ const mat=c=>new THREE.MeshStandardMaterial({color:c,roughness:.78});
+ function box(parent,c,pos,size){const m=new THREE.Mesh(new THREE.BoxGeometry(...size),mat(c));m.position.set(...pos);parent.add(m);return m;}
+ const desk=new THREE.Group();props.group.add(desk);desk.position.set(-48,.3,-93.1);
+ box(desk,'#8b6443',[0,.75,0],[3.5,.16,1.7]);for(const x of [-1.5,1.5])for(const z of [-.6,.6])box(desk,'#6d4c36',[x,.36,z],[.15,.72,.15]);
+ const paper=box(desk,'#fff4d4',[0,.85,0],[1.65,.035,1.18]);
+ for(const z of [-.37,-.12,.13,.38])box(desk,'#6c8c87',[.15,.875,z],[.9,.01,.022]);
+ for(const z of [-.37,-.12,.13,.38])box(desk,'#548377',[-.63,.877,z],[.10,.01,.10]);
+ const stamp=new THREE.Group();desk.add(stamp);box(stamp,'#cc4d39',[0,0,0],[.52,.12,.35]);box(stamp,'#5d3c2a',[0,.25,0],[.12,.43,.12]);box(stamp,'#b48b5e',[0,.49,0],[.27,.09,.2]);
+ const chair=new THREE.Group();props.group.add(chair);chair.position.set(-48.7,0,-94.6);box(chair,'#83513f',[0,.55,0],[1.0,.17,.92]);box(chair,'#754838',[0,1.04,-.42],[1.0,1.0,.16]);for(const x of [-.4,.4])for(const z of [-.34,.34])box(chair,'#5f4236',[x,.27,z],[.11,.5,.11]);
+ const seatedLegs=new THREE.Group();props.group.add(seatedLegs);seatedLegs.position.set(-48.7,0,-94.35);
+ const cloth=document.createElement('canvas');cloth.width=256;cloth.height=256;const pen=cloth.getContext('2d');pen.fillStyle='#30352d';pen.fillRect(0,0,256,256);pen.strokeStyle='#c7b795';pen.lineWidth=11;for(let i=24;i<256;i+=58){pen.beginPath();pen.moveTo(i,0);pen.lineTo(i,256);pen.stroke()}for(let i=32;i<256;i+=56){pen.beginPath();pen.moveTo(0,i);pen.lineTo(256,i);pen.stroke()}
+ const sarong=new THREE.Mesh(new THREE.CylinderGeometry(.30,.35,.55,20),new THREE.MeshStandardMaterial({map:new THREE.CanvasTexture(cloth),roughness:.95}));sarong.position.set(0,.44,.28);seatedLegs.add(sarong);
+ for(const x of [-.17,.17]){const calf=new THREE.Mesh(new THREE.CylinderGeometry(.085,.095,.34,12),mat('#dfb998'));calf.position.set(x,.18,.55);seatedLegs.add(calf);box(seatedLegs,'#544638',[x,.055,.76],[.22,.09,.36])}
+ const crownChair=new THREE.Group();props.group.add(crownChair);crownChair.position.set(-47,.3,-98.8);box(crownChair,'#ad6952',[0,.64,0],[1.34,.19,1.0]);box(crownChair,'#963d38',[0,1.34,-.48],[1.34,1.4,.17]);for(const x of [-.51,.51])for(const z of [-.36,.36])box(crownChair,'#6b453b',[x,.32,z],[.13,.65,.13]);
+ const byId=new Map(production.cast.map(n=>[n.id,n]));
+ const timeline=await (await fetch('../public/audio/produksi/episode-003/release-v1/timeline.json')).json();
+ const speechEnvelope=await (await fetch('../public/audio/produksi/episode-003/release-v2/speech-envelope.json')).json();
+ const performance=createCastPerformance(THREE,production.cast);
+ function actor(id,x,z,y=.3,visible=true){const n=byId.get(id);n.root.visible=visible;if(!visible)return;n.root.position.set(x,y,z);n.root.rotation.y=0;}
+ const views=[
+  {s:0,e:8.2,h:'KURSI WAPRES KOSONG.',sub:'Cap “lolos” sudah mau turun?',p:[-46.0,3.2,-87.4],q:[-48,1.0,-94.8]},
+  {s:8.2,e:18.5,h:'DAY 1 MASIH SEPI.',sub:'Mobil lolos. Lubang tetap di sini.',p:[-48.4,3.2,-88.7],q:[-48.0,1.0,-95.6]},
+  {s:18.5,e:32.5,h:'KURSI MAU DIISI CEPAT.',sub:'Disebut di bursa ≠ ditetapkan.',p:[-45.9,3.2,-87.8],q:[-47.6,1.1,-97.2]},
+  {s:32.5,e:50,h:'BERKAS SUDAH DICEK?',sub:'Syarat dan rencana kerja belum diperiksa.',p:[-45.6,3.2,-88.3],q:[-48,1.0,-94.3]},
+  {s:50,e:67.5,h:'GUFRON IKUT MAJU.',sub:'“Periksa berkas saya juga.”',p:[-45.4,3.3,-87.8],q:[-48,1.2,-96.2]},
+  {s:67.5,e:78,h:'KURSI TETAP KOSONG.',sub:'Buka berkas. Periksa. Baru pilih.',p:[-45.8,3.3,-87.4],q:[-47.5,1.1,-97.2]},
+  {s:78,e:97.5,h:'KALAU BERKAS LENGKAP…',sub:'Siapa yang layak memimpin republik ini?',p:[-45.8,3.3,-88.2],q:[-48,1.1,-96.5]}
+ ];
+ let last=0;
+ function renderDay2Frame(value){
+  const t=Math.max(0,Math.min(duration,Number(value)||0));last=t;
+  const v=views.find(x=>t>=x.s&&t<x.e)||views.at(-1),index=views.indexOf(v),local=t-v.s;
+  $('headline').textContent=v.h;$('sub').textContent=v.sub;
+  $('news').style.display=index===0?'block':'none';$('alert').style.opacity=index===0&&t>=7.38?1:0;
+  $('stats').style.display=index===1||index===3||index===5?'block':'none';$('stats').style.top=index===1?'34%':'auto';$('stats').style.bottom=index===1?'auto':'29%';
+  $('stats').textContent=index===1?'DAY 1 · +0 FOLLOWER':index===3?'☐ SYARAT  ☐ RENCANA KERJA':'BELUM ADA YANG BOLEH DUDUK';
+  const cue=timeline.cues.find(x=>t>=x.start&&t<x.end);
+  $('speaker').textContent=cue&&cue.role!=='narrator'?({bu_warung:'BU WARUNG',panitia:'PANITIA',bahlil:'BAHLIL · PARODI',gufron:'GUFRON · PARODI'}[cue.role]||''):'';
+  $('speaker').style.display=cue&&cue.role!=='narrator'&&index!==6?'block':'none';
+  $('choices').style.display=index===6?'flex':'none';
+  if(index===6){const c=$('choices');c.innerHTML=t<84?'<div>A · BAHLIL</div><div>B · GUFRON</div><div>C · CALON LAIN</div>':t<89?'<div>TULIS 1 NAMA</div><div>+ 1 ALASAN</div>':'<div>FOLLOW JADI WARGA</div><div>BESOK: BERKAS DIBUKA</div>';}
+  $('progress').style.width=(t/duration*100)+'%';$('time').textContent=Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');$('seek').value=t;
+  desk.visible=[0,3,5].includes(index);chair.visible=index===1;seatedLegs.visible=index===1;crownChair.visible=[2,4,5,6].includes(index);
+  stamp.position.set(.3,index===0?Math.max(1.16,.95-.5*Math.min(1,t/7.45)):.9,.0);stamp.rotation.z=index===0?-.14*Math.min(1,t/7.45):0;
+  actor('mama-ghufron',index===1?-48.7:index===4?-48.7:-49.3,index===1?-94.35:index===4?-95.2:-96.1,index===1?-.15:.3,[1,2,3,4,5,6].includes(index));
+  actor('bu-warung',-45.1,-96,.3,index!==1||t>13);
+  actor('bahlil',-45.1,index===2?-99.3:-97,.3,[2,3,4,5,6].includes(index));
+  actor('pemandu',-50.8,-95.2,.3,[0,2,3,4,5].includes(index));
+  for(const id of ['komeng','pak-sandal'])actor(id,0,0,.3,false);
+  const speakingId=cue&&cue.role!=='narrator'?({gufron:'mama-ghufron',bahlil:'bahlil',bu_warung:'bu-warung',panitia:'pemandu'}[cue.role]):null;
+  const frame=t*speechEnvelope.fps,lo=Math.floor(frame),mix=frame-lo;const energy=(speechEnvelope.values[lo]||0)*(1-mix)+(speechEnvelope.values[lo+1]||0)*mix;
+  for(const id of ['mama-ghufron','bu-warung','bahlil','pemandu']){const n=byId.get(id);if(n.root.visible){n.model.mixer.stopAllAction();const a=n.model.actions.Idle;if(a){a.reset().play();a.time=t*.45;n.model.mixer.update(0)}if(id==='mama-ghufron'&&index===1){for(const side of ['L','R']){const thigh=n.model.figure.getObjectByName('thigh'+side),calf=n.model.figure.getObjectByName('calf'+side);if(thigh)thigh.rotation.x=-1.2;if(calf)calf.rotation.x=1.18}const spine=n.model.figure.getObjectByName('spine');if(spine)spine.rotation.x=.18}n.root.rotation.y=.05*Math.sin(t*1.4+id.length);performance.update(n,{mouthOpen:id===speakingId?energy:0,smile:1,headYaw:0,headNod:0})}}
+  const inserts=[
+    {s:15.7,e:18.5,p:[-49.3,2.45,-90.5],q:[-48.7,1.05,-94.6]},
+    {s:21.8,e:24.6,p:[-43.5,2.7,-92.3],q:[-45.1,1.3,-99.3]},
+    {s:24.6,e:29.9,p:[-43.4,2.45,-91.7],q:[-45.1,1.2,-96]},
+    {s:36.5,e:42.8,p:[-43.7,2.5,-91.2],q:[-45.1,1.2,-96]},
+    {s:42.9,e:44.7,p:[-51.5,2.45,-90.5],q:[-50.8,1.2,-95.2]},
+    {s:44.7,e:50,p:[-49.4,2.6,-90.5],q:[-49.3,1.2,-96.1]},
+    {s:50,e:54.2,p:[-43.7,2.5,-91.8],q:[-45.1,1.2,-97]},
+    {s:54.3,e:62.2,p:[-49.2,2.6,-90.3],q:[-48.7,1.2,-95.2]},
+    {s:62.3,e:67.5,p:[-43.6,2.5,-91.3],q:[-45.1,1.2,-96]}
+  ];
+  const shot=inserts.find(x=>t>=x.s&&t<x.e)||v;
+  const drift=Math.min(local/(v.e-v.s),1)*.18;camera.position.set(shot.p[0]+drift,shot.p[1],shot.p[2]);camera.lookAt(...shot.q);camera.fov=39;camera.updateProjectionMatrix();renderer.render(scene,camera);
+  return {time:t,scene:index,ready:true};
+ }
+ window.renderDay2Frame=renderDay2Frame;window.DAY2_READY=true;renderDay2Frame(0);
+ const audio=new Audio('../public/audio/produksi/episode-003/release-v2/day2-master.wav');audio.preload='auto';
+ $('play').onclick=async()=>{if(audio.paused){audio.currentTime=last;await audio.play();$('play').textContent='❚❚ Jeda';requestAnimationFrame(function loop(){if(!audio.paused){renderDay2Frame(audio.currentTime);requestAnimationFrame(loop)}})}else{audio.pause();$('play').textContent='▶ Putar'}};
+ $('seek').oninput=e=>{audio.currentTime=Number(e.target.value);renderDay2Frame(audio.currentTime)};
+ audio.onended=()=>{$('play').textContent='▶ Putar'};
+}catch(e){$('error').style.display='block';$('error').textContent=e.stack;console.error(e);window.DAY2_ERROR=e.stack;}
+</script></html>

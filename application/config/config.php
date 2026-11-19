@@ -52,7 +52,7 @@ if ($configured_base_url !== false && trim($configured_base_url) !== '') {
         $script_directory = trim($script_directory, '/');
         $config['base_url'] = $protocol . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/' . ($script_directory !== '' ? $script_directory . '/' : '');
     } else {
-        $config['base_url'] = 'https://semesta.projectpintar.com/';
+        $config['base_url'] = 'https://wkwkwk.projectpintar.com/';
     }
 }
 
@@ -357,7 +357,10 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'semesta-nyasar-local-session-key-change-before-deploy';
+$local_encryption_key = APPPATH . 'config/encryption_key_local.php';
+$config['encryption_key'] = is_file($local_encryption_key)
+    ? require $local_encryption_key
+    : (getenv('SEMESTA_ENCRYPTION_KEY') ?: 'semesta-nyasar-local-session-key-change-before-deploy');
 
 /*
 |--------------------------------------------------------------------------
@@ -442,8 +445,8 @@ $config['sess_regenerate_destroy'] = FALSE;
 $config['cookie_prefix']	= '';
 $config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
-$config['cookie_secure']	= FALSE;
-$config['cookie_httponly'] 	= FALSE;
+$config['cookie_secure']	= (strpos($config['base_url'], 'https://') === 0);
+$config['cookie_httponly'] 	= TRUE;
 $config['cookie_samesite'] 	= 'Lax';
 
 /*

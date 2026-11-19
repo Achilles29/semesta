@@ -1,0 +1,73 @@
+{
+  "id": "e05",
+  "scene": 3,
+  "role": "petugas",
+  "text": "Pendaftaran dibuka. Syarat umur empat puluh. Gufron, empat puluh empat. Berkas diterima.",
+  "file": "e05-petugas.mp3",
+  "voice": "id-ID-GadisNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "word_boundaries": [
+    {
+      "text": "Pendaftaran",
+      "start": 0.1,
+      "duration": 0.825
+    },
+    {
+      "text": "dibuka",
+      "start": 0.925,
+      "duration": 0.787
+    },
+    {
+      "text": "Syarat",
+      "start": 2.55,
+      "duration": 0.475
+    },
+    {
+      "text": "umur",
+      "start": 3.025,
+      "duration": 0.5
+    },
+    {
+      "text": "empat",
+      "start": 3.525,
+      "duration": 0.463
+    },
+    {
+      "text": "puluh",
+      "start": 3.987,
+      "duration": 0.588
+    },
+    {
+      "text": "Gufron",
+      "start": 5.412,
+      "duration": 0.75
+    },
+    {
+      "text": "empat",
+      "start": 6.475,
+      "duration": 0.35
+    },
+    {
+      "text": "puluh",
+      "start": 6.825,
+      "duration": 0.388
+    },
+    {
+      "text": "empat",
+      "start": 7.213,
+      "duration": 0.5
+    },
+    {
+      "text": "Berkas",
+      "start": 8.55,
+      "duration": 0.65
+    },
+    {
+      "text": "diterima",
+      "start": 9.2,
+      "duration": 0.863
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

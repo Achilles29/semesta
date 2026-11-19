@@ -1,0 +1,11 @@
+{
+  "id": "05",
+  "role": "prabowow",
+  "text": "Tunggu. Program Kuliner Indonesia dulu. Dapur masak, makanan sampai ke warga, bahan dibeli dari petani sini.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-12%",
+  "pitch": "-28Hz",
+  "file": "05-prabowow.mp3",
+  "word_boundaries": [],
+  "source": "Edge TTS synthetic draft voice"
+}

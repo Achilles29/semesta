@@ -1,0 +1,48 @@
+{
+  "id": "e21",
+  "scene": 9,
+  "role": "prabowow",
+  "text": "Saya lihat besok. Hari ini foto dulu.",
+  "file": "e21-prabowow.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-13%",
+  "pitch": "-27Hz",
+  "word_boundaries": [
+    {
+      "text": "Saya",
+      "start": 0.102,
+      "duration": 0.445
+    },
+    {
+      "text": "lihat",
+      "start": 0.547,
+      "duration": 0.316
+    },
+    {
+      "text": "besok",
+      "start": 0.863,
+      "duration": 0.647
+    },
+    {
+      "text": "Hari",
+      "start": 2.478,
+      "duration": 0.302
+    },
+    {
+      "text": "ini",
+      "start": 2.78,
+      "duration": 0.273
+    },
+    {
+      "text": "foto",
+      "start": 3.053,
+      "duration": 0.287
+    },
+    {
+      "text": "dulu",
+      "start": 3.34,
+      "duration": 0.532
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

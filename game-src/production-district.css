@@ -18,6 +18,23 @@
 .production-panel {max-height:calc(100dvh - 145px);overflow-y:auto}
 .production-playback {border-top:1px solid #78908b;margin-top:12px;padding-top:12px}
 .production-playback [data-film-play] {background:#ffe09b;font-weight:700}
+.production-panel .production-playback{margin-top:10px;padding-top:10px}
+.production-panel .production-cast-options{margin:8px 0}
+.production-panel .production-set-archive{border-top:1px solid #78908b;padding-top:10px;margin-top:12px}
+.production-panel .production-set-archive summary{cursor:pointer;color:#d9eacb}
+.production-panel .production-set-archive-inner{padding-top:10px}
+.production-panel .production-video-library{color:#fff4df}
+.production-panel .production-video-picker{display:block;font-weight:700;color:#ffe6a7}
+.production-panel .production-video-picker select{width:100%;font-weight:700}
+.production-panel .production-video-card{display:block;margin-top:9px}
+.production-panel .production-video-media video{display:block;width:min(100%,214px);aspect-ratio:9/16;object-fit:contain;margin:auto;background:#102c36;border-radius:7px}
+.production-panel .production-video-info>span{display:block;margin-top:10px;color:#ffe0a2;font-size:10px;font-weight:800;letter-spacing:.06em}
+.production-panel .production-video-info h3{margin:4px 0;font-size:16px;line-height:1.25;color:#fff4df}
+.production-panel .production-video-info p{margin:5px 0 10px}
+.production-panel .production-video-downloads{display:flex;flex-wrap:wrap;gap:6px}
+.production-panel .production-video-downloads a{display:inline-flex;padding:7px 9px;border:1px solid #bca474;border-radius:6px;background:#fff3d9;color:#25484b;text-decoration:none;font-weight:700}
+.production-panel .production-video-downloads a:first-child{background:#ffe09b}
+.production-panel .production-video-downloads a[hidden]{display:none!important}
 /* A recording gets only the canvas: no nameplates, hint, wash, footer or exit text. */
 body.production-filming #app>:not(#exploreScreen),
 body.production-filming #exploreScreen>:not(#world),

@@ -1,0 +1,52 @@
+{
+  "id": "p1",
+  "role": "prabowow",
+  "text": "Gedungnya sudah ada, kan? Foto papan namanya dulu.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-12%",
+  "pitch": "-28Hz",
+  "file": "p1-prabowow.mp3",
+  "word_boundaries": [
+    {
+      "text": "Gedungnya",
+      "start": 0.1,
+      "duration": 0.568
+    },
+    {
+      "text": "sudah",
+      "start": 0.668,
+      "duration": 0.284
+    },
+    {
+      "text": "ada",
+      "start": 0.952,
+      "duration": 0.54
+    },
+    {
+      "text": "kan",
+      "start": 1.79,
+      "duration": 0.44
+    },
+    {
+      "text": "Foto",
+      "start": 3.189,
+      "duration": 0.426
+    },
+    {
+      "text": "papan",
+      "start": 3.615,
+      "duration": 0.312
+    },
+    {
+      "text": "namanya",
+      "start": 3.928,
+      "duration": 0.369
+    },
+    {
+      "text": "dulu",
+      "start": 4.297,
+      "duration": 0.54
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

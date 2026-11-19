@@ -1,0 +1,37 @@
+{
+  "id": "t2",
+  "role": "tedi",
+  "text": "Pinjam lima menit lagi, Pak.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+6%",
+  "pitch": "+8Hz",
+  "file": "t2-tedi.mp3",
+  "word_boundaries": [
+    {
+      "text": "Pinjam",
+      "start": 0.099,
+      "duration": 0.377
+    },
+    {
+      "text": "lima",
+      "start": 0.476,
+      "duration": 0.189
+    },
+    {
+      "text": "menit",
+      "start": 0.665,
+      "duration": 0.236
+    },
+    {
+      "text": "lagi",
+      "start": 0.9,
+      "duration": 0.495
+    },
+    {
+      "text": "Pak",
+      "start": 1.632,
+      "duration": 0.425
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

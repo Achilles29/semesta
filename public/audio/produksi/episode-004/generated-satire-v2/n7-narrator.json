@@ -1,0 +1,162 @@
+{
+  "id": "n7",
+  "role": "narrator",
+  "text": "Besok kita buka yang mana dulu: surat dapur, atau buku belanja koperasi? Tulis DAPUR atau KOPDES, lalu satu bukti yang wajib mereka tunjukkan. Follow, biar pertanyaan warga tidak ikut ditutup.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "n7-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Besok",
+      "start": 0.1,
+      "duration": 0.477
+    },
+    {
+      "text": "kita",
+      "start": 0.577,
+      "duration": 0.309
+    },
+    {
+      "text": "buka",
+      "start": 0.886,
+      "duration": 0.4
+    },
+    {
+      "text": "yang",
+      "start": 1.286,
+      "duration": 0.219
+    },
+    {
+      "text": "mana",
+      "start": 1.505,
+      "duration": 0.296
+    },
+    {
+      "text": "dulu",
+      "start": 1.801,
+      "duration": 0.541
+    },
+    {
+      "text": "surat",
+      "start": 2.716,
+      "duration": 0.438
+    },
+    {
+      "text": "dapur",
+      "start": 3.154,
+      "duration": 0.593
+    },
+    {
+      "text": "atau",
+      "start": 4.056,
+      "duration": 0.309
+    },
+    {
+      "text": "buku",
+      "start": 4.365,
+      "duration": 0.4
+    },
+    {
+      "text": "belanja",
+      "start": 4.765,
+      "duration": 0.425
+    },
+    {
+      "text": "koperasi",
+      "start": 5.19,
+      "duration": 0.773
+    },
+    {
+      "text": "Tulis",
+      "start": 6.828,
+      "duration": 0.425
+    },
+    {
+      "text": "DAPUR",
+      "start": 7.254,
+      "duration": 0.464
+    },
+    {
+      "text": "atau",
+      "start": 7.718,
+      "duration": 0.374
+    },
+    {
+      "text": "KOPDES",
+      "start": 8.091,
+      "duration": 0.838
+    },
+    {
+      "text": "lalu",
+      "start": 9.277,
+      "duration": 0.348
+    },
+    {
+      "text": "satu",
+      "start": 9.625,
+      "duration": 0.309
+    },
+    {
+      "text": "bukti",
+      "start": 9.934,
+      "duration": 0.4
+    },
+    {
+      "text": "yang",
+      "start": 10.334,
+      "duration": 0.142
+    },
+    {
+      "text": "wajib",
+      "start": 10.475,
+      "duration": 0.464
+    },
+    {
+      "text": "mereka",
+      "start": 10.939,
+      "duration": 0.412
+    },
+    {
+      "text": "tunjukkan",
+      "start": 11.352,
+      "duration": 0.838
+    },
+    {
+      "text": "Follow",
+      "start": 13.053,
+      "duration": 0.67
+    },
+    {
+      "text": "biar",
+      "start": 14.135,
+      "duration": 0.296
+    },
+    {
+      "text": "pertanyaan",
+      "start": 14.431,
+      "duration": 0.631
+    },
+    {
+      "text": "warga",
+      "start": 15.063,
+      "duration": 0.451
+    },
+    {
+      "text": "tidak",
+      "start": 15.514,
+      "duration": 0.4
+    },
+    {
+      "text": "ikut",
+      "start": 15.913,
+      "duration": 0.451
+    },
+    {
+      "text": "ditutup",
+      "start": 16.364,
+      "duration": 0.554
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

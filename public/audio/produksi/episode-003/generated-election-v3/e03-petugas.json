@@ -1,0 +1,33 @@
+{
+  "id": "e03",
+  "scene": 2,
+  "role": "petugas",
+  "text": "Pendaftaran presiden pertama dibuka!",
+  "file": "e03-petugas.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+4%",
+  "pitch": "+12Hz",
+  "word_boundaries": [
+    {
+      "text": "Pendaftaran",
+      "start": 0.099,
+      "duration": 0.529
+    },
+    {
+      "text": "presiden",
+      "start": 0.628,
+      "duration": 0.397
+    },
+    {
+      "text": "pertama",
+      "start": 1.024,
+      "duration": 0.349
+    },
+    {
+      "text": "dibuka",
+      "start": 1.373,
+      "duration": 0.589
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "09",
+  "role": "mas_daro",
+  "text": "Truknya belum lewat.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+0%",
+  "pitch": "-5Hz",
+  "file": "09-mas_daro.mp3",
+  "word_boundaries": [],
+  "source": "Edge TTS synthetic draft voice"
+}

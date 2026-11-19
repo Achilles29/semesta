@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . filemtime(FCPATH . 'game-src/style.css')); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?= base_url('game-src/admin.css?v=' . filemtime(FCPATH . 'game-src/admin.css')); ?>">
+    <link rel="stylesheet" href="<?= base_url('game-src/production-video-library.css?v=' . filemtime(FCPATH . 'game-src/production-video-library.css')); ?>">
 </head>
 <body class="admin-body">
     <main class="editor-shell">
@@ -36,6 +37,7 @@
                 <a href="<?= site_url('admin/'); ?>?view=overview" class="active" data-admin-view="overview"><span>⌂</span> Ringkasan</a>
                 <a href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars"><span>♙</span> Studio avatar</a>
                 <a href="<?= site_url('admin/'); ?>?view=world" data-admin-view="world"><span>▧</span> Tata wilayah</a>
+                <a href="<?= site_url('admin/'); ?>?view=production" data-admin-view="production"><span>▣</span> Produksi konten</a>
                 <a href="<?= site_url('admin/'); ?>?view=objects" data-admin-view="objects"><span>◇</span> Galeri object</a>
                 <a href="<?= site_url('admin/'); ?>?view=ideas" data-admin-view="ideas"><span>✳</span> Inbox warga <b id="ideasNavCount">—</b></a>
                 <a href="<?= site_url('admin/'); ?>?view=citizens" data-admin-view="citizens"><span>♙</span> Direktori warga <b id="citizenNavCount">—</b></a>
@@ -119,6 +121,11 @@
                     </section>
                 </section>
 
+                <section class="admin-view" id="adminView-production">
+                    <div class="admin-page-intro"><div><span class="eyebrow">REPUBLIK WKWKWK / EPISODE</span><h2>Produksi konten</h2><p>Pilih Day 1, Day 2, atau Day 3 untuk menonton satu video. Tombol unduh mengikuti episode yang dipilih.</p></div></div>
+                    <div id="adminProductionLibrary" aria-label="Pemutar dan unduhan video produksi"></div>
+                </section>
+
                 <section class="admin-view" id="adminView-settings">
                     <div class="admin-page-intro"><div><span class="eyebrow">PANEL ADMIN</span><h2>Data & pengaturan</h2><p>Informasi penyimpanan dan batasan panel selama pengembangan.</p></div></div>
                     <div class="settings-grid"><article class="overview-card"><span class="eyebrow">PENYIMPANAN</span><h3>MySQL · semesta_nyasar</h3><p>Susunan aset tiap wilayah dan masukan warga tersimpan di database.</p><span class="status-pill"><i></i> DATABASE AKTIF</span></article><article class="overview-card"><span class="eyebrow">LINGKUP WILAYAH</span><h3>Kota, desa, dan hutan</h3><p>Setiap wilayah punya susunan aset sendiri di Studio Tata Wilayah.</p><button type="button" class="text-action" data-admin-view="world">Buka studio wilayah <b>↗</b></button></article><article class="overview-card"><span class="eyebrow">MASUKAN</span><h3>Media sosial dicatat manual</h3><p>Catat ide warga secara manual. Studio belum membaca atau menerbitkan konten ke akun sosial.</p><button type="button" class="text-action" data-admin-view="ideas">Lihat masukan warga <b>↗</b></button></article><article class="overview-card"><span class="eyebrow">PRATINJAU</span><h3>Jelajahi kota di browser</h3><p>Lihat perubahan tata wilayah langsung di game.</p><a class="text-action" href="<?= base_url(); ?>">Buka Republik WkWkWk <b>↗</b></a></article></div>
@@ -129,7 +136,7 @@
     </main>
     <script>
     (function () {
-        var validViews = ['overview','avatars','world','objects','ideas','citizens','visitors','settings'];
+        var validViews = ['overview','avatars','world','production','objects','ideas','citizens','visitors','settings'];
         var activeView = 'overview';
         var adminUrl = new URL(<?= json_encode(site_url('admin/'), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>, location.href);
         var viewFromUrl = function () { var candidate = new URLSearchParams(location.search).get('view'); return validViews.indexOf(candidate) >= 0 ? candidate : 'overview'; };
@@ -179,5 +186,6 @@
     <script>window.SEMESTA_AVATAR_GALLERY_ROOT = <?= json_encode(base_url('public/models/characters/gallery/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . filemtime(FCPATH . 'game-src/main.js')); ?>"></script><?php endif; ?>
+    <script type="module">import {mountProductionVideoLibrary} from <?= json_encode(base_url('game-src/production-video-library.js?v=' . filemtime(FCPATH . 'game-src/production-video-library.js')), JSON_UNESCAPED_SLASHES); ?>;mountProductionVideoLibrary(document.getElementById('adminProductionLibrary'),{mediaRoot:<?= json_encode(base_url('public/audio/produksi/'), JSON_UNESCAPED_SLASHES); ?>});</script>
 </body>
 </html>

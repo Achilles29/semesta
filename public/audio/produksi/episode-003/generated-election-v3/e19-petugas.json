@@ -1,0 +1,58 @@
+{
+  "id": "e19",
+  "scene": 9,
+  "role": "petugas",
+  "text": "Hasilnya enam banding empat. Prabowow presiden pertama, Gibrun wakilnya.",
+  "file": "e19-petugas.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+4%",
+  "pitch": "+12Hz",
+  "word_boundaries": [
+    {
+      "text": "Hasilnya",
+      "start": 0.1,
+      "duration": 0.577
+    },
+    {
+      "text": "enam",
+      "start": 0.677,
+      "duration": 0.24
+    },
+    {
+      "text": "banding",
+      "start": 0.917,
+      "duration": 0.3
+    },
+    {
+      "text": "empat",
+      "start": 1.218,
+      "duration": 0.505
+    },
+    {
+      "text": "Prabowow",
+      "start": 2.536,
+      "duration": 0.385
+    },
+    {
+      "text": "presiden",
+      "start": 2.921,
+      "duration": 0.409
+    },
+    {
+      "text": "pertama",
+      "start": 3.329,
+      "duration": 0.613
+    },
+    {
+      "text": "Gibrun",
+      "start": 4.171,
+      "duration": 0.421
+    },
+    {
+      "text": "wakilnya",
+      "start": 4.591,
+      "duration": 0.637
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

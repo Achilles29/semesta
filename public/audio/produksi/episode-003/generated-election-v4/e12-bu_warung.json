@@ -1,0 +1,48 @@
+{
+  "id": "e12",
+  "scene": 6,
+  "role": "bu_warung",
+  "text": "Paman memutus urusan keponakan? Catat nama hakimnya.",
+  "file": "e12-bu_warung.mp3",
+  "voice": "su-ID-TutiNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "word_boundaries": [
+    {
+      "text": "Paman",
+      "start": 0.113,
+      "duration": 0.362
+    },
+    {
+      "text": "memutus",
+      "start": 0.525,
+      "duration": 0.5
+    },
+    {
+      "text": "urusan",
+      "start": 1.062,
+      "duration": 0.463
+    },
+    {
+      "text": "keponakan",
+      "start": 1.55,
+      "duration": 0.738
+    },
+    {
+      "text": "Catat",
+      "start": 3.25,
+      "duration": 0.412
+    },
+    {
+      "text": "nama",
+      "start": 3.7,
+      "duration": 0.3
+    },
+    {
+      "text": "hakimnya",
+      "start": 4.013,
+      "duration": 0.613
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

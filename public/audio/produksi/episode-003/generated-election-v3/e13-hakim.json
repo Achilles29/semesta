@@ -1,0 +1,83 @@
+{
+  "id": "e13",
+  "scene": 6,
+  "role": "hakim",
+  "text": "Majelis mengabulkan. Syaratnya: minimal empat puluh tahun, atau pernah menjadi kepala daerah hasil pemilihan.",
+  "file": "e13-hakim.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-18%",
+  "pitch": "-20Hz",
+  "word_boundaries": [
+    {
+      "text": "Majelis",
+      "start": 0.1,
+      "duration": 0.655
+    },
+    {
+      "text": "mengabulkan",
+      "start": 0.755,
+      "duration": 0.945
+    },
+    {
+      "text": "Syaratnya",
+      "start": 2.738,
+      "duration": 0.945
+    },
+    {
+      "text": "minimal",
+      "start": 4.019,
+      "duration": 0.442
+    },
+    {
+      "text": "empat",
+      "start": 4.461,
+      "duration": 0.244
+    },
+    {
+      "text": "puluh",
+      "start": 4.705,
+      "duration": 0.213
+    },
+    {
+      "text": "tahun",
+      "start": 4.918,
+      "duration": 0.61
+    },
+    {
+      "text": "atau",
+      "start": 5.863,
+      "duration": 0.29
+    },
+    {
+      "text": "pernah",
+      "start": 6.153,
+      "duration": 0.366
+    },
+    {
+      "text": "menjadi",
+      "start": 6.519,
+      "duration": 0.412
+    },
+    {
+      "text": "kepala",
+      "start": 6.931,
+      "duration": 0.32
+    },
+    {
+      "text": "daerah",
+      "start": 7.251,
+      "duration": 0.366
+    },
+    {
+      "text": "hasil",
+      "start": 7.616,
+      "duration": 0.366
+    },
+    {
+      "text": "pemilihan",
+      "start": 7.982,
+      "duration": 0.838
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

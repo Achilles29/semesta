@@ -1,0 +1,62 @@
+{
+  "id": "f1",
+  "role": "farmer",
+  "text": "Itu sayur saya. Dipajang buat foto, harga belinya belum disepakati.",
+  "voice": "su-ID-JajangNeural",
+  "rate": "-2%",
+  "pitch": "-4Hz",
+  "file": "f1-farmer.mp3",
+  "word_boundaries": [
+    {
+      "text": "Itu",
+      "start": 0.19,
+      "duration": 0.191
+    },
+    {
+      "text": "sayur",
+      "start": 0.433,
+      "duration": 0.421
+    },
+    {
+      "text": "saya",
+      "start": 0.879,
+      "duration": 0.37
+    },
+    {
+      "text": "Dipajang",
+      "start": 2.27,
+      "duration": 0.523
+    },
+    {
+      "text": "buat",
+      "start": 2.844,
+      "duration": 0.306
+    },
+    {
+      "text": "foto",
+      "start": 3.176,
+      "duration": 0.319
+    },
+    {
+      "text": "harga",
+      "start": 3.622,
+      "duration": 0.357
+    },
+    {
+      "text": "belinya",
+      "start": 4.005,
+      "duration": 0.421
+    },
+    {
+      "text": "belum",
+      "start": 4.452,
+      "duration": 0.332
+    },
+    {
+      "text": "disepakati",
+      "start": 4.809,
+      "duration": 0.804
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

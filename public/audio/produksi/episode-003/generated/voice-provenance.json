@@ -1,0 +1,575 @@
+{
+  "narrator": {
+    "voice_id": "96e9b2c012644ff29339bc0cfca9de31",
+    "voice_name": "Usha - Gentle & Authoritative",
+    "duration": 44.75721088435374,
+    "language": "id",
+    "speed": 1,
+    "expressiveness_boost": 0.6,
+    "format": "PCM mono 44.1 kHz 16 bit",
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/96e9b2c012644ff29339bc0cfca9de31/id=d7a5fdc5964d4b08b2b04718b3099da4.pcm"
+  },
+  "bu_warung": {
+    "voice_id": "cf4f0a4bfd6f4ed585f8799ed27707f1",
+    "voice_name": "Maren - Conversational & Easygoing",
+    "duration": 16.964331065759637,
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/cf4f0a4bfd6f4ed585f8799ed27707f1/id=f84f3bcf2cfb4e76b7abf20dcba880f6.pcm",
+    "words": [
+      {
+        "text": "Tahan",
+        "start_time": 0.299,
+        "end_time": 0.725
+      },
+      {
+        "text": "Disebut",
+        "start_time": 1.323,
+        "end_time": 1.7067
+      },
+      {
+        "text": "di",
+        "start_time": 1.749,
+        "end_time": 1.8347
+      },
+      {
+        "text": "bursa",
+        "start_time": 1.877,
+        "end_time": 2.176
+      },
+      {
+        "text": "itu",
+        "start_time": 2.219,
+        "end_time": 2.432
+      },
+      {
+        "text": "belum",
+        "start_time": 2.475,
+        "end_time": 2.645
+      },
+      {
+        "text": "berarti",
+        "start_time": 2.688,
+        "end_time": 3.029
+      },
+      {
+        "text": "ditetapkan",
+        "start_time": 3.072,
+        "end_time": 3.584
+      },
+      {
+        "text": "di",
+        "start_time": 3.627,
+        "end_time": 3.712
+      },
+      {
+        "text": "sini",
+        "start_time": 3.755,
+        "end_time": 4.011
+      },
+      {
+        "text": "Berkasnya",
+        "start_time": 5.077,
+        "end_time": 5.5467
+      },
+      {
+        "text": "sudah",
+        "start_time": 5.589,
+        "end_time": 5.76
+      },
+      {
+        "text": "dicek",
+        "start_time": 5.803,
+        "end_time": 6.059
+      },
+      {
+        "text": "Syarat",
+        "start_time": 6.656,
+        "end_time": 6.997
+      },
+      {
+        "text": "belum",
+        "start_time": 7.083,
+        "end_time": 7.253
+      },
+      {
+        "text": "diperiksa",
+        "start_time": 7.296,
+        "end_time": 7.723
+      },
+      {
+        "text": "Rencana",
+        "start_time": 8.235,
+        "end_time": 8.704
+      },
+      {
+        "text": "kerja",
+        "start_time": 8.747,
+        "end_time": 9.0027
+      },
+      {
+        "text": "juga",
+        "start_time": 9.045,
+        "end_time": 9.2587
+      },
+      {
+        "text": "belum",
+        "start_time": 9.301,
+        "end_time": 9.429
+      },
+      {
+        "text": "dibaca",
+        "start_time": 9.472,
+        "end_time": 9.899
+      },
+      {
+        "text": "Mau",
+        "start_time": 10.624,
+        "end_time": 10.7947
+      },
+      {
+        "text": "melantik",
+        "start_time": 10.88,
+        "end_time": 11.3067
+      },
+      {
+        "text": "atau",
+        "start_time": 11.392,
+        "end_time": 11.605
+      },
+      {
+        "text": "mau",
+        "start_time": 11.648,
+        "end_time": 11.776
+      },
+      {
+        "text": "coba",
+        "start_time": 11.819,
+        "end_time": 11.989
+      },
+      {
+        "text": "coba",
+        "start_time": 12.032,
+        "end_time": 12.331
+      },
+      {
+        "text": "Nah",
+        "start_time": 12.843,
+        "end_time": 13.056
+      },
+      {
+        "text": "Dua",
+        "start_time": 13.343,
+        "end_time": 13.5989
+      },
+      {
+        "text": "orang",
+        "start_time": 13.642,
+        "end_time": 13.8549
+      },
+      {
+        "text": "mau",
+        "start_time": 13.898,
+        "end_time": 14.0256
+      },
+      {
+        "text": "maju",
+        "start_time": 14.068,
+        "end_time": 14.41
+      },
+      {
+        "text": "dua",
+        "start_time": 14.751,
+        "end_time": 15.007
+      },
+      {
+        "text": "duanya",
+        "start_time": 15.05,
+        "end_time": 15.348
+      },
+      {
+        "text": "pakai",
+        "start_time": 15.391,
+        "end_time": 15.6469
+      },
+      {
+        "text": "aturan",
+        "start_time": 15.69,
+        "end_time": 15.988
+      },
+      {
+        "text": "yang",
+        "start_time": 16.031,
+        "end_time": 16.116
+      },
+      {
+        "text": "sama",
+        "start_time": 16.159,
+        "end_time": 16.33
+      }
+    ],
+    "language": "id",
+    "speed": 1,
+    "expressiveness_boost": 0.65,
+    "format": "PCM mono 44.1 kHz 16 bit"
+  },
+  "panitia": {
+    "voice_id": "826be797681d4b1a92042b54b3c75c64",
+    "voice_name": "Gareth - Conversational & Easygoing",
+    "duration": 7.764126984126984,
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/826be797681d4b1a92042b54b3c75c64/id=8da65e2e4a0844a1b5d3b84f4bf0a32e.pcm",
+    "words": [
+      {
+        "text": "Pak",
+        "start_time": 0.256,
+        "end_time": 0.469
+      },
+      {
+        "text": "Bahlil",
+        "start_time": 0.512,
+        "end_time": 0.8107
+      },
+      {
+        "text": "sudah",
+        "start_time": 0.896,
+        "end_time": 1.109
+      },
+      {
+        "text": "ramai",
+        "start_time": 1.152,
+        "end_time": 1.365
+      },
+      {
+        "text": "disebut",
+        "start_time": 1.408,
+        "end_time": 1.707
+      },
+      {
+        "text": "Kursinya",
+        "start_time": 2.091,
+        "end_time": 2.6027
+      },
+      {
+        "text": "kita",
+        "start_time": 2.645,
+        "end_time": 2.8587
+      },
+      {
+        "text": "isi",
+        "start_time": 2.901,
+        "end_time": 3.1147
+      },
+      {
+        "text": "sekarang",
+        "start_time": 3.157,
+        "end_time": 3.413
+      },
+      {
+        "text": "Menyusul",
+        "start_time": 3.883,
+        "end_time": 4.352
+      },
+      {
+        "text": "Yang",
+        "start_time": 4.779,
+        "end_time": 4.9067
+      },
+      {
+        "text": "penting",
+        "start_time": 4.949,
+        "end_time": 5.248
+      },
+      {
+        "text": "cepat",
+        "start_time": 5.376,
+        "end_time": 5.717
+      },
+      {
+        "text": "Berkasnya",
+        "start_time": 6.272,
+        "end_time": 6.8267
+      },
+      {
+        "text": "bisa",
+        "start_time": 6.869,
+        "end_time": 7.125
+      },
+      {
+        "text": "menyusul",
+        "start_time": 7.168,
+        "end_time": 7.509
+      }
+    ],
+    "language": "id",
+    "speed": 1,
+    "expressiveness_boost": 0.65,
+    "format": "PCM mono 44.1 kHz 16 bit"
+  },
+  "bahlil": {
+    "voice_id": "233c3b208dff40e5b758c445086e1f57",
+    "voice_name": "tiruan bahlil",
+    "duration": 6.231609977324263,
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/233c3b208dff40e5b758c445086e1f57/id=5b0f87aec81c4c9a9e5e3f8a924da273.pcm",
+    "words": [
+      {
+        "text": "Diindaa",
+        "start_time": 0.299,
+        "end_time": 0.811
+      },
+      {
+        "text": "saya",
+        "start_time": 1.579,
+        "end_time": 1.792
+      },
+      {
+        "text": "baru",
+        "start_time": 1.835,
+        "end_time": 1.9627
+      },
+      {
+        "text": "sampai",
+        "start_time": 2.005,
+        "end_time": 2.347
+      },
+      {
+        "text": "Diindaa",
+        "start_time": 2.517,
+        "end_time": 2.987
+      },
+      {
+        "text": "Kalau",
+        "start_time": 3.371,
+        "end_time": 3.584
+      },
+      {
+        "text": "mau",
+        "start_time": 3.627,
+        "end_time": 3.712
+      },
+      {
+        "text": "diperiksa",
+        "start_time": 3.755,
+        "end_time": 4.181
+      },
+      {
+        "text": "periksa",
+        "start_time": 4.48,
+        "end_time": 4.7787
+      },
+      {
+        "text": "saja",
+        "start_time": 4.821,
+        "end_time": 5.077
+      },
+      {
+        "text": "Jangan",
+        "start_time": 5.291,
+        "end_time": 5.504
+      },
+      {
+        "text": "cap",
+        "start_time": 5.547,
+        "end_time": 5.6747
+      },
+      {
+        "text": "dulu",
+        "start_time": 5.717,
+        "end_time": 5.973
+      }
+    ],
+    "language": "id",
+    "speed": 1,
+    "expressiveness_boost": 0.65,
+    "format": "PCM mono 44.1 kHz 16 bit"
+  },
+  "gufron": {
+    "voice_id": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voice_name": "gufron",
+    "duration": 14.619115646258503,
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=7537adc21a2a46db8c685c7b50b2890a.pcm",
+    "words": [
+      {
+        "text": "Yang",
+        "start_time": 0.299,
+        "end_time": 0.512
+      },
+      {
+        "text": "lolos",
+        "start_time": 0.555,
+        "end_time": 0.8107
+      },
+      {
+        "text": "baru",
+        "start_time": 0.853,
+        "end_time": 1.0667
+      },
+      {
+        "text": "mobilnya",
+        "start_time": 1.109,
+        "end_time": 1.536
+      },
+      {
+        "text": "Bu",
+        "start_time": 1.621,
+        "end_time": 1.749
+      },
+      {
+        "text": "Kemarin",
+        "start_time": 2.261,
+        "end_time": 2.6027
+      },
+      {
+        "text": "pita",
+        "start_time": 2.645,
+        "end_time": 2.8587
+      },
+      {
+        "text": "dulu",
+        "start_time": 2.901,
+        "end_time": 3.157
+      },
+      {
+        "text": "jalan",
+        "start_time": 3.456,
+        "end_time": 3.7547
+      },
+      {
+        "text": "belakangan",
+        "start_time": 3.797,
+        "end_time": 4.267
+      },
+      {
+        "text": "Sekarang",
+        "start_time": 4.779,
+        "end_time": 5.077
+      },
+      {
+        "text": "stempel",
+        "start_time": 5.163,
+        "end_time": 5.504
+      },
+      {
+        "text": "dulu",
+        "start_time": 5.547,
+        "end_time": 5.803
+      },
+      {
+        "text": "syarat",
+        "start_time": 6.101,
+        "end_time": 6.357
+      },
+      {
+        "text": "belakangan",
+        "start_time": 6.4,
+        "end_time": 6.869
+      },
+      {
+        "text": "Saya",
+        "start_time": 7.128,
+        "end_time": 7.3838
+      },
+      {
+        "text": "cuma",
+        "start_time": 7.426,
+        "end_time": 7.597
+      },
+      {
+        "text": "mau",
+        "start_time": 7.64,
+        "end_time": 7.7678
+      },
+      {
+        "text": "jalan",
+        "start_time": 7.811,
+        "end_time": 8.109
+      },
+      {
+        "text": "itu",
+        "start_time": 8.152,
+        "end_time": 8.2798
+      },
+      {
+        "text": "beres",
+        "start_time": 8.322,
+        "end_time": 8.621
+      },
+      {
+        "text": "Tapi",
+        "start_time": 9.304,
+        "end_time": 9.5598
+      },
+      {
+        "text": "kalau",
+        "start_time": 9.602,
+        "end_time": 9.8158
+      },
+      {
+        "text": "kursi",
+        "start_time": 9.858,
+        "end_time": 10.114
+      },
+      {
+        "text": "ini",
+        "start_time": 10.157,
+        "end_time": 10.37
+      },
+      {
+        "text": "mau",
+        "start_time": 10.413,
+        "end_time": 10.541
+      },
+      {
+        "text": "diisi",
+        "start_time": 10.584,
+        "end_time": 10.925
+      },
+      {
+        "text": "asal",
+        "start_time": 10.968,
+        "end_time": 11.2238
+      },
+      {
+        "text": "cepat",
+        "start_time": 11.267,
+        "end_time": 11.565
+      },
+      {
+        "text": "saya",
+        "start_time": 11.992,
+        "end_time": 12.248
+      },
+      {
+        "text": "ikut",
+        "start_time": 12.29,
+        "end_time": 12.418
+      },
+      {
+        "text": "maju",
+        "start_time": 12.461,
+        "end_time": 12.675
+      },
+      {
+        "text": "Periksa",
+        "start_time": 13.187,
+        "end_time": 13.485
+      },
+      {
+        "text": "berkas",
+        "start_time": 13.528,
+        "end_time": 13.741
+      },
+      {
+        "text": "saya",
+        "start_time": 13.826,
+        "end_time": 13.954
+      },
+      {
+        "text": "juga",
+        "start_time": 13.997,
+        "end_time": 14.253
+      }
+    ],
+    "language": "id",
+    "speed": 1,
+    "expressiveness_boost": 0.65,
+    "format": "PCM mono 44.1 kHz 16 bit"
+  }
+}

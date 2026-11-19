@@ -1,0 +1,47 @@
+{
+  "id": "04",
+  "role": "tedi",
+  "text": "Pak, jam sepuluh gunting pita dua gedung.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+6%",
+  "pitch": "+8Hz",
+  "file": "04-tedi.mp3",
+  "word_boundaries": [
+    {
+      "text": "Pak",
+      "start": 0.099,
+      "duration": 0.483
+    },
+    {
+      "text": "jam",
+      "start": 0.853,
+      "duration": 0.271
+    },
+    {
+      "text": "sepuluh",
+      "start": 1.125,
+      "duration": 0.283
+    },
+    {
+      "text": "gunting",
+      "start": 1.408,
+      "duration": 0.33
+    },
+    {
+      "text": "pita",
+      "start": 1.738,
+      "duration": 0.248
+    },
+    {
+      "text": "dua",
+      "start": 1.985,
+      "duration": 0.177
+    },
+    {
+      "text": "gedung",
+      "start": 2.162,
+      "duration": 0.472
+    }
+  ],
+  "source": "Edge TTS synthetic draft voice"
+}

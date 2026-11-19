@@ -1,0 +1,37 @@
+{
+  "id": "p1",
+  "role": "prabowow",
+  "text": "Kalau kamera siap, resmikan saja.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-12%",
+  "pitch": "-28Hz",
+  "file": "p1-prabowow.mp3",
+  "word_boundaries": [
+    {
+      "text": "Kalau",
+      "start": 0.103,
+      "duration": 0.312
+    },
+    {
+      "text": "kamera",
+      "start": 0.416,
+      "duration": 0.327
+    },
+    {
+      "text": "siap",
+      "start": 0.743,
+      "duration": 0.54
+    },
+    {
+      "text": "resmikan",
+      "start": 1.524,
+      "duration": 0.554
+    },
+    {
+      "text": "saja",
+      "start": 2.078,
+      "duration": 0.668
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

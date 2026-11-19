@@ -1,0 +1,11 @@
+{
+  "id": "14",
+  "role": "narrator",
+  "text": "Tulis KULINER atau KOPDES, tambah satu syarat wajib. Follow jadi warga. Pilihan kalian menentukan inspeksi Day 4.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "14-narrator.mp3",
+  "word_boundaries": [],
+  "source": "Edge TTS synthetic draft voice"
+}

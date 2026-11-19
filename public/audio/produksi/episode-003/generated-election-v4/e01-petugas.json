@@ -1,0 +1,38 @@
+{
+  "id": "e01",
+  "scene": 1,
+  "role": "petugas",
+  "text": "Gibrun, tiga puluh enam. Ditolak.",
+  "file": "e01-petugas.mp3",
+  "voice": "id-ID-GadisNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "word_boundaries": [
+    {
+      "text": "Gibrun",
+      "start": 0.1,
+      "duration": 0.675
+    },
+    {
+      "text": "tiga",
+      "start": 1.113,
+      "duration": 0.388
+    },
+    {
+      "text": "puluh",
+      "start": 1.5,
+      "duration": 0.388
+    },
+    {
+      "text": "enam",
+      "start": 1.887,
+      "duration": 0.588
+    },
+    {
+      "text": "Ditolak",
+      "start": 3.312,
+      "duration": 0.75
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

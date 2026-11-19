@@ -1,0 +1,1271 @@
+{
+  "version": "day3-v1-review",
+  "duration": 107.0,
+  "fps": 12,
+  "reveal_music_start": 7.139,
+  "music_source": "original code-generated cue inspired by energetic dance, not the licensed Oke Gas recording",
+  "voice_source": "Edge TTS synthetic draft voices; no Prabowo voice clone",
+  "scenes": [
+    {
+      "id": "box_open",
+      "start": 0,
+      "end": 5,
+      "description": "Gufron opens the empty lunchbox"
+    },
+    {
+      "id": "president_reveal",
+      "start": 5,
+      "end": 15,
+      "description": "Fictional tally; Prabowow dances with entourage"
+    },
+    {
+      "id": "kitchen_program",
+      "start": 15,
+      "end": 30,
+      "description": "Program Kuliner Indonesia building and plan"
+    },
+    {
+      "id": "cooperative_program",
+      "start": 30,
+      "end": 41.5,
+      "description": "Koperasi Desa Meriah Putih building and plan"
+    },
+    {
+      "id": "box_unfilled",
+      "start": 41.5,
+      "end": 53,
+      "description": "Kitchen has no delivery"
+    },
+    {
+      "id": "road_block",
+      "start": 53,
+      "end": 65.5,
+      "description": "Day 1 pothole blocks the truck"
+    },
+    {
+      "id": "decision",
+      "start": 65.5,
+      "end": 83,
+      "description": "Prabowow cancels ribbon cutting"
+    },
+    {
+      "id": "return_box",
+      "start": 83,
+      "end": 107.0,
+      "description": "Same empty box and citizen choice"
+    }
+  ],
+  "cues": [
+    {
+      "id": "01",
+      "role": "gufron",
+      "text": "Makanannya mana? Yang dikirim cuma pita?",
+      "start": 0.15,
+      "end": 4.806,
+      "voice": "jv-ID-DimasNeural",
+      "source_file": "01-gufron.mp3",
+      "gain": 0.928,
+      "words": [
+        {
+          "text": "Makanannya",
+          "start": 0.163,
+          "duration": 0.525
+        },
+        {
+          "text": "mana",
+          "start": 0.787,
+          "duration": 0.338
+        },
+        {
+          "text": "Yang",
+          "start": 2.288,
+          "duration": 0.175
+        },
+        {
+          "text": "dikirim",
+          "start": 2.525,
+          "duration": 0.425
+        },
+        {
+          "text": "cuma",
+          "start": 2.975,
+          "duration": 0.25
+        },
+        {
+          "text": "pita",
+          "start": 3.25,
+          "duration": 0.325
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "role": "bu_warung",
+      "text": "Usulan warga terbanyak: Pak Prabowow Subiyoyo!",
+      "start": 5.03,
+      "end": 9.326,
+      "voice": "jv-ID-SitiNeural",
+      "source_file": "03-bu_warung.mp3",
+      "gain": 0.978,
+      "words": [
+        {
+          "text": "Usulan",
+          "start": 0.16,
+          "duration": 0.453
+        },
+        {
+          "text": "warga",
+          "start": 0.638,
+          "duration": 0.331
+        },
+        {
+          "text": "terbanyak",
+          "start": 0.994,
+          "duration": 0.588
+        },
+        {
+          "text": "Pak",
+          "start": 1.864,
+          "duration": 0.245
+        },
+        {
+          "text": "Prabowow",
+          "start": 2.109,
+          "duration": 0.527
+        },
+        {
+          "text": "Subiyoyo",
+          "start": 2.636,
+          "duration": 0.613
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "role": "narrator",
+      "text": "Baru terpilih, jadwal gunting pita sudah menunggu.",
+      "start": 9.65,
+      "end": 14.714,
+      "voice": "id-ID-GadisNeural",
+      "source_file": "02-narrator.mp3",
+      "gain": 1.013,
+      "words": [
+        {
+          "text": "Baru",
+          "start": 0.1,
+          "duration": 0.348
+        },
+        {
+          "text": "terpilih",
+          "start": 0.448,
+          "duration": 0.76
+        },
+        {
+          "text": "jadwal",
+          "start": 1.582,
+          "duration": 0.477
+        },
+        {
+          "text": "gunting",
+          "start": 2.059,
+          "duration": 0.451
+        },
+        {
+          "text": "pita",
+          "start": 2.51,
+          "duration": 0.464
+        },
+        {
+          "text": "sudah",
+          "start": 2.974,
+          "duration": 0.464
+        },
+        {
+          "text": "menunggu",
+          "start": 3.438,
+          "duration": 0.747
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "role": "tedi",
+      "text": "Pak, jam sepuluh gunting pita dua gedung.",
+      "start": 15.02,
+      "end": 18.452,
+      "voice": "id-ID-ArdiNeural",
+      "source_file": "04-tedi.mp3",
+      "gain": 0.989,
+      "words": [
+        {
+          "text": "Pak",
+          "start": 0.099,
+          "duration": 0.483
+        },
+        {
+          "text": "jam",
+          "start": 0.853,
+          "duration": 0.271
+        },
+        {
+          "text": "sepuluh",
+          "start": 1.125,
+          "duration": 0.283
+        },
+        {
+          "text": "gunting",
+          "start": 1.408,
+          "duration": 0.33
+        },
+        {
+          "text": "pita",
+          "start": 1.738,
+          "duration": 0.248
+        },
+        {
+          "text": "dua",
+          "start": 1.985,
+          "duration": 0.177
+        },
+        {
+          "text": "gedung",
+          "start": 2.162,
+          "duration": 0.472
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "role": "prabowow",
+      "text": "Tunggu. Program Kuliner Indonesia dulu. Dapur masak, makanan sampai ke warga, bahan dibeli dari petani sini.",
+      "start": 18.75,
+      "end": 29.406,
+      "voice": "id-ID-ArdiNeural",
+      "source_file": "05-prabowow.mp3",
+      "gain": 0.879,
+      "words": [
+        {
+          "text": "Tunggu",
+          "start": 0.1,
+          "duration": 0.866
+        },
+        {
+          "text": "Program",
+          "start": 1.927,
+          "duration": 0.511
+        },
+        {
+          "text": "Kuliner",
+          "start": 2.438,
+          "duration": 0.455
+        },
+        {
+          "text": "Indonesia",
+          "start": 2.893,
+          "duration": 0.554
+        },
+        {
+          "text": "dulu",
+          "start": 3.447,
+          "duration": 0.526
+        },
+        {
+          "text": "Dapur",
+          "start": 4.943,
+          "duration": 0.327
+        },
+        {
+          "text": "masak",
+          "start": 5.27,
+          "duration": 0.625
+        },
+        {
+          "text": "makanan",
+          "start": 6.179,
+          "duration": 0.44
+        },
+        {
+          "text": "sampai",
+          "start": 6.619,
+          "duration": 0.312
+        },
+        {
+          "text": "ke",
+          "start": 6.932,
+          "duration": 0.099
+        },
+        {
+          "text": "warga",
+          "start": 7.031,
+          "duration": 0.639
+        },
+        {
+          "text": "bahan",
+          "start": 7.969,
+          "duration": 0.355
+        },
+        {
+          "text": "dibeli",
+          "start": 8.324,
+          "duration": 0.341
+        },
+        {
+          "text": "dari",
+          "start": 8.665,
+          "duration": 0.185
+        },
+        {
+          "text": "petani",
+          "start": 8.849,
+          "duration": 0.312
+        },
+        {
+          "text": "sini",
+          "start": 9.162,
+          "duration": 0.54
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "role": "prabowow",
+      "text": "Lalu koperasi desa. Hasil kebun warga masuk rak, harganya jelas, untungnya kembali ke anggota. Begitu baru namanya program.",
+      "start": 30.0,
+      "end": 41.304,
+      "voice": "id-ID-ArdiNeural",
+      "source_file": "06-prabowow.mp3",
+      "gain": 0.917,
+      "words": [
+        {
+          "text": "Lalu",
+          "start": 0.1,
+          "duration": 0.44
+        },
+        {
+          "text": "koperasi",
+          "start": 0.54,
+          "duration": 0.497
+        },
+        {
+          "text": "desa",
+          "start": 1.038,
+          "duration": 0.611
+        },
+        {
+          "text": "Hasil",
+          "start": 2.61,
+          "duration": 0.384
+        },
+        {
+          "text": "kebun",
+          "start": 2.994,
+          "duration": 0.298
+        },
+        {
+          "text": "warga",
+          "start": 3.292,
+          "duration": 0.284
+        },
+        {
+          "text": "masuk",
+          "start": 3.576,
+          "duration": 0.341
+        },
+        {
+          "text": "rak",
+          "start": 3.917,
+          "duration": 0.412
+        },
+        {
+          "text": "harganya",
+          "start": 4.57,
+          "duration": 0.483
+        },
+        {
+          "text": "jelas",
+          "start": 5.053,
+          "duration": 0.597
+        },
+        {
+          "text": "untungnya",
+          "start": 5.891,
+          "duration": 0.483
+        },
+        {
+          "text": "kembali",
+          "start": 6.374,
+          "duration": 0.398
+        },
+        {
+          "text": "ke",
+          "start": 6.772,
+          "duration": 0.071
+        },
+        {
+          "text": "anggota",
+          "start": 6.843,
+          "duration": 0.71
+        },
+        {
+          "text": "Begitu",
+          "start": 8.503,
+          "duration": 0.469
+        },
+        {
+          "text": "baru",
+          "start": 8.972,
+          "duration": 0.27
+        },
+        {
+          "text": "namanya",
+          "start": 9.242,
+          "duration": 0.398
+        },
+        {
+          "text": "program",
+          "start": 9.64,
+          "duration": 0.71
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "role": "gufron",
+      "text": "Pak, gedungnya siap difoto. Kotak saya dari tadi masih kosong.",
+      "start": 42.0,
+      "end": 47.808,
+      "voice": "jv-ID-DimasNeural",
+      "source_file": "07-gufron.mp3",
+      "gain": 0.993,
+      "words": [
+        {
+          "text": "Pak",
+          "start": 0.113,
+          "duration": 0.263
+        },
+        {
+          "text": "gedungnya",
+          "start": 0.412,
+          "duration": 0.613
+        },
+        {
+          "text": "siap",
+          "start": 1.038,
+          "duration": 0.3
+        },
+        {
+          "text": "difoto",
+          "start": 1.337,
+          "duration": 0.475
+        },
+        {
+          "text": "Kotak",
+          "start": 2.862,
+          "duration": 0.35
+        },
+        {
+          "text": "saya",
+          "start": 3.225,
+          "duration": 0.287
+        },
+        {
+          "text": "dari",
+          "start": 3.525,
+          "duration": 0.263
+        },
+        {
+          "text": "tadi",
+          "start": 3.8,
+          "duration": 0.263
+        },
+        {
+          "text": "masih",
+          "start": 4.075,
+          "duration": 0.325
+        },
+        {
+          "text": "kosong",
+          "start": 4.4,
+          "duration": 0.463
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "role": "dadan",
+      "text": "Bahannya belum masuk.",
+      "start": 48.15,
+      "end": 50.43,
+      "voice": "su-ID-JajangNeural",
+      "source_file": "08-dadan.mp3",
+      "gain": 1.801,
+      "words": [
+        {
+          "text": "Bahannya",
+          "start": 0.18,
+          "duration": 0.443
+        },
+        {
+          "text": "belum",
+          "start": 0.688,
+          "duration": 0.312
+        },
+        {
+          "text": "masuk",
+          "start": 1.014,
+          "duration": 0.456
+        }
+      ]
+    },
+    {
+      "id": "09",
+      "role": "mas_daro",
+      "text": "Truknya belum lewat.",
+      "start": 50.7,
+      "end": 52.932,
+      "voice": "id-ID-ArdiNeural",
+      "source_file": "09-mas_daro.mp3",
+      "gain": 0.946,
+      "words": [
+        {
+          "text": "Truknya",
+          "start": 0.1,
+          "duration": 0.475
+        },
+        {
+          "text": "belum",
+          "start": 0.575,
+          "duration": 0.25
+        },
+        {
+          "text": "lewat",
+          "start": 0.825,
+          "duration": 0.55
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "role": "bu_warung",
+      "text": "Satu lubang bikin dua program macet. Ini jalan yang kemarin diresmikan.",
+      "start": 54.0,
+      "end": 60.24,
+      "voice": "jv-ID-SitiNeural",
+      "source_file": "10-bu_warung.mp3",
+      "gain": 1.283,
+      "words": [
+        {
+          "text": "Satu",
+          "start": 0.148,
+          "duration": 0.319
+        },
+        {
+          "text": "lubang",
+          "start": 0.503,
+          "duration": 0.319
+        },
+        {
+          "text": "bikin",
+          "start": 0.834,
+          "duration": 0.355
+        },
+        {
+          "text": "dua",
+          "start": 1.214,
+          "duration": 0.257
+        },
+        {
+          "text": "program",
+          "start": 1.496,
+          "duration": 0.429
+        },
+        {
+          "text": "macet",
+          "start": 1.925,
+          "duration": 0.368
+        },
+        {
+          "text": "Ini",
+          "start": 3.199,
+          "duration": 0.172
+        },
+        {
+          "text": "jalan",
+          "start": 3.444,
+          "duration": 0.429
+        },
+        {
+          "text": "yang",
+          "start": 3.897,
+          "duration": 0.172
+        },
+        {
+          "text": "kemarin",
+          "start": 4.069,
+          "duration": 0.429
+        },
+        {
+          "text": "diresmikan",
+          "start": 4.51,
+          "duration": 0.723
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "role": "gufron",
+      "text": "Saya sudah bilang, pita dulu, jalan belakangan.",
+      "start": 60.7,
+      "end": 64.708,
+      "voice": "jv-ID-DimasNeural",
+      "source_file": "11-gufron.mp3",
+      "gain": 1.085,
+      "words": [
+        {
+          "text": "Saya",
+          "start": 0.138,
+          "duration": 0.275
+        },
+        {
+          "text": "sudah",
+          "start": 0.463,
+          "duration": 0.338
+        },
+        {
+          "text": "bilang",
+          "start": 0.8,
+          "duration": 0.4
+        },
+        {
+          "text": "pita",
+          "start": 1.275,
+          "duration": 0.275
+        },
+        {
+          "text": "dulu",
+          "start": 1.575,
+          "duration": 0.312
+        },
+        {
+          "text": "jalan",
+          "start": 2.075,
+          "duration": 0.35
+        },
+        {
+          "text": "belakangan",
+          "start": 2.438,
+          "duration": 0.6
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "role": "prabowow",
+      "text": "Cukup jogetnya. Jangan gunting pita dulu. Buka jalan itu, periksa dapurnya, isi raknya dengan barang warga. Saya mau lihat yang sampai ke warga, bukan cuma papan namanya.",
+      "start": 66.1,
+      "end": 81.292,
+      "voice": "id-ID-ArdiNeural",
+      "source_file": "12-prabowow.mp3",
+      "gain": 0.865,
+      "words": [
+        {
+          "text": "Cukup",
+          "start": 0.1,
+          "duration": 0.426
+        },
+        {
+          "text": "jogetnya",
+          "start": 0.526,
+          "duration": 0.866
+        },
+        {
+          "text": "Jangan",
+          "start": 2.353,
+          "duration": 0.469
+        },
+        {
+          "text": "gunting",
+          "start": 2.822,
+          "duration": 0.398
+        },
+        {
+          "text": "pita",
+          "start": 3.219,
+          "duration": 0.241
+        },
+        {
+          "text": "dulu",
+          "start": 3.461,
+          "duration": 0.526
+        },
+        {
+          "text": "Buka",
+          "start": 4.94,
+          "duration": 0.327
+        },
+        {
+          "text": "jalan",
+          "start": 5.266,
+          "duration": 0.256
+        },
+        {
+          "text": "itu",
+          "start": 5.522,
+          "duration": 0.554
+        },
+        {
+          "text": "periksa",
+          "start": 6.403,
+          "duration": 0.355
+        },
+        {
+          "text": "dapurnya",
+          "start": 6.758,
+          "duration": 0.724
+        },
+        {
+          "text": "isi",
+          "start": 7.738,
+          "duration": 0.27
+        },
+        {
+          "text": "raknya",
+          "start": 8.008,
+          "duration": 0.327
+        },
+        {
+          "text": "dengan",
+          "start": 8.335,
+          "duration": 0.27
+        },
+        {
+          "text": "barang",
+          "start": 8.605,
+          "duration": 0.241
+        },
+        {
+          "text": "warga",
+          "start": 8.846,
+          "duration": 0.611
+        },
+        {
+          "text": "Saya",
+          "start": 10.409,
+          "duration": 0.369
+        },
+        {
+          "text": "mau",
+          "start": 10.778,
+          "duration": 0.17
+        },
+        {
+          "text": "lihat",
+          "start": 10.948,
+          "duration": 0.312
+        },
+        {
+          "text": "yang",
+          "start": 11.261,
+          "duration": 0.142
+        },
+        {
+          "text": "sampai",
+          "start": 11.403,
+          "duration": 0.312
+        },
+        {
+          "text": "ke",
+          "start": 11.715,
+          "duration": 0.085
+        },
+        {
+          "text": "warga",
+          "start": 11.801,
+          "duration": 0.639
+        },
+        {
+          "text": "bukan",
+          "start": 12.738,
+          "duration": 0.355
+        },
+        {
+          "text": "cuma",
+          "start": 13.093,
+          "duration": 0.241
+        },
+        {
+          "text": "papan",
+          "start": 13.335,
+          "duration": 0.27
+        },
+        {
+          "text": "namanya",
+          "start": 13.605,
+          "duration": 0.639
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "role": "gufron",
+      "text": "Kalau besok kotak ini harus terisi, kita cek yang mana dulu: dapurnya, atau koperasi yang kirim bahan?",
+      "start": 84.5,
+      "end": 92.084,
+      "voice": "jv-ID-DimasNeural",
+      "source_file": "13-gufron.mp3",
+      "gain": 1.039,
+      "words": [
+        {
+          "text": "Kalau",
+          "start": 0.113,
+          "duration": 0.362
+        },
+        {
+          "text": "besok",
+          "start": 0.487,
+          "duration": 0.338
+        },
+        {
+          "text": "kotak",
+          "start": 0.825,
+          "duration": 0.35
+        },
+        {
+          "text": "ini",
+          "start": 1.175,
+          "duration": 0.212
+        },
+        {
+          "text": "harus",
+          "start": 1.413,
+          "duration": 0.263
+        },
+        {
+          "text": "terisi",
+          "start": 1.688,
+          "duration": 0.412
+        },
+        {
+          "text": "kita",
+          "start": 2.312,
+          "duration": 0.275
+        },
+        {
+          "text": "cek",
+          "start": 2.612,
+          "duration": 0.2
+        },
+        {
+          "text": "yang",
+          "start": 2.812,
+          "duration": 0.2
+        },
+        {
+          "text": "mana",
+          "start": 3.025,
+          "duration": 0.237
+        },
+        {
+          "text": "dulu",
+          "start": 3.275,
+          "duration": 0.312
+        },
+        {
+          "text": "dapurnya",
+          "start": 3.862,
+          "duration": 0.675
+        },
+        {
+          "text": "atau",
+          "start": 4.825,
+          "duration": 0.338
+        },
+        {
+          "text": "koperasi",
+          "start": 5.188,
+          "duration": 0.55
+        },
+        {
+          "text": "yang",
+          "start": 5.763,
+          "duration": 0.2
+        },
+        {
+          "text": "kirim",
+          "start": 5.975,
+          "duration": 0.263
+        },
+        {
+          "text": "bahan",
+          "start": 6.25,
+          "duration": 0.425
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "role": "narrator",
+      "text": "Tulis KULINER atau KOPDES, tambah satu syarat wajib. Follow jadi warga. Pilihan kalian menentukan inspeksi Day 4.",
+      "start": 93.0,
+      "end": 104.976,
+      "voice": "id-ID-GadisNeural",
+      "source_file": "14-narrator.mp3",
+      "gain": 0.946,
+      "words": [
+        {
+          "text": "Tulis",
+          "start": 0.1,
+          "duration": 0.374
+        },
+        {
+          "text": "KULINER",
+          "start": 0.474,
+          "duration": 0.515
+        },
+        {
+          "text": "atau",
+          "start": 0.989,
+          "duration": 0.387
+        },
+        {
+          "text": "KOPDES",
+          "start": 1.376,
+          "duration": 0.851
+        },
+        {
+          "text": "tambah",
+          "start": 2.548,
+          "duration": 0.387
+        },
+        {
+          "text": "satu",
+          "start": 2.935,
+          "duration": 0.374
+        },
+        {
+          "text": "syarat",
+          "start": 3.309,
+          "duration": 0.49
+        },
+        {
+          "text": "wajib",
+          "start": 3.798,
+          "duration": 0.49
+        },
+        {
+          "text": "Follow",
+          "start": 5.153,
+          "duration": 0.657
+        },
+        {
+          "text": "jadi",
+          "start": 5.81,
+          "duration": 0.477
+        },
+        {
+          "text": "warga",
+          "start": 6.287,
+          "duration": 0.67
+        },
+        {
+          "text": "Pilihan",
+          "start": 7.821,
+          "duration": 0.606
+        },
+        {
+          "text": "kalian",
+          "start": 8.426,
+          "duration": 0.425
+        },
+        {
+          "text": "menentukan",
+          "start": 8.852,
+          "duration": 0.593
+        },
+        {
+          "text": "inspeksi",
+          "start": 9.444,
+          "duration": 0.812
+        },
+        {
+          "text": "Day",
+          "start": 10.256,
+          "duration": 0.322
+        },
+        {
+          "text": "4",
+          "start": 10.578,
+          "duration": 0.528
+        }
+      ]
+    }
+  ],
+  "captions": [
+    {
+      "cue_id": "01",
+      "role": "gufron",
+      "start": 0.313,
+      "end": 3.4,
+      "text": "Makanannya mana? Yang dikirim cuma"
+    },
+    {
+      "cue_id": "01",
+      "role": "gufron",
+      "start": 3.4,
+      "end": 3.845,
+      "text": "pita?"
+    },
+    {
+      "cue_id": "03",
+      "role": "bu_warung",
+      "start": 5.19,
+      "end": 6.732,
+      "text": "Usulan warga terbanyak:"
+    },
+    {
+      "cue_id": "03",
+      "role": "bu_warung",
+      "start": 6.894,
+      "end": 8.399,
+      "text": "Pak Prabowow Subiyoyo!"
+    },
+    {
+      "cue_id": "02",
+      "role": "narrator",
+      "start": 9.75,
+      "end": 12.624,
+      "text": "Baru terpilih, jadwal gunting pita"
+    },
+    {
+      "cue_id": "02",
+      "role": "narrator",
+      "start": 12.624,
+      "end": 13.955,
+      "text": "sudah menunggu."
+    },
+    {
+      "cue_id": "04",
+      "role": "tedi",
+      "start": 15.119,
+      "end": 17.182,
+      "text": "Pak, jam sepuluh gunting pita dua"
+    },
+    {
+      "cue_id": "04",
+      "role": "tedi",
+      "start": 17.182,
+      "end": 17.774,
+      "text": "gedung."
+    },
+    {
+      "cue_id": "05",
+      "role": "prabowow",
+      "start": 18.85,
+      "end": 22.197,
+      "text": "Tunggu. Program Kuliner Indonesia"
+    },
+    {
+      "cue_id": "05",
+      "role": "prabowow",
+      "start": 22.197,
+      "end": 25.682,
+      "text": "dulu. Dapur masak, makanan sampai"
+    },
+    {
+      "cue_id": "05",
+      "role": "prabowow",
+      "start": 25.682,
+      "end": 27.912,
+      "text": "ke warga, bahan dibeli dari petani"
+    },
+    {
+      "cue_id": "05",
+      "role": "prabowow",
+      "start": 27.912,
+      "end": 28.572,
+      "text": "sini."
+    },
+    {
+      "cue_id": "06",
+      "role": "prabowow",
+      "start": 30.1,
+      "end": 31.769,
+      "text": "Lalu koperasi desa."
+    },
+    {
+      "cue_id": "06",
+      "role": "prabowow",
+      "start": 32.61,
+      "end": 35.053,
+      "text": "Hasil kebun warga masuk rak, harganya"
+    },
+    {
+      "cue_id": "06",
+      "role": "prabowow",
+      "start": 35.053,
+      "end": 37.673,
+      "text": "jelas, untungnya kembali ke anggota."
+    },
+    {
+      "cue_id": "06",
+      "role": "prabowow",
+      "start": 38.503,
+      "end": 40.47,
+      "text": "Begitu baru namanya program."
+    },
+    {
+      "cue_id": "07",
+      "role": "gufron",
+      "start": 42.113,
+      "end": 43.932,
+      "text": "Pak, gedungnya siap difoto."
+    },
+    {
+      "cue_id": "07",
+      "role": "gufron",
+      "start": 44.862,
+      "end": 46.983,
+      "text": "Kotak saya dari tadi masih kosong."
+    },
+    {
+      "cue_id": "08",
+      "role": "dadan",
+      "start": 48.33,
+      "end": 49.74,
+      "text": "Bahannya belum masuk."
+    },
+    {
+      "cue_id": "09",
+      "role": "mas_daro",
+      "start": 50.8,
+      "end": 52.195,
+      "text": "Truknya belum lewat."
+    },
+    {
+      "cue_id": "10",
+      "role": "bu_warung",
+      "start": 54.148,
+      "end": 56.413,
+      "text": "Satu lubang bikin dua program macet."
+    },
+    {
+      "cue_id": "10",
+      "role": "bu_warung",
+      "start": 57.199,
+      "end": 59.353,
+      "text": "Ini jalan yang kemarin diresmikan."
+    },
+    {
+      "cue_id": "11",
+      "role": "gufron",
+      "start": 60.838,
+      "end": 63.138,
+      "text": "Saya sudah bilang, pita dulu, jalan"
+    },
+    {
+      "cue_id": "11",
+      "role": "gufron",
+      "start": 63.138,
+      "end": 63.858,
+      "text": "belakangan."
+    },
+    {
+      "cue_id": "12",
+      "role": "prabowow",
+      "start": 66.2,
+      "end": 69.561,
+      "text": "Cukup jogetnya. Jangan gunting pita"
+    },
+    {
+      "cue_id": "12",
+      "role": "prabowow",
+      "start": 69.561,
+      "end": 73.702,
+      "text": "dulu. Buka jalan itu, periksa dapurnya,"
+    },
+    {
+      "cue_id": "12",
+      "role": "prabowow",
+      "start": 73.838,
+      "end": 75.677,
+      "text": "isi raknya dengan barang warga."
+    },
+    {
+      "cue_id": "12",
+      "role": "prabowow",
+      "start": 76.509,
+      "end": 77.901,
+      "text": "Saya mau lihat yang sampai ke"
+    },
+    {
+      "cue_id": "12",
+      "role": "prabowow",
+      "start": 77.901,
+      "end": 80.464,
+      "text": "warga, bukan cuma papan namanya."
+    },
+    {
+      "cue_id": "13",
+      "role": "gufron",
+      "start": 84.613,
+      "end": 86.72,
+      "text": "Kalau besok kotak ini harus terisi,"
+    },
+    {
+      "cue_id": "13",
+      "role": "gufron",
+      "start": 86.812,
+      "end": 88.207,
+      "text": "kita cek yang mana dulu:"
+    },
+    {
+      "cue_id": "13",
+      "role": "gufron",
+      "start": 88.362,
+      "end": 90.75,
+      "text": "dapurnya, atau koperasi yang kirim"
+    },
+    {
+      "cue_id": "13",
+      "role": "gufron",
+      "start": 90.75,
+      "end": 91.295,
+      "text": "bahan?"
+    },
+    {
+      "cue_id": "14",
+      "role": "narrator",
+      "start": 93.1,
+      "end": 95.935,
+      "text": "Tulis KULINER atau KOPDES, tambah"
+    },
+    {
+      "cue_id": "14",
+      "role": "narrator",
+      "start": 95.935,
+      "end": 97.408,
+      "text": "satu syarat wajib."
+    },
+    {
+      "cue_id": "14",
+      "role": "narrator",
+      "start": 98.153,
+      "end": 100.077,
+      "text": "Follow jadi warga."
+    },
+    {
+      "cue_id": "14",
+      "role": "narrator",
+      "start": 100.821,
+      "end": 103.256,
+      "text": "Pilihan kalian menentukan inspeksi"
+    },
+    {
+      "cue_id": "14",
+      "role": "narrator",
+      "start": 103.256,
+      "end": 104.226,
+      "text": "Day 4."
+    }
+  ]
+}

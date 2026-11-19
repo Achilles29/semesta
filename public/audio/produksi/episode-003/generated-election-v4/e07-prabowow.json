@@ -1,0 +1,58 @@
+{
+  "id": "e07",
+  "scene": 4,
+  "role": "prabowow",
+  "text": "Kalau Gibrun ditolak, saya tunggu. Saya tidak maju sendiri.",
+  "file": "e07-prabowow.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-4%",
+  "pitch": "-8Hz",
+  "word_boundaries": [
+    {
+      "text": "Kalau",
+      "start": 0.101,
+      "duration": 0.286
+    },
+    {
+      "text": "Gibrun",
+      "start": 0.388,
+      "duration": 0.312
+    },
+    {
+      "text": "ditolak",
+      "start": 0.7,
+      "duration": 0.599
+    },
+    {
+      "text": "saya",
+      "start": 1.507,
+      "duration": 0.339
+    },
+    {
+      "text": "tunggu",
+      "start": 1.846,
+      "duration": 0.547
+    },
+    {
+      "text": "Saya",
+      "start": 3.267,
+      "duration": 0.391
+    },
+    {
+      "text": "tidak",
+      "start": 3.657,
+      "duration": 0.247
+    },
+    {
+      "text": "maju",
+      "start": 3.905,
+      "duration": 0.247
+    },
+    {
+      "text": "sendiri",
+      "start": 4.152,
+      "duration": 0.651
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "10",
+  "role": "bu_warung",
+  "text": "Satu lubang bikin dua program macet. Ini jalan yang kemarin diresmikan.",
+  "voice": "jv-ID-SitiNeural",
+  "rate": "+2%",
+  "pitch": "+0Hz",
+  "file": "10-bu_warung.mp3",
+  "word_boundaries": [],
+  "source": "Edge TTS synthetic draft voice"
+}

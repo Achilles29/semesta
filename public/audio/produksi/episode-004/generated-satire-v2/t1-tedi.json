@@ -1,0 +1,47 @@
+{
+  "id": "t1",
+  "role": "tedi",
+  "text": "Pak, surat laik higiene dapurnya belum ada.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+6%",
+  "pitch": "+8Hz",
+  "file": "t1-tedi.mp3",
+  "word_boundaries": [
+    {
+      "text": "Pak",
+      "start": 0.099,
+      "duration": 0.483
+    },
+    {
+      "text": "surat",
+      "start": 0.819,
+      "duration": 0.295
+    },
+    {
+      "text": "laik",
+      "start": 1.113,
+      "duration": 0.165
+    },
+    {
+      "text": "higiene",
+      "start": 1.279,
+      "duration": 0.413
+    },
+    {
+      "text": "dapurnya",
+      "start": 1.691,
+      "duration": 0.389
+    },
+    {
+      "text": "belum",
+      "start": 2.08,
+      "duration": 0.189
+    },
+    {
+      "text": "ada",
+      "start": 2.269,
+      "duration": 0.436
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

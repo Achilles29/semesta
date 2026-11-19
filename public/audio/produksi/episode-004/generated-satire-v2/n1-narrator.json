@@ -1,0 +1,57 @@
+{
+  "id": "n1",
+  "role": "narrator",
+  "text": "Gufron buka kotak makan. Isinya pita peresmian. Makanannya? Menyusul.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "n1-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Gufron",
+      "start": 0.1,
+      "duration": 0.619
+    },
+    {
+      "text": "buka",
+      "start": 0.719,
+      "duration": 0.4
+    },
+    {
+      "text": "kotak",
+      "start": 1.118,
+      "duration": 0.451
+    },
+    {
+      "text": "makan",
+      "start": 1.569,
+      "duration": 0.644
+    },
+    {
+      "text": "Isinya",
+      "start": 3.078,
+      "duration": 0.619
+    },
+    {
+      "text": "pita",
+      "start": 3.697,
+      "duration": 0.477
+    },
+    {
+      "text": "peresmian",
+      "start": 4.174,
+      "duration": 0.928
+    },
+    {
+      "text": "Makanannya",
+      "start": 5.965,
+      "duration": 1.121
+    },
+    {
+      "text": "Menyusul",
+      "start": 7.949,
+      "duration": 0.979
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

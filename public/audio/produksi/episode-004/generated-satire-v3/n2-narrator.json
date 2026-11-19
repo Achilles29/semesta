@@ -1,0 +1,97 @@
+{
+  "id": "n2",
+  "role": "narrator",
+  "text": "Dua puluh menit sebelumnya, usulan warga memilih Pak Prabowow. Hari pertamanya, dapur dan koperasi sudah menunggu kamera.",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-3%",
+  "pitch": "-8Hz",
+  "file": "n2-narrator.mp3",
+  "word_boundaries": [
+    {
+      "text": "Dua",
+      "start": 0.1,
+      "duration": 0.322
+    },
+    {
+      "text": "puluh",
+      "start": 0.422,
+      "duration": 0.283
+    },
+    {
+      "text": "menit",
+      "start": 0.706,
+      "duration": 0.258
+    },
+    {
+      "text": "sebelumnya",
+      "start": 0.963,
+      "duration": 0.773
+    },
+    {
+      "text": "usulan",
+      "start": 2.072,
+      "duration": 0.464
+    },
+    {
+      "text": "warga",
+      "start": 2.536,
+      "duration": 0.425
+    },
+    {
+      "text": "memilih",
+      "start": 2.961,
+      "duration": 0.644
+    },
+    {
+      "text": "Pak",
+      "start": 3.605,
+      "duration": 0.296
+    },
+    {
+      "text": "Prabowow",
+      "start": 3.902,
+      "duration": 0.825
+    },
+    {
+      "text": "Hari",
+      "start": 5.591,
+      "duration": 0.412
+    },
+    {
+      "text": "pertamanya",
+      "start": 6.004,
+      "duration": 0.902
+    },
+    {
+      "text": "dapur",
+      "start": 7.292,
+      "duration": 0.49
+    },
+    {
+      "text": "dan",
+      "start": 7.782,
+      "duration": 0.219
+    },
+    {
+      "text": "koperasi",
+      "start": 8.001,
+      "duration": 0.644
+    },
+    {
+      "text": "sudah",
+      "start": 8.645,
+      "duration": 0.412
+    },
+    {
+      "text": "menunggu",
+      "start": 9.058,
+      "duration": 0.528
+    },
+    {
+      "text": "kamera",
+      "start": 9.586,
+      "duration": 0.722
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

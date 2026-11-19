@@ -1,0 +1,102 @@
+{
+  "id": "06",
+  "role": "prabowow",
+  "text": "Lalu koperasi desa. Hasil kebun warga masuk rak, harganya jelas, untungnya kembali ke anggota. Begitu baru namanya program.",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-12%",
+  "pitch": "-28Hz",
+  "file": "06-prabowow.mp3",
+  "word_boundaries": [
+    {
+      "text": "Lalu",
+      "start": 0.1,
+      "duration": 0.44
+    },
+    {
+      "text": "koperasi",
+      "start": 0.54,
+      "duration": 0.497
+    },
+    {
+      "text": "desa",
+      "start": 1.038,
+      "duration": 0.611
+    },
+    {
+      "text": "Hasil",
+      "start": 2.61,
+      "duration": 0.384
+    },
+    {
+      "text": "kebun",
+      "start": 2.994,
+      "duration": 0.298
+    },
+    {
+      "text": "warga",
+      "start": 3.292,
+      "duration": 0.284
+    },
+    {
+      "text": "masuk",
+      "start": 3.576,
+      "duration": 0.341
+    },
+    {
+      "text": "rak",
+      "start": 3.917,
+      "duration": 0.412
+    },
+    {
+      "text": "harganya",
+      "start": 4.57,
+      "duration": 0.483
+    },
+    {
+      "text": "jelas",
+      "start": 5.053,
+      "duration": 0.597
+    },
+    {
+      "text": "untungnya",
+      "start": 5.891,
+      "duration": 0.483
+    },
+    {
+      "text": "kembali",
+      "start": 6.374,
+      "duration": 0.398
+    },
+    {
+      "text": "ke",
+      "start": 6.772,
+      "duration": 0.071
+    },
+    {
+      "text": "anggota",
+      "start": 6.843,
+      "duration": 0.71
+    },
+    {
+      "text": "Begitu",
+      "start": 8.503,
+      "duration": 0.469
+    },
+    {
+      "text": "baru",
+      "start": 8.972,
+      "duration": 0.27
+    },
+    {
+      "text": "namanya",
+      "start": 9.242,
+      "duration": 0.398
+    },
+    {
+      "text": "program",
+      "start": 9.64,
+      "duration": 0.71
+    }
+  ],
+  "source": "Edge TTS synthetic draft voice"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "e15",
+  "scene": 8,
+  "role": "narrator",
+  "text": "Sepuluh warga memilih. Sepuluh suara dihitung.",
+  "file": "e15-narrator.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "word_boundaries": [
+    {
+      "text": "Sepuluh",
+      "start": 0.1,
+      "duration": 0.45
+    },
+    {
+      "text": "warga",
+      "start": 0.55,
+      "duration": 0.312
+    },
+    {
+      "text": "memilih",
+      "start": 0.863,
+      "duration": 0.613
+    },
+    {
+      "text": "Sepuluh",
+      "start": 2.312,
+      "duration": 0.45
+    },
+    {
+      "text": "suara",
+      "start": 2.763,
+      "duration": 0.312
+    },
+    {
+      "text": "dihitung",
+      "start": 3.075,
+      "duration": 0.675
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

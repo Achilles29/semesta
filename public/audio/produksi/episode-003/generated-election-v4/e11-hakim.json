@@ -1,0 +1,68 @@
+{
+  "id": "e11",
+  "scene": 6,
+  "role": "hakim",
+  "text": "Putusan majelis: minimal empat puluh, atau pernah terpilih jadi kepala daerah.",
+  "file": "e11-hakim.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "-6%",
+  "pitch": "-4Hz",
+  "word_boundaries": [
+    {
+      "text": "Putusan",
+      "start": 0.117,
+      "duration": 0.372
+    },
+    {
+      "text": "majelis",
+      "start": 0.489,
+      "duration": 0.665
+    },
+    {
+      "text": "minimal",
+      "start": 1.42,
+      "duration": 0.386
+    },
+    {
+      "text": "empat",
+      "start": 1.805,
+      "duration": 0.239
+    },
+    {
+      "text": "puluh",
+      "start": 2.045,
+      "duration": 0.479
+    },
+    {
+      "text": "atau",
+      "start": 2.789,
+      "duration": 0.253
+    },
+    {
+      "text": "pernah",
+      "start": 3.042,
+      "duration": 0.266
+    },
+    {
+      "text": "terpilih",
+      "start": 3.308,
+      "duration": 0.426
+    },
+    {
+      "text": "jadi",
+      "start": 3.733,
+      "duration": 0.293
+    },
+    {
+      "text": "kepala",
+      "start": 4.026,
+      "duration": 0.306
+    },
+    {
+      "text": "daerah",
+      "start": 4.332,
+      "duration": 0.612
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

@@ -1,0 +1,103 @@
+{
+  "id": "e23",
+  "scene": 10,
+  "role": "narrator",
+  "text": "Besok buka berkas atau catatan sidang? Komen BERKAS atau SIDANG. Follow jadi warga. Jalan kampung tetap kita tagih.",
+  "file": "e23-narrator.mp3",
+  "voice": "id-ID-GadisNeural",
+  "rate": "-4%",
+  "pitch": "-12Hz",
+  "word_boundaries": [
+    {
+      "text": "Besok",
+      "start": 0.1,
+      "duration": 0.56
+    },
+    {
+      "text": "buka",
+      "start": 0.66,
+      "duration": 0.326
+    },
+    {
+      "text": "berkas",
+      "start": 0.985,
+      "duration": 0.508
+    },
+    {
+      "text": "atau",
+      "start": 1.493,
+      "duration": 0.417
+    },
+    {
+      "text": "catatan",
+      "start": 1.91,
+      "duration": 0.521
+    },
+    {
+      "text": "sidang",
+      "start": 2.431,
+      "duration": 0.586
+    },
+    {
+      "text": "Komen",
+      "start": 3.891,
+      "duration": 0.417
+    },
+    {
+      "text": "BERKAS",
+      "start": 4.308,
+      "duration": 0.508
+    },
+    {
+      "text": "atau",
+      "start": 4.816,
+      "duration": 0.521
+    },
+    {
+      "text": "SIDANG",
+      "start": 5.336,
+      "duration": 0.677
+    },
+    {
+      "text": "Follow",
+      "start": 6.886,
+      "duration": 0.677
+    },
+    {
+      "text": "jadi",
+      "start": 7.563,
+      "duration": 0.469
+    },
+    {
+      "text": "warga",
+      "start": 8.032,
+      "duration": 0.664
+    },
+    {
+      "text": "Jalan",
+      "start": 9.568,
+      "duration": 0.495
+    },
+    {
+      "text": "kampung",
+      "start": 10.063,
+      "duration": 0.547
+    },
+    {
+      "text": "tetap",
+      "start": 10.61,
+      "duration": 0.417
+    },
+    {
+      "text": "kita",
+      "start": 11.027,
+      "duration": 0.391
+    },
+    {
+      "text": "tagih",
+      "start": 11.417,
+      "duration": 0.677
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

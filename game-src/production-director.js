@@ -10,6 +10,7 @@ import {createV15Props} from './production-v15-props.js';
 import {createV16Props} from './production-v16-props.js';
 import {createCastPerformance} from './production-performance.js';
 import {createProductionSubtitles} from './production-subtitles.js';
+import {mountProductionVideoLibrary} from './production-video-library.js';
 
 /** Local cutscene with prerecorded VO; never moves the saved player or other clients. */
 export function mountProductionDirector({THREE,production,world,camera,renderer,scene,panel,signal,onStart=()=>{}}){
@@ -22,9 +23,9 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
   let {EPISODE_SCENES,EPISODE_DURATION,sampleEpisode,episodeCueSheet}=episode;
   let snapshot=null,aspect=9/16,selection='',selectedEnd=EPISODE_DURATION;
   const controls=document.createElement('section');controls.className='production-playback';
-  controls.innerHTML=`<strong>Jalannya Rusak, Acaranya Mulus</strong>
-    <p data-film-description>V16: cerita baru, 6 rangkaian / 23 potongan kamera, narator upbeat, Bahlil dan Gufron. Durasi ${EPISODE_DURATION.toFixed(2)} detik.</p>
-    <label>Versi <select data-film-version><option value="v16">V16 · Jalan rusak / terbaru</option><option value="v15">V15 · Kursi / arsip</option><option value="v13">V13 · Arsip / gambar + suara</option><option value="preview">V13 · Animatic lama / tanpa suara</option><option value="v10">V10 · Arsip dengan suara lama</option></select></label>
+  controls.innerHTML=`<div data-production-library></div><details class="production-set-archive"><summary>Pratinjau set animasi lama</summary><div class="production-set-archive-inner"><strong>Jalannya Rusak, Acaranya Mulus</strong>
+    <p data-film-description>V16: arsip pratinjau set jalan rusak, 6 rangkaian / 23 potongan kamera. Durasi ${EPISODE_DURATION.toFixed(2)} detik.</p>
+    <label>Versi <select data-film-version><option value="v16">V16 · Jalan rusak / arsip set</option><option value="v15">V15 · Kursi / arsip</option><option value="v13">V13 · Arsip / gambar + suara</option><option value="preview">V13 · Animatic lama / tanpa suara</option><option value="v10">V10 · Arsip dengan suara lama</option></select></label>
     <label>Putar <select data-film-scene><option value="">Semua adegan · ${EPISODE_DURATION.toFixed(2)} detik</option>${EPISODE_SCENES.map((s,i)=>`<option value="${s.id}">${i+1}. ${s.name} · ${(s.end-s.start).toFixed(1)} dtk</option>`).join('')}</select></label>
     <label>Bingkai <select data-film-aspect><option value="portrait">Vertikal 9:16 · IG/TikTok</option><option value="landscape">Mendatar 16:9</option></select></label>
     <label>Volume suara <input data-film-volume type="range" min="0" max="1" step="0.05" value="1" aria-label="Volume voice over"></label>
@@ -32,13 +33,14 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
     <div class="production-actions"><button type="button" data-film-play>▶ PLAY V16 + SUARA</button><button type="button" data-film-sheet>Unduh panduan adegan / VO</button></div>
     <p data-film-status role="status">V16 revisi 3: subtitle aktif dan musik komedi baru. Rekam layar browser + audio tab/sistem. HUD disembunyikan, subtitle tetap terlihat. Ajakan follow dan komentar diucapkan di penutup.</p>
     <p>Spasi: jeda/lanjut · R: ulang · ←/→: adegan · Esc: keluar. Penutup fade ke hitam, lalu Esc untuk kembali. Gunakan F11 sebelum merekam; crop bidang video bila ada sisi hitam.</p>
-    <details><summary>Catatan editing</summary><p>V16 memakai narator Jemmy upbeat dan dialog baru clone berizin Bahlil/Gufron, kecepatan 1x. Gerak mulut berbasis energi suara, bukan fonem. Kemiripan dan intonasi perlu cek dengar. Versi lain arsip. Tidak ada ekspor MP4 otomatis. Tambahkan label PARODI FIKSI / SUARA AI saat publikasi.</p></details>`;
+    <details><summary>Catatan editing</summary><p>V16 memakai narator Jemmy upbeat dan dialog baru clone berizin Bahlil/Gufron, kecepatan 1x. Gerak mulut berbasis energi suara, bukan fonem. Kemiripan dan intonasi perlu cek dengar. Versi lain arsip. Tidak ada ekspor MP4 otomatis. Tambahkan label PARODI FIKSI / SUARA AI saat publikasi.</p></details></div></details>`;
   panel.append(controls);
+  const library=mountProductionVideoLibrary(controls.querySelector('[data-production-library]'),{mediaRoot:window.SEMESTA_PRODUCTION_MEDIA_ROOT||new URL('public/audio/produksi/',document.baseURI).href,signal});
   const status=controls.querySelector('[data-film-status]');
   const playButton=controls.querySelector('[data-film-play]');
   const listen=(target,type,fn,options={})=>target.addEventListener(type,fn,{...options,signal});
   // Outside the game HUD: filming hides that HUD, including its pause instructions.
-  const pausePanel=document.createElement('section');pausePanel.hidden=true;
+  const pausePanel=document.createElement('section');pausePanel.className='production-pause-panel';pausePanel.hidden=true;
   pausePanel.setAttribute?.('aria-label','Kontrol pemutaran dijeda');
   pausePanel.style.cssText='position:fixed;z-index:10000;left:50%;top:50%;transform:translate(-50%,-50%);padding:20px;background:#18282ef5;color:white;border-radius:12px;text-align:center;font:16px system-ui';
   pausePanel.innerHTML='<p>Pemutaran dijeda.</p><button type="button" data-film-resume>Lanjutkan</button> <button type="button" data-film-exit>Kembali</button>';
@@ -77,7 +79,7 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
   }
   function playbackError(error){stop();console.error('Production playback:',error);status.textContent=`Pemutaran gagal: ${error.message}. Muat ulang halaman lalu coba Play lagi.`;}
   async function start(){
-    stop();selection=controls.querySelector('[data-film-scene]').value;
+    library.pause();stop();selection=controls.querySelector('[data-film-scene]').value;
     const selected=EPISODE_SCENES.find(s=>s.id===selection);selectedEnd=selected?.end??EPISODE_DURATION;
     playButton.disabled=true;status.textContent=episode===previewEpisode?'Menyiapkan animatic tanpa suara…':episode===currentEpisode?'Menyiapkan gambar + suara V16…':'Menyiapkan arsip bersuara…';
     try{
@@ -169,6 +171,6 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
     }
   },{capture:true});
   listen(document,'visibilitychange',()=>{if(clock.state==='playing'&&document.hidden)clock.pause().catch(playbackError);});
-  signal.addEventListener('abort',()=>{stop();previewClock.dispose();audioClock.dispose();archiveClock.dispose();currentClock.dispose();previousClock.dispose();performance.dispose();previewProps.dispose();legacyProps.dispose();currentProps.dispose();previousProps.dispose();endPlane.geometry.dispose();endMaterial.dispose();controls.remove();pausePanel.remove();subtitles.dispose();},{once:true});
+  signal.addEventListener('abort',()=>{library.dispose();stop();previewClock.dispose();audioClock.dispose();archiveClock.dispose();currentClock.dispose();previousClock.dispose();performance.dispose();previewProps.dispose();legacyProps.dispose();currentProps.dispose();previousProps.dispose();endPlane.geometry.dispose();endMaterial.dispose();controls.remove();pausePanel.remove();subtitles.dispose();},{once:true});
   return {get active(){return !!snapshot&&clock.active;},update,stop};
 }

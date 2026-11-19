@@ -1,0 +1,42 @@
+{
+  "id": "f2",
+  "role": "farmer",
+  "text": "Boleh. Tapi jangan tulis sudah dibeli.",
+  "voice": "su-ID-JajangNeural",
+  "rate": "-2%",
+  "pitch": "-4Hz",
+  "file": "f2-farmer.mp3",
+  "word_boundaries": [
+    {
+      "text": "Boleh",
+      "start": 0.178,
+      "duration": 0.383
+    },
+    {
+      "text": "Tapi",
+      "start": 1.518,
+      "duration": 0.281
+    },
+    {
+      "text": "jangan",
+      "start": 1.849,
+      "duration": 0.408
+    },
+    {
+      "text": "tulis",
+      "start": 2.283,
+      "duration": 0.357
+    },
+    {
+      "text": "sudah",
+      "start": 2.64,
+      "duration": 0.344
+    },
+    {
+      "text": "dibeli",
+      "start": 2.997,
+      "duration": 0.421
+    }
+  ],
+  "source": "Edge TTS draft; distinct from private HeyGen clones"
+}

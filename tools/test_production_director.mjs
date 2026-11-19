@@ -46,7 +46,7 @@ for(const id of ['v15-young','v15-father','v15-leader']){
   for(const bone of ['handL','handR','upper_armL','upper_armR'])assert.ok(actor.getObjectByName(bone)?.isBone,'Loaded game avatar rig: '+id+' '+bone);
 }
 const controls=panel.children[0];
-const subtitleOverlay=document.body.children[1];
+const subtitleOverlay=document.body.children.find(node=>node.className==='production-subtitles');
 assert.equal(subtitleOverlay.className,'production-subtitles');
 assert.equal(subtitleOverlay.hidden,true);
 const originalCastVisibility=production.cast.map(n=>n.root.visible);
@@ -73,7 +73,7 @@ const startedAt=ctx.currentTime;
 for(let t=0;t<EPISODE_DURATION;t+=.25){ctx.currentTime=startedAt+t+.25;director.update(t*1000);assert.ok(director.active,'Director failed at '+t+': '+controls.querySelector('[data-film-status]').textContent);}
 assert.ok(renders>=Math.floor(EPISODE_DURATION/.25));assert.ok(document.body.classList.contains('production-filming'));
 // Hidden tabs pause explicitly; a visible resume button can recover playback.
-const pausePanel=document.body.children[0];
+const pausePanel=document.body.children.find(node=>node.className==='production-pause-panel');
 document.hidden=true;director.update(70000);assert.equal(pausePanel.hidden,false);
 assert.equal(subtitleOverlay.hidden,true,'Pause controls never overlap subtitles');
 document.hidden=false;

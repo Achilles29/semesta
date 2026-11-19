@@ -1,0 +1,63 @@
+{
+  "id": "e10",
+  "scene": 6,
+  "role": "narrator",
+  "text": "Di MK, ketua majelisnya paman Gibrun. Ia tetap ikut memutus.",
+  "file": "e10-narrator.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+0%",
+  "pitch": "+0Hz",
+  "word_boundaries": [
+    {
+      "text": "Di",
+      "start": 0.1,
+      "duration": 0.212
+    },
+    {
+      "text": "MK",
+      "start": 0.312,
+      "duration": 0.537
+    },
+    {
+      "text": "ketua",
+      "start": 1.137,
+      "duration": 0.275
+    },
+    {
+      "text": "majelisnya",
+      "start": 1.413,
+      "duration": 0.55
+    },
+    {
+      "text": "paman",
+      "start": 1.962,
+      "duration": 0.287
+    },
+    {
+      "text": "Gibrun",
+      "start": 2.25,
+      "duration": 0.55
+    },
+    {
+      "text": "Ia",
+      "start": 3.638,
+      "duration": 0.263
+    },
+    {
+      "text": "tetap",
+      "start": 3.9,
+      "duration": 0.263
+    },
+    {
+      "text": "ikut",
+      "start": 4.162,
+      "duration": 0.275
+    },
+    {
+      "text": "memutus",
+      "start": 4.438,
+      "duration": 0.637
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}

@@ -1,0 +1,83 @@
+{
+  "id": "e15",
+  "scene": 7,
+  "role": "petugas",
+  "text": "Putusan baru sudah berlaku. Bukti wali kota terpilih cocok. Sekarang pasangan Prabowow–Gibrun diterima.",
+  "file": "e15-petugas.mp3",
+  "voice": "id-ID-ArdiNeural",
+  "rate": "+4%",
+  "pitch": "+12Hz",
+  "word_boundaries": [
+    {
+      "text": "Putusan",
+      "start": 0.1,
+      "duration": 0.445
+    },
+    {
+      "text": "baru",
+      "start": 0.544,
+      "duration": 0.24
+    },
+    {
+      "text": "sudah",
+      "start": 0.785,
+      "duration": 0.24
+    },
+    {
+      "text": "berlaku",
+      "start": 1.025,
+      "duration": 0.637
+    },
+    {
+      "text": "Bukti",
+      "start": 2.465,
+      "duration": 0.373
+    },
+    {
+      "text": "wali",
+      "start": 2.838,
+      "duration": 0.18
+    },
+    {
+      "text": "kota",
+      "start": 3.018,
+      "duration": 0.288
+    },
+    {
+      "text": "terpilih",
+      "start": 3.307,
+      "duration": 0.385
+    },
+    {
+      "text": "cocok",
+      "start": 3.691,
+      "duration": 0.529
+    },
+    {
+      "text": "Sekarang",
+      "start": 5.025,
+      "duration": 0.385
+    },
+    {
+      "text": "pasangan",
+      "start": 5.41,
+      "duration": 0.361
+    },
+    {
+      "text": "Prabowow",
+      "start": 5.77,
+      "duration": 0.577
+    },
+    {
+      "text": "Gibrun",
+      "start": 6.347,
+      "duration": 0.397
+    },
+    {
+      "text": "diterima",
+      "start": 6.744,
+      "duration": 0.577
+    }
+  ],
+  "source": "Edge TTS synthetic draft"
+}
