@@ -138,7 +138,11 @@
     "none": "Tanpa rambut",
     "swept": "Sisir samping",
     "ponytail": "Ekor kuda",
-    "bob": "Bob pendek"
+    "bob": "Bob pendek",
+    "sidePart": "Belah samping rapi",
+    "crew": "Crew cut pendek",
+    "spiky": "Spiky RPG",
+    "curtain": "Curtain belah tengah"
   },
   "palettes": {
     "indigo": {
@@ -280,7 +284,7 @@
     "license": "provenance required per asset",
     "ready": "only ready assets can appear as selectable options"
   },
-  "variationRevision": "v15-wardrobe-2",
+  "variationRevision": "v15-wardrobe-3",
   "fields": {
     "skinTone": {
       "label": "Warna kulit",
@@ -314,7 +318,11 @@
         "none": "Tanpa rambut",
         "swept": "Sisir samping",
         "ponytail": "Ekor kuda",
-        "bob": "Bob pendek"
+        "bob": "Bob pendek",
+        "sidePart": "Belah samping rapi",
+        "crew": "Crew cut pendek",
+        "spiky": "Spiky RPG",
+        "curtain": "Curtain belah tengah"
       }
     },
     "palette": {
@@ -390,7 +398,11 @@
         "linen": "Kemeja linen",
         "tunic": "Tunik",
         "shirt": "Kemeja berkerah",
-        "jacket": "Jaket lapangan lengan panjang"
+        "jacket": "Jaket lapangan lengan panjang",
+        "tactical": "Kemeja taktis",
+        "camo": "Kemeja loreng woodland",
+        "civilService": "Kemeja PNS khaki",
+        "safariWhite": "Kemeja safari putih"
       }
     },
     "outerwearStyle": {
@@ -410,7 +422,11 @@
         "relaxed": "Loose / longgar",
         "wide": "Wide-leg / lebar",
         "cargo": "Cargo bersaku",
-        "fitted": "Regular tapered"
+        "fitted": "Regular tapered",
+        "tactical": "Celana taktis longgar",
+        "camo": "Celana loreng cargo",
+        "civilService": "Celana PNS lurus",
+        "safariWhite": "Celana safari putih"
       }
     },
     "shoeStyle": {
@@ -420,7 +436,8 @@
         "travel": "Bot perjalanan",
         "reinforced": "Bot tebal",
         "sneakers": "Sneaker kanvas",
-        "workBoots": "Bot kerja"
+        "workBoots": "Bot kerja",
+        "dress": "Sepatu formal hitam"
       }
     },
     "headAccessory": {
@@ -431,7 +448,8 @@
         "cap": "Topi kain",
         "beanie": "Kupluk",
         "brimHat": "Topi bertepi lebar",
-        "headband": "Ikat kepala"
+        "headband": "Ikat kepala",
+        "peci": "Peci hitam"
       }
     },
     "faceAccessory": {
@@ -485,5 +503,18 @@
         "off": "Lepas"
       }
     }
-  }
+  },
+  "coveredTopStyles": [
+    "jacket",
+    "tactical",
+    "camo",
+    "civilService",
+    "safariWhite"
+  ],
+  "hairCoveringHeadwear": [
+    "cap",
+    "beanie",
+    "brimHat",
+    "peci"
+  ]
 }

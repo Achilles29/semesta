@@ -34,12 +34,25 @@ for(const profile of catalog.profiles.filter(p=>!process.argv[2]||p.id===process
   console.log(profile.id,section);
   assert.ok(section.straight.calfWidth>section.fitted.calfWidth*1.06,`${profile.id}: straight silhouette must be visibly wider`);
   assert.ok(section.wide.calfWidth>section.straight.calfWidth*1.15,`${profile.id}: wide-leg silhouette must be visibly wider`);
-  for(const hat of ['cap','beanie','brimHat']){
+  for(const hat of catalog.hairCoveringHeadwear){
     actor.figure.userData.customization.set({...defaults(),headAccessory:hat,hairStyle:'ponytail'});
     assert.ok(meshes.filter(m=>m.userData.avatarSlot==='hair').every(m=>!m.visible),'Covered hair must not pierce crown');
   }
-  actor.figure.userData.customization.set({...defaults(),topStyle:'jacket',outerwearStyle:'longVest',accessoryChest:'on',accessoryWaist:'on'});
-  assert.ok(meshes.filter(m=>['outerwear','accessoryChest','accessoryWaist'].includes(m.userData.avatarSlot)).every(m=>!m.visible),'Jacket covers fitted underlayers');
+  for(const topStyle of catalog.coveredTopStyles){
+    actor.figure.userData.customization.set({...defaults(),topStyle,outerwearStyle:'longVest',accessoryChest:'on',accessoryWaist:'on'});
+    assert.ok(meshes.filter(m=>['outerwear','accessoryChest','accessoryWaist'].includes(m.userData.avatarSlot)).every(m=>!m.visible),'Uniform covers fitted underlayers');
+  }
+  for(const uniform of ['tactical','camo','civilService','safariWhite']){
+    actor.figure.userData.customization.set({...defaults(),topStyle:uniform,bottomStyle:uniform,palette:'indigo'});
+    const parts=meshes.filter(m=>m.visible&&['top','bottom'].includes(m.userData.avatarSlot));
+    assert.ok(parts.length>5,'Uniform must contain tailored details');
+    assert.ok(parts.every(m=>m.userData.avatarFixedColor),'Uniform colour is independent of the casual palette');
+    const colors=parts.map(m=>m.material.color.toArray());
+    actor.figure.userData.customization.set({palette:'wine'});
+    assert.deepEqual(parts.map(m=>m.material.color.toArray()),colors,'Changing palette must preserve white, khaki and camouflage');
+    if(uniform==='camo')assert.ok(parts.some(m=>m.material.map),'Camouflage must export an actual base-colour texture');
+    assert.ok(section[uniform].calfWidth>=section.straight.calfWidth*.99,'Uniform trousers retain loose cloth volume');
+  }
   results.push({profile:profile.id,section});
 }
 console.log(JSON.stringify({passed:true,profiles:results},null,2));

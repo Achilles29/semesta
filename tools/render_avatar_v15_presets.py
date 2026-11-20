@@ -30,8 +30,8 @@ for preset in sorted(presets,key=lambda p:p['config']['profileId']):
     for o in avatar_objects:
         slot=o.get('avatarSlot');group=o.get('avatarVariantGroup');variant=o.get('avatarVariant')
         visible=appearance.get(group)==variant if group else appearance.get(slot)=='on' if slot in ['accessoryChest','accessoryWaist'] else True
-        if slot=='hair' and appearance['headAccessory'] in ['cap','beanie','brimHat']:visible=False
-        if appearance['topStyle']=='jacket' and slot in ['outerwear','accessoryChest','accessoryWaist']:visible=False
+        if slot=='hair' and appearance['headAccessory'] in catalog['hairCoveringHeadwear']:visible=False
+        if appearance['topStyle'] in catalog['coveredTopStyles'] and slot in ['outerwear','accessoryChest','accessoryWaist']:visible=False
         o.hide_render=not visible
         if o.data.shape_keys:
             fit=o.data.shape_keys.key_blocks.get('Id_OuterwearFit')
@@ -41,7 +41,7 @@ for preset in sorted(presets,key=lambda p:p['config']['profileId']):
                 if key:key.value=1
         for i,original in enumerate(source_materials[o.name]):
             mat=original.copy();o.data.materials[i]=mat
-            factor=catalog['skinTones'][appearance['skinTone']]['factor'] if slot=='skin' else catalog['hairColors'][appearance['hairColor']]['factor'] if slot in ['hair','brows'] else catalog['palettes'][appearance['palette']].get(slot)
+            factor=catalog['skinTones'][appearance['skinTone']]['factor'] if slot=='skin' else catalog['hairColors'][appearance['hairColor']]['factor'] if slot in ['hair','brows'] else None if o.get('avatarFixedColor') else catalog['palettes'][appearance['palette']].get(slot)
             if not factor:continue
             bsdf=next(n for n in mat.node_tree.nodes if n.type=='BSDF_PRINCIPLED');socket=bsdf.inputs['Base Color']
             if socket.is_linked:

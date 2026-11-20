@@ -1,30 +1,34 @@
 # V15 - karakter aktif untuk game dan konten
 
-[Buka Studio Avatar](../../../admin/?view=avatars) atau [lihat 24 karakter](review.html).
+[Buka Studio Avatar](../../../admin/?view=avatars) atau [lihat 32 karakter](review.html).
 V15 sekarang menjadi model aktif pemain, warga daring, NPC, figuran, dan pemeran
 konten. Model lama keluar dari pilihan aktif; sumbernya tetap tersimpan sebagai arsip.
 
 ## Pilihan siap pakai
 
 - Enam profil: pria/perempuan dengan tubuh kurus, ideal, atau gemuk.
-- 24 karakter dengan konfigurasi lengkap, gambar dari GLB aktual, dan ID stabil.
+- 32 karakter dengan konfigurasi lengkap, gambar dari GLB aktual, dan ID stabil.
 - Tiga bentuk wajah, mata, hidung, mulut, dan telinga; tiga warna iris.
-- Rambut pendek, cepak, sanggul, sisir samping, ekor kuda, bob pendek, atau
+- Rambut pendek, cepak, sanggul, sisir samping, ekor kuda, bob pendek, crew cut, belah samping rapi, spiky RPG, curtain belah tengah, atau
   tanpa rambut; lima warna rambut.
 - Lima warna kulit dan enam palet pakaian. Atasan linen, tunik, kemeja
   berkerah, atau jaket lapangan lengan panjang. Dua rompi opsional.
 - Lima potongan celana: lurus (bawaan), loose, wide-leg, cargo dengan saku
   tiga dimensi, serta regular tapered. Semua memiliki ruang kain dan hem
   di luar sepatu, bukan menempel seperti legging.
-- Bot perjalanan, bot tebal, sneaker kanvas, dan bot kerja.
-- Topi kain, kupluk, topi bertepi lebar, dan ikat kepala; kacamata bulat/persegi;
+- Set tambahan: taktis, loreng woodland, PNS khaki, safari putih. Atasan dan
+  celana dapat dipilih terpisah; celana taktis/loreng memakai cargo longgar,
+  sedangkan PNS/safari memakai potongan lurus. Warna seragam tidak dipengaruhi
+  palet kasual. Motif loreng dibuat orisinal, tanpa lambang atau pangkat resmi.
+- Bot perjalanan, bot tebal, sneaker kanvas, bot kerja, dan sepatu formal hitam.
+- Topi kain, kupluk, topi bertepi lebar, ikat kepala, dan peci hitam; kacamata bulat/persegi;
   anting hoop/stud, gelang/jam tangan, tas punggung, selempang dada, dan sabuk.
-  Topi bermahkota menutup rambut; jaket menutup rompi, selempang dan sabuk.
+  Topi bermahkota menutup rambut; jaket/seragam menutup rompi, selempang dan sabuk.
   Pilihan lapisan yang tertutup tetap tersimpan.
 
-Revisi `v15-wardrobe-2` membentuk ulang celana dari pinggul sampai hem dengan
+Dasar revisi `v15-wardrobe-2` membentuk ulang celana dari pinggul sampai hem dengan
 volume kain terukur, saku, fly seam, dan material twill tersendiri. Lihat
-[lima siluet pada profil yang sama](wardrobe-bottoms.jpg),
+[perbandingan celana pada profil yang sama](wardrobe-bottoms.jpg),
 [galeri sebelum revisi](wardrobe-before.jpg), dan [uji geometri](wardrobe-test.json).
 Generator `avatar_v15_wardrobe.py` menyimpan koordinat sumber agar rebuild
 berulang tidak terus memperbesar celana. Klip gerak tidak diubah.
@@ -33,8 +37,24 @@ Bentuk wajah memakai sepuluh identity morph `Id_*` terpisah dari `Expr_*`.
 Mata, alis, dan gigi mengikuti deformasi identitas. Iris biru/hijau memakai tekstur
 baru yang mempertahankan pupil dan bagian putih mata. Pakaian tambahan adalah
 geometri fitted dengan bobot rig; semua profil memiliki asetnya sendiri.
-[Daftar pilihan](catalog.json) dan [24 konfigurasi](presets.json) adalah sumber
+[Daftar pilihan](catalog.json) dan [32 konfigurasi](presets.json) adalah sumber
 pilihan yang benar-benar tersedia, bukan daftar fitur rencana.
+
+## Wardrobe 3 dan preset safari
+
+Revisi aktif `v15-wardrobe-3` menyediakan 91 pilihan pada 21 bidang konfigurasi.
+[Galeri delapan set baru](uniforms-contact.jpg). Delapan preset baru: Reno Taktis, Kirana Taktis, Rangga Loreng, Dita Loreng,
+Darma PNS, Ratih PNS, Surya Safari Putih, dan Prabowo - Dasar Safari.
+Preset terakhir memakai tubuh pria berisi, wajah bulat, peci hitam, safari putih
+dan sepatu formal. Rambut belah samping tetap tersimpan di bawah peci. Ini dasar
+penampilan untuk dikembangkan lagi, **belum merupakan kemiripan wajah final**.
+
+Generator `tools/avatar_v15_uniforms.py` menambahkan mesh yang mengikuti rig,
+kemeja dengan saku/kerah/plaket, lengan panjang untuk taktis/loreng, serta
+texture base-colour woodland yang dapat diekspor langsung ke glTF.
+Jalankan `blender -b --python tools/extend_avatar_v15_uniforms.py -- --profile ID`
+untuk membangun ulang tambahan ini saja, tanpa mengubah aset wardrobe 2.
+Rebuild penuh `extend_avatar_v15.py` juga memanggil modul yang sama.
 
 ## Integrasi dan penyimpanan
 
@@ -69,9 +89,9 @@ transisi start/stop/turn, atau simulasi kain.
 
 ## Pemuatan dan pengujian
 
-GLB mandiri sekitar 31 MB per profil disediakan untuk pengunduhan/authoring.
+GLB mandiri sekitar 37 MB per profil disediakan untuk pengunduhan/authoring.
 Game memuat glTF dengan tekstur bersama dan nama berkas berbasis hash: sekitar
-108 MB untuk enam profil dibanding 185 MB jika memuat seluruh GLB. Tekstur juga
+145 MB untuk enam profil dibanding 222 MB jika memuat seluruh GLB. Tekstur juga
 dibagikan di cache runtime. Studio/pemilih akun memuat profil sesuai permintaan;
 kartu preset memakai PNG agar tidak memuat semua profil hanya untuk katalog.
 Belum ada LOD atau pengukuran FPS kerumunan.
@@ -81,7 +101,7 @@ Belum ada LOD atau pengukuran FPS kerumunan.
 - [Uji integrasi](integration-test.json): seluruh pilihan variasi pada enam profil,
   roundtrip validator PHP/JS, penolakan input tidak valid, migrasi 20 preset
   lama, isolasi instance, cache, cadence, serta pemeran produksi.
-- 24 preset dirender ulang dari GLB dan diperiksa pada [contact sheet](presets-contact.jpg).
+- 32 preset dirender dari GLB dan diperiksa pada [contact sheet](presets-contact.jpg).
 - [Pemeriksaan distribusi](release-check.json): hash source/public/build,
   decoding tekstur, berkas HTTP, video dan bundle.
 - Uji adegan produksi V14/V15/V16 dan director menggunakan rig V15 asli.

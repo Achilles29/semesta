@@ -1,9 +1,9 @@
 {
   "passed": true,
-  "presets": 24,
+  "presets": 32,
   "profiles": 6,
-  "variationCases": 462,
-  "phpRoundtrips": 506,
+  "variationCases": 546,
+  "phpRoundtrips": 598,
   "invalidRejected": 6,
   "assetRequests": 6,
   "productionActors": 17,

@@ -1,11 +1,11 @@
 {
   "id": "female-slim",
   "passed": true,
-  "bytes": 30928404,
-  "sha256": "a077ccd4711c2d6724d27705607b110632f33781551731e8569447aa59ac108b",
+  "bytes": 37061692,
+  "sha256": "cef908f6cd1b49d509426bc5e0a9129ddb2937458f2beedfde8eeeb8437d3d14",
   "bones": 49,
-  "primitives": 127,
-  "triangles": 349164,
+  "primitives": 233,
+  "triangles": 551408,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 195244,
-  "vertexSamples": 1304924,
+  "weightSamples": 305238,
+  "vertexSamples": 2041910,
   "contactSamples": 209,
   "motionChecks": {
     "Walk": {
@@ -43,7 +43,7 @@
       }
     },
     "Run": {
-      "seam": 4.639761988500801e-8,
+      "seam": 4.6591704300213976e-8,
       "maxSupportHeight": 0.06316200131390223,
       "minSoleHeight": 0.0019620371267734943,
       "supportSlipMean": 0.20986655181738176,
@@ -57,7 +57,7 @@
       }
     }
   },
-  "lowestSampledVertex": -0.01186730536762709,
+  "lowestSampledVertex": -0.013904325702728149,
   "locomotion": {
     "Walk": {
       "revision": "v15-cmu-locomotion-2-head",

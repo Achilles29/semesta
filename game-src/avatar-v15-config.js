@@ -48,6 +48,8 @@ export function mountAvatarEditor(container,onChange) {
     const label=document.createElement('label');label.textContent=field.label;const select=document.createElement('select');select.name=`v15-${key}`;
     for(const [value,text] of Object.entries(field.options))select.add(new Option(text,value));label.append(select);section.append(label);controls.set(key,select);
   }
+  const wardrobeNote=document.createElement('small');wardrobeNote.style.gridColumn='1 / -1';
+  wardrobeNote.textContent='Palet mengubah pakaian kasual. Set taktis, loreng, PNS dan safari mempertahankan warna aslinya.';section.append(wardrobeNote);
   section.addEventListener('change',()=>onChange(api.get()));container.append(section);
   const api={set(config){const c=normalizeAvatarConfig(config);controls.get('profileId').value=c.profileId;for(const [k,v] of Object.entries(c.appearance))controls.get(k).value=v;},get(){return validateAvatarConfig({model:'v15',profileId:controls.get('profileId').value,appearance:Object.fromEntries([...controls].filter(([k])=>k!=='profileId').map(([k,el])=>[k,el.value]))});},element:section};
   api.set(presets[0].config);return api;

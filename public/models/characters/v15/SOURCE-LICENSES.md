@@ -42,3 +42,12 @@ fitted sleeves, jacket hem, headwear, hair additions, jewellery and watch.
 These new components and the procedural woven roughness texture are CC0.
 The expanded trouser, shirt, hair and shoe meshes remain derivatives of the
 MakeHuman assets attributed above. Approved CMU motion data is unchanged.
+
+## Wardrobe 3 additions
+
+`tools/avatar_v15_uniforms.py` authors the uniform pockets, collar details,
+plackets, utility panels, peci and original seamless woodland camouflage.
+These original additions are CC0. Haircuts, trousers, shirts and formal shoes
+retain their MakeHuman derivation and attribution above. No official insignia
+or Final Fantasy assets are used. The Prabowo-inspired preset is an initial
+wardrobe/body combination with a generic face, not a scanned likeness.

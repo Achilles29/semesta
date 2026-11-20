@@ -1,11 +1,11 @@
 {
   "id": "male-heavy",
   "passed": true,
-  "bytes": 31210564,
-  "sha256": "df98caf2f61f3043f2097d25f9675512a1369b0c23e77d30179b918d525aa71f",
+  "bytes": 37446360,
+  "sha256": "86509deadcafe7fa6f5a4d889d2d6d8caeb70018ed74c500348d525fd7e3378e",
   "bones": 49,
-  "primitives": 127,
-  "triangles": 345684,
+  "primitives": 233,
+  "triangles": 545176,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 193517,
-  "vertexSamples": 1293285,
+  "weightSamples": 302157,
+  "vertexSamples": 2020892,
   "contactSamples": 209,
   "motionChecks": {
     "Walk": {
@@ -43,7 +43,7 @@
       }
     },
     "Run": {
-      "seam": 4.318247251444696e-8,
+      "seam": 4.329291147797676e-8,
       "maxSupportHeight": 0.0693302649478954,
       "minSoleHeight": 0.0019649913430772464,
       "supportSlipMean": 0.23056785979229386,
@@ -57,7 +57,7 @@
       }
     }
   },
-  "lowestSampledVertex": -0.002242436842227885,
+  "lowestSampledVertex": -0.004108795015875327,
   "locomotion": {
     "Walk": {
       "revision": "v15-cmu-locomotion-2-head",

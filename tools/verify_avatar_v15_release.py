@@ -29,7 +29,8 @@ for p in report['profiles']:
  checks.append({'id':p['id'],'sha256':p['sha256'],'bytes':len(b),'decodedTextures':len(images),'httpStatus':200})
 for f in json.loads((OUT/'source/manifest.json').read_text())['files']:assert hashlib.sha256((OUT/'source'/f['path']).read_bytes()).hexdigest()==f['sha256']
 for f in json.loads((OUT/'source/cmu/manifest.json').read_text()):assert hashlib.sha256((OUT/'source/cmu'/f['path']).read_bytes()).hexdigest()==f['sha256']
-revision=json.loads((ROOT/'game-src/avatar-v15-catalog.json').read_text())['motionRevision']
+catalog=json.loads((ROOT/'game-src/avatar-v15-catalog.json').read_text(encoding='utf-8'))
+revision=catalog['motionRevision']
 for p in report['profiles']:
  for gait in p['locomotion'].values():assert gait['revision']==revision and gait['source'].startswith('CMU ')
 reader=imageio_ffmpeg.read_frames(str(OUT/'motion-comparison.mp4'),pix_fmt='rgb24');meta=next(reader);count=sum(1 for frame in reader)
@@ -42,7 +43,14 @@ for filename in ['review.html','motion-comparison.mp4']:
 with urllib.request.urlopen(urllib.request.Request('http://localhost/project/ilustrasi/avatar-v2/farmer-v15-proportions/motion-comparison.mp4',headers={'Range':'bytes=0-1023'}),timeout=15) as response:assert response.status==206 and len(response.read())==1024
 manifest=json.loads((ROOT/'assets/game/.vite/manifest.json').read_text());bundle=ROOT/'assets/game'/manifest['game-src/main.js']['file'];assert 'semesta-arka-v15' in bundle.read_text(encoding='utf-8')
 assert revision in bundle.read_text(encoding='utf-8')
+assert catalog['variationRevision'] in bundle.read_text(encoding='utf-8')
+presets=json.loads((ROOT/'game-src/avatar-v15-presets.json').read_text(encoding='utf-8'))
+for preset in presets:
+ name=preset['id']+'.png';portrait=(OUT/'presets'/name).read_bytes()
+ assert portrait==(ROOT/'public/models/characters/v15/portraits'/name).read_bytes()
+ assert portrait==(ROOT/'assets/game/models/characters/v15/portraits'/name).read_bytes()
 admin=(ROOT/'application/views/admin.php').read_text(encoding='utf-8');assert 'SEMESTA_AVATAR_V15_BASE' in admin and 'SEMESTA_FARMER_MODEL' not in admin
 result={'passed':True,'revision':revision,'cmuSourceHashesVerified':True,'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'profiles':checks,'linkedFiles':len(links),'video':{'frames':count,'seconds':meta['duration'],'fps':meta['fps'],'size':meta['size']},'httpRange206':True,'browserInteractionVerified':False,'gpuFPSMeasured':False}
 result['runtimeFilesVerified']=len(runtime_files)
+result['variationRevision']=catalog['variationRevision'];result['presetPortraitsVerified']=len(presets)
 (OUT/'release-check.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

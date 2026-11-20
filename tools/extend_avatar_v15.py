@@ -200,7 +200,9 @@ for o in base:
     clone(o,group,{'top':'tunic','outerwear':'longVest','bottom':'relaxed','footwear':'reinforced'}[slot],change)
 from avatar_v15_wardrobe import extend_wardrobe
 extend_wardrobe(rig,base,s,clone,tag,bind,ellipsoid,tube_asset)
-rig['avatarVariationRevision']='v15-wardrobe-2'
+from avatar_v15_uniforms import extend_uniforms
+extend_uniforms(rig,base,s,clone,tag,bind,tube_asset)
+rig['avatarVariationRevision']='v15-wardrobe-3'
 rig['avatarCapabilities']=json.dumps({'fixedAppearance':False,'expressions':True,'hands':True,'wardrobe':True,'identityMorphs':True})
 rest(rig)
 bpy.ops.object.select_all(action='DESELECT');rig.select_set(True)

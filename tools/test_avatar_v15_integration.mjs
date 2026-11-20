@@ -16,8 +16,8 @@ GLTFLoader.prototype.loadAsync=function(url){
   requests++;this.register(()=>({name:'CPU_TEXTURE_AUDIT',loadTexture:()=>Promise.resolve(new THREE.Texture())}));
   return original.call(this,url);
 };
-assert.equal(presets.length,24);assert.equal(new Set(presets.map(p=>p.id)).size,24);
-assert.equal(new Set(presets.map(p=>JSON.stringify(p.config.appearance))).size,24);
+assert.ok(presets.length>=32);assert.equal(new Set(presets.map(p=>p.id)).size,presets.length);
+assert.equal(new Set(presets.map(p=>JSON.stringify(p.config.appearance))).size,presets.length);
 assert.equal(new Set(presets.map(p=>p.config.profileId)).size,6);
 const configs=presets.map(p=>p.config);
 for(const p of catalog.profiles)for(const [field,definition] of Object.entries(catalog.fields))for(const value of Object.keys(definition.options))configs.push({model:'v15',profileId:p.id,appearance:{...defaults(),[field]:value}});
@@ -63,5 +63,5 @@ production.updateAtmosphere(1);production.updateAtmosphere(2);film.dispose();
 for(const person of [...production.cast,...production.neighborhood.extras])disposeAvatar(person.model);
 const main=await fs.readFile('game-src/main.js','utf8');assert.ok(main.includes('moveX * movementSpeed * dt'));assert.ok(!main.includes('person.position.y = .025 + Math.abs(step)'));
 for(const name of ['main.js','avatar-catalog-thumbnails.js','production-district-scene.js','production-neighborhood.js','production-v14-props.js','production-v15-props.js']){const text=await fs.readFile('game-src/'+name,'utf8');assert.ok(!text.includes("from './avatar-character-3d.js'"));}
-const report={passed:true,presets:24,profiles:6,variationCases:cases,phpRoundtrips:configs.length,invalidRejected:invalid.length,assetRequests:requests,productionActors:cast.length,legacyPresetsMigrated:legacyPresets.length,browserInteractionVerified:false,gpuFPSMeasured:false};
+const report={passed:true,presets:presets.length,profiles:6,variationCases:cases,phpRoundtrips:configs.length,invalidRejected:invalid.length,assetRequests:requests,productionActors:cast.length,legacyPresetsMigrated:legacyPresets.length,browserInteractionVerified:false,gpuFPSMeasured:false};
 await fs.writeFile('ilustrasi/avatar-v2/farmer-v15-proportions/integration-test.json',JSON.stringify(report,null,2));console.log(report);

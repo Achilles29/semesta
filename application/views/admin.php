@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101426">
     <?php $map_asset_root = is_file(FCPATH . 'assets/game/map-assets/kawasan-warga.webp') ? 'assets/game/map-assets/' : 'public/map-assets/'; ?>
+    <?php $avatar_preset_count = count(json_decode(file_get_contents(FCPATH . 'game-src/avatar-v15-presets.json'), TRUE) ?: array()); ?>
     <title>Panel Admin — Republik WkWkWk</title>
     <?php
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
@@ -41,11 +42,11 @@
                 <a href="<?= site_url('admin/'); ?>?view=citizens" data-admin-view="citizens"><span>♙</span> Direktori warga <b id="citizenNavCount">—</b></a>
                 <a href="<?= site_url('admin/'); ?>?view=visitors" data-admin-view="visitors"><span>◉</span> Log pengunjung <b id="visitorNavCount">—</b></a>
                 <a href="<?= site_url('admin/'); ?>?view=settings" data-admin-view="settings"><span>⚙</span> Data & pengaturan</a>
-                <div class="admin-nav-note"><b>AVATAR SYSTEM · V15</b><p>6 profil tubuh.<br>24 racikan siap pakai.<br>Satu sistem dengan game.</p><a href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars">Jelajahi koleksi ↗</a></div>
+                <div class="admin-nav-note"><b>AVATAR SYSTEM · V15</b><p>6 profil tubuh.<br><?= $avatar_preset_count ?> racikan siap pakai.<br>Satu sistem dengan game.</p><a href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars">Jelajahi koleksi ↗</a></div>
             </nav>
             <div class="admin-content">
                 <section class="admin-view active" id="adminView-overview">
-                    <div class="admin-page-intro admin-welcome"><div><span class="eyebrow">REPUBLIK WKWKWK / CONTROL ROOM</span><h2>Dunia yang hidup,<br>dimulai dari studio.</h2><p>Rancang karakter yang beragam, bangun lingkungan bermain, dan kelola cerita dari komunitas.</p><div class="welcome-actions"><a class="save-button" href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars">Buka Studio Avatar ↗</a><a class="welcome-secondary" href="<?= site_url('admin/'); ?>?view=world" data-admin-view="world">Tata wilayah →</a></div></div><div class="welcome-system"><span>CHARACTER SYSTEM</span><strong>V15<span>Karakter game</span></strong><p>Postur · Wajah · Wardrobe</p><span class="welcome-version">24 racikan siap dikembangkan</span></div></div>
+                    <div class="admin-page-intro admin-welcome"><div><span class="eyebrow">REPUBLIK WKWKWK / CONTROL ROOM</span><h2>Dunia yang hidup,<br>dimulai dari studio.</h2><p>Rancang karakter yang beragam, bangun lingkungan bermain, dan kelola cerita dari komunitas.</p><div class="welcome-actions"><a class="save-button" href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars">Buka Studio Avatar ↗</a><a class="welcome-secondary" href="<?= site_url('admin/'); ?>?view=world" data-admin-view="world">Tata wilayah →</a></div></div><div class="welcome-system"><span>CHARACTER SYSTEM</span><strong>V15<span>Karakter game</span></strong><p>Postur · Wajah · Wardrobe</p><span class="welcome-version"><?= $avatar_preset_count ?> racikan siap dikembangkan</span></div></div>
                     <div class="overview-grid">
                         <article class="overview-card overview-feature"><span class="overview-icon">▧</span><span class="eyebrow">STUDIO TATA WILAYAH</span><h3>Bangun peta bermain</h3><p>Atur jalan, bangunan, kendaraan, hewan, sungai, dan fasilitas publik.</p><button type="button" class="text-action" data-admin-view="world">Buka studio wilayah <b>↗</b></button></article>
                         <article class="overview-card overview-stat"><span class="overview-icon">✳</span><span class="eyebrow">MASUKAN WARGA</span><strong id="overviewIdeaCount">—</strong><p>Gagasan yang tercatat untuk pengembangan dunia.</p><button type="button" class="text-action" data-admin-view="ideas">Lihat masukan <b>↗</b></button></article>
