@@ -23,7 +23,7 @@ export function normalizeAvatarConfig(input={}) {
   const old=config.farmer || config, appearance=defaults();
   const sex=old.bodyFrame==='female'?'female':'male';
   const body=['skinny','slender'].includes(old.bodyType)?'slim':['full','plus','mature','soft-mature'].includes(old.bodyType)?'heavy':'balanced';
-  const choices={hairStyle:{short:'short',swept:'short',curtain:'short',tied:'bun',bob:'bun',none:'none',botak:'none',kuncir:'bun',cepak:'crop'},faceShape:{oval:'oval',round:'round',angular:'angular'},eyeShape:{almond:'almond',round:'round'},noseShape:{defined:'defined'},mouthShape:{grin:'wide'},headAccessory:{cap:'cap',topi:'cap'},backAccessory:{backpack:'satchel',satchel:'satchel',ransel:'satchel','tas-anyaman':'satchel'}};
+  const choices={hairStyle:{short:'short',swept:'swept',curtain:'swept',tied:'ponytail',bob:'bob',none:'none',botak:'none',kuncir:'bun',cepak:'crop'},faceShape:{oval:'oval',round:'round',angular:'angular'},eyeShape:{almond:'almond',round:'round'},noseShape:{defined:'defined'},mouthShape:{grin:'wide'},headAccessory:{cap:'cap',topi:'cap',bandana:'headband',caping:'brimHat'},backAccessory:{backpack:'satchel',satchel:'satchel',ransel:'satchel','tas-anyaman':'satchel'}};
   const oldNames={eyeShape:'eyeStyle',noseShape:'noseStyle',mouthShape:'mouthStyle',headAccessory:'headwear',backAccessory:'accessory'};
   for(const [key,map] of Object.entries(choices))appearance[key]=map[old[oldNames[key]||key] || (key==='hairStyle'?config.hair:undefined)]||appearance[key];
   appearance.skinTone={pucat:'light',kuning:'light',sawo:'tan',zaitun:'tan',coklat:'brown',gelap:'deep'}[config.skin]||'warm';
@@ -33,9 +33,10 @@ export function normalizeAvatarConfig(input={}) {
     appearance.skinTone=Object.entries(catalog.skinTones).sort((a,b)=>a[1].factor.reduce((n,v,i)=>n+(Math.sqrt(v)-rgb[i])**2,0)-b[1].factor.reduce((n,v,i)=>n+(Math.sqrt(v)-rgb[i])**2,0))[0][0];
   }
   appearance.hairColor={uban:'silver',pirang:'gold',merah:'auburn',coklat:'brown'}[config.hairColor]||'dark';
-  appearance.topStyle=['tunic','koko','kebaya'].includes(old.outfit)?'tunic':'linen';
+  appearance.topStyle=['jacket','blazer','coat'].includes(old.outfit)?'jacket':['work-shirt','office-shirt','shirt'].includes(old.outfit)?'shirt':['tunic','koko','kebaya'].includes(old.outfit)?'tunic':'linen';
+  appearance.shoeStyle=['shoes','sneakers'].includes(old.footwearStyle)?'sneakers':'travel';
   appearance.outerwearStyle=['tee','loose-tee','koko','kebaya'].includes(old.outfit)?'none':old.outfit==='blazer'?'longVest':'vest';
-  appearance.bottomStyle=['cargo','relaxed','sarong','skirt'].includes(old.bottomStyle)?'relaxed':'fitted';
+  appearance.bottomStyle=old.bottomStyle==='cargo'?'cargo':['relaxed','sarong','skirt'].includes(old.bottomStyle)?'relaxed':'straight';
   return {model:'v15',profileId:`${sex}-${body}`,appearance};
 }
 export const avatarCharacterOptions = config => ({avatarConfig:normalizeAvatarConfig(config)});

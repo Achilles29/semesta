@@ -7,14 +7,35 @@ import argparse, json, math, sys
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from avatar_v14_common import *
-p=argparse.ArgumentParser();p.add_argument('--profile',default='male-balanced');a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
+p=argparse.ArgumentParser();p.add_argument('--profile',default='male-balanced');p.add_argument('--refit-headwear','--refit-bob',dest='refit_bob',action='store_true');a=p.parse_args(sys.argv[sys.argv.index('--')+1:])
 folder=ROOT/'ilustrasi/avatar-v2/farmer-v15-proportions'/a.profile
 bpy.ops.wm.open_mainfile(filepath=str(folder/'avatar.blend'))
 rig=next(o for o in bpy.context.scene.objects if o.type=='ARMATURE');rest(rig)
+if a.refit_bob:
+    from avatar_v15_wardrobe import fit_bob_silhouette,fit_wardrobe_headwear
+    from avatar_v15_review import default_variants
+    fit_bob_silhouette()
+    fit_wardrobe_headwear()
+    bpy.ops.object.select_all(action='DESELECT');rig.select_set(True)
+    for o in bpy.context.scene.objects:
+        if o.type=='MESH' and o.get('avatarSlot') and not o.get('authoringOnly'):o.hide_set(False);o.hide_render=False;o.select_set(True)
+    bpy.context.view_layer.objects.active=rig
+    bpy.ops.export_scene.gltf(filepath=str(folder/'avatar-export.glb'),export_format='GLB',use_selection=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_skins=True,export_extras=True,export_morph=True,export_morph_normal=True,export_try_sparse_sk=True,export_try_omit_sparse_sk=True,export_yup=True)
+    (folder/'avatar-export.glb').replace(folder/'avatar.glb')
+    default_variants()
+    for o in bpy.context.scene.objects:
+        if o.get('avatarVariantGroup'):o.hide_set(o.hide_render)
+    rig.animation_data.action=bpy.data.actions['Idle'];bpy.context.scene.frame_set(1)
+    bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(folder/'avatar.blend'))
+    print('V15_VARIATIONS_READY',a.profile,flush=True);sys.exit(0)
 # Idempotent: generated objects and identity keys can be rebuilt independently.
 for o in list(bpy.context.scene.objects):
     if o.get('v15Variation'):bpy.data.objects.remove(o,do_unlink=True)
 base=[o for o in bpy.context.scene.objects if o.type=='MESH' and o.get('avatarSlot') and not o.get('authoringOnly')]
+for o in base:
+    original=o.data.attributes.get('v15OriginalPosition')
+    if original:
+        for v,co in zip(o.data.vertices,original.data):v.co=co.vector
 for o in base:
     if o.data.shape_keys:
         for key in list(o.data.shape_keys.key_blocks):
@@ -177,18 +198,25 @@ for o in base:
             f=1-smooth(.10*s,.23*s,v.z);v.x*=1+.025*f;v.y-=.018*s*f*smooth(-.02*s,-.16*s,-v.y)
         return v
     clone(o,group,{'top':'tunic','outerwear':'longVest','bottom':'relaxed','footwear':'reinforced'}[slot],change)
-rig['avatarVariationRevision']='v15-wardrobe-1'
+from avatar_v15_wardrobe import extend_wardrobe
+extend_wardrobe(rig,base,s,clone,tag,bind,ellipsoid,tube_asset)
+rig['avatarVariationRevision']='v15-wardrobe-2'
 rig['avatarCapabilities']=json.dumps({'fixedAppearance':False,'expressions':True,'hands':True,'wardrobe':True,'identityMorphs':True})
 rest(rig)
 bpy.ops.object.select_all(action='DESELECT');rig.select_set(True)
 for o in bpy.context.scene.objects:
     if o.type=='MESH' and o.get('avatarSlot') and not o.get('authoringOnly'):o.hide_set(False);o.hide_render=False;o.select_set(True)
 bpy.context.view_layer.objects.active=rig
-bpy.ops.export_scene.gltf(filepath=str(folder/'avatar.glb'),export_format='GLB',use_selection=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_skins=True,export_extras=True,export_morph=True,export_morph_normal=True,export_try_sparse_sk=True,export_try_omit_sparse_sk=True,export_yup=True)
+bpy.ops.export_scene.gltf(filepath=str(folder/'avatar-export.glb'),export_format='GLB',use_selection=True,export_animations=True,export_animation_mode='NLA_TRACKS',export_skins=True,export_extras=True,export_morph=True,export_morph_normal=True,export_try_sparse_sk=True,export_try_omit_sparse_sk=True,export_yup=True)
+(folder/'avatar-export.glb').replace(folder/'avatar.glb')
 # Keep the Blender file immediately viewable with the default outfit.
 for o in bpy.context.scene.objects:
     if o.get('v15Variation'):o.hide_render=True;o.hide_set(True)
     if o.get('authoringOnly'):o.hide_render=True;o.hide_set(True)
+from avatar_v15_review import default_variants
+default_variants()
+for o in bpy.context.scene.objects:
+    if o.get('avatarVariantGroup'):o.hide_set(o.hide_render)
 rig.animation_data.action=bpy.data.actions['Idle'];bpy.context.scene.frame_set(1)
 bpy.context.preferences.filepaths.save_version=0;bpy.ops.wm.save_as_mainfile(filepath=str(folder/'avatar.blend'))
 print('V15_VARIATIONS_READY',a.profile,flush=True)

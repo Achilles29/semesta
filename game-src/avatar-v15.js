@@ -38,7 +38,10 @@ export function createAvatarV15(THREE, asset, options = {}) {
         const {avatarSlot:slot,avatarVariantGroup:group,avatarVariant:variant}=node.userData;
         node.visible=group?state[group]===variant:['accessoryChest','accessoryWaist'].includes(slot)?state[slot]==='on':true;
         // Cap and bulky hair are fitted separately. Keep a close crop beneath the cap.
-        if(slot==='hair' && state.headAccessory==='cap')node.visible=false;
+        if(slot==='hair' && ['cap','beanie','brimHat'].includes(state.headAccessory))node.visible=false;
+        // A full jacket covers the underlying vest/harness rather than letting
+        // those fitted pieces cut through its fabric. Preserve saved selections.
+        if(state.topStyle==='jacket' && ['outerwear','accessoryChest','accessoryWaist'].includes(slot))node.visible=false;
         for(const [name,index] of Object.entries(node.morphTargetDictionary||{}))if(name.startsWith('Id_'))node.morphTargetInfluences[index]=0;
         for(const [key,map] of Object.entries(morphs)){
           const index=node.morphTargetDictionary?.[`Id_${map[state[key]]}`];

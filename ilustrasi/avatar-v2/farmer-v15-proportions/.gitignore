@@ -1,4 +1,5 @@
 *.log
+**/avatar-export.glb
 demo-v14/
 demo-v15/
 video-frames/

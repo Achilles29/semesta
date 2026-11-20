@@ -4,11 +4,11 @@
     {
       "id": "male-slim",
       "passed": true,
-      "bytes": 26743700,
-      "sha256": "cf280aa8f5f08a5bc421b38ea3a69ef1b5658c2afe4acdd68155a829602939ea",
+      "bytes": 30518936,
+      "sha256": "3a6ec688fa32e115ec9b5b404e182a457c2cb967064ad8da8e52d7b729a3801c",
       "bones": 49,
-      "primitives": 46,
-      "triangles": 201804,
+      "primitives": 127,
+      "triangles": 345684,
       "slots": [
         "brows",
         "eyes",
@@ -27,12 +27,12 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 112768,
-      "vertexSamples": 751676,
+      "weightSamples": 193431,
+      "vertexSamples": 1292268,
       "contactSamples": 208,
       "motionChecks": {
         "Walk": {
-          "seam": 6.10982088602996e-8,
+          "seam": 6.116512178688804e-8,
           "maxSupportHeight": 0.010214773708538169,
           "minSoleHeight": -0.0003819154234744049,
           "supportSlipMean": 0.17662855211423417,
@@ -46,7 +46,7 @@
           }
         },
         "Run": {
-          "seam": 1.7272807031898374e-7,
+          "seam": 1.7350376887992347e-7,
           "maxSupportHeight": 0.06936941608601542,
           "minSoleHeight": 0.001970321692179852,
           "supportSlipMean": 0.22584895461061832,
@@ -60,7 +60,7 @@
           }
         }
       },
-      "lowestSampledVertex": 0.002423307967914984,
+      "lowestSampledVertex": -0.0022425924362363125,
       "locomotion": {
         "Walk": {
           "revision": "v15-cmu-locomotion-2-head",
@@ -600,11 +600,11 @@
     {
       "id": "male-balanced",
       "passed": true,
-      "bytes": 26727104,
-      "sha256": "008b82ce9a77258b2857e70f9bc4504946962b2f3a68806a578cdff7b2b9d82c",
+      "bytes": 30657856,
+      "sha256": "b033959cb048fae3c33c775d0fe11f66668ae8d21d3c5b50a9c25790f030737f",
       "bones": 49,
-      "primitives": 46,
-      "triangles": 201804,
+      "primitives": 127,
+      "triangles": 345684,
       "slots": [
         "brows",
         "eyes",
@@ -623,12 +623,12 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 112780,
-      "vertexSamples": 751676,
+      "weightSamples": 193549,
+      "vertexSamples": 1293172,
       "contactSamples": 209,
       "motionChecks": {
         "Walk": {
-          "seam": 8.05842860357453e-8,
+          "seam": 8.077075387691313e-8,
           "maxSupportHeight": 0.009668931751218302,
           "minSoleHeight": -0.00009676063840369231,
           "supportSlipMean": 0.16912221285255946,
@@ -642,7 +642,7 @@
           }
         },
         "Run": {
-          "seam": 2.0939136494146915e-7,
+          "seam": 2.1008423861657022e-7,
           "maxSupportHeight": 0.06930918553681241,
           "minSoleHeight": 0.0019685929973344007,
           "supportSlipMean": 0.2272975095052833,
@@ -656,7 +656,7 @@
           }
         }
       },
-      "lowestSampledVertex": 0.0024234002023490187,
+      "lowestSampledVertex": -0.0022425021592215044,
       "locomotion": {
         "Walk": {
           "revision": "v15-cmu-locomotion-2-head",
@@ -1196,11 +1196,11 @@
     {
       "id": "male-heavy",
       "passed": true,
-      "bytes": 26923996,
-      "sha256": "4e2767419681341908b9d1d17980b29a6bb617c939663e25fe9f565daf68b84f",
+      "bytes": 31210564,
+      "sha256": "df98caf2f61f3043f2097d25f9675512a1369b0c23e77d30179b918d525aa71f",
       "bones": 49,
-      "primitives": 46,
-      "triangles": 201804,
+      "primitives": 127,
+      "triangles": 345684,
       "slots": [
         "brows",
         "eyes",
@@ -1219,8 +1219,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 112784,
-      "vertexSamples": 751789,
+      "weightSamples": 193517,
+      "vertexSamples": 1293285,
       "contactSamples": 209,
       "motionChecks": {
         "Walk": {
@@ -1238,7 +1238,7 @@
           }
         },
         "Run": {
-          "seam": 4.298917938294622e-8,
+          "seam": 4.318247251444696e-8,
           "maxSupportHeight": 0.0693302649478954,
           "minSoleHeight": 0.0019649913430772464,
           "supportSlipMean": 0.23056785979229386,
@@ -1252,7 +1252,7 @@
           }
         }
       },
-      "lowestSampledVertex": 0.0024234635987749054,
+      "lowestSampledVertex": -0.002242436842227885,
       "locomotion": {
         "Walk": {
           "revision": "v15-cmu-locomotion-2-head",
@@ -1792,11 +1792,11 @@
     {
       "id": "female-slim",
       "passed": true,
-      "bytes": 26868016,
-      "sha256": "f72518bfccc388e9091d10dd21e0a2b50ff894c977605aa5f221dd43dfeb46b7",
+      "bytes": 30928404,
+      "sha256": "a077ccd4711c2d6724d27705607b110632f33781551731e8569447aa59ac108b",
       "bones": 49,
-      "primitives": 46,
-      "triangles": 203220,
+      "primitives": 127,
+      "triangles": 349164,
       "slots": [
         "brows",
         "eyes",
@@ -1815,8 +1815,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 113491,
-      "vertexSamples": 756535,
+      "weightSamples": 195244,
+      "vertexSamples": 1304924,
       "contactSamples": 209,
       "motionChecks": {
         "Walk": {
@@ -1834,7 +1834,7 @@
           }
         },
         "Run": {
-          "seam": 4.637533065898758e-8,
+          "seam": 4.639761988500801e-8,
           "maxSupportHeight": 0.06316200131390223,
           "minSoleHeight": 0.0019620371267734943,
           "supportSlipMean": 0.20986655181738176,
@@ -1848,7 +1848,7 @@
           }
         }
       },
-      "lowestSampledVertex": -0.006774750339882313,
+      "lowestSampledVertex": -0.01186730536762709,
       "locomotion": {
         "Walk": {
           "revision": "v15-cmu-locomotion-2-head",
@@ -2388,11 +2388,11 @@
     {
       "id": "female-balanced",
       "passed": true,
-      "bytes": 26840996,
-      "sha256": "0b7fec2fa38df8f4210b2c4a1aab41cdd70400b60bc7c8cec0116ec76b207d0c",
+      "bytes": 30904912,
+      "sha256": "8eef92d445dea7a8b0997383112e49c72037e9cbf7c6265cec4cf82b06519da8",
       "bones": 49,
-      "primitives": 46,
-      "triangles": 203220,
+      "primitives": 127,
+      "triangles": 349164,
       "slots": [
         "brows",
         "eyes",
@@ -2411,8 +2411,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 113495,
-      "vertexSamples": 756535,
+      "weightSamples": 195240,
+      "vertexSamples": 1304924,
       "contactSamples": 210,
       "motionChecks": {
         "Walk": {
@@ -2430,7 +2430,7 @@
           }
         },
         "Run": {
-          "seam": 1.5915507933783601e-7,
+          "seam": 1.5950188664293208e-7,
           "maxSupportHeight": 0.0630959332366639,
           "minSoleHeight": 0.0019581272802511734,
           "supportSlipMean": 0.21042030861677447,
@@ -2444,7 +2444,7 @@
           }
         }
       },
-      "lowestSampledVertex": -0.006774619743470572,
+      "lowestSampledVertex": -0.011867174738157016,
       "locomotion": {
         "Walk": {
           "revision": "v15-cmu-locomotion-2-head",
@@ -2984,11 +2984,11 @@
     {
       "id": "female-heavy",
       "passed": true,
-      "bytes": 27003972,
-      "sha256": "e8825eb967b15289c1ee4e078491f9b26e8f009155ce2692f8c131a2bc04b9bf",
+      "bytes": 30995656,
+      "sha256": "2f17b734dab5ca6f613c099228790ef5ea89b5f5d087e11028d10c5627fe6839",
       "bones": 49,
-      "primitives": 46,
-      "triangles": 203220,
+      "primitives": 127,
+      "triangles": 349164,
       "slots": [
         "brows",
         "eyes",
@@ -3007,12 +3007,12 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 113499,
-      "vertexSamples": 756648,
+      "weightSamples": 195292,
+      "vertexSamples": 1305376,
       "contactSamples": 210,
       "motionChecks": {
         "Walk": {
-          "seam": 1.827107684107543e-7,
+          "seam": 1.8294241702423997e-7,
           "maxSupportHeight": 0.010032132951062686,
           "minSoleHeight": 0.00020401930529678758,
           "supportSlipMean": 0.1541287234806757,
@@ -3026,7 +3026,7 @@
           }
         },
         "Run": {
-          "seam": 4.379071008586699e-8,
+          "seam": 4.4799363024816685e-8,
           "maxSupportHeight": 0.06308707002022453,
           "minSoleHeight": 0.0019491894446340419,
           "supportSlipMean": 0.21187480361318553,
@@ -3040,7 +3040,7 @@
           }
         }
       },
-      "lowestSampledVertex": -0.006774592842645866,
+      "lowestSampledVertex": -0.011867147961666213,
       "locomotion": {
         "Walk": {
           "revision": "v15-cmu-locomotion-2-head",

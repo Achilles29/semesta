@@ -449,7 +449,7 @@ function initExploreAvatarCustomizer() {
     $('#avatarPickerInstruction').textContent = selectedGender ? `Pilih satu dari ${presets.length} avatar ${selectedGender === 'male' ? 'cowok' : 'cewek'} siap pakai.` : 'Pilih cowok atau cewek untuk melihat avatar yang tersedia.';
     presets.forEach((preset) => {
       const card = document.createElement('button'); card.type='button'; card.className='avatar-preset-card'; card.dataset.presetId=preset.id; card.setAttribute('aria-pressed','false');
-      const image=document.createElement('img');image.alt='';image.loading='lazy';image.src=new URL(`portraits/${preset.id}.png`,new URL(window.SEMESTA_AVATAR_V15_BASE,location.href)).href;
+      const image=document.createElement('img');image.alt='';image.loading='lazy';image.src=new URL(`portraits/${preset.id}.png?v=${AVATAR_V15_CATALOG.variationRevision}`,new URL(window.SEMESTA_AVATAR_V15_BASE,location.href)).href;
       const name=document.createElement('b');name.textContent=preset.name;
       const meta=document.createElement('small');meta.textContent=AVATAR_V15_CATALOG.profiles.find(p=>p.id===preset.config.profileId).label;
       card.append(image,name,meta);card.addEventListener('click',()=>setSelectedPreset(preset));grid.append(card);

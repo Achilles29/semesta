@@ -34,3 +34,11 @@ Revision: `v15-wardrobe-1`. Sumber yang dapat diedit ada di
 - Animasi CMU tetap tunduk pada ketentuan CMU di atas; lisensinya bukan CC0.
 - Distribusi runtime `.gltf`/`.bin`/tekstur berbasis hash memakai sumber dan
   ketentuan yang sama dengan GLB; pengemasan tidak mengubah lisensi.
+
+## Wardrobe revision 2
+
+`tools/avatar_v15_wardrobe.py` creates the original pockets, seams, collars,
+fitted sleeves, jacket hem, headwear, hair additions, jewellery and watch.
+These new components and the procedural woven roughness texture are CC0.
+The expanded trouser, shirt, hair and shoe meshes remain derivatives of the
+MakeHuman assets attributed above. Approved CMU motion data is unchanged.

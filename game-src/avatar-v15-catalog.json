@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "contract": "semesta-arka-v15",
   "motionRevision": "v15-cmu-locomotion-2-head",
   "defaultProfile": "male-balanced",
@@ -135,7 +135,10 @@
     "short": "Pendek bertekstur",
     "crop": "Cepak",
     "bun": "Sanggul",
-    "none": "Tanpa rambut"
+    "none": "Tanpa rambut",
+    "swept": "Sisir samping",
+    "ponytail": "Ekor kuda",
+    "bob": "Bob pendek"
   },
   "palettes": {
     "indigo": {
@@ -191,6 +194,65 @@
         0.65,
         0.75
       ]
+    },
+    "slate": {
+      "label": "Abu & arang",
+      "top": [
+        0.56,
+        0.62,
+        0.66
+      ],
+      "outerwear": [
+        0.5,
+        0.55,
+        0.6
+      ],
+      "bottom": [
+        0.65,
+        0.67,
+        0.7
+      ],
+      "footwear": [
+        0.75,
+        0.78,
+        0.8
+      ]
+    },
+    "terracotta": {
+      "label": "Terakota & pasir",
+      "top": [
+        0.85,
+        0.51,
+        0.32
+      ],
+      "outerwear": [
+        1.4,
+        0.8,
+        0.45
+      ],
+      "bottom": [
+        1.8,
+        1.5,
+        1.05
+      ]
+    },
+    "navy": {
+      "label": "Biru laut",
+      "top": [
+        0.45,
+        0.64,
+        0.85
+      ],
+      "outerwear": [
+        0.55,
+        0.8,
+        1.2
+      ],
+      "bottom": [
+        0.65,
+        0.8,
+        1.15
+      ]
     }
   },
   "readySlots": [
@@ -218,7 +280,7 @@
     "license": "provenance required per asset",
     "ready": "only ready assets can appear as selectable options"
   },
-  "variationRevision": "v15-wardrobe-1",
+  "variationRevision": "v15-wardrobe-2",
   "fields": {
     "skinTone": {
       "label": "Warna kulit",
@@ -249,7 +311,10 @@
         "short": "Pendek bertekstur",
         "crop": "Cepak",
         "bun": "Sanggul",
-        "none": "Tanpa rambut"
+        "none": "Tanpa rambut",
+        "swept": "Sisir samping",
+        "ponytail": "Ekor kuda",
+        "bob": "Bob pendek"
       }
     },
     "palette": {
@@ -258,7 +323,10 @@
       "options": {
         "indigo": "Gading & indigo",
         "forest": "Pasir & hijau",
-        "wine": "Gading & marun"
+        "wine": "Gading & marun",
+        "slate": "Abu & arang",
+        "terracotta": "Terakota & pasir",
+        "navy": "Biru laut"
       }
     },
     "faceShape": {
@@ -320,7 +388,9 @@
       "default": "linen",
       "options": {
         "linen": "Kemeja linen",
-        "tunic": "Tunik"
+        "tunic": "Tunik",
+        "shirt": "Kemeja berkerah",
+        "jacket": "Jaket lapangan lengan panjang"
       }
     },
     "outerwearStyle": {
@@ -334,10 +404,13 @@
     },
     "bottomStyle": {
       "label": "Celana",
-      "default": "fitted",
+      "default": "straight",
       "options": {
-        "fitted": "Pas badan",
-        "relaxed": "Longgar"
+        "straight": "Celana lurus",
+        "relaxed": "Loose / longgar",
+        "wide": "Wide-leg / lebar",
+        "cargo": "Cargo bersaku",
+        "fitted": "Regular tapered"
       }
     },
     "shoeStyle": {
@@ -345,7 +418,9 @@
       "default": "travel",
       "options": {
         "travel": "Bot perjalanan",
-        "reinforced": "Bot tebal"
+        "reinforced": "Bot tebal",
+        "sneakers": "Sneaker kanvas",
+        "workBoots": "Bot kerja"
       }
     },
     "headAccessory": {
@@ -353,7 +428,10 @@
       "default": "none",
       "options": {
         "none": "Tanpa aksesori",
-        "cap": "Topi kain"
+        "cap": "Topi kain",
+        "beanie": "Kupluk",
+        "brimHat": "Topi bertepi lebar",
+        "headband": "Ikat kepala"
       }
     },
     "faceAccessory": {
@@ -361,7 +439,8 @@
       "default": "none",
       "options": {
         "none": "Tanpa aksesori",
-        "glasses": "Kacamata bulat"
+        "glasses": "Kacamata bulat",
+        "squareGlasses": "Kacamata persegi"
       }
     },
     "earAccessory": {
@@ -369,7 +448,8 @@
       "default": "none",
       "options": {
         "none": "Tanpa aksesori",
-        "hoops": "Anting lingkar"
+        "hoops": "Anting lingkar",
+        "studs": "Anting stud"
       }
     },
     "handAccessory": {
@@ -377,7 +457,8 @@
       "default": "none",
       "options": {
         "none": "Tanpa aksesori",
-        "bracelets": "Gelang"
+        "bracelets": "Gelang",
+        "watch": "Jam tangan"
       }
     },
     "backAccessory": {

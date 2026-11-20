@@ -1,11 +1,11 @@
 {
   "id": "female-heavy",
   "passed": true,
-  "bytes": 27003972,
-  "sha256": "e8825eb967b15289c1ee4e078491f9b26e8f009155ce2692f8c131a2bc04b9bf",
+  "bytes": 30995656,
+  "sha256": "2f17b734dab5ca6f613c099228790ef5ea89b5f5d087e11028d10c5627fe6839",
   "bones": 49,
-  "primitives": 46,
-  "triangles": 203220,
+  "primitives": 127,
+  "triangles": 349164,
   "slots": [
     "brows",
     "eyes",
@@ -24,12 +24,12 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 113499,
-  "vertexSamples": 756648,
+  "weightSamples": 195292,
+  "vertexSamples": 1305376,
   "contactSamples": 210,
   "motionChecks": {
     "Walk": {
-      "seam": 1.827107684107543e-7,
+      "seam": 1.8294241702423997e-7,
       "maxSupportHeight": 0.010032132951062686,
       "minSoleHeight": 0.00020401930529678758,
       "supportSlipMean": 0.1541287234806757,
@@ -43,7 +43,7 @@
       }
     },
     "Run": {
-      "seam": 4.379071008586699e-8,
+      "seam": 4.4799363024816685e-8,
       "maxSupportHeight": 0.06308707002022453,
       "minSoleHeight": 0.0019491894446340419,
       "supportSlipMean": 0.21187480361318553,
@@ -57,7 +57,7 @@
       }
     }
   },
-  "lowestSampledVertex": -0.006774592842645866,
+  "lowestSampledVertex": -0.011867147961666213,
   "locomotion": {
     "Walk": {
       "revision": "v15-cmu-locomotion-2-head",
