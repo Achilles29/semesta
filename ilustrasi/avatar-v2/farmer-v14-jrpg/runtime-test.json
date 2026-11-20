@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "sha256": "7ae3f972164e172e8ddeca78518f52f425bedd14f13f92eaf09c9c74f5c7c78d",
+  "glbBytes": 19137760,
+  "bones": 49,
+  "meshPrimitives": 12,
+  "triangles": 109060,
+  "materials": 12,
+  "embeddedImages": [
+    {
+      "name": "eyebrow001",
+      "mimeType": "image/png",
+      "bytes": 89619
+    },
+    {
+      "name": "brown_eye",
+      "mimeType": "image/png",
+      "bytes": 610817
+    },
+    {
+      "name": "short02_normal",
+      "mimeType": "image/png",
+      "bytes": 1626745
+    },
+    {
+      "name": "short02_diffuse",
+      "mimeType": "image/png",
+      "bytes": 3553543
+    },
+    {
+      "name": "young_lightskinned_male_diffuse3",
+      "mimeType": "image/png",
+      "bytes": 3593099
+    },
+    {
+      "name": "teeth",
+      "mimeType": "image/png",
+      "bytes": 1799930
+    },
+    {
+      "name": "linen_normal",
+      "mimeType": "image/png",
+      "bytes": 212271
+    },
+    {
+      "name": "linen_basecolor",
+      "mimeType": "image/png",
+      "bytes": 274792
+    },
+    {
+      "name": "linen_roughness",
+      "mimeType": "image/png",
+      "bytes": 265686
+    },
+    {
+      "name": "leather_normal",
+      "mimeType": "image/png",
+      "bytes": 298962
+    },
+    {
+      "name": "leather_basecolor",
+      "mimeType": "image/png",
+      "bytes": 219119
+    },
+    {
+      "name": "leather_roughness",
+      "mimeType": "image/png",
+      "bytes": 302586
+    },
+    {
+      "name": "indigo_normal",
+      "mimeType": "image/png",
+      "bytes": 221518
+    },
+    {
+      "name": "indigo_basecolor",
+      "mimeType": "image/png",
+      "bytes": 168491
+    },
+    {
+      "name": "indigo_roughness",
+      "mimeType": "image/png",
+      "bytes": 265470
+    },
+    {
+      "name": "twill_normal",
+      "mimeType": "image/png",
+      "bytes": 192145
+    },
+    {
+      "name": "twill_basecolor",
+      "mimeType": "image/png",
+      "bytes": 142008
+    },
+    {
+      "name": "twill_roughness",
+      "mimeType": "image/png",
+      "bytes": 266023
+    }
+  ],
+  "weightSamples": 62446,
+  "maxWeightError": 3.725290298461914e-8,
+  "vertexSamples": 1894438,
+  "gestureSamples": 43995,
+  "expressionBindings": 3,
+  "pathChecks": 44,
+  "maxFootPathError": 6.535959998221763e-7,
+  "clips": [
+    {
+      "name": "Idle",
+      "seconds": 3,
+      "bounds": [
+        [
+          -0.3199441507467115,
+          0.004975906036692889,
+          -0.14119997372872714
+        ],
+        [
+          0.31994411078450613,
+          1.8210021603122004,
+          0.22508514649147857
+        ]
+      ]
+    },
+    {
+      "name": "Walk",
+      "seconds": 1,
+      "bounds": [
+        [
+          -0.32208374699445064,
+          0.004975916288544387,
+          -0.2449327162469656
+        ],
+        [
+          0.3220837815497946,
+          1.7879805703333913,
+          0.4150850935619628
+        ]
+      ]
+    },
+    {
+      "name": "Run",
+      "seconds": 0.6666666865348816,
+      "bounds": [
+        [
+          -0.3242738143896438,
+          0.00392977753129405,
+          -0.37073953878465526
+        ],
+        [
+          0.3242737959122846,
+          1.76198047693361,
+          0.5150849779238342
+        ]
+      ]
+    },
+    {
+      "name": "Wave",
+      "seconds": 2,
+      "bounds": [
+        [
+          -0.3199441507467115,
+          0.004975906036692889,
+          -0.14119997372872714
+        ],
+        [
+          0.560697958683402,
+          1.8209807135060718,
+          0.22508514649147857
+        ]
+      ]
+    },
+    {
+      "name": "Sit",
+      "seconds": 2,
+      "bounds": [
+        [
+          -0.3104515955903142,
+          0.004975308302040972,
+          -0.14119998117726484
+        ],
+        [
+          0.31103118955219083,
+          1.4409806504360174,
+          0.6250852693357483
+        ]
+      ]
+    },
+    {
+      "name": "Point",
+      "seconds": 2,
+      "bounds": [
+        [
+          -0.3199441507467115,
+          0.004975906036692889,
+          -0.14119997372872714
+        ],
+        [
+          0.3134661330269174,
+          1.8209807135060718,
+          0.7389459801378364
+        ]
+      ]
+    },
+    {
+      "name": "Hold",
+      "seconds": 2,
+      "bounds": [
+        [
+          -0.31465663553994033,
+          0.004975906036692889,
+          -0.14119997372872714
+        ],
+        [
+          0.31509082398404153,
+          1.8209807135060718,
+          0.45974601364218826
+        ]
+      ]
+    }
+  ],
+  "instanceIsolation": true,
+  "texturePixelsDecodedByThisTest": false,
+  "gpuFPSMeasured": false,
+  "browserInteractionVerified": false
+}

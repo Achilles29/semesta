@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { createHumanModel, setFarmerAsset } from '../game-src/avatar-character-3d.js';
 
-const folder = new URL('../ilustrasi/avatar-v2/farmer-v11-body-wardrobe/', import.meta.url);
-const bytes = await fs.readFile(new URL('farmer-v11-body-wardrobe.glb', folder));
+const source = process.argv[2] ? pathToFileURL(resolve(process.argv[2])) : new URL('../ilustrasi/avatar-v2/farmer-v11-body-wardrobe/farmer-v11-body-wardrobe.glb', import.meta.url);
+const folder = new URL('./', source);
+const bytes = await fs.readFile(source);
 const asset = await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), '');
 setFarmerAsset(asset);
 const a = createHumanModel(THREE, { ps2Farmer: true });
@@ -89,7 +92,7 @@ assert.ok(meshes.some(n => n.userData.avatarSlot === 'hair' && n.visible), 'Rest
 for (let i = 0; i < bMeshes.length; i++) assert.deepEqual(bMeshes[i].morphTargetInfluences || [], frozenB[i], 'Body shape leaked between instances');
 assert.ok(sourceMeshes.every(n => !n.morphTargetInfluences || n.morphTargetInfluences.every(v => v === 0)), 'Source morph mutated');
 assert.ok(asset.animations.every(c => c.tracks.every(t => !t.name.includes('morphTargetInfluences'))), 'Animation overwrites wardrobe morphs');
-assert.deepEqual(Object.keys(a.actions).sort(), ['Idle','Walk','Run','Interact','Wave','Hoe','Watering','Harvest'].sort());
+for (const name of ['Idle','Walk','Run','Interact','Wave','Hoe','Watering','Harvest']) assert.ok(a.actions[name], `Missing legacy clip: ${name}`);
 
 // Sample visible vertices with actual morph + skinning for all 16 bodies and eight
 // clips. Alternate skirt/sarong and long/short sleeves; not an all-frame collision proof.
@@ -117,7 +120,7 @@ for (const bodyFrame of caps.bodyFrame) for (const bodyType of caps.bodyType) {
   poseReports.push({ bodyFrame, bodyType, min: box.min.toArray(), max: box.max.toArray() });
 }
 const report = { passed: true, engine: THREE.REVISION, wardrobeBodyCombinations, headAccessoryCombinations,
-  bodyVariants: 16, animationClips: 8, poseSamplesPerClip: 5, vertexStride: 3, sampledVertices,
+  bodyVariants: 16, animationClips: asset.animations.length, poseSamplesPerClip: 5, vertexStride: 3, sampledVertices,
   meshes: meshes.length, vertices, triangles, activeTriangleRangeInWardrobeTest: [minActiveTriangles, maxActiveTriangles],
   maxWeightError, independentInstances: true, appearanceRoundtrip: true, poseReports,
   limits: 'Numerical morph/skinning and selection tests. Does not certify every wardrobe combination is collision-free or all costumes culturally exhaustive.' };

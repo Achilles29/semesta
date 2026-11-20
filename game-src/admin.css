@@ -133,3 +133,15 @@
   .admin-body .avatar-preview-card{max-height:calc(100dvh - 196px)}
   .admin-body .avatar-preview-card canvas{height:clamp(180px,calc(100dvh - 620px),360px)}
 }
+.admin-body .avatar-expression-controls[hidden]{display:none!important}
+.admin-body .avatar-candidate-controls,.admin-body .avatar-expression-controls{flex-wrap:wrap;gap:8px}
+.admin-body .avatar-expression-controls input[type=range]{width:95px;accent-color:#315c52}
+
+.admin-body .avatar-playback-bar[hidden]{display:none!important}
+.admin-body .avatar-variation-controls{flex-wrap:wrap;align-items:center;padding:10px;border:1px solid #d5e1d9;border-radius:8px;background:#f4f8f5}
+.admin-body .avatar-variation-controls label{margin-left:0;min-width:0}
+.admin-body .avatar-variation-controls select{max-width:100%}
+.admin-body .avatar-variation-controls .avatar-variation-toggle{display:flex;align-items:center;gap:5px}
+.admin-body .avatar-variation-controls small{flex-basis:100%;color:#587168;font-size:11px}
+/* V15 studio shares the game appearance contract. */
+#adminView-avatars .avatar-options{display:block}#adminView-avatars .v15-editor{grid-template-columns:repeat(2,minmax(0,1fr));background:#f8faf8}#adminView-avatars [data-form]>label{display:flex;flex-direction:column;gap:8px}#adminView-avatars [data-preset-name]{padding:12px;border:1px solid #c9d6ce;border-radius:8px}#adminView-avatars .avatar-library{margin-top:32px}#adminView-avatars [data-cards]{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}#adminView-avatars [data-cards] img{width:100%;aspect-ratio:6/7;object-fit:cover;background:#e8eeea;border-radius:10px}#adminView-avatars .builder-actions{display:flex;flex-wrap:wrap;gap:8px}#adminView-avatars .builder-actions button{padding:10px 14px;border:1px solid #bdccc3;border-radius:8px;background:#edf3ef;color:#214638}#adminView-avatars [data-status],#adminView-avatars [data-asset]{padding:10px;font-size:12px}#adminView-avatars canvas{touch-action:none}#adminView-avatars .character-preview-toolbar{flex-wrap:wrap}#adminView-avatars [data-form] input{max-width:100%}

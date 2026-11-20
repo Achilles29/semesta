@@ -5,7 +5,8 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {sampleEpisode,EPISODE_DURATION,EPISODE_CUES,EPISODE_SCENES,EPISODE_SHOTS,EPISODE_EVENTS} from '../game-src/production-v15-episode.js';
 import {createV15Props} from '../game-src/production-v15-props.js';
 import {buildProductionDistrict} from '../game-src/production-district-scene.js';
-import {createHumanModel,setFarmerAsset} from '../game-src/avatar-character-3d.js';
+import {createHumanModel} from '../game-src/avatar-runtime.js';
+import {loadTestAvatars} from './avatar_v15_test_asset.mjs';
 const base='public/audio/produksi/episode-002/release-v15/';
 const timeline=JSON.parse(readFileSync(base+'timeline.json','utf8'));
 const approved=JSON.parse(readFileSync('public/audio/produksi/episode-002/generated-v15/batch-plan.json','utf8')).cues;
@@ -19,8 +20,7 @@ for(const stem of ['master','dialogue','music','fx']){
  assert.ok(Math.abs(wav.readUInt32LE(40)/4/44100-EPISODE_DURATION)<1e-5);
  for(let i=44;i<wav.length;i+=2)assert.ok(Math.abs(wav.readInt16LE(i))<32767,'No clipping '+stem);
 }
-const bytes=readFileSync('public/models/characters/semesta-farmer-v11.glb');
-setFarmerAsset(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''));
+await loadTestAvatars();
 const world=new THREE.Group(),production=buildProductionDistrict(THREE,{world,makeHuman(p,o){const m=createHumanModel(THREE,o);p.add(m.figure);return m;},makeText(){return new THREE.Sprite(new THREE.SpriteMaterial());},addCollider(x,z){return{x,z};},createWorldAsset(){return new THREE.Group();}});
 const originalCount=production.cast.length,props=createV15Props(THREE,production),camera=new THREE.PerspectiveCamera();
 const originalExtraVisibility=production.neighborhood.extras.map(e=>e.root.visible);
@@ -104,8 +104,8 @@ for(const t of inspectionTimes){
  for(const [owner,name,width,height] of pairs){
  const paper=props.group.getObjectByName(name);
  const inverse=paper.matrixWorld.clone().invert();let closest=Infinity,contact=null,hits=0;
- owner.model.figure.traverse(m=>{if(!m.isSkinnedMesh||!m.visible||!m.name.startsWith('Hands_'))return;
-  const indices=m.skeleton.bones.map((b,i)=>/^hand[LR]$/.test(b.name)?i:-1).filter(i=>i>=0);
+ owner.model.figure.traverse(m=>{if(!m.isSkinnedMesh||!m.visible||m.userData.avatarSlot!=='skin')return;
+  const indices=m.skeleton.bones.map((b,i)=>/^(hand|thumb|index|middle|ring|little)/.test(b.name)?i:-1).filter(i=>i>=0);
   for(let i=0;i<m.geometry.attributes.position.count;i++){
    let weight=0;for(let j=0;j<4;j++)if(indices.includes(m.geometry.attributes.skinIndex.getComponent(i,j)))weight+=m.geometry.attributes.skinWeight.getComponent(i,j);
    if(weight<.7)continue;

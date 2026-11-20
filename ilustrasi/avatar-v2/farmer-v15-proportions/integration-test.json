@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "presets": 24,
+  "profiles": 6,
+  "variationCases": 348,
+  "phpRoundtrips": 392,
+  "invalidRejected": 6,
+  "assetRequests": 6,
+  "productionActors": 17,
+  "legacyPresetsMigrated": 20,
+  "browserInteractionVerified": false,
+  "gpuFPSMeasured": false
+}

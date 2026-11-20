@@ -1,12 +1,15 @@
 import {createV6Props} from './production-v6-props.js';
-import {createHumanModel} from './avatar-character-3d.js';
-import {farmerCharacterOptions,FARMER_PRESET} from './avatar-farmer-config.js';
+import {createHumanModel} from './avatar-runtime.js';
+import {avatarCharacterOptions as farmerCharacterOptions} from './avatar-v15-config.js';
+const FARMER_PRESET={};
 import {V15_SET} from './production-v15-episode.js';
 import {createGripRig} from './production-grip-rig.js';
+import {createHeldPanelFitter} from './avatar-held-panel.js';
 
 /** Owned cinematic cast and props: never saved to world/admin data. */
 export function createV15Props(THREE,production){
   const added=[];
+  const fitPanel=createHeldPanelFitter(THREE);
   for(const [id,bodyType,shirt,hair,face] of [
     ['v15-young','slender','#e0ddd2','short','oval'],
     ['v15-father','skinny','#eae5d7','swept','angular'],
@@ -41,6 +44,7 @@ export function createV15Props(THREE,production){
   for(let i=0;i<3;i++)box(desk,'#a19b8b',[-.20,.862,-.30-i*.05],[.25,.003,.008]);
   function paper(name,color,w=.4,h=.3){
     const p=new THREE.Group();p.name=name;group.add(p);
+    p.userData.heldPanel={width:w,height:h};
     box(p,color,[0,0,0],[w,h,.022]);
     for(let i=0;i<3;i++)box(p,'#a19b8b',[-.025,h*.2-i*.055,.014],[w*.65,.012,.003]);
     return p;
@@ -89,6 +93,7 @@ export function createV15Props(THREE,production){
     bone.updateWorldMatrix(true,false);
     const correction=bone.getWorldPosition(new THREE.Vector3()).sub(new THREE.Vector3(...target));
     prop.position.addScaledVector(correction,weight);
+    if(prop.userData.heldPanel)fitPanel(prop,npc.model,prop.userData.heldPanel.width,prop.userData.heldPanel.height,weight);
   }
   return {...base,pose:gripPose,extraCast:added,poseExtras,resetExtras,update(shot){
     base.update(shot);photo.position.fromArray(shot.props.photo);

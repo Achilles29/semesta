@@ -1,4 +1,6 @@
 import { clone as cloneSkeleton } from 'three/addons/utils/SkeletonUtils.js';
+import { createExpressionController } from './avatar-expression.js';
+import { createHandController } from './avatar-hands.js';
 
 export const FARMER_V8_CONTRACT = 'semesta-farmer-v8-legacy19';
 export const FARMER_V8_CAPABILITIES = Object.freeze({
@@ -85,7 +87,13 @@ export function applyFarmerAppearance(figure, options = {}) {
     for (const material of (Array.isArray(node.material) ? node.material : [node.material])) {
       const channel = material.userData.avatarColor || material.name.replace(/^V8_/, '');
       const option = CHANNELS[channel];
-      if (option && material.color) material.color.set(appearance.colors[option]);
+      if (option && material.color) {
+        material.color.set(appearance.colors[option]);
+        const tint = material.userData.avatarTint;
+        if (Array.isArray(tint) && tint.length === 3) {
+          material.color.r *= tint[0]; material.color.g *= tint[1]; material.color.b *= tint[2];
+        }
+      }
     }
   });
   figure.userData.appearance = appearance;
@@ -98,6 +106,7 @@ export function createFarmerV8(THREE, asset, options = {}) {
   figure.userData.avatarCapabilities = readMetadata(asset.scene, 'avatarCapabilities', FARMER_V8_CAPABILITIES);
   figure.userData.avatarMorphs = readMetadata(asset.scene, 'avatarMorphs', {});
   figure.userData.avatarBodyMorphs = readMetadata(asset.scene, 'avatarBodyMorphs', {});
+  figure.userData.locomotion = readMetadata(asset.scene, 'avatarLocomotion', {});
   const materials = new Map();
   figure.traverse((node) => {
     if (!node.isMesh) return;
@@ -111,10 +120,26 @@ export function createFarmerV8(THREE, asset, options = {}) {
     node.material = Array.isArray(node.material) ? node.material.map(owned) : owned(node.material);
   });
   applyFarmerAppearance(figure, options);
+  figure.userData.expressionController = createExpressionController(figure);
+  figure.userData.handController = createHandController(figure);
   figure.userData.setAppearance = (next) => applyFarmerAppearance(figure, next);
   figure.userData.animations = asset.animations || [];
   figure.scale.setScalar(options.scale || 1);
-  const bone = (name) => figure.getObjectByName(name);
+  const bone = (name) => figure.getObjectByName(name) || figure.getObjectByName(THREE.PropertyBinding.sanitizeNodeName(name));
+  const attachments = readMetadata(asset.scene, 'avatarAttachments', { head:'head',handL:'hand.L',handR:'hand.R',back:'chest' });
+  figure.userData.getAttachment = name => bone(attachments[name] || name);
+  const gripOffsets = readMetadata(asset.scene, 'avatarGripOffsets', {});
+  const grips = {};
+  for (const [name, offset] of Object.entries(gripOffsets)) {
+    const parent = figure.userData.getAttachment(name);
+    if (!parent) continue;
+    const socket = new THREE.Group(); socket.name = `Grip_${name}`;
+    socket.position.fromArray(offset.position); socket.rotation.fromArray([...offset.rotation, 'XYZ']);
+    socket.userData.basePosition = [...offset.position];
+    parent.add(socket); grips[name] = socket;
+  }
+  figure.userData.gripSockets = grips;
+  figure.userData.getGrip = name => grips[name] || figure.userData.getAttachment(name);
   const mixer = new THREE.AnimationMixer(figure);
   const actions = Object.fromEntries((asset.animations || []).map((clip) => [clip.name, mixer.clipAction(clip)]));
   actions.Idle?.play();

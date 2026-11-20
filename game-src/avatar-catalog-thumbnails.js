@@ -1,5 +1,5 @@
-import { createHumanModel } from './avatar-character-3d.js';
-import { farmerCharacterOptions } from './avatar-farmer-config.js';
+import { createHumanModel,loadAvatarProfile } from './avatar-runtime.js';
+import { avatarCharacterOptions as farmerCharacterOptions } from './avatar-v15-config.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 /** One renderer, lazy visible-page jobs, actual game meshes (not concept images). */
@@ -27,7 +27,9 @@ export function createAvatarThumbnails(THREE) {
         if(!cache.has(key)) {
           await new Promise(resolve=>requestAnimationFrame(resolve));
           if(disposed || !image.isConnected)continue;
-          const model=createHumanModel(THREE,farmerCharacterOptions(config));
+          const options=farmerCharacterOptions(config);await loadAvatarProfile(options.avatarConfig.profileId);
+          if(disposed || !image.isConnected)continue;
+          const model=createHumanModel(THREE,options);
           try {
             model.mixer?.update(.15);scene.add(model.figure);renderer.render(scene,camera);
             if(cache.size>=100)cache.delete(cache.keys().next().value);

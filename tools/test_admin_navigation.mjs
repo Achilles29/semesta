@@ -6,6 +6,7 @@ import {readFileSync} from 'node:fs';
 const php=process.env.PHP_BINARY || (process.platform==='win32'?'C:/xampp/php/php.exe':'php');
 const views=['overview','avatars','world','production','objects','ideas','citizens','visitors','settings'];
 const main=readFileSync('game-src/main.js','utf8');
+assert.ok(main.includes('start().catch('),'Entry must call start; an unreferenced studio/game is tree-shaken from the build');
 const loadRegion=main.slice(main.indexOf('function loadRegion('),main.indexOf('function loadRegion(')+900);
 assert.ok(loadRegion.includes('updateAdminQuery({region})'),'Background region load only changes region');
 assert.ok(!loadRegion.includes("set('view'"),'Background editor must not hijack active view');
@@ -15,7 +16,7 @@ for(const base of ['http://localhost/project/','http://localhost:8080/project/',
   const html=result.stdout;
   const nav=html.match(/<nav class="admin-nav"[\s\S]*?<\/nav>/)[0];
   for(const view of views) assert.ok(nav.includes(`href="${base}admin/?view=${view}"`),`${view}: ${base}`);
-  assert.ok(html.includes('id="avatarStudioModel"')); assert.ok(html.includes('semesta-farmer-v11.glb'));
+  assert.ok(html.includes('SEMESTA_AVATAR_V15_BASE')); assert.ok(!html.includes('SEMESTA_FARMER_MODEL')); assert.ok(!html.includes('Modular lama'));
   const script=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]).find(s=>s.includes('var validViews'));
   const handlers={}, winHandlers={}, storage=new Map(), frames=[], historyEntries=[];
   const makeNode=(view)=>({id:`adminView-${view}`,dataset:{adminView:view},textContent:view,hidden:false,attrs:{},
@@ -48,4 +49,4 @@ for(const base of ['http://localhost/project/','http://localhost:8080/project/',
   search.value='avatars';handlers['search:input']();assert.equal(links.filter(n=>!n.hidden).length,1);
   handlers['search:keydown']({key:'Enter'});flush();assert.equal(location.searchParams.get('view'),'avatars');
 }
-console.log('PASS: rendered sidebar links and navigation across 6 deployment URLs; all 9 views, deep links, query retention, history, modified clicks, search and per-view scroll. Studio uses V11 asset and model selector.');
+console.log('PASS: rendered sidebar links and navigation across 6 deployment URLs; all 9 views, deep links, query retention, history, modified clicks, search and per-view scroll. Studio uses V15 exclusively.');

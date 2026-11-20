@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-19T14:12:13.164847+00:00",
+  "hashes": {
+    "ilustrasi\\avatar-v2\\farmer-v13-body\\farmer-v13-body.glb": "01c9bbba4ea3e2e55512f21e3731a9ba604b9b381795f96937424b09f9109ea8",
+    "public\\models\\characters\\semesta-farmer-v13.glb": "01c9bbba4ea3e2e55512f21e3731a9ba604b9b381795f96937424b09f9109ea8",
+    "assets\\game\\models\\characters\\semesta-farmer-v13.glb": "01c9bbba4ea3e2e55512f21e3731a9ba604b9b381795f96937424b09f9109ea8"
+  },
+  "linkedArtifacts": 74,
+  "video": {
+    "frames": 144,
+    "fps": 12.0,
+    "size": [
+      480,
+      660
+    ],
+    "duration": 12.0,
+    "decodedCompletely": true
+  },
+  "http": {
+    "ilustrasi/avatar-v2/farmer-v13-body/review.html": {
+      "status": 200,
+      "bytes": 10624
+    },
+    "ilustrasi/avatar-v2/farmer-v13-body/body-demo.mp4": {
+      "status": 200,
+      "bytes": 283535
+    },
+    "public/models/characters/semesta-farmer-v13.glb": {
+      "status": 200,
+      "bytes": 23892032
+    }
+  },
+  "videoRangeRequest": 206,
+  "browserInteractionVerified": false,
+  "gpuFpsMeasured": false
+}

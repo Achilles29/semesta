@@ -108,7 +108,8 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
       const pose=shot.actors[npc.id];npc.root.visible=!!pose&&pose.visible!==false;
       if(!pose)continue;
       v6.reset(npc);npc.root.position.set(pose.x,pose.y??0,pose.z);npc.root.rotation.set(0,pose.yaw,0);
-      const action=npc.model.actions?.[pose.clip]??npc.model.actions?.Idle;
+      const clipName=({Talk:'Point',Interact:'Point',Carry:'Hold'})[pose.clip]||pose.clip;
+      const action=npc.model.actions?.[clipName]??npc.model.actions?.Idle;
       if(action && npc.model.mixer){
         // Force bindings to reapply after bone reset, including a paused/repeated
         // first frame. Cached PropertyMixer values otherwise leave a rest-pose flash.
@@ -119,7 +120,7 @@ export function mountProductionDirector({THREE,production,world,camera,renderer,
         npc.model.mixer.update(0);
       }
       v6.pose(npc,pose);
-      performance.update(npc,pose);
+      performance.update(npc,{...pose,time:clock.time});
     }
     v6.poseExtras(shot);v6.update(shot);
     camera.fov=shot.camera.fov;camera.aspect=aspect;camera.position.fromArray(shot.camera.position);camera.lookAt(...shot.camera.target);camera.updateProjectionMatrix();

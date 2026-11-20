@@ -1,4 +1,5 @@
-import {farmerCharacterOptions,FARMER_PRESET} from './avatar-farmer-config.js';
+import {avatarCharacterOptions as farmerCharacterOptions} from './avatar-v15-config.js';
+const FARMER_PRESET={};
 
 // Scenery and non-speaking extras belong only to the added production district.
 // Absolute-time sampling makes pause, replay and seek deterministic.
@@ -57,11 +58,12 @@ export function buildProductionNeighborhood(THREE,{group,makeHuman,addCollider})
       const offset=walking?.32*Math.sin(time*.32+e.index):0;
       e.root.position.set(e.x+offset,0,e.z);e.collider.x=e.root.position.x;e.collider.z=e.root.position.z;
       e.root.rotation.y=walking?(Math.cos(time*.32+e.index)>0?Math.PI/2:-Math.PI/2):Math.sign(-48-e.x)*.42;
-      const clip=walking?'Walk':!quiet&&phase>13&&phase<14.1?'Interact':'Idle';
+      e.distance=(e.distance||0)+Math.abs(offset-(e.lastOffset??offset));e.lastOffset=offset;
+      const clip=walking?'Walk':!quiet&&phase>13&&phase<14.1?'Point':'Idle';
       const action=e.model.actions?.[clip];
       if(action&&e.model.mixer){
         if(e.model.activeAction!==clip){e.model.mixer.stopAllAction();action.reset().play();e.model.activeAction=clip;}
-        const duration=action.getClip().duration;action.time=((time*.65+e.index*.43)%duration+duration)%duration;e.model.mixer.update(0);
+        const duration=action.getClip().duration;action.time=(((walking ? e.distance/(e.model.figure.userData.locomotion.Walk.recommendedForwardSpeed) : time*.65)+e.index*.43)%duration+duration)%duration;e.model.mixer.update(0);
       }
     }
   }

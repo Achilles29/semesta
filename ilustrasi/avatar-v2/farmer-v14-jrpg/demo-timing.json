@@ -1,0 +1,53 @@
+{
+  "seconds": 14,
+  "fps": 12,
+  "audio": false,
+  "source": "Blender source",
+  "stages": [
+    {
+      "start": 0.0,
+      "end": 3.0,
+      "label": "turn"
+    },
+    {
+      "start": 3.0,
+      "end": 5.0,
+      "label": "Walk"
+    },
+    {
+      "start": 5.0,
+      "end": 6.0,
+      "label": "Run"
+    },
+    {
+      "start": 6.0,
+      "end": 7.0,
+      "label": "Wave"
+    },
+    {
+      "start": 7.0,
+      "end": 8.0,
+      "label": "Sit"
+    },
+    {
+      "start": 8.0,
+      "end": 9.0,
+      "label": "Point"
+    },
+    {
+      "start": 9.0,
+      "end": 10.0,
+      "label": "Hold"
+    },
+    {
+      "start": 10.0,
+      "end": 12.0,
+      "label": "face"
+    },
+    {
+      "start": 12.0,
+      "end": 14.0,
+      "label": "hands"
+    }
+  ]
+}

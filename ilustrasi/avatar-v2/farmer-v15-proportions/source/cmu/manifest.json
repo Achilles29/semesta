@@ -1,0 +1,26 @@
+[
+  {
+    "url": "http://mocap.cs.cmu.edu/subjects/07/07.asf",
+    "path": "07.asf",
+    "bytes": 7260,
+    "sha256": "c29414591d76a34885bff0b04a2666bf9659f869751a2549591c55277cf95b04"
+  },
+  {
+    "url": "http://mocap.cs.cmu.edu/subjects/07/07_01.amc",
+    "path": "07_01.amc",
+    "bytes": 252663,
+    "sha256": "3ca8e8b834481c97c32e9dd555f8c9023e33b6c52d93c9d556c83570204bf3f2"
+  },
+  {
+    "url": "http://mocap.cs.cmu.edu/subjects/16/16_35.amc",
+    "path": "16_35.amc",
+    "bytes": 128829,
+    "sha256": "28e83b8ee8ff46e15cb7d41d5e77faaefe3e06cf165f05fb18dd348457bdf387"
+  },
+  {
+    "url": "http://mocap.cs.cmu.edu/subjects/16/16.asf",
+    "path": "16.asf",
+    "bytes": 7257,
+    "sha256": "2323f876564610f84bfbec9b90b8ebffb57515673b7f4a45b0fb0849af465bdb"
+  }
+]

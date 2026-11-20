@@ -1,0 +1,408 @@
+{
+  "version": 2,
+  "contract": "semesta-arka-v15",
+  "motionRevision": "v15-cmu-locomotion-2-head",
+  "defaultProfile": "male-balanced",
+  "profiles": [
+    {
+      "id": "male-slim",
+      "sex": "male",
+      "bodyType": "slim",
+      "label": "Pria - Kurus",
+      "file": "male-slim.glb"
+    },
+    {
+      "id": "male-balanced",
+      "sex": "male",
+      "bodyType": "balanced",
+      "label": "Pria - Ideal",
+      "file": "male-balanced.glb"
+    },
+    {
+      "id": "male-heavy",
+      "sex": "male",
+      "bodyType": "heavy",
+      "label": "Pria - Gemuk",
+      "file": "male-heavy.glb"
+    },
+    {
+      "id": "female-slim",
+      "sex": "female",
+      "bodyType": "slim",
+      "label": "Perempuan - Kurus",
+      "file": "female-slim.glb"
+    },
+    {
+      "id": "female-balanced",
+      "sex": "female",
+      "bodyType": "balanced",
+      "label": "Perempuan - Ideal",
+      "file": "female-balanced.glb"
+    },
+    {
+      "id": "female-heavy",
+      "sex": "female",
+      "bodyType": "heavy",
+      "label": "Perempuan - Gemuk",
+      "file": "female-heavy.glb"
+    }
+  ],
+  "skinTones": {
+    "light": {
+      "label": "Terang",
+      "factor": [
+        0.88,
+        0.76,
+        0.65
+      ]
+    },
+    "warm": {
+      "label": "Hangat",
+      "factor": [
+        0.76,
+        0.64,
+        0.52
+      ]
+    },
+    "tan": {
+      "label": "Sawo matang",
+      "factor": [
+        0.53,
+        0.36,
+        0.24
+      ]
+    },
+    "brown": {
+      "label": "Cokelat",
+      "factor": [
+        0.32,
+        0.2,
+        0.13
+      ]
+    },
+    "deep": {
+      "label": "Gelap",
+      "factor": [
+        0.17,
+        0.105,
+        0.065
+      ]
+    }
+  },
+  "hairColors": {
+    "dark": {
+      "label": "Gelap",
+      "factor": [
+        0.22,
+        0.19,
+        0.16
+      ]
+    },
+    "brown": {
+      "label": "Cokelat",
+      "factor": [
+        0.36,
+        0.2,
+        0.1
+      ]
+    },
+    "silver": {
+      "label": "Uban",
+      "factor": [
+        0.8,
+        0.8,
+        0.78
+      ]
+    },
+    "auburn": {
+      "label": "Auburn",
+      "factor": [
+        0.58,
+        0.24,
+        0.12
+      ]
+    },
+    "gold": {
+      "label": "Pirang",
+      "factor": [
+        0.8,
+        0.59,
+        0.29
+      ]
+    }
+  },
+  "hairStyles": {
+    "short": "Pendek bertekstur",
+    "crop": "Cepak",
+    "bun": "Sanggul",
+    "none": "Tanpa rambut"
+  },
+  "palettes": {
+    "indigo": {
+      "label": "Gading & indigo",
+      "top": [
+        1,
+        1,
+        1
+      ],
+      "outerwear": [
+        1,
+        1,
+        1
+      ],
+      "bottom": [
+        1,
+        1,
+        1
+      ]
+    },
+    "forest": {
+      "label": "Pasir & hijau",
+      "top": [
+        0.75,
+        0.65,
+        0.45
+      ],
+      "outerwear": [
+        0.65,
+        1,
+        0.45
+      ],
+      "bottom": [
+        0.65,
+        0.75,
+        0.65
+      ]
+    },
+    "wine": {
+      "label": "Gading & marun",
+      "top": [
+        0.95,
+        0.88,
+        0.83
+      ],
+      "outerwear": [
+        2.6,
+        0.48,
+        0.55
+      ],
+      "bottom": [
+        0.75,
+        0.65,
+        0.75
+      ]
+    }
+  },
+  "readySlots": [
+    "skin",
+    "hair",
+    "eyes",
+    "brows",
+    "teeth",
+    "top",
+    "outerwear",
+    "bottom",
+    "footwear",
+    "accessoryChest",
+    "accessoryWaist",
+    "headAccessory",
+    "faceAccessory",
+    "earAccessory",
+    "handAccessory",
+    "backAccessory"
+  ],
+  "fitting": {
+    "bodyCoverage": "garment-specific coverage masks required",
+    "profiles": "must declare tested profile IDs",
+    "rig": "semesta-arka-v15, per-profile bind pose",
+    "license": "provenance required per asset",
+    "ready": "only ready assets can appear as selectable options"
+  },
+  "variationRevision": "v15-wardrobe-1",
+  "fields": {
+    "skinTone": {
+      "label": "Warna kulit",
+      "default": "warm",
+      "options": {
+        "light": "Terang",
+        "warm": "Hangat",
+        "tan": "Sawo matang",
+        "brown": "Cokelat",
+        "deep": "Gelap"
+      }
+    },
+    "hairColor": {
+      "label": "Warna rambut",
+      "default": "dark",
+      "options": {
+        "dark": "Gelap",
+        "brown": "Cokelat",
+        "silver": "Uban",
+        "auburn": "Auburn",
+        "gold": "Pirang"
+      }
+    },
+    "hairStyle": {
+      "label": "Gaya rambut",
+      "default": "short",
+      "options": {
+        "short": "Pendek bertekstur",
+        "crop": "Cepak",
+        "bun": "Sanggul",
+        "none": "Tanpa rambut"
+      }
+    },
+    "palette": {
+      "label": "Palet pakaian",
+      "default": "indigo",
+      "options": {
+        "indigo": "Gading & indigo",
+        "forest": "Pasir & hijau",
+        "wine": "Gading & marun"
+      }
+    },
+    "faceShape": {
+      "label": "Bentuk wajah",
+      "default": "oval",
+      "options": {
+        "oval": "Oval",
+        "round": "Bulat",
+        "angular": "Tegas"
+      }
+    },
+    "eyeShape": {
+      "label": "Bentuk mata",
+      "default": "natural",
+      "options": {
+        "natural": "Natural",
+        "almond": "Almond",
+        "round": "Bulat"
+      }
+    },
+    "eyeColor": {
+      "label": "Warna iris",
+      "default": "brown",
+      "options": {
+        "brown": "Cokelat",
+        "blue": "Biru",
+        "green": "Hijau"
+      }
+    },
+    "noseShape": {
+      "label": "Bentuk hidung",
+      "default": "natural",
+      "options": {
+        "natural": "Natural",
+        "broad": "Lebar",
+        "defined": "Tegas"
+      }
+    },
+    "mouthShape": {
+      "label": "Bentuk mulut",
+      "default": "natural",
+      "options": {
+        "natural": "Natural",
+        "wide": "Lebar",
+        "full": "Penuh"
+      }
+    },
+    "earShape": {
+      "label": "Bentuk telinga",
+      "default": "natural",
+      "options": {
+        "natural": "Natural",
+        "prominent": "Lebar",
+        "tapered": "Meruncing halus"
+      }
+    },
+    "topStyle": {
+      "label": "Atasan",
+      "default": "linen",
+      "options": {
+        "linen": "Kemeja linen",
+        "tunic": "Tunik"
+      }
+    },
+    "outerwearStyle": {
+      "label": "Rompi",
+      "default": "vest",
+      "options": {
+        "vest": "Rompi pendek",
+        "longVest": "Rompi panjang",
+        "none": "Tanpa rompi"
+      }
+    },
+    "bottomStyle": {
+      "label": "Celana",
+      "default": "fitted",
+      "options": {
+        "fitted": "Pas badan",
+        "relaxed": "Longgar"
+      }
+    },
+    "shoeStyle": {
+      "label": "Sepatu",
+      "default": "travel",
+      "options": {
+        "travel": "Bot perjalanan",
+        "reinforced": "Bot tebal"
+      }
+    },
+    "headAccessory": {
+      "label": "Aksesori kepala",
+      "default": "none",
+      "options": {
+        "none": "Tanpa aksesori",
+        "cap": "Topi kain"
+      }
+    },
+    "faceAccessory": {
+      "label": "Aksesori wajah",
+      "default": "none",
+      "options": {
+        "none": "Tanpa aksesori",
+        "glasses": "Kacamata bulat"
+      }
+    },
+    "earAccessory": {
+      "label": "Aksesori telinga",
+      "default": "none",
+      "options": {
+        "none": "Tanpa aksesori",
+        "hoops": "Anting lingkar"
+      }
+    },
+    "handAccessory": {
+      "label": "Aksesori tangan",
+      "default": "none",
+      "options": {
+        "none": "Tanpa aksesori",
+        "bracelets": "Gelang"
+      }
+    },
+    "backAccessory": {
+      "label": "Aksesori punggung",
+      "default": "none",
+      "options": {
+        "none": "Tanpa aksesori",
+        "satchel": "Tas kulit"
+      }
+    },
+    "accessoryChest": {
+      "label": "Selempang dada",
+      "default": "on",
+      "options": {
+        "on": "Pakai",
+        "off": "Lepas"
+      }
+    },
+    "accessoryWaist": {
+      "label": "Sabuk",
+      "default": "on",
+      "options": {
+        "on": "Pakai",
+        "off": "Lepas"
+      }
+    }
+  }
+}

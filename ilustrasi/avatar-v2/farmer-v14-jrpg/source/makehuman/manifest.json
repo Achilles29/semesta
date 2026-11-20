@@ -1,0 +1,337 @@
+{
+  "repository": "https://github.com/makehumancommunity/makehuman",
+  "commit": "a8bc2d54ff0ac92e78ff71431b1023eda42bf482",
+  "license": "CC0-1.0 (graphical assets)",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/LICENSE.md",
+      "bytes": 3598,
+      "sha256": "edd99571ca62698f78c943fd4fffb159a413c315fa0d4819d3cec5cadaf8b4f1"
+    },
+    {
+      "path": "LICENSE.ASSETS.md",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/LICENSE.ASSETS.md",
+      "bytes": 6962,
+      "sha256": "f6089cba01cb570a24712b41ab8a586ccd3cc5ef53dc266ca50b95c288956d2c"
+    },
+    {
+      "path": "makehuman/data/3dobjs/base.obj",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/3dobjs/base.obj",
+      "bytes": 1749303,
+      "sha256": "8e761e6624b8f54536409135d1636da63b32486a90d4897f84e121d144f6fb4c"
+    },
+    {
+      "path": "makehuman/data/rigs/default.mhskel",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/rigs/default.mhskel",
+      "bytes": 117790,
+      "sha256": "99f179bce0aa850b45d4191a1d0d234c5851f881c057439470ded3bddf729a24"
+    },
+    {
+      "path": "makehuman/data/rigs/default_weights.mhw",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/rigs/default_weights.mhw",
+      "bytes": 897521,
+      "sha256": "0f3641d651ae3d00ad6b4ccee43142edb109d3bd909d27d9e4139ef1beed8625"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eye-left-closure.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eye-left-closure.target",
+      "bytes": 3859,
+      "sha256": "5a9fc811ddff5f5657f7c9566ca07dfe31f68865d001804324fca5ecffd3992f"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eye-right-closure.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eye-right-closure.target",
+      "bytes": 3686,
+      "sha256": "3bb393418e84b1c3ebc9af075dbeff54f9161cafd9bb7e04caa40d155d4619ff"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eyebrows-left-down.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eyebrows-left-down.target",
+      "bytes": 1629,
+      "sha256": "89999e77f486dda420fde6d67ca7e32e885d80e816111e776ff292efe41b209d"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eyebrows-left-inner-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eyebrows-left-inner-up.target",
+      "bytes": 1321,
+      "sha256": "2fa94d522d54bb33078c72ac111da75005b5b2bf495d647c6e9fd5b41245b287"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eyebrows-left-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eyebrows-left-up.target",
+      "bytes": 1381,
+      "sha256": "4f770b7281ed9502c2e164850e41265310a445d0534bbc9a8faa949c05677775"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eyebrows-right-down.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eyebrows-right-down.target",
+      "bytes": 1579,
+      "sha256": "86f0d1440944fa4754d24c128f7d105f6a93dbd6ce9204be972bcb2ad5be4cec"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eyebrows-right-inner-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eyebrows-right-inner-up.target",
+      "bytes": 1256,
+      "sha256": "c97c24303a308d042f353e00038f35bc15b0d253cbdc9213dbe50fb01809893c"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/eyebrows-right-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/eyebrows-right-up.target",
+      "bytes": 1486,
+      "sha256": "496a446cb77aad463dfd952a8a648e758ee0954c64a96a4e4412f9a042391881"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-compression.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-compression.target",
+      "bytes": 12995,
+      "sha256": "12b8dc506faa0cde0c30a07b89c725dc728d4770900a7dd6956dceb91566c7ef"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-corner-puller.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-corner-puller.target",
+      "bytes": 14083,
+      "sha256": "9cec6411ee6e4c1307030d41781c26e3808e3b6f4538d7e4d595c1dfff89bfe6"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-depression-retraction.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-depression-retraction.target",
+      "bytes": 10441,
+      "sha256": "245d1e9f24798a41db188b3337e25108519193d73592d9bef75bf63f61ac61c6"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-depression.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-depression.target",
+      "bytes": 11714,
+      "sha256": "4d788ffdf4b77f6929212f61972fd36e14d066eb2d9802a7004989a83a3fced8"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-open.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-open.target",
+      "bytes": 26993,
+      "sha256": "c3e586735bdc8dc17c3690c7a3e18b3c90466071214c4c514624d1f75d3ba344"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-part-later.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-part-later.target",
+      "bytes": 18050,
+      "sha256": "6562d0f80bc99c652d7500645b0e36f89f8a3cd7f1b537ae767ed9097fd9ec90"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/african/mouth-pursing.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/african/mouth-pursing.target",
+      "bytes": 15125,
+      "sha256": "72c3cb4eef3b2674e2265f77aca813ee7ed0219674b2ca4ce3661f5ad180fba2"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eye-left-closure.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eye-left-closure.target",
+      "bytes": 3926,
+      "sha256": "96d43015f95af63d1d5d64c2d234ac29571d7b05a21e900cf5ee15a246337ebf"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eye-right-closure.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eye-right-closure.target",
+      "bytes": 3756,
+      "sha256": "772a8a1c62dac36fa2ed6b0808d167bda298ec1ece956af0561e7324a0c91a6b"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eyebrows-left-down.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eyebrows-left-down.target",
+      "bytes": 1629,
+      "sha256": "89999e77f486dda420fde6d67ca7e32e885d80e816111e776ff292efe41b209d"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eyebrows-left-inner-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eyebrows-left-inner-up.target",
+      "bytes": 1321,
+      "sha256": "2fa94d522d54bb33078c72ac111da75005b5b2bf495d647c6e9fd5b41245b287"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eyebrows-left-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eyebrows-left-up.target",
+      "bytes": 1381,
+      "sha256": "4f770b7281ed9502c2e164850e41265310a445d0534bbc9a8faa949c05677775"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eyebrows-right-down.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eyebrows-right-down.target",
+      "bytes": 1579,
+      "sha256": "86f0d1440944fa4754d24c128f7d105f6a93dbd6ce9204be972bcb2ad5be4cec"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eyebrows-right-inner-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eyebrows-right-inner-up.target",
+      "bytes": 1256,
+      "sha256": "c97c24303a308d042f353e00038f35bc15b0d253cbdc9213dbe50fb01809893c"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/eyebrows-right-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/eyebrows-right-up.target",
+      "bytes": 1486,
+      "sha256": "496a446cb77aad463dfd952a8a648e758ee0954c64a96a4e4412f9a042391881"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-compression.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-compression.target",
+      "bytes": 13039,
+      "sha256": "b7abd0826708d7e4344559583edd0fc80e098b08b91f3e6d67d83b1eed20ccbe"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-corner-puller.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-corner-puller.target",
+      "bytes": 15163,
+      "sha256": "75ec1f2356c381aa44065f2b812daafae85c5a918843b978d04cf6d8bc79dbe4"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-depression-retraction.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-depression-retraction.target",
+      "bytes": 10615,
+      "sha256": "50f27341383bb1237a45d2bd7859912bd934227edd22eb86f2a9a4b6427c6bc3"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-depression.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-depression.target",
+      "bytes": 12263,
+      "sha256": "906a614c24a63a126abeb28b2adbc84efb5f08b49d76fe8ce79fbd0ca9732f9f"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-open.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-open.target",
+      "bytes": 26859,
+      "sha256": "2222072e34027f7bc05e53548878832b041cb9b749062e369468d6946e68a32b"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-part-later.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-part-later.target",
+      "bytes": 18823,
+      "sha256": "e376a90552d7112a536a7e0804909747393c9fe0df8d2d24aaeeab02e626abc9"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/asian/mouth-pursing.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/asian/mouth-pursing.target",
+      "bytes": 17135,
+      "sha256": "d984a24e4c692d66d11d971d8cdc6483369688e498abd44a13d129f7bd248046"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eye-left-closure.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eye-left-closure.target",
+      "bytes": 3946,
+      "sha256": "e38cb77fd888de3d0d944efe6f3511bf3ca4076b0397fa7c840d8368f08205c2"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eye-right-closure.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eye-right-closure.target",
+      "bytes": 3776,
+      "sha256": "58faf2c199272bfd87478ea122cdaa4b4b8669505be0d75f777c5471527b2b15"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eyebrows-left-down.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eyebrows-left-down.target",
+      "bytes": 1629,
+      "sha256": "89999e77f486dda420fde6d67ca7e32e885d80e816111e776ff292efe41b209d"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eyebrows-left-inner-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eyebrows-left-inner-up.target",
+      "bytes": 1321,
+      "sha256": "2fa94d522d54bb33078c72ac111da75005b5b2bf495d647c6e9fd5b41245b287"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eyebrows-left-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eyebrows-left-up.target",
+      "bytes": 1381,
+      "sha256": "4f770b7281ed9502c2e164850e41265310a445d0534bbc9a8faa949c05677775"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eyebrows-right-down.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eyebrows-right-down.target",
+      "bytes": 1579,
+      "sha256": "86f0d1440944fa4754d24c128f7d105f6a93dbd6ce9204be972bcb2ad5be4cec"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eyebrows-right-inner-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eyebrows-right-inner-up.target",
+      "bytes": 1256,
+      "sha256": "c97c24303a308d042f353e00038f35bc15b0d253cbdc9213dbe50fb01809893c"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/eyebrows-right-up.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/eyebrows-right-up.target",
+      "bytes": 1486,
+      "sha256": "496a446cb77aad463dfd952a8a648e758ee0954c64a96a4e4412f9a042391881"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-compression.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-compression.target",
+      "bytes": 13039,
+      "sha256": "b7abd0826708d7e4344559583edd0fc80e098b08b91f3e6d67d83b1eed20ccbe"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-corner-puller.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-corner-puller.target",
+      "bytes": 15163,
+      "sha256": "75ec1f2356c381aa44065f2b812daafae85c5a918843b978d04cf6d8bc79dbe4"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-depression-retraction.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-depression-retraction.target",
+      "bytes": 10224,
+      "sha256": "0ebefb40c4374e628c9595a74f5222bff6323474c87d2d93d1249593806bdc23"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-depression.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-depression.target",
+      "bytes": 12263,
+      "sha256": "906a614c24a63a126abeb28b2adbc84efb5f08b49d76fe8ce79fbd0ca9732f9f"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-open.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-open.target",
+      "bytes": 26815,
+      "sha256": "07377ba3a3eb1b92b00029908f896ea1f8cc50356789f54268d897f2e89c2843"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-part-later.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-part-later.target",
+      "bytes": 17879,
+      "sha256": "5128d051612b61a4cf15b664c3c5439e10718b98cc3411be5cad363cae5b4b02"
+    },
+    {
+      "path": "makehuman/data/targets/expression/units/caucasian/mouth-pursing.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-pursing.target",
+      "bytes": 16023,
+      "sha256": "02b08ad99c2345e83cbd4c77819fadef2af8c7fc3111211fc169459eb7f37d10"
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-young.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/african-male-young.target",
+      "bytes": 406170,
+      "sha256": "894abc1fbb3d28543a51fef16f89d5d4bdf9aa2e1534413339811a3d47818b7d"
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-young.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/asian-male-young.target",
+      "bytes": 421040,
+      "sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc"
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-young.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/caucasian-male-young.target",
+      "bytes": 396479,
+      "sha256": "70e228ba7164737dae664454394536fc5935fa48d333c1a97d77e2dc6eacc5f5"
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/proportions/male-young-averagemuscle-averageweight-idealproportions.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/proportions/male-young-averagemuscle-averageweight-idealproportions.target",
+      "bytes": 164124,
+      "sha256": "7bbd790604c908417ff8ca11e566e3577508d92a4f397a2ace0f89f4cc3aa373"
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-averageweight.target",
+      "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-averageweight.target",
+      "bytes": 147110,
+      "sha256": "c171ff9cc95e96273beb3e3b1969a01988c2d4982ebc6fe04bf81cf72ee3b295"
+    }
+  ]
+}

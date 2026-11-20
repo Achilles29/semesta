@@ -1,7 +1,7 @@
 import { PRODUCTION_DISTRICT as SITE, PRODUCTION_CAST } from './production-district.js';
-import { farmerCharacterOptions } from './avatar-farmer-config.js';
+import { avatarCharacterOptions as farmerCharacterOptions } from './avatar-v15-config.js';
 import { buildProductionNeighborhood } from './production-neighborhood.js';
-import { refineProductionPortrait } from './production-portraits.js';
+
 
 /** Add only new objects; never mutate the admin's stored world scene. */
 export function buildProductionDistrict(THREE,{world,makeHuman,makeText,addCollider,createWorldAsset}) {
@@ -81,7 +81,7 @@ export function buildProductionDistrict(THREE,{world,makeHuman,makeText,addColli
   const cast=PRODUCTION_CAST.map(def=>{
     const root=new THREE.Group();root.name=`cast-${def.id}`;root.position.set(def.position[0],0,def.position[1]);group.add(root);
     const model=makeHuman(root,farmerCharacterOptions(def.config));
-    refineProductionPortrait(THREE,model,def.id);
+
     const tag=makeText(def.name.toUpperCase(),'fff8e9',def.id==='mama-ghufron'?'6f563e':'20545a');
     tag.position.set(0,2.4,0);tag.scale.set(2.8,.54,1);tag.material.depthTest=true;root.add(tag);labels.push(tag);
     return {...def,root,model,collider:addCollider(root.position.x,root.position.z,.42,.42,'npc'),lineIndex:0,path:null};

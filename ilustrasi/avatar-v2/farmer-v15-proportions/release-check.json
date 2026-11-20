@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "revision": "v15-cmu-locomotion-2-head",
+  "cmuSourceHashesVerified": true,
+  "checkedAt": "2026-11-20T00:02:39.078131+00:00",
+  "profiles": [
+    {
+      "id": "male-slim",
+      "sha256": "cf280aa8f5f08a5bc421b38ea3a69ef1b5658c2afe4acdd68155a829602939ea",
+      "bytes": 26743700,
+      "decodedTextures": 20,
+      "httpStatus": 200
+    },
+    {
+      "id": "male-balanced",
+      "sha256": "008b82ce9a77258b2857e70f9bc4504946962b2f3a68806a578cdff7b2b9d82c",
+      "bytes": 26727104,
+      "decodedTextures": 20,
+      "httpStatus": 200
+    },
+    {
+      "id": "male-heavy",
+      "sha256": "4e2767419681341908b9d1d17980b29a6bb617c939663e25fe9f565daf68b84f",
+      "bytes": 26923996,
+      "decodedTextures": 20,
+      "httpStatus": 200
+    },
+    {
+      "id": "female-slim",
+      "sha256": "f72518bfccc388e9091d10dd21e0a2b50ff894c977605aa5f221dd43dfeb46b7",
+      "bytes": 26868016,
+      "decodedTextures": 20,
+      "httpStatus": 200
+    },
+    {
+      "id": "female-balanced",
+      "sha256": "0b7fec2fa38df8f4210b2c4a1aab41cdd70400b60bc7c8cec0116ec76b207d0c",
+      "bytes": 26840996,
+      "decodedTextures": 20,
+      "httpStatus": 200
+    },
+    {
+      "id": "female-heavy",
+      "sha256": "e8825eb967b15289c1ee4e078491f9b26e8f009155ce2692f8c131a2bc04b9bf",
+      "bytes": 27003972,
+      "decodedTextures": 20,
+      "httpStatus": 200
+    }
+  ],
+  "linkedFiles": 46,
+  "video": {
+    "frames": 92,
+    "seconds": 3.83,
+    "fps": 24.0,
+    "size": [
+      560,
+      472
+    ]
+  },
+  "httpRange206": true,
+  "browserInteractionVerified": false,
+  "gpuFPSMeasured": false,
+  "runtimeFilesVerified": 32
+}

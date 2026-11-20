@@ -1,0 +1,19 @@
+{
+  "offlineRenderer": "Blender Cycles",
+  "demoSeconds": 6,
+  "demoFps": 12,
+  "audio": false,
+  "poses": [
+    "Walk",
+    "Run",
+    "Wave",
+    "Interact",
+    "manual seated"
+  ],
+  "variants": 3,
+  "limitations": [
+    "Offline frames do not certify browser lighting or GPU performance",
+    "Manual seated pose is a review pose, not an exported animation clip",
+    "Inherited nineteen-bone skeleton has no articulated fingers"
+  ]
+}

@@ -1,13 +1,8 @@
 import { createWorldAsset, getDefaultWorldScene, preloadWorldAssets, WORLD_ASSET_LIBRARY } from './world-assets-3d-v2.js?v=map-asset-3d-hotfix-20261104-4';
-import { createHumanModel, hasHumanAsset, hasFarmerAsset, setHumanAsset, setFarmerAsset } from './avatar-character-3d.js';
-import { inspectCharacterAsset, formatCharacterAssetSummary } from './character-asset-validator.js?v=character-validation-20261104-1';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { FARMER_PRESET, FARMER_SCHEMA, farmerCharacterOptions, mountFarmerEditor } from './avatar-farmer-config.js';
-import { isFarmerV8 } from './avatar-farmer-v8.js';
-import { FARMER_PRESETS, FARMER_COLLECTIONS } from './avatar-farmer-presets.js';
+import { createHumanModel, preloadAvatars, loadAvatarProfile, animateAvatar, avatarSpeed, disposeAvatar } from './avatar-runtime.js';
+import { catalog as AVATAR_V15_CATALOG, presets as FARMER_PRESETS, avatarCharacterOptions as farmerCharacterOptions, normalizeAvatarConfig, mountAvatarEditor } from './avatar-v15-config.js';
 import { createAvatarThumbnails } from './avatar-catalog-thumbnails.js';
-import { createStudioClock, createStudioAnimation } from './avatar-studio-playback.js';
+import { mountAvatarStudio } from './avatar-v15-studio.js';
 import { PRODUCTION_DISTRICT, insideProductionDistrict, productionReserved, productionEntry } from './production-district.js';
 import { buildProductionDistrict } from './production-district-scene.js';
 import { mountProductionDirector } from './production-director.js';
@@ -39,17 +34,17 @@ function farmerPresetForAvatar(avatar) {
     'pekerja-konstruksi':'bima', pengemudi:'danu', koki:'laras', relawan:'ayu',
     'penjaga-hutan':'tara',
   };
-  return FARMER_PRESETS.find((item) => item.id === `v11-${presetByAvatar[avatar] || 'raka'}`) || FARMER_PRESETS[0];
+  return FARMER_PRESETS.find((item) => item.id === `v15-${presetByAvatar[avatar] || 'raka'}`) || FARMER_PRESETS[0];
 }
 function citizenCharacterOptions(citizen, fallbackLook) {
   const config = parsedAvatarConfig(citizen?.avatar_config);
-  // All people in the live map use the same V11 asset and appearance contract
+  // All people in the live map use the same V15 asset and appearance contract
   // as Avatar Studio. Old saved wardrobe fields are translated by
   // farmerCharacterOptions(), so existing citizens keep their closest look.
-  if (config) return farmerCharacterOptions({ ...config, special:'farmer-ps2' }, avatarColors);
+  if (config) return farmerCharacterOptions(config, avatarColors);
   const preset = farmerPresetForAvatar(citizen?.avatar);
   if (preset) return farmerCharacterOptions(preset.config, avatarColors);
-  // Preserve a sensible V11 appearance if a new occupation has no preset yet.
+  // Preserve a sensible V15 appearance if a new occupation has no preset yet.
   return farmerCharacterOptions({ special:'farmer-ps2', shirt:fallbackLook?.shirt, trousers:'#35485a' }, avatarColors);
 }
 const houseNames = { 'rumah-kayu': 'Rumah Kayu', 'rumah-bata': 'Rumah Bata', 'rumah-panggung': 'Rumah Panggung' };
@@ -68,23 +63,14 @@ let authMode = 'login';
 let avatarCustomizerMode = 'account';
 let pendingAvatarConfig = null;
 let avatarThumbnailService = null;
-let avatarPreviewAssetPromise = null;
 let avatarPreviewRequest = 0;
-async function ensureFarmerAvatarAsset() {
-  if (hasFarmerAsset()) return;
-  avatarPreviewAssetPromise ||= new GLTFLoader().loadAsync(window.SEMESTA_FARMER_MODEL).then((gltf) => {
-    if (!isFarmerV8(gltf.scene)) throw new Error('Model V11 tidak memakai kontrak avatar Studio.');
-    setFarmerAsset(gltf);
-  }).catch((error) => { avatarPreviewAssetPromise = null; throw error; });
-  await avatarPreviewAssetPromise;
-}
 async function renderAvatarPreview(config) {
   const request = ++avatarPreviewRequest;
   const registrationImage = $('#registrationAvatarPreview');
   const images = registrationImage && !$('#registrationAvatarChoice')?.hidden ? [registrationImage] : [];
   if (!images.length) return;
   try {
-    await ensureFarmerAvatarAsset();
+    await loadAvatarProfile(normalizeAvatarConfig(config).profileId);
     if (request !== avatarPreviewRequest) return;
     if (!avatarThumbnailService) avatarThumbnailService = createAvatarThumbnails(await import('three'));
     await avatarThumbnailService.fill(images.map((image) => ({ image, config })));
@@ -92,7 +78,7 @@ async function renderAvatarPreview(config) {
     if (request === avatarPreviewRequest) {
       const status = $('#exploreAvatarStatus');
       if (status) status.textContent = `Pratinjau 3D belum bisa dimuat: ${error.message || error}`;
-      console.warn('Pratinjau avatar V11:', error);
+      console.warn('Pratinjau avatar V15:', error);
     }
   }
 }
@@ -379,7 +365,8 @@ function initExploreAvatarCustomizer() {
   let previewTHREE=null, previewRenderer=null, previewScene=null, previewCamera=null, previewModel=null;
   let previewYaw=.25, previewPointer=null, previewFrame=0, previewLastTime=0, previewUpdateId=0;
   let selectedGender='', selectedPreset=null;
-  const cleanConfig = (config) => JSON.parse(JSON.stringify(config));
+  const cleanConfig = config => normalizeAvatarConfig(config);
+  const customEditor=mountAvatarEditor(grid.parentElement, config=>{selectedGender=config.profileId.split('-')[0];document.querySelectorAll('[data-avatar-gender]').forEach(b=>{const active=b.dataset.avatarGender===selectedGender;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});setSelectedPreset({id:'custom',name:'Karakter saya',config});});
   const presetById = (id) => FARMER_PRESETS.find((item) => item.id === id);
   const setSelectedPreset = (preset) => {
     selectedPreset = preset || null;
@@ -393,6 +380,7 @@ function initExploreAvatarCustomizer() {
       $('#customAvatarName').textContent = selectedPreset.name;
       $('#customAvatarDescription').textContent = `${selectedGender === 'male' ? 'Avatar cowok' : 'Avatar cewek'} · siap pakai`;
       status.textContent = `${selectedPreset.name} dipilih. Pratinjau 3D bisa diputar dengan menggeser karakter.`;
+      customEditor.set(selectedPreset.config);
       renderLivePreview(selectedPreset.config);
     } else {
       previewUpdateId += 1;
@@ -419,7 +407,7 @@ function initExploreAvatarCustomizer() {
   const renderLivePreview = async (config) => {
     const request=++previewUpdateId;
     try {
-      await ensureFarmerAvatarAsset();
+      await loadAvatarProfile(normalizeAvatarConfig(config).profileId);
       if (request!==previewUpdateId || panel.hidden) return;
       if (!previewTHREE) {
         previewTHREE=await import('three');
@@ -434,7 +422,7 @@ function initExploreAvatarCustomizer() {
         resizeLivePreview();
       }
       const appearance=farmerCharacterOptions(config,avatarColors);
-      if (previewModel?.figure.userData.setAppearance) previewModel.figure.userData.setAppearance(appearance);
+      if (previewModel?.figure.userData.avatarConfig.profileId===appearance.avatarConfig.profileId) { previewModel.figure.userData.customization.set(appearance.avatarConfig.appearance);previewModel.figure.userData.avatarConfig=appearance.avatarConfig; }
       else {
         removeLivePreviewModel();previewModel=createHumanModel(previewTHREE,appearance);previewScene.add(previewModel.figure);
       }
@@ -457,27 +445,23 @@ function initExploreAvatarCustomizer() {
   const renderCards = () => {
     if (!grid) return;
     grid.replaceChildren();
-    const presets = FARMER_PRESETS.filter((preset) => preset.config?.farmer?.bodyFrame === selectedGender);
+    const presets = FARMER_PRESETS.filter((preset) => preset.config.profileId.startsWith(selectedGender+'-'));
     $('#avatarPickerInstruction').textContent = selectedGender ? `Pilih satu dari ${presets.length} avatar ${selectedGender === 'male' ? 'cowok' : 'cewek'} siap pakai.` : 'Pilih cowok atau cewek untuk melihat avatar yang tersedia.';
     presets.forEach((preset) => {
       const card = document.createElement('button'); card.type='button'; card.className='avatar-preset-card'; card.dataset.presetId=preset.id; card.setAttribute('aria-pressed','false');
-      const image=document.createElement('img');image.alt='';image.loading='lazy';image.src=$('#registrationAvatarPreview').src;
+      const image=document.createElement('img');image.alt='';image.loading='lazy';image.src=new URL(`portraits/${preset.id}.png`,new URL(window.SEMESTA_AVATAR_V15_BASE,location.href)).href;
       const name=document.createElement('b');name.textContent=preset.name;
-      const meta=document.createElement('small');meta.textContent=preset.collection === 'nusantara' ? 'Warga Nusantara' : preset.collection === 'kerja' ? 'Pekerjaan' : 'Gaya sehari-hari';
+      const meta=document.createElement('small');meta.textContent=AVATAR_V15_CATALOG.profiles.find(p=>p.id===preset.config.profileId).label;
       card.append(image,name,meta);card.addEventListener('click',()=>setSelectedPreset(preset));grid.append(card);
     });
-    if (presets.length && avatarThumbnailService) avatarThumbnailService.fill(presets.map((preset,index)=>({image:grid.children[index].querySelector('img'),config:preset.config}))).catch((error)=>console.warn('Thumbnail avatar:',error));
     setSelectedPreset(null);
-    if (presets.length && !avatarThumbnailService) {
-      (async()=>{try{await ensureFarmerAvatarAsset();avatarThumbnailService=createAvatarThumbnails(await import('three'));if(selectedGender)renderCards();}catch(error){status.textContent=`Pratinjau kartu belum bisa dimuat: ${error.message||error}`;}})();
-    }
   };
   const chooseGender = (gender, preferredPresetId='') => {
     selectedGender=gender;
     document.querySelectorAll('[data-avatar-gender]').forEach((button)=>{const active=button.dataset.avatarGender===gender;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
     renderCards();
     const preferred=presetById(preferredPresetId);
-    if(preferred && preferred.config.farmer.bodyFrame===gender) setSelectedPreset(preferred);
+    if(preferred && preferred.config.profileId.startsWith(gender+'-')) setSelectedPreset(preferred);
   };
   document.querySelectorAll('[data-avatar-gender]').forEach((button)=>button.addEventListener('click',()=>chooseGender(button.dataset.avatarGender)));
   const fill = (config, mode) => {
@@ -485,10 +469,11 @@ function initExploreAvatarCustomizer() {
     const source=config || (mode==='account' ? parsedAvatarConfig(activeCitizen?.avatar_config) : null);
     const mappedPreset=presetById(source?.presetId) || farmerPresetForAvatar(mode==='registration' ? $('#citizenAvatarSelect').value : activeCitizen?.avatar);
     const isNewRegistration=mode==='registration' && !source;
-    const gender=isNewRegistration ? '' : (source?.farmer?.bodyFrame || mappedPreset?.config?.farmer?.bodyFrame || 'male');
-    const exactPreset=presetById(source?.presetId) || (source ? FARMER_PRESETS.find((item)=>JSON.stringify(item.config.farmer)===JSON.stringify(source.farmer)) : mappedPreset);
+    const gender=isNewRegistration ? '' : normalizeAvatarConfig(source || mappedPreset.config).profileId.split('-')[0];
+    const exactPreset=presetById(source?.presetId) || (source ? FARMER_PRESETS.find((item)=>JSON.stringify(item.config.appearance)===JSON.stringify(normalizeAvatarConfig(source).appearance)) : mappedPreset);
     $('#avatarCustomizerTitle').textContent = mode === 'registration' ? 'Pilih avatar untuk akunmu' : `Pilih avatar ${activeCitizen?.account_type === 'admin' ? 'admin' : 'warga'}`;
     chooseGender(gender, exactPreset?.id || '');
+    if(source)setSelectedPreset({id:'custom',name:'Karakter saya',config:normalizeAvatarConfig(source)});
     status.textContent=mode==='registration'?'Langkah 1: pilih cowok atau cewek. Langkah 2: pilih avatar siap pakai.':'Pilih tipe karakter, lalu pilih avatar siap pakai. Perubahan akan langsung terlihat di pratinjau.';
   };
   $('#openAvatarCustomizer').addEventListener('click', () => {
@@ -833,13 +818,8 @@ async function runArea(place, city) {
   let THREE;
   try { THREE = await import('three'); }
   catch (error) { startCanvasFallback($('#world'), place, city, placedObjects, error); return; }
-  await Promise.all([
-    new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL)
-      .then(setHumanAsset)
-      .catch((error) => console.warn('Aset karakter GLB tidak dapat dimuat; memakai cadangan.', error)),
-    ensureFarmerAvatarAsset()
-      .catch((error) => console.warn('Aset karakter V11 tidak dapat dimuat.', error)),
-  ]);
+  const loading=document.createElement('div');loading.className='avatar-loading';loading.setAttribute('role','status');loading.textContent='Menyiapkan karakter V15...';document.querySelector('#exploreScreen').append(loading);
+  try{await preloadAvatars();}catch(error){if(runToken===areaRunToken)reportWorldIssue(error);return;}finally{loading.remove();}
   if (runToken !== areaRunToken || !$('#exploreScreen').classList.contains('active')) return;
   const canvas = $('#world'); let renderer;
   try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' }); }
@@ -1055,7 +1035,7 @@ async function runArea(place, city) {
   // A neighbor with a human silhouette, face, hair, apron, and working clothes.
   const witnessPosition = place.id === 'desa' ? [-12.5, 0, 10] : place.id === 'hutan' ? [2.5, 0, -12] : [-9, 0, -3];
   const neighbor = new THREE.Group(); neighbor.position.set(witnessPosition[0], 0, witnessPosition[2]); neighbor.rotation.y = -.35; world.add(neighbor); addCollider(witnessPosition[0], witnessPosition[2], .5, .46);
-  const witnessPresetId = place.id === 'hutan' ? 'v11-tara' : place.id === 'desa' ? 'v11-bu-ratna' : place.type === 'dapur' ? 'v11-laras' : 'v11-pak-hadi';
+  const witnessPresetId = place.id === 'hutan' ? 'v15-tara' : place.id === 'desa' ? 'v15-bu-ratna' : place.type === 'dapur' ? 'v15-laras' : 'v15-pak-hadi';
   const witnessPreset = FARMER_PRESETS.find((preset) => preset.id === witnessPresetId) || FARMER_PRESETS[0];
   const neighborModel = makeHuman(neighbor, farmerCharacterOptions(witnessPreset.config, avatarColors));
   const witnessLabel = makeText(place.witness, 'fff7df', '397f5c'); witnessLabel.position.set(witnessPosition[0], 2.25, witnessPosition[2]); world.add(witnessLabel);
@@ -1063,7 +1043,7 @@ async function runArea(place, city) {
   const addNpc = (name, position, presetId, lines, route = null) => {
     const root=new THREE.Group();root.position.set(position[0],0,position[1]);world.add(root);
     const collider=addCollider(position[0],position[1],.42,.42,'npc');
-    const preset=FARMER_PRESETS.find((item)=>item.id===`v11-${presetId}`)||FARMER_PRESETS[0];
+    const preset=FARMER_PRESETS.find((item)=>item.id===`v15-${presetId}`)||FARMER_PRESETS[0];
     const model=makeHuman(root,farmerCharacterOptions(preset.config,avatarColors));
     const tag=makeText(name.toUpperCase(),'fffdf1','527b60');tag.position.set(0,2.22,0);root.add(tag);
     const npc={name,root,model,collider,icon:'♙',lines,lineIndex:0,path:route?.points?new THREE.CatmullRomCurve3(route.points.map(([x,z])=>new THREE.Vector3(x,0,z)),true,'catmullrom',.35):null,speed:route?.speed||0,phase:route?.phase||0};npcCharacters.push(npc);return npc;
@@ -1120,24 +1100,19 @@ async function runArea(place, city) {
   player.position.set(savedPosition && Number.isFinite(savedPosition.x) ? savedPosition.x : 0, 0, savedPosition && Number.isFinite(savedPosition.z) ? savedPosition.z : 18); world.add(player);
   let playerModel = null; let person = null; let legs = []; let arms = []; let playerNameTag = null;
   const refreshPlayerModel = (citizen) => {
-    if (playerModel) { const previousFigure = playerModel.figure; player.remove(previousFigure); previousFigure.traverse((node) => { if (!node.userData.sharedCharacterGeometry) node.geometry?.dispose(); if (Array.isArray(node.material)) node.material.forEach((item) => { if (!item.userData.sharedCharacterTexture) item.map?.dispose(); item.dispose(); }); else if (node.material) { if (!node.material.userData.sharedCharacterTexture) node.material.map?.dispose(); node.material.dispose(); } }); }
+    if (playerModel) { playerModel.mixer?.stopAllAction(); playerModel.mixer?.uncacheRoot(playerModel.figure);const skeletons=new Set();playerModel.figure.traverse(n=>{if(n.skeleton)skeletons.add(n.skeleton);});skeletons.forEach(s=>s.dispose()); const previousFigure = playerModel.figure; player.remove(previousFigure); previousFigure.traverse((node) => { if (!node.userData.sharedCharacterGeometry) node.geometry?.dispose(); if (Array.isArray(node.material)) node.material.forEach((item) => { if (!item.userData.sharedCharacterTexture) item.map?.dispose(); item.dispose(); }); else if (node.material) { if (!node.material.userData.sharedCharacterTexture) node.material.map?.dispose(); node.material.dispose(); } }); }
     const look = avatarLooks[citizen?.avatar] || avatarLooks.warga;
     const savedLook = parsedAvatarConfig(citizen?.avatar_config);
     playerModel = makeHuman(player, { ...citizenCharacterOptions(citizen, look), role: citizen?.account_type === 'admin' && !savedLook ? 'pemimpin' : undefined });
     person = playerModel.figure; legs = playerModel.legs; arms = playerModel.arms;
     if (citizen) { playerNameTag = makeText(`${citizen.account_type === 'admin' ? 'ADMIN' : 'WARGA'} · ${citizen.display_name.toUpperCase()}`, '263746', citizen.account_type === 'admin' ? 'ffd166' : 'b9e5c9'); playerNameTag.scale.set(2.15, .38, 1); playerNameTag.position.set(0, 2.28, 0); person.add(playerNameTag); }
   };
-  const animateCharacter = (model, moving, dt) => {
-    if (!model?.mixer || !model.actions) return false;
-    const nextName = moving && model.actions.Walk ? 'Walk' : model.actions.Idle ? 'Idle' : null;
-    if (nextName && model.activeAction !== nextName) {
-      model.actions[model.activeAction]?.fadeOut(.14);
-      model.actions[nextName].reset().fadeIn(.14).play();
-      model.activeAction = nextName;
-    }
-    model.mixer.update(dt);
-    return !!nextName;
-  };
+  let touchRunning=false;
+  const runButton=document.createElement('button');runButton.type='button';runButton.className='avatar-run-toggle';runButton.textContent='LARI';runButton.setAttribute('aria-pressed','false');
+  document.querySelector('#exploreScreen').append(runButton);
+  listen(runButton,'click',()=>{touchRunning=!touchRunning;runButton.setAttribute('aria-pressed',String(touchRunning));runButton.textContent=touchRunning?'JALAN':'LARI';});
+  events.signal.addEventListener('abort',()=>runButton.remove(),{once:true});
+  const animateCharacter = (model, speed, dt) => animateAvatar(model, typeof speed==='boolean' ? (speed?1.44:0) : speed, dt);
   refreshPlayerModel(activeCitizen);
   updateWilderness(player.position.x, player.position.z);
   player.visible = !!activeCitizen;
@@ -1319,10 +1294,10 @@ async function runArea(place, city) {
       if (collides(x,z)) { productionPanel.querySelector('[data-production-status]').textContent='Posisi dekat terhalang. Dekati melalui sisi panggung.';return; }
       player.position.set(x,0,z);cameraDistance=5.5;pitch=.3;yaw=0;
       showDialogue(npc.name,npc.lines[0],npc.icon);
-      productionPanel.querySelector('[data-production-status]').textContent=`${npc.name}: pratinjau kartun V11. Tekan E untuk dialog berikutnya.`;
+      productionPanel.querySelector('[data-production-status]').textContent=`${npc.name}: karakter V15. Tekan E untuk dialog berikutnya.`;
     });
   }
-  function frame(now) { if (runToken !== areaRunToken || events.signal.aborted) return; if (!$('#exploreScreen').classList.contains('active')) { disposeActiveArea(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * 4.1 * dt; const nextZ = player.position.z + moveZ * 4.1 * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = .025 + Math.abs(step) * .055; if (!animateCharacter(playerModel, true, dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
+  function frame(now) { if (runToken !== areaRunToken || events.signal.aborted) return; if (!$('#exploreScreen').classList.contains('active')) { disposeActiveArea(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); const oldPX=player.position.x,oldPZ=player.position.z; const movementSpeed=avatarSpeed(playerModel,(keys.has('ShiftLeft')||keys.has('ShiftRight')||touchRunning)?'Run':'Walk'); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * movementSpeed * dt; const nextZ = player.position.z + moveZ * movementSpeed * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = 0; if (!animateCharacter(playerModel, Math.hypot(player.position.x-oldPX,player.position.z-oldPZ)/Math.max(dt,.001), dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
     if(productionDirector?.active){productionDirector.update(now);return;}
     if (activeCitizen && now - lastChatSync > 1700) syncCitizenChat(now);
     if (productionPanel) {
@@ -1333,13 +1308,13 @@ async function runArea(place, city) {
       document.body.classList.toggle('production-district',inSet);
       $('#exploreLocationName').textContent = inSet ? PRODUCTION_DISTRICT.name.toUpperCase() : place.name.toUpperCase();
     }
-    onlineCitizens.forEach((item) => { const dx = item.root.userData.targetX - item.root.position.x; const dz = item.root.userData.targetZ - item.root.position.z; item.root.position.x += dx * Math.min(1, dt * 10); item.root.position.z += dz * Math.min(1, dt * 10); if (Math.hypot(dx, dz) > .02) item.root.rotation.y = Math.atan2(dx, dz); animateCharacter(item.model, Math.hypot(dx, dz) > .02, dt); });
+    onlineCitizens.forEach((item) => { const dx = item.root.userData.targetX - item.root.position.x; const dz = item.root.userData.targetZ - item.root.position.z; item.root.position.x += dx * Math.min(1, dt * 10); item.root.position.z += dz * Math.min(1, dt * 10); if (Math.hypot(dx, dz) > .02) item.root.rotation.y = Math.atan2(dx, dz); animateCharacter(item.model, Math.hypot(dx,dz)*Math.min(1,dt*10)/Math.max(dt,.001), dt); });
     const groundX = Math.round(player.position.x / 400) * 400; const groundZ = Math.round(player.position.z / 400) * 400; endlessGround.position.set(groundX, -.08, groundZ); updateWilderness(player.position.x, player.position.z); sun.position.set(player.position.x - 10, 22, player.position.z + 14); sun.target.position.set(player.position.x, 0, player.position.z);
     const orbitRadius = cameraDistance; const horizontal = Math.cos(pitch) * orbitRadius;
     const cam = new THREE.Vector3(Math.sin(yaw) * horizontal, Math.sin(pitch) * orbitRadius, Math.cos(yaw) * horizontal); camera.position.set(player.position.x + cam.x, cam.y, player.position.z + cam.z); camera.lookAt(player.position.x - Math.sin(yaw) * 1.2, .8, player.position.z - Math.cos(yaw) * 1.2);
     roamingAnimals.forEach(({ animal, path, speed, phase, collider }) => { const t = (now * speed * .001 + phase) % 1; const point = path.getPointAt(t); const tangent = path.getTangentAt(t); if(!collides(point.x,point.z,collider)){animal.group.position.set(point.x, .025 + Math.abs(Math.sin(now * .006 + phase * 9)) * .025, point.z);collider.x=point.x;collider.z=point.z;} if (Math.hypot(tangent.x, tangent.z) > .01) animal.group.rotation.y = Math.atan2(tangent.x, tangent.z); animal.legs?.forEach((leg, i) => { leg.rotation.x = Math.sin(now * .012 * (speed / .04) + phase * 8 + i * Math.PI) * .18; }); animal.head.rotation.x = animal.peck !== undefined ? Math.max(0, Math.sin(now * .0018 + animal.peck)) * .3 : 0; }); cat.tail.rotation.y = Math.sin(now * .002) * .24; cat.head.rotation.y = Math.sin(now * .0012) * .12; goat.head.rotation.x = Math.sin(now * .0015) * .06;
     placedAnimals.forEach(({ object, x, z, phase, collider }) => { const pace = now * .0005 + phase; const nextX=x+Math.cos(pace)*1.4;const nextZ=z+Math.sin(pace*.8)*1.1;if(!collides(nextX,nextZ,collider)){object.position.x=nextX;object.position.z=nextZ;collider.x=nextX;collider.z=nextZ;object.rotation.y=-Math.atan2(Math.sin(pace*.8)*.9,Math.sin(pace));} });
-    npcCharacters.forEach((npc)=>{let moving=false;if(npc.path){const t=(now*npc.speed*.001+npc.phase)%1;const point=npc.path.getPointAt(t);const tangent=npc.path.getTangentAt(t);if(!collides(point.x,point.z,npc.collider)){npc.root.position.x=point.x;npc.root.position.z=point.z;npc.collider.x=point.x;npc.collider.z=point.z;moving=Math.hypot(tangent.x,tangent.z)>.01;if(moving)npc.root.rotation.y=Math.atan2(tangent.x,tangent.z);}}animateCharacter(npc.model,moving,dt);});
+    npcCharacters.forEach((npc)=>{const previousX=npc.root.position.x,previousZ=npc.root.position.z;let moving=false;if(npc.path){const t=(now*npc.speed*.001+npc.phase)%1;const point=npc.path.getPointAt(t);const tangent=npc.path.getTangentAt(t);if(!collides(point.x,point.z,npc.collider)){npc.root.position.x=point.x;npc.root.position.z=point.z;npc.collider.x=point.x;npc.collider.z=point.z;moving=Math.hypot(tangent.x,tangent.z)>.01;if(moving)npc.root.rotation.y=Math.atan2(tangent.x,tangent.z);}}animateCharacter(npc.model, Math.hypot(npc.root.position.x-previousX,npc.root.position.z-previousZ)/Math.max(dt,.001),dt);});
     if (now - lastStateSave > 450) { saveGameState({ screen: 'explore', destination: city.id, location: place.type, playerPosition: { x: player.position.x, z: player.position.z }, cameraYaw: yaw, cameraPitch: pitch, cameraZoom: cameraDistance }); lastStateSave = now; }
     const nearbyNpc=nearestNpc();const nearbyCitizen = nearestOnlineCitizen(); const nearSign = !!nearestSign(); $('#interactionHint').textContent = nearbyCitizen ? `TEKAN E / BICARA DENGAN ${nearbyCitizen.displayName.toUpperCase()}` : nearbyNpc ? `TEKAN E / BICARA DENGAN ${nearbyNpc.name.toUpperCase()}` : nearSign ? 'TEKAN E / LIHAT PENUNJUK JALAN' : 'JELAJAHI BEBAS · TEMUI WARGA'; $('#interactionHint').classList.toggle('nearby', !!nearbyCitizen || !!nearbyNpc || nearSign); renderer.render(scene, camera); emptySceneFrames = renderer.info.render.calls === 0 ? emptySceneFrames + 1 : 0; if (emptySceneFrames === 30) reportWorldIssue("Kamera tidak menemukan objek 3D. Muat ulang halaman atau cek dukungan WebGL browser."); }
   requestAnimationFrame(frame); window.onresize = resizeGame;
@@ -1865,388 +1840,7 @@ async function initObjectGallery() {
 }
 
 async function initAvatarStudio() {
-  const canvas = $('#avatarPreviewCanvas'); if (!canvas) return;
-  const form = $('#avatarOptionsForm'); const catalog = $('#avatarCatalog'); const status = $('#avatarSaveStatus');
-  const studio=canvas.closest('.avatar-studio'),preview=canvas.closest('.avatar-preview-card'),catalogPanel=catalog.closest('.avatar-catalog-card');
-  const workbench=document.createElement('div');workbench.className='avatar-workbench';
-  const tabs=document.createElement('div');tabs.className='avatar-workbench-tabs';tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Panel Studio Avatar');
-  const panels=document.createElement('div');panels.className='avatar-workbench-panels';
-  catalogPanel.id='avatarCatalogPanel';panels.append(catalogPanel,form);workbench.append(tabs,panels);studio.append(workbench);
-  const studioTabs=[['Koleksi avatar',catalogPanel],['Racik & simpan',form]].map(([label,panel],index)=>{
-    const button=document.createElement('button');button.type='button';button.textContent=label;button.id=`avatarStudioTab${index}`;button.setAttribute('role','tab');button.setAttribute('aria-controls',panel.id);
-    panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',button.id);tabs.append(button);
-    button.addEventListener('click',()=>selectStudioTab(index));
-    button.addEventListener('keydown',event=>{const next=event.key==='ArrowRight'?(index+1)%2:event.key==='ArrowLeft'?(index+1)%2:event.key==='Home'?0:event.key==='End'?1:null;if(next!==null){event.preventDefault();selectStudioTab(next);studioTabs[next].button.focus();}});
-    return {button,panel};
-  });
-  function selectStudioTab(index){studioTabs.forEach(({button,panel},i)=>{button.setAttribute('aria-selected',String(i===index));button.tabIndex=i===index?0:-1;panel.hidden=i!==index;});panels.scrollTop=0;}
-  selectStudioTab(0);
-  const options = {
-    skin: [['sawo','Sawo matang'],['kuning','Kuning langsat'],['gelap','Gelap'],['zaitun','Zaitun'],['pucat','Terang'],['coklat','Cokelat']],
-    hair: [['pendek','Pendek'],['cepak','Cepak'],['ikal','Ikal'],['panjang','Panjang'],['keriting','Keriting'],['kuncir','Kuncir'],['hijab','Hijab'],['botak','Botak']],
-    hairColor: [['hitam','Hitam'],['coklat','Cokelat'],['coklat-tua','Cokelat tua'],['pirang','Pirang'],['uban','Uban'],['merah','Merah marun']],
-    top: [['kemeja','Kemeja'],['flanel','Kemeja flanel kotak'],['batik','Batik'],['seragam','Seragam'],['jaket','Jaket'],['hoodie','Hoodie'],['jas','Jas warga'],['kaos','Kaos'],['kebaya','Kebaya'],['petani','Pakaian tani'],['pekerja','Rompi kerja'],['koko','Baju koko'],['rompi','Rompi warga']],
-    bottom: [['celana','Celana panjang'],['jeans','Jins'],['cargo','Celana kargo'],['sarung','Sarung'],['rok','Rok'],['pendek','Celana pendek'],['kulot','Kulot']],
-    headwear: [['tanpa','Tanpa penutup'],['peci','Peci'],['topi','Topi lapangan'],['helm','Helm'],['bandana','Ikat kepala'],['caping','Caping']],
-    accessory: [['tanpa','Tanpa aksesori'],['kacamata','Kacamata'],['ransel','Ransel'],['tas-anyaman','Tas anyaman silang'],['lencana','Lencana'],['selempang','Tas selempang'],['syal','Syal'],['map','Map warga'],['jam','Jam tangan']],
-    facialHair: [['tanpa','Tanpa kumis/janggut'],['kumis','Kumis'],['kumis-janggut','Kumis dan janggut']],
-  };
-  const colors = { skin:{sawo:'#c9825c',kuning:'#e0a477',gelap:'#75472f',zaitun:'#ad7052',pucat:'#f0c29b',coklat:'#985c3e'}, hairColor:{hitam:'#292522',coklat:'#51362d','coklat-tua':'#35251f',pirang:'#bd8c49',uban:'#aaa9a2',merah:'#74382d'}, top:{kemeja:'#e6e0cd',flanel:'#455f82',batik:'#a34c3e',seragam:'#527aa3',jaket:'#537a64',hoodie:'#617b91',jas:'#44566b',kaos:'#d99445',kebaya:'#b66c78',petani:'#77844d',pekerja:'#dfae40',koko:'#e9e4d7',rompi:'#3a827b'}, bottom:{celana:'#314256',jeans:'#41658b',cargo:'#586746',sarung:'#9c674f',rok:'#563e54',pendek:'#536a52',kulot:'#705b52'} };
-  // Open with the new harvest-life-sim farmer so the reference is visible immediately.
-  const defaults = {...FARMER_PRESETS[0].config};
-  for (const [key, values] of Object.entries(options)) { const select = form.elements[key]; select.innerHTML = values.map(([value,label]) => `<option value="${value}">${label}</option>`).join(''); select.value = defaults[key]; }
-  const comboCount = Object.values(options).reduce((sum, list) => sum * list.length, 1);
-  $('#avatarComboCount').textContent = `${comboCount.toLocaleString('id-ID')}+`;
-  $('#avatarPresetName').value=FARMER_PRESETS[0].name; $('#avatarPreviewName').textContent=FARMER_PRESETS[0].name;
-  let THREE, renderer, scene, camera, model, presets = [], activeSpecial = '', yaw = .35, pitch = .08, distance = 4.7, pointer = null;
-  const farmerEditor = mountFarmerEditor(form, () => showConfig(chosen()));
-  let thumbnailService=null;
-  const studioModel = $('#avatarStudioModel');
-  const modelLabel = studioModel.closest('label'); form.prepend(modelLabel);
-  const quickLabel=document.createElement('label');quickLabel.className='avatar-name-field';quickLabel.textContent='Mulai dari avatar siap pakai';
-  const quickPreset=document.createElement('select');quickPreset.id='avatarQuickPreset';quickPreset.add(new Option('Pilih racikan V11…',''));
-  FARMER_PRESETS.forEach(preset=>quickPreset.add(new Option(preset.name,preset.id)));quickLabel.append(quickPreset);
-  const switcher=document.createElement('div');switcher.className='avatar-quick-switcher';
-  const previousPreset=document.createElement('button'),nextPreset=document.createElement('button');
-  previousPreset.type=nextPreset.type='button';previousPreset.textContent='←';nextPreset.textContent='→';previousPreset.setAttribute('aria-label','Racikan V11 sebelumnya');nextPreset.setAttribute('aria-label','Racikan V11 berikutnya');
-  switcher.append(previousPreset,quickLabel,nextPreset);preview.querySelector('.builder-subhead').after(switcher);
-  const stepPreset=step=>{const current=FARMER_PRESETS.findIndex(p=>p.id===quickPreset.value);const index=current<0?(step>0?0:FARMER_PRESETS.length-1):(current+step+FARMER_PRESETS.length)%FARMER_PRESETS.length;quickPreset.value=FARMER_PRESETS[index].id;quickPreset.dispatchEvent(new Event('change'));};
-  previousPreset.addEventListener('click',()=>stepPreset(-1));nextPreset.addEventListener('click',()=>stepPreset(1));
-  quickPreset.value=FARMER_PRESETS[0].id;
-  quickPreset.addEventListener('change',()=>{
-    const preset=FARMER_PRESETS.find(item=>item.id===quickPreset.value);if(!preset)return;
-    $('#avatarPresetName').value=preset.name;$('#avatarPreviewName').textContent=preset.name;showConfig(preset.config);quickPreset.value=preset.id;markSelectedPreset(preset.id);
-    status.textContent='Racikan V11 dimuat. Sesuaikan bagian yang kamu inginkan sebelum menyimpan.';
-  });
-  studioModel.addEventListener('change', () => {
-    const config=chosen(); config.special=studioModel.value;
-    showConfig(config); status.textContent=config.special==='farmer-ps2'?'Model V11 aktif · sama dengan avatar game.':'Model modular lama aktif.';
-  });
-  form.addEventListener('submit', event => event.preventDefault());
-  let currentAssetReport=null,humanAssetReport=null,farmerAssetReport=null,previewAnimation='Idle',previewScale=1,wireframeEnabled=false,skeletonVisible=false,skeletonHelper=null,lastStatsAt=0;
-  const assetStatus=$('#avatarAssetStatus');const materialReport=$('#avatarMaterialReport');const animationSelect=$('#avatarPreviewAnimation');const statsReadout=$('#avatarAssetStatus');
-  const assetFile=$('#avatarAssetFile');const lightingSelect=$('#avatarPreviewLighting');const scaleInput=$('#avatarPreviewScale');const scaleValue=$('#avatarPreviewScaleValue');
-  const playbackClock=createStudioClock();let playbackPaused=false,playbackSpeed=1;
-  const playbackBar=document.createElement('div');playbackBar.className='avatar-playback-bar';
-  playbackBar.innerHTML='<button type="button" id="avatarPlaybackPause" aria-pressed="false">Jeda</button><button type="button" id="avatarPlaybackRestart">Ulangi</button><label>Kecepatan<select id="avatarPlaybackSpeed"><option value="0.25">0,25×</option><option value="0.5">0,5×</option><option value="0.75">0,75×</option><option value="1" selected>1× · normal</option><option value="1.5">1,5×</option><option value="2">2×</option></select></label>';
-  preview.querySelector('.character-preview-toolbar').before(playbackBar);
-  $('#avatarPlaybackPause').addEventListener('click',event=>{playbackPaused=!playbackPaused;event.currentTarget.setAttribute('aria-pressed',String(playbackPaused));event.currentTarget.textContent=playbackPaused?'Lanjutkan':'Jeda';playbackClock.reset();});
-  $('#avatarPlaybackRestart').addEventListener('click',()=>{model?.userData.setAnimation?.(previewAnimation,true);playbackClock.reset();});
-  $('#avatarPlaybackSpeed').addEventListener('change',event=>{playbackSpeed=Number(event.target.value);playbackClock.reset();});
-  const viewBar=document.createElement('div');viewBar.className='avatar-view-buttons';
-  for(const [label,angle] of [['Depan',0],['Kiri',-Math.PI/2],['Belakang',Math.PI],['3/4',.35]]){const button=document.createElement('button');button.type='button';button.textContent=label;button.addEventListener('click',()=>{yaw=angle;pitch=.08;distance=4.7;positionPreviewCamera();});viewBar.append(button);}
-  canvas.after(viewBar);
-  const advanced=document.createElement('details');advanced.className='avatar-preview-advanced';const advancedTitle=document.createElement('summary');advancedTitle.textContent='Alat teknis & impor GLB';advanced.append(advancedTitle,preview.querySelector('.character-asset-import'),preview.querySelector('.character-material-details'));preview.append(advanced);
-  const debugControls=document.createElement('div');debugControls.className='avatar-debug-controls';debugControls.append($('#avatarWireframe'),$('#avatarSkeleton'),preview.querySelector('.character-scale'));advancedTitle.after(debugControls);
-  function positionPreviewCamera(){if(!camera)return;camera.position.set(Math.sin(yaw)*distance,1.7+pitch,Math.cos(yaw)*distance);camera.lookAt(0,1.02,0);}
-  let selectedPresetId=FARMER_PRESETS[0].id;
-  function markSelectedPreset(id){selectedPresetId=id;catalog.querySelectorAll('[data-preset]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.preset===id)));}
-  const builtIns = [
-    ...FARMER_PRESETS,
-    ['Pak Lurah','sawo','pendek','hitam','batik','celana','peci','lencana'],['Bu Guru','kuning','hijab','coklat','seragam','rok','tanpa','kacamata'],['Petani Pagi','gelap','ikal','hitam','petani','sarung','caping','ransel'],['Pelajar Ceria','pucat','panjang','coklat','seragam','rok','bandana','ransel'],['Pedagang Pasar','coklat','keriting','coklat-tua','kaos','kulot','tanpa','selempang'],['Relawan Desa','zaitun','pendek','hitam','rompi','jeans','topi','lencana'],['Koki Dapur','kuning','pendek','coklat','kemeja','celana','bandana','map'],['Bunda Warga','sawo','hijab','hitam','kebaya','rok','tanpa','selempang'],['Pekerja Jalan','gelap','pendek','hitam','pekerja','celana','helm','ransel'],['Penjaga Hutan','coklat','ikal','coklat','jaket','kulot','topi','map'],['Pemuda Pesisir','zaitun','keriting','merah','kaos','pendek','bandana','tanpa'],['Kakak Koperasi','pucat','panjang','uban','koko','celana','peci','kacamata'],['Ibu Petani','gelap','hijab','coklat-tua','petani','sarung','caping','ransel'],['Seniman Kampung','kuning','panjang','merah','kaos','kulot','tanpa','syal'],['Ketua RT','sawo','pendek','uban','kemeja','celana','peci','map'],['Mekanik Warga','coklat','ikal','hitam','jaket','jeans','topi','lencana'],['Penjaga Sekolah','zaitun','pendek','coklat','seragam','celana','topi','kacamata'],['Sahabat Sungai','gelap','keriting','coklat','rompi','pendek','bandana','ransel'],
-    { name:'Garuda Merah Putih', icon:'🦅', config:{skin:'pucat',hair:'botak',hairColor:'uban',top:'seragam',bottom:'celana',headwear:'bandana',accessory:'lencana',special:'garuda'} },
-    { name:'Pemimpin Berseragam', icon:'🪖', config:{skin:'sawo',hair:'pendek',hairColor:'hitam',top:'kemeja',bottom:'celana',headwear:'peci',accessory:'lencana',special:'pemimpin'} },
-    { name:'Raka · Warga 01', icon:'♙', thumbnail:`${window.SEMESTA_AVATAR_GALLERY_ROOT}raka-warga-01-thumb.png`, modelFile:`${window.SEMESTA_AVATAR_GALLERY_ROOT}raka-warga-01.glb`, config:{skin:'sawo',hair:'pendek',hairColor:'hitam',top:'kemeja',bottom:'jeans',headwear:'peci',accessory:'lencana'} },
-    { name:'Pekerja Kargo Santai', icon:'🧥', config:{skin:'zaitun',hair:'cepak',hairColor:'hitam',top:'hoodie',bottom:'cargo',headwear:'tanpa',accessory:'jam'} },
-    { name:'Nadia Warga', icon:'🌼', config:{skin:'kuning',hair:'kuncir',hairColor:'coklat-tua',top:'kebaya',bottom:'rok',headwear:'tanpa',accessory:'selempang'} },
-    { name:'Petani Panen Pagi', icon:'🌾', thumbnail:`${window.SEMESTA_AVATAR_GALLERY_ROOT}karakter-harvestmoon-warga-3d.png`, config:{skin:'sawo',hair:'pendek',hairColor:'hitam',top:'flanel',bottom:'cargo',headwear:'caping',accessory:'tas-anyaman',facialHair:'kumis-janggut'} },
-  ];
-  builtIns.sort((a,b)=>Number(b.config?.special==='farmer-ps2')-Number(a.config?.special==='farmer-ps2')||Number(!!b.modelFile)-Number(!!a.modelFile)||Number(!!b.config?.special)-Number(!!a.config?.special));
-  const configFrom = (preset) => preset.config || { skin:preset[1],hair:preset[2],hairColor:preset[3],top:preset[4],bottom:preset[5],headwear:preset[6],accessory:preset[7] };
-  const labelFor = (key,value) => (options[key].find(([id]) => id === value) || [value,value])[1];
-  const chosen = () => ({...Object.fromEntries(Object.keys(options).map((key) => [key, form.elements[key].value])), ...(activeSpecial?{special:activeSpecial}:{}), ...(activeSpecial==='farmer-ps2'?{farmer:farmerEditor.get()}:{})});
-  function material(hex, roughness=.82) { return new THREE.MeshStandardMaterial({ color:hex, roughness }); }
-  function add(parent, geometry, mat, position, scale, rotation=0) { const mesh = new THREE.Mesh(geometry,mat); mesh.position.set(...position); if (scale) mesh.scale.set(...scale); mesh.rotation.z=rotation; mesh.castShadow=true; mesh.receiveShadow=true; parent.add(mesh); return mesh; }
-  function makeModularAvatar(config) {
-    if(config.special==='farmer-ps2' && !hasFarmerAsset()) { status.textContent='Aset V11 gagal dimuat. Muat ulang halaman; model lama tidak dipakai sebagai pengganti.'; const unavailable=new THREE.Group();unavailable.userData.assetUnavailable=true;return unavailable; }
-    if(!hasHumanAsset() && !(config.special==='farmer-ps2' && hasFarmerAsset())){const unavailable=new THREE.Group();unavailable.userData.assetUnavailable=true;return unavailable;}
-    const parts=createHumanModel(THREE,{
-      skin:colors.skin[config.skin], hair:colors.hairColor[config.hairColor], hairStyle:config.hair,
-      shirt:colors.top[config.top], trousers:colors.bottom[config.bottom], topStyle:config.top, bottomStyle:config.bottom,
-      role:config.special==='pemimpin'?'pemimpin':undefined, headwear:config.headwear,
-      ps2Farmer:config.special==='farmer-ps2',
-      accessory:config.accessory, facialHair:config.facialHair, pack:config.accessory==='ransel'?'#9d6948':null,
-      showBackpack:config.accessory==='ransel',
-      apron:config.top==='petani'?'#8b7449':undefined,
-      ...(config.special==='farmer-ps2' ? farmerCharacterOptions(config, avatarColors) : {}),
-    });
-    const root=parts.figure;
-    const animation=createStudioAnimation(parts);
-    root.userData.availableAnimations=Object.keys(parts.actions||{});
-    root.userData.setAnimation=animation.select;
-    root.userData.disposeAnimation=animation.dispose;
-    root.userData.animate=(time,delta)=>{
-      const phase=time*.0017;
-      animation.update(delta);
-      if (parts.mixer) return; // Authored clips own both V11 and legacy skeletons.
-      parts.head.rotation.z=Math.sin(phase*.55)*.016;
-      if(config.special==='pemimpin')parts.arms[1].rotation.z=2.35+Math.sin(phase*.7)*.025;
-      else parts.arms.forEach((arm,index)=>{arm.rotation.z=(index?1:-1)*(.045+Math.sin(phase+index*Math.PI)*.018);});
-    };
-    return root;
-  }
-  function makeSpecialAvatar(config) {
-    const root=new THREE.Group();
-    const materialCache=new Map();
-    const mat=(color,roughness=.78)=>{const key=`${color}:${roughness}`;if(!materialCache.has(key))materialCache.set(key,new THREE.MeshStandardMaterial({color,roughness}));return materialCache.get(key);};
-    const part=(geometry,color,position,scale,rotation=0)=>{const mesh=new THREE.Mesh(geometry,mat(color));mesh.position.set(...position);if(scale)mesh.scale.set(...scale);mesh.rotation.z=rotation;mesh.castShadow=true;mesh.receiveShadow=true;root.add(mesh);return mesh;};
-    if(config.special==='garuda') {
-      const feather='#f3ead5', shadow='#cbbda4', red='#d93632', gold='#e5b748', dark='#43382e';
-      part(new THREE.SphereGeometry(.42,32,24),feather,[0,1.02,0],[.88,1.16,.65]);
-      part(new THREE.SphereGeometry(.29,32,24),feather,[0,1.68,.02],[1,.92,.86]);
-      // Layered feather crest and cheek feathers make this silhouette distinct from a human avatar.
-      for(let i=0;i<5;i++)part(new THREE.ConeGeometry(.095,.35,8),i%2?shadow:feather,[(i-2)*.11,1.95+Math.abs(i-2)*.035,-.02],[1,1,1],-.15+(i-2)*.12);
-      for(const side of [-1,1]) {
-        part(new THREE.ConeGeometry(.12,.31,8),feather,[side*.22,1.53,.01],[1,1,1],-side*.24);
-        part(new THREE.SphereGeometry(.3,28,20),feather,[side*.48,1.13,-.015],[.48,1.02,.46],-side*.25);
-        for(let row=0;row<3;row++)for(let i=0;i<5;i++)part(new THREE.SphereGeometry(.115,14,10),((i+row)%3===0)?shadow:feather,[side*(.31+i*.075),.78+row*.16,.11-row*.015],[.42,1.42,.42],side*.32);
-        for(let i=0;i<4;i++)part(new THREE.SphereGeometry(.038,12,8),gold,[side*.1,1.72,.271]);
-        part(new THREE.SphereGeometry(.019,12,8),dark,[side*.1,1.72,.305]);
-      }
-      part(new THREE.ConeGeometry(.19,.25,12),gold,[0,1.63,.31],[1,1,1],Math.PI);
-      part(new THREE.TorusGeometry(.286,.032,10,32),red,[0,1.59,.02]);
-      // Simple red-white chest marking and miniature handheld flag.
-      part(new THREE.BoxGeometry(.34,.22,.035),'#d52d32',[0,1.08,.272]);
-      part(new THREE.BoxGeometry(.34,.11,.04),'#fff8e8',[0,.915,.272]);
-      part(new THREE.CylinderGeometry(.018,.018,.92,8),dark,[.53,1.2,.2],[1,1,1],-.12);
-      part(new THREE.BoxGeometry(.34,.19,.025),'#df3035',[.68,1.53,.2],[1,1,1],-.12);
-      part(new THREE.BoxGeometry(.34,.19,.025),'#fff8e8',[.66,1.34,.2],[1,1,1],-.12);
-      part(new THREE.SphereGeometry(.09,12,10),feather,[.42,.75,.16]);
-      root.userData.animate=(time)=>{root.position.y=Math.sin(time*.0015)*.012;root.rotation.z=Math.sin(time*.0008)*.012;};
-      return root;
-    }
-    // A fictional civic leader inspired by the supplied uniform portrait, with a raised greeting fist.
-    const skin='#bd805e', uniform='#d7cfb7', trim='#a69b7b', black='#242426', gold='#c6a14d', shoe='#403b36';
-    for(const x of [-.14,.14]) {
-      part(new THREE.CapsuleGeometry(.09,.3,4,8),black,[x,.38,0]);
-      part(new THREE.BoxGeometry(.22,.12,.32),shoe,[x,.12,.045]);
-    }
-    part(new THREE.CylinderGeometry(.115,.13,.16,24),skin,[0,1.25,0]);
-    part(new THREE.CapsuleGeometry(.25,.42,8,20),uniform,[0,.91,0],[1,.94,.8]);
-    part(new THREE.BoxGeometry(.025,.43,.018),trim,[0,.9,.211]);
-    // Tailored collar, breast pockets, stitching and buttons add uniform detail at close range.
-    for(const side of [-1,1]) {
-      part(new THREE.BoxGeometry(.115,.13,.035),uniform,[side*.075,1.14,.202],[1,1,1],side*.3);
-      part(new THREE.BoxGeometry(.145,.115,.025),trim,[side*.145,.91,.207]);
-      part(new THREE.BoxGeometry(.15,.022,.035),uniform,[side*.145,.977,.223]);
-      part(new THREE.BoxGeometry(.012,.085,.012),trim,[side*.145,.91,.226]);
-    }
-    for(let i=0;i<4;i++)part(new THREE.SphereGeometry(.018,10,8),gold,[.018,.76+i*.09,.225]);
-    for(const x of [-.16,.16]) {
-      part(new THREE.BoxGeometry(.13,.07,.22),trim,[x,1.13,0]);
-      part(new THREE.BoxGeometry(.09,.13,.025),uniform,[x,.99,.21]);
-      part(new THREE.SphereGeometry(.025,8,6),gold,[x,.94,.23]);
-    }
-    part(new THREE.BoxGeometry(.38,.1,.045),black,[0,.63,.02]);
-    part(new THREE.BoxGeometry(.1,.2,.035),gold,[0,.91,.225]);
-    part(new THREE.CylinderGeometry(.07,.07,.025,12),gold,[.1,.94,.24],[1,1,1],Math.PI/2);
-    part(new THREE.CylinderGeometry(.245,.245,.04,32),black,[0,1.82,0]);
-    part(new THREE.CylinderGeometry(.19,.2,.22,32),black,[0,1.94,-.005]);
-    part(new THREE.SphereGeometry(.235,32,24),skin,[0,1.51,.015],[1,.98,.9]);
-    part(new THREE.SphereGeometry(.245,28,20),black,[0,1.68,-.035],[1,.48,.9]);
-    for(const side of [-1,1]) {
-      part(new THREE.SphereGeometry(.065,18,14),skin,[side*.228,1.49,.005],[.46,.72,.58]);
-      part(new THREE.SphereGeometry(.044,12,10),skin,[side*.077,1.48,.227],[.75,.55,.42]);
-      part(new THREE.CapsuleGeometry(.018,.07,4,10),black,[side*.08,1.575,.217],[1,1,1],side*.16);
-    }
-    part(new THREE.CapsuleGeometry(.026,.11,5,10),skin,[0,1.49,.246],[1,1,1],Math.PI);
-    part(new THREE.SphereGeometry(.035,14,10),skin,[0,1.445,.28],[1,.75,.8]);
-    part(new THREE.CapsuleGeometry(.012,.065,3,8),trim,[0,1.365,.222],[1,.7,1]);
-    for(const x of [-.08,.08]) {
-      part(new THREE.SphereGeometry(.036,16,12),'#e7d6c6',[x,1.535,.218],[1,.68,.62]);
-      part(new THREE.SphereGeometry(.022,16,12),'#f7eee1',[x,1.535,.237],[1,.84,.55]);
-      part(new THREE.SphereGeometry(.013,12,10),'#4b392f',[x,1.535,.252]);
-      part(new THREE.SphereGeometry(.006,8,6),'#fff8e9',[x-.004,1.543,.258]);
-    }
-    part(new THREE.CapsuleGeometry(.014,.058,3,8),black,[-.08,1.59,.22],[1,1,1],-.04);
-    part(new THREE.CapsuleGeometry(.014,.058,3,8),black,[.08,1.59,.22],[1,1,1],.04);
-    // Temple hair and a defined jaw replace the featureless sphere face.
-    for(const side of [-1,1])part(new THREE.SphereGeometry(.07,16,12),black,[side*.19,1.64,-.005],[.55,.78,.95]);
-    part(new THREE.SphereGeometry(.12,18,14),skin,[0,1.36,.025],[.9,.55,.75]);
-    part(new THREE.CapsuleGeometry(.065,.19,4,8),uniform,[-.3,.84,0],[1,1,1],-.12);
-    part(new THREE.CapsuleGeometry(.052,.2,4,8),skin,[-.34,.62,.02],[1,1,1],-.12);
-    // Raised bent arm and closed fist; all pieces stay within the rotating avatar group.
-    part(new THREE.CapsuleGeometry(.07,.22,4,8),uniform,[.3,1.14,0],[1,1,1],-.45);
-    part(new THREE.CapsuleGeometry(.055,.2,4,8),skin,[.43,1.31,.015],[1,1,1],-.1);
-    part(new THREE.SphereGeometry(.105,20,16),skin,[.46,1.49,.02],[.92,1.08,.8]);
-    for(let i=0;i<4;i++)part(new THREE.SphereGeometry(.028,12,10),skin,[.39+i*.045,1.56,.07]);
-    return root;
-  }
-  function refreshAnimationOptions(){
-    const clips=activeSpecial==='garuda'?[]:(currentAssetReport?.clips||[]);
-    animationSelect.replaceChildren(...(clips.length?clips.map((clip)=>new Option(`${clip.name} · ${clip.duration}s`,clip.name)): [new Option('Tidak ada klip GLB','')]));
-    const available=new Set(clips.map((clip)=>clip.name.toLowerCase()));
-    const missing=(currentAssetReport?.missingClips||[]).filter((name)=>!available.has(name.toLowerCase()));
-    if(missing.length){const group=document.createElement('optgroup');group.label='Belum ada di aset';missing.forEach((name)=>{const option=new Option(`${name} · belum tersedia`,name);option.disabled=true;group.append(option);});animationSelect.append(group);}
-    animationSelect.disabled=clips.length===0;
-    if(clips.length){previewAnimation=clips.some((clip)=>clip.name===previewAnimation)?previewAnimation:clips[0].name;animationSelect.value=previewAnimation;}
-  }
-  function updateMaterialReport(){
-    if(!currentAssetReport||!currentAssetReport.valid){materialReport.textContent=currentAssetReport?.error||'GLB belum berhasil dimuat. Preview tidak menggantikan aset karakter produksi.';return;}
-    materialReport.textContent=[
-      `Status: ${currentAssetReport.valid?'GLB valid, kualitas produksi belum disetujui':'GLB tidak valid'}`,
-      `BBox (x, y, z): ${currentAssetReport.bounds?.join(' × ')||'—'}`,
-      `Animasi tersedia: ${currentAssetReport.clips.map((clip)=>clip.name).join(', ')||'tidak ada'}`,
-      `Animasi yang belum tersedia: ${currentAssetReport.missingClips.join(', ')||'tidak ada'}`,
-      'Material:',...currentAssetReport.materialDetails.map((item)=>`• ${item.name} · ${item.model} · rough ${item.roughness??'—'} · metal ${item.metalness??'—'} · map ${item.maps.join(', ')||'warna saja'}`),
-      ...currentAssetReport.warnings.map((warning)=>`PERINGATAN: ${warning}`),
-    ].join('\n');
-  }
-  function applyWireframe(){
-    if(!model)return;
-    model.traverse((node)=>{if(!node.isMesh||!node.material)return;for(const material of (Array.isArray(node.material)?node.material:[node.material]))material.wireframe=wireframeEnabled;});
-  }
-  function updateSkeletonHelper(){
-    if(skeletonHelper&&scene){scene.remove(skeletonHelper);skeletonHelper.geometry?.dispose();if(Array.isArray(skeletonHelper.material))skeletonHelper.material.forEach((material)=>material.dispose());else skeletonHelper.material?.dispose();skeletonHelper=null;}
-    if(!skeletonVisible||!model||!scene)return;
-    let hasBones=false;model.traverse((node)=>{if(node.isBone)hasBones=true;});
-    if(!hasBones){status.textContent='Skeleton tidak tersedia pada mode pratinjau ini.';return;}
-    skeletonHelper=new THREE.SkeletonHelper(model);skeletonHelper.material.color.set('#e44852');scene.add(skeletonHelper);
-  }
-  function selectPreviewAnimation(name){
-    previewAnimation=name;
-    if(model?.userData.setAnimation&&!model.userData.setAnimation(name))status.textContent=`Klip “${name}” tidak tersedia di GLB ini.`;
-    else if(!model?.userData.setAnimation)status.textContent='Avatar ini tidak memiliki klip animasi GLB.';
-  }
-  function installPreviewAsset(gltf,sourceLabel){
-    const report=inspectCharacterAsset(gltf);
-    if(!report.valid) throw new Error('GLB tidak memiliki mesh karakter yang valid.');
-    const farmer=isFarmerV8(gltf.scene);
-    if(farmer){farmerAssetReport=report;setFarmerAsset(gltf);thumbnailService?.dispose();thumbnailService=null;renderCatalog();}
-    else{humanAssetReport=report;setHumanAsset(gltf);}
-    showConfig({...chosen(),special:farmer?'farmer-ps2':''},{rebuild:true});
-    status.textContent=`${sourceLabel} · ${farmer?'model keluarga V11':'model modular'} aktif. Impor lokal hanya untuk pratinjau, bukan penggantian aset game.`;
-  }
-  function showConfig(config,{rebuild=false}={}) {
-    quickPreset.value='';
-    markSelectedPreset('');
-    const sameFarmer=!rebuild&&activeSpecial==='farmer-ps2'&&config.special==='farmer-ps2'&&model?.userData.setAppearance;
-    activeSpecial=config.special||'';
-    studioModel.value=activeSpecial;
-    $('#avatarResetAsset').textContent=activeSpecial==='farmer-ps2'?'Muat ulang V11 game':'Muat ulang model lama';
-    const combinations=activeSpecial==='farmer-ps2'?Object.values(FARMER_SCHEMA.fields).reduce((total,field)=>total*Object.keys(field.options).length,1):comboCount;
-    $('#avatarComboCount').textContent=combinations.toLocaleString('id-ID');
-    $('#avatarComboCount').title='Kombinasi pilihan bentuk, tidak termasuk warna; bukan jumlah model yang diuji visual satu per satu.';
-    if (!humanAssetReport && currentAssetReport && !farmerAssetReport) humanAssetReport=currentAssetReport;
-    currentAssetReport=activeSpecial==='farmer-ps2'?farmerAssetReport:humanAssetReport;
-    refreshAnimationOptions(); updateMaterialReport();
-    farmerEditor.set(config, avatarColors); farmerEditor.show(activeSpecial==='farmer-ps2');
-    for (const key of Object.keys(options)) form.elements[key].value = config[key] || defaults[key];
-    for (const key of Object.keys(options)) { form.elements[key].disabled=['garuda','farmer-ps2'].includes(activeSpecial); form.elements[key].closest('label').hidden=activeSpecial==='farmer-ps2'; }
-    const clean=chosen();
-    $('#avatarPreviewParts').textContent=[clean.hair,clean.top,clean.bottom,clean.headwear,clean.accessory,clean.facialHair].map((part,i)=>labelFor(['hair','top','bottom','headwear','accessory','facialHair'][i],part).toUpperCase()).join(' · ');
-    if (activeSpecial==='farmer-ps2') $('#avatarPreviewParts').textContent=['bodyFrame','bodyType','outfit','bottomStyle'].map(key=>FARMER_SCHEMA.fields[key].options[clean.farmer[key]]).join(' · ');
-    if(!THREE || !scene)return;
-    if(sameFarmer){model.userData.setAppearance(farmerCharacterOptions(clean,avatarColors));return;}
-    if(model){model.userData.disposeAnimation?.();scene.remove(model);const skeletons=new Set();model.traverse((node)=>{if(node.skeleton)skeletons.add(node.skeleton);if(!node.userData.sharedCharacterGeometry)node.geometry?.dispose(); if(node.material){const list=Array.isArray(node.material)?node.material:[node.material];list.forEach((mat)=>{if(!mat.userData.sharedCharacterTexture)mat.map?.dispose();mat.dispose();});}});skeletons.forEach(skeleton=>skeleton.dispose());}
-    model=clean.special==='garuda'?makeSpecialAvatar(clean):makeModularAvatar(clean);scene.add(model);model.scale.setScalar(previewScale);model.userData.setAnimation?.(previewAnimation);applyWireframe();updateSkeletonHelper();
-    playbackClock.reset();
-  }
-  const catalogSearch = $('#avatarCatalogSearch'); const catalogParams = new URLSearchParams(location.search); let catalogPage = Math.max(1, Number(catalogParams.get('avatarPage')) || 1); const catalogPageSize = 12;
-  const catalogFilter=$('#avatarCatalogFilter');
-  const initialFilter=catalogParams.get('avatarCollection')||'v11';
-  if([...catalogFilter.options].some(option=>option.value===initialFilter))catalogFilter.value=initialFilter;
-  const catalogDescription = config => {
-    if(config.special==='farmer-ps2') { const appearance=farmerCharacterOptions(config,avatarColors); return 'V11 · '+['bodyFrame','bodyType','outfit','bottomStyle'].map(key=>FARMER_SCHEMA.fields[key].options[appearance[key]]).join(' · '); }
-    if(config.special==='garuda') return 'Maskot Garuda 3D';
-    if(config.special==='pemimpin') return 'Pemimpin · model lama';
-    return `Model lama · ${labelFor('top',config.top)} · ${labelFor('hair',config.hair)}`;
-  };
-  catalogSearch.value = catalogParams.get('avatarQ') || '';
-  function renderCatalog() {
-    const items=[...builtIns.map((preset,index)=>({id:preset.id||`builtin-${index}`,name:Array.isArray(preset)?preset[0]:preset.name,collection:preset.collection,icon:preset.icon,thumbnail:preset.thumbnail,modelFile:preset.modelFile,config:configFrom(preset),builtIn:true})),...presets];
-    const query=catalogSearch.value.trim().toLocaleLowerCase('id-ID'); const filtered=items.filter((item)=>{
-      const group=catalogFilter.value;
-      const matches=group==='all'||(group==='saved'&&!item.builtIn)||(group==='v11'&&item.config.special==='farmer-ps2')||(group==='legacy'&&item.config.special!=='farmer-ps2')||item.collection===group;
-      return matches&&`${item.name} ${catalogDescription(item.config)} ${item.config.special||''}`.toLocaleLowerCase('id-ID').includes(query);
-    });
-    const pages=Math.max(1,Math.ceil(filtered.length/catalogPageSize));catalogPage=Math.min(catalogPage,pages);const visible=filtered.slice((catalogPage-1)*catalogPageSize,catalogPage*catalogPageSize);
-    $('#avatarCatalogCount').textContent=`${filtered.length} DARI ${items.length} GAYA`;$('#avatarCatalogPage').textContent=`Halaman ${catalogPage} dari ${pages}`;$('#avatarCatalogPrev').disabled=catalogPage<=1;$('#avatarCatalogNext').disabled=catalogPage>=pages;
-    catalog.replaceChildren();const thumbnailJobs=[];
-    visible.forEach(item=>{
-      const card=document.createElement('article');card.className='avatar-catalog-item';
-      const button=document.createElement('button');button.type='button';button.className='avatar-preset';button.dataset.preset=item.id;
-      button.setAttribute('aria-pressed',String(item.id===selectedPresetId));
-      const portrait=document.createElement('i');portrait.className='avatar-card-portrait';
-      const placeholder=document.createElement('span');placeholder.className='avatar-card-placeholder';placeholder.textContent=item.config.special==='farmer-ps2'?'V11':(item.icon||'♙');portrait.append(placeholder);
-      const image=document.createElement('img');image.alt='';image.hidden=true;portrait.append(image);
-      if(item.config.special==='farmer-ps2')thumbnailJobs.push({image,config:item.config});
-      else if(item.thumbnail){image.src=item.thumbnail;image.hidden=false;image.loading='lazy';portrait.classList.add('has-preview');}
-      const info=document.createElement('span');info.className='avatar-preset-info';
-      const tag=document.createElement('em');tag.className='avatar-card-kicker';tag.textContent=FARMER_COLLECTIONS[item.collection]||(item.builtIn?'Koleksi lama':'Racikan tersimpan');
-      const title=document.createElement('b');title.textContent=item.name;
-      const description=document.createElement('small');description.textContent=catalogDescription(item.config);
-      const action=document.createElement('span');action.className='avatar-card-action';action.textContent='Gunakan racikan ↗';
-      info.append(tag,title,description,action);button.append(portrait,info);card.append(button);
-      if(item.modelFile){const link=document.createElement('a');link.className='avatar-file-download';link.href=item.modelFile;link.download='';link.textContent='Unduh model GLB ↧';card.append(link);}
-      if(!item.builtIn){const remove=document.createElement('button');remove.type='button';remove.className='avatar-delete';remove.dataset.deleteAvatar=item.id;remove.setAttribute('aria-label',`Hapus ${item.name}`);remove.textContent='×';card.append(remove);}
-      catalog.append(card);
-    });
-    if(!visible.length){const empty=document.createElement('p');empty.className='avatar-catalog-empty';empty.textContent=catalogFilter.value==='saved'?'Belum ada racikan tersimpan. Pilih avatar, sesuaikan, lalu simpan dari studio.':'Tidak ada avatar yang cocok. Coba kata kunci atau koleksi lain.';catalog.append(empty);}
-    if(THREE&&scene&&hasFarmerAsset()&&thumbnailJobs.length){try{thumbnailService ||= createAvatarThumbnails(THREE);thumbnailService.fill(thumbnailJobs).catch(error=>console.warn('Pratinjau katalog tidak tersedia:',error));}catch(error){console.warn('Renderer katalog tidak tersedia:',error);}}
-    catalog.querySelectorAll('[data-preset]').forEach((button)=>button.addEventListener('click',()=>{const item=items.find((entry)=>entry.id===button.dataset.preset);if(!item)return;$('#avatarPresetName').value=item.name;$('#avatarPreviewName').textContent=item.name;showConfig(item.config);quickPreset.value=item.id;markSelectedPreset(item.id);status.textContent=item.config.special==='garuda'?'Model maskot Garuda dipilih. Bentuk khas maskot dijaga tetap utuh.':item.config.special==='farmer-ps2'?'Avatar V11 dipilih. Mengganti postur, wajah, atau pakaian tetap memakai model V11.':item.config.special==='pemimpin'?'Model karakter hidup dipilih. Warna dan pakaian masih bisa diracik.':`Racikan “${item.name}” dimuat. Kamu masih bisa mengganti setiap bagiannya.`;}));
-    catalog.querySelectorAll('[data-delete-avatar]').forEach((button)=>button.addEventListener('click',()=>saveLibrary(presets.filter((item)=>item.id!==button.dataset.deleteAvatar))));
-  }
-  const syncCatalogUrl=()=>updateAdminQuery({avatarQ:catalogSearch.value.trim(),avatarPage:catalogPage,avatarCollection:catalogFilter.value});
-  catalogFilter.addEventListener('change',()=>{catalogPage=1;renderCatalog();syncCatalogUrl();});
-  catalogSearch.addEventListener('input',()=>{catalogPage=1;renderCatalog();syncCatalogUrl();});
-  $('#avatarCatalogPrev').addEventListener('click',()=>{if(catalogPage>1){catalogPage--;renderCatalog();syncCatalogUrl();}});$('#avatarCatalogNext').addEventListener('click',()=>{catalogPage++;renderCatalog();syncCatalogUrl();});
-  async function saveLibrary(next) {
-    status.textContent='Menyimpan katalog avatar…';
-    try { const response=await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'avatar_library',presets:next})});const result=await response.json();if(!response.ok)throw new Error(result.error||'Katalog belum tersimpan.');presets=result.presets;renderCatalog();status.textContent=`Katalog tersimpan · ${presets.length} avatar khusus.`; }
-    catch(error){status.textContent=error.message;}
-  }
-  for(const key of Object.keys(options)) form.elements[key].addEventListener('change',()=>{if(activeSpecial==='pemimpin')activeSpecial='';showConfig(chosen());$('#avatarPreviewName').textContent=$('#avatarPresetName').value||'Racikan avatar';});
-  $('#avatarPresetName').addEventListener('input',(event)=>$('#avatarPreviewName').textContent=event.target.value||'Racikan avatar');
-  $('#randomAvatar').addEventListener('click',()=>{
-    const config=activeSpecial==='farmer-ps2'?chosen():{};
-    if(activeSpecial==='farmer-ps2') for(const [key,field] of Object.entries(FARMER_SCHEMA.fields)){const values=Object.keys(field.options);config.farmer[key]=values[Math.floor(Math.random()*values.length)];}
-    else for(const [key,values] of Object.entries(options))config[key]=values[Math.floor(Math.random()*values.length)][0];
-    showConfig(config);$('#avatarPresetName').value='Racikan baru';$('#avatarPreviewName').textContent='Racikan baru';status.textContent='Kombinasi acak dibuat. Ubah bagian yang kamu mau, lalu simpan.';
-  });
-  $('#saveAvatarPreset').addEventListener('click',()=>{if(presets.length>=100){status.textContent='Katalog mencapai batas 100 avatar tersimpan.';return;}const name=$('#avatarPresetName').value.trim();if(!name){status.textContent='Isi nama avatar sebelum menyimpan.';return;}const id=`avatar-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,6)}`;saveLibrary([...presets,{id,name,config:chosen()}]);});
-  showConfig(defaults);quickPreset.value=FARMER_PRESETS[0].id;markSelectedPreset(FARMER_PRESETS[0].id);renderCatalog();
-  try {
-    const libraryResponse=await fetch(`${API_URL}?resource=avatar_library`,{headers:{Accept:'application/json'}});
-    if(libraryResponse.ok){const data=await libraryResponse.json();presets=Array.isArray(data.presets)?data.presets:[];renderCatalog();}
-  } catch(error) { status.textContent='Katalog belum dapat dimuat dari server.'; }
-  try {
-    THREE=await import('three');
-    try { const gltf=await new GLTFLoader().loadAsync(window.SEMESTA_CHARACTER_MODEL);currentAssetReport=inspectCharacterAsset(gltf);setHumanAsset(currentAssetReport.valid?gltf:null);refreshAnimationOptions();updateMaterialReport();assetStatus.textContent=`${formatCharacterAssetSummary(currentAssetReport)} · ASET SITUS · ${currentAssetReport.missingClips.length?'animasi belum lengkap':'lulus pemeriksaan teknis awal; kualitas visual tetap perlu ditinjau'}.`; }
-    catch (error) { setHumanAsset(null);currentAssetReport=null;refreshAnimationOptions();updateMaterialReport();assetStatus.textContent=`Aset GLB situs gagal dimuat. Preview cadangan bukan karakter produksi. ${error.message||''}`;console.warn('Pratinjau aset karakter GLB gagal dimuat.', error); }
-    humanAssetReport=currentAssetReport;
-    try { const gltf=await new GLTFLoader().loadAsync(window.SEMESTA_FARMER_MODEL);const report=inspectCharacterAsset(gltf);farmerAssetReport=report;setFarmerAsset(report.valid?gltf:null); }
-    catch (error) { setFarmerAsset(null);console.warn('Aset petani 3D PS2 gagal dimuat.',error); }
-    renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;renderer.shadowMap.enabled=true;const pmrem=new THREE.PMREMGenerator(renderer);const roomEnvironment=new RoomEnvironment();const environment=pmrem.fromScene(roomEnvironment,.04).texture;roomEnvironment.dispose();pmrem.dispose();
-    scene=new THREE.Scene();scene.environment=environment;scene.background=new THREE.Color('#cfddce');camera=new THREE.PerspectiveCamera(34,1,.1,50);const ambient=new THREE.HemisphereLight('#fff5df','#62735c',1.5);scene.add(ambient);const keyLight=new THREE.DirectionalLight('#fff4dc',2.4);keyLight.position.set(3,5,4);keyLight.castShadow=true;scene.add(keyLight);const fill=new THREE.DirectionalLight('#bdd9ef',.9);fill.position.set(-4,2,-3);scene.add(fill);
-    const lightingPresets={studio:{background:'#cfddce',ambient:1.5,key:2.4,fill:.9,keyColor:'#fff4dc',fillColor:'#bdd9ef'},daylight:{background:'#bcd4e0',ambient:1.8,key:2.9,fill:.65,keyColor:'#fff8e9',fillColor:'#d7e9ff'},warm:{background:'#dfc7a9',ambient:1.35,key:2.4,fill:.7,keyColor:'#ffdda8',fillColor:'#f3b58d'}};
-    const updateLighting=()=>{const preset=lightingPresets[lightingSelect.value]||lightingPresets.studio;scene.background.set(preset.background);ambient.intensity=preset.ambient;keyLight.intensity=preset.key;keyLight.color.set(preset.keyColor);fill.intensity=preset.fill;fill.color.set(preset.fillColor);};
-    lightingSelect.addEventListener('change',updateLighting);
-    animationSelect.addEventListener('change',()=>selectPreviewAnimation(animationSelect.value));
-    $('#avatarWireframe').addEventListener('click',(event)=>{wireframeEnabled=!wireframeEnabled;event.currentTarget.setAttribute('aria-pressed',String(wireframeEnabled));applyWireframe();});
-    $('#avatarSkeleton').addEventListener('click',(event)=>{skeletonVisible=!skeletonVisible;event.currentTarget.setAttribute('aria-pressed',String(skeletonVisible));updateSkeletonHelper();});
-    scaleInput.addEventListener('input',()=>{previewScale=Number(scaleInput.value)||1;scaleValue.value=`${previewScale.toFixed(2)}×`;scaleValue.textContent=scaleValue.value;if(model)model.scale.setScalar(previewScale);});
-    assetFile.addEventListener('change',async()=>{const file=assetFile.files?.[0];if(!file)return;assetStatus.textContent=`Membaca ${file.name}…`;try{const data=await file.arrayBuffer();const gltf=await new GLTFLoader().parseAsync(data,'');installPreviewAsset(gltf,`FILE LOKAL · ${file.name} (tidak diunggah)`);}catch(error){assetStatus.textContent=`GLB gagal dibaca: ${error.message||'file tidak valid atau memakai tekstur eksternal'}. Gunakan GLB dengan tekstur tertanam.`;console.error('Impor pratinjau GLB:',error);}});
-    $('#avatarResetAsset').addEventListener('click',async()=>{assetStatus.textContent='Memuat ulang aset karakter situs…';const source=activeSpecial==='farmer-ps2'?window.SEMESTA_FARMER_MODEL:window.SEMESTA_CHARACTER_MODEL;try{installPreviewAsset(await new GLTFLoader().loadAsync(source),'ASET GAME');assetFile.value='';status.textContent='Aset studio sudah dimuat ulang dari model game yang dipilih.';}catch(error){assetStatus.textContent=`Aset GLB situs gagal dimuat: ${error.message||error}`;}});
-    const ground=new THREE.Mesh(new THREE.CircleGeometry(2.2,48),new THREE.MeshStandardMaterial({color:'#b9c99f',roughness:1}));ground.rotation.x=-Math.PI/2;ground.position.y=-.025;ground.receiveShadow=true;scene.add(ground);const ring=new THREE.Mesh(new THREE.TorusGeometry(1.15,.018,6,48),new THREE.MeshStandardMaterial({color:'#e4c170'}));ring.rotation.x=Math.PI/2;ring.position.y=.01;scene.add(ring);
-    const resize=()=>{const box=canvas.getBoundingClientRect();if(!box.width||!box.height)return;renderer.setSize(box.width,box.height,false);camera.aspect=box.width/box.height;camera.updateProjectionMatrix();};new ResizeObserver(resize).observe(canvas.parentElement);window.addEventListener('resize',resize);resize();
-    positionPreviewCamera();canvas.addEventListener('pointerdown',(event)=>{pointer={x:event.clientX,y:event.clientY};canvas.setPointerCapture(event.pointerId);});canvas.addEventListener('pointermove',(event)=>{if(!pointer)return;yaw+=(event.clientX-pointer.x)*.008;pitch=clamp(pitch+(event.clientY-pointer.y)*.004,-.35,.55);pointer={x:event.clientX,y:event.clientY};positionPreviewCamera();});canvas.addEventListener('pointerup',()=>pointer=null);canvas.addEventListener('pointercancel',()=>pointer=null);canvas.addEventListener('wheel',(event)=>{event.preventDefault();distance=clamp(distance+event.deltaY*.008,3.3,7);positionPreviewCamera();},{passive:false});
-    const pendingPreset=selectedPresetId,pendingQuick=quickPreset.value;
-    showConfig(chosen());quickPreset.value=pendingQuick;markSelectedPreset(pendingPreset);renderCatalog();
-    let lastFpsAt=performance.now(),framesSinceStats=0;
-    const studioActive=()=>!document.hidden&&$('#adminView-avatars')?.classList.contains('active');
-    const resetTiming=()=>{playbackClock.reset();lastFpsAt=performance.now();framesSinceStats=0;};
-    document.addEventListener('visibilitychange',resetTiming);window.addEventListener('semesta:admin-view-change',resetTiming);
-    const draw=now=>{
-      requestAnimationFrame(draw);
-      const active=studioActive(),tick=playbackClock.tick(now,{active,paused:playbackPaused,speed:playbackSpeed});
-      if(!active)return;
-      model?.userData.animate?.(tick.time*1000,tick.delta);
-      if(skeletonHelper)skeletonHelper.update();renderer.render(scene,camera);framesSinceStats++;
-      if(now-lastStatsAt>600){const info=renderer.info;const fps=Math.round(framesSinceStats*1000/Math.max(1,now-lastFpsAt));lastStatsAt=lastFpsAt=now;framesSinceStats=0;statsReadout.textContent=`${playbackPaused?'Dijeda':`${playbackSpeed}× waktu nyata`} · ${activeSpecial==='farmer-ps2'?'V11':'Model lama'} · ${fps} FPS render · ${info.render.calls} draw calls`;}
-    };
-    requestAnimationFrame(draw);
-  } catch(error) { renderCatalog();status.textContent='Pratinjau 3D belum dapat dibuka di perangkat ini.'; console.error('Studio avatar:',error); }
+  return mountAvatarStudio(document.querySelector('#adminView-avatars'), API_URL);
 }
 
 start().catch((error) => { console.error(error); const notice = document.createElement('div'); notice.className = 'build-notice'; notice.textContent = 'Belum berhasil dibuka. Pastikan XAMPP aktif dan halaman dimuat ulang.'; document.body.append(notice); });

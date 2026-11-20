@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "bytes": 21874288,
+  "activeTriangles": 36292,
+  "activeMeshPrimitives": 28,
+  "estimatedDrawCalls": 28,
+  "expressionPoseVertexSamples": 122850,
+  "attachmentSamples": 48,
+  "independentInstances": true,
+  "identityPreserved": true,
+  "legacyMouthNotAdded": true,
+  "limitations": "CPU Three.js deformation checks; draw calls estimated from visible primitives, not measured GPU FPS. Expression extremes are not a collision proof."
+}

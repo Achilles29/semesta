@@ -5,7 +5,8 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {PRODUCTION_DISTRICT as site,PRODUCTION_CAST,insideProductionDistrict,productionReserved,productionEntry} from '../game-src/production-district.js';
 import {buildProductionDistrict} from '../game-src/production-district-scene.js';
 import {getDefaultWorldScene} from '../game-src/world-assets-3d-v2.js';
-import {createHumanModel,setFarmerAsset} from '../game-src/avatar-character-3d.js';
+import {createHumanModel,loadAvatarProfile} from '../game-src/avatar-runtime.js';
+import {loadTestAvatars} from './avatar_v15_test_asset.mjs';
 
 assert.deepEqual(productionEntry(site.id,'kota'),site.spawn);
 for(const region of ['desa','hutan'])assert.equal(productionEntry(site.id,region),null);
@@ -14,10 +15,10 @@ assert.ok(insideProductionDistrict(site.spawn.x,site.spawn.z));
 assert.ok(!insideProductionDistrict(0,18));
 assert.equal(new Set(PRODUCTION_CAST.map(c=>c.id)).size,6);
 const original=getDefaultWorldScene('kota');const snapshot=JSON.stringify(original);
-const bytes=readFileSync('public/models/characters/semesta-farmer-v11.glb');
-const asset=await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),'');setFarmerAsset(asset);
-const sourceEyes=asset.scene.getObjectByName('Face_EyeWhite_L').geometry;
-const sourceEyePositions=Array.from(sourceEyes.attributes.position.array);
+await loadTestAvatars();
+const asset=await loadAvatarProfile('male-balanced');
+const sourceSkin=asset.scene.getObjectByName('Arka_Skin').geometry;
+const sourcePositions=Array.from(sourceSkin.attributes.position.array);
 const world=new THREE.Group(),colliders=[];
 const result=buildProductionDistrict(THREE,{
   world,makeHuman(parent,options){const model=createHumanModel(THREE,options);parent.add(model.figure);return model;},
@@ -26,19 +27,16 @@ const result=buildProductionDistrict(THREE,{
   createWorldAsset(){return new THREE.Group();},
 });
 assert.equal(result.cast.length,6);assert.equal(JSON.stringify(original),snapshot);
-assert.deepEqual(Array.from(sourceEyes.attributes.position.array),sourceEyePositions,'Portrait refinements never modify shared player geometry');
-for(const id of ['bahlil','mama-ghufron']){
- const model=result.cast.find(n=>n.id===id).model;
- assert.notEqual(model.figure.getObjectByName('Face_EyeWhite_L').geometry,sourceEyes);
- assert.equal(model.figure.userData.productionPortrait.revision,'reference-study-v7');
+assert.deepEqual(Array.from(sourceSkin.attributes.position.array),sourcePositions,'Cast cannot modify cached avatar geometry');
+for(const actor of result.cast){
+ assert.equal(actor.model.figure.userData.avatarConfig.model,'v15');
+ assert.ok(actor.model.figure.userData.expressionController);
+ assert.ok(!actor.model.figure.userData.productionPortrait,'Legacy face overlays are disabled');
 }
-const bahlil=result.cast.find(n=>n.id==='bahlil');
-assert.equal(bahlil.model.figure.getObjectByName('BahlilCroppedHair').parent,bahlil.model.head);
-assert.ok(bahlil.model.figure.getObjectByName('HighHairline').geometry.attributes.position.count>100);
 assert.equal(result.neighborhood.extras.length,8);
 assert.equal(result.neighborhood.buildings.length,5);
 for(const extra of result.neighborhood.extras){
-  assert.deepEqual(extra.model.figure.userData.appearance.warnings,[],extra.id);
+  assert.equal(extra.model.figure.userData.avatarConfig.model,'v15',extra.id);
   assert.ok(extra.model.actions.Idle&&extra.model.actions.Walk&&extra.model.actions.Interact);
 }
 result.updateAtmosphere(17);
@@ -59,23 +57,15 @@ result.updateLabels(24);
 assert.ok(result.cast.every(npc=>npc.root.children.filter(c=>c.isSprite).every(c=>c.visible)));
 for(const npc of result.cast){
   assert.ok(insideProductionDistrict(npc.root.position.x,npc.root.position.z));
-  assert.deepEqual(npc.model.figure.userData.appearance.warnings,[],npc.id);
+  assert.equal(npc.model.figure.userData.avatarConfig.model,'v15',npc.id);
   assert.ok(npc.model.actions.Idle && npc.model.actions.Walk,npc.id);
   npc.model.mixer.update(.25);
   assert.ok(npc.lines.every(l=>typeof l==='string'&&l.length>0));
 }
 const ghufron=result.cast.find(n=>n.id==='mama-ghufron');
-assert.equal(ghufron.model.figure.getObjectByName('MamaGhufronLongHair').parent,ghufron.model.head);
-assert.equal(ghufron.model.figure.userData.appearance.headwear,'peci');
-assert.equal(ghufron.model.figure.getObjectByName('Headwear_Peci').visible,true,'Peci remains visible with long hair');
-const longHair=ghufron.model.figure.getObjectByName('MamaGhufronLongHair');
-assert.ok(longHair.visible && longHair.children.length>=10,'Long locks remain present under the peci');
-for(const clip of ['Idle','Walk','Interact']){
-  ghufron.model.mixer.stopAllAction();ghufron.model.actions[clip].reset().play();ghufron.model.mixer.update(.35);
-  ghufron.model.figure.updateMatrixWorld(true);
-  assert.equal(longHair.parent,ghufron.model.head,`Long hair follows the animated head in ${clip}`);
-  assert.ok(longHair.matrixWorld.elements.every(Number.isFinite));
-  assert.ok(ghufron.model.figure.getObjectByName('Headwear_Peci').visible);
+for(const clip of ['Idle','Walk','Point']){
+ ghufron.model.mixer.stopAllAction();ghufron.model.actions[clip].reset().play();ghufron.model.mixer.update(.35);ghufron.model.figure.updateMatrixWorld(true);
+ assert.ok(ghufron.model.head.matrixWorld.elements.every(Number.isFinite));
 }
 const blocked=(x,z)=>colliders.some(c=>Math.hypot(Math.max(Math.abs(x-c.x)-c.halfX,0),Math.max(Math.abs(z-c.z)-c.halfZ,0))<.38);
 assert.ok(!blocked(site.spawn.x,site.spawn.z),'spawn clear');
@@ -117,4 +107,4 @@ assert.ok(source.includes('playerPosition: productionEntry(location, region)'));
 assert.ok(source.includes('savedState.location === place.type'));
 assert.ok(source.includes('runToken !== areaRunToken'));
 assert.ok(source.includes('npcCharacters.push(...production.cast)'));
-console.log('PASS: separate district, two-way walkable route, no old scene mutation, clear spawn and six preview positions, six V11 cast with no appearance warnings, animated long hair, 19 archived WAV cues.');
+console.log('PASS: separate district, two-way walkable route, no old scene mutation, clear spawn and six preview positions, six V15 cast with shared appearance and face controllers, 19 archived WAV cues.');

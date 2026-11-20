@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "baselineSha256": "406ba7e99b500e6e3712ee4f4dd81ad1d64523491ebe550b6c97661484a92a74",
+  "currentSha256": "2b027ee57918dec7f3448f217ec0b13fbe2d5a521acc6454a09bc1d6447ce48c",
+  "profile": "male-balanced",
+  "unchangedMeshAndMorphAccessors": 190,
+  "materialsUnchanged": true,
+  "unchangedClips": [
+    "Idle",
+    "Wave",
+    "Sit",
+    "Point",
+    "Hold"
+  ],
+  "unchangedAnimationChannels": 735,
+  "locomotionChangesLimitedToNeckAndHead": false
+}

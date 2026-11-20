@@ -1,0 +1,69 @@
+{
+  "revision": "v12-expression-candidate",
+  "source": "V11 CC0 body and wardrobe",
+  "contract": {
+    "version": 1,
+    "targets": {
+      "blinkL": "expr_blinkL",
+      "blinkR": "expr_blinkR",
+      "lookLeft": "expr_lookLeft",
+      "lookRight": "expr_lookRight",
+      "browUp": "expr_browUp",
+      "browUpL": "expr_browUpL",
+      "browUpR": "expr_browUpR",
+      "browAngry": "expr_browAngry",
+      "browSad": "expr_browSad",
+      "jawOpen": "expr_jawOpen",
+      "mouthWide": "expr_mouthWide",
+      "mouthRound": "expr_mouthRound",
+      "smile": "expr_smile",
+      "frown": "expr_frown"
+    },
+    "expressions": {
+      "neutral": {},
+      "happy": {
+        "smile": 0.85
+      },
+      "angry": {
+        "browAngry": 0.8,
+        "frown": 0.45
+      },
+      "sad": {
+        "browSad": 0.8,
+        "frown": 0.7
+      },
+      "surprised": {
+        "browUp": 1,
+        "jawOpen": 0.65,
+        "mouthRound": 0.5
+      },
+      "confused": {
+        "browUpL": 0.8,
+        "browAngry": 0.15,
+        "mouthRound": 0.12
+      }
+    },
+    "visemes": {
+      "rest": {},
+      "AA": {
+        "jawOpen": 0.85
+      },
+      "EE": {
+        "jawOpen": 0.2,
+        "mouthWide": 0.8
+      },
+      "OH": {
+        "jawOpen": 0.55,
+        "mouthRound": 0.8
+      },
+      "MBP": {}
+    }
+  },
+  "defaultGameChanged": false,
+  "limitations": [
+    "Inherited garments and non-short hairstyles still need individual artistic refinement",
+    "No phoneme inference: visemes require timed cues",
+    "Legacy nineteen-bone body retains existing finger limitations",
+    "Morph normals omitted to reduce download size; inspect extreme expressions in engine"
+  ]
+}

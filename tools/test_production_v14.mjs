@@ -5,10 +5,11 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {sampleEpisode,EPISODE_DURATION,EPISODE_CUES,EPISODE_SCENES,EPISODE_SHOTS,EPISODE_EVENTS} from '../game-src/production-v14-episode.js';
 import {createV14Props} from '../game-src/production-v14-props.js';
 import {buildProductionDistrict} from '../game-src/production-district-scene.js';
-import {createHumanModel,setFarmerAsset} from '../game-src/avatar-character-3d.js';
+import {createHumanModel} from '../game-src/avatar-runtime.js';
+import {loadTestAvatars} from './avatar_v15_test_asset.mjs';
 const base='public/audio/produksi/episode-002/release-v14/';
 const timeline=JSON.parse(readFileSync(base+'timeline.json','utf8'));
-const script=readFileSync('docs/script/002-kursi-kosong-proses-pengganti-wapres-2026-11-13.md','utf8').split('# Arsip Naskah')[0];
+const script=readFileSync('docs/script/002-kursi-kosong-proses-pengganti-wapres-2026-11-13.md','utf8').split('# Naskah 002 \u2014 V14:')[1].split('# Arsip Naskah 002 \u2014 V13:')[0];
 assert.equal(EPISODE_CUES.length,10);assert.equal(EPISODE_SHOTS.length,18);assert.equal(EPISODE_SCENES.length,6);
 for(const c of EPISODE_CUES){assert.ok(script.includes(c.text));assert.equal(c.spoken_text,c.text.replaceAll('WKWKWK','wekawekaweka'));assert.equal(c.inserted_holds.length,0);
   for(const m of c.source_to_cue_mapping)assert.equal(m.source_end_frame-m.source_start_frame,m.cue_end_frame-m.cue_start_frame);}
@@ -19,8 +20,7 @@ for(const stem of ['master','dialogue','music','fx']){
  assert.ok(Math.abs(wav.readUInt32LE(40)/4/44100-EPISODE_DURATION)<1e-5);
  for(let i=44;i<wav.length;i+=2)assert.ok(Math.abs(wav.readInt16LE(i))<32767,'No clipping '+stem);
 }
-const bytes=readFileSync('public/models/characters/semesta-farmer-v11.glb');
-setFarmerAsset(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''));
+await loadTestAvatars();
 const world=new THREE.Group(),production=buildProductionDistrict(THREE,{world,makeHuman(p,o){const m=createHumanModel(THREE,o);p.add(m.figure);return m;},makeText(){return new THREE.Sprite(new THREE.SpriteMaterial());},addCollider(x,z){return{x,z};},createWorldAsset(){return new THREE.Group();}});
 const originalCount=production.cast.length,props=createV14Props(THREE,production),camera=new THREE.PerspectiveCamera();
 const originalExtraVisibility=production.neighborhood.extras.map(e=>e.root.visible);

@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-19T15:34:09.356000+00:00",
+  "hashes": {
+    "ilustrasi\\avatar-v2\\farmer-v14-jrpg\\arka-v14.glb": "7ae3f972164e172e8ddeca78518f52f425bedd14f13f92eaf09c9c74f5c7c78d",
+    "public\\models\\characters\\semesta-farmer-v14.glb": "7ae3f972164e172e8ddeca78518f52f425bedd14f13f92eaf09c9c74f5c7c78d",
+    "assets\\game\\models\\characters\\semesta-farmer-v14.glb": "7ae3f972164e172e8ddeca78518f52f425bedd14f13f92eaf09c9c74f5c7c78d"
+  },
+  "sourceFilesVerified": 79,
+  "linkedFilesVerified": 37,
+  "embeddedImagesDecoded": 18,
+  "video": {
+    "frames": 168,
+    "seconds": 14.0,
+    "fps": 12.0,
+    "size": [
+      400,
+      584
+    ]
+  },
+  "http": [
+    {
+      "path": "ilustrasi/avatar-v2/farmer-v14-jrpg/review.html",
+      "status": 200,
+      "bytes": "9193"
+    },
+    {
+      "path": "ilustrasi/avatar-v2/farmer-v14-jrpg/arka-demo.mp4",
+      "status": 200,
+      "bytes": "426838"
+    },
+    {
+      "path": "public/models/characters/semesta-farmer-v14.glb",
+      "status": 200,
+      "bytes": "19137760"
+    }
+  ],
+  "rangeRequest206": true,
+  "adminCandidateConfiguredInSource": true,
+  "adminAdvertisesCandidate": false,
+  "adminLoginRequired": true,
+  "browserInteractionVerified": false,
+  "gpuFPSMeasured": false
+}

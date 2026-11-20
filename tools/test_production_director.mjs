@@ -3,14 +3,15 @@ import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {buildProductionDistrict} from '../game-src/production-district-scene.js';
+import {loadTestAvatars} from './avatar_v15_test_asset.mjs';
 import {mountProductionDirector} from '../game-src/production-director.js';
 import {EPISODE_DURATION} from '../game-src/production-v16-episode.js';
 
 // Load the avatar module through the exact specifier used by the game entry.
 // A query-string variant is a different module and splits its asset registry.
 const entry=readFileSync('game-src/main.js','utf8');
-const avatarSpecifier=entry.match(/from\s+['"](\.\/avatar-character-3d\.js[^'"]*)['"]/)[1];
-const {createHumanModel,setFarmerAsset}=await import(new URL('../game-src/'+avatarSpecifier.slice(2),import.meta.url));
+const avatarSpecifier=entry.match(/from\s+['"](\.\/avatar-runtime\.js[^'"]*)['"]/)[1];
+const {createHumanModel}=await import(new URL('../game-src/'+avatarSpecifier.slice(2),import.meta.url));
 
 // Exercise the real director, cast, rigs and props. DOM, audio device and GPU
 // alone are mocked: this is an integration test, not a browser/render test.
@@ -33,8 +34,7 @@ globalThis.AudioContext=class {
   createBufferSource(){return{connect(){},disconnect(){},start(){},stop(){}};}
 };
 globalThis.fetch=async()=>({ok:true,arrayBuffer:async()=>new ArrayBuffer(1)});
-const bytes=readFileSync('public/models/characters/semesta-farmer-v11.glb');
-setFarmerAsset(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''));
+await loadTestAvatars();
 const world=new THREE.Group(),scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(36,4/3,.05,200);scene.add(world);
 const production=buildProductionDistrict(THREE,{world,makeHuman(p,o){const m=createHumanModel(THREE,o);p.add(m.figure);return m;},makeText(){return new THREE.Sprite(new THREE.SpriteMaterial());},addCollider(x,z){return{x,z};},createWorldAsset(){return new THREE.Group();}});
 let renders=0;

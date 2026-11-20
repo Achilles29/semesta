@@ -32,7 +32,7 @@ export function createGripRig(THREE){
       const orientation=p.handOrientations?.[side];
       if(orientation){
         const hand=npc.model.figure.getObjectByName('hand'+side);
-        if(!hand?.parent)throw new Error(`Rig karakter ${npc.id} tidak lengkap: hand${side} tidak ditemukan. Pastikan aset avatar V11 sudah dimuat.`);
+        if(!hand?.parent)throw new Error(`Rig karakter ${npc.id} tidak lengkap: hand${side} tidak ditemukan. Pastikan aset avatar V15 sudah dimuat.`);
         const q=new THREE.Quaternion().setFromEuler(new THREE.Euler(orientation[0],orientation[1],orientation[2],orientation[3]??'YXZ'));
         hand.quaternion.copy(hand.parent.getWorldQuaternion(new THREE.Quaternion()).invert().multiply(q));
         hand.updateWorldMatrix(false,true);

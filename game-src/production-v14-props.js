@@ -1,6 +1,7 @@
 import {createV6Props} from './production-v6-props.js';
-import {createHumanModel} from './avatar-character-3d.js';
-import {farmerCharacterOptions,FARMER_PRESET} from './avatar-farmer-config.js';
+import {createHumanModel} from './avatar-runtime.js';
+import {avatarCharacterOptions as farmerCharacterOptions} from './avatar-v15-config.js';
+const FARMER_PRESET={};
 import {V14_SET} from './production-v14-episode.js';
 
 /** Owned cinematic cast and props: never saved to world/admin data. */

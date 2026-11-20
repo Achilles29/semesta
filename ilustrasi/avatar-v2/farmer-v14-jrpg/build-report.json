@@ -1,0 +1,54 @@
+{
+  "revision": "v14-jrpg-candidate",
+  "name": "Arka \u00b7 Penjelajah desa",
+  "base": "MakeHuman hm08, CC0 pinned in source manifests",
+  "heightMetres": 1.78,
+  "scaleFromSource": 0.10519037981281006,
+  "bones": 49,
+  "sourceBodyVertices": 13380,
+  "exportedSkinVertices": 8121,
+  "expressionTargets": [
+    "blinkL",
+    "blinkR",
+    "browUpL",
+    "browUpR",
+    "browAngryL",
+    "browAngryR",
+    "browSadL",
+    "browSadR",
+    "smile",
+    "frown",
+    "jawOpen",
+    "mouthRound",
+    "mouthWide",
+    "mouthClosed"
+  ],
+  "clips": [
+    "Idle",
+    "Walk",
+    "Run",
+    "Wave",
+    "Sit",
+    "Point",
+    "Hold"
+  ],
+  "locomotion": {
+    "Walk": {
+      "duration": 1.0,
+      "stanceFraction": 0.6,
+      "strideDistance": 0.38,
+      "recommendedForwardSpeed": 0.6333333333333334,
+      "floor": 0,
+      "unevenTerrainIK": false
+    },
+    "Run": {
+      "duration": 0.6666666666666666,
+      "stanceFraction": 0.43,
+      "strideDistance": 0.58,
+      "recommendedForwardSpeed": 2.0232558139534884,
+      "floor": 0,
+      "unevenTerrainIK": false
+    }
+  },
+  "defaultChanged": false
+}

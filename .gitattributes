@@ -1,0 +1,5 @@
+# Preserve downloaded source hashes and content-addressed runtime filenames on
+# Windows as well as Unix. Text conversion would invalidate their manifests.
+ilustrasi/avatar-v2/farmer-v14-jrpg/source/** -text
+ilustrasi/avatar-v2/farmer-v15-proportions/source/** -text
+public/models/characters/v15/runtime/** -text

@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "bytes": 23892032,
+  "bones": 49,
+  "clips": [
+    "Idle",
+    "Interact",
+    "Wave",
+    "Hoe",
+    "Watering",
+    "Harvest",
+    "Walk",
+    "Run",
+    "Sit",
+    "Point",
+    "Hold"
+  ],
+  "activeTriangles": 44380,
+  "estimatedDrawCalls": 28,
+  "activeMorphPositionBytes": 4178748,
+  "activeMorphPositionArrays": 216,
+  "vertexSamples": 27250,
+  "fittedPivotChecks": 1440,
+  "gripFitSamples": 16,
+  "legacyAttachmentSamples": 160,
+  "maxPreservedAttachmentDrift": 0,
+  "maxChangedLocomotionAttachmentDrift": 1.1706245750894764,
+  "gait": [
+    {
+      "clip": "Walk",
+      "stanceSamples": 30,
+      "maxTargetError": 2.5355779936786504e-7,
+      "minSoleHeight": 1.7806536148357033e-8,
+      "maxStanceSoleHeight": 2.3731635299603648e-7,
+      "recommendedForwardSpeed": 0.46666666666666673
+    },
+    {
+      "clip": "Run",
+      "stanceSamples": 14,
+      "maxTargetError": 3.833262997299247e-7,
+      "minSoleHeight": -5.915350059261526e-8,
+      "maxStanceSoleHeight": 1.4982588371174888e-7,
+      "recommendedForwardSpeed": 1.4285714285714288
+    }
+  ],
+  "independentInstances": true,
+  "identityPreserved": true,
+  "limitations": "CPU checks and draw-call estimates; morph position bytes are decoded arrays, not measured GPU allocation or FPS; not collision certification"
+}

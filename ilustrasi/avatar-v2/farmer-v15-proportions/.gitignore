@@ -1,0 +1,9 @@
+*.log
+demo-v14/
+demo-v15/
+video-frames/
+motion-cmu/
+motion-sheet/
+motion-video-frames/
+source/cmu/*-fk.json
+source/cmu/fk-contact.png

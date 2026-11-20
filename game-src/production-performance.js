@@ -64,6 +64,8 @@ export function createCastPerformance(THREE,cast){
   const records=new Map(),geometry=new THREE.SphereGeometry(1,20,12);
   const material=new THREE.MeshStandardMaterial({color:'#3d1817',roughness:1});
   for(const npc of cast){
+    const expression=npc.model.figure.userData.expressionController;
+    if(expression){records.set(npc.id,{expression,hands:npc.model.figure.userData.handController,head:npc.model.head});continue;}
     const head=npc.model.head,smile=npc.model.figure.getObjectByName('Face_Smile');
     if(!head||!smile)continue;
     // The authored V11 mouth is at y=1.556, z=.158 in rest-pose figure coordinates.
@@ -74,11 +76,18 @@ export function createCastPerformance(THREE,cast){
   }
   return {
     update(npc,pose){const r=records.get(npc.id);if(!r)return;
+      if(r.expression){
+        r.hands?.update({pose:pose.handPose||'clip',side:pose.handSide||'both',intensity:pose.handIntensity??1});
+        r.expression.update({expression:pose.expression||'neutral',viseme:pose.viseme||'rest',
+          speech:pose.visemeWeight??1,time:pose.time??0,gaze:pose.gaze??0,
+          channels:pose.viseme?{}:{jawOpen:pose.mouthOpen??0}});
+        if(r.head){r.head.rotation.y+=pose.headYaw??0;r.head.rotation.x+=pose.headNod??0;}return;
+      }
       const amount=pose.mouthOpen??0;r.mouth.visible=amount>.045||(pose.smile??1)<.5;r.smile.visible=!r.mouth.visible;
       r.mouth.scale.y=.003+amount*.017;
       r.head.rotation.y+=pose.headYaw??0;r.head.rotation.x+=pose.headNod??0;
     },
-    reset(){for(const r of records.values()){r.mouth.visible=false;r.smile.visible=r.smileVisible;}},
-    dispose(){for(const r of records.values())r.mouth.removeFromParent();geometry.dispose();material.dispose();}
+    reset(){for(const r of records.values()){if(r.expression){r.expression.reset();r.hands?.reset();continue;}r.mouth.visible=false;r.smile.visible=r.smileVisible;}},
+    dispose(){for(const r of records.values()){if(r.expression){r.expression.reset();r.hands?.reset();}else r.mouth.removeFromParent();}geometry.dispose();material.dispose();}
   };
 }

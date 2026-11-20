@@ -10,8 +10,6 @@
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();
     $entry = isset($manifest['game-src/main.js']) ? $manifest['game-src/main.js'] : NULL;
-    $character_model_path = is_file($manifest_path) ? 'assets/game/models/characters/semesta-farmer-v2.glb' : 'public/models/characters/semesta-farmer-v2.glb';
-    $farmer_model_path = is_file($manifest_path) ? 'assets/game/models/characters/semesta-farmer-v11.glb' : 'public/models/characters/semesta-farmer-v11.glb';
     $map_asset_root = is_file(FCPATH . 'assets/game/map-assets/kawasan-warga.webp') ? 'assets/game/map-assets/' : 'public/map-assets/';
     $source_css_version = is_file(FCPATH . 'game-src/style.css') ? filemtime(FCPATH . 'game-src/style.css') : time();
     $source_js_version = is_file(FCPATH . 'game-src/main.js') ? filemtime(FCPATH . 'game-src/main.js') : time();
@@ -50,7 +48,7 @@
                         <label>Provinsi domisili<select name="domicileProvince"><option value="">Pilih jika ingin mengisi</option></select></label>
                         <label>Kota/kabupaten domisili<input name="domicileCity" maxlength="80" placeholder="Opsional"></label>
                         <input type="hidden" name="avatar" id="citizenAvatarSelect" value="warga">
-                        <div class="registration-avatar-choice" id="registrationAvatarChoice"><img id="registrationAvatarPreview" src="<?= base_url('public/models/characters/semesta-farmer-v11-thumb.png?v=' . filemtime(FCPATH . 'public/models/characters/semesta-farmer-v11-thumb.png')); ?>" alt="Pratinjau karakter 3D yang dipilih"><div><span>AVATAR KARAKTER DI PETA</span><b id="registrationAvatarName">Belum memilih avatar</b><small id="registrationAvatarHint">Pilih cowok atau cewek, lalu pilih salah satu avatar yang tersedia.</small><button type="button" id="chooseRegistrationAvatar">PILIH AVATAR ↗</button></div></div>
+                        <div class="registration-avatar-choice" id="registrationAvatarChoice"><img id="registrationAvatarPreview" src="<?= base_url('public/models/characters/v15/portrait.png?v=' . filemtime(FCPATH . 'public/models/characters/v15/portrait.png')); ?>" alt="Pratinjau karakter 3D yang dipilih"><div><span>AVATAR KARAKTER DI PETA</span><b id="registrationAvatarName">Belum memilih avatar</b><small id="registrationAvatarHint">Pilih cowok atau cewek, lalu pilih salah satu avatar yang tersedia.</small><button type="button" id="chooseRegistrationAvatar">PILIH AVATAR ↗</button></div></div>
                     </div>
                     <div class="register-only"><label>Pilih rumah</label><div class="choice-grid house-choices"><label><input type="radio" name="house" value="rumah-kayu" checked><span>🛖<b>Rumah kayu</b></span></label><label><input type="radio" name="house" value="rumah-bata"><span>🏠<b>Rumah bata</b></span></label><label><input type="radio" name="house" value="rumah-panggung"><span>🏡<b>Rumah panggung</b></span></label></div></div>
                     <p class="citizen-error" id="citizenError" role="alert"></p><button class="primary-button" type="submit" id="citizenSubmit">BUAT AKUN WARGA ↗</button><button type="button" class="citizen-logout" id="verificationResend" hidden>Kirim ulang email verifikasi</button><button type="button" class="citizen-logout" id="citizenLogout" hidden>Keluar dari akun ini</button>
@@ -147,14 +145,13 @@
             <section class="citizen-chat" id="citizenChat" aria-label="Obrolan pribadi antarwarga" hidden><header class="citizen-chat-head"><div><span>OBROLAN LANGSUNG · WILAYAH INI</span><b id="citizenChatName">Warga</b></div><button type="button" id="citizenChatClose" aria-label="Tutup obrolan">×</button></header><div class="citizen-chat-log" id="citizenChatLog" aria-live="polite"><p class="citizen-chat-empty">Sapa warga yang kamu temui di sini.</p></div><p class="citizen-chat-status" id="citizenChatStatus">Ketik pesan untuk memulai obrolan.</p><form class="citizen-chat-form" id="citizenChatForm"><input name="message" maxlength="280" autocomplete="off" placeholder="Tulis pesan…" aria-label="Tulis pesan kepada warga" required><button type="submit" aria-label="Kirim pesan">KIRIM ↗</button></form></section>
             <div class="explore-controls" id="touchControls"><div class="joystick" id="joystick" role="application" aria-label="Joystick untuk berjalan ke segala arah"><div class="joystick-ring"><span class="joystick-north">▲</span><div class="joystick-knob" id="joystickKnob"></div></div></div></div><button class="inspect-button" id="talkButton" type="button"><span aria-hidden="true">💬</span><small>BICARA</small></button>
             <div class="zoom-controls" aria-label="Kontrol zoom"><button id="zoomIn" type="button" aria-label="Perbesar tampilan">+</button><button id="zoomOut" type="button" aria-label="Perkecil tampilan">−</button></div>
-            <div class="desktop-controls"><kbd>W A S D</kbd> JALAN <kbd>E</kbd> BICARA · SCROLL ZOOM</div>
+            <div class="desktop-controls"><kbd>W A S D</kbd> JALAN <kbd>SHIFT</kbd> LARI <kbd>E</kbd> BICARA · SCROLL ZOOM</div>
             <div class="explore-toast" id="toast"></div><div class="capture-exit" id="captureExit"><button id="exitCapture">KELUAR DARI MODE REKAM <span>×</span></button></div>
         </section>
     </main>
+    <script>window.SEMESTA_AVATAR_V15_BASE = <?= json_encode(base_url('public/models/characters/v15/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_API_URL = <?= json_encode(base_url('api'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_CHARACTER_MODEL = <?= json_encode(base_url($character_model_path . '?v=' . filemtime(FCPATH . 'public/models/characters/semesta-farmer-v2.glb')), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_FARMER_MODEL = <?= json_encode(base_url($farmer_model_path . '?v=' . filemtime(FCPATH . $farmer_model_path)), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_AREA_MUSIC_BASE = <?= json_encode(base_url('ilustrasi/musik/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_PRODUCTION_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_PRODUCTION_V13_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v13/episode-002-v13-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>

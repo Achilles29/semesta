@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {createHumanModel,setFarmerAsset} from '../game-src/avatar-character-3d.js';
+import {createHumanModel} from '../game-src/avatar-runtime.js';
+import {loadTestAvatars} from './avatar_v15_test_asset.mjs';
 import {buildProductionDistrict} from '../game-src/production-district-scene.js';
 import {createV16Props} from '../game-src/production-v16-props.js';
 import {sampleEpisode,EPISODE_DURATION,EPISODE_CUES,EPISODE_SHOTS,EPISODE_SCENES,EPISODE_EVENTS,V16_SET} from '../game-src/production-v16-episode.js';
@@ -28,8 +29,7 @@ for(const name of ['master','dialogue','music','fx']){
  assert.ok(Math.abs(wav.readUInt32LE(40)/4/44100-EPISODE_DURATION)<1e-6);
  let peak=0;for(let i=44;i<wav.length;i+=2)peak=Math.max(peak,Math.abs(wav.readInt16LE(i)));assert.ok(peak<32767);
 }
-const bytes=readFileSync('public/models/characters/semesta-farmer-v11.glb');
-setFarmerAsset(await new GLTFLoader().parseAsync(bytes.buffer.slice(bytes.byteOffset,bytes.byteOffset+bytes.byteLength),''));
+await loadTestAvatars();
 const world=new THREE.Group(),production=buildProductionDistrict(THREE,{world,makeHuman(p,o){const m=createHumanModel(THREE,o);p.add(m.figure);return m;},makeText(){return new THREE.Sprite(new THREE.SpriteMaterial());},addCollider(x,z){return{x,z};},createWorldAsset(){return new THREE.Group();}});
 const visibility=new Map(production.group.children.map(c=>[c,c.visible]));
 const props=createV16Props(THREE,production);props.group.visible=true;props.activate();

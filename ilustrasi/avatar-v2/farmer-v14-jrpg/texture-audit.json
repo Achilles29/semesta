@@ -1,0 +1,168 @@
+{
+  "allDecoded": true,
+  "glbSHA256": "7ae3f972164e172e8ddeca78518f52f425bedd14f13f92eaf09c9c74f5c7c78d",
+  "decodedEmbeddedImages": [
+    {
+      "name": "eyebrow001",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "bytes": 89619
+    },
+    {
+      "name": "brown_eye",
+      "size": [
+        1024,
+        1024
+      ],
+      "mode": "RGBA",
+      "bytes": 610817
+    },
+    {
+      "name": "short02_normal",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bytes": 1626745
+    },
+    {
+      "name": "short02_diffuse",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "bytes": 3553543
+    },
+    {
+      "name": "young_lightskinned_male_diffuse3",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGB",
+      "bytes": 3593099
+    },
+    {
+      "name": "teeth",
+      "size": [
+        2048,
+        2048
+      ],
+      "mode": "RGBA",
+      "bytes": 1799930
+    },
+    {
+      "name": "linen_normal",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 212271
+    },
+    {
+      "name": "linen_basecolor",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 274792
+    },
+    {
+      "name": "linen_roughness",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 265686
+    },
+    {
+      "name": "leather_normal",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 298962
+    },
+    {
+      "name": "leather_basecolor",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 219119
+    },
+    {
+      "name": "leather_roughness",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 302586
+    },
+    {
+      "name": "indigo_normal",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 221518
+    },
+    {
+      "name": "indigo_basecolor",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 168491
+    },
+    {
+      "name": "indigo_roughness",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 265470
+    },
+    {
+      "name": "twill_normal",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 192145
+    },
+    {
+      "name": "twill_basecolor",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 142008
+    },
+    {
+      "name": "twill_roughness",
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGB",
+      "bytes": 266023
+    }
+  ]
+}

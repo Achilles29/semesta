@@ -1,0 +1,47 @@
+{
+  "seconds": 12,
+  "fps": 12,
+  "audio": false,
+  "stages": [
+    {
+      "start": 0.0,
+      "end": 2.0,
+      "label": "turn"
+    },
+    {
+      "start": 2.0,
+      "end": 4.0,
+      "label": "Walk"
+    },
+    {
+      "start": 4.0,
+      "end": 5.0,
+      "label": "Run"
+    },
+    {
+      "start": 5.0,
+      "end": 6.0,
+      "label": "Wave"
+    },
+    {
+      "start": 6.0,
+      "end": 7.0,
+      "label": "Sit"
+    },
+    {
+      "start": 7.0,
+      "end": 8.0,
+      "label": "Point"
+    },
+    {
+      "start": 8.0,
+      "end": 9.0,
+      "label": "Hold"
+    },
+    {
+      "start": 9.0,
+      "end": 12.0,
+      "label": "hands"
+    }
+  ]
+}
