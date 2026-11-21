@@ -6,6 +6,78 @@
     <meta name="theme-color" content="#f1f5ff">
     <meta name="description" content="Jelajahi isu kehidupan warga Indonesia melalui cerita interaktif Republik WkWkWk.">
     <title>Republik WkWkWk — Urusan Negara, Cerita Warga</title>
+    <script>
+    // Keep entry taps made while the game bundle is downloading.
+    (() => {
+        let ready = false;
+        let pendingProfile = false;
+        let pendingCity = false;
+        let pendingMode = null;
+        let initialCityLabel = null;
+
+        const showPendingProfile = () => {
+            const panel = document.getElementById('citizenPanel');
+            const title = document.getElementById('citizenPanelTitle');
+            const error = document.getElementById('citizenError');
+            if (!panel || !title || !error || !pendingProfile) return false;
+            panel.hidden = false;
+            title.textContent = 'Menyiapkan akun warga…';
+            error.textContent = 'Menyiapkan formulir…';
+            const submit = document.getElementById('citizenSubmit');
+            if (submit) {
+                submit.disabled = true;
+                submit.textContent = 'MENYIAPKAN FORMULIR…';
+            }
+            return true;
+        };
+        document.addEventListener('click', (event) => {
+            if (ready) return;
+            const button = event.target.closest?.('button');
+            if (!button) return;
+            if (button.id === 'profileButton') {
+                pendingProfile = true;
+                const name = document.getElementById('headerCitizenName');
+                if (name) name.textContent = 'MEMBUKA AKUN…';
+                if (!showPendingProfile()) {
+                    const observer = new MutationObserver(() => {
+                        if (!pendingProfile || showPendingProfile()) observer.disconnect();
+                    });
+                    observer.observe(document.documentElement, { childList: true, subtree: true });
+                }
+            } else if (button.id === 'closeCitizenPanel') {
+                pendingProfile = false;
+                pendingMode = null;
+                document.getElementById('citizenPanel').hidden = true;
+            } else if (button.dataset.authMode) {
+                pendingMode = button.dataset.authMode;
+                document.querySelectorAll('[data-auth-mode]').forEach((tab) => tab.classList.toggle('active', tab === button));
+                document.querySelectorAll('.register-only').forEach((field) => { field.hidden = pendingMode === 'login'; });
+                document.getElementById('citizenProfileFields').hidden = pendingMode === 'login';
+                document.getElementById('citizenPanelTitle').textContent = pendingMode === 'login' ? 'Menyiapkan formulir masuk…' : 'Menyiapkan formulir pendaftaran…';
+            } else if (button.id === 'enterCity') {
+                pendingCity = true;
+                initialCityLabel ??= button.innerHTML;
+                button.textContent = 'MEMUAT PETA KOTA…';
+                button.setAttribute('aria-busy', 'true');
+            }
+        }, true);
+        window.addEventListener('semesta:entry-ready', () => {
+            ready = true;
+            const city = document.getElementById('enterCity');
+            if (initialCityLabel !== null) city.innerHTML = initialCityLabel;
+            city.removeAttribute('aria-busy');
+            document.getElementById('citizenSubmit').disabled = false;
+            if (pendingCity) city.click();
+            if (pendingProfile) {
+                const name = document.getElementById('headerCitizenName');
+                if (name?.textContent === 'MEMBUKA AKUN…') name.textContent = 'MASUK / DAFTAR WARGA';
+                document.getElementById('profileButton').click();
+                document.getElementById('citizenError').textContent = '';
+                if (pendingMode) document.querySelector(`[data-auth-mode="${pendingMode}"]`)?.click();
+            }
+        }, { once: true });
+    })();
+    </script>
     <?php
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();

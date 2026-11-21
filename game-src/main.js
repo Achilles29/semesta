@@ -523,7 +523,9 @@ async function start() {
   // never leave the opening map looking interactive while its buttons are dead.
   initExploreAvatarCustomizer();
   initWorld();
-  initCitizen().then(() => {
+  const citizenReady = initCitizen();
+  window.dispatchEvent(new Event('semesta:entry-ready'));
+  citizenReady.then(() => {
     const url = new URL(location.href);
     if (url.searchParams.get('email_verified') !== '1') return;
     url.searchParams.delete('email_verified');
