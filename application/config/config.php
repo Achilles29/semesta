@@ -52,7 +52,7 @@ if ($configured_base_url !== false && trim($configured_base_url) !== '') {
         $script_directory = trim($script_directory, '/');
         $config['base_url'] = $protocol . ($_SERVER['HTTP_HOST'] ?? 'localhost') . '/' . ($script_directory !== '' ? $script_directory . '/' : '');
     } else {
-        $config['base_url'] = 'https://wkwkwk.projectpintar.com/';
+        $config['base_url'] = 'https://www.republikwkwkwk.com/';
     }
 }
 
