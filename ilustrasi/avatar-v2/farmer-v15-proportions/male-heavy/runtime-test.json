@@ -1,11 +1,11 @@
 {
   "id": "male-heavy",
   "passed": true,
-  "bytes": 41676640,
-  "sha256": "65c4fdc549e97d0fee1a9afa2b0506714fba219333e8baf52c7154c95392cb8b",
+  "bytes": 41687784,
+  "sha256": "84446ff055fb49acd91cd75ace8b24207b44d59a205810cda1f83a11107933e5",
   "bones": 49,
   "primitives": 266,
-  "triangles": 625272,
+  "triangles": 625656,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 343437,
-  "vertexSamples": 2297290,
+  "weightSamples": 343629,
+  "vertexSamples": 2298533,
   "contactSamples": 209,
   "motionChecks": {
     "Walk": {

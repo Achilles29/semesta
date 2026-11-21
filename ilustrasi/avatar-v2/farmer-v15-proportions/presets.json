@@ -1024,7 +1024,7 @@
   },
   {
     "id": "v15-prabowo-inspired",
-    "name": "Prabowow - Presiden (parodi)",
+    "name": "Pasca Bowow - Presiden",
     "collection": "v15",
     "config": {
       "model": "v15",
@@ -1058,7 +1058,7 @@
   },
   {
     "id": "v15-prabowow-casual",
-    "name": "Prabowow - Santai",
+    "name": "Pasca Bowow - Santai",
     "collection": "v15",
     "config": {
       "model": "v15",
@@ -1088,7 +1088,7 @@
       },
       "presetId": "v15-prabowow-casual"
     },
-    "description": "Prabowow - Santai"
+    "description": "Pasca Bowow - Santai"
   },
   {
     "id": "v15-police",
@@ -1157,5 +1157,38 @@
       "presetId": "v15-denim-slim"
     },
     "description": "Raka - Denim Slim"
+  },
+  {
+    "id": "v15-joko-rockstar",
+    "name": "Joko - Rockstar",
+    "collection": "v15",
+    "config": {
+      "model": "v15",
+      "profileId": "male-balanced",
+      "appearance": {
+        "skinTone": "warm",
+        "hairColor": "dark",
+        "hairStyle": "spiky",
+        "palette": "rock",
+        "faceShape": "oval",
+        "eyeShape": "natural",
+        "eyeColor": "brown",
+        "noseShape": "natural",
+        "mouthShape": "natural",
+        "earShape": "natural",
+        "topStyle": "linen",
+        "outerwearStyle": "vest",
+        "bottomStyle": "jeansSlim",
+        "shoeStyle": "workBoots",
+        "headAccessory": "none",
+        "faceAccessory": "none",
+        "earAccessory": "hoops",
+        "handAccessory": "bracelets",
+        "backAccessory": "none",
+        "accessoryChest": "off",
+        "accessoryWaist": "on"
+      },
+      "presetId": "v15-joko-rockstar"
+    }
   }
 ]

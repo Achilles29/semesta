@@ -1,6 +1,8 @@
 # Wardrobe 4 — karakter dan produksi Day 1
 
-Revisi aktif `v15-wardrobe-4-character`: tujuh bentuk wajah (termasuk persegi,
+Revisi aktif `v15-wardrobe-4-peci`: peci mengikuti irisan kulit kepala dengan
+kelonggaran sekitar 4,5 mm pada semua enam profil, felt hitam dan bobot penuh
+ke tulang kepala. Tujuh bentuk wajah (termasuk persegi,
 panjang, senior dan Prabowow), 13 pilihan celana, seragam polisi tanpa insignia,
 serta preset Prabowow santai, Bima polisi dan Raka denim slim.
 

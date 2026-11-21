@@ -17,7 +17,7 @@ export function buildRepublicSet({owned,geometries,materials,textures,box,office
   box('#869776',[0,-.09,0],[100,.16,100]);
   // A broad clearing and a connected arrival path, kept empty for future episodes.
   const clearing=sphere('#c8ba99',[0,-.1,-.6],[5.3,.12,4.1]);clearing.name='RepublicClearing';
-  const path=box('#c6b38e',[-4.1,-.005,-2.8],[1.5,.018,9]);path.rotation.y=-.7;path.name='ArrivalPath';
+  const path=box('#c6b38e',[4.1,-.005,-2.8],[1.5,.018,9]);path.rotation.y=.7;path.name='ArrivalPath';
   for(let i=0;i<42;i++){
     const angle=i*2.399963,r=6+(i%5)*1.3,x=Math.cos(angle)*r,z=Math.sin(angle)*r-3;
     sphere(i%2?'#75916c':'#8da07a',[x,.06,z],[.35+(i%3)*.12,.18,.4]);

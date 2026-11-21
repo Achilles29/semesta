@@ -1,11 +1,11 @@
 {
   "id": "male-balanced",
   "passed": true,
-  "bytes": 40933764,
-  "sha256": "51f9c30d80c009d00838a2217cbb5781b007fde1e5fa96c8d5cc76fd7ad38b5f",
+  "bytes": 40944904,
+  "sha256": "30a75a2edc4cc5e57a1ac2fc6232acb5356644affe4802336cf2f46d0f60c575",
   "bones": 49,
   "primitives": 266,
-  "triangles": 625272,
+  "triangles": 625656,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 343261,
-  "vertexSamples": 2295821,
+  "weightSamples": 343453,
+  "vertexSamples": 2297064,
   "contactSamples": 209,
   "motionChecks": {
     "Walk": {

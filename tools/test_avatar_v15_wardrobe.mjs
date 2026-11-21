@@ -41,6 +41,18 @@ for(const profile of catalog.profiles.filter(p=>!process.argv[2]||p.id===process
     actor.figure.userData.customization.set({...defaults(),headAccessory:hat,hairStyle:'ponytail'});
     assert.ok(meshes.filter(m=>m.userData.avatarSlot==='hair').every(m=>!m.visible),'Covered hair must not pierce crown');
   }
+  const peci=meshes.find(m=>m.userData.avatarVariant==='peci');
+  assert.equal(peci.userData.avatarFitRevision,'scalp-peci-1');
+  assert.ok(peci.userData.avatarFitClearance>.003&&peci.userData.avatarFitClearance<.007);
+  actor.figure.userData.customization.set({...defaults(),headAccessory:'peci',faceShape:'prabowow'});
+  const bounds=new THREE.Box3(),v=new THREE.Vector3();peci.skeleton.update();
+  for(let i=0;i<peci.geometry.attributes.position.count;i++)bounds.expandByPoint(peci.getVertexPosition(i,v).applyMatrix4(peci.matrixWorld));
+  const scalp=new THREE.Box3();
+  for(const skin of meshes.filter(m=>m.userData.avatarSlot==='skin')){skin.skeleton.update();for(let i=0;i<skin.geometry.attributes.position.count;i++){skin.getVertexPosition(i,v).applyMatrix4(skin.matrixWorld);if(v.y>=bounds.min.y+.004&&v.y<=bounds.min.y+.025)scalp.expandByPoint(v);}}
+  assert.ok(!scalp.isEmpty(),'Measure the actual scalp at the cap band');
+  for(const axis of ['x','z']){const clearance=(bounds.max[axis]-bounds.min[axis])-(scalp.max[axis]-scalp.min[axis]);assert.ok(clearance>0&&clearance<.035,`${profile.id}: peci must fit scalp, ${axis} extra ${clearance}`);}
+  const weights=peci.geometry.attributes.skinWeight,indices=peci.geometry.attributes.skinIndex;
+  for(let i=0;i<weights.count;i++){assert.equal(weights.getX(i),1);assert.equal(peci.skeleton.bones[indices.getX(i)].name,'head','Peci must follow the head without slipping during gestures');}
   for(const topStyle of catalog.coveredTopStyles){
     actor.figure.userData.customization.set({...defaults(),topStyle,outerwearStyle:'longVest',accessoryChest:'on',accessoryWaist:'on'});
     assert.ok(meshes.filter(m=>['outerwear','accessoryChest','accessoryWaist'].includes(m.userData.avatarSlot)).every(m=>!m.visible),'Uniform covers fitted underlayers');

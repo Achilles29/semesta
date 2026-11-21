@@ -1,79 +1,91 @@
 1
-00:00:00,300 --> 00:00:03,049
-Hari pertama Republik Wkwkwk!
+00:00:00,180 --> 00:00:05,660
+Ini hari pertama Republik Wkwkwk. Baru buka, sudah ada jalur orang dalam!
 
 2
-00:00:06,829 --> 00:00:10,005
-Presidennya sudah siap. Warganya… belum ada!
+00:00:08,040 --> 00:00:13,563
+Presidennya, Pasca Bowow. Modalnya semangat. Kantornya, satu kursi.
 
 3
-00:00:10,829 --> 00:00:12,767
-Lho… rakyatnya mana?
+00:00:13,943 --> 00:00:15,796
+Lho, rakyatnya mana?
 
 4
-00:00:16,329 --> 00:00:19,121
-Saya, Pak. Ini bener Republik Wkwkwk?
+00:00:17,676 --> 00:00:19,913
+Saya, Pak! Mau daftar jadi warga!
 
 5
-00:00:20,129 --> 00:00:22,195
-Betul. Baru buka!
+00:00:20,293 --> 00:00:22,531
+Selamat datang! Keahliannya apa?
 
 6
-00:00:22,975 --> 00:00:24,060
-Kantornya mana?
+00:00:22,911 --> 00:00:25,617
+Bisa kerja, Pak. Bukan cuma kenal keluarga.
 
 7
-00:00:25,275 --> 00:00:26,958
-Sementara, ini dulu.
+00:00:25,997 --> 00:00:29,757
+Katanya, yang dinilai kemampuan. Bukan siapa pamannya.
 
 8
-00:00:36,875 --> 00:00:38,728
-Pak, lapangan konsernya di mana?
+00:00:31,737 --> 00:00:34,444
+Saya musisi, Pak! Boleh usul panggung konser?
 
 9
-00:00:40,075 --> 00:00:41,246
-Rumah aja belum ada.
+00:00:34,824 --> 00:00:37,488
+Boleh. Tapi rumah warga juga belum ada!
 
 10
-00:00:42,675 --> 00:00:45,681
-Baru tiga warga. Keinginannya sudah beda-beda.
+00:00:37,868 --> 00:00:42,367
+Ayam pun mau daftar. Keahliannya? Bangunin warga tiap pagi!
 
 11
-00:00:46,461 --> 00:00:50,832
-Nah, makanya kita bangun bareng. Mulai dari yang warga butuhkan.
+00:00:42,747 --> 00:00:46,563
+Maaf, manusia dulu. Ayam sama kucing belum bisa.
 
 12
-00:00:52,461 --> 00:00:54,613
-Berarti warga yang pilih mau bangun apa?
+00:00:46,943 --> 00:00:51,783
+Kucing ikut daftar, ditolak juga. Tapi dia mengaku keponakan kucing Pak RT.
 
 13
-00:00:56,061 --> 00:01:00,048
-Iya. Mau rumah, warung, atau jalan dulu?
+00:00:52,163 --> 00:00:55,126
+Oh, kenal Pak RT? Silakan lewat sini!
 
 14
-00:01:01,061 --> 00:01:02,488
-Kalau lomba sama konser?
+00:00:55,506 --> 00:00:57,018
+Tadi katanya harus manusia?
 
 15
-00:01:03,561 --> 00:01:07,359
-Warga juga yang usul. Aturan dan kegiatan lainnya juga.
+00:00:57,398 --> 00:00:59,448
+Ini... jalur kekeluargaan.
 
 16
-00:01:09,061 --> 00:01:15,651
-Kalian juga warga sini. Tulis satu usulan dan alasannya. Mau bangun apa, atau bikin acara apa?
+00:00:59,828 --> 00:01:05,649
+Nah, kalau kenalan lebih penting dari kemampuan, antrean berubah jadi silsilah keluarga.
 
 17
-00:01:17,261 --> 00:01:22,166
-Dukung usulan favoritmu. Follow, biar tidak ketinggalan cerita di Day Dua!
+00:01:06,029 --> 00:01:09,077
+Berarti gitar saya kurang. Harus bawa kartu keluarga?
 
 18
-00:01:23,561 --> 00:01:25,244
-Sambil nunggu, boleh joget?
+00:01:10,957 --> 00:01:17,248
+Sudah! Kalian yang tentukan republik ini. Bangunan, acara, sampai aturannya!
 
 19
-00:01:26,361 --> 00:01:30,519
-Boleh! Tapi saya putuskan, kita bangun Koplak Desa dulu.
+00:01:17,628 --> 00:01:20,591
+Aturan pertama: semua lewat antrean yang sama!
 
 20
-00:01:31,299 --> 00:01:38,419
-Lalu Satuan Pengisi Perut Gratis. Biar rapatnya tidak lapar!
+00:01:20,971 --> 00:01:27,287
+Setuju? Tulis usul kalian. Follow, biar besok republik ini enggak cuma diatur orang dalam!
+
+21
+00:01:27,667 --> 00:01:31,782
+Sambil menunggu, saya putuskan: bangun Koplak Desa dulu!
+
+22
+00:01:32,162 --> 00:01:38,395
+Sama Satuan Pengisi Perut Gratis! Biar rapatnya enggak lapar!
+
+23
+00:01:38,775 --> 00:01:41,994
+Warganya disuruh usul. Keputusannya sudah duluan.

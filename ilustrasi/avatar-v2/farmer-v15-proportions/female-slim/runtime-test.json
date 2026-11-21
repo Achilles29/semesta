@@ -1,11 +1,11 @@
 {
   "id": "female-slim",
   "passed": true,
-  "bytes": 41001804,
-  "sha256": "13e754e8fef28e017f70d4b30c9d88f345a5bfefac3ab639ce77f1f589e8946c",
+  "bytes": 41012948,
+  "sha256": "c03758d1c0275327dd9ddd9fd8a273e1f6a6ac38b6f8623898bc405e393b9980",
   "bones": 49,
   "primitives": 266,
-  "triangles": 634256,
+  "triangles": 634640,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 347924,
-  "vertexSamples": 2327800,
+  "weightSamples": 348116,
+  "vertexSamples": 2329043,
   "contactSamples": 209,
   "motionChecks": {
     "Walk": {

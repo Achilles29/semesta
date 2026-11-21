@@ -1,0 +1,17 @@
+{
+  "source": "public/audio/produksi/day-1/sari-v3-original.wav",
+  "model": "faster-whisper base int8",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.98,
+      "text": " Saya, Pak, mau dapet terjadi warga, bisa kerja, Pak, bukan cuma kenal keluarga."
+    },
+    {
+      "start": 5.34,
+      "end": 9.66,
+      "text": " Tadi katanya harus manusia, aturan pertama, semua lewat antrean yang sama."
+    }
+  ],
+  "listeningReview": "not_performed"
+}

@@ -1,0 +1,52 @@
+{
+  "title": "Day 1 — Baru Buka, Sudah Ada Orang Dalam",
+  "pronunciation": "Republik Weka Weka Weka",
+  "actors": {
+    "narrator": {
+      "delivery": "Pria Indonesia 30–40 tahun, komentator hangat, lugas, berenergi dan sedikit geli. Menjelaskan sebab-akibat, menekankan punchline tanpa berteriak. Suara orisinal, bukan menyalin identitas pembicara referensi.",
+      "lines": [
+        "Ini hari pertama Republik Weka Weka Weka. Baru buka, sudah ada jalur orang dalam!",
+        "Presidennya, Pasca Bowow. Modalnya semangat. Kantornya, satu kursi.",
+        "Katanya, yang dinilai kemampuan. Bukan siapa pamannya.",
+        "Ayam pun mau daftar. Keahliannya? Bangunin warga tiap pagi!",
+        "Kucing ikut daftar, ditolak juga. Tapi dia mengaku keponakan kucing Pak RT.",
+        "Nah, kalau kenalan lebih penting dari kemampuan, antrean berubah jadi silsilah keluarga.",
+        "Setuju? Tulis usul kalian. Follow, biar besok republik ini enggak cuma diatur orang dalam!",
+        "Warganya disuruh usul. Keputusannya sudah duluan."
+      ]
+    },
+    "prabowow": {
+      "displayName": "Pasca Bowow",
+      "delivery": "Pria Indonesia 65–72, sedikit serak, berisi, tegas tetapi hangat dan bersemangat. Saat ketahuan, jeda malu singkat; tawa akhir lepas. Suara orisinal, bukan tiruan tokoh publik.",
+      "lines": [
+        "Lho, rakyatnya mana?",
+        "Selamat datang! Keahliannya apa?",
+        "Boleh. Tapi rumah warga juga belum ada!",
+        "Maaf, manusia dulu. Ayam sama kucing belum bisa.",
+        "Oh, kenal Pak RT? Silakan lewat sini!",
+        "Ini... jalur kekeluargaan.",
+        "Sudah! Kalian yang tentukan republik ini. Bangunan, acara, sampai aturannya!",
+        "Sambil menunggu, saya putuskan: bangun Koplak Desa dulu!",
+        "Sama Satuan Pengisi Perut Gratis! Biar rapatnya enggak lapar! [laughs]"
+      ]
+    },
+    "sari": {
+      "delivery": "Perempuan Indonesia dewasa muda, ramah dan sigap, penasaran lalu tegas ketika melihat perlakuan berbeda. Sanggahan ringan dan lucu, tidak berteriak.",
+      "lines": [
+        "Saya, Pak! Mau daftar jadi warga!",
+        "Bisa kerja, Pak. Bukan cuma kenal keluarga.",
+        "Tadi katanya harus manusia?",
+        "Aturan pertama: semua lewat antrean yang sama!"
+      ]
+    },
+    "joko": {
+      "displayName": "Joko · musisi",
+      "delivery": "Pria Indonesia dewasa muda, santai, ceria, sedikit serak khas musisi. Antusias tentang konser, menyindir dengan geli. Diksi jelas dan irama alami.",
+      "lines": [
+        "Saya musisi, Pak! Boleh usul panggung konser?",
+        "Berarti gitar saya kurang. Harus bawa kartu keluarga?"
+      ]
+    }
+  },
+  "status": "Four available HeyGen voices synthesized, measured and installed after user authorization; designed voices unavailable on free plan."
+}

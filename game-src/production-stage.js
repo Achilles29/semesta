@@ -1,3 +1,4 @@
+import {drawSeriesFrame,drawDialogue} from './production-caption-style.js';
 import * as THREE from 'three';
 import {loadAvatarProfile,createHumanModel,disposeAvatar,avatarSpeed} from './avatar-runtime.js';
 import {presets} from './avatar-v15-config.js';
@@ -7,6 +8,7 @@ import {buildRepublicSet} from './production-republic-set.js';
 import day1Audio from './production-day1-audio.json' with {type:'json'};
 import {DAY1_SPEAKERS} from './production-day1.js';
 import {createProductionActing} from './production-acting.js';
+import {productionProps} from './production-props.js';
 
 /** Scene and deterministic posing are also usable by CPU contract tests. */
 export async function createProductionStage(input){
@@ -19,6 +21,8 @@ export async function createProductionStage(input){
   const fill=new THREE.DirectionalLight('#b1d9ff',1.2);fill.position.set(5,3,-4);scene.add(fill);
   const owned=new THREE.Group();scene.add(owned);
   const geometries=new Set(),materials=new Set(),textures=new Set();
+  const accessories=productionProps({geometries,materials});
+  const extras=input.set==='republic'?accessories.animals(owned):null;
   const box=(color,position,size)=>{
     const geometry=new THREE.BoxGeometry(...size),material=new THREE.MeshStandardMaterial({color,roughness:.78});
     geometries.add(geometry);materials.add(material);const mesh=new THREE.Mesh(geometry,material);mesh.position.fromArray(position);mesh.castShadow=mesh.receiveShadow=true;owned.add(mesh);return mesh;
@@ -65,6 +69,7 @@ export async function createProductionStage(input){
       const actor=createHumanModel(THREE,{avatarConfig:configs[i]});actors.set(c.id,actor);scene.add(actor.figure);
       actor.productionDance=createProductionDance(actor);
       actor.productionActing=createProductionActing(actor);
+      if(c.prop==='guitar')actor.productionGuitar=accessories.guitar(actor);
       // The Hold action has an actual prop, parented to the rig's approved grip.
       const parcel=new THREE.Mesh(new THREE.BoxGeometry(.24,.18,.12),new THREE.MeshStandardMaterial({color:'#ba8b60',roughness:.9}));
       geometries.add(parcel.geometry);materials.add(parcel.material);parcel.name='ProductionParcel';parcel.castShadow=true;
@@ -100,20 +105,22 @@ export async function createProductionStage(input){
       // Audio amplitude drives jaw openness, not claimed phoneme-level lip sync.
       actor.figure.userData.expressionController?.update({time:time+input.cast.indexOf(c)*1.13,expression:acting.laugh?'happy':p.expression||(['Wave','Dance'].includes(p.action)?'happy':'neutral'),intensity:(acting.laugh?.85:.4)*acting.fade,viseme:mouth>.02?'AA':'rest',speech:mouth*.9,gaze:acting.gaze,channels:{browUpL:acting.accent*.10,browUpR:acting.accent*.10}});
     }
-    scene.updateMatrixWorld(true);
+    extras?.pose(sample,time);scene.updateMatrixWorld(true);
     const focus=sample?.actors[sample.shot.focus]?.position||[0,0];
     const mode=sample?.shot.camera||'wide';
-    const framing=sample?.shot.frame,center=framing?[framing.target[0],framing.target[2]]:mode==='wide'?[0,0]:focus;
+    const framing=sample?.shot.frame,center=sample?.shot.followExtra?sample.extras[sample.shot.followExtra].position:framing?[framing.target[0],framing.target[2]]:mode==='wide'?[0,0]:focus;
     // Fit a stable physical width in either orientation; vertical close-ups
     // remain head-and-torso shots instead of cutting off the head.
     const width=framing?.width||(aspect<1?{wide:Math.max(2.8,input.cast.length*1.2),medium:1.9,close:.95,follow:2.2}:{wide:7,medium:3.8,close:1.7,follow:3.7})[mode];
     const height=Math.max(mode==='close'?1.25:2.4,width/aspect);
-    const distance=height/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2)));
+    const progress=sample?THREE.MathUtils.smoothstep(sample.elapsed/sample.shot.duration,0,1):0;
+    const distance=height/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2)))*(1-(framing?.push||0)*progress);
     const y=framing?.target[1]??(mode==='close'?1.38:1.05);
-    camera.aspect=aspect;camera.position.set(center[0]+(mode==='follow'?1:0),y+distance*.055,center[1]+distance);camera.lookAt(center[0],y,center[1]);camera.updateProjectionMatrix();
+    const azimuth=framing?.azimuth??(mode==='follow'?.2:0),elevation=framing?.elevation??.055;
+    camera.aspect=aspect;camera.position.set(center[0]+Math.sin(azimuth)*distance,y+distance*elevation,center[1]+Math.cos(azimuth)*distance);camera.lookAt(center[0],y,center[1]);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);
     return sample;
   }
-  return {scene,camera,actors,get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);input=compiled.scenario;},pose,dispose};
+  return {scene,camera,actors,extras,get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);input=compiled.scenario;},pose,dispose};
 }
 
 export function createProductionRenderer(canvas){
@@ -127,24 +134,20 @@ export function compositeFrame(ctx,source,stage,time,{guides=false}={}){
   const {width:w,height:h}=ctx.canvas;ctx.drawImage(source,0,0,w,h);
   const sample=sampleScenario(stage.compiled,time);if(!sample)return;
   const scale=Math.min(w/1080,h/1080),pad=w*.08;
-  ctx.save();ctx.textAlign='left';ctx.textBaseline='middle';ctx.font=`600 ${Math.round(22*scale)}px Arial`;
-  const heading=stage.compiled.scenario.notice||(stage.compiled.scenario.kind==='rehearsal'?'LATIHAN STUDIO':stage.compiled.scenario.title);
-  ctx.fillStyle='rgba(14,30,35,.8)';ctx.fillRect(pad,h*.09,Math.min(w*.78,ctx.measureText(heading).width+36*scale),42*scale);
-  ctx.fillStyle='#fff4db';ctx.fillText(heading,pad+18*scale,h*.09+21*scale,w*.72);
+  ctx.save();
+  drawSeriesFrame(ctx,stage.compiled.scenario,time,stage.compiled.duration);
   const clip=day1Audio[sample.shot.speech],speechTime=sample.elapsed-(sample.shot.speechOffset??.3);
   if(sample.shot.overlay||sample.shot.card){
     let label=sample.shot.overlay;
     if(sample.shot.card){const choices=sample.shot.card==='build'?[['rumah','RUMAH?'],['warung','WARUNG?'],['jalan','JALAN?']]:[['Warga','ACARA?'],['Aturan','ATURAN?'],['kegiatan','KEGIATAN?']];for(const [word,title] of choices){const cue=clip?.words.find(w=>w.text.toLowerCase()===word.toLowerCase());if(cue&&speechTime>=cue.start)label='USULAN · '+title;}}
-    if(label){ctx.fillStyle='rgba(255,244,219,.95)';ctx.fillRect(pad,h*.18,w*.84,68*scale);ctx.fillStyle='#294f48';ctx.textAlign='center';ctx.font=`bold ${Math.round(30*scale)}px Arial`;ctx.fillText(label,w/2,h*.18+34*scale,w*.76);}
+    if(label){
+      ctx.font=`800 ${Math.round(32*scale)}px Arial`;const lines=[''];
+      for(const word of label.split(/\s+/)){const i=lines.length-1,next=lines[i]?lines[i]+' '+word:word;if(ctx.measureText(next).width>w*.74&&lines[i])lines.push(word);else lines[i]=next;}
+      const height=(24+lines.length*40)*scale;ctx.fillStyle='rgba(255,224,122,.97)';ctx.fillRect(pad,h*.14,w*.84,height);ctx.fillStyle='#193138';ctx.textAlign='center';ctx.textBaseline='middle';lines.forEach((line,i)=>ctx.fillText(line,w/2,h*.14+(12+(i+.5)*40)*scale));
+    }
   }
   if(sample.shot.caption&&(!clip||(speechTime>=0&&speechTime<clip.duration+.12))){
-    let size=Math.round(38*scale),lines=[];
-    const wrap=()=>{ctx.font=`600 ${size}px Arial`;lines=[];let line='';for(const word of sample.shot.caption.split(/\s+/)){const next=line?`${line} ${word}`:word;if(ctx.measureText(next).width>w*.76&&line){lines.push(line);line=word;}else line=next;}if(line)lines.push(line);};
-    wrap();while(lines.length>2&&size>18*scale){size-=1;wrap();}
-    const lineHeight=size*1.35,bottom=h*.79,top=bottom-lines.length*lineHeight-16*scale;
-    ctx.fillStyle='rgba(12,25,30,.86)';ctx.fillRect(pad,top,w*.84,lines.length*lineHeight+32*scale);
-    if(clip){ctx.font=`bold ${Math.round(22*scale)}px Arial`;ctx.textAlign='left';ctx.fillStyle='#fff0c4';ctx.fillRect(pad,top-30*scale,170*scale,30*scale);ctx.fillStyle='#294f48';ctx.fillText(DAY1_SPEAKERS[clip.speaker],pad+12*scale,top-15*scale,150*scale);ctx.font=`600 ${size}px Arial`;}
-    ctx.fillStyle='#fff';ctx.textAlign='center';lines.forEach((line,i)=>ctx.fillText(line,w/2,top+16*scale+(i+.5)*lineHeight,w*.76));
+    drawDialogue(ctx,{clip,caption:sample.shot.caption,speaker:clip?DAY1_SPEAKERS[clip.speaker]:undefined,speechTime});
   }
   if(guides){ctx.strokeStyle='rgba(255,235,177,.65)';ctx.lineWidth=1;ctx.setLineDash([8,8]);ctx.strokeRect(w*.08,h*.09,w*.84,h*.71);}
   ctx.restore();

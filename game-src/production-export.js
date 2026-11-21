@@ -38,9 +38,12 @@ export async function mixProductionAudio(tracks,duration){
     const source=context.createBufferSource(),gain=context.createGain();source.buffer=track.buffer;
     const sourceOffset=Math.max(0,track.sourceOffset||0),length=Math.min(track.duration??Infinity,track.buffer.duration-sourceOffset,duration-track.offset);
     if(length<=0)continue;
-    const fade=Math.min(.025,length/3);
-    gain.gain.setValueAtTime(0,track.offset);gain.gain.linearRampToValueAtTime(track.volume,track.offset+fade);
-    gain.gain.setValueAtTime(track.volume,track.offset+length-fade);gain.gain.linearRampToValueAtTime(0,track.offset+length);
+    const fade=Math.min(track.fade??.025,length/3);
+    const points=track.volumePoints||[{time:0,volume:track.volume}];
+    const valueAt=t=>{let prior=points[0];for(const point of points.slice(1)){if(point.time>t){const alpha=(t-prior.time)/(point.time-prior.time);return prior.volume+(point.volume-prior.volume)*Math.max(0,alpha);}prior=point;}return prior.volume;};
+    gain.gain.setValueAtTime(0,track.offset);gain.gain.linearRampToValueAtTime(valueAt(fade),track.offset+fade);
+    for(const point of points)if(point.time>fade&&point.time<length-fade)gain.gain.linearRampToValueAtTime(point.volume,track.offset+point.time);
+    gain.gain.linearRampToValueAtTime(valueAt(length-fade),track.offset+length-fade);gain.gain.linearRampToValueAtTime(0,track.offset+length);
     source.connect(gain).connect(context.destination);source.start(track.offset,sourceOffset,length);
   }
   const mixed=await context.startRendering();

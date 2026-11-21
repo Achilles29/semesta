@@ -1,64 +1,71 @@
-# Day 1 — Republik Wkwkwk baru buka
+# Day 1 — Baru Buka, Sudah Ada Orang Dalam
 
-Revisi karakter dan penutup: **27 shot, 101.10 detik**, tiga pemeran, tiga bagian narator, 20 klip dialog. Scene aktif di admin Produksi dan peta jelajah → Balai Produksi → Tonton Day 1. Putar dengan **Play semua**; ekspor melalui **Buat MP4**.
+Episode aktif: **28 shot, 104.59 detik, 23 klip suara**. Buka admin Produksi atau peta → Balai Produksi → Tonton Day 1. Play semua menjalankan kamera, karakter, figuran, dialog, subtitle dan musik. Tombol Layar penuh tersedia; Buat MP4 mengekspor H.264/AAC.
 
-Day 1 bawaan yang belum disunting diperbarui otomatis. Draf buatan pengguna dan pilihan eksplisit workspace kosong tetap disimpan. Jika dialog lama dalam draf berubah pada versi suara terbaru, teks pengguna dipertahankan dan suara yang tidak cocok dilepas. Tombol **Day 1 lengkap · dengan narator** membuka episode terbaru secara eksplisit.
+## Cerita
 
-## Timeline implementasi
+Pasca Bowow membuka republik dengan joget dan kantor satu kursi. Sari ingin dinilai dari kemampuan. Joko datang sebagai musisi, membawa gitar di punggung. Ayam menawarkan kemampuan membangunkan warga, tetapi ditolak karena bukan manusia. Kucing semula ditolak juga, lalu diloloskan setelah mengaku keponakan kucing Pak RT.
 
-Waktu dihitung dari klip yang benar-benar dipakai. Ujaran mulai 0,30 detik setelah awal shot. Subtitle dan bukaan mulut mengikuti klip; kartu usulan mengikuti timestamp kata. Bibir memakai amplitudo audio, bukan lip sync fonem penuh.
+Narator menjelaskan sebab-akibat: ketika kenalan mengalahkan kemampuan, antrean berubah menjadi silsilah. Joko menyindir bahwa gitar rupanya perlu dilengkapi kartu keluarga. Sari mengusulkan antrean yang sama untuk semua. Penonton diminta menentukan pembangunan, acara dan aturan. Pasca Bowow justru memutuskan Koplak Desa dan Satuan Pengisi Perut Gratis lebih dahulu, lalu tertawa. Narator menutup kontradiksinya. Cerita ini satir rekaan, bukan laporan peristiwa atau tuduhan faktual terhadap orang nyata.
 
-| No. | Waktu | Adegan | Dialog/narasi | Kamera |
+## Timeline terukur
+
+| No. | Waktu | Adegan | Ujaran | Kamera |
 |---|---|---|---|---|
-| 1 | 0:00.00–0:03.53 | Narator membuka republik | **Narator:** Hari pertama Republik Wkwkwk! | medium |
-| 2 | 0:03.53–0:06.53 | Presiden sudah siap | — | medium |
-| 3 | 0:06.53–0:10.53 | Negara baru buka, rakyat belum ada | **Narator:** Presidennya sudah siap. Warganya… belum ada! | wide · bingkai khusus |
-| 4 | 0:10.53–0:13.33 | Prabowow mencari rakyat | **Prabowow:** Lho… rakyatnya mana? | close |
-| 5 | 0:13.33–0:16.03 | Sari masuk melalui jalan setapak | — | wide · bingkai khusus |
-| 6 | 0:16.03–0:19.83 | Warga kedua menyapa | **Sari:** Saya, Pak. Ini bener Republik Wkwkwk? | wide |
-| 7 | 0:19.83–0:22.67 | Presiden menyambut | **Prabowow:** Betul. Baru buka! | wide |
-| 8 | 0:22.67–0:24.97 | Sari menanyakan kantor | **Sari:** Kantornya mana? | wide |
-| 9 | 0:24.97–0:28.37 | Kursi menjadi kantor sementara | **Prabowow:** Sementara, ini dulu. | wide · bingkai khusus |
-| 10 | 0:28.37–0:29.97 | Tahan lelucon kursi | — | wide · bingkai khusus |
-| 11 | 0:29.97–0:32.37 | Joko masuk dari jalur yang sama | — | wide · bingkai khusus |
-| 12 | 0:32.37–0:35.17 | Joko melewati belakang presiden | — | wide |
-| 13 | 0:35.17–0:36.57 | Joko mengambil tempat di kanan | — | wide |
-| 14 | 0:36.57–0:39.77 | Joko mengusulkan konser | **Joko:** Pak, lapangan konsernya di mana? | wide |
-| 15 | 0:39.77–0:42.37 | Sari mengingatkan kebutuhan dasar | **Sari:** Rumah aja belum ada. | wide |
-| 16 | 0:42.37–0:46.16 | Narator menjembatani perbedaan | **Narator:** Baru tiga warga. Keinginannya sudah beda-beda. | wide |
-| 17 | 0:46.16–0:52.16 | Presiden mengajak membangun bersama | **Prabowow:** Nah, makanya kita bangun bareng. Mulai dari yang warga butuhkan. | wide |
-| 18 | 0:52.16–0:55.76 | Sari memastikan keputusan warga | **Sari:** Berarti warga yang pilih mau bangun apa? | wide |
-| 19 | 0:55.76–1:00.76 | Usulan rumah, warung, dan jalan | **Prabowow:** Iya. Mau rumah, warung, atau jalan dulu? | wide |
-| 20 | 1:00.76–1:03.26 | Joko menanyakan lomba dan konser | **Joko:** Kalau lomba sama konser? | wide |
-| 21 | 1:03.26–1:08.76 | Acara, aturan, dan kegiatan | **Prabowow:** Warga juga yang usul. Aturan dan kegiatan lainnya juga. | wide |
-| 22 | 1:08.76–1:16.96 | Penonton menjadi warga republik | **Prabowow:** Kalian juga warga sini. Tulis satu usulan dan alasannya. Mau bangun apa, atau bikin acara apa? | wide |
-| 23 | 1:16.96–1:23.26 | Usulan warga menjadi cerita berikutnya | **Prabowow:** Dukung usulan favoritmu. Follow, biar tidak ketinggalan cerita di Day Dua! | wide |
-| 24 | 1:23.26–1:26.06 | Joko meminta joget bersama | **Joko:** Sambil nunggu, boleh joget? | wide |
-| 25 | 1:26.06–1:31.00 | Presiden memutuskan Koplak Desa dulu | **Prabowow:** Boleh! Tapi saya putuskan, kita bangun Koplak Desa dulu. | medium |
-| 26 | 1:31.00–1:38.90 | Satuan Pengisi Perut Gratis, lalu tertawa | **Prabowow:** Lalu Satuan Pengisi Perut Gratis. Biar rapatnya tidak lapar! | medium |
-| 27 | 1:38.90–1:41.10 | Warga saling pandang setelah keputusan presiden | — | wide |
+| 1 | 0:00.00–0:05.86 | Hari pertama, jalur orang dalam | **Narator:** Ini hari pertama Republik Wkwkwk. Baru buka, sudah ada jalur orang dalam! | close |
+| 2 | 0:05.86–0:07.86 | Pasca Bowow menyambut republik | — | medium |
+| 3 | 0:07.86–0:13.76 | Perkenalan presiden dan kantor | **Narator:** Presidennya, Pasca Bowow. Modalnya semangat. Kantornya, satu kursi. | wide · sudut tinggi |
+| 4 | 0:13.76–0:16.00 | Presiden mencari warga | **Pasca Bowow:** Lho, rakyatnya mana? | close |
+| 5 | 0:16.00–0:17.50 | Sari masuk cepat dari kanan | — | follow |
+| 6 | 0:17.50–0:20.11 | Warga baru mendaftar | **Sari:** Saya, Pak! Mau daftar jadi warga! | close |
+| 7 | 0:20.11–0:22.73 | Presiden menanyakan kemampuan | **Pasca Bowow:** Selamat datang! Keahliannya apa? | close |
+| 8 | 0:22.73–0:25.82 | Sari ingin dinilai dari kerja | **Sari:** Bisa kerja, Pak. Bukan cuma kenal keluarga. | close |
+| 9 | 0:25.82–0:29.96 | Narator menjelaskan ukuran yang adil | **Narator:** Katanya, yang dinilai kemampuan. Bukan siapa pamannya. | wide |
+| 10 | 0:29.96–0:31.56 | Musisi masuk dari kanan dengan gitar | — | follow |
+| 11 | 0:31.56–0:34.64 | Joko mengusulkan panggung | **Joko · musisi:** Saya musisi, Pak! Boleh usul panggung konser? | close |
+| 12 | 0:34.64–0:37.69 | Presiden mengingatkan rumah warga | **Pasca Bowow:** Boleh. Tapi rumah warga juga belum ada! | close |
+| 13 | 0:37.69–0:42.57 | Ayam menawarkan jasa alarm | **Narator:** Ayam pun mau daftar. Keahliannya? Bangunin warga tiap pagi! | Mengikuti ayam |
+| 14 | 0:42.57–0:46.76 | Pendaftaran hewan ditolak | **Pasca Bowow:** Maaf, manusia dulu. Ayam sama kucing belum bisa. | close |
+| 15 | 0:46.76–0:51.98 | Kucing mengaku keluarga orang dalam | **Narator:** Kucing ikut daftar, ditolak juga. Tapi dia mengaku keponakan kucing Pak RT. | close |
+| 16 | 0:51.98–0:55.33 | Kenalan langsung mendapat jalan | **Pasca Bowow:** Oh, kenal Pak RT? Silakan lewat sini! | close |
+| 17 | 0:55.33–0:57.22 | Sari menangkap perlakuan berbeda | **Sari:** Tadi katanya harus manusia? | close |
+| 18 | 0:57.22–0:59.65 | Presiden mencari alasan | **Pasca Bowow:** Ini... jalur kekeluargaan. | close |
+| 19 | 0:59.65–1:05.85 | Narator menjelaskan nepotisme | **Narator:** Nah, kalau kenalan lebih penting dari kemampuan, antrean berubah jadi silsilah keluarga. | wide |
+| 20 | 1:05.85–1:09.28 | Musisi menyindir syarat keluarga | **Joko · musisi:** Berarti gitar saya kurang. Harus bawa kartu keluarga? | close |
+| 21 | 1:09.28–1:10.78 | Ayam menatap kucing yang lolos | — | close |
+| 22 | 1:10.78–1:17.45 | Pembangunan, acara dan aturan milik warga | **Pasca Bowow:** Sudah! Kalian yang tentukan republik ini. Bangunan, acara, sampai aturannya! | wide |
+| 23 | 1:17.45–1:20.79 | Sari mengusulkan antrean setara | **Sari:** Aturan pertama: semua lewat antrean yang sama! | close |
+| 24 | 1:20.79–1:27.49 | Narator mengajak warga berpendapat | **Narator:** Setuju? Tulis usul kalian. Follow, biar besok republik ini enggak cuma diatur orang dalam! | wide |
+| 25 | 1:27.49–1:31.98 | Pasca Bowow memutuskan Koplak Desa | **Pasca Bowow:** Sambil menunggu, saya putuskan: bangun Koplak Desa dulu! | close |
+| 26 | 1:31.98–1:38.59 | SPPG dulu, lalu presiden tertawa | **Pasca Bowow:** Sama Satuan Pengisi Perut Gratis! Biar rapatnya enggak lapar! | medium |
+| 27 | 1:38.59–1:42.19 | Narator menutup kontradiksi | **Narator:** Warganya disuruh usul. Keputusannya sudah duluan. | wide |
+| 28 | 1:42.19–1:44.59 | Warga menentukan cerita berikutnya | — | wide |
 
-## Cerita dan latar
+## Pementasan
 
-Lapangan tanah dan rumput, jalan masuk kiri belakang, papan REPUBLIK WKWKWK, pohon, kursi plastik dan papan KANTOR SEMENTARA. Belum ada rumah, panggung atau gedung jadi. Sari masuk kiri; Joko melewati belakang presiden sebelum mengambil posisi kanan. Warga yang belum datang disembunyikan.
+- Sari dan Joko masuk dari kanan dalam 1,5 dan 1,6 detik, tanpa memutari presiden. Joko memakai preset rockstar, denim slim, rambut spiky, rompi gelap, anting dan gelang. Gitar merah dan strap mengikuti tulang dada.
+- Ayam dan kucing adalah model 3D prosedural: kaki bergerak saat berjalan, kepala bereaksi, ekor kucing bergerak. Posisi, gerak, visibilitas dan kamera ditentukan waktu absolut sehingga seek dan ekspor konsisten.
+- Kamera memakai pembuka lokasi dari sudut tinggi, framing karakter sedang/dekat, sudut samping saat gitar terlihat, close-up rendah hewan, reaksi lawan bicara, dan dorongan kamera perlahan. Kamera ayam mengikuti posisinya selama masuk.
+- Template seri memakai garis bingkai emas tipis, label Day, identitas Republik Wkwkwk dan garis progres. Judul editorialnya **Baru Buka, Sudah Ada Orang Dalam**, bukan “Parodi Fiktif”.
+- Subtitle memakai kelompok frasa pendek dengan sorotan kata berdasarkan timestamp audio. Nama pembicara berada pada label kecil. Ejaan suara “Republik Weka Weka Weka” tampil sebagai “Republik Wkwkwk”.
 
-Prabowow memakai wajah khusus senior, peci dan safari putih regular. Sari memakai tunik terracotta dan celana lebar. Joko memakai kemeja navy, celana regular dan kacamata.
+## Audio
 
-Sesudah meminta usulan warga tentang pembangunan, acara, aturan dan kegiatan, presiden malah memutuskan **Koplak Desa** (plesetan Kopdes) dan **Satuan Pengisi Perut Gratis** (plesetan SPPG) lebih dulu. Ia tertawa; warga saling pandang. Overlay terakhir: “LAH, KATANYA WARGA YANG PILIH? · KOMEN!”. Ini lelucon kontradiksi dalam cerita fiktif, bukan pernyataan kebijakan nyata. Ajakan follow disampaikan dalam dialog sebelum penutup.
+- Empat take HeyGen yang tersedia: **Gufron** untuk narator (bahasa asli Indonesia), **Alistaire — Authoritative & Articulate** untuk Pasca Bowow, **Annie — Excited** untuk Sari, **Brodie — Breezy & Genuine** untuk Joko. Tiga suara terakhir berasal dari katalog publik berbahasa asli Inggris, disintesis dengan bahasa Indonesia; kualitas pengucapan tetap perlu didengarkan.
+- Desain suara baru tidak dilanjutkan karena paket HeyGen gratis menolak fitur itu (402). Pengguna kemudian memilih suara HeyGen yang sudah tersedia. Tidak ada kloning baru atau penyalinan suara pembicara referensi.
+- Satu take per pemeran, kemudian dipotong memakai timestamp karakter. Sumber WAV V1/V2/V3 dipertahankan. [Provenance](day1-voice-provenance.json) mencatat teks persis, suara, hasil, waktu dan sumber setiap take.
+- Oke Gas mengikuti pembuka, lalu masuk lagi saat keputusan Koplak Desa. Potongan akhir tersambung melewati SPPG, tawa dan penutup narator. Volume otomatis turun selama ujaran dan naik kembali saat jeda.
+- Musik latar diganti instrumental komedi yang lebih bertenaga, dengan brass dan drum dari katalog HeyGen. Sumber: docs/record/day1-background-v2-source.json. Gain dialog .33 dan jeda .55; Oke Gas .19 selama suara dan .68 pada jeda penutup. Preview dan ekspor memakai mix yang sama.
+- Pemeriksaan otomatis memakai faster-whisper base sebagai alat bantu, bukan bukti kualitas intonasi. Transkrip mesin dan bagian yang perlu didengar ada di audio-review-v3/. Tidak dilakukan review mendengar keseluruhan mix.
 
-## Akting dan audio
+## Referensi yang benar-benar diperiksa
 
-- Narator baru: **Ewan — Bright & Energetic**. Prabowow baru: **Alistaire — Authoritative & Articulate**, hasil filter katalog pria tua. Sari tetap Annie; Joko tetap Brodie. Bahasa sintesis Indonesia; semua suara karakter publik HeyGen, bukan kloning suara tokoh.
-- Dua take baru dibuat sekali per karakter. Sumber WAV lama dipertahankan; take baru bernama narrator-v2-original.wav dan prabowow-v2-original.wav. Teks persis, pengaturan, URL serta timing disimpan dalam [provenance](day1-voice-provenance.json). Tidak ada perubahan kecepatan/nada pascaproduksi.
-- Ejaan suara “Weka Weka” dan “Dei Dua” ditampilkan sebagai Wkwkwk dan Day Dua. Tag tawa tidak ditampilkan sebagai dialog. Ekor tawa dipertahankan utuh sampai akhir take; senyum dan gerak dada mulai pada timestamp tag.
-- Gerakan tangan bicara memakai IK dua ruas dan aksen kata. Pendengar menoleh ke pembicara; anggukan dibatasi satu gerakan, bukan berulang terus. Kedipan tidak serempak. Identitas wajah tidak hilang saat ekspresi atau bukaan mulut berubah.
-- Musik Oke Gas dari file pengguna docs/record/oke gas.aac tetap pada pembuka: pelan selama narator, lebih keras saat joget, lalu berhenti sebelum percakapan. Potongan sumber 0,04–8,04 detik; estimasi tempo 145 BPM. Tidak ada musik yang menutupi punchline/tawa.
-- Klip publik memakai nama berisi hash isi agar browser menerima audio baru setelah push/pull. Pemutar peta tidak membaca atau menulis draf admin. Preview dan ekspor menggunakan mix audio yang sama.
+- **Untung di Arsenal gak begini....mp4**, sekitar 81 detik: visual dan transkripsi memperlihatkan penjelasan skenario hipotetis, kemampuan versus hubungan keluarga, akibat bagi peserta lain, dan punchline di akhir. Yang diadaptasi adalah pola penjelasan dan tempo frasa, bukan suara atau klaim faktualnya.
+- **Day 1 kampung komen.mp4**, sekitar 56 detik: file lokal cocok dengan unggahan lama yang ditemukan di riwayat Git. Variasi pengambilan gambar mencakup lokasi lebar, kendaraan datang, detail jumlah warga, close-up reaksi, kegiatan membangun dan pandangan tinggi. Adegan panjang berjalan dipangkas; tiap perubahan kamera mengikuti informasi baru.
+- Sumber naskah: game-src/production-day1-script.json. Skenario: game-src/production-day1.js. Figuran/gitar: production-props.js. Template/subtitle: production-caption-style.js.
 
-## Sumber dan pemeriksaan
+## Verifikasi dan batasnya
 
-- [Skenario JSON](day1-scenes.json), [subtitle SRT](day1-subtitles.srt), [asal suara](day1-voice-provenance.json).
-- Sumber scene: game-src/production-day1.js; akting: production-acting.js; aset suara: public/audio/produksi/day-1/.
-- Jalankan node tools/export_day1_scene.mjs setelah mengubah timeline; tools/prepare_day1_audio.py memotong ulang take yang sudah ada tanpa sintesis baru.
-- Tes memakai rig V15 asli: seek/replay deterministik, kepala dalam frame, jalur warga, tangan di depan badan, identitas wajah saat tertawa, cue tawa, migrasi draf, cache audio, SRT dan penyerahan audio ke encoder.
-- Render Blender dari GLB telah ditinjau untuk wajah dan pakaian. Review WebGL browser serta mendengarkan keseluruhan mix belum dilakukan; pemeriksaan sinyal/timing tidak membuktikan kualitas intonasi atau pelafalan. Belum ada MP4 episode final yang telah ditinjau untuk unggah.
+Tes memakai rig V15 sebenarnya untuk framing, jalur masuk, tangan, identitas wajah, tawa, timing, seek/replay, audio, migrasi draf dan kontrak ekspor. Uji DOM mencakup fullscreen native/fallback serta pemutar peta. Fixture MP4 H.264/AAC diuji dalam tiga orientasi.
+
+Review offline memakai scene Three yang diekspor ke Blender dan kompositor subtitle yang sama; pencahayaannya diadaptasi karena glTF tidak membawa hemisphere light. Ini tidak menggantikan pemeriksaan WebGL di browser atau review dengar. Draf bawaan versi sebelumnya dimigrasikan otomatis; suntingan pengguna dipertahankan dan suara yang tidak cocok dilepas.

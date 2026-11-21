@@ -1,0 +1,2427 @@
+{
+  "actor": "prabowow",
+  "voiceId": "b50db2127b854791b6e16815c3e9b824",
+  "voiceName": "Alistaire - Authoritative & Articulate",
+  "lines": [
+    "Lho, rakyatnya mana?",
+    "Selamat datang! Keahliannya apa?",
+    "Boleh. Tapi rumah warga juga belum ada!",
+    "Maaf, manusia dulu. Ayam sama kucing belum bisa.",
+    "Oh, kenal Pak RT? Silakan lewat sini!",
+    "Ini... jalur kekeluargaan.",
+    "Sudah! Kalian yang tentukan republik ini. Bangunan, acara, sampai aturannya!",
+    "Sambil menunggu, saya putuskan: bangun Koplak Desa dulu!",
+    "Sama Satuan Pengisi Perut Gratis! Biar rapatnya enggak lapar! [laughs]"
+  ],
+  "language": "id",
+  "model": "server-selected",
+  "submittedText": "Lho, rakyatnya mana?\n\nSelamat datang! Keahliannya apa?\n\nBoleh. Tapi rumah warga juga belum ada!\n\nMaaf, manusia dulu. Ayam sama kucing belum bisa.\n\nOh, kenal Pak RT? Silakan lewat sini!\n\nIni... jalur kekeluargaan.\n\nSudah! Kalian yang tentukan republik ini. Bangunan, acara, sampai aturannya!\n\nSambil menunggu, saya putuskan: bangun Koplak Desa dulu!\n\nSama Satuan Pengisi Perut Gratis! Biar rapatnya enggak lapar! [laughs]",
+  "review": "Alignment and signal review; full listening not performed.",
+  "originalFile": "prabowow-v3-original.wav",
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/b50db2127b854791b6e16815c3e9b824/id=8fbab61a9971477d81a483314d5df649.wav",
+  "duration": 33.43238095238095,
+  "original_characters": [
+    {
+      "text": "L",
+      "start_time": 0.299,
+      "end_time": 0.384
+    },
+    {
+      "text": "h",
+      "start_time": 0.384,
+      "end_time": 0.448
+    },
+    {
+      "text": "o",
+      "start_time": 0.448,
+      "end_time": 0.512
+    },
+    {
+      "text": ",",
+      "start_time": 0.512,
+      "end_time": 0.704
+    },
+    {
+      "text": " ",
+      "start_time": 0.704,
+      "end_time": 0.896
+    },
+    {
+      "text": "r",
+      "start_time": 0.896,
+      "end_time": 0.981
+    },
+    {
+      "text": "a",
+      "start_time": 0.981,
+      "end_time": 1.067
+    },
+    {
+      "text": "k",
+      "start_time": 1.067,
+      "end_time": 1.109
+    },
+    {
+      "text": "y",
+      "start_time": 1.109,
+      "end_time": 1.152
+    },
+    {
+      "text": "a",
+      "start_time": 1.152,
+      "end_time": 1.195
+    },
+    {
+      "text": "t",
+      "start_time": 1.195,
+      "end_time": 1.237
+    },
+    {
+      "text": "n",
+      "start_time": 1.237,
+      "end_time": 1.301
+    },
+    {
+      "text": "y",
+      "start_time": 1.301,
+      "end_time": 1.365
+    },
+    {
+      "text": "a",
+      "start_time": 1.365,
+      "end_time": 1.408
+    },
+    {
+      "text": " ",
+      "start_time": 1.408,
+      "end_time": 1.451
+    },
+    {
+      "text": "m",
+      "start_time": 1.451,
+      "end_time": 1.522
+    },
+    {
+      "text": "a",
+      "start_time": 1.522,
+      "end_time": 1.593
+    },
+    {
+      "text": "n",
+      "start_time": 1.593,
+      "end_time": 1.664
+    },
+    {
+      "text": "a",
+      "start_time": 1.664,
+      "end_time": 1.792
+    },
+    {
+      "text": "?",
+      "start_time": 1.792,
+      "end_time": 1.948
+    },
+    {
+      "text": "\n",
+      "start_time": 1.948,
+      "end_time": 2.105
+    },
+    {
+      "text": "\n",
+      "start_time": 2.105,
+      "end_time": 2.261
+    },
+    {
+      "text": "S",
+      "start_time": 2.261,
+      "end_time": 2.304
+    },
+    {
+      "text": "e",
+      "start_time": 2.304,
+      "end_time": 2.347
+    },
+    {
+      "text": "l",
+      "start_time": 2.347,
+      "end_time": 2.389
+    },
+    {
+      "text": "a",
+      "start_time": 2.389,
+      "end_time": 2.432
+    },
+    {
+      "text": "m",
+      "start_time": 2.432,
+      "end_time": 2.475
+    },
+    {
+      "text": "a",
+      "start_time": 2.475,
+      "end_time": 2.517
+    },
+    {
+      "text": "t",
+      "start_time": 2.517,
+      "end_time": 2.56
+    },
+    {
+      "text": " ",
+      "start_time": 2.56,
+      "end_time": 2.603
+    },
+    {
+      "text": "d",
+      "start_time": 2.603,
+      "end_time": 2.66
+    },
+    {
+      "text": "a",
+      "start_time": 2.66,
+      "end_time": 2.716
+    },
+    {
+      "text": "t",
+      "start_time": 2.716,
+      "end_time": 2.773
+    },
+    {
+      "text": "a",
+      "start_time": 2.773,
+      "end_time": 2.844
+    },
+    {
+      "text": "n",
+      "start_time": 2.844,
+      "end_time": 2.916
+    },
+    {
+      "text": "g",
+      "start_time": 2.916,
+      "end_time": 2.987
+    },
+    {
+      "text": "!",
+      "start_time": 2.987,
+      "end_time": 3.115
+    },
+    {
+      "text": " ",
+      "start_time": 3.115,
+      "end_time": 3.243
+    },
+    {
+      "text": "K",
+      "start_time": 3.243,
+      "end_time": 3.285
+    },
+    {
+      "text": "e",
+      "start_time": 3.285,
+      "end_time": 3.413
+    },
+    {
+      "text": "a",
+      "start_time": 3.413,
+      "end_time": 3.456
+    },
+    {
+      "text": "h",
+      "start_time": 3.456,
+      "end_time": 3.499
+    },
+    {
+      "text": "l",
+      "start_time": 3.499,
+      "end_time": 3.563
+    },
+    {
+      "text": "i",
+      "start_time": 3.563,
+      "end_time": 3.627
+    },
+    {
+      "text": "a",
+      "start_time": 3.627,
+      "end_time": 3.648
+    },
+    {
+      "text": "n",
+      "start_time": 3.648,
+      "end_time": 3.669
+    },
+    {
+      "text": "n",
+      "start_time": 3.669,
+      "end_time": 3.691
+    },
+    {
+      "text": "y",
+      "start_time": 3.691,
+      "end_time": 3.712
+    },
+    {
+      "text": "a",
+      "start_time": 3.712,
+      "end_time": 3.797
+    },
+    {
+      "text": " ",
+      "start_time": 3.797,
+      "end_time": 3.84
+    },
+    {
+      "text": "a",
+      "start_time": 3.84,
+      "end_time": 3.904
+    },
+    {
+      "text": "p",
+      "start_time": 3.904,
+      "end_time": 3.968
+    },
+    {
+      "text": "a",
+      "start_time": 3.968,
+      "end_time": 4.139
+    },
+    {
+      "text": "?",
+      "start_time": 4.139,
+      "end_time": 4.452
+    },
+    {
+      "text": "\n",
+      "start_time": 4.452,
+      "end_time": 4.764
+    },
+    {
+      "text": "\n",
+      "start_time": 4.764,
+      "end_time": 5.077
+    },
+    {
+      "text": "B",
+      "start_time": 5.077,
+      "end_time": 5.184
+    },
+    {
+      "text": "o",
+      "start_time": 5.184,
+      "end_time": 5.291
+    },
+    {
+      "text": "l",
+      "start_time": 5.291,
+      "end_time": 5.355
+    },
+    {
+      "text": "e",
+      "start_time": 5.355,
+      "end_time": 5.419
+    },
+    {
+      "text": "h",
+      "start_time": 5.419,
+      "end_time": 5.461
+    },
+    {
+      "text": ".",
+      "start_time": 5.461,
+      "end_time": 5.675
+    },
+    {
+      "text": " ",
+      "start_time": 5.675,
+      "end_time": 5.888
+    },
+    {
+      "text": "T",
+      "start_time": 5.888,
+      "end_time": 5.931
+    },
+    {
+      "text": "a",
+      "start_time": 5.931,
+      "end_time": 5.995
+    },
+    {
+      "text": "p",
+      "start_time": 5.995,
+      "end_time": 6.059
+    },
+    {
+      "text": "i",
+      "start_time": 6.059,
+      "end_time": 6.1867
+    },
+    {
+      "text": " ",
+      "start_time": 6.187,
+      "end_time": 6.229
+    },
+    {
+      "text": "r",
+      "start_time": 6.229,
+      "end_time": 6.272
+    },
+    {
+      "text": "u",
+      "start_time": 6.272,
+      "end_time": 6.293
+    },
+    {
+      "text": "m",
+      "start_time": 6.293,
+      "end_time": 6.315
+    },
+    {
+      "text": "a",
+      "start_time": 6.315,
+      "end_time": 6.357
+    },
+    {
+      "text": "h",
+      "start_time": 6.357,
+      "end_time": 6.4
+    },
+    {
+      "text": " ",
+      "start_time": 6.4,
+      "end_time": 6.443
+    },
+    {
+      "text": "w",
+      "start_time": 6.443,
+      "end_time": 6.5
+    },
+    {
+      "text": "a",
+      "start_time": 6.5,
+      "end_time": 6.556
+    },
+    {
+      "text": "r",
+      "start_time": 6.556,
+      "end_time": 6.613
+    },
+    {
+      "text": "g",
+      "start_time": 6.613,
+      "end_time": 6.699
+    },
+    {
+      "text": "a",
+      "start_time": 6.699,
+      "end_time": 6.784
+    },
+    {
+      "text": " ",
+      "start_time": 6.784,
+      "end_time": 6.827
+    },
+    {
+      "text": "j",
+      "start_time": 6.827,
+      "end_time": 6.869
+    },
+    {
+      "text": "u",
+      "start_time": 6.869,
+      "end_time": 6.912
+    },
+    {
+      "text": "g",
+      "start_time": 6.912,
+      "end_time": 6.955
+    },
+    {
+      "text": "a",
+      "start_time": 6.955,
+      "end_time": 6.997
+    },
+    {
+      "text": " ",
+      "start_time": 6.997,
+      "end_time": 7.04
+    },
+    {
+      "text": "b",
+      "start_time": 7.04,
+      "end_time": 7.068
+    },
+    {
+      "text": "e",
+      "start_time": 7.068,
+      "end_time": 7.097
+    },
+    {
+      "text": "l",
+      "start_time": 7.097,
+      "end_time": 7.125
+    },
+    {
+      "text": "u",
+      "start_time": 7.125,
+      "end_time": 7.147
+    },
+    {
+      "text": "m",
+      "start_time": 7.147,
+      "end_time": 7.168
+    },
+    {
+      "text": " ",
+      "start_time": 7.168,
+      "end_time": 7.211
+    },
+    {
+      "text": "a",
+      "start_time": 7.211,
+      "end_time": 7.268
+    },
+    {
+      "text": "d",
+      "start_time": 7.268,
+      "end_time": 7.324
+    },
+    {
+      "text": "a",
+      "start_time": 7.324,
+      "end_time": 7.381
+    },
+    {
+      "text": "!",
+      "start_time": 7.381,
+      "end_time": 7.595
+    },
+    {
+      "text": "\n",
+      "start_time": 7.595,
+      "end_time": 7.808
+    },
+    {
+      "text": "\n",
+      "start_time": 7.808,
+      "end_time": 8.021
+    },
+    {
+      "text": "M",
+      "start_time": 8.021,
+      "end_time": 8.064
+    },
+    {
+      "text": "a",
+      "start_time": 8.064,
+      "end_time": 8.192
+    },
+    {
+      "text": "a",
+      "start_time": 8.192,
+      "end_time": 8.277
+    },
+    {
+      "text": "f",
+      "start_time": 8.277,
+      "end_time": 8.363
+    },
+    {
+      "text": ",",
+      "start_time": 8.363,
+      "end_time": 8.512
+    },
+    {
+      "text": " ",
+      "start_time": 8.512,
+      "end_time": 8.661
+    },
+    {
+      "text": "m",
+      "start_time": 8.661,
+      "end_time": 8.704
+    },
+    {
+      "text": "a",
+      "start_time": 8.704,
+      "end_time": 8.747
+    },
+    {
+      "text": "n",
+      "start_time": 8.747,
+      "end_time": 8.789
+    },
+    {
+      "text": "u",
+      "start_time": 8.789,
+      "end_time": 8.832
+    },
+    {
+      "text": "s",
+      "start_time": 8.832,
+      "end_time": 8.875
+    },
+    {
+      "text": "i",
+      "start_time": 8.875,
+      "end_time": 8.96
+    },
+    {
+      "text": "a",
+      "start_time": 8.96,
+      "end_time": 9.045
+    },
+    {
+      "text": " ",
+      "start_time": 9.045,
+      "end_time": 9.088
+    },
+    {
+      "text": "d",
+      "start_time": 9.088,
+      "end_time": 9.131
+    },
+    {
+      "text": "u",
+      "start_time": 9.131,
+      "end_time": 9.195
+    },
+    {
+      "text": "l",
+      "start_time": 9.195,
+      "end_time": 9.259
+    },
+    {
+      "text": "u",
+      "start_time": 9.259,
+      "end_time": 9.344
+    },
+    {
+      "text": ".",
+      "start_time": 9.344,
+      "end_time": 9.579
+    },
+    {
+      "text": " ",
+      "start_time": 9.579,
+      "end_time": 9.813
+    },
+    {
+      "text": "A",
+      "start_time": 9.813,
+      "end_time": 9.941
+    },
+    {
+      "text": "y",
+      "start_time": 9.941,
+      "end_time": 9.984
+    },
+    {
+      "text": "a",
+      "start_time": 9.984,
+      "end_time": 10.069
+    },
+    {
+      "text": "m",
+      "start_time": 10.069,
+      "end_time": 10.1547
+    },
+    {
+      "text": " ",
+      "start_time": 10.155,
+      "end_time": 10.24
+    },
+    {
+      "text": "s",
+      "start_time": 10.24,
+      "end_time": 10.283
+    },
+    {
+      "text": "a",
+      "start_time": 10.283,
+      "end_time": 10.311
+    },
+    {
+      "text": "m",
+      "start_time": 10.311,
+      "end_time": 10.34
+    },
+    {
+      "text": "a",
+      "start_time": 10.34,
+      "end_time": 10.368
+    },
+    {
+      "text": " ",
+      "start_time": 10.368,
+      "end_time": 10.496
+    },
+    {
+      "text": "k",
+      "start_time": 10.496,
+      "end_time": 10.539
+    },
+    {
+      "text": "u",
+      "start_time": 10.539,
+      "end_time": 10.603
+    },
+    {
+      "text": "c",
+      "start_time": 10.603,
+      "end_time": 10.667
+    },
+    {
+      "text": "i",
+      "start_time": 10.667,
+      "end_time": 10.738
+    },
+    {
+      "text": "n",
+      "start_time": 10.738,
+      "end_time": 10.809
+    },
+    {
+      "text": "g",
+      "start_time": 10.809,
+      "end_time": 10.88
+    },
+    {
+      "text": " ",
+      "start_time": 10.88,
+      "end_time": 10.965
+    },
+    {
+      "text": "b",
+      "start_time": 10.965,
+      "end_time": 10.994
+    },
+    {
+      "text": "e",
+      "start_time": 10.994,
+      "end_time": 11.022
+    },
+    {
+      "text": "l",
+      "start_time": 11.022,
+      "end_time": 11.051
+    },
+    {
+      "text": "u",
+      "start_time": 11.051,
+      "end_time": 11.093
+    },
+    {
+      "text": "m",
+      "start_time": 11.093,
+      "end_time": 11.136
+    },
+    {
+      "text": " ",
+      "start_time": 11.136,
+      "end_time": 11.179
+    },
+    {
+      "text": "b",
+      "start_time": 11.179,
+      "end_time": 11.221
+    },
+    {
+      "text": "i",
+      "start_time": 11.221,
+      "end_time": 11.264
+    },
+    {
+      "text": "s",
+      "start_time": 11.264,
+      "end_time": 11.307
+    },
+    {
+      "text": "a",
+      "start_time": 11.307,
+      "end_time": 11.477
+    },
+    {
+      "text": ".",
+      "start_time": 11.477,
+      "end_time": 11.577
+    },
+    {
+      "text": "\n",
+      "start_time": 11.577,
+      "end_time": 11.676
+    },
+    {
+      "text": "\n",
+      "start_time": 11.676,
+      "end_time": 11.776
+    },
+    {
+      "text": "O",
+      "start_time": 11.776,
+      "end_time": 11.947
+    },
+    {
+      "text": "h",
+      "start_time": 11.947,
+      "end_time": 12.117
+    },
+    {
+      "text": ",",
+      "start_time": 12.117,
+      "end_time": 12.224
+    },
+    {
+      "text": " ",
+      "start_time": 12.224,
+      "end_time": 12.331
+    },
+    {
+      "text": "k",
+      "start_time": 12.331,
+      "end_time": 12.373
+    },
+    {
+      "text": "e",
+      "start_time": 12.373,
+      "end_time": 12.416
+    },
+    {
+      "text": "n",
+      "start_time": 12.416,
+      "end_time": 12.459
+    },
+    {
+      "text": "a",
+      "start_time": 12.459,
+      "end_time": 12.501
+    },
+    {
+      "text": "l",
+      "start_time": 12.501,
+      "end_time": 12.544
+    },
+    {
+      "text": " ",
+      "start_time": 12.544,
+      "end_time": 12.629
+    },
+    {
+      "text": "P",
+      "start_time": 12.629,
+      "end_time": 12.672
+    },
+    {
+      "text": "a",
+      "start_time": 12.672,
+      "end_time": 12.693
+    },
+    {
+      "text": "k",
+      "start_time": 12.693,
+      "end_time": 12.7147
+    },
+    {
+      "text": " ",
+      "start_time": 12.715,
+      "end_time": 12.757
+    },
+    {
+      "text": "R",
+      "start_time": 12.757,
+      "end_time": 12.885
+    },
+    {
+      "text": "T",
+      "start_time": 12.885,
+      "end_time": 13.056
+    },
+    {
+      "text": "?",
+      "start_time": 13.056,
+      "end_time": 13.291
+    },
+    {
+      "text": " ",
+      "start_time": 13.291,
+      "end_time": 13.525
+    },
+    {
+      "text": "S",
+      "start_time": 13.525,
+      "end_time": 13.568
+    },
+    {
+      "text": "i",
+      "start_time": 13.568,
+      "end_time": 13.611
+    },
+    {
+      "text": "l",
+      "start_time": 13.611,
+      "end_time": 13.653
+    },
+    {
+      "text": "a",
+      "start_time": 13.653,
+      "end_time": 13.717
+    },
+    {
+      "text": "k",
+      "start_time": 13.717,
+      "end_time": 13.781
+    },
+    {
+      "text": "a",
+      "start_time": 13.781,
+      "end_time": 13.824
+    },
+    {
+      "text": "n",
+      "start_time": 13.824,
+      "end_time": 13.8667
+    },
+    {
+      "text": " ",
+      "start_time": 13.867,
+      "end_time": 13.909
+    },
+    {
+      "text": "l",
+      "start_time": 13.909,
+      "end_time": 13.952
+    },
+    {
+      "text": "e",
+      "start_time": 13.952,
+      "end_time": 13.995
+    },
+    {
+      "text": "w",
+      "start_time": 13.995,
+      "end_time": 14.023
+    },
+    {
+      "text": "a",
+      "start_time": 14.023,
+      "end_time": 14.052
+    },
+    {
+      "text": "t",
+      "start_time": 14.052,
+      "end_time": 14.08
+    },
+    {
+      "text": " ",
+      "start_time": 14.08,
+      "end_time": 14.123
+    },
+    {
+      "text": "s",
+      "start_time": 14.123,
+      "end_time": 14.18
+    },
+    {
+      "text": "i",
+      "start_time": 14.18,
+      "end_time": 14.236
+    },
+    {
+      "text": "n",
+      "start_time": 14.236,
+      "end_time": 14.293
+    },
+    {
+      "text": "i",
+      "start_time": 14.293,
+      "end_time": 14.379
+    },
+    {
+      "text": "!",
+      "start_time": 14.379,
+      "end_time": 14.507
+    },
+    {
+      "text": "\n",
+      "start_time": 14.507,
+      "end_time": 14.635
+    },
+    {
+      "text": "\n",
+      "start_time": 14.635,
+      "end_time": 14.763
+    },
+    {
+      "text": "I",
+      "start_time": 14.763,
+      "end_time": 14.827
+    },
+    {
+      "text": "n",
+      "start_time": 14.827,
+      "end_time": 14.891
+    },
+    {
+      "text": "i",
+      "start_time": 14.891,
+      "end_time": 14.976
+    },
+    {
+      "text": ".",
+      "start_time": 14.976,
+      "end_time": 15.057
+    },
+    {
+      "text": ".",
+      "start_time": 15.057,
+      "end_time": 15.139
+    },
+    {
+      "text": ".",
+      "start_time": 15.139,
+      "end_time": 15.22
+    },
+    {
+      "text": " ",
+      "start_time": 15.22,
+      "end_time": 15.301
+    },
+    {
+      "text": "j",
+      "start_time": 15.301,
+      "end_time": 15.387
+    },
+    {
+      "text": "a",
+      "start_time": 15.387,
+      "end_time": 15.472
+    },
+    {
+      "text": "l",
+      "start_time": 15.472,
+      "end_time": 15.557
+    },
+    {
+      "text": "u",
+      "start_time": 15.557,
+      "end_time": 15.621
+    },
+    {
+      "text": "r",
+      "start_time": 15.621,
+      "end_time": 15.685
+    },
+    {
+      "text": " ",
+      "start_time": 15.685,
+      "end_time": 15.728
+    },
+    {
+      "text": "k",
+      "start_time": 15.728,
+      "end_time": 15.792
+    },
+    {
+      "text": "e",
+      "start_time": 15.792,
+      "end_time": 15.856
+    },
+    {
+      "text": "k",
+      "start_time": 15.856,
+      "end_time": 15.899
+    },
+    {
+      "text": "e",
+      "start_time": 15.899,
+      "end_time": 15.941
+    },
+    {
+      "text": "l",
+      "start_time": 15.941,
+      "end_time": 15.984
+    },
+    {
+      "text": "u",
+      "start_time": 15.984,
+      "end_time": 16.027
+    },
+    {
+      "text": "a",
+      "start_time": 16.027,
+      "end_time": 16.069
+    },
+    {
+      "text": "r",
+      "start_time": 16.069,
+      "end_time": 16.112
+    },
+    {
+      "text": "g",
+      "start_time": 16.112,
+      "end_time": 16.197
+    },
+    {
+      "text": "a",
+      "start_time": 16.197,
+      "end_time": 16.283
+    },
+    {
+      "text": "a",
+      "start_time": 16.283,
+      "end_time": 16.368
+    },
+    {
+      "text": "n",
+      "start_time": 16.368,
+      "end_time": 16.453
+    },
+    {
+      "text": ".",
+      "start_time": 16.453,
+      "end_time": 16.581
+    },
+    {
+      "text": "\n",
+      "start_time": 16.581,
+      "end_time": 16.709
+    },
+    {
+      "text": "\n",
+      "start_time": 16.709,
+      "end_time": 16.837
+    },
+    {
+      "text": "S",
+      "start_time": 16.837,
+      "end_time": 16.88
+    },
+    {
+      "text": "u",
+      "start_time": 16.88,
+      "end_time": 16.987
+    },
+    {
+      "text": "d",
+      "start_time": 16.987,
+      "end_time": 17.093
+    },
+    {
+      "text": "a",
+      "start_time": 17.093,
+      "end_time": 17.179
+    },
+    {
+      "text": "h",
+      "start_time": 17.179,
+      "end_time": 17.264
+    },
+    {
+      "text": "!",
+      "start_time": 17.264,
+      "end_time": 17.477
+    },
+    {
+      "text": " ",
+      "start_time": 17.477,
+      "end_time": 17.691
+    },
+    {
+      "text": "K",
+      "start_time": 17.691,
+      "end_time": 17.733
+    },
+    {
+      "text": "a",
+      "start_time": 17.733,
+      "end_time": 17.797
+    },
+    {
+      "text": "l",
+      "start_time": 17.797,
+      "end_time": 17.861
+    },
+    {
+      "text": "i",
+      "start_time": 17.861,
+      "end_time": 17.918
+    },
+    {
+      "text": "a",
+      "start_time": 17.918,
+      "end_time": 17.975
+    },
+    {
+      "text": "n",
+      "start_time": 17.975,
+      "end_time": 18.032
+    },
+    {
+      "text": " ",
+      "start_time": 18.032,
+      "end_time": 18.203
+    },
+    {
+      "text": "y",
+      "start_time": 18.203,
+      "end_time": 18.245
+    },
+    {
+      "text": "a",
+      "start_time": 18.245,
+      "end_time": 18.259
+    },
+    {
+      "text": "n",
+      "start_time": 18.259,
+      "end_time": 18.274
+    },
+    {
+      "text": "g",
+      "start_time": 18.274,
+      "end_time": 18.2879
+    },
+    {
+      "text": " ",
+      "start_time": 18.288,
+      "end_time": 18.373
+    },
+    {
+      "text": "t",
+      "start_time": 18.373,
+      "end_time": 18.416
+    },
+    {
+      "text": "e",
+      "start_time": 18.416,
+      "end_time": 18.43
+    },
+    {
+      "text": "n",
+      "start_time": 18.43,
+      "end_time": 18.444
+    },
+    {
+      "text": "t",
+      "start_time": 18.444,
+      "end_time": 18.459
+    },
+    {
+      "text": "u",
+      "start_time": 18.459,
+      "end_time": 18.544
+    },
+    {
+      "text": "k",
+      "start_time": 18.544,
+      "end_time": 18.629
+    },
+    {
+      "text": "a",
+      "start_time": 18.629,
+      "end_time": 18.672
+    },
+    {
+      "text": "n",
+      "start_time": 18.672,
+      "end_time": 18.7146
+    },
+    {
+      "text": " ",
+      "start_time": 18.715,
+      "end_time": 18.8
+    },
+    {
+      "text": "r",
+      "start_time": 18.8,
+      "end_time": 18.864
+    },
+    {
+      "text": "e",
+      "start_time": 18.864,
+      "end_time": 18.928
+    },
+    {
+      "text": "p",
+      "start_time": 18.928,
+      "end_time": 18.992
+    },
+    {
+      "text": "u",
+      "start_time": 18.992,
+      "end_time": 19.056
+    },
+    {
+      "text": "b",
+      "start_time": 19.056,
+      "end_time": 19.099
+    },
+    {
+      "text": "l",
+      "start_time": 19.099,
+      "end_time": 19.12
+    },
+    {
+      "text": "i",
+      "start_time": 19.12,
+      "end_time": 19.141
+    },
+    {
+      "text": "k",
+      "start_time": 19.141,
+      "end_time": 19.1839
+    },
+    {
+      "text": " ",
+      "start_time": 19.184,
+      "end_time": 19.269
+    },
+    {
+      "text": "i",
+      "start_time": 19.269,
+      "end_time": 19.333
+    },
+    {
+      "text": "n",
+      "start_time": 19.333,
+      "end_time": 19.397
+    },
+    {
+      "text": "i",
+      "start_time": 19.397,
+      "end_time": 19.483
+    },
+    {
+      "text": ".",
+      "start_time": 19.483,
+      "end_time": 19.675
+    },
+    {
+      "text": " ",
+      "start_time": 19.675,
+      "end_time": 19.867
+    },
+    {
+      "text": "B",
+      "start_time": 19.867,
+      "end_time": 19.909
+    },
+    {
+      "text": "a",
+      "start_time": 19.909,
+      "end_time": 19.952
+    },
+    {
+      "text": "n",
+      "start_time": 19.952,
+      "end_time": 19.995
+    },
+    {
+      "text": "g",
+      "start_time": 19.995,
+      "end_time": 20.037
+    },
+    {
+      "text": "u",
+      "start_time": 20.037,
+      "end_time": 20.144
+    },
+    {
+      "text": "n",
+      "start_time": 20.144,
+      "end_time": 20.251
+    },
+    {
+      "text": "a",
+      "start_time": 20.251,
+      "end_time": 20.357
+    },
+    {
+      "text": "n",
+      "start_time": 20.357,
+      "end_time": 20.464
+    },
+    {
+      "text": ",",
+      "start_time": 20.464,
+      "end_time": 20.613
+    },
+    {
+      "text": " ",
+      "start_time": 20.613,
+      "end_time": 20.763
+    },
+    {
+      "text": "a",
+      "start_time": 20.763,
+      "end_time": 20.805
+    },
+    {
+      "text": "c",
+      "start_time": 20.805,
+      "end_time": 20.848
+    },
+    {
+      "text": "a",
+      "start_time": 20.848,
+      "end_time": 21.019
+    },
+    {
+      "text": "r",
+      "start_time": 21.019,
+      "end_time": 21.189
+    },
+    {
+      "text": "a",
+      "start_time": 21.189,
+      "end_time": 21.317
+    },
+    {
+      "text": ",",
+      "start_time": 21.317,
+      "end_time": 21.424
+    },
+    {
+      "text": " ",
+      "start_time": 21.424,
+      "end_time": 21.531
+    },
+    {
+      "text": "s",
+      "start_time": 21.531,
+      "end_time": 21.644
+    },
+    {
+      "text": "a",
+      "start_time": 21.644,
+      "end_time": 21.758
+    },
+    {
+      "text": "m",
+      "start_time": 21.758,
+      "end_time": 21.872
+    },
+    {
+      "text": "p",
+      "start_time": 21.872,
+      "end_time": 21.936
+    },
+    {
+      "text": "a",
+      "start_time": 21.936,
+      "end_time": 22
+    },
+    {
+      "text": "i",
+      "start_time": 22,
+      "end_time": 22.1706
+    },
+    {
+      "text": " ",
+      "start_time": 22.171,
+      "end_time": 22.213
+    },
+    {
+      "text": "a",
+      "start_time": 22.213,
+      "end_time": 22.277
+    },
+    {
+      "text": "t",
+      "start_time": 22.277,
+      "end_time": 22.341
+    },
+    {
+      "text": "u",
+      "start_time": 22.341,
+      "end_time": 22.405
+    },
+    {
+      "text": "r",
+      "start_time": 22.405,
+      "end_time": 22.469
+    },
+    {
+      "text": "a",
+      "start_time": 22.469,
+      "end_time": 22.533
+    },
+    {
+      "text": "n",
+      "start_time": 22.533,
+      "end_time": 22.597
+    },
+    {
+      "text": "n",
+      "start_time": 22.597,
+      "end_time": 22.619
+    },
+    {
+      "text": "y",
+      "start_time": 22.619,
+      "end_time": 22.64
+    },
+    {
+      "text": "a",
+      "start_time": 22.64,
+      "end_time": 22.768
+    },
+    {
+      "text": "!",
+      "start_time": 22.768,
+      "end_time": 22.905
+    },
+    {
+      "text": "\n",
+      "start_time": 22.905,
+      "end_time": 23.041
+    },
+    {
+      "text": "\n",
+      "start_time": 23.041,
+      "end_time": 23.178
+    },
+    {
+      "text": "S",
+      "start_time": 23.178,
+      "end_time": 23.235
+    },
+    {
+      "text": "a",
+      "start_time": 23.235,
+      "end_time": 23.292
+    },
+    {
+      "text": "m",
+      "start_time": 23.292,
+      "end_time": 23.349
+    },
+    {
+      "text": "b",
+      "start_time": 23.349,
+      "end_time": 23.391
+    },
+    {
+      "text": "i",
+      "start_time": 23.391,
+      "end_time": 23.455
+    },
+    {
+      "text": "l",
+      "start_time": 23.455,
+      "end_time": 23.519
+    },
+    {
+      "text": " ",
+      "start_time": 23.519,
+      "end_time": 23.562
+    },
+    {
+      "text": "m",
+      "start_time": 23.562,
+      "end_time": 23.59
+    },
+    {
+      "text": "e",
+      "start_time": 23.59,
+      "end_time": 23.619
+    },
+    {
+      "text": "n",
+      "start_time": 23.619,
+      "end_time": 23.647
+    },
+    {
+      "text": "u",
+      "start_time": 23.647,
+      "end_time": 23.69
+    },
+    {
+      "text": "n",
+      "start_time": 23.69,
+      "end_time": 23.733
+    },
+    {
+      "text": "g",
+      "start_time": 23.733,
+      "end_time": 23.775
+    },
+    {
+      "text": "g",
+      "start_time": 23.775,
+      "end_time": 23.861
+    },
+    {
+      "text": "u",
+      "start_time": 23.861,
+      "end_time": 23.946
+    },
+    {
+      "text": ",",
+      "start_time": 23.946,
+      "end_time": 24.117
+    },
+    {
+      "text": " ",
+      "start_time": 24.117,
+      "end_time": 24.287
+    },
+    {
+      "text": "s",
+      "start_time": 24.287,
+      "end_time": 24.358
+    },
+    {
+      "text": "a",
+      "start_time": 24.358,
+      "end_time": 24.43
+    },
+    {
+      "text": "y",
+      "start_time": 24.43,
+      "end_time": 24.501
+    },
+    {
+      "text": "a",
+      "start_time": 24.501,
+      "end_time": 24.5859
+    },
+    {
+      "text": " ",
+      "start_time": 24.586,
+      "end_time": 24.629
+    },
+    {
+      "text": "p",
+      "start_time": 24.629,
+      "end_time": 24.657
+    },
+    {
+      "text": "u",
+      "start_time": 24.657,
+      "end_time": 24.686
+    },
+    {
+      "text": "t",
+      "start_time": 24.686,
+      "end_time": 24.714
+    },
+    {
+      "text": "u",
+      "start_time": 24.714,
+      "end_time": 24.778
+    },
+    {
+      "text": "s",
+      "start_time": 24.778,
+      "end_time": 24.842
+    },
+    {
+      "text": "k",
+      "start_time": 24.842,
+      "end_time": 24.97
+    },
+    {
+      "text": "a",
+      "start_time": 24.97,
+      "end_time": 25.034
+    },
+    {
+      "text": "n",
+      "start_time": 25.034,
+      "end_time": 25.098
+    },
+    {
+      "text": ":",
+      "start_time": 25.098,
+      "end_time": 25.333
+    },
+    {
+      "text": " ",
+      "start_time": 25.333,
+      "end_time": 25.567
+    },
+    {
+      "text": "b",
+      "start_time": 25.567,
+      "end_time": 25.61
+    },
+    {
+      "text": "a",
+      "start_time": 25.61,
+      "end_time": 25.667
+    },
+    {
+      "text": "n",
+      "start_time": 25.667,
+      "end_time": 25.724
+    },
+    {
+      "text": "g",
+      "start_time": 25.724,
+      "end_time": 25.781
+    },
+    {
+      "text": "u",
+      "start_time": 25.781,
+      "end_time": 25.845
+    },
+    {
+      "text": "n",
+      "start_time": 25.845,
+      "end_time": 25.9086
+    },
+    {
+      "text": " ",
+      "start_time": 25.909,
+      "end_time": 26.037
+    },
+    {
+      "text": "K",
+      "start_time": 26.037,
+      "end_time": 26.079
+    },
+    {
+      "text": "o",
+      "start_time": 26.079,
+      "end_time": 26.122
+    },
+    {
+      "text": "p",
+      "start_time": 26.122,
+      "end_time": 26.165
+    },
+    {
+      "text": "l",
+      "start_time": 26.165,
+      "end_time": 26.25
+    },
+    {
+      "text": "a",
+      "start_time": 26.25,
+      "end_time": 26.293
+    },
+    {
+      "text": "k",
+      "start_time": 26.293,
+      "end_time": 26.335
+    },
+    {
+      "text": " ",
+      "start_time": 26.335,
+      "end_time": 26.378
+    },
+    {
+      "text": "D",
+      "start_time": 26.378,
+      "end_time": 26.463
+    },
+    {
+      "text": "e",
+      "start_time": 26.463,
+      "end_time": 26.485
+    },
+    {
+      "text": "s",
+      "start_time": 26.485,
+      "end_time": 26.506
+    },
+    {
+      "text": "a",
+      "start_time": 26.506,
+      "end_time": 26.6339
+    },
+    {
+      "text": " ",
+      "start_time": 26.634,
+      "end_time": 26.677
+    },
+    {
+      "text": "d",
+      "start_time": 26.677,
+      "end_time": 26.719
+    },
+    {
+      "text": "u",
+      "start_time": 26.719,
+      "end_time": 26.762
+    },
+    {
+      "text": "l",
+      "start_time": 26.762,
+      "end_time": 26.805
+    },
+    {
+      "text": "u",
+      "start_time": 26.805,
+      "end_time": 26.933
+    },
+    {
+      "text": "!",
+      "start_time": 26.933,
+      "end_time": 27.075
+    },
+    {
+      "text": "\n",
+      "start_time": 27.075,
+      "end_time": 27.217
+    },
+    {
+      "text": "\n",
+      "start_time": 27.217,
+      "end_time": 27.359
+    },
+    {
+      "text": "S",
+      "start_time": 27.359,
+      "end_time": 27.402
+    },
+    {
+      "text": "a",
+      "start_time": 27.402,
+      "end_time": 27.487
+    },
+    {
+      "text": "m",
+      "start_time": 27.487,
+      "end_time": 27.573
+    },
+    {
+      "text": "a",
+      "start_time": 27.573,
+      "end_time": 27.6579
+    },
+    {
+      "text": " ",
+      "start_time": 27.658,
+      "end_time": 27.871
+    },
+    {
+      "text": "S",
+      "start_time": 27.871,
+      "end_time": 27.914
+    },
+    {
+      "text": "a",
+      "start_time": 27.914,
+      "end_time": 27.957
+    },
+    {
+      "text": "t",
+      "start_time": 27.957,
+      "end_time": 27.999
+    },
+    {
+      "text": "u",
+      "start_time": 27.999,
+      "end_time": 28.127
+    },
+    {
+      "text": "a",
+      "start_time": 28.127,
+      "end_time": 28.17
+    },
+    {
+      "text": "n",
+      "start_time": 28.17,
+      "end_time": 28.2126
+    },
+    {
+      "text": " ",
+      "start_time": 28.213,
+      "end_time": 28.255
+    },
+    {
+      "text": "P",
+      "start_time": 28.255,
+      "end_time": 28.298
+    },
+    {
+      "text": "e",
+      "start_time": 28.298,
+      "end_time": 28.326
+    },
+    {
+      "text": "n",
+      "start_time": 28.326,
+      "end_time": 28.355
+    },
+    {
+      "text": "g",
+      "start_time": 28.355,
+      "end_time": 28.383
+    },
+    {
+      "text": "i",
+      "start_time": 28.383,
+      "end_time": 28.426
+    },
+    {
+      "text": "s",
+      "start_time": 28.426,
+      "end_time": 28.469
+    },
+    {
+      "text": "i",
+      "start_time": 28.469,
+      "end_time": 28.639
+    },
+    {
+      "text": " ",
+      "start_time": 28.639,
+      "end_time": 28.682
+    },
+    {
+      "text": "P",
+      "start_time": 28.682,
+      "end_time": 28.725
+    },
+    {
+      "text": "e",
+      "start_time": 28.725,
+      "end_time": 28.767
+    },
+    {
+      "text": "r",
+      "start_time": 28.767,
+      "end_time": 28.81
+    },
+    {
+      "text": "u",
+      "start_time": 28.81,
+      "end_time": 28.853
+    },
+    {
+      "text": "t",
+      "start_time": 28.853,
+      "end_time": 28.895
+    },
+    {
+      "text": " ",
+      "start_time": 28.895,
+      "end_time": 28.981
+    },
+    {
+      "text": "G",
+      "start_time": 28.981,
+      "end_time": 29.023
+    },
+    {
+      "text": "r",
+      "start_time": 29.023,
+      "end_time": 29.066
+    },
+    {
+      "text": "a",
+      "start_time": 29.066,
+      "end_time": 29.109
+    },
+    {
+      "text": "t",
+      "start_time": 29.109,
+      "end_time": 29.151
+    },
+    {
+      "text": "i",
+      "start_time": 29.151,
+      "end_time": 29.258
+    },
+    {
+      "text": "s",
+      "start_time": 29.258,
+      "end_time": 29.365
+    },
+    {
+      "text": "!",
+      "start_time": 29.365,
+      "end_time": 29.663
+    },
+    {
+      "text": " ",
+      "start_time": 29.663,
+      "end_time": 29.962
+    },
+    {
+      "text": "B",
+      "start_time": 29.962,
+      "end_time": 30.005
+    },
+    {
+      "text": "i",
+      "start_time": 30.005,
+      "end_time": 30.133
+    },
+    {
+      "text": "a",
+      "start_time": 30.133,
+      "end_time": 30.175
+    },
+    {
+      "text": "r",
+      "start_time": 30.175,
+      "end_time": 30.2179
+    },
+    {
+      "text": " ",
+      "start_time": 30.218,
+      "end_time": 30.303
+    },
+    {
+      "text": "r",
+      "start_time": 30.303,
+      "end_time": 30.332
+    },
+    {
+      "text": "a",
+      "start_time": 30.332,
+      "end_time": 30.36
+    },
+    {
+      "text": "p",
+      "start_time": 30.36,
+      "end_time": 30.389
+    },
+    {
+      "text": "a",
+      "start_time": 30.389,
+      "end_time": 30.474
+    },
+    {
+      "text": "t",
+      "start_time": 30.474,
+      "end_time": 30.559
+    },
+    {
+      "text": "n",
+      "start_time": 30.559,
+      "end_time": 30.581
+    },
+    {
+      "text": "y",
+      "start_time": 30.581,
+      "end_time": 30.602
+    },
+    {
+      "text": "a",
+      "start_time": 30.602,
+      "end_time": 30.7299
+    },
+    {
+      "text": " ",
+      "start_time": 30.73,
+      "end_time": 30.858
+    },
+    {
+      "text": "e",
+      "start_time": 30.858,
+      "end_time": 30.915
+    },
+    {
+      "text": "n",
+      "start_time": 30.915,
+      "end_time": 30.972
+    },
+    {
+      "text": "g",
+      "start_time": 30.972,
+      "end_time": 31.029
+    },
+    {
+      "text": "g",
+      "start_time": 31.029,
+      "end_time": 31.071
+    },
+    {
+      "text": "a",
+      "start_time": 31.071,
+      "end_time": 31.114
+    },
+    {
+      "text": "k",
+      "start_time": 31.114,
+      "end_time": 31.1566
+    },
+    {
+      "text": " ",
+      "start_time": 31.157,
+      "end_time": 31.199
+    },
+    {
+      "text": "l",
+      "start_time": 31.199,
+      "end_time": 31.242
+    },
+    {
+      "text": "a",
+      "start_time": 31.242,
+      "end_time": 31.306
+    },
+    {
+      "text": "p",
+      "start_time": 31.306,
+      "end_time": 31.37
+    },
+    {
+      "text": "a",
+      "start_time": 31.37,
+      "end_time": 31.498
+    },
+    {
+      "text": "r",
+      "start_time": 31.498,
+      "end_time": 31.626
+    },
+    {
+      "text": "!",
+      "start_time": 31.626,
+      "end_time": 31.782
+    },
+    {
+      "text": " ",
+      "start_time": 31.782,
+      "end_time": 31.939
+    },
+    {
+      "text": "[",
+      "start_time": 31.939,
+      "end_time": 32.095
+    },
+    {
+      "text": "l",
+      "start_time": 32.095,
+      "end_time": 32.104
+    },
+    {
+      "text": "a",
+      "start_time": 32.104,
+      "end_time": 32.112
+    },
+    {
+      "text": "u",
+      "start_time": 32.112,
+      "end_time": 32.121
+    },
+    {
+      "text": "g",
+      "start_time": 32.121,
+      "end_time": 32.129
+    },
+    {
+      "text": "h",
+      "start_time": 32.129,
+      "end_time": 32.138
+    },
+    {
+      "text": "s",
+      "start_time": 32.138,
+      "end_time": 32.181
+    },
+    {
+      "text": "]",
+      "start_time": 32.181,
+      "end_time": 33.232
+    }
+  ],
+  "original_words": [
+    {
+      "text": "Lho",
+      "start_time": 0.299,
+      "end_time": 0.512
+    },
+    {
+      "text": "rakyatnya",
+      "start_time": 0.896,
+      "end_time": 1.408
+    },
+    {
+      "text": "mana",
+      "start_time": 1.451,
+      "end_time": 1.792
+    },
+    {
+      "text": "Selamat",
+      "start_time": 2.261,
+      "end_time": 2.56
+    },
+    {
+      "text": "datang",
+      "start_time": 2.603,
+      "end_time": 2.987
+    },
+    {
+      "text": "Keahliannya",
+      "start_time": 3.243,
+      "end_time": 3.797
+    },
+    {
+      "text": "apa",
+      "start_time": 3.84,
+      "end_time": 4.139
+    },
+    {
+      "text": "Boleh",
+      "start_time": 5.077,
+      "end_time": 5.461
+    },
+    {
+      "text": "Tapi",
+      "start_time": 5.888,
+      "end_time": 6.1867
+    },
+    {
+      "text": "rumah",
+      "start_time": 6.229,
+      "end_time": 6.4
+    },
+    {
+      "text": "warga",
+      "start_time": 6.443,
+      "end_time": 6.784
+    },
+    {
+      "text": "juga",
+      "start_time": 6.827,
+      "end_time": 6.997
+    },
+    {
+      "text": "belum",
+      "start_time": 7.04,
+      "end_time": 7.168
+    },
+    {
+      "text": "ada",
+      "start_time": 7.211,
+      "end_time": 7.381
+    },
+    {
+      "text": "Maaf",
+      "start_time": 8.021,
+      "end_time": 8.363
+    },
+    {
+      "text": "manusia",
+      "start_time": 8.661,
+      "end_time": 9.045
+    },
+    {
+      "text": "dulu",
+      "start_time": 9.088,
+      "end_time": 9.344
+    },
+    {
+      "text": "Ayam",
+      "start_time": 9.813,
+      "end_time": 10.1547
+    },
+    {
+      "text": "sama",
+      "start_time": 10.24,
+      "end_time": 10.368
+    },
+    {
+      "text": "kucing",
+      "start_time": 10.496,
+      "end_time": 10.88
+    },
+    {
+      "text": "belum",
+      "start_time": 10.965,
+      "end_time": 11.136
+    },
+    {
+      "text": "bisa",
+      "start_time": 11.179,
+      "end_time": 11.477
+    },
+    {
+      "text": "Oh",
+      "start_time": 11.776,
+      "end_time": 12.117
+    },
+    {
+      "text": "kenal",
+      "start_time": 12.331,
+      "end_time": 12.544
+    },
+    {
+      "text": "Pak",
+      "start_time": 12.629,
+      "end_time": 12.7147
+    },
+    {
+      "text": "RT",
+      "start_time": 12.757,
+      "end_time": 13.056
+    },
+    {
+      "text": "Silakan",
+      "start_time": 13.525,
+      "end_time": 13.8667
+    },
+    {
+      "text": "lewat",
+      "start_time": 13.909,
+      "end_time": 14.08
+    },
+    {
+      "text": "sini",
+      "start_time": 14.123,
+      "end_time": 14.379
+    },
+    {
+      "text": "Ini",
+      "start_time": 14.763,
+      "end_time": 14.976
+    },
+    {
+      "text": "jalur",
+      "start_time": 15.301,
+      "end_time": 15.685
+    },
+    {
+      "text": "kekeluargaan",
+      "start_time": 15.728,
+      "end_time": 16.453
+    },
+    {
+      "text": "Sudah",
+      "start_time": 16.837,
+      "end_time": 17.264
+    },
+    {
+      "text": "Kalian",
+      "start_time": 17.691,
+      "end_time": 18.032
+    },
+    {
+      "text": "yang",
+      "start_time": 18.203,
+      "end_time": 18.2879
+    },
+    {
+      "text": "tentukan",
+      "start_time": 18.373,
+      "end_time": 18.7146
+    },
+    {
+      "text": "republik",
+      "start_time": 18.8,
+      "end_time": 19.1839
+    },
+    {
+      "text": "ini",
+      "start_time": 19.269,
+      "end_time": 19.483
+    },
+    {
+      "text": "Bangunan",
+      "start_time": 19.867,
+      "end_time": 20.464
+    },
+    {
+      "text": "acara",
+      "start_time": 20.763,
+      "end_time": 21.317
+    },
+    {
+      "text": "sampai",
+      "start_time": 21.531,
+      "end_time": 22.1706
+    },
+    {
+      "text": "aturannya",
+      "start_time": 22.213,
+      "end_time": 22.768
+    },
+    {
+      "text": "Sambil",
+      "start_time": 23.178,
+      "end_time": 23.519
+    },
+    {
+      "text": "menunggu",
+      "start_time": 23.562,
+      "end_time": 23.946
+    },
+    {
+      "text": "saya",
+      "start_time": 24.287,
+      "end_time": 24.5859
+    },
+    {
+      "text": "putuskan",
+      "start_time": 24.629,
+      "end_time": 25.098
+    },
+    {
+      "text": "bangun",
+      "start_time": 25.567,
+      "end_time": 25.9086
+    },
+    {
+      "text": "Koplak",
+      "start_time": 26.037,
+      "end_time": 26.335
+    },
+    {
+      "text": "Desa",
+      "start_time": 26.378,
+      "end_time": 26.6339
+    },
+    {
+      "text": "dulu",
+      "start_time": 26.677,
+      "end_time": 26.933
+    },
+    {
+      "text": "Sama",
+      "start_time": 27.359,
+      "end_time": 27.6579
+    },
+    {
+      "text": "Satuan",
+      "start_time": 27.871,
+      "end_time": 28.2126
+    },
+    {
+      "text": "Pengisi",
+      "start_time": 28.255,
+      "end_time": 28.639
+    },
+    {
+      "text": "Perut",
+      "start_time": 28.682,
+      "end_time": 28.895
+    },
+    {
+      "text": "Gratis",
+      "start_time": 28.981,
+      "end_time": 29.365
+    },
+    {
+      "text": "Biar",
+      "start_time": 29.962,
+      "end_time": 30.2179
+    },
+    {
+      "text": "rapatnya",
+      "start_time": 30.303,
+      "end_time": 30.7299
+    },
+    {
+      "text": "enggak",
+      "start_time": 30.858,
+      "end_time": 31.1566
+    },
+    {
+      "text": "lapar",
+      "start_time": 31.199,
+      "end_time": 31.626
+    },
+    {
+      "text": "laughs",
+      "start_time": 32.095,
+      "end_time": 32.181
+    }
+  ]
+}

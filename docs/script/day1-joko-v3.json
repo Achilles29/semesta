@@ -1,0 +1,595 @@
+{
+  "actor": "joko",
+  "voiceId": "c30ecab014cb4a8d816d07f6b2b625c8",
+  "voiceName": "Brodie - Breezy & Genuine",
+  "lines": [
+    "Saya musisi, Pak! Boleh usul panggung konser?",
+    "Berarti gitar saya kurang. Harus bawa kartu keluarga?"
+  ],
+  "language": "id",
+  "model": "server-selected",
+  "submittedText": "Saya musisi, Pak! Boleh usul panggung konser?\n\nBerarti gitar saya kurang. Harus bawa kartu keluarga?",
+  "review": "Alignment and signal review; full listening not performed.",
+  "originalFile": "joko-v3-original.wav",
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/c30ecab014cb4a8d816d07f6b2b625c8/id=46e79f3b8c25457289ca2c500779f68b.wav",
+  "duration": 6.10390022675737,
+  "original_characters": [
+    {
+      "text": "S",
+      "start_time": 0.256,
+      "end_time": 0.341
+    },
+    {
+      "text": "a",
+      "start_time": 0.341,
+      "end_time": 0.405
+    },
+    {
+      "text": "y",
+      "start_time": 0.405,
+      "end_time": 0.469
+    },
+    {
+      "text": "a",
+      "start_time": 0.469,
+      "end_time": 0.512
+    },
+    {
+      "text": " ",
+      "start_time": 0.512,
+      "end_time": 0.555
+    },
+    {
+      "text": "m",
+      "start_time": 0.555,
+      "end_time": 0.583
+    },
+    {
+      "text": "u",
+      "start_time": 0.583,
+      "end_time": 0.612
+    },
+    {
+      "text": "s",
+      "start_time": 0.612,
+      "end_time": 0.64
+    },
+    {
+      "text": "i",
+      "start_time": 0.64,
+      "end_time": 0.725
+    },
+    {
+      "text": "s",
+      "start_time": 0.725,
+      "end_time": 0.811
+    },
+    {
+      "text": "i",
+      "start_time": 0.811,
+      "end_time": 0.939
+    },
+    {
+      "text": ",",
+      "start_time": 0.939,
+      "end_time": 0.981
+    },
+    {
+      "text": " ",
+      "start_time": 0.981,
+      "end_time": 1.024
+    },
+    {
+      "text": "P",
+      "start_time": 1.024,
+      "end_time": 1.067
+    },
+    {
+      "text": "a",
+      "start_time": 1.067,
+      "end_time": 1.109
+    },
+    {
+      "text": "k",
+      "start_time": 1.109,
+      "end_time": 1.152
+    },
+    {
+      "text": "!",
+      "start_time": 1.152,
+      "end_time": 1.323
+    },
+    {
+      "text": " ",
+      "start_time": 1.323,
+      "end_time": 1.493
+    },
+    {
+      "text": "B",
+      "start_time": 1.493,
+      "end_time": 1.579
+    },
+    {
+      "text": "o",
+      "start_time": 1.579,
+      "end_time": 1.664
+    },
+    {
+      "text": "l",
+      "start_time": 1.664,
+      "end_time": 1.685
+    },
+    {
+      "text": "e",
+      "start_time": 1.685,
+      "end_time": 1.707
+    },
+    {
+      "text": "h",
+      "start_time": 1.707,
+      "end_time": 1.749
+    },
+    {
+      "text": " ",
+      "start_time": 1.749,
+      "end_time": 1.792
+    },
+    {
+      "text": "u",
+      "start_time": 1.792,
+      "end_time": 1.813
+    },
+    {
+      "text": "s",
+      "start_time": 1.813,
+      "end_time": 1.835
+    },
+    {
+      "text": "u",
+      "start_time": 1.835,
+      "end_time": 1.899
+    },
+    {
+      "text": "l",
+      "start_time": 1.899,
+      "end_time": 1.9627
+    },
+    {
+      "text": " ",
+      "start_time": 1.963,
+      "end_time": 2.005
+    },
+    {
+      "text": "p",
+      "start_time": 2.005,
+      "end_time": 2.048
+    },
+    {
+      "text": "a",
+      "start_time": 2.048,
+      "end_time": 2.076
+    },
+    {
+      "text": "n",
+      "start_time": 2.076,
+      "end_time": 2.105
+    },
+    {
+      "text": "g",
+      "start_time": 2.105,
+      "end_time": 2.133
+    },
+    {
+      "text": "g",
+      "start_time": 2.133,
+      "end_time": 2.148
+    },
+    {
+      "text": "u",
+      "start_time": 2.148,
+      "end_time": 2.162
+    },
+    {
+      "text": "n",
+      "start_time": 2.162,
+      "end_time": 2.176
+    },
+    {
+      "text": "g",
+      "start_time": 2.176,
+      "end_time": 2.2187
+    },
+    {
+      "text": " ",
+      "start_time": 2.219,
+      "end_time": 2.261
+    },
+    {
+      "text": "k",
+      "start_time": 2.261,
+      "end_time": 2.304
+    },
+    {
+      "text": "o",
+      "start_time": 2.304,
+      "end_time": 2.347
+    },
+    {
+      "text": "n",
+      "start_time": 2.347,
+      "end_time": 2.389
+    },
+    {
+      "text": "s",
+      "start_time": 2.389,
+      "end_time": 2.46
+    },
+    {
+      "text": "e",
+      "start_time": 2.46,
+      "end_time": 2.532
+    },
+    {
+      "text": "r",
+      "start_time": 2.532,
+      "end_time": 2.603
+    },
+    {
+      "text": "?",
+      "start_time": 2.603,
+      "end_time": 2.788
+    },
+    {
+      "text": "\n",
+      "start_time": 2.788,
+      "end_time": 2.972
+    },
+    {
+      "text": "\n",
+      "start_time": 2.972,
+      "end_time": 3.157
+    },
+    {
+      "text": "B",
+      "start_time": 3.157,
+      "end_time": 3.243
+    },
+    {
+      "text": "e",
+      "start_time": 3.243,
+      "end_time": 3.285
+    },
+    {
+      "text": "r",
+      "start_time": 3.285,
+      "end_time": 3.328
+    },
+    {
+      "text": "a",
+      "start_time": 3.328,
+      "end_time": 3.371
+    },
+    {
+      "text": "r",
+      "start_time": 3.371,
+      "end_time": 3.413
+    },
+    {
+      "text": "t",
+      "start_time": 3.413,
+      "end_time": 3.477
+    },
+    {
+      "text": "i",
+      "start_time": 3.477,
+      "end_time": 3.541
+    },
+    {
+      "text": " ",
+      "start_time": 3.541,
+      "end_time": 3.584
+    },
+    {
+      "text": "g",
+      "start_time": 3.584,
+      "end_time": 3.627
+    },
+    {
+      "text": "i",
+      "start_time": 3.627,
+      "end_time": 3.648
+    },
+    {
+      "text": "t",
+      "start_time": 3.648,
+      "end_time": 3.669
+    },
+    {
+      "text": "a",
+      "start_time": 3.669,
+      "end_time": 3.712
+    },
+    {
+      "text": "r",
+      "start_time": 3.712,
+      "end_time": 3.7547
+    },
+    {
+      "text": " ",
+      "start_time": 3.755,
+      "end_time": 3.797
+    },
+    {
+      "text": "s",
+      "start_time": 3.797,
+      "end_time": 3.84
+    },
+    {
+      "text": "a",
+      "start_time": 3.84,
+      "end_time": 3.883
+    },
+    {
+      "text": "y",
+      "start_time": 3.883,
+      "end_time": 3.925
+    },
+    {
+      "text": "a",
+      "start_time": 3.925,
+      "end_time": 4.0107
+    },
+    {
+      "text": " ",
+      "start_time": 4.011,
+      "end_time": 4.053
+    },
+    {
+      "text": "k",
+      "start_time": 4.053,
+      "end_time": 4.096
+    },
+    {
+      "text": "u",
+      "start_time": 4.096,
+      "end_time": 4.139
+    },
+    {
+      "text": "r",
+      "start_time": 4.139,
+      "end_time": 4.181
+    },
+    {
+      "text": "a",
+      "start_time": 4.181,
+      "end_time": 4.224
+    },
+    {
+      "text": "n",
+      "start_time": 4.224,
+      "end_time": 4.267
+    },
+    {
+      "text": "g",
+      "start_time": 4.267,
+      "end_time": 4.309
+    },
+    {
+      "text": ".",
+      "start_time": 4.309,
+      "end_time": 4.544
+    },
+    {
+      "text": " ",
+      "start_time": 4.544,
+      "end_time": 4.779
+    },
+    {
+      "text": "H",
+      "start_time": 4.779,
+      "end_time": 4.821
+    },
+    {
+      "text": "a",
+      "start_time": 4.821,
+      "end_time": 4.864
+    },
+    {
+      "text": "r",
+      "start_time": 4.864,
+      "end_time": 4.907
+    },
+    {
+      "text": "u",
+      "start_time": 4.907,
+      "end_time": 4.949
+    },
+    {
+      "text": "s",
+      "start_time": 4.949,
+      "end_time": 4.992
+    },
+    {
+      "text": " ",
+      "start_time": 4.992,
+      "end_time": 5.035
+    },
+    {
+      "text": "b",
+      "start_time": 5.035,
+      "end_time": 5.099
+    },
+    {
+      "text": "a",
+      "start_time": 5.099,
+      "end_time": 5.163
+    },
+    {
+      "text": "w",
+      "start_time": 5.163,
+      "end_time": 5.184
+    },
+    {
+      "text": "a",
+      "start_time": 5.184,
+      "end_time": 5.205
+    },
+    {
+      "text": " ",
+      "start_time": 5.205,
+      "end_time": 5.248
+    },
+    {
+      "text": "k",
+      "start_time": 5.248,
+      "end_time": 5.291
+    },
+    {
+      "text": "a",
+      "start_time": 5.291,
+      "end_time": 5.319
+    },
+    {
+      "text": "r",
+      "start_time": 5.319,
+      "end_time": 5.348
+    },
+    {
+      "text": "t",
+      "start_time": 5.348,
+      "end_time": 5.376
+    },
+    {
+      "text": "u",
+      "start_time": 5.376,
+      "end_time": 5.4187
+    },
+    {
+      "text": " ",
+      "start_time": 5.419,
+      "end_time": 5.461
+    },
+    {
+      "text": "k",
+      "start_time": 5.461,
+      "end_time": 5.483
+    },
+    {
+      "text": "e",
+      "start_time": 5.483,
+      "end_time": 5.504
+    },
+    {
+      "text": "l",
+      "start_time": 5.504,
+      "end_time": 5.568
+    },
+    {
+      "text": "u",
+      "start_time": 5.568,
+      "end_time": 5.632
+    },
+    {
+      "text": "a",
+      "start_time": 5.632,
+      "end_time": 5.653
+    },
+    {
+      "text": "r",
+      "start_time": 5.653,
+      "end_time": 5.675
+    },
+    {
+      "text": "g",
+      "start_time": 5.675,
+      "end_time": 5.76
+    },
+    {
+      "text": "a",
+      "start_time": 5.76,
+      "end_time": 5.845
+    },
+    {
+      "text": "?",
+      "start_time": 5.845,
+      "end_time": 5.9039002267573695
+    }
+  ],
+  "original_words": [
+    {
+      "text": "Saya",
+      "start_time": 0.256,
+      "end_time": 0.512
+    },
+    {
+      "text": "musisi",
+      "start_time": 0.555,
+      "end_time": 0.939
+    },
+    {
+      "text": "Pak",
+      "start_time": 1.024,
+      "end_time": 1.152
+    },
+    {
+      "text": "Boleh",
+      "start_time": 1.493,
+      "end_time": 1.749
+    },
+    {
+      "text": "usul",
+      "start_time": 1.792,
+      "end_time": 1.9627
+    },
+    {
+      "text": "panggung",
+      "start_time": 2.005,
+      "end_time": 2.2187
+    },
+    {
+      "text": "konser",
+      "start_time": 2.261,
+      "end_time": 2.603
+    },
+    {
+      "text": "Berarti",
+      "start_time": 3.157,
+      "end_time": 3.541
+    },
+    {
+      "text": "gitar",
+      "start_time": 3.584,
+      "end_time": 3.7547
+    },
+    {
+      "text": "saya",
+      "start_time": 3.797,
+      "end_time": 4.0107
+    },
+    {
+      "text": "kurang",
+      "start_time": 4.053,
+      "end_time": 4.309
+    },
+    {
+      "text": "Harus",
+      "start_time": 4.779,
+      "end_time": 4.992
+    },
+    {
+      "text": "bawa",
+      "start_time": 5.035,
+      "end_time": 5.205
+    },
+    {
+      "text": "kartu",
+      "start_time": 5.248,
+      "end_time": 5.4187
+    },
+    {
+      "text": "keluarga",
+      "start_time": 5.461,
+      "end_time": 5.845
+    }
+  ]
+}

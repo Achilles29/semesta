@@ -1,18 +1,19 @@
 {
   "version": 1,
-  "title": "Day 1 — Republik Wkwkwk baru buka",
-  "notice": "DAY 1 · PARODI FIKTIF",
+  "title": "Day 1 — Baru Buka, Sudah Ada Orang Dalam",
+  "notice": "DAY 1 · ORANG DALAM",
   "kind": "episode",
   "set": "republic",
   "props": [
     "office"
   ],
+  "template": "republic-series",
   "cast": [
     {
       "id": "a",
       "preset": "v15-prabowo-inspired",
       "position": [
-        0,
+        -0.6,
         0
       ],
       "yaw": 0
@@ -21,29 +22,30 @@
       "id": "b",
       "preset": "v15-laras",
       "position": [
-        -4,
-        -2.5
+        2.35,
+        0.2
       ],
-      "yaw": 1
+      "yaw": -1.57
     },
     {
       "id": "c",
-      "preset": "v15-arka",
+      "preset": "v15-joko-rockstar",
       "position": [
-        -4,
-        -2.5
+        2.8,
+        -1.1
       ],
-      "yaw": 1
+      "yaw": -1.57,
+      "prop": "guitar"
     }
   ],
   "shots": [
     {
       "id": "hari-pertama",
-      "label": "Narator membuka republik",
-      "duration": 3.529002267573696,
-      "camera": "medium",
+      "label": "Hari pertama, jalur orang dalam",
+      "duration": 5.86,
+      "camera": "close",
       "focus": "a",
-      "caption": "Hari pertama Republik Wkwkwk!",
+      "caption": "Ini hari pertama Republik Wkwkwk. Baru buka, sudah ada jalur orang dalam!",
       "actors": {
         "a": {
           "action": "Dance",
@@ -51,25 +53,35 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         },
         "c": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         }
       },
-      "speech": "narrator-01",
-      "overlay": "HARI PERTAMA",
-      "speechOffset": 0.3,
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
       "sound": "okeGas",
-      "musicVolume": 0.08
+      "musicVolume": 0.2,
+      "speaker": "narrator",
+      "speech": "narrator-01",
+      "speechOffset": 0.18
     },
     {
       "id": "presiden-joget",
-      "label": "Presiden sudah siap",
-      "duration": 3,
+      "label": "Pasca Bowow menyambut republik",
+      "duration": 2,
       "camera": "medium",
       "focus": "a",
       "caption": "",
@@ -77,358 +89,586 @@
         "a": {
           "action": "Dance",
           "bpm": 145,
-          "phase": 3.529002267573696
+          "phase": 5.86
         },
         "b": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         },
         "c": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         }
       },
-      "overlay": "PRESIDEN SUDAH SIAP.",
       "sound": "okeGas",
-      "musicOffset": 3.529002267573696
+      "musicOffset": 5.86,
+      "musicVolume": 0.65
     },
     {
-      "id": "lapangan-kosong",
-      "label": "Negara baru buka, rakyat belum ada",
-      "duration": 4,
+      "id": "kantor-sekursi",
+      "label": "Perkenalan presiden dan kantor",
+      "duration": 5.902993197278912,
       "camera": "wide",
       "focus": "a",
-      "caption": "Presidennya sudah siap. Warganya… belum ada!",
+      "caption": "Presidennya, Pasca Bowow. Modalnya semangat. Kantornya, satu kursi.",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": 0.25,
+          "yaw": 0.4,
           "gesture": "look"
         },
         "b": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         },
         "c": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         }
       },
-      "speech": "narrator-02",
       "frame": {
         "target": [
-          0.3,
-          1,
-          -1
+          0.6,
+          0.8,
+          -0.8
         ],
-        "width": 5.8
+        "width": 3.7,
+        "azimuth": 0.2,
+        "elevation": 0.65,
+        "push": 0.1
       },
-      "speechOffset": 0.3
+      "overlay": "MODAL: SEMANGAT · KANTOR: SATU KURSI",
+      "speaker": "narrator",
+      "speech": "narrator-02",
+      "speechOffset": 0.18
     },
     {
       "id": "rakyat-mana",
-      "label": "Prabowow mencari rakyat",
-      "duration": 2.8,
+      "label": "Presiden mencari warga",
+      "duration": 2.232993197278912,
       "camera": "close",
       "focus": "a",
-      "caption": "Lho… rakyatnya mana?",
+      "caption": "Lho, rakyatnya mana?",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": -0.25,
+          "yaw": 0.3,
           "gesture": "look",
           "expression": "confused"
         },
         "b": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         },
         "c": {
           "action": "Idle",
-          "yaw": 1,
-          "visible": false
-        }
-      },
-      "speech": "prabowow-01",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "sari-datang",
-      "label": "Sari masuk melalui jalan setapak",
-      "duration": 2.7,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": -0.8
-        },
-        "b": {
-          "action": "Walk",
-          "to": [
-            -1.15,
-            0
-          ],
-          "visible": true
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         }
       },
       "frame": {
         "target": [
-          -1.25,
-          1,
-          -0.8
+          -0.6,
+          1.35,
+          0
         ],
-        "width": 4.8
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
+      "speaker": "prabowow",
+      "speech": "prabowow-01",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "sari-datang",
+      "label": "Sari masuk cepat dari kanan",
+      "duration": 1.5,
+      "camera": "follow",
+      "focus": "b",
+      "caption": "",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.7
+        },
+        "b": {
+          "action": "Walk",
+          "to": [
+            0.85,
+            0.2
+          ],
+          "visible": true
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -1.57,
+          "visible": false
+        }
       }
     },
     {
       "id": "sari-menyapa",
-      "label": "Warga kedua menyapa",
-      "duration": 3.8,
-      "camera": "wide",
+      "label": "Warga baru mendaftar",
+      "duration": 2.616984126984127,
+      "camera": "close",
       "focus": "b",
-      "caption": "Saya, Pak. Ini bener Republik Wkwkwk?",
+      "caption": "Saya, Pak! Mau daftar jadi warga!",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": -0.65
+          "yaw": 0.7
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8,
+          "yaw": -0.7,
           "gesture": "talk",
           "expression": "happy"
         },
         "c": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         }
       },
+      "frame": {
+        "target": [
+          0.85,
+          1.35,
+          0.2
+        ],
+        "width": 1.05,
+        "azimuth": -0.2,
+        "push": 0.07
+      },
+      "speaker": "sari",
       "speech": "sari-01",
-      "speechOffset": 0.3
+      "speechOffset": 0.18
     },
     {
-      "id": "baru-buka",
-      "label": "Presiden menyambut",
-      "duration": 2.845986394557823,
-      "camera": "wide",
+      "id": "tanya-keahlian",
+      "label": "Presiden menanyakan kemampuan",
+      "duration": 2.618004535147392,
+      "camera": "close",
       "focus": "a",
-      "caption": "Betul. Baru buka!",
+      "caption": "Selamat datang! Keahliannya apa?",
       "actors": {
         "a": {
-          "action": "Wave",
-          "yaw": -0.65,
-          "expression": "happy"
+          "action": "Idle",
+          "yaw": 0.7,
+          "gesture": "talk"
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8,
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -1.57,
+          "visible": false
+        }
+      },
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
+      "speaker": "prabowow",
+      "speech": "prabowow-02",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "bukan-keluarga",
+      "label": "Sari ingin dinilai dari kerja",
+      "duration": 3.0860090702947844,
+      "camera": "close",
+      "focus": "b",
+      "caption": "Bisa kerja, Pak. Bukan cuma kenal keluarga.",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.7
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7,
+          "gesture": "talk"
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -1.57,
+          "visible": false
+        }
+      },
+      "frame": {
+        "target": [
+          0.85,
+          1.35,
+          0.2
+        ],
+        "width": 1.05,
+        "azimuth": -0.2,
+        "push": 0.07
+      },
+      "speaker": "sari",
+      "speech": "sari-02",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "janji-kemampuan",
+      "label": "Narator menjelaskan ukuran yang adil",
+      "duration": 4.140000000000001,
+      "camera": "wide",
+      "focus": "a",
+      "caption": "Katanya, yang dinilai kemampuan. Bukan siapa pamannya.",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.7,
           "gesture": "nod"
         },
-        "c": {
-          "action": "Idle",
-          "yaw": 1,
-          "visible": false
-        }
-      },
-      "speech": "prabowow-02",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "kantor-mana",
-      "label": "Sari menanyakan kantor",
-      "duration": 2.3,
-      "camera": "wide",
-      "focus": "b",
-      "caption": "Kantornya mana?",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": -0.65
-        },
         "b": {
           "action": "Idle",
-          "yaw": 0.8,
-          "gesture": "talk",
-          "expression": "confused"
+          "yaw": -0.7
         },
         "c": {
           "action": "Idle",
-          "yaw": 1,
+          "yaw": -1.57,
           "visible": false
         }
       },
-      "speech": "sari-02",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "kantor-kursi",
-      "label": "Kursi menjadi kantor sementara",
-      "duration": 3.4,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "Sementara, ini dulu.",
-      "actors": {
-        "a": {
-          "action": "Point",
-          "yaw": 2.1
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 1.9
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": 1,
-          "visible": false
-        }
-      },
-      "speech": "prabowow-03",
       "frame": {
         "target": [
-          1.05,
+          0.25,
           1,
-          -0.6
+          -0.45
         ],
-        "width": 4.4
+        "width": 3.4,
+        "azimuth": -0.12,
+        "push": 0.05
       },
-      "speechOffset": 0.3
-    },
-    {
-      "id": "reaksi-kursi",
-      "label": "Tahan lelucon kursi",
-      "duration": 1.6,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": 2.1
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 1.9
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": 1,
-          "visible": false
-        }
-      },
-      "frame": {
-        "target": [
-          2.15,
-          0.7,
-          -1.7
-        ],
-        "width": 1.7
-      },
-      "overlay": "KANTOR SEMENTARA"
+      "overlay": "KEMAMPUAN > KENALAN",
+      "speaker": "narrator",
+      "speech": "narrator-03",
+      "speechOffset": 0.18
     },
     {
       "id": "joko-datang",
-      "label": "Joko masuk dari jalur yang sama",
-      "duration": 2.4,
-      "camera": "wide",
-      "focus": "a",
+      "label": "Musisi masuk dari kanan dengan gitar",
+      "duration": 1.6,
+      "camera": "follow",
+      "focus": "c",
       "caption": "",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": -0.7
+          "yaw": 0.75
         },
         "b": {
           "action": "Idle",
-          "yaw": -0.7
+          "yaw": 0.8
         },
         "c": {
           "action": "Walk",
           "to": [
-            -1.6,
-            -1.65
+            1.45,
+            -1.1
           ],
           "visible": true
         }
       },
       "frame": {
         "target": [
-          -0.8,
-          1,
-          -0.9
+          1.9,
+          1.15,
+          -1.1
         ],
-        "width": 5.1
-      }
-    },
-    {
-      "id": "joko-mendekat",
-      "label": "Joko melewati belakang presiden",
-      "duration": 2.8,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": 0.5
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.8
-        },
-        "c": {
-          "action": "Walk",
-          "to": [
-            1.15,
-            -1.3
-          ]
-        }
-      }
-    },
-    {
-      "id": "joko-berhenti",
-      "label": "Joko mengambil tempat di kanan",
-      "duration": 1.4,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": 0.65
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.8
-        },
-        "c": {
-          "action": "Walk",
-          "to": [
-            1.15,
-            0.05
-          ]
-        }
+        "width": 1.8,
+        "azimuth": 0.55,
+        "push": 0.06
       }
     },
     {
       "id": "minta-konser",
-      "label": "Joko mengusulkan konser",
-      "duration": 3.2,
-      "camera": "wide",
+      "label": "Joko mengusulkan panggung",
+      "duration": 3.086984126984127,
+      "camera": "close",
       "focus": "c",
-      "caption": "Pak, lapangan konsernya di mana?",
+      "caption": "Saya musisi, Pak! Boleh usul panggung konser?",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.8
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": 0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.8,
+          "gesture": "talk",
+          "expression": "happy"
+        }
+      },
+      "frame": {
+        "target": [
+          1.45,
+          1.35,
+          -1.1
+        ],
+        "width": 1.05,
+        "azimuth": -0.25,
+        "push": 0.07
+      },
+      "speaker": "joko",
+      "speech": "joko-01",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "rumah-belum",
+      "label": "Presiden mengingatkan rumah warga",
+      "duration": 3.0439909297052155,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Boleh. Tapi rumah warga juga belum ada!",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.75,
+          "gesture": "talk"
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.8
+        }
+      },
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
+      "speaker": "prabowow",
+      "speech": "prabowow-03",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "ayam-daftar",
+      "label": "Ayam menawarkan jasa alarm",
+      "duration": 4.879002267573696,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Ayam pun mau daftar. Keahliannya? Bangunin warga tiap pagi!",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.25
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.65
+        }
+      },
+      "frame": {
+        "target": [
+          0.2,
+          0.43,
+          1.15
+        ],
+        "width": 0.85,
+        "azimuth": 0.12,
+        "push": 0.08
+      },
+      "followExtra": "chicken",
+      "extras": {
+        "chicken": {
+          "visible": true,
+          "to": [
+            0.2,
+            1.15
+          ],
+          "action": "walk"
+        }
+      },
+      "overlay": "KEAHLIAN: ALARM PAGI",
+      "speaker": "narrator",
+      "speech": "narrator-04",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "hewan-ditolak",
+      "label": "Pendaftaran hewan ditolak",
+      "duration": 4.196009070294785,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Maaf, manusia dulu. Ayam sama kucing belum bisa.",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.45,
+          "gesture": "talk"
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7,
+          "expression": "confused"
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.8
+        }
+      },
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
+      "extras": {
+        "chicken": {
+          "action": "sad"
+        },
+        "cat": {
+          "visible": true,
+          "to": [
+            1.05,
+            1.4
+          ],
+          "action": "walk"
+        }
+      },
+      "overlay": "PENDAFTARAN MANUSIA DULU",
+      "speaker": "prabowow",
+      "speech": "prabowow-04",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "kucing-kenalan",
+      "label": "Kucing mengaku keluarga orang dalam",
+      "duration": 5.22,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Kucing ikut daftar, ditolak juga. Tapi dia mengaku keponakan kucing Pak RT.",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.25
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.65
+        }
+      },
+      "frame": {
+        "target": [
+          1.05,
+          0.43,
+          1.4
+        ],
+        "width": 0.85,
+        "azimuth": 0.12,
+        "push": 0.08
+      },
+      "extras": {
+        "cat": {
+          "action": "proud"
+        },
+        "chicken": {
+          "action": "idle"
+        }
+      },
+      "overlay": "PONAKAN KUCING PAK RT",
+      "speaker": "narrator",
+      "speech": "narrator-05",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "jalur-khusus",
+      "label": "Kenalan langsung mendapat jalan",
+      "duration": 3.3429931972789118,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Oh, kenal Pak RT? Silakan lewat sini!",
+      "actors": {
+        "a": {
+          "action": "Point",
+          "yaw": 0.6
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7,
+          "expression": "surprised"
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.8
+        }
+      },
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
+      "extras": {
+        "cat": {
+          "to": [
+            0.15,
+            0.8
+          ],
+          "action": "walk"
+        },
+        "chicken": {
+          "action": "sad"
+        }
+      },
+      "overlay": "JALUR KEKELUARGAAN DIBUKA",
+      "speaker": "prabowow",
+      "speech": "prabowow-05",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "sari-protes",
+      "label": "Sari menangkap perlakuan berbeda",
+      "duration": 1.8919954648526076,
+      "camera": "close",
+      "focus": "b",
+      "caption": "Tadi katanya harus manusia?",
       "actors": {
         "a": {
           "action": "Idle",
@@ -436,161 +676,126 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8
-        },
-        "c": {
-          "action": "Point",
-          "yaw": -0.75,
-          "expression": "happy"
-        }
-      },
-      "speech": "joko-01",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "rumah-belum",
-      "label": "Sari mengingatkan kebutuhan dasar",
-      "duration": 2.6,
-      "camera": "wide",
-      "focus": "b",
-      "caption": "Rumah aja belum ada.",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": -0.65
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.85,
+          "yaw": -0.7,
           "gesture": "talk",
           "expression": "confused"
         },
         "c": {
           "action": "Idle",
-          "yaw": -0.85,
-          "gesture": "nod"
+          "yaw": -0.8
         }
       },
+      "frame": {
+        "target": [
+          0.85,
+          1.35,
+          0.2
+        ],
+        "width": 1.05,
+        "azimuth": -0.2,
+        "push": 0.07
+      },
+      "speaker": "sari",
       "speech": "sari-03",
-      "speechOffset": 0.3
+      "speechOffset": 0.18
     },
     {
-      "id": "narator-keinginan",
-      "label": "Narator menjembatani perbedaan",
-      "duration": 3.7860090702947846,
+      "id": "alasan-keluarga",
+      "label": "Presiden mencari alasan",
+      "duration": 2.4299999999999997,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Ini... jalur kekeluargaan.",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.3,
+          "gesture": "talk",
+          "expression": "confused"
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.8
+        }
+      },
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
+      },
+      "speaker": "prabowow",
+      "speech": "prabowow-06",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "arti-orang-dalam",
+      "label": "Narator menjelaskan nepotisme",
+      "duration": 6.200997732426304,
       "camera": "wide",
       "focus": "a",
-      "caption": "Baru tiga warga. Keinginannya sudah beda-beda.",
+      "caption": "Nah, kalau kenalan lebih penting dari kemampuan, antrean berubah jadi silsilah keluarga.",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": 0,
-          "gesture": "look"
+          "yaw": 0.25
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8
+          "yaw": -0.7
         },
         "c": {
           "action": "Idle",
-          "yaw": -0.8
+          "yaw": -0.65
         }
       },
-      "speech": "narrator-03",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "bangun-bareng",
-      "label": "Presiden mengajak membangun bersama",
-      "duration": 6,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "Nah, makanya kita bangun bareng. Mulai dari yang warga butuhkan.",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": -0.4,
-          "gesture": "talk"
+      "frame": {
+        "target": [
+          0.25,
+          1,
+          -0.45
+        ],
+        "width": 3.4,
+        "azimuth": -0.12,
+        "push": 0.05
+      },
+      "overlay": "ANTREAN ATAU SILSILAH?",
+      "extras": {
+        "cat": {
+          "action": "proud"
         },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.8
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": -0.8
+        "chicken": {
+          "action": "sad"
         }
       },
-      "speech": "prabowow-04",
-      "speechOffset": 0.3
+      "speaker": "narrator",
+      "speech": "narrator-06",
+      "speechOffset": 0.18
     },
     {
-      "id": "warga-memilih",
-      "label": "Sari memastikan keputusan warga",
-      "duration": 3.6,
-      "camera": "wide",
-      "focus": "b",
-      "caption": "Berarti warga yang pilih mau bangun apa?",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": -0.65,
-          "gesture": "nod"
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.8,
-          "gesture": "talk"
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": -0.8
-        }
-      },
-      "speech": "sari-04",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "pilihan-bangunan",
-      "label": "Usulan rumah, warung, dan jalan",
-      "duration": 5,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "Iya. Mau rumah, warung, atau jalan dulu?",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": -0.3,
-          "gesture": "talk"
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.8
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": -0.8
-        }
-      },
-      "speech": "prabowow-05",
-      "card": "build",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "usul-acara",
-      "label": "Joko menanyakan lomba dan konser",
-      "duration": 2.5,
-      "camera": "wide",
+      "id": "gitar-atau-kk",
+      "label": "Musisi menyindir syarat keluarga",
+      "duration": 3.4279818594104308,
+      "camera": "close",
       "focus": "c",
-      "caption": "Kalau lomba sama konser?",
+      "caption": "Berarti gitar saya kurang. Harus bawa kartu keluarga?",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": 0.65
+          "yaw": 0.75
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8
+          "yaw": 0.7,
+          "expression": "happy"
         },
         "c": {
           "action": "Idle",
@@ -598,150 +803,229 @@
           "gesture": "talk"
         }
       },
+      "frame": {
+        "target": [
+          1.45,
+          1.35,
+          -1.1
+        ],
+        "width": 1.05,
+        "azimuth": -0.2,
+        "push": 0.07
+      },
+      "speaker": "joko",
       "speech": "joko-02",
-      "speechOffset": 0.3
+      "speechOffset": 0.18
     },
     {
-      "id": "semua-ditentukan-warga",
-      "label": "Acara, aturan, dan kegiatan",
-      "duration": 5.5,
-      "camera": "wide",
+      "id": "reaksi-hewan",
+      "label": "Ayam menatap kucing yang lolos",
+      "duration": 1.5,
+      "camera": "close",
       "focus": "a",
-      "caption": "Warga juga yang usul. Aturan dan kegiatan lainnya juga.",
+      "caption": "",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": 0.4,
-          "gesture": "talk"
+          "yaw": 0.25
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8,
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.65
+        }
+      },
+      "frame": {
+        "target": [
+          0.25,
+          0.43,
+          0.9
+        ],
+        "width": 0.85,
+        "azimuth": 0.12,
+        "push": 0.08
+      },
+      "overlay": "CV KALAH SAMA KK",
+      "extras": {
+        "chicken": {
+          "action": "sad"
+        },
+        "cat": {
+          "action": "proud"
+        }
+      }
+    },
+    {
+      "id": "warga-menentukan",
+      "label": "Pembangunan, acara dan aturan milik warga",
+      "duration": 6.6709977324263035,
+      "camera": "wide",
+      "focus": "a",
+      "caption": "Sudah! Kalian yang tentukan republik ini. Bangunan, acara, sampai aturannya!",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0,
+          "gesture": "talk",
+          "lookAt": "camera"
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.4
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.5
+        }
+      },
+      "frame": {
+        "target": [
+          0.25,
+          1,
+          -0.45
+        ],
+        "width": 3.4,
+        "azimuth": -0.12,
+        "push": 0.05
+      },
+      "overlay": "BANGUNAN · ACARA · ATURAN",
+      "speaker": "prabowow",
+      "speech": "prabowow-07",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "aturan-antrean",
+      "label": "Sari mengusulkan antrean setara",
+      "duration": 3.3429931972789118,
+      "camera": "close",
+      "focus": "b",
+      "caption": "Aturan pertama: semua lewat antrean yang sama!",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.65,
           "gesture": "nod"
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.6,
+          "gesture": "talk"
         },
         "c": {
           "action": "Idle",
           "yaw": -0.8
         }
       },
-      "speech": "prabowow-06",
-      "card": "events",
-      "speechOffset": 0.3
+      "frame": {
+        "target": [
+          0.85,
+          1.35,
+          0.2
+        ],
+        "width": 1.05,
+        "azimuth": -0.2,
+        "push": 0.07
+      },
+      "speaker": "sari",
+      "speech": "sari-04",
+      "speechOffset": 0.18
     },
     {
       "id": "ajak-penonton",
-      "label": "Penonton menjadi warga republik",
-      "duration": 8.2,
+      "label": "Narator mengajak warga berpendapat",
+      "duration": 6.696009070294784,
       "camera": "wide",
       "focus": "a",
-      "caption": "Kalian juga warga sini. Tulis satu usulan dan alasannya. Mau bangun apa, atau bikin acara apa?",
+      "caption": "Setuju? Tulis usul kalian. Follow, biar besok republik ini enggak cuma diatur orang dalam!",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.25
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.65
+        }
+      },
+      "frame": {
+        "target": [
+          0.25,
+          1,
+          -0.45
+        ],
+        "width": 3.4,
+        "azimuth": -0.12,
+        "push": 0.05
+      },
+      "overlay": "USULKAN SATU HAL + ALASANNYA",
+      "extras": {
+        "chicken": {
+          "action": "idle"
+        },
+        "cat": {
+          "action": "idle"
+        }
+      },
+      "speaker": "narrator",
+      "speech": "narrator-07",
+      "speechOffset": 0.18
+    },
+    {
+      "id": "keputusan-koplak",
+      "label": "Pasca Bowow memutuskan Koplak Desa",
+      "duration": 4.494988662131519,
+      "camera": "close",
+      "focus": "a",
+      "caption": "Sambil menunggu, saya putuskan: bangun Koplak Desa dulu!",
       "actors": {
         "a": {
           "action": "Idle",
           "yaw": 0,
-          "gesture": "talk"
+          "gesture": "talk",
+          "lookAt": "camera"
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.15
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": -0.15
-        }
-      },
-      "speech": "prabowow-07",
-      "overlay": "REPUBLIK INI MAU DIBIKIN APA DULU?",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "pilihan-day-dua",
-      "label": "Usulan warga menjadi cerita berikutnya",
-      "duration": 6.3,
-      "camera": "wide",
-      "focus": "a",
-      "caption": "Dukung usulan favoritmu. Follow, biar tidak ketinggalan cerita di Day Dua!",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": 0,
-          "gesture": "talk"
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.1,
-          "gesture": "nod"
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": -0.1,
-          "gesture": "nod"
-        }
-      },
-      "speech": "prabowow-08",
-      "overlay": "USULKAN → DUKUNG → KITA WUJUDKAN",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "boleh-joget",
-      "label": "Joko meminta joget bersama",
-      "duration": 2.8,
-      "camera": "wide",
-      "focus": "c",
-      "caption": "Sambil nunggu, boleh joget?",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": 0.65
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.5
+          "yaw": -0.6,
+          "expression": "confused"
         },
         "c": {
           "action": "Idle",
           "yaw": -0.8
         }
       },
-      "speech": "joko-03",
-      "speechOffset": 0.3
-    },
-    {
-      "id": "keputusan-koplak",
-      "label": "Presiden memutuskan Koplak Desa dulu",
-      "duration": 4.9380045351473925,
-      "camera": "medium",
-      "focus": "a",
-      "caption": "Boleh! Tapi saya putuskan, kita bangun Koplak Desa dulu.",
-      "actors": {
-        "a": {
-          "action": "Idle",
-          "yaw": 0,
-          "gesture": "talk",
-          "lookAt": "camera"
-        },
-        "b": {
-          "action": "Idle",
-          "yaw": 0.6,
-          "expression": "confused"
-        },
-        "c": {
-          "action": "Idle",
-          "yaw": -0.6,
-          "expression": "surprised"
-        }
+      "frame": {
+        "target": [
+          -0.6,
+          1.35,
+          0
+        ],
+        "width": 1.05,
+        "azimuth": 0.12,
+        "push": 0.07
       },
-      "speech": "prabowow-09",
       "overlay": "KOPLAK DESA DULU!",
-      "speechOffset": 0.3
+      "speaker": "prabowow",
+      "speech": "prabowow-08",
+      "speechOffset": 0.18,
+      "sound": "okeGas",
+      "musicOffset": 0,
+      "musicVolume": 0.68
     },
     {
       "id": "keputusan-perut",
-      "label": "Satuan Pengisi Perut Gratis, lalu tertawa",
-      "duration": 7.9,
+      "label": "SPPG dulu, lalu presiden tertawa",
+      "duration": 6.612993197278912,
       "camera": "medium",
       "focus": "a",
-      "caption": "Lalu Satuan Pengisi Perut Gratis. Biar rapatnya tidak lapar!",
+      "caption": "Sama Satuan Pengisi Perut Gratis! Biar rapatnya enggak lapar!",
       "actors": {
         "a": {
           "action": "Idle",
@@ -751,26 +1035,30 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.6,
+          "yaw": -0.6,
           "expression": "confused"
         },
         "c": {
           "action": "Idle",
-          "yaw": -0.6,
+          "yaw": -0.8,
           "expression": "surprised"
         }
       },
-      "speech": "prabowow-10",
       "overlay": "SATUAN PENGISI PERUT GRATIS",
-      "speechOffset": 0.3
+      "speaker": "prabowow",
+      "speech": "prabowow-09",
+      "speechOffset": 0.18,
+      "sound": "okeGas",
+      "musicOffset": 4.494988662131519,
+      "musicVolume": 0.68
     },
     {
-      "id": "reaksi-keputusan",
-      "label": "Warga saling pandang setelah keputusan presiden",
-      "duration": 2.2,
+      "id": "narator-penutup",
+      "label": "Narator menutup kontradiksi",
+      "duration": 3.599002267573696,
       "camera": "wide",
       "focus": "a",
-      "caption": "",
+      "caption": "Warganya disuruh usul. Keputusannya sudah duluan.",
       "actors": {
         "a": {
           "action": "Idle",
@@ -779,18 +1067,89 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.6,
+          "yaw": -0.6,
           "lookAt": "c",
           "expression": "confused"
         },
         "c": {
           "action": "Idle",
-          "yaw": -0.6,
+          "yaw": -0.8,
           "lookAt": "b",
           "expression": "confused"
         }
       },
-      "overlay": "LAH, KATANYA WARGA YANG PILIH? · KOMEN!"
+      "frame": {
+        "target": [
+          0.25,
+          1,
+          -0.45
+        ],
+        "width": 3.4,
+        "azimuth": -0.12,
+        "push": 0.05
+      },
+      "extras": {
+        "chicken": {
+          "action": "sad"
+        },
+        "cat": {
+          "action": "proud"
+        }
+      },
+      "speaker": "narrator",
+      "speech": "narrator-08",
+      "speechOffset": 0.18,
+      "sound": "okeGas",
+      "musicOffset": 11.10798185941043,
+      "musicVolume": 0.68
+    },
+    {
+      "id": "reaksi-keputusan",
+      "label": "Warga menentukan cerita berikutnya",
+      "duration": 2.4,
+      "camera": "wide",
+      "focus": "a",
+      "caption": "",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0.25
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": -0.7
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.65
+        }
+      },
+      "frame": {
+        "target": [
+          0.25,
+          1,
+          -0.45
+        ],
+        "width": 3.4,
+        "azimuth": -0.12,
+        "push": 0.05
+      },
+      "overlay": "AYAM DITOLAK, ORANG DALAM LOLOS? · KOMEN",
+      "extras": {
+        "chicken": {
+          "to": [
+            -1.4,
+            1.3
+          ],
+          "action": "walk"
+        },
+        "cat": {
+          "action": "proud"
+        }
+      },
+      "sound": "okeGas",
+      "musicOffset": 14.706984126984125,
+      "musicVolume": 0.68
     }
   ]
 }

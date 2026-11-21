@@ -1,0 +1,37 @@
+{
+  "source": "public/audio/produksi/day-1/narrator-v3-original.wav",
+  "model": "faster-whisper base int8",
+  "segments": [
+    {
+      "start": 0.02,
+      "end": 5.36,
+      "text": " Ini hari pertama republik wkwkwkwk baru buka sudah ada jalur orang dalam"
+    },
+    {
+      "start": 5.36,
+      "end": 13.4,
+      "text": " Presidennya pas kabowo, modalnya semangat, kantornya satu kursi, katanya yang dinilai kemampuan"
+    },
+    {
+      "start": 13.4,
+      "end": 21.2,
+      "text": " bukan siapa pamannya, ayam pun mau daftar, kaliannya bangunin warga tiapagi, kucing ikut daftar"
+    },
+    {
+      "start": 21.2,
+      "end": 27.84,
+      "text": " ditolak juga, tapi dia mengaku keponakan kucing Pak Erte, nah kalau kenalan lebih penting dari kemampuan"
+    },
+    {
+      "start": 27.84,
+      "end": 35.54,
+      "text": " Antrean berubah jadi silah keluarga, setuju tulis usul kalian, follow biar besok republik ini"
+    },
+    {
+      "start": 35.54,
+      "end": 40.58,
+      "text": " gak cuma di atur orang dalam, warganya disuruh usul, keputusannya sudah duluan"
+    }
+  ],
+  "listeningReview": "not_performed"
+}

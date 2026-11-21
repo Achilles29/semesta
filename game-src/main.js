@@ -1276,7 +1276,7 @@ async function runArea(place, city) {
   let productionPanel = null;
   if (production) {
     productionPanel = document.createElement('aside'); productionPanel.id = 'productionPanel'; productionPanel.className = 'production-panel'; productionPanel.hidden = true;
-    productionPanel.innerHTML = '<strong>Day 1 sudah tayang</strong><p>Republik Wkwkwk baru buka. Tonton cerita lengkap dengan narator dan Oke Gas di sini.</p>';
+    productionPanel.innerHTML = '<strong>Day 1 sudah tayang</strong><p>Baru Buka, Sudah Ada Orang Dalam. Pasca Bowow membuka pendaftaran warga; ayam dan kucing ikut antre.</p>';
     productionViewer=createProductionMapPlayer($('#exploreScreen'));
     const watch=document.createElement('button');watch.type='button';watch.textContent='Tonton Day 1';watch.onclick=()=>{keys.clear();stick.x=stick.y=0;void productionViewer.open();};productionPanel.append(watch);
     const studioLink=document.createElement('a');studioLink.href=new URL('admin/?view=production',document.baseURI).href;studioLink.textContent='Buka studio produksi';productionPanel.append(studioLink);

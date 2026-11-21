@@ -1,0 +1,77 @@
+{
+  "source": "docs/record/Day 1 kampung komen.mp4",
+  "model": "faster-whisper base int8",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.22,
+      "text": " Dai satu, bangun desa yang isinya di atur sama netizen."
+    },
+    {
+      "start": 4.72,
+      "end": 9.34,
+      "text": " Kenalin, saya Pak Kades, baru dilantik, baru pindahan wat, perganya."
+    },
+    {
+      "start": 9.94,
+      "end": 11.04,
+      "text": " Ya, saya sendiri."
+    },
+    {
+      "start": 11.84,
+      "end": 16.1,
+      "text": " Ayam gak di hitung, followers no, jadi warganya satu."
+    },
+    {
+      "start": 16.76,
+      "end": 18.18,
+      "text": " Itu juga saya yang hitung."
+    },
+    {
+      "start": 18.66,
+      "end": 20.54,
+      "text": " Kamu follow, kamu jadi warga."
+    },
+    {
+      "start": 20.98,
+      "end": 25.42,
+      "text": " Kamu komen, usulan teratas besok saya bangun, apapun itu."
+    },
+    {
+      "start": 25.88,
+      "end": 28.52,
+      "text": " Desa ini tidak pernah menolak usulan warga."
+    },
+    {
+      "start": 28.52,
+      "end": 34.52,
+      "text": " Cuma disesuaikan anggaran, karena hari ini belum ada yang usul, saya bangun posteronda dulu."
+    },
+    {
+      "start": 34.82,
+      "end": 37.56,
+      "text": " Diarada yang jaga, yang jaga juga saya sendiri."
+    },
+    {
+      "start": 38.42,
+      "end": 45.06,
+      "text": " Oke, musya warga desa pertama, dimulai, peserta, satu, keputusan, mufakat."
+    },
+    {
+      "start": 45.56,
+      "end": 47.84,
+      "text": " Jadi, follow sekarang biar jadi warga."
+    },
+    {
+      "start": 48.24,
+      "end": 49.38,
+      "text": " Comment mau dibangun apa?"
+    },
+    {
+      "start": 49.9,
+      "end": 53.98,
+      "text": " Oh ya, ajak tetangga, tanah masih luas, luas banget."
+    }
+  ],
+  "listeningReview": "not_performed"
+}

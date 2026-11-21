@@ -1,11 +1,11 @@
 {
   "id": "female-balanced",
   "passed": true,
-  "bytes": 41276592,
-  "sha256": "ab9a1913414fd5faf02234a8c294c93185ac426219db5df92a4740157a77d6cb",
+  "bytes": 41287736,
+  "sha256": "b91f94bffafa7f157bc9ae36cc701d4d8f7f0f5c58cb1c90b51365ebda096073",
   "bones": 49,
   "primitives": 266,
-  "triangles": 634256,
+  "triangles": 634640,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 347745,
-  "vertexSamples": 2326670,
+  "weightSamples": 347937,
+  "vertexSamples": 2327913,
   "contactSamples": 210,
   "motionChecks": {
     "Walk": {

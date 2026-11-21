@@ -103,7 +103,9 @@ for src in list(bpy.context.scene.objects):
     obj.data.materials.clear();obj.data.materials.append(police_top)
     for poly in obj.data.polygons:poly.material_index=0
 
-rig['avatarVariationRevision']='v15-wardrobe-4-character'
+from avatar_v15_headwear import fit_peci
+fit_peci(rig)
+rig['avatarVariationRevision']='v15-wardrobe-4-peci'
 rest(rig);bpy.ops.object.select_all(action='DESELECT');rig.select_set(True)
 for o in bpy.context.scene.objects:
     if o.type=='MESH' and o.get('avatarSlot') and not o.get('authoringOnly'):o.hide_set(False);o.hide_render=False;o.select_set(True)

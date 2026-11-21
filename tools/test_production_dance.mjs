@@ -30,7 +30,7 @@ for(const preset of ['v15-prabowo-inspired','v15-arka','v15-laras']){
   const after=snapshot(6);const neutral=structuredClone(scenario);neutral.shots[0].actors.a={action:'Idle',yaw:0};stage.setScenario(neutral);assert.deepEqual(snapshot(6),after,'No procedural transforms leak into subsequent clips');
   stage.dispose();
 }
-const input=day1OpeningScenario();assert.equal(input.cast.length,1);assert.equal(input.cast[0].preset,'v15-prabowo-inspired');assert.match(input.notice,/PARODI/);
+const input=day1OpeningScenario();assert.equal(input.cast.length,1);assert.equal(input.cast[0].preset,'v15-prabowo-inspired');assert.match(input.notice,/DRAF/);
 assert.ok(compileScenario(input).duration<9);
 for(const bpm of [NaN,0,69,181,Infinity]){const invalid=structuredClone(input);invalid.shots[0].actors.a.bpm=bpm;assert.throws(()=>validateScenario(invalid));}
-console.log('PASS: Prabowow/Arka/Laras dance on actual V15 rigs: deterministic replay, low planted steps, fists in front, upright head, no pose leakage, tempo validation. Choreography is stylized, not mocap; visual browser check pending.');
+console.log('PASS: Pasca Bowow/Arka/Laras dance on actual V15 rigs: deterministic replay, low planted steps, fists in front, upright head, no pose leakage, tempo validation. Choreography is stylized, not mocap; visual browser check pending.');
