@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import avatar_v14_common as c
 from avatar_v14_common import *
-p=argparse.ArgumentParser();p.add_argument('--ids',default='');p.add_argument('--face',action='store_true');p.add_argument('--clip',default='Idle');p.add_argument('--angle',type=float,default=.1);p.add_argument('--bottoms',action='store_true');a=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+p=argparse.ArgumentParser();p.add_argument('--ids',default='');p.add_argument('--face',action='store_true');p.add_argument('--faces',action='store_true');p.add_argument('--clip',default='Idle');p.add_argument('--angle',type=float,default=.1);p.add_argument('--bottoms',action='store_true');a=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 presets=json.loads((ROOT/'game-src/avatar-v15-presets.json').read_text(encoding='utf-8'));catalog=json.loads((ROOT/'game-src/avatar-v15-catalog.json').read_text(encoding='utf-8'))
 out=ROOT/'ilustrasi/avatar-v2/farmer-v15-proportions/presets';out.mkdir(exist_ok=True);c.OUT=out
 if a.bottoms:
@@ -13,8 +13,13 @@ if a.bottoms:
     presets=[]
     for style in catalog['fields']['bottomStyle']['options']:
         item=copy.deepcopy(seed);item['id']='wardrobe-bottom-'+style;item['config']['appearance']['bottomStyle']=style;presets.append(item)
-morphs={'faceShape':{'round':'faceRound','angular':'faceAngular'},'eyeShape':{'almond':'eyeAlmond','round':'eyeRound'},'noseShape':{'broad':'noseBroad','defined':'noseDefined'},'mouthShape':{'wide':'mouthWide','full':'mouthFull'},'earShape':{'prominent':'earProminent','tapered':'earTapered'}}
+morphs={'faceShape':{'round':'faceRound','angular':'faceAngular','square':'faceSquare','long':'faceLong','senior':'faceSenior','prabowow':'facePrabowow'},'eyeShape':{'almond':'eyeAlmond','round':'eyeRound'},'noseShape':{'broad':'noseBroad','defined':'noseDefined'},'mouthShape':{'wide':'mouthWide','full':'mouthFull'},'earShape':{'prominent':'earProminent','tapered':'earTapered'}}
 loaded_profile=None
+if a.faces:
+    import copy
+    seed=next(p for p in presets if p['id']=='v15-prabowo-inspired');presets=[];a.face=True
+    for shape in catalog['fields']['faceShape']['options']:
+        item=copy.deepcopy(seed);item['id']='identity-'+shape;item['config']['appearance']['faceShape']=shape;presets.append(item)
 for preset in sorted(presets,key=lambda p:p['config']['profileId']):
     if a.ids and preset['id'] not in a.ids.split(','):continue
     config=preset['config'];appearance=config['appearance']
@@ -34,6 +39,8 @@ for preset in sorted(presets,key=lambda p:p['config']['profileId']):
         if appearance['topStyle'] in catalog['coveredTopStyles'] and slot in ['outerwear','accessoryChest','accessoryWaist']:visible=False
         o.hide_render=not visible
         if o.data.shape_keys:
+            for key in o.data.shape_keys.key_blocks:
+                if key.name.startswith('Id_'):key.value=0
             fit=o.data.shape_keys.key_blocks.get('Id_OuterwearFit')
             if fit:fit.value=int(appearance['outerwearStyle']=='longVest')
             for field,options in morphs.items():

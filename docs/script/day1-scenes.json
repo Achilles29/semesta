@@ -40,10 +40,10 @@
     {
       "id": "hari-pertama",
       "label": "Narator membuka republik",
-      "duration": 3.0170068027210886,
+      "duration": 3.529002267573696,
       "camera": "medium",
       "focus": "a",
-      "caption": "Hari pertama Republik Wkwkwk.",
+      "caption": "Hari pertama Republik Wkwkwk!",
       "actors": {
         "a": {
           "action": "Dance",
@@ -77,7 +77,7 @@
         "a": {
           "action": "Dance",
           "bpm": 145,
-          "phase": 3
+          "phase": 3.529002267573696
         },
         "b": {
           "action": "Idle",
@@ -92,7 +92,7 @@
       },
       "overlay": "PRESIDEN SUDAH SIAP.",
       "sound": "okeGas",
-      "musicOffset": 3
+      "musicOffset": 3.529002267573696
     },
     {
       "id": "lapangan-kosong",
@@ -100,7 +100,7 @@
       "duration": 4,
       "camera": "wide",
       "focus": "a",
-      "caption": "Presidennya sudah siap. Warganya… belum ada.",
+      "caption": "Presidennya sudah siap. Warganya… belum ada!",
       "actors": {
         "a": {
           "action": "Idle",
@@ -140,7 +140,8 @@
         "a": {
           "action": "Idle",
           "yaw": -0.25,
-          "gesture": "look"
+          "gesture": "look",
+          "expression": "confused"
         },
         "b": {
           "action": "Idle",
@@ -196,7 +197,7 @@
       "label": "Warga kedua menyapa",
       "duration": 3.8,
       "camera": "wide",
-      "focus": "a",
+      "focus": "b",
       "caption": "Saya, Pak. Ini bener Republik Wkwkwk?",
       "actors": {
         "a": {
@@ -205,7 +206,9 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8
+          "yaw": 0.8,
+          "gesture": "talk",
+          "expression": "happy"
         },
         "c": {
           "action": "Idle",
@@ -219,14 +222,15 @@
     {
       "id": "baru-buka",
       "label": "Presiden menyambut",
-      "duration": 2.461995464852608,
+      "duration": 2.845986394557823,
       "camera": "wide",
       "focus": "a",
       "caption": "Betul. Baru buka!",
       "actors": {
         "a": {
           "action": "Wave",
-          "yaw": -0.65
+          "yaw": -0.65,
+          "expression": "happy"
         },
         "b": {
           "action": "Idle",
@@ -247,7 +251,7 @@
       "label": "Sari menanyakan kantor",
       "duration": 2.3,
       "camera": "wide",
-      "focus": "a",
+      "focus": "b",
       "caption": "Kantornya mana?",
       "actors": {
         "a": {
@@ -256,7 +260,9 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8
+          "yaw": 0.8,
+          "gesture": "talk",
+          "expression": "confused"
         },
         "c": {
           "action": "Idle",
@@ -421,7 +427,7 @@
       "label": "Joko mengusulkan konser",
       "duration": 3.2,
       "camera": "wide",
-      "focus": "a",
+      "focus": "c",
       "caption": "Pak, lapangan konsernya di mana?",
       "actors": {
         "a": {
@@ -434,7 +440,8 @@
         },
         "c": {
           "action": "Point",
-          "yaw": -0.75
+          "yaw": -0.75,
+          "expression": "happy"
         }
       },
       "speech": "joko-01",
@@ -445,7 +452,7 @@
       "label": "Sari mengingatkan kebutuhan dasar",
       "duration": 2.6,
       "camera": "wide",
-      "focus": "a",
+      "focus": "b",
       "caption": "Rumah aja belum ada.",
       "actors": {
         "a": {
@@ -454,7 +461,9 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.85
+          "yaw": 0.85,
+          "gesture": "talk",
+          "expression": "confused"
         },
         "c": {
           "action": "Idle",
@@ -468,7 +477,7 @@
     {
       "id": "narator-keinginan",
       "label": "Narator menjembatani perbedaan",
-      "duration": 3.6570068027210882,
+      "duration": 3.7860090702947846,
       "camera": "wide",
       "focus": "a",
       "caption": "Baru tiga warga. Keinginannya sudah beda-beda.",
@@ -520,7 +529,7 @@
       "label": "Sari memastikan keputusan warga",
       "duration": 3.6,
       "camera": "wide",
-      "focus": "a",
+      "focus": "b",
       "caption": "Berarti warga yang pilih mau bangun apa?",
       "actors": {
         "a": {
@@ -530,7 +539,8 @@
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.8
+          "yaw": 0.8,
+          "gesture": "talk"
         },
         "c": {
           "action": "Idle",
@@ -571,7 +581,7 @@
       "label": "Joko menanyakan lomba dan konser",
       "duration": 2.5,
       "camera": "wide",
-      "focus": "a",
+      "focus": "c",
       "caption": "Kalau lomba sama konser?",
       "actors": {
         "a": {
@@ -650,7 +660,7 @@
       "duration": 6.3,
       "camera": "wide",
       "focus": "a",
-      "caption": "Dukung usulan favoritmu. Pilihan warga kita mulai kerjakan di Day Dua.",
+      "caption": "Dukung usulan favoritmu. Follow, biar tidak ketinggalan cerita di Day Dua!",
       "actors": {
         "a": {
           "action": "Idle",
@@ -677,7 +687,7 @@
       "label": "Joko meminta joget bersama",
       "duration": 2.8,
       "camera": "wide",
-      "focus": "a",
+      "focus": "c",
       "caption": "Sambil nunggu, boleh joget?",
       "actors": {
         "a": {
@@ -697,55 +707,90 @@
       "speechOffset": 0.3
     },
     {
-      "id": "boleh",
-      "label": "Presiden menyetujui",
-      "duration": 1.4390022675736962,
-      "camera": "wide",
+      "id": "keputusan-koplak",
+      "label": "Presiden memutuskan Koplak Desa dulu",
+      "duration": 4.9380045351473925,
+      "camera": "medium",
       "focus": "a",
-      "caption": "Boleh!",
+      "caption": "Boleh! Tapi saya putuskan, kita bangun Koplak Desa dulu.",
       "actors": {
         "a": {
           "action": "Idle",
-          "yaw": 0.65,
-          "gesture": "nod"
+          "yaw": 0,
+          "gesture": "talk",
+          "lookAt": "camera"
         },
         "b": {
           "action": "Idle",
-          "yaw": 0.3
+          "yaw": 0.6,
+          "expression": "confused"
         },
         "c": {
           "action": "Idle",
-          "yaw": -0.6
+          "yaw": -0.6,
+          "expression": "surprised"
         }
       },
       "speech": "prabowow-09",
+      "overlay": "KOPLAK DESA DULU!",
       "speechOffset": 0.3
     },
     {
-      "id": "joget-bersama",
-      "label": "Warga pertama berjoget bersama",
-      "duration": 3.5,
+      "id": "keputusan-perut",
+      "label": "Satuan Pengisi Perut Gratis, lalu tertawa",
+      "duration": 7.9,
+      "camera": "medium",
+      "focus": "a",
+      "caption": "Lalu Satuan Pengisi Perut Gratis. Biar rapatnya tidak lapar!",
+      "actors": {
+        "a": {
+          "action": "Idle",
+          "yaw": 0,
+          "gesture": "talk",
+          "lookAt": "camera"
+        },
+        "b": {
+          "action": "Idle",
+          "yaw": 0.6,
+          "expression": "confused"
+        },
+        "c": {
+          "action": "Idle",
+          "yaw": -0.6,
+          "expression": "surprised"
+        }
+      },
+      "speech": "prabowow-10",
+      "overlay": "SATUAN PENGISI PERUT GRATIS",
+      "speechOffset": 0.3
+    },
+    {
+      "id": "reaksi-keputusan",
+      "label": "Warga saling pandang setelah keputusan presiden",
+      "duration": 2.2,
       "camera": "wide",
       "focus": "a",
       "caption": "",
       "actors": {
         "a": {
-          "action": "Dance",
-          "bpm": 145,
-          "delay": 0.2
+          "action": "Idle",
+          "yaw": 0,
+          "expression": "happy"
         },
         "b": {
-          "action": "Dance",
-          "bpm": 145,
-          "delay": 0.7
+          "action": "Idle",
+          "yaw": 0.6,
+          "lookAt": "c",
+          "expression": "confused"
         },
         "c": {
-          "action": "Dance",
-          "bpm": 145
+          "action": "Idle",
+          "yaw": -0.6,
+          "lookAt": "b",
+          "expression": "confused"
         }
       },
-      "sound": "okeGas",
-      "overlay": "FOLLOW · LIHAT HASILNYA DI DAY 2"
+      "overlay": "LAH, KATANYA WARGA YANG PILIH? · KOMEN!"
     }
   ]
 }

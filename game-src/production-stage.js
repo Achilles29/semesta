@@ -6,6 +6,7 @@ import {createProductionDance,DANCE_BPM} from './production-dance.js';
 import {buildRepublicSet} from './production-republic-set.js';
 import day1Audio from './production-day1-audio.json' with {type:'json'};
 import {DAY1_SPEAKERS} from './production-day1.js';
+import {createProductionActing} from './production-acting.js';
 
 /** Scene and deterministic posing are also usable by CPU contract tests. */
 export async function createProductionStage(input){
@@ -63,6 +64,7 @@ export async function createProductionStage(input){
     input.cast.forEach((c,i)=>{
       const actor=createHumanModel(THREE,{avatarConfig:configs[i]});actors.set(c.id,actor);scene.add(actor.figure);
       actor.productionDance=createProductionDance(actor);
+      actor.productionActing=createProductionActing(actor);
       // The Hold action has an actual prop, parented to the rig's approved grip.
       const parcel=new THREE.Mesh(new THREE.BoxGeometry(.24,.18,.12),new THREE.MeshStandardMaterial({color:'#ba8b60',roughness:.9}));
       geometries.add(parcel.geometry);materials.add(parcel.material);parcel.name='ProductionParcel';parcel.castShadow=true;
@@ -92,11 +94,11 @@ export async function createProductionStage(input){
       if(p.action==='Dance')actor.productionDance.apply({time:danceTime(p),bpm:p.bpm??DANCE_BPM,weight:p.previous?.action==='Dance'&&p.phase!==undefined?1:Math.max(0,Math.min(1,(p.elapsed-(p.delay||0))/.22))});
       else if(p.previous?.action==='Dance'&&p.blend<1)actor.productionDance.apply({time:danceTime(p.previous),bpm:p.previous.bpm??DANCE_BPM,weight:1-p.blend});
       actor.productionParcel.visible=p.action==='Hold';
-      if(p.gesture){const envelope=Math.min(1,p.elapsed/.3);if(p.gesture==='nod')actor.head.rotation.x+=Math.sin(p.elapsed*4)*.045*envelope;if(p.gesture==='look')actor.head.rotation.y+=Math.sin(p.elapsed*1.7)*.16*envelope;if(p.gesture==='talk')actor.head.rotation.x+=Math.sin(p.elapsed*2.8)*.025*envelope;}
       const clip=day1Audio[sample?.shot.speech],local=(sample?.elapsed||0)-(sample?.shot.speechOffset??.3),speaker={prabowow:'a',sari:'b',joko:'c'}[clip?.speaker];
       const mouth=clip&&speaker===c.id&&local>=0&&local<clip.duration?clip.envelope[Math.floor(local*clip.envelopeFps)]||0:0;
+      const acting=sample?actor.productionActing.apply({p,clip,local,speaking:speaker===c.id,sample,id:c.id,speaker,time}):{gaze:0,accent:0,laugh:false,fade:1};
       // Audio amplitude drives jaw openness, not claimed phoneme-level lip sync.
-      actor.figure.userData.expressionController?.update({time,expression:['Wave','Dance'].includes(p.action)?'happy':'neutral',intensity:.35,viseme:mouth>.02?'AA':'rest',speech:mouth*.8});
+      actor.figure.userData.expressionController?.update({time:time+input.cast.indexOf(c)*1.13,expression:acting.laugh?'happy':p.expression||(['Wave','Dance'].includes(p.action)?'happy':'neutral'),intensity:(acting.laugh?.85:.4)*acting.fade,viseme:mouth>.02?'AA':'rest',speech:mouth*.9,gaze:acting.gaze,channels:{browUpL:acting.accent*.10,browUpR:acting.accent*.10}});
     }
     scene.updateMatrixWorld(true);
     const focus=sample?.actors[sample.shot.focus]?.position||[0,0];

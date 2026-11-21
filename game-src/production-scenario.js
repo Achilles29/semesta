@@ -58,6 +58,8 @@ export function validateScenario(input) {
       if(cue.bpm!==undefined&&(!finite(cue.bpm,70,180)||cue.action!=='Dance'))fail('Tempo joget harus 70–180 BPM.');
       if(cue.visible!==undefined&&typeof cue.visible!=='boolean')fail('Visibilitas pemeran tidak valid.');
       if(cue.gesture!==undefined&&!['look','nod','talk'].includes(cue.gesture))fail('Gestur tidak dikenal.');
+      if(cue.expression!==undefined&&!['neutral','happy','confused','surprised','sad','angry'].includes(cue.expression))fail('Ekspresi tidak dikenal.');
+      if(cue.lookAt!==undefined&&cue.lookAt!=='camera'&&!ids.has(cue.lookAt))fail('Arah pandangan tidak dikenal.');
       for(const key of ['phase','delay'])if(cue[key]!==undefined&&(!finite(cue[key],0,30)||cue.action!=='Dance'))fail('Waktu joget tidak valid.');
     }
   }

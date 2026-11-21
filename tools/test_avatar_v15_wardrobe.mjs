@@ -32,8 +32,11 @@ for(const profile of catalog.profiles.filter(p=>!process.argv[2]||p.id===process
     if(style==='cargo')assert.ok(meshes.filter(m=>m.visible&&/cargo.*pocket/i.test(m.name)).length>=4,'Two bellows pockets and two flaps');
   }
   console.log(profile.id,section);
-  assert.ok(section.straight.calfWidth>section.fitted.calfWidth*1.06,`${profile.id}: straight silhouette must be visibly wider`);
+  assert.ok(section.straight.calfWidth>section.fitted.calfWidth*1.025,`${profile.id}: regular straight retains more calf room than tapered`);
   assert.ok(section.wide.calfWidth>section.straight.calfWidth*1.15,`${profile.id}: wide-leg silhouette must be visibly wider`);
+  assert.ok(section.slim.calfWidth<section.fitted.calfWidth*.96,'Slim must differ from regular tapered');
+  assert.ok(section.jeansSlim.calfWidth<section.jeans.calfWidth*.95,'Denim has two actual fits');
+  assert.ok(section.civilService.calfWidth<section.relaxed.calfWidth*.85,'PNS is regular, not baggy');
   for(const hat of catalog.hairCoveringHeadwear){
     actor.figure.userData.customization.set({...defaults(),headAccessory:hat,hairStyle:'ponytail'});
     assert.ok(meshes.filter(m=>m.userData.avatarSlot==='hair').every(m=>!m.visible),'Covered hair must not pierce crown');
@@ -42,7 +45,7 @@ for(const profile of catalog.profiles.filter(p=>!process.argv[2]||p.id===process
     actor.figure.userData.customization.set({...defaults(),topStyle,outerwearStyle:'longVest',accessoryChest:'on',accessoryWaist:'on'});
     assert.ok(meshes.filter(m=>['outerwear','accessoryChest','accessoryWaist'].includes(m.userData.avatarSlot)).every(m=>!m.visible),'Uniform covers fitted underlayers');
   }
-  for(const uniform of ['tactical','camo','civilService','safariWhite']){
+  for(const uniform of ['tactical','camo','civilService','safariWhite','police']){
     actor.figure.userData.customization.set({...defaults(),topStyle:uniform,bottomStyle:uniform,palette:'indigo'});
     const parts=meshes.filter(m=>m.visible&&['top','bottom'].includes(m.userData.avatarSlot));
     assert.ok(parts.length>5,'Uniform must contain tailored details');
@@ -51,7 +54,7 @@ for(const profile of catalog.profiles.filter(p=>!process.argv[2]||p.id===process
     actor.figure.userData.customization.set({palette:'wine'});
     assert.deepEqual(parts.map(m=>m.material.color.toArray()),colors,'Changing palette must preserve white, khaki and camouflage');
     if(uniform==='camo')assert.ok(parts.some(m=>m.material.map),'Camouflage must export an actual base-colour texture');
-    assert.ok(section[uniform].calfWidth>=section.straight.calfWidth*.99,'Uniform trousers retain loose cloth volume');
+    assert.ok(section[uniform].calfWidth>=section.slim.calfWidth*1.04,'Formal and utility trousers keep more room than slim fit');
   }
   results.push({profile:profile.id,section});
 }

@@ -2,52 +2,52 @@
   "passed": true,
   "revision": "v15-cmu-locomotion-2-head",
   "cmuSourceHashesVerified": true,
-  "checkedAt": "2026-11-20T22:55:25.878102+00:00",
+  "checkedAt": "2026-11-21T02:52:51.651725+00:00",
   "profiles": [
     {
       "id": "male-slim",
-      "sha256": "75b5926affad2bb12567ec2f23569e7e928cb9d0117629737f419cfe79a6a86e",
-      "bytes": 36573092,
-      "decodedTextures": 19,
+      "sha256": "6b34c698520d407b2daf5730a9b878370835242f60646587e43de567e0da5add",
+      "bytes": 40655812,
+      "decodedTextures": 20,
       "httpStatus": 200
     },
     {
       "id": "male-balanced",
-      "sha256": "e9780aa97b362f39f0e15111add58af9425282e0bbabe34724f3dfdd993f89f6",
-      "bytes": 36704356,
-      "decodedTextures": 19,
+      "sha256": "51f9c30d80c009d00838a2217cbb5781b007fde1e5fa96c8d5cc76fd7ad38b5f",
+      "bytes": 40933764,
+      "decodedTextures": 20,
       "httpStatus": 200
     },
     {
       "id": "male-heavy",
-      "sha256": "86509deadcafe7fa6f5a4d889d2d6d8caeb70018ed74c500348d525fd7e3378e",
-      "bytes": 37446360,
-      "decodedTextures": 19,
+      "sha256": "65c4fdc549e97d0fee1a9afa2b0506714fba219333e8baf52c7154c95392cb8b",
+      "bytes": 41676640,
+      "decodedTextures": 20,
       "httpStatus": 200
     },
     {
       "id": "female-slim",
-      "sha256": "cef908f6cd1b49d509426bc5e0a9129ddb2937458f2beedfde8eeeb8437d3d14",
-      "bytes": 37061692,
-      "decodedTextures": 19,
+      "sha256": "13e754e8fef28e017f70d4b30c9d88f345a5bfefac3ab639ce77f1f589e8946c",
+      "bytes": 41001804,
+      "decodedTextures": 20,
       "httpStatus": 200
     },
     {
       "id": "female-balanced",
-      "sha256": "260e442fd3d1909f9ddac55bc68796df38652b1db32a03f6dbe491ee9c050ef2",
-      "bytes": 37028880,
-      "decodedTextures": 19,
+      "sha256": "ab9a1913414fd5faf02234a8c294c93185ac426219db5df92a4740157a77d6cb",
+      "bytes": 41276592,
+      "decodedTextures": 20,
       "httpStatus": 200
     },
     {
       "id": "female-heavy",
-      "sha256": "bd703bf40dc924680f262826ad37e7548ad52c46856811dcc0c20b3f91f51d9b",
-      "bytes": 37130224,
-      "decodedTextures": 19,
+      "sha256": "293255ecc5178f2c3df037ecddfcec280984e3edc158cce6bae436407e63be2e",
+      "bytes": 41535100,
+      "decodedTextures": 20,
       "httpStatus": 200
     }
   ],
-  "linkedFiles": 92,
+  "linkedFiles": 98,
   "video": {
     "frames": 92,
     "seconds": 3.83,
@@ -60,7 +60,7 @@
   "httpRange206": true,
   "browserInteractionVerified": false,
   "gpuFPSMeasured": false,
-  "runtimeFilesVerified": 31,
-  "variationRevision": "v15-wardrobe-3",
-  "presetPortraitsVerified": 32
+  "runtimeFilesVerified": 32,
+  "variationRevision": "v15-wardrobe-4-character",
+  "presetPortraitsVerified": 35
 }

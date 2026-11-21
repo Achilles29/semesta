@@ -39,10 +39,21 @@ export function day1Scenario(){
   add('ajak-penonton',8.2,'Penonton menjadi warga republik',{speech:'prabowow-07',overlay:'REPUBLIK INI MAU DIBIKIN APA DULU?',actors:{a:idle(0,{gesture:'talk'}),b:idle(.15),c:idle(-.15)}});
   add('pilihan-day-dua',6.3,'Usulan warga menjadi cerita berikutnya',{speech:'prabowow-08',overlay:'USULKAN → DUKUNG → KITA WUJUDKAN',actors:{a:idle(0,{gesture:'talk'}),b:idle(.1,{gesture:'nod'}),c:idle(-.1,{gesture:'nod'})}});
   add('boleh-joget',2.8,'Joko meminta joget bersama',{speech:'joko-03',actors:{a:idle(.65),b:idle(.5),c:idle(-.8)}});
-  add('boleh',1.4,'Presiden menyetujui',{speech:'prabowow-09',actors:{a:idle(.65,{gesture:'nod'}),b:idle(.3),c:idle(-.6)}});
-  add('joget-bersama',3.5,'Warga pertama berjoget bersama',{sound:'beat',overlay:'FOLLOW · LIHAT HASILNYA DI DAY 2',actors:{a:{action:'Dance',bpm:130,delay:.2},b:{action:'Dance',bpm:130,delay:.7},c:{action:'Dance',bpm:130}}});
+  add('keputusan-koplak',4.5,'Presiden memutuskan Koplak Desa dulu',{camera:'medium',speech:'prabowow-09',overlay:'KOPLAK DESA DULU!',actors:{a:idle(0,{gesture:'talk',lookAt:'camera'}),b:idle(.6,{expression:'confused'}),c:idle(-.6,{expression:'surprised'})}});
+  add('keputusan-perut',6,'Satuan Pengisi Perut Gratis, lalu tertawa',{camera:'medium',speech:'prabowow-10',overlay:'SATUAN PENGISI PERUT GRATIS',actors:{a:idle(0,{gesture:'talk',lookAt:'camera'}),b:idle(.6,{expression:'confused'}),c:idle(-.6,{expression:'surprised'})}});
+  add('reaksi-keputusan',2.2,'Warga saling pandang setelah keputusan presiden',{overlay:'LAH, KATANYA WARGA YANG PILIH? · KOMEN!',actors:{a:idle(0,{expression:'happy'}),b:idle(.6,{lookAt:'c',expression:'confused'}),c:idle(-.6,{lookAt:'b',expression:'confused'})}});
   for(const shot of scenario.shots){for(const cue of Object.values(shot.actors))if(cue.action==='Dance')cue.bpm=music.bpm;if(shot.sound==='beat')shot.sound='okeGas';}
   scenario.shots[0].sound='okeGas';scenario.shots[0].musicVolume=.08;
-  scenario.shots[1].musicOffset=3;
+  // The new opening narration can run longer than three seconds.
+  const openingDuration=scenario.shots[0].duration;
+  scenario.shots[1].musicOffset=openingDuration;
+  scenario.shots[1].actors.a.phase=openingDuration;
+  for(const shot of scenario.shots){
+    const speaker={prabowow:'a',sari:'b',joko:'c'}[audio[shot.speech]?.speaker];
+    if(speaker&&speaker!=='a')shot.focus=speaker;
+    if(['sari-menyapa','kantor-mana','rumah-belum','warga-memilih','usul-acara'].includes(shot.id))shot.actors[speaker].gesture='talk';
+    if(['rakyat-mana','kantor-mana','rumah-belum'].includes(shot.id))shot.actors[speaker].expression='confused';
+    if(['sari-menyapa','baru-buka','minta-konser'].includes(shot.id))shot.actors[speaker].expression='happy';
+  }
   return scenario;
 }

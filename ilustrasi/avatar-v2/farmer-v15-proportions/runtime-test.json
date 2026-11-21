@@ -4,11 +4,11 @@
     {
       "id": "male-slim",
       "passed": true,
-      "bytes": 36573092,
-      "sha256": "75b5926affad2bb12567ec2f23569e7e928cb9d0117629737f419cfe79a6a86e",
+      "bytes": 40655812,
+      "sha256": "6b34c698520d407b2daf5730a9b878370835242f60646587e43de567e0da5add",
       "bones": 49,
-      "primitives": 233,
-      "triangles": 545176,
+      "primitives": 266,
+      "triangles": 625272,
       "slots": [
         "brows",
         "eyes",
@@ -27,8 +27,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 301979,
-      "vertexSamples": 2019423,
+      "weightSamples": 343267,
+      "vertexSamples": 2295821,
       "contactSamples": 208,
       "motionChecks": {
         "Walk": {
@@ -600,11 +600,11 @@
     {
       "id": "male-balanced",
       "passed": true,
-      "bytes": 36704356,
-      "sha256": "e9780aa97b362f39f0e15111add58af9425282e0bbabe34724f3dfdd993f89f6",
+      "bytes": 40933764,
+      "sha256": "51f9c30d80c009d00838a2217cbb5781b007fde1e5fa96c8d5cc76fd7ad38b5f",
       "bones": 49,
-      "primitives": 233,
-      "triangles": 545176,
+      "primitives": 266,
+      "triangles": 625272,
       "slots": [
         "brows",
         "eyes",
@@ -623,8 +623,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 301971,
-      "vertexSamples": 2019423,
+      "weightSamples": 343261,
+      "vertexSamples": 2295821,
       "contactSamples": 209,
       "motionChecks": {
         "Walk": {
@@ -1196,11 +1196,11 @@
     {
       "id": "male-heavy",
       "passed": true,
-      "bytes": 37446360,
-      "sha256": "86509deadcafe7fa6f5a4d889d2d6d8caeb70018ed74c500348d525fd7e3378e",
+      "bytes": 41676640,
+      "sha256": "65c4fdc549e97d0fee1a9afa2b0506714fba219333e8baf52c7154c95392cb8b",
       "bones": 49,
-      "primitives": 233,
-      "triangles": 545176,
+      "primitives": 266,
+      "triangles": 625272,
       "slots": [
         "brows",
         "eyes",
@@ -1219,8 +1219,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 302157,
-      "vertexSamples": 2020892,
+      "weightSamples": 343437,
+      "vertexSamples": 2297290,
       "contactSamples": 209,
       "motionChecks": {
         "Walk": {
@@ -1792,11 +1792,11 @@
     {
       "id": "female-slim",
       "passed": true,
-      "bytes": 37061692,
-      "sha256": "cef908f6cd1b49d509426bc5e0a9129ddb2937458f2beedfde8eeeb8437d3d14",
+      "bytes": 41001804,
+      "sha256": "13e754e8fef28e017f70d4b30c9d88f345a5bfefac3ab639ce77f1f589e8946c",
       "bones": 49,
-      "primitives": 233,
-      "triangles": 551408,
+      "primitives": 266,
+      "triangles": 634256,
       "slots": [
         "brows",
         "eyes",
@@ -1815,8 +1815,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 305238,
-      "vertexSamples": 2041910,
+      "weightSamples": 347924,
+      "vertexSamples": 2327800,
       "contactSamples": 209,
       "motionChecks": {
         "Walk": {
@@ -2388,11 +2388,11 @@
     {
       "id": "female-balanced",
       "passed": true,
-      "bytes": 37028880,
-      "sha256": "260e442fd3d1909f9ddac55bc68796df38652b1db32a03f6dbe491ee9c050ef2",
+      "bytes": 41276592,
+      "sha256": "ab9a1913414fd5faf02234a8c294c93185ac426219db5df92a4740157a77d6cb",
       "bones": 49,
-      "primitives": 233,
-      "triangles": 551408,
+      "primitives": 266,
+      "triangles": 634256,
       "slots": [
         "brows",
         "eyes",
@@ -2411,8 +2411,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 305059,
-      "vertexSamples": 2040780,
+      "weightSamples": 347745,
+      "vertexSamples": 2326670,
       "contactSamples": 210,
       "motionChecks": {
         "Walk": {
@@ -2984,11 +2984,11 @@
     {
       "id": "female-heavy",
       "passed": true,
-      "bytes": 37130224,
-      "sha256": "bd703bf40dc924680f262826ad37e7548ad52c46856811dcc0c20b3f91f51d9b",
+      "bytes": 41535100,
+      "sha256": "293255ecc5178f2c3df037ecddfcec280984e3edc158cce6bae436407e63be2e",
       "bones": 49,
-      "primitives": 233,
-      "triangles": 551408,
+      "primitives": 266,
+      "triangles": 634256,
       "slots": [
         "brows",
         "eyes",
@@ -3007,8 +3007,8 @@
         "backAccessory",
         "handAccessory"
       ],
-      "weightSamples": 305314,
-      "vertexSamples": 2042588,
+      "weightSamples": 348000,
+      "vertexSamples": 2328478,
       "contactSamples": 210,
       "motionChecks": {
         "Walk": {

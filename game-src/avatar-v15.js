@@ -23,7 +23,7 @@ export function createAvatarV15(THREE, asset, options = {}) {
   let state = defaults();
   actor.figure.userData.profile = profile;
   actor.figure.userData.fixedAppearance = false;
-  const morphs={faceShape:{round:'faceRound',angular:'faceAngular'},eyeShape:{almond:'eyeAlmond',round:'eyeRound'},noseShape:{broad:'noseBroad',defined:'noseDefined'},mouthShape:{wide:'mouthWide',full:'mouthFull'},earShape:{prominent:'earProminent',tapered:'earTapered'}};
+  const morphs={faceShape:{round:'faceRound',angular:'faceAngular',square:'faceSquare',long:'faceLong',senior:'faceSenior',prabowow:'facePrabowow'},eyeShape:{almond:'eyeAlmond',round:'eyeRound'},noseShape:{broad:'noseBroad',defined:'noseDefined'},mouthShape:{wide:'mouthWide',full:'mouthFull'},earShape:{prominent:'earProminent',tapered:'earTapered'}};
   actor.figure.userData.customization = {
     get: () => ({...state}),
     set(patch) {

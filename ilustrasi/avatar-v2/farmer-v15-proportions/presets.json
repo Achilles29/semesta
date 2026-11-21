@@ -1024,7 +1024,7 @@
   },
   {
     "id": "v15-prabowo-inspired",
-    "name": "Prabowo - Dasar Safari",
+    "name": "Prabowow - Presiden (parodi)",
     "collection": "v15",
     "config": {
       "model": "v15",
@@ -1034,10 +1034,10 @@
         "hairColor": "dark",
         "hairStyle": "sidePart",
         "palette": "indigo",
-        "faceShape": "round",
+        "faceShape": "prabowow",
         "eyeShape": "almond",
         "eyeColor": "brown",
-        "noseShape": "broad",
+        "noseShape": "natural",
         "mouthShape": "natural",
         "earShape": "natural",
         "topStyle": "safariWhite",
@@ -1054,6 +1054,108 @@
       },
       "presetId": "v15-prabowo-inspired"
     },
-    "description": "Dasar karakter terinspirasi Prabowo: tubuh berisi, rambut belah samping, safari putih. Wajah masih generik untuk pengembangan berikutnya."
+    "description": "Wajah senior khusus: pipi penuh, rahang lebar, kelopak berat, hidung membulat. Safari putih regular dan peci."
+  },
+  {
+    "id": "v15-prabowow-casual",
+    "name": "Prabowow - Santai",
+    "collection": "v15",
+    "config": {
+      "model": "v15",
+      "profileId": "male-heavy",
+      "appearance": {
+        "skinTone": "light",
+        "hairColor": "dark",
+        "hairStyle": "sidePart",
+        "palette": "indigo",
+        "faceShape": "prabowow",
+        "eyeShape": "almond",
+        "eyeColor": "brown",
+        "noseShape": "natural",
+        "mouthShape": "natural",
+        "earShape": "natural",
+        "topStyle": "shirt",
+        "outerwearStyle": "none",
+        "bottomStyle": "jeans",
+        "shoeStyle": "sneakers",
+        "headAccessory": "none",
+        "faceAccessory": "none",
+        "earAccessory": "none",
+        "handAccessory": "watch",
+        "backAccessory": "none",
+        "accessoryChest": "off",
+        "accessoryWaist": "off"
+      },
+      "presetId": "v15-prabowow-casual"
+    },
+    "description": "Prabowow - Santai"
+  },
+  {
+    "id": "v15-police",
+    "name": "Bima - Polisi",
+    "collection": "v15",
+    "config": {
+      "model": "v15",
+      "profileId": "male-balanced",
+      "appearance": {
+        "skinTone": "light",
+        "hairColor": "dark",
+        "hairStyle": "sidePart",
+        "palette": "indigo",
+        "faceShape": "square",
+        "eyeShape": "almond",
+        "eyeColor": "brown",
+        "noseShape": "natural",
+        "mouthShape": "natural",
+        "earShape": "natural",
+        "topStyle": "police",
+        "outerwearStyle": "none",
+        "bottomStyle": "police",
+        "shoeStyle": "dress",
+        "headAccessory": "cap",
+        "faceAccessory": "none",
+        "earAccessory": "none",
+        "handAccessory": "watch",
+        "backAccessory": "none",
+        "accessoryChest": "off",
+        "accessoryWaist": "off"
+      },
+      "presetId": "v15-police"
+    },
+    "description": "Bima - Polisi"
+  },
+  {
+    "id": "v15-denim-slim",
+    "name": "Raka - Denim Slim",
+    "collection": "v15",
+    "config": {
+      "model": "v15",
+      "profileId": "male-balanced",
+      "appearance": {
+        "skinTone": "light",
+        "hairColor": "dark",
+        "hairStyle": "spiky",
+        "palette": "indigo",
+        "faceShape": "long",
+        "eyeShape": "almond",
+        "eyeColor": "brown",
+        "noseShape": "natural",
+        "mouthShape": "natural",
+        "earShape": "natural",
+        "topStyle": "shirt",
+        "outerwearStyle": "none",
+        "bottomStyle": "jeansSlim",
+        "shoeStyle": "sneakers",
+        "headAccessory": "none",
+        "faceAccessory": "none",
+        "earAccessory": "none",
+        "handAccessory": "watch",
+        "backAccessory": "none",
+        "accessoryChest": "off",
+        "accessoryWaist": "off"
+      },
+      "presetId": "v15-denim-slim"
+    },
+    "description": "Raka - Denim Slim"
   }
 ]

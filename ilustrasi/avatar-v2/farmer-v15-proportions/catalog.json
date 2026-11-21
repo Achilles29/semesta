@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "contract": "semesta-arka-v15",
   "motionRevision": "v15-cmu-locomotion-2-head",
   "defaultProfile": "male-balanced",
@@ -284,7 +284,7 @@
     "license": "provenance required per asset",
     "ready": "only ready assets can appear as selectable options"
   },
-  "variationRevision": "v15-wardrobe-3",
+  "variationRevision": "v15-wardrobe-4-character",
   "fields": {
     "skinTone": {
       "label": "Warna kulit",
@@ -343,7 +343,11 @@
       "options": {
         "oval": "Oval",
         "round": "Bulat",
-        "angular": "Tegas"
+        "angular": "Tegas",
+        "square": "Rahang persegi",
+        "long": "Wajah panjang",
+        "senior": "Senior",
+        "prabowow": "Prabowow (parodi)"
       }
     },
     "eyeShape": {
@@ -402,7 +406,8 @@
         "tactical": "Kemeja taktis",
         "camo": "Kemeja loreng woodland",
         "civilService": "Kemeja PNS khaki",
-        "safariWhite": "Kemeja safari putih"
+        "safariWhite": "Kemeja safari putih",
+        "police": "Kemeja polisi abu-abu"
       }
     },
     "outerwearStyle": {
@@ -418,15 +423,19 @@
       "label": "Celana",
       "default": "straight",
       "options": {
-        "straight": "Celana lurus",
+        "straight": "Regular lurus",
         "relaxed": "Loose / longgar",
         "wide": "Wide-leg / lebar",
         "cargo": "Cargo bersaku",
-        "fitted": "Regular tapered",
-        "tactical": "Celana taktis longgar",
-        "camo": "Celana loreng cargo",
-        "civilService": "Celana PNS lurus",
-        "safariWhite": "Celana safari putih"
+        "fitted": "Tapered pas badan",
+        "tactical": "Celana taktis tapered",
+        "camo": "Celana tentara loreng",
+        "civilService": "Celana PNS regular",
+        "safariWhite": "Celana safari putih regular",
+        "slim": "Slim / ketat",
+        "jeans": "Jeans denim regular",
+        "jeansSlim": "Jeans denim slim",
+        "police": "Celana polisi regular"
       }
     },
     "shoeStyle": {
@@ -509,7 +518,8 @@
     "tactical",
     "camo",
     "civilService",
-    "safariWhite"
+    "safariWhite",
+    "police"
   ],
   "hairCoveringHeadwear": [
     "cap",

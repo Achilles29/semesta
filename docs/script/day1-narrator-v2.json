@@ -1,0 +1,740 @@
+{
+  "actor": "narrator",
+  "voiceId": "5f9c155f4108437f970c308c95b06e11",
+  "voiceName": "Ewan - Bright & Energetic",
+  "lines": [
+    "Hari pertama Republik Weka Weka!",
+    "Presidennya sudah siap. Warganya… belum ada!",
+    "Baru tiga warga. Keinginannya sudah beda-beda."
+  ],
+  "language": "id",
+  "model": "server-selected (not reported)",
+  "submittedText": "Hari pertama Republik Weka Weka!\n\nPresidennya sudah siap. Warganya… belum ada!\n\nBaru tiga warga. Keinginannya sudah beda-beda.",
+  "review": "Timing and signal checks only; listening review pending.",
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/5f9c155f4108437f970c308c95b06e11/id=bc2ceb1708f04ba09d123fc269994141.wav",
+  "duration": 9.4243537414966,
+  "original_characters": [
+    {
+      "text": "H",
+      "start_time": 0.299,
+      "end_time": 0.341
+    },
+    {
+      "text": "a",
+      "start_time": 0.341,
+      "end_time": 0.384
+    },
+    {
+      "text": "r",
+      "start_time": 0.384,
+      "end_time": 0.427
+    },
+    {
+      "text": "i",
+      "start_time": 0.427,
+      "end_time": 0.469
+    },
+    {
+      "text": " ",
+      "start_time": 0.469,
+      "end_time": 0.512
+    },
+    {
+      "text": "p",
+      "start_time": 0.512,
+      "end_time": 0.555
+    },
+    {
+      "text": "e",
+      "start_time": 0.555,
+      "end_time": 0.597
+    },
+    {
+      "text": "r",
+      "start_time": 0.597,
+      "end_time": 0.64
+    },
+    {
+      "text": "t",
+      "start_time": 0.64,
+      "end_time": 0.683
+    },
+    {
+      "text": "a",
+      "start_time": 0.683,
+      "end_time": 0.711
+    },
+    {
+      "text": "m",
+      "start_time": 0.711,
+      "end_time": 0.74
+    },
+    {
+      "text": "a",
+      "start_time": 0.74,
+      "end_time": 0.768
+    },
+    {
+      "text": " ",
+      "start_time": 0.768,
+      "end_time": 1.024
+    },
+    {
+      "text": "R",
+      "start_time": 1.024,
+      "end_time": 1.095
+    },
+    {
+      "text": "e",
+      "start_time": 1.095,
+      "end_time": 1.166
+    },
+    {
+      "text": "p",
+      "start_time": 1.166,
+      "end_time": 1.237
+    },
+    {
+      "text": "u",
+      "start_time": 1.237,
+      "end_time": 1.28
+    },
+    {
+      "text": "b",
+      "start_time": 1.28,
+      "end_time": 1.323
+    },
+    {
+      "text": "l",
+      "start_time": 1.323,
+      "end_time": 1.387
+    },
+    {
+      "text": "i",
+      "start_time": 1.387,
+      "end_time": 1.451
+    },
+    {
+      "text": "k",
+      "start_time": 1.451,
+      "end_time": 1.493
+    },
+    {
+      "text": " ",
+      "start_time": 1.493,
+      "end_time": 1.536
+    },
+    {
+      "text": "W",
+      "start_time": 1.536,
+      "end_time": 1.6
+    },
+    {
+      "text": "e",
+      "start_time": 1.6,
+      "end_time": 1.664
+    },
+    {
+      "text": "k",
+      "start_time": 1.664,
+      "end_time": 1.707
+    },
+    {
+      "text": "a",
+      "start_time": 1.707,
+      "end_time": 1.749
+    },
+    {
+      "text": " ",
+      "start_time": 1.749,
+      "end_time": 1.92
+    },
+    {
+      "text": "W",
+      "start_time": 1.92,
+      "end_time": 2.261
+    },
+    {
+      "text": "e",
+      "start_time": 2.261,
+      "end_time": 2.603
+    },
+    {
+      "text": "k",
+      "start_time": 2.603,
+      "end_time": 2.645
+    },
+    {
+      "text": "a",
+      "start_time": 2.645,
+      "end_time": 2.688
+    },
+    {
+      "text": "!",
+      "start_time": 2.688,
+      "end_time": 2.859
+    },
+    {
+      "text": "\n",
+      "start_time": 2.859,
+      "end_time": 3.029
+    },
+    {
+      "text": "\n",
+      "start_time": 3.029,
+      "end_time": 3.2
+    },
+    {
+      "text": "P",
+      "start_time": 3.2,
+      "end_time": 3.232
+    },
+    {
+      "text": "r",
+      "start_time": 3.232,
+      "end_time": 3.264
+    },
+    {
+      "text": "e",
+      "start_time": 3.264,
+      "end_time": 3.296
+    },
+    {
+      "text": "s",
+      "start_time": 3.296,
+      "end_time": 3.328
+    },
+    {
+      "text": "i",
+      "start_time": 3.328,
+      "end_time": 3.392
+    },
+    {
+      "text": "d",
+      "start_time": 3.392,
+      "end_time": 3.456
+    },
+    {
+      "text": "e",
+      "start_time": 3.456,
+      "end_time": 3.499
+    },
+    {
+      "text": "n",
+      "start_time": 3.499,
+      "end_time": 3.541
+    },
+    {
+      "text": "n",
+      "start_time": 3.541,
+      "end_time": 3.563
+    },
+    {
+      "text": "y",
+      "start_time": 3.563,
+      "end_time": 3.584
+    },
+    {
+      "text": "a",
+      "start_time": 3.584,
+      "end_time": 3.669
+    },
+    {
+      "text": " ",
+      "start_time": 3.669,
+      "end_time": 3.712
+    },
+    {
+      "text": "s",
+      "start_time": 3.712,
+      "end_time": 3.733
+    },
+    {
+      "text": "u",
+      "start_time": 3.733,
+      "end_time": 3.755
+    },
+    {
+      "text": "d",
+      "start_time": 3.755,
+      "end_time": 3.797
+    },
+    {
+      "text": "a",
+      "start_time": 3.797,
+      "end_time": 3.819
+    },
+    {
+      "text": "h",
+      "start_time": 3.819,
+      "end_time": 3.84
+    },
+    {
+      "text": " ",
+      "start_time": 3.84,
+      "end_time": 3.883
+    },
+    {
+      "text": "s",
+      "start_time": 3.883,
+      "end_time": 3.968
+    },
+    {
+      "text": "i",
+      "start_time": 3.968,
+      "end_time": 4.053
+    },
+    {
+      "text": "a",
+      "start_time": 4.053,
+      "end_time": 4.117
+    },
+    {
+      "text": "p",
+      "start_time": 4.117,
+      "end_time": 4.181
+    },
+    {
+      "text": ".",
+      "start_time": 4.181,
+      "end_time": 4.416
+    },
+    {
+      "text": " ",
+      "start_time": 4.416,
+      "end_time": 4.651
+    },
+    {
+      "text": "W",
+      "start_time": 4.651,
+      "end_time": 4.693
+    },
+    {
+      "text": "a",
+      "start_time": 4.693,
+      "end_time": 4.736
+    },
+    {
+      "text": "r",
+      "start_time": 4.736,
+      "end_time": 4.779
+    },
+    {
+      "text": "g",
+      "start_time": 4.779,
+      "end_time": 4.864
+    },
+    {
+      "text": "a",
+      "start_time": 4.864,
+      "end_time": 4.907
+    },
+    {
+      "text": "n",
+      "start_time": 4.907,
+      "end_time": 4.949
+    },
+    {
+      "text": "y",
+      "start_time": 4.949,
+      "end_time": 4.992
+    },
+    {
+      "text": "a",
+      "start_time": 4.992,
+      "end_time": 5.163
+    },
+    {
+      "text": "…",
+      "start_time": 5.163,
+      "end_time": 5.376
+    },
+    {
+      "text": " ",
+      "start_time": 5.376,
+      "end_time": 5.589
+    },
+    {
+      "text": "b",
+      "start_time": 5.589,
+      "end_time": 5.632
+    },
+    {
+      "text": "e",
+      "start_time": 5.632,
+      "end_time": 5.675
+    },
+    {
+      "text": "l",
+      "start_time": 5.675,
+      "end_time": 5.717
+    },
+    {
+      "text": "u",
+      "start_time": 5.717,
+      "end_time": 5.76
+    },
+    {
+      "text": "m",
+      "start_time": 5.76,
+      "end_time": 5.8027
+    },
+    {
+      "text": " ",
+      "start_time": 5.803,
+      "end_time": 5.845
+    },
+    {
+      "text": "a",
+      "start_time": 5.845,
+      "end_time": 5.902
+    },
+    {
+      "text": "d",
+      "start_time": 5.902,
+      "end_time": 5.959
+    },
+    {
+      "text": "a",
+      "start_time": 5.959,
+      "end_time": 6.016
+    },
+    {
+      "text": "!",
+      "start_time": 6.016,
+      "end_time": 6.172
+    },
+    {
+      "text": "\n",
+      "start_time": 6.172,
+      "end_time": 6.329
+    },
+    {
+      "text": "\n",
+      "start_time": 6.329,
+      "end_time": 6.485
+    },
+    {
+      "text": "B",
+      "start_time": 6.485,
+      "end_time": 6.542
+    },
+    {
+      "text": "a",
+      "start_time": 6.542,
+      "end_time": 6.599
+    },
+    {
+      "text": "r",
+      "start_time": 6.599,
+      "end_time": 6.656
+    },
+    {
+      "text": "u",
+      "start_time": 6.656,
+      "end_time": 6.741
+    },
+    {
+      "text": " ",
+      "start_time": 6.741,
+      "end_time": 6.784
+    },
+    {
+      "text": "t",
+      "start_time": 6.784,
+      "end_time": 6.827
+    },
+    {
+      "text": "i",
+      "start_time": 6.827,
+      "end_time": 6.869
+    },
+    {
+      "text": "g",
+      "start_time": 6.869,
+      "end_time": 6.912
+    },
+    {
+      "text": "a",
+      "start_time": 6.912,
+      "end_time": 6.9547
+    },
+    {
+      "text": " ",
+      "start_time": 6.955,
+      "end_time": 6.997
+    },
+    {
+      "text": "w",
+      "start_time": 6.997,
+      "end_time": 7.054
+    },
+    {
+      "text": "a",
+      "start_time": 7.054,
+      "end_time": 7.111
+    },
+    {
+      "text": "r",
+      "start_time": 7.111,
+      "end_time": 7.168
+    },
+    {
+      "text": "g",
+      "start_time": 7.168,
+      "end_time": 7.232
+    },
+    {
+      "text": "a",
+      "start_time": 7.232,
+      "end_time": 7.296
+    },
+    {
+      "text": ".",
+      "start_time": 7.296,
+      "end_time": 7.573
+    },
+    {
+      "text": " ",
+      "start_time": 7.573,
+      "end_time": 7.851
+    },
+    {
+      "text": "K",
+      "start_time": 7.851,
+      "end_time": 7.893
+    },
+    {
+      "text": "e",
+      "start_time": 7.893,
+      "end_time": 7.979
+    },
+    {
+      "text": "i",
+      "start_time": 7.979,
+      "end_time": 8.007
+    },
+    {
+      "text": "n",
+      "start_time": 8.007,
+      "end_time": 8.036
+    },
+    {
+      "text": "g",
+      "start_time": 8.036,
+      "end_time": 8.064
+    },
+    {
+      "text": "i",
+      "start_time": 8.064,
+      "end_time": 8.128
+    },
+    {
+      "text": "n",
+      "start_time": 8.128,
+      "end_time": 8.192
+    },
+    {
+      "text": "a",
+      "start_time": 8.192,
+      "end_time": 8.235
+    },
+    {
+      "text": "n",
+      "start_time": 8.235,
+      "end_time": 8.277
+    },
+    {
+      "text": "n",
+      "start_time": 8.277,
+      "end_time": 8.299
+    },
+    {
+      "text": "y",
+      "start_time": 8.299,
+      "end_time": 8.32
+    },
+    {
+      "text": "a",
+      "start_time": 8.32,
+      "end_time": 8.3627
+    },
+    {
+      "text": " ",
+      "start_time": 8.363,
+      "end_time": 8.405
+    },
+    {
+      "text": "s",
+      "start_time": 8.405,
+      "end_time": 8.448
+    },
+    {
+      "text": "u",
+      "start_time": 8.448,
+      "end_time": 8.491
+    },
+    {
+      "text": "d",
+      "start_time": 8.491,
+      "end_time": 8.533
+    },
+    {
+      "text": "a",
+      "start_time": 8.533,
+      "end_time": 8.576
+    },
+    {
+      "text": "h",
+      "start_time": 8.576,
+      "end_time": 8.6187
+    },
+    {
+      "text": " ",
+      "start_time": 8.619,
+      "end_time": 8.661
+    },
+    {
+      "text": "b",
+      "start_time": 8.661,
+      "end_time": 8.69
+    },
+    {
+      "text": "e",
+      "start_time": 8.69,
+      "end_time": 8.718
+    },
+    {
+      "text": "d",
+      "start_time": 8.718,
+      "end_time": 8.747
+    },
+    {
+      "text": "a",
+      "start_time": 8.747,
+      "end_time": 8.832
+    },
+    {
+      "text": "-",
+      "start_time": 8.832,
+      "end_time": 8.875
+    },
+    {
+      "text": "b",
+      "start_time": 8.875,
+      "end_time": 8.932
+    },
+    {
+      "text": "e",
+      "start_time": 8.932,
+      "end_time": 8.988
+    },
+    {
+      "text": "d",
+      "start_time": 8.988,
+      "end_time": 9.045
+    },
+    {
+      "text": "a",
+      "start_time": 9.045,
+      "end_time": 9.131
+    },
+    {
+      "text": ".",
+      "start_time": 9.131,
+      "end_time": 9.224
+    }
+  ],
+  "original_words": [
+    {
+      "text": "Hari",
+      "start_time": 0.299,
+      "end_time": 0.469
+    },
+    {
+      "text": "pertama",
+      "start_time": 0.512,
+      "end_time": 0.768
+    },
+    {
+      "text": "Republik",
+      "start_time": 1.024,
+      "end_time": 1.493
+    },
+    {
+      "text": "Weka",
+      "start_time": 1.536,
+      "end_time": 1.749
+    },
+    {
+      "text": "Weka",
+      "start_time": 1.92,
+      "end_time": 2.688
+    },
+    {
+      "text": "Presidennya",
+      "start_time": 3.2,
+      "end_time": 3.669
+    },
+    {
+      "text": "sudah",
+      "start_time": 3.712,
+      "end_time": 3.84
+    },
+    {
+      "text": "siap",
+      "start_time": 3.883,
+      "end_time": 4.181
+    },
+    {
+      "text": "Warganya",
+      "start_time": 4.651,
+      "end_time": 5.163
+    },
+    {
+      "text": "belum",
+      "start_time": 5.589,
+      "end_time": 5.8027
+    },
+    {
+      "text": "ada",
+      "start_time": 5.845,
+      "end_time": 6.016
+    },
+    {
+      "text": "Baru",
+      "start_time": 6.485,
+      "end_time": 6.741
+    },
+    {
+      "text": "tiga",
+      "start_time": 6.784,
+      "end_time": 6.9547
+    },
+    {
+      "text": "warga",
+      "start_time": 6.997,
+      "end_time": 7.296
+    },
+    {
+      "text": "Keinginannya",
+      "start_time": 7.851,
+      "end_time": 8.3627
+    },
+    {
+      "text": "sudah",
+      "start_time": 8.405,
+      "end_time": 8.6187
+    },
+    {
+      "text": "beda",
+      "start_time": 8.661,
+      "end_time": 8.832
+    },
+    {
+      "text": "beda",
+      "start_time": 8.875,
+      "end_time": 9.131
+    }
+  ]
+}

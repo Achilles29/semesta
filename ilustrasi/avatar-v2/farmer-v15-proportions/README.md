@@ -1,3 +1,42 @@
+# Wardrobe 4 — karakter dan produksi Day 1
+
+Revisi aktif `v15-wardrobe-4-character`: tujuh bentuk wajah (termasuk persegi,
+panjang, senior dan Prabowow), 13 pilihan celana, seragam polisi tanpa insignia,
+serta preset Prabowow santai, Bima polisi dan Raka denim slim.
+
+Prabowow memakai morph identitas khusus untuk pipi, rahang, kelopak, hidung dan
+mulut. Ini interpretasi 3D bergaya game; kemiripan belum setara potret realistis.
+Referensi bentuk wajah: [foto BPMI Setpres/Rusman melalui Sekretariat Negara](https://setneg.go.id/baca/index/prabowo_subianto_dan_gibran_rakabuming_raka_resmi_dilantik_sebagai_presiden_dan_wakil_presiden_republik_indonesia).
+Foto referensi tidak dimasukkan sebagai tekstur atau aset game.
+
+Celana slim, tapered, regular, loose dan wide-leg memiliki geometri berbeda.
+Denim tersedia regular/slim; taktis, tentara loreng, polisi, PNS dan safari
+mempertahankan warna bahan masing-masing. PNS dan safari tidak lagi memakai
+volume longgar. Semua enam profil tubuh memiliki pilihan yang sama.
+
+Bangun ulang setelah wardrobe 3:
+
+```powershell
+foreach ($profileId in @('male-slim','male-balanced','male-heavy','female-slim','female-balanced','female-heavy')) {
+  blender -b --python tools/extend_avatar_v15_character.py -- --profile $profileId
+}
+python tools/package_avatar_v15_runtime.py
+node tools/test_avatar_v15.mjs
+node tools/test_avatar_v15_wardrobe.mjs
+node tools/test_avatar_v15_integration.mjs
+blender -b --python tools/render_avatar_v15_presets.py
+blender -b --python tools/render_avatar_v15_presets.py -- --bottoms
+blender -b --python tools/render_avatar_v15_presets.py -- --faces
+python tools/package_avatar_v15_release.py
+```
+
+Pembentukan ulang memakai koordinat sumber tersimpan sehingga tidak menyusutkan
+celana berulang kali. Tulang, bobot, dan klip jalan/lari tetap dipertahankan.
+Morph ekspresi terpisah dari identitas wajah. Render GLB diperiksa secara visual;
+pemeriksaan interaksi browser dan FPS GPU belum dilakukan.
+
+Catatan versi sebelumnya di bawah dipertahankan sebagai riwayat.
+
 # V15 - karakter aktif untuk game dan konten
 
 [Buka Studio Avatar](../../../admin/?view=avatars) atau [lihat 32 karakter](review.html).

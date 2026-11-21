@@ -1,11 +1,11 @@
 {
   "id": "male-slim",
   "passed": true,
-  "bytes": 36573092,
-  "sha256": "75b5926affad2bb12567ec2f23569e7e928cb9d0117629737f419cfe79a6a86e",
+  "bytes": 40655812,
+  "sha256": "6b34c698520d407b2daf5730a9b878370835242f60646587e43de567e0da5add",
   "bones": 49,
-  "primitives": 233,
-  "triangles": 545176,
+  "primitives": 266,
+  "triangles": 625272,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 301979,
-  "vertexSamples": 2019423,
+  "weightSamples": 343267,
+  "vertexSamples": 2295821,
   "contactSamples": 208,
   "motionChecks": {
     "Walk": {

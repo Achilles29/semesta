@@ -1,11 +1,11 @@
 {
   "id": "female-heavy",
   "passed": true,
-  "bytes": 37130224,
-  "sha256": "bd703bf40dc924680f262826ad37e7548ad52c46856811dcc0c20b3f91f51d9b",
+  "bytes": 41535100,
+  "sha256": "293255ecc5178f2c3df037ecddfcec280984e3edc158cce6bae436407e63be2e",
   "bones": 49,
-  "primitives": 233,
-  "triangles": 551408,
+  "primitives": 266,
+  "triangles": 634256,
   "slots": [
     "brows",
     "eyes",
@@ -24,8 +24,8 @@
     "backAccessory",
     "handAccessory"
   ],
-  "weightSamples": 305314,
-  "vertexSamples": 2042588,
+  "weightSamples": 348000,
+  "vertexSamples": 2328478,
   "contactSamples": 210,
   "motionChecks": {
     "Walk": {

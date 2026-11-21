@@ -6,6 +6,7 @@ import {day1OpeningScenario} from './production-day1-opening.js';
 import {day1Scenario,day1Caption,DAY1_SPEAKERS} from './production-day1.js';
 import day1Audio from './production-day1-audio.json' with {type:'json'};
 import {hasStoryAudio,loadStoryAudio} from './production-story-audio.js';
+import {migrateProductionDraft} from './production-draft-migration.js';
 
 const STORAGE='semesta.production.workspace.v1';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -16,7 +17,7 @@ const filename=title=>(title.normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g,'-').r
 export function mountProductionStudio(host,{createStage=createProductionStage,createRenderer=createProductionRenderer,encode=encodeMp4,mixAudio=mixProductionAudio,loadStory=loadStoryAudio,initialScenario=null,persist=true,isActive=()=>host.closest('.admin-view')?.classList.contains('active')??host.isConnected}={}){
   const events=new AbortController(),listen=(el,type,fn)=>el.addEventListener(type,fn,{signal:events.signal});
   let scenario=initialScenario?validateScenario(initialScenario):day1Scenario(),storageNotice='';
-  if(persist&&!initialScenario)try{const saved=localStorage.getItem(STORAGE);if(saved){const draft=validateScenario(JSON.parse(saved));if(draft.shots.length||localStorage.getItem(STORAGE+'.empty-intent')==='true')scenario=draft;}}catch{storageNotice='Draf lokal tidak dapat dibaca. Day 1 bawaan dibuka.';}
+  if(persist&&!initialScenario)try{const saved=localStorage.getItem(STORAGE);if(saved){const draft=validateScenario(migrateProductionDraft(JSON.parse(saved)));if(draft.shots.length||localStorage.getItem(STORAGE+'.empty-intent')==='true')scenario=draft;}}catch{storageNotice='Draf lokal tidak dapat dibaca. Day 1 bawaan dibuka.';}
   let stage=null,renderer=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false;
   let audioContext=null,audioSource=null,mixed=null,exportAbort=null,downloadUrl=null,format='portrait',quality='1080',guides=false,playVersion=0,audioLoading=0;
   const audioVersion=[0,0];
