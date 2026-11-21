@@ -1,67 +1,153 @@
-# Day 1 — Presiden sudah ada, rakyatnya belum
+# Day 1 — Negara baru buka. Warga mau bikin apa?
 
-Status: **konsep dan draf blocking pembuka**, belum episode final. Presiden parodi bernama **Prabowow** adalah warga pertama Republik Wkwkwk. Tokoh ini memakai preset safari putih/peci yang tersedia; bentuk wajah preset masih generik.
+Status: **revisi naskah dan rencana produksi**, target sekitar **80 detik**, vertikal 9:16. Waktu di bawah adalah estimasi, belum hasil penyelarasan rekaman suara. Konsep ini menggantikan cerita 45 detik tentang biaya pendaftaran. Video lengkap belum dibuat. Tombol **Pembuka Prabowow** di studio masih memuat draf pembuka lama sekitar 8,49 detik; belum menjalankan seluruh skenario ini.
 
-## Pembuka yang menjadi lelucon
+## Inti cerita
 
-Mulai langsung dari Prabowow berjoget. Jangan mendahuluinya dengan logo atau pengenalan negara. Teks pertama: **PRESIDEN SUDAH ADA.** Setelah sekitar empat detik, musik terputus, kamera melebar ke halaman kosong, lalu teks berubah menjadi **RAKYATNYA BELUM.**
+Prabowow adalah warga pertama sekaligus presiden parodi Republik Wkwkwk. Ia merayakan pembukaan negara sebelum warga lain datang. Dua warga kemudian datang dengan kebutuhan berbeda: tempat tinggal dan tempat berkegiatan. Lapangan yang masih kosong membuat mereka sadar bahwa negara ini harus dibangun bersama.
 
-Prabowow: “Lho… rakyat saya mana?”
+Penonton menjadi warga yang ikut menentukan **pembangunan, acara, aturan, fasilitas, dan kegiatan republik**. Day 1 membuka usulan; dukungan warga menentukan yang mulai dikerjakan di Day 2. Hasil dan akibatnya menjadi cerita berikutnya. Jangan menjanjikan semua usulan dilaksanakan atau bangunan besar selesai satu episode.
 
-Joget mempunyai fungsi cerita: presiden terlalu bersemangat menyambut rakyat yang belum datang. Kontras pesta dan halaman kosong menjadi lelucon pembuka. Gerakan berakhir cepat agar konflik segera dimulai.
+Hook: **PRESIDEN SUDAH ADA. RAKYATNYA BELUM.** Pada akhir episode dua warga sudah datang, penonton diajak bergabung, dan pertanyaan berikutnya jelas: **apa yang perlu kita lakukan pertama?**
 
-## Alur usulan, sekitar 45 detik
+## Pemeran
 
-| Waktu | Visual dan dialog |
-|---|---|
-| 0–4 | Prabowow berjoget delapan ketukan. Safari putih, peci, ekspresi senang. Teks: **PRESIDEN SUDAH ADA.** |
-| 4–7 | Musik terputus. Kamera lebar: belum ada orang lain. **RAKYATNYA BELUM.** Prabowow: “Lho… rakyat saya mana?” |
-| 7–12 | Warga datang. “Pak, boleh jadi warga?” Prabowow langsung antusias: “Boleh! Gratis!” |
-| 12–18 | Orang ketiga membawa papan biaya dan menyela: “Pendaftaran lima ribu.” Prabowow: “Kamu siapa?” Orang itu: “Panitia.” Label kecil: **DATANG SENDIRI. BELUM DIREKRUT.** |
-| 18–25 | Warga: “Katanya gratis?” Petugas: “Jadi warganya. Daftarnya bayar.” Kamera menahan ekspresi tidak percaya warga sejenak. |
-| 25–33 | Prabowow: “Hapus semua biaya!” Petugas mengeluarkan kertas baru: “Siap. Biaya penghapusan, lima ribu.” Prabowow: “STOP.” |
-| 33–45 | Prabowow menghadap penonton: “Kalian yang bikin aturan pertama. Tulis satu aturan di komentar. Satu usulan kita jalankan di Day 2.” Teks penutup: **FOLLOW → LIHAT ATURAN PILIHAN DI DAY 2.** |
+| Tokoh | Penampilan dan pembawaan | Fungsi cerita |
+|---|---|---|
+| Prabowow | Safari putih, celana longgar, peci hitam; antusias, ramah, sedikit salah tingkah saat ditanya kantor. Suara karakter fiktif. | Warga pertama; menyambut pendatang dan membuka keputusan kepada warga. |
+| Sari | Atasan kasual warna hangat, celana longgar gelap, sepatu sederhana; penasaran dan praktis. | Warga kedua; mewakili kebutuhan sehari-hari. |
+| Joko | Jaket ringan hijau/biru, celana kargo longgar, sepatu kasual; santai dan bersemangat. | Warga ketiga; mengusulkan acara dan menutup cerita dengan komedi. |
 
-Presiden tetap warga pertama; warga kedua datang setelah pembuka, lalu petugas menjadi pendatang ketiga. Kemunculan panitia yang belum direkrut adalah lelucon yang sengaja ditandai. Dialog tidak dimaksudkan sebagai kutipan atau kejadian nyata. Gunakan label **PARODI FIKTIF** pada video.
+Nama Sari/Joko hanya identitas produksi, tanpa adegan perkenalan nama. Tidak ada kerumunan lain. Label kecil **PARODI FIKTIF** tetap terlihat; dialog bukan kutipan orang nyata.
 
-## Gerakan yang sudah dibuat
+## Timeline bersama: dialog, gerakan, latar, dan suara
 
-- Aksi `Dance` tersedia sebagai **Joget Prabowow (parodi)** di editor adegan.
-- Tangan menekuk, kepalan santai, pompa kiri/kanan bergantian di depan dada.
-- Lutut memantul kecil, berat badan bergeser, kaki melakukan tap rendah bergantian. Kaki yang menapak dijaga melalui IK, bukan menggeser seluruh model.
-- Kepala mempertahankan orientasi tegak. Tidak mengubah animasi Walk/Run yang sudah disetujui.
-- Koreografi orisinal bergaya parodi, **bukan motion capture atau tiruan identik gerakan orang nyata**.
-- Acuan animasi 130 BPM dengan delapan ketukan (sekitar 3,69 detik), dapat diatur 70–180 BPM di editor. Angka ini **bukan pengukuran tempo rekaman Oke Gas**. Sesuaikan tempo/durasi setelah potongan audio final dipilih.
-- Tombol **Pembuka Prabowow** memuat draf tiga adegan sekitar 8,49 detik. Adegan lanjutan dalam tabel di atas belum dibuat menjadi episode lengkap.
+| Waktu | Dialog persis | Gerakan dan kamera | Teks dan suara |
+|---|---|---|---|
+| 00–04 | — | Kamera sedang memperlihatkan tubuh hingga kaki. Prabowow sudah berjoget sejak frame pertama: langkah kecil, lutut memantul ringan, tangan menekuk, kepala tegak. Latar terlihat sebagian, tanpa orang lain. | **PRESIDEN SUDAH ADA.** Potongan hook Oke Gas; tanpa logo pembuka. |
+| 04–09 | **Prabowow:** “Lho… rakyatnya mana?” | Cut ke kamera lebar: lapangan kosong. Joget mereda dan berhenti; ia menoleh mencari orang. Beri satu ketukan hening sebelum dialog. | **RAKYATNYA BELUM.** Musik berhenti tepat saat cut; tersisa angin dan burung pelan. |
+| 09–16 | **Sari:** “Saya, Pak. Ini bener Republik Wkwkwk?” **Prabowow:** “Betul. Baru buka!” | Sari masuk dari jalur kiri yang sebelumnya kosong. “Saya, Pak” boleh saat berjalan; pertanyaan utama setelah berhenti. Prabowow berbalik dan menyambut dengan telapak tangan terbuka. Kamera berdua. | Subtitle mengikuti giliran bicara. Suara langkah tepat pada pijakan; belum ada musik. |
+| 16–23 | **Sari:** “Kantornya mana?” **Prabowow:** “Sementara, ini dulu.” | Sari memandang sekeliling. Presiden menunjuk kursi plastik di bawah pohon. Kamera memperlihatkan kursi setelah kata “ini”; tahan reaksi Sari sekitar satu detik. Ia melirik kursi lalu kembali ke presiden. | Papan kecil di samping kursi: **KANTOR SEMENTARA**. Tanpa efek tawa. Kursi sudah ada sejak awal. |
+| 23–31 | **Joko:** “Pak, lapangan konsernya di mana?” **Sari:** “Rumah aja belum ada.” | Joko masuk lewat jalur kiri yang sama; Sari memberi ruang. Kamera bertiga. Joko menunjuk lahan dengan antusias; Sari membalas datar, Joko menurunkan tangan. Tahan reaksinya sebentar. | Ambience berlanjut. Jangan tampilkan bangunan konser atau rumah yang belum ada. |
+| 31–38 | **Prabowow:** “Nah, makanya kita bangun bareng. Mulai dari yang warga butuhkan.” | Presiden melihat kedua warga lalu menyapu telapak tangan ke lapangan. Nada mengajak. Kamera sedang bertiga; lahan kosong tetap terlihat. | Instrumental ringan opsional masuk pelan setelah “Nah”. Tanpa vokal lagu di bawah dialog. |
+| 38–47 | **Sari:** “Berarti warga yang pilih mau bangun apa?” **Prabowow:** “Iya. Mau rumah, warung, atau jalan dulu?” | Sari memastikan maksudnya; presiden mengangguk sebelum menjawab. Kamera mengikuti pembicara tanpa berpindah sisi. Lahan tetap kosong. | Kartu sketsa **RUMAH?**, **WARUNG?**, **JALAN?** muncul bergantian setelah kata terkait terucap. Label kecil **USULAN**. |
+| 47–56 | **Joko:** “Kalau lomba sama konser?” **Prabowow:** “Warga juga yang usul. Aturan dan kegiatan lainnya juga.” | Joko kembali antusias; presiden mengangguk. Sari menyimak. Ia mengingatkan kebutuhan dasar, bukan menolak acara selamanya. | Kartu **ACARA?**, lalu **ATURAN & KEGIATAN?** bergantian setelah disebut. Kartu sebelumnya sudah hilang. |
+| 56–66 | **Prabowow:** “Kalian juga warga sini. Tulis satu usulan dan alasannya. Mau bangun apa, atau bikin acara apa?” | Presiden beralih dari warga ke kamera. Sari dan Joko mengikuti arah pandang secara bertahap. Kamera sedikit mendekat; ketiganya tetap terlihat. | Kartu usulan hilang. Teks utama: **REPUBLIK INI MAU DIBIKIN APA DULU?** Subtitle tetap mengikuti ujaran. |
+| 66–74 | **Prabowow:** “Dukung usulan favoritmu. Pilihan warga kita mulai kerjakan di Day Dua.” | Kamera tetap. Satu gestur telapak tangan ke penonton; warga mengangguk kecil setelah kalimat selesai. Tahan pandangan sejenak. | **USULKAN → DUKUNG → KITA WUJUDKAN**, lalu berganti **FOLLOW — LIHAT HASILNYA DI DAY 2.** |
+| 74–80 | **Joko:** “Sambil nunggu, boleh joget?” **Prabowow:** “Boleh!” | Joko bertanya kepada presiden. Setelah jawaban, keduanya mulai joget kecil; Sari tersenyum lalu ikut satu langkah. Kamera melebar agar kaki terbaca. Akhiri saat mereka masih bergerak. | Musik pembuka kembali setelah “Boleh!”, menyambung lelucon awal. Teks follow bertahan; tidak ada pertanyaan baru. |
 
-## Backsound yang ditemukan
+Dialog berjumlah 95 kata dalam 16 giliran bicara. Waktu menyediakan ruang untuk langkah, pergantian pembicara, reaksi, kartu usulan, dan musik. Durasi final mengikuti pembacaan natural; jangan sengaja memperlambat dialog atau menambah keheningan untuk memenuhi angka 80 detik. Jika hasil terasa lambat, rapatkan perpindahan dan hold menuju sekitar 75 detik; jika terlalu padat, beri ruang tambahan tanpa mempercepat suara.
 
-Pilihan utama: **DJ Tabrak-Tabrak Masuk (Oke Gas 2) — Richard Jersey**, [video musik resmi](https://www.youtube.com/watch?v=IP7_qN9qN-c), [rilis audio kanal artis](https://www.youtube.com/watch?v=RxzBHZ7KCzg).
+## Rencana latar: lapangan nol Republik Wkwkwk
 
-Versi lain yang juga terkait referensi pengguna: [Oke Gas Prabowo Gibran Paling Pas — Richard Jersey](https://www.youtube.com/watch?v=jwYRwOj9RdA).
+Satu lokasi luar ruang pada pagi menjelang siang, warna hangat dan bayangan lembut. Cahaya/cuaca tetap sepanjang episode. Lapangan menjadi lokasi berulang yang berkembang mengikuti keputusan warga.
 
-Gunakan potongan hook untuk pembuka saja, lalu cut tepat saat kamera memperlihatkan halaman kosong. Belum ada timestamp potongan final yang ditetapkan atau file lagu yang ditanamkan pada proyek. Tautan resmi merupakan rujukan lagu, bukan bukti lisensi untuk membundel rekamannya dalam unduhan MP4.
+Dilihat dari kamera utama:
 
-Untuk publikasi, cari judul/artis pada pemilih sound platform tujuan dan pastikan tersedia untuk akun tersebut; jangan menganggap ketersediaannya sama pada setiap platform/akun. Alternatifnya, pasang file yang telah memperoleh izin ke track musik studio. [Panduan audio Shorts](https://support.google.com/youtube/answer/13486873) dan [panduan musik komersial TikTok](https://support.tiktok.com/en/business-and-creator/creator-and-business-accounts/commercial-use-of-music-on-tiktok).
+```text
+BELAKANG
+ Jalur kedatangan       Papan Republik Wkwkwk       Pohon
+ dari kiri frame                                Kursi + papan
+                                               Kantor Sementara
 
-Draf studio saat ini **tanpa lagu dan tanpa dialog suara**. Subtitle menampilkan rencana dialog. Musik, voiceover, volume ducking, dan sinkronisasi akhir masih merupakan tahap produksi episode lengkap.
+                 Lahan kosong untuk usulan
 
-## Ajakan berpartisipasi
+             Sari     Prabowow     Joko
+                  area dialog/joget
 
-Pertanyaan utama: **Kalau kamu jadi warga Republik Wkwkwk, SATU aturan pertama yang kamu buat apa?**
+DEPAN                 KAMERA
+```
 
-Caption:
+- **Tanah:** tanah padat bercampur rumput pendek, jalan setapak dari kiri belakang. Area pijakan cukup rata. Belum ada kota jadi, aspal, rumah, panggung, atau kantor megah.
+- **Identitas:** papan kayu “REPUBLIK WKWKWK” dekat jalur masuk; terbaca pada kamera lebar dan tidak menutupi tokoh.
+- **Kantor:** satu kursi plastik agak usang di bawah pohon dan papan kecil di sampingnya. Ada sejak frame pertama, baru menjadi fokus pada detik 16–23. Tidak dipindahkan atau diduduki.
+- **Lahan rencana:** tengah/belakang tetap kosong. Pilihan rumah/warung/jalan tampil sebagai kartu sketsa overlay berlabel USULAN. Tidak ada bangunan mendadak jadi.
+- **Jalur tokoh:** Sari dan Joko datang berurutan melalui jalur sama. Setelah masuk, Sari di kiri layar, presiden tengah, Joko kanan. Posisi itu dipertahankan hingga akhir.
+- **Kamera:** tetap di sisi depan garis percakapan. Lebar untuk mengenalkan ruang, sedang untuk dialog, potongan kursi untuk lelucon. Tidak berputar mengelilingi tokoh.
+- **Vertikal:** pemeran membentuk busur dangkal agar semua muat. Gestur penting di tengah, ruang bawah/kanan untuk antarmuka medsos. Subtitle maksimal dua baris, tidak menutupi tangan atau kursi saat menjadi fokus.
 
-> Day 1 — Presiden sudah siap. Rakyat baru datang, panitia sudah nagih. 🧾
-> Tulis SATU aturan pertama untuk Republik Wkwkwk.
-> Satu usulan akan kita jadikan cerita Day 2.
+## Kontrak sinkronisasi
 
-Komentar tersemat:
+1. **Suara adalah patokan final.** Rekam per giliran bicara, kemudian ukur waktu aktual. Timeline ini rancangan, belum sinkron dengan audio yang belum dibuat. Catatan kamera/gerakan tidak dibacakan.
+2. **Giliran bicara jelas.** Tanpa dialog bertumpuk. Pembicara melihat lawan bicara; pendengar bereaksi kecil. Mulai dari jeda balasan 0,2–0,4 detik dan jeda komedi 0,6–1 detik, lalu sesuaikan hasil dengar.
+3. **Gerak punya sebab.** Tatapan ke kursi mendahului menunjuk; kamera menunjukkan kursi setelah isyarat. Joko berhenti sebelum pertanyaan utama. Presiden melihat kamera ketika menyebut “kalian”. Jangan memakai Point berulang setiap kalimat.
+4. **Joget mengikuti musik terpilih.** Pilih frase pendek sekitar empat detik. Tempo animasi bawaan 130 BPM belum merupakan tempo lagu terukur; ukur ketukan audio dan sesuaikan gerak/durasi. Delapan ketukan tidak otomatis tepat empat detik.
+5. **Kepala/kaki stabil.** Kepala tegak, tatapan berubah halus, Walk blend ke Idle, telapak tidak meluncur, tokoh tidak bertabrakan. Joget akhir berawal dari Joko, diikuti presiden lalu Sari, dengan sedikit selisih natural.
+6. **Subtitle tepat waktu.** Satu pembicara per cue, maksimal dua baris. Hook, kartu usulan, dan CTA tidak bertumpuk. Jangan memunculkan seluruh percakapan sebelum diucapkan.
+7. **Audio memberi ruang.** Vokal musik hanya pembuka/penutup. Ambience dan instrumental opsional berada di bawah dialog; tidak ada suara keramaian di lapangan kosong.
+8. **Kontinuitas dunia.** Warga bertambah 1 → 2 → 3. Pakaian, cahaya, properti, dan posisi akhir diwariskan antaradegan. Kartu usulan tidak mengubah dunia sebelum keputusan warga.
 
-> Aturan masuk akal atau absurd? Tulis satu aturan + alasannya. Kita pilih satu yang bisa dijalankan dalam cerita Day 2.
+## Naskah dialog bersih
 
-Follow dikaitkan dengan kelanjutan yang nyata: penonton bisa melihat aturan pilihan diterapkan. Jangan menjanjikan setiap komentar akan dipakai atau hasil video pasti viral.
+Nama pembicara hanya penanda pembagian rekaman, bukan bagian yang dibacakan. Urutannya sama dengan timeline; tidak ada narator tambahan.
 
-## Pekerjaan episode lengkap berikutnya
+**Prabowow:** Lho… rakyatnya mana?
 
-Membuat properti papan biaya/kertas, blocking kedatangan warga dan petugas, ekspresi reaksi, voiceover karakter fiktif, memilih potongan audio yang tersedia/berizin, menyelaraskan ketukan, menonton pratinjau di browser, lalu memeriksa MP4 final sebelum unggah. Draf saat ini tidak menyatakan pekerjaan tersebut sudah selesai.
+**Sari:** Saya, Pak. Ini bener Republik Wkwkwk?
+
+**Prabowow:** Betul. Baru buka!
+
+**Sari:** Kantornya mana?
+
+**Prabowow:** Sementara, ini dulu.
+
+**Joko:** Pak, lapangan konsernya di mana?
+
+**Sari:** Rumah aja belum ada.
+
+**Prabowow:** Nah, makanya kita bangun bareng. Mulai dari yang warga butuhkan.
+
+**Sari:** Berarti warga yang pilih mau bangun apa?
+
+**Prabowow:** Iya. Mau rumah, warung, atau jalan dulu?
+
+**Joko:** Kalau lomba sama konser?
+
+**Prabowow:** Warga juga yang usul. Aturan dan kegiatan lainnya juga.
+
+**Prabowow:** Kalian juga warga sini. Tulis satu usulan dan alasannya. Mau bangun apa, atau bikin acara apa?
+
+**Prabowow:** Dukung usulan favoritmu. Pilihan warga kita mulai kerjakan di Day Dua.
+
+**Joko:** Sambil nunggu, boleh joget?
+
+**Prabowow:** Boleh!
+
+Pelafalan produksi: “Prabowow” → “Pra-bo-wow”; “Republik Wkwkwk” → “Republik Weka Weka”; “Day Dua” → “Dei Dua”. Gunakan pelafalan konsisten. Tulisan merek tetap “Republik Wkwkwk”.
+
+## Mekanisme keputusan warga
+
+Pembangunan, acara, aturan, fasilitas, dan kegiatan merupakan pilihan setara. Tiga contoh bangunan dalam dialog tidak membatasi usulan penonton.
+
+Tetapkan satu unggahan utama untuk penghitungan dan tulis platform, tanggal/jam tutup, serta zona waktu sebelum publikasi. Gabungkan usulan serupa agar dukungan tidak terpecah, lalu publikasikan daftar singkat untuk pemungutan suara warga. Hasil pemungutan suara menentukan proyek/aktivitas pertama; jika seri, lakukan putaran penentu. Jangan menyebut pilihan kreator sebagai hasil voting atau menjumlahkan like komentar duplikat sebagai jumlah orang unik.
+
+Jika usulan belum dapat dibuat, jelaskan batasnya dan tawarkan bentuk yang mungkin kepada warga untuk dipilih. Day 2 menampilkan usulan pemenang, hasil dukungan, dan pekerjaan pertama/pelaksanaan kegiatan. Proyek besar berkembang bertahap. Publikasi lintas platform mengarahkan penghitungan ke unggahan utama yang sama.
+
+**Caption:**
+
+> Day 1. Presiden sudah siap. Kantor masih kursi plastik. Warganya sudah minta konser.
+>
+> Republik Wkwkwk mau kita bikin seperti apa?
+> Usulkan pembangunan, acara, aturan, atau kegiatan pertama—sertakan alasannya. Dukung usulan favoritmu; pilihan warga jadi kelanjutan ceritanya.
+> Follow untuk melihat hasil keputusan warga di Day 2.
+
+**Komentar tersemat; lengkapi jadwal/tautan sebelum tayang:**
+
+> Satu komentar = satu usulan + alasan. Boleh bangunan, acara, aturan, atau kegiatan lain. Usulan serupa akan kami gabungkan, lalu warga memilih dari daftar usulan. Jadwal dan tautan pemungutan suara diumumkan di sini. Pilihan warga mulai kita kerjakan di Day 2.
+
+## Aset dan pekerjaan produksi
+
+| Kebutuhan | Kondisi saat revisi | Pekerjaan berikutnya |
+|---|---|---|
+| Prabowow | Preset v15-prabowo-inspired tersedia; wajah generik. | Cocokkan pakaian dan ekspresi. |
+| Sari/Joko | Sistem variasi V15 tersedia; pemeran final belum dikunci. | Pilih pakaian yang mudah dibedakan, cocokkan tinggi dan penempatan. |
+| Joget | Dance dan tempo tersedia; tes rig lulus, visual browser belum diperiksa. | Sinkronkan dengan lagu, periksa start/stop dan joget bertiga. |
+| Lapangan, kursi, dua papan | Courtyard umum tersedia; set khusus belum dibuat. | Susun sesuai denah dan buat properti khusus. |
+| Gestur/reaksi | Idle/Walk/Point/Wave dan ekspresi dasar tersedia. | Atur menyambut, melirik, mengangguk, reaksi malu, tatapan kamera. |
+| Kartu dan subtitle | Subtitle dasar tersedia; kartu sketsa belum dibuat. | Buat overlay berurutan dan cue dari audio final. |
+| Dialog, ambience, musik | Belum terpasang. | Produksi suara karakter fiktif, pilih audio yang boleh digunakan, mix dan sinkronkan. |
+| Timeline penuh dan MP4 | Studio mendukung play/ekspor; tombol masih draf pembuka lama. | Implementasi seluruh adegan, tonton utuh, periksa MP4 dengan audio. |
+
+Referensi musik tetap [Oke Gas 2 — Richard Jersey, video resmi](https://www.youtube.com/watch?v=IP7_qN9qN-c). File lagu belum disertakan. Untuk cut musik/dialog yang presisi, gunakan audio yang boleh dipakai dalam editor; penambahan sound di platform perlu diuji karena trim/volume dapat berbeda.
+
+Kriteria selesai produksi: hubungan dialog–gestur–kamera terbaca, kedatangan warga terlihat, dunia tidak berubah mendadak, keputusan warga dijelaskan, subtitle tepat waktu, audio jelas, dan MP4 ditonton utuh. Naskah ini tidak menyatakan video atau sinkronisasi final sudah selesai.
