@@ -818,7 +818,7 @@ async function runArea(place, city) {
   let THREE;
   try { THREE = await import('three'); }
   catch (error) { startCanvasFallback($('#world'), place, city, placedObjects, error); return; }
-  const loading=document.createElement('div');loading.className='avatar-loading';loading.setAttribute('role','status');loading.textContent='Menyiapkan karakter V15...';document.querySelector('#exploreScreen').append(loading);
+  const loading=document.createElement('div');loading.className='avatar-loading';loading.setAttribute('role','status');loading.textContent='Menyiapkan dunia jelajah…';document.querySelector('#exploreScreen').append(loading);
   try{await preloadAvatars();}catch(error){if(runToken===areaRunToken)reportWorldIssue(error);return;}finally{loading.remove();}
   if (runToken !== areaRunToken || !$('#exploreScreen').classList.contains('active')) return;
   const canvas = $('#world'); let renderer;
