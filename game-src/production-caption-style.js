@@ -25,12 +25,20 @@ export function captionGroups(clip){
 function plate(ctx,x,y,w,h,color){ctx.fillStyle=color;if(ctx.roundRect){ctx.beginPath();ctx.roundRect(x,y,w,h,Math.min(14,h/4));ctx.fill();}else ctx.fillRect(x,y,w,h);}
 export function drawSeriesFrame(ctx,scenario,time,duration){
   const {width:w,height:h}=ctx.canvas,scale=Math.min(w/1080,h/1080),pad=w*.07;
-  ctx.save();ctx.strokeStyle='rgba(255,224,122,.7)';ctx.lineWidth=3*scale;ctx.strokeRect(w*.025,h*.02,w*.95,h*.96);
+  ctx.save();
+  // Only the top and bottom carry colour; the middle stays unobstructed.
+  for(const [edge,end] of [[0,h*.27],[h,h*.72]]){
+    const gradient=ctx.createLinearGradient(0,edge,0,end);
+    gradient.addColorStop(0,'rgba(119,18,36,.88)');
+    gradient.addColorStop(.42,'rgba(157,28,49,.52)');
+    gradient.addColorStop(1,'rgba(157,28,49,0)');
+    ctx.fillStyle=gradient;ctx.fillRect(0,Math.min(edge,end),w,Math.abs(end-edge));
+  }
   ctx.textBaseline='middle';ctx.textAlign='left';ctx.font=`800 ${25*scale}px Arial`;
-  plate(ctx,pad,h*.06,130*scale,48*scale,'#ffe07a');ctx.fillStyle='#182c32';ctx.fillText((scenario.title.match(/Day\s*\d+/i)?.[0]||'STUDIO').toUpperCase(),pad+16*scale,h*.06+24*scale);
-  ctx.textAlign='right';ctx.font=`800 ${22*scale}px Arial`;ctx.fillStyle='#f7f0d9';
-  plate(ctx,w-pad-292*scale,h*.06,292*scale,48*scale,'rgba(17,34,40,.92)');ctx.fillStyle='#f7f0d9';ctx.fillText('REPUBLIK WKWKWK',w-pad-16*scale,h*.06+24*scale);
-  ctx.fillStyle='rgba(17,34,40,.8)';ctx.fillRect(pad,h*.87,w*.86,5*scale);ctx.fillStyle='#ffe07a';ctx.fillRect(pad,h*.87,w*.86*Math.min(1,time/duration),5*scale);
+  ctx.fillStyle='#fff';ctx.shadowColor='rgba(37,6,13,.45)';ctx.shadowBlur=5*scale;
+  ctx.fillText((scenario.title.match(/Day\s*\d+/i)?.[0]||'STUDIO').toUpperCase(),pad,h*.065);
+  ctx.textAlign='right';ctx.font=`800 ${22*scale}px Arial`;
+  ctx.fillText('REPUBLIK WKWKWK',w-pad,h*.065);
   ctx.restore();
 }
 export function drawDialogue(ctx,{clip,caption,speaker,speechTime}){

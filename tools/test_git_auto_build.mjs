@@ -4,6 +4,8 @@ import {tmpdir} from 'node:os';
 import {dirname,join,resolve,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
+import {build} from 'vite';
+import viteConfig from '../vite.config.js';
 
 const project=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const sandbox=mkdtempSync(join(tmpdir(),'semesta-git-build-'));
@@ -20,6 +22,22 @@ function identity(cwd){git(cwd,'config','user.name','Build Test');git(cwd,'confi
 function count(){return Number(readFileSync(join(client,'build-count.txt'),'utf8'));}
 function updateSource(path,content){git(seed,'pull','--ff-only','origin','main');writeFileSync(join(seed,path),content);commit(seed,'change '+path);git(seed,'push','origin','main');}
 try{
+  // Exercise Vite's generated preload URLs, not just the configured base string.
+  const assetFixture=join(sandbox,'asset-paths');mkdirSync(assetFixture);
+  writeFileSync(join(assetFixture,'main.js'),"globalThis.openStudio=()=>import('./studio.js');");
+  writeFileSync(join(assetFixture,'studio.js'),"import './studio.css';export const ready=true;");
+  writeFileSync(join(assetFixture,'studio.css'),'body{color:navy}');
+  const built=await build({configFile:false,root:assetFixture,base:viteConfig.base,publicDir:false,logLevel:'silent',build:{write:false,minify:false,rollupOptions:{input:join(assetFixture,'main.js')}}});
+  const entry=built.output.find(file=>file.type==='chunk'&&file.isEntry);
+  const paths=JSON.parse(entry.code.match(/m\.f=([^)]*)\)\)\)/)[1]);
+  const resolver=entry.code.match(/var assetsURL = function\(([^)]*)\) \{([\s\S]*?)\n\};/);
+  assert.ok(resolver,'Generated lazy-import URL resolver must be present');
+  const resolveAsset=new Function(...resolver[1].split(',').map(arg=>arg.trim()),resolver[2]);
+  for(const prefix of ['/','/project/'])for(const asset of paths){
+    const file=built.output.find(output=>output.fileName.endsWith(asset.replace(/^\.\//,'')));
+    assert.ok(file,`Preload ${asset} must reference emitted output`);
+    assert.equal(resolveAsset(asset,`http://localhost${prefix}assets/game/${entry.fileName}`),`http://localhost${prefix}assets/game/${file.fileName}`,'Lazy JS and CSS must retain the deployment subdirectory');
+  }
   mkdirSync(seed);git(sandbox,'init','--bare','--initial-branch=main',remote);git(seed,'init','--initial-branch=main');identity(seed);
   for(const directory of ['tools','.githooks','game-src'])mkdirSync(join(seed,directory));
   for(const name of ['tools/git-auto-build.mjs','tools/install-git-hooks.mjs','.githooks/pre-push','.githooks/post-merge','.githooks/post-rewrite','.gitattributes'])copyFileSync(join(project,name),join(seed,name));
@@ -60,7 +78,7 @@ writeFileSync('build-count.txt',String((existsSync('build-count.txt')?Number(rea
 
   git(client,'config','core.hooksPath','custom-hooks');const custom=run(client,process.execPath,['tools/install-git-hooks.mjs'],false);
   assert.notEqual(custom.status,0);assert.equal(git(client,'config','--get','core.hooksPath').stdout.trim(),'custom-hooks');
-  console.log('PASS: real push/pull hooks, fast-forward, rebase, docs skip, missing output, dependency sync, failed build recovery, custom hook preservation, paths with spaces.');
+  console.log('PASS: root/subdirectory lazy JS and CSS URLs, real push/pull hooks, fast-forward, rebase, docs skip, missing output, dependency sync, failed build recovery, custom hook preservation, paths with spaces.');
 }finally{
   // The only recursively removed path is the exact temporary fixture we created.
   const child=relative(resolve(tmpdir()),resolve(sandbox));

@@ -25,6 +25,32 @@ for(const clip of Object.values(audio)){const groups=captionGroups(clip);assert.
 assert.deepEqual(migrateProductionDraft(legacyV3),scenario);
 assert.deepEqual(migrateProductionDraft(legacy),scenario,'Pristine old episode upgrades automatically');
 assert.deepEqual(migrateProductionDraft(legacyV2),scenario,'Previous 27-shot episode upgrades automatically');
+// Serialized durations from the old .35s-padding autosave, using d94a771 audio.
+const savedV3=structuredClone(legacyV3);
+const savedV3Durations=[3.159002267573696,3,3.586009070294785,2.348004535147392,2.7,3.201995464852608,2.475986394557823,1.6,2.0930158730158728,1.6,2.4,2.8,1.4,2.2629931972789117,1.6,3.416009070294785,4.780997732426303,2.561995464852608,4.397006802721088,1.836984126984127,4.208004535147392,6.999999999999999,5.31501133786848,2.0930158730158728,4.5680045351473915,7.529999999999999,2.2];
+savedV3.shots.forEach((shot,i)=>{shot.duration=savedV3Durations[i];});
+assert.deepEqual(migrateProductionDraft(savedV3),scenario,'Unedited historical autosave upgrades despite its loader-added padding');
+const savedV3AfterVoiceRefresh=structuredClone(savedV3);
+// All 20 old turns mismatch the new voice script; the previous loader removed them.
+for(const shot of savedV3AfterVoiceRefresh.shots){delete shot.speech;delete shot.speechOffset;}
+assert.deepEqual(migrateProductionDraft(savedV3AfterVoiceRefresh),scenario,'Recover an untouched old draft already autosaved without its stale voices');
+for(const saved of [savedV3,savedV3AfterVoiceRefresh])for(const edit of [s=>{s.title='Judul saya';},s=>{s.shots[0].caption='Pembuka saya';},s=>{s.cast[0].position[0]=.2;},s=>{s.shots[4].duration+=.03;},s=>{s.shots[0].duration+=.001;}]){
+  const authored=structuredClone(saved);edit(authored);const next=migrateProductionDraft(authored);
+  assert.equal(next.shots.length,authored.shots.length,'Do not replace authored legacy scenes');
+  assert.equal(next.title,authored.title);assert.deepEqual(next.cast,authored.cast);
+  assert.deepEqual(next.shots.map(s=>[s.caption,s.duration]),authored.shots.map(s=>[s.caption,s.duration]),'Keep even small intentional timeline edits');
+  validateScenario(next);
+}
+let savedCurrent=structuredClone(scenario);
+for(let save=0;save<4;save++){
+  savedCurrent=JSON.parse(JSON.stringify(validateScenario(migrateProductionDraft(savedCurrent))));
+  assert.deepEqual(savedCurrent,scenario,'Repeated reload and autosave must not alter the current timeline');
+}
+const paddedCurrent=structuredClone(scenario);
+for(const shot of paddedCurrent.shots)if(shot.speech)shot.duration=Math.max(shot.duration,shot.speechOffset+audio[shot.speech].duration+.35);
+assert.deepEqual(migrateProductionDraft(paddedCurrent),scenario,'Repair the exact loader-padded current episode too');
+const authoredCurrent=structuredClone(scenario);authoredCurrent.title='Judul terbaru saya';
+assert.deepEqual(migrateProductionDraft(authoredCurrent),authoredCurrent,'Current authored draft keeps its measured .32s tail');
 assert.equal(displaySpeechText('Republik Weka Weka Weka!'),'Republik Wkwkwk!');
 const custom=structuredClone(legacy);custom.title='Suntingan saya';custom.shots[0].caption='Narasi pilihan saya';
 const migrated=migrateProductionDraft(custom);assert.equal(migrated.title,custom.title);assert.equal(migrated.shots[0].caption,custom.shots[0].caption);assert.equal(migrated.shots.length,custom.shots.length);assert.equal(migrated.shots[0].speech,undefined);validateScenario(migrated);

@@ -11,7 +11,7 @@ for(const name of ['window','document','navigator','localStorage','Event','Custo
 let clock=0,frame;
 Object.defineProperty(globalThis,'performance',{value:{now:()=>clock*1000},configurable:true});
 globalThis.requestAnimationFrame=callback=>{frame=callback;return 1;};globalThis.cancelAnimationFrame=()=>{frame=null;};
-win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawImage(){},save(){},restore(){},fillRect(){},strokeRect(){},fillText(){},setLineDash(){},measureText:t=>({width:t.length*8})};};
+win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawImage(){},save(){},restore(){},fillRect(){},strokeRect(){},fillText(){},setLineDash(){},createLinearGradient(){return {addColorStop(){}};},measureText:t=>({width:t.length*8})};};
 win.document.body.innerHTML='<section class="admin-view active"><div id="studio"></div></section>';
 const host=win.document.getElementById('studio'),q=s=>host.querySelector(s);
 let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[];
@@ -51,7 +51,7 @@ click('[data-command="play"]');win.dispatchEvent(new win.CustomEvent('semesta:ad
 click('[data-command="add-cast"]');await flush();assert.ok(q('[data-cast="c"]'));assert.equal(host.querySelectorAll('[data-cast]').length,3);
 click('[data-remove-cast="c"]');await flush();assert.equal(q('[data-cast="c"]'),null);
 change('[data-field="title"]','<img src=x onerror=alert(1)>');assert.equal(host.querySelector('img'),null,'Draft text must never become HTML');
-studio.dispose();assert.ok(disposals>=1);studio=mountProductionStudio(host,dependencies);await flush();assert.equal(q('[data-field="title"]').value,'<img src=x onerror=alert(1)>');
+studio.dispose();assert.ok(disposals>=1);studio=mountProductionStudio(host,dependencies);await flush();assert.equal(q('[data-field="title"]').value,'<img src=x onerror=alert(1)>');assert.equal(q('[data-draft-notice]').hidden,false,'Restored custom draft clearly identifies why preview differs from latest episode');
 click('[data-command="new"]');await flush();assert.equal(q('[data-field="title"]').value,'Day 1');assert.equal(q('[data-command="play"]').disabled,true);assert.equal(q('.ps-empty').hidden,false);
 click('[data-command="day1-opening"]');await flush();
 assert.equal(host.querySelectorAll('[data-cast]').length,1);assert.equal(q('[data-shot="0"] [data-action="a"] option[selected]').getAttribute('value'),'Dance');assert.equal(q('[data-command="play"]').disabled,false);
@@ -61,6 +61,7 @@ assert.equal(opening.shots[0].actors.a.bpm,120);assert.match(opening.notice,/DRA
 change('[data-shot="0"] [data-action="a"]','Idle');assert.equal(q('[data-shot="0"] [data-bpm="a"]'),null,'Changing action must remove dance tempo');
 click('[data-command="day1-full"]');await flush();assert.equal(host.querySelectorAll('[data-cast]').length,3);assert.equal(host.querySelectorAll('[data-shot]').length,28);
 assert.match(q('[data-field="title"]').value,/Orang Dalam/);assert.equal(q('[data-shot="0"] [data-visible="b"]').checked,false);
+assert.equal(q('[data-draft-notice]').hidden,true,'Loading latest clears restored-draft notice');
 assert.equal(q('[data-cast-prop="c"]').value,'guitar','Guitar is an editable cast accessory');
 click('[data-command="play"]');await flush();assert.equal(storyLoads,1);assert.match(q('[data-command="play"]').textContent,/Jeda/);click('[data-command="play"]');
 mode='complete';click('[data-command="export"]');await flush();await flush();assert.equal(exportRequest.audio.storyAudio,true,'Built-in voice must reach MP4 encoder');assert.ok(exportRequest.duration>85);assert.equal(storyLoads,1,'Preview and export reuse the same mix');

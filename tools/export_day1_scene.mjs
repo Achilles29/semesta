@@ -27,7 +27,7 @@ ${rows}
 - Sari dan Joko masuk dari kanan dalam 1,5 dan 1,6 detik, tanpa memutari presiden. Joko memakai preset rockstar, denim slim, rambut spiky, rompi gelap, anting dan gelang. Gitar merah dan strap mengikuti tulang dada.
 - Ayam dan kucing adalah model 3D prosedural: kaki bergerak saat berjalan, kepala bereaksi, ekor kucing bergerak. Posisi, gerak, visibilitas dan kamera ditentukan waktu absolut sehingga seek dan ekspor konsisten.
 - Kamera memakai pembuka lokasi dari sudut tinggi, framing karakter sedang/dekat, sudut samping saat gitar terlihat, close-up rendah hewan, reaksi lawan bicara, dan dorongan kamera perlahan. Kamera ayam mengikuti posisinya selama masuk.
-- Template seri memakai garis bingkai emas tipis, label Day, identitas Republik Wkwkwk dan garis progres. Judul editorialnya **Baru Buka, Sudah Ada Orang Dalam**, bukan “Parodi Fiktif”.
+- Template seri memakai gradasi merah transparan pada bagian atas dan bawah, tanpa garis bingkai samping atau kotak emas. Label Day, identitas Republik Wkwkwk dan teks utama berwarna putih. Judul editorialnya **Baru Buka, Sudah Ada Orang Dalam**, bukan “Parodi Fiktif”.
 - Subtitle memakai kelompok frasa pendek dengan sorotan kata berdasarkan timestamp audio. Nama pembicara berada pada label kecil. Ejaan suara “Republik Weka Weka Weka” tampil sebagai “Republik Wkwkwk”.
 
 ## Audio

@@ -19,13 +19,14 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   const events=new AbortController(),listen=(el,type,fn)=>el.addEventListener(type,fn,{signal:events.signal});
   let scenario=initialScenario?validateScenario(initialScenario):day1Scenario(),storageNotice='';
   if(persist&&!initialScenario)try{const saved=localStorage.getItem(STORAGE);if(saved){const draft=validateScenario(migrateProductionDraft(JSON.parse(saved)));if(draft.shots.length||localStorage.getItem(STORAGE+'.empty-intent')==='true')scenario=draft;}}catch{storageNotice='Draf lokal tidak dapat dibaca. Day 1 bawaan dibuka.';}
+  let restoredDifferentDraft=persist&&!initialScenario&&JSON.stringify(scenario)!==JSON.stringify(day1Scenario());
   let stage=null,renderer=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false;
   let audioContext=null,audioSource=null,mixed=null,exportAbort=null,downloadUrl=null,format='portrait',quality='1080',guides=false,playVersion=0,audioLoading=0;
   const audioVersion=[0,0];
   let storyEnabled=true,rhythmEnabled=true;
   const tracks=[{name:'Dialog / narasi',buffer:null,volume:1,offset:0},{name:'Musik / suasana',buffer:null,volume:.25,offset:0}];
   host.innerHTML=`<div class="production-studio">
-    <div class="ps-heading"><div><span class="ps-eyebrow">REPUBLIK WKWKWK · PRODUKSI</span><h3>Mulai dari cerita pertama.</h3><p>Susun adegan, lalu putar seluruh cerita dengan satu tombol.</p></div><div class="ps-workspace-actions"><button type="button" data-command="day1-full" class="ps-secondary">Day 1 lengkap · dengan narator</button><button type="button" data-command="day1-opening" class="ps-secondary">Pembuka Pasca Bowow</button><button type="button" data-command="rehearsal" class="ps-secondary">Coba latihan studio</button></div></div>
+    <div class="ps-heading"><div><span class="ps-eyebrow">REPUBLIK WKWKWK · PRODUKSI</span><h3>Mulai dari cerita pertama.</h3><p>Susun adegan, lalu putar seluruh cerita dengan satu tombol.</p><p data-draft-notice hidden>Pratinjau membuka draf yang tersimpan di browser ini. Pilih “Muat Day 1 terbaru” untuk membuka Baru Buka, Sudah Ada Orang Dalam. Draf berisi adegan akan diunduh sebagai cadangan.</p></div><div class="ps-workspace-actions"><button type="button" data-command="day1-full">Muat Day 1 terbaru</button><button type="button" data-command="day1-opening" class="ps-secondary">Pembuka Pasca Bowow</button><button type="button" data-command="rehearsal" class="ps-secondary">Coba latihan studio</button></div></div>
     <div class="ps-layout"><section class="ps-monitor" aria-label="Pratinjau produksi">
       <div class="ps-screen"><canvas data-preview width="360" height="640" aria-label="Pratinjau animasi skenario"></canvas><div class="ps-empty"><b>Day 1 · lembar baru</b><p>Belum ada konten. Coba latihan untuk memeriksa gerakan, kamera, dan unduhan.</p></div></div>
       <div class="ps-transport"><button type="button" data-command="play" disabled>▶ Play semua</button><button type="button" data-command="stop" disabled>↺ Awal</button><button type="button" data-command="fullscreen" aria-pressed="false">Layar penuh</button><span data-time>0:00.0 / 0:00.0</span></div>
@@ -52,6 +53,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   const invalidateDownload=()=>{if(downloadUrl)URL.revokeObjectURL(downloadUrl);downloadUrl=null;el('[data-download]').hidden=true;};
   function saveDraft(){if(!persist)return;try{localStorage.setItem(STORAGE,JSON.stringify(scenario));el('[data-save-status]').textContent='Draf tersimpan di browser ini. Unduh skenario untuk cadangan atau pindah perangkat.';}catch{el('[data-save-status]').textContent='Penyimpanan browser penuh/tidak tersedia. Gunakan Simpan skenario agar perubahan tidak hilang.';}}
   function form(){
+    el('[data-draft-notice]').hidden=!restoredDifferentDraft;
     el('.ps-heading h3').textContent=scenario.shots.length?scenario.title:'Mulai dari cerita pertama.';
     el('.ps-heading p').textContent=scenario.kind==='rehearsal'?'Draf / latihan, belum menjadi episode final. Uji gerakan, kamera, subtitle, dan MP4; audio perlu dipasang terpisah.':scenario.shots.length?'Skenario siap disunting. Putar semua adegan, lalu buat MP4 untuk diunggah.':'Day 1 belum memiliki skenario. Susun adegan, lalu putar seluruh cerita dengan satu tombol.';
     let cursor=0;
@@ -178,7 +180,8 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     if(command==='srt'){download(new Blob([srtFor(scenario)],{type:'text/plain;charset=utf-8'}),`${filename(scenario.title)}.srt`);return;}
     if(command==='new'||command==='rehearsal'||command==='day1-opening'||command==='day1-full'){
       // Keep a downloadable backup before replacing authored work, without a confirmation dialog.
-      if(scenario.shots.length&&scenario.kind==='episode')download(new Blob([JSON.stringify(scenario,null,2)],{type:'application/json'}),`${filename(scenario.title)}-cadangan.json`);
+      if(scenario.shots.length)download(new Blob([JSON.stringify(scenario,null,2)],{type:'application/json'}),`${filename(scenario.title)}-cadangan.json`);
+      restoredDifferentDraft=false;
       tracks.forEach((t,i)=>{t.buffer=null;t.offset=0;t.volume=i===0?1:.25;el(`[data-audio-file="${i}"]`).value='';el(`[data-audio-name="${i}"]`).textContent='Tanpa audio';el(`[data-audio-offset="${i}"]`).value=0;el(`[data-audio-volume="${i}"]`).value=t.volume;});
       update(command==='new'?blankScenario():command==='day1-full'?day1Scenario():command==='day1-opening'?day1OpeningScenario():rehearsalScenario(),{scene:true});return;
     }

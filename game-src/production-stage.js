@@ -143,7 +143,7 @@ export function compositeFrame(ctx,source,stage,time,{guides=false}={}){
     if(label){
       ctx.font=`800 ${Math.round(32*scale)}px Arial`;const lines=[''];
       for(const word of label.split(/\s+/)){const i=lines.length-1,next=lines[i]?lines[i]+' '+word:word;if(ctx.measureText(next).width>w*.74&&lines[i])lines.push(word);else lines[i]=next;}
-      const height=(24+lines.length*40)*scale;ctx.fillStyle='rgba(255,224,122,.97)';ctx.fillRect(pad,h*.14,w*.84,height);ctx.fillStyle='#193138';ctx.textAlign='center';ctx.textBaseline='middle';lines.forEach((line,i)=>ctx.fillText(line,w/2,h*.14+(12+(i+.5)*40)*scale));
+      ctx.save();ctx.fillStyle='#fff';ctx.shadowColor='rgba(37,6,13,.65)';ctx.shadowBlur=6*scale;ctx.shadowOffsetY=2*scale;ctx.textAlign='center';ctx.textBaseline='middle';lines.forEach((line,i)=>ctx.fillText(line,w/2,h*.13+(i+.5)*40*scale));ctx.restore();
     }
   }
   if(sample.shot.caption&&(!clip||(speechTime>=0&&speechTime<clip.duration+.12))){
