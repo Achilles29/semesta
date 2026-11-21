@@ -15,7 +15,7 @@ assert.deepEqual(sampleScenario(compiled,0).actors.a.position,rehearsal.cast[0].
 assert.deepEqual(sampleScenario(compiled,2).actors.a.position,rehearsal.shots[0].actors.a.to);
 assert.equal(travel(0,2),0);assert.equal(travel(2,2),1);
 for(let i=0;i<200;i++)assert.ok(travel(i/100,2)<=travel((i+1)/100,2));
-for(const mutate of [s=>s.cast[0].preset='missing',s=>s.shots[0].duration=NaN,s=>s.shots[0].duration=-1,s=>s.shots[0].focus='missing',s=>s.shots[0].actors.a.to=[Infinity,0],s=>s.shots[0].actors.a.action='Dance',s=>s.cast.push(s.cast[0]),s=>s.shots[1].id=s.shots[0].id,s=>s.props.push('missing'),s=>s.shots=Array.from({length:8},(_,i)=>({...s.shots[0],id:String(i),duration:30}))]){
+for(const mutate of [s=>s.cast[0].preset='missing',s=>s.shots[0].duration=NaN,s=>s.shots[0].duration=-1,s=>s.shots[0].focus='missing',s=>s.shots[0].actors.a.to=[Infinity,0],s=>s.shots[0].actors.a.action='UnknownAction',s=>s.cast.push(s.cast[0]),s=>s.shots[1].id=s.shots[0].id,s=>s.props.push('missing'),s=>s.shots=Array.from({length:8},(_,i)=>({...s.shots[0],id:String(i),duration:30}))]){
   const invalid=structuredClone(rehearsal);mutate(invalid);assert.throws(()=>validateScenario(invalid));
 }
 const srt=srtFor(rehearsal);assert.ok(srt.includes('00:00:02,000 --> 00:00:05,000'));assert.equal(srtFor(blankScenario()),'');

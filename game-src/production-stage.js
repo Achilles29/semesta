@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import {loadAvatarProfile,createHumanModel,disposeAvatar,avatarSpeed} from './avatar-runtime.js';
 import {presets} from './avatar-v15-config.js';
 import {compileScenario,sampleScenario} from './production-scenario.js';
+import {createProductionDance,DANCE_BPM} from './production-dance.js';
 
 /** Scene and deterministic posing are also usable by CPU contract tests. */
 export async function createProductionStage(input){
@@ -58,6 +59,7 @@ export async function createProductionStage(input){
     await Promise.all([...new Set(configs.map(c=>c.profileId))].map(loadAvatarProfile));
     input.cast.forEach((c,i)=>{
       const actor=createHumanModel(THREE,{avatarConfig:configs[i]});actors.set(c.id,actor);scene.add(actor.figure);
+      actor.productionDance=createProductionDance(actor);
       // The Hold action has an actual prop, parented to the rig's approved grip.
       const parcel=new THREE.Mesh(new THREE.BoxGeometry(.24,.18,.12),new THREE.MeshStandardMaterial({color:'#ba8b60',roughness:.9}));
       geometries.add(parcel.geometry);materials.add(parcel.material);parcel.name='ProductionParcel';parcel.castShadow=true;
@@ -71,14 +73,19 @@ export async function createProductionStage(input){
       actor.figure.position.set(p.position[0],0,p.position[1]);actor.figure.rotation.y=p.yaw;
       actor.mixer.stopAllAction();
       const apply=(cue,weight,previous=false)=>{
-        const action=actor.actions[cue.action];if(!action)return;
+        const action=actor.actions[cue.action==='Dance'?'Idle':cue.action];if(!action)return;
         action.reset().play();action.setEffectiveWeight(weight);action.paused=true;
         let phase=cue.action==='Idle'?time:cue.elapsed;
         if(['Walk','Run'].includes(cue.action))phase=(previous?cue.distance:cue.distanceTravelled)/avatarSpeed(actor,cue.action);
         action.time=Math.max(0,phase||0)%action.getClip().duration;
       };
-      if(p.previous&&p.previous.action!==p.action&&p.blend<1){apply(p.previous,1-p.blend,true);apply(p,p.blend);}else apply(p,1);
+      // Dance is layered over Idle with its own absolute-time blend. Avoid
+      // playing the same mixer action twice for Dance -> Idle transitions.
+      const mixerName=name=>name==='Dance'?'Idle':name;
+      if(p.previous&&mixerName(p.previous.action)!==mixerName(p.action)&&p.blend<1){apply(p.previous,1-p.blend,true);apply(p,p.blend);}else apply(p,1);
       actor.mixer.update(0);
+      if(p.action==='Dance')actor.productionDance.apply({time:p.elapsed,bpm:p.bpm??DANCE_BPM,weight:Math.min(1,p.elapsed/.22)});
+      else if(p.previous?.action==='Dance'&&p.blend<1)actor.productionDance.apply({time:p.previous.elapsed,bpm:p.previous.bpm??DANCE_BPM,weight:1-p.blend});
       actor.productionParcel.visible=p.action==='Hold';
       actor.figure.userData.expressionController?.update({time,expression:p.action==='Wave'?'happy':'neutral',intensity:.4});
     }
@@ -110,7 +117,7 @@ export function compositeFrame(ctx,source,stage,time,{guides=false}={}){
   const sample=sampleScenario(stage.compiled,time);if(!sample)return;
   const scale=Math.min(w/1080,h/1080),pad=w*.08;
   ctx.save();ctx.textAlign='left';ctx.textBaseline='middle';ctx.font=`600 ${Math.round(22*scale)}px Arial`;
-  const heading=stage.compiled.scenario.kind==='rehearsal'?'LATIHAN STUDIO':stage.compiled.scenario.title;
+  const heading=stage.compiled.scenario.notice||(stage.compiled.scenario.kind==='rehearsal'?'LATIHAN STUDIO':stage.compiled.scenario.title);
   ctx.fillStyle='rgba(14,30,35,.8)';ctx.fillRect(pad,h*.09,Math.min(w*.78,ctx.measureText(heading).width+36*scale),42*scale);
   ctx.fillStyle='#fff4db';ctx.fillText(heading,pad+18*scale,h*.09+21*scale,w*.72);
   if(sample.shot.caption){

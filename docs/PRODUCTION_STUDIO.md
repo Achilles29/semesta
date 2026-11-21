@@ -1,6 +1,8 @@
 # Studio produksi baru
 
-Halaman: `/admin/?view=production`. Reset dilakukan pada 21 November 2026. Day 1 baru **belum mempunyai ide, naskah, audio, atau video final**.
+Halaman: `/admin/?view=production`. Reset dilakukan pada 21 November 2026. Workspace awal tetap kosong; konsep dan pembuka Day 1 kini tersedia sebagai draf, **belum menjadi episode dengan audio dan video final**.
+
+Pembaruan: [konsep Day 1 Prabowow](script/001-day-1-prabowow-draft.md) sudah tersedia sebagai draf. Tombol **Pembuka Prabowow** memuat pembuka sekitar 8,49 detik dengan aksi joget parodi dan label fiksi, tanpa audio. Ini belum menjadi episode lengkap/final. Aksi joget mempunyai tempo yang dapat diatur; 130 BPM adalah acuan animasi, bukan hasil pengukuran lagu.
 
 Episode lama, media `public/audio/produksi/episode-001` sampai `episode-004`, naskah `docs/script/001…014`, release/review episode, pemutar lama, dan alat khusus episode lama telah dihapus. Riwayat Git tetap menjadi tempat pemulihan bila diperlukan. Model avatar, variasi pakaian, aset dunia, dan helper pengujian rig tetap tersedia. Data akun warga, avatar tersimpan, susunan wilayah, dan database game tidak direset.
 

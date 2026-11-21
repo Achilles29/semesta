@@ -1,7 +1,7 @@
 import {presets} from './avatar-v15-config.js';
 
 export const SCENARIO_VERSION = 1;
-export const ACTIONS = Object.freeze({Idle:'Diam',Walk:'Jalan',Run:'Lari',Wave:'Melambaikan tangan',Point:'Menunjuk',Hold:'Memegang barang'});
+export const ACTIONS = Object.freeze({Idle:'Diam',Walk:'Jalan',Run:'Lari',Wave:'Melambaikan tangan',Point:'Menunjuk',Hold:'Memegang barang',Dance:'Joget Prabowow (parodi)'});
 export const CAMERAS = Object.freeze({wide:'Lebar',medium:'Sedang',close:'Dekat',follow:'Mengikuti pemeran'});
 export const PROPS = Object.freeze({bench:'Bangku',crate:'Peti',plants:'Tanaman',board:'Papan studio'});
 export const OUTPUTS = Object.freeze({portrait:{label:'Vertikal · 9:16',width:1080,height:1920},landscape:{label:'Horizontal · 16:9',width:1920,height:1080},square:{label:'Persegi · 1:1',width:1080,height:1080}});
@@ -21,6 +21,7 @@ export function validateScenario(input) {
   const fail=message=>{throw new Error(message);};
   if(!s || s.version!==SCENARIO_VERSION)fail('Versi skenario tidak didukung.');
   if(!text(s.title,100)||!s.title.trim())fail('Judul wajib diisi (maksimal 100 karakter).');
+  if(s.notice!==undefined&&!text(s.notice,80))fail('Label produksi maksimal 80 karakter.');
   if(!['episode','rehearsal'].includes(s.kind)||!['courtyard','studio'].includes(s.set))fail('Jenis produksi atau set tidak dikenal.');
   if(!Array.isArray(s.props)||s.props.length>4||s.props.some(p=>!Object.hasOwn(PROPS,p)))fail('Properti tidak dikenal.');
   if(!Array.isArray(s.cast)||s.cast.length<1||s.cast.length>4)fail('Gunakan 1–4 pemeran.');
@@ -43,6 +44,7 @@ export function validateScenario(input) {
       if(cue.to!==undefined && (!point(cue.to)||!['Walk','Run'].includes(cue.action)))fail('Posisi tujuan hanya untuk jalan atau lari.');
       if(['Walk','Run'].includes(cue.action)&&!point(cue.to))fail('Jalan atau lari membutuhkan posisi tujuan.');
       if(cue.yaw!==undefined&&!finite(cue.yaw,-Math.PI*2,Math.PI*2))fail('Arah pemeran tidak valid.');
+      if(cue.bpm!==undefined&&(!finite(cue.bpm,70,180)||cue.action!=='Dance'))fail('Tempo joget harus 70–180 BPM.');
     }
   }
   if(durationOf(s)>180)fail('Durasi maksimal satu produksi adalah 3 menit.');

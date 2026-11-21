@@ -38,5 +38,11 @@ click('[data-remove-cast="c"]');await flush();assert.equal(q('[data-cast="c"]'),
 change('[data-field="title"]','<img src=x onerror=alert(1)>');assert.equal(host.querySelector('img'),null,'Draft text must never become HTML');
 studio.dispose();assert.ok(disposals>=1);studio=mountProductionStudio(host,dependencies);await flush();assert.equal(q('[data-field="title"]').value,'<img src=x onerror=alert(1)>');
 click('[data-command="new"]');await flush();assert.equal(q('[data-field="title"]').value,'Day 1');assert.equal(q('[data-command="play"]').disabled,true);assert.equal(q('.ps-empty').hidden,false);
+click('[data-command="day1-opening"]');await flush();
+assert.equal(host.querySelectorAll('[data-cast]').length,1);assert.equal(q('[data-shot="0"] [data-action="a"] option[selected]').getAttribute('value'),'Dance');assert.equal(q('[data-command="play"]').disabled,false);
+change('[data-shot="0"] [data-bpm="a"]','120');
+const opening=JSON.parse(localStorage.getItem('semesta.production.workspace.v1'));
+assert.equal(opening.shots[0].actors.a.bpm,120);assert.match(opening.notice,/PARODI FIKTIF/);
+change('[data-shot="0"] [data-action="a"]','Idle');assert.equal(q('[data-shot="0"] [data-bpm="a"]'),null,'Changing action must remove dance tempo');
 studio.dispose();await win.happyDOM.close();
 console.log('PASS: DOM empty/rehearsal/edit/seek/play/pause/export/cancel/format/cast/draft/reset/XSS/lifecycle. Real browser graphics not exercised.');

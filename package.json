@@ -12,7 +12,7 @@
     "setup:git": "node tools/install-git-hooks.mjs && node tools/git-auto-build.mjs",
     "test:git-build": "node tools/test_git_auto_build.mjs",
     "preview": "vite preview --host 127.0.0.1",
-    "test:production": "node tools/test_production_studio.mjs && node tools/test_production_ui.mjs",
+    "test:production": "node tools/test_production_studio.mjs && node tools/test_production_ui.mjs && node tools/test_production_dance.mjs",
     "test:production:mp4": "node tools/test_production_mp4.mjs"
   },
   "directories": {
