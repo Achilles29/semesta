@@ -1,5 +1,7 @@
 # Studio produksi baru
 
+Acuan kreatif untuk episode berikutnya, termasuk karakter, suara, template, dan pengembangan kamera sinematik: [Prompt acuan produksi konten](PROMPT_ACUAN_PRODUKSI_KONTEN.md).
+
 Halaman: `/admin/?view=production`. **Day 1 lengkap · dengan narator** otomatis dimuat pada kunjungan baru atau draf kosong lama: 101,10 detik, tiga pemeran, latar lapangan nol, 20 potongan suara dan Oke Gas dari file pengguna. Draf berisi suntingan tetap dipertahankan. Pilihan eksplisit Day 1 kosong juga dipertahankan saat reload. Visual/audio serta MP4 belum ditinjau langsung di browser.
 
 Pembaruan: [timeline Day 1 lengkap](script/001-day-1-scenes.md) berisi 27 shot: narator, joget, kedatangan Sari/Joko, kursi kantor sementara, usulan pembangunan/acara/aturan, ajakan berpartisipasi, dan keputusan Koplak Desa / Satuan Pengisi Perut Gratis disertai tawa. Oke Gas dipelankan saat narator membuka cerita, dinaikkan saat joget, dan dihentikan selama dialog berikutnya. Di peta jelajah, tombol **Tonton Day 1** membuka pemutar yang sama tanpa admin. Menutupnya membebaskan audio/render dan mengembalikan kendali peta; draf admin tidak disentuh.
