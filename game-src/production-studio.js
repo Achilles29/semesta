@@ -13,10 +13,10 @@ const options=(values,selected)=>Object.entries(values).map(([v,label])=>`<optio
 const stamp=t=>`${Math.floor(t/60)}:${(t%60).toFixed(1).padStart(4,'0')}`;
 const filename=title=>(title.normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g,'-').replace(/^-|-$/g,'').slice(0,70)||'produksi');
 
-export function mountProductionStudio(host,{createStage=createProductionStage,createRenderer=createProductionRenderer,encode=encodeMp4,mixAudio=mixProductionAudio,loadStory=loadStoryAudio}={}){
+export function mountProductionStudio(host,{createStage=createProductionStage,createRenderer=createProductionRenderer,encode=encodeMp4,mixAudio=mixProductionAudio,loadStory=loadStoryAudio,initialScenario=null,persist=true,isActive=()=>host.closest('.admin-view')?.classList.contains('active')??host.isConnected}={}){
   const events=new AbortController(),listen=(el,type,fn)=>el.addEventListener(type,fn,{signal:events.signal});
-  let scenario=blankScenario(),storageNotice='';
-  try{const saved=localStorage.getItem(STORAGE);if(saved)scenario=validateScenario(JSON.parse(saved));}catch{storageNotice='Draf lokal tidak dapat dibaca. Workspace kosong dibuka.';}
+  let scenario=initialScenario?validateScenario(initialScenario):day1Scenario(),storageNotice='';
+  if(persist&&!initialScenario)try{const saved=localStorage.getItem(STORAGE);if(saved){const draft=validateScenario(JSON.parse(saved));if(draft.shots.length||localStorage.getItem(STORAGE+'.empty-intent')==='true')scenario=draft;}}catch{storageNotice='Draf lokal tidak dapat dibaca. Day 1 bawaan dibuka.';}
   let stage=null,renderer=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false;
   let audioContext=null,audioSource=null,mixed=null,exportAbort=null,downloadUrl=null,format='portrait',quality='1080',guides=false,playVersion=0,audioLoading=0;
   const audioVersion=[0,0];
@@ -38,7 +38,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
       <p data-status role="status" aria-live="polite"></p>
     </section><section class="ps-editor" aria-label="Skenario produksi">
       <form data-editor><div data-form-content></div></form>
-      <section class="ps-audio"><h4>Audio</h4><label><input data-story-audio type="checkbox" checked> Gunakan suara narator dan karakter bawaan Day 1</label><label><input data-story-rhythm type="checkbox" checked> Ritme joget sementara (perkusi orisinal, bukan Oke Gas)</label><p class="ps-muted">Suara bawaan mengikuti adegan dan dimuat kembali otomatis. File tambahan di bawah hanya untuk sesi ini. Matikan suara bawaan jika memasang dialog pengganti.</p><p class="ps-muted">Rujukan pembuka Prabowow: <a href="https://www.youtube.com/watch?v=IP7_qN9qN-c" target="_blank" rel="noopener noreferrer">Oke Gas 2 — Richard Jersey</a>. Lagu belum terpasang. Gunakan file berizin untuk mengganti ritme sementara; pemasangan musik tambahan otomatis menonaktifkan ritme saat pemutaran.</p>
+      <section class="ps-audio"><h4>Audio</h4><label><input data-story-audio type="checkbox" checked> Gunakan suara narator dan karakter bawaan Day 1</label><label><input data-story-rhythm type="checkbox" checked> Musik Oke Gas pada pembuka dan penutup</label><p class="ps-muted">Suara bawaan mengikuti adegan dan dimuat kembali otomatis. File tambahan di bawah hanya untuk sesi ini. Matikan suara bawaan jika memasang dialog pengganti.</p><p class="ps-muted">Rujukan pembuka Prabowow: <a href="https://www.youtube.com/watch?v=IP7_qN9qN-c" target="_blank" rel="noopener noreferrer">Oke Gas 2 — Richard Jersey</a>. Oke Gas dari file yang Anda sediakan sudah terpasang. Musik dipelankan saat narator membuka cerita dan berhenti selama dialog. File musik tambahan menggantikan musik bawaan.</p>
       ${tracks.map((t,i)=>`<div class="ps-audio-track" data-audio-track="${i}"><label>${t.name}<input type="file" data-audio-file="${i}" accept="audio/*"></label><span data-audio-name="${i}" class="ps-muted">Tanpa audio</span><div class="ps-audio-settings"><label>Volume<input data-audio-volume="${i}" type="range" min="0" max="1" step=".05" value="${t.volume}"></label><label>Mulai (detik)<input data-audio-offset="${i}" type="number" min="0" max="180" step=".1" value="0"></label><button type="button" data-audio-remove="${i}">Lepas</button></div></div>`).join('')}
       </section><div class="ps-workspace-actions"><button type="button" data-command="save">↓ Simpan skenario</button><label class="ps-file-button">Buka skenario<input data-import type="file" accept=".json,application/json"></label><button type="button" data-command="srt">↓ Subtitle SRT</button><button type="button" data-command="new">Day 1 kosong</button></div>
       <p class="ps-muted" data-save-status>Draf tersimpan otomatis di browser ini. Unduh skenario untuk cadangan atau pindah perangkat.</p>
@@ -46,7 +46,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   const el=selector=>host.querySelector(selector),canvas=el('[data-preview]'),ctx=canvas.getContext('2d',{alpha:false}),gpu=document.createElement('canvas');
   const status=message=>{const node=el('[data-status]');if(node)node.textContent=message;};
   const invalidateDownload=()=>{if(downloadUrl)URL.revokeObjectURL(downloadUrl);downloadUrl=null;el('[data-download]').hidden=true;};
-  function saveDraft(){try{localStorage.setItem(STORAGE,JSON.stringify(scenario));el('[data-save-status]').textContent='Draf tersimpan di browser ini. Unduh skenario untuk cadangan atau pindah perangkat.';}catch{el('[data-save-status]').textContent='Penyimpanan browser penuh/tidak tersedia. Gunakan Simpan skenario agar perubahan tidak hilang.';}}
+  function saveDraft(){if(!persist)return;try{localStorage.setItem(STORAGE,JSON.stringify(scenario));el('[data-save-status]').textContent='Draf tersimpan di browser ini. Unduh skenario untuk cadangan atau pindah perangkat.';}catch{el('[data-save-status]').textContent='Penyimpanan browser penuh/tidak tersedia. Gunakan Simpan skenario agar perubahan tidak hilang.';}}
   function form(){
     el('.ps-heading h3').textContent=scenario.shots.length?scenario.title:'Mulai dari cerita pertama.';
     el('.ps-heading p').textContent=scenario.kind==='rehearsal'?'Draf / latihan, belum menjadi episode final. Uji gerakan, kamera, subtitle, dan MP4; audio perlu dipasang terpisah.':scenario.shots.length?'Skenario siap disunting. Putar semua adegan, lalu buat MP4 untuk diunggah.':'Day 1 belum memiliki skenario. Susun adegan, lalu putar seluruh cerita dengan satu tombol.';
@@ -87,9 +87,9 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   async function prepareAudio(){
     if(mixed)return mixed;
     let automatic=[];
-    if(storyEnabled&&hasStoryAudio(scenario)){
+    if((storyEnabled||rhythmEnabled)&&hasStoryAudio(scenario)){
       audioContext ||= new AudioContext();
-      automatic=await loadStory(scenario,audioContext,{rhythm:rhythmEnabled&&!tracks[1].buffer});
+      automatic=await loadStory(scenario,audioContext,{voices:storyEnabled,rhythm:rhythmEnabled&&!tracks[1].buffer});
     }
     mixed=await mixAudio([...automatic,...tracks],stage.compiled.duration);return mixed;
   }
@@ -100,13 +100,13 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     const attempt=++playVersion;starting=true;controls();
     try{
       if(time>=stage.compiled.duration)time=0;
-      if(tracks.some(t=>t.buffer)||(storyEnabled&&hasStoryAudio(scenario))){
+      if(tracks.some(t=>t.buffer)||((storyEnabled||rhythmEnabled)&&hasStoryAudio(scenario))){
         audioContext ||= new AudioContext();await audioContext.resume();await prepareAudio();
       }
-      if(disposed||attempt!==playVersion||!host.closest('.admin-view')?.classList.contains('active'))return;
+      if(disposed||attempt!==playVersion||!isActive())return;
       if(mixed){audioSource=audioContext.createBufferSource();audioSource.buffer=mixed;audioSource.connect(audioContext.destination);audioSource.start(0,time);started=audioContext.currentTime-time;}else started=performance.now()/1000-time;
       playing=true;status('Memutar seluruh skenario.');raf=requestAnimationFrame(tick);
-    }catch(error){status(error.message);}finally{starting=false;controls();}
+    }catch(error){status(error.message);}finally{starting=false;if(!disposed)controls();}
   }
   async function rebuild(){
     const version=++loadVersion;pause();stage?.dispose();stage=null;time=0;mixed=null;invalidateDownload();
@@ -123,6 +123,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   }
   function update(next,{scene=false}={}){
     try{scenario=validateScenario(next);}catch(error){status(error.message);form();controls();return;}
+    if(persist)try{if(scenario.shots.length)localStorage.removeItem(STORAGE+'.empty-intent');else localStorage.setItem(STORAGE+'.empty-intent','true');}catch{}
     pause();invalidateDownload();mixed=null;saveDraft();form();
     if(scene||!stage||!scenario.shots.length){void rebuild();return;}
     stage.setScenario(scenario);time=0;el('[data-seek]').max=durationOf(scenario);draw();controls();
@@ -134,6 +135,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     try{
       try{wakeLock=await navigator.wakeLock?.request('screen');}catch{}
       await prepareAudio();
+      if(disposed||exportAbort.signal.aborted)throw new DOMException('Ekspor dibatalkan.','AbortError');
       time=0;draw(true);
       const blob=await encode({canvas,duration:stage.compiled.duration,audio:mixed,signal:exportAbort.signal,renderFrame:t=>{time=t;draw(true);},onProgress:p=>{el('[data-progress]').value=p;status(`Membuat MP4 · ${Math.round(p*100)}%`);}});
       downloadUrl=URL.createObjectURL(blob);const link=el('[data-download]');link.href=downloadUrl;link.download=`${filename(scenario.title)}-${format}-${quality}p.mp4`;link.hidden=false;
@@ -207,6 +209,6 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   listen(document,'visibilitychange',()=>{if(document.hidden&&!exporting)pause();});
   listen(window,'beforeunload',event=>{if(exporting){event.preventDefault();event.returnValue='';}});
   listen(gpu,'webglcontextlost',event=>{event.preventDefault();pause();exportAbort?.abort();status('Konteks grafis terputus. Muat ulang halaman; draf tetap tersimpan.');});
-  form();void rebuild();
-  return {dispose(){disposed=true;loadVersion++;audioVersion[0]++;audioVersion[1]++;pause();exportAbort?.abort();events.abort();stage?.dispose();renderer?.dispose();void audioContext?.close();invalidateDownload();host.replaceChildren();}};
+  form();saveDraft();const ready=rebuild();
+  return {ready,play,dispose(){disposed=true;loadVersion++;audioVersion[0]++;audioVersion[1]++;pause();exportAbort?.abort();events.abort();stage?.dispose();renderer?.dispose();void audioContext?.close();invalidateDownload();host.replaceChildren();}};
 }

@@ -10,7 +10,7 @@ await fs.writeFile('docs/script/001-day-1-scenes.md',`# Day 1 lengkap — Republ
 
 Status: **scene dapat diputar di studio**, ${compiled.shots.length} shot, **${compiled.duration.toFixed(2)} detik**, tiga pemeran, tiga bagian narator. Narasi/dialog tersedia dalam 19 potongan WAV dengan waktu hasil sintesis. Tampilan dan hasil suara belum ditinjau langsung di browser; belum ada MP4 final yang sudah diperiksa.
 
-Buka Produksi → **Day 1 lengkap · dengan narator** → **Play semua**. Pilih kualitas/format lalu **Buat MP4** → **Unduh MP4**. Audio bawaan dimuat dari proyek dan ikut diekspor. Workspace lama tidak ditimpa sampai tombol episode dipilih; episode buatan pengguna dicadangkan sebelum diganti.
+Buka Produksi → **Play semua**. Day 1 otomatis dimuat pada kunjungan baru atau draf kosong lama. Draf berisi suntingan tetap dipertahankan; tombol **Day 1 lengkap · dengan narator** mengembalikan versi bawaan. Pilih kualitas/format lalu **Buat MP4** → **Unduh MP4**. Di peta jelajah, masuk Balai Produksi → **Tonton Day 1** → **Play semua**, tanpa login admin. Pemutar peta tidak mengubah draf admin.
 
 ## Timeline implementasi
 
@@ -33,7 +33,7 @@ Joget awal berlanjut melewati cut narator tanpa mengulang pose. Musik berhenti s
 - Narator: Lewis; Prabowow: Roderic; Sari: Annie; Joko: Brodie, suara publik HeyGen dengan bahasa Indonesia. Suara karakter fiktif, bukan kloning tokoh nyata. Katalog tidak menyediakan hasil native Indonesia pada pencarian saat produksi; pelafalan perlu didengar langsung sebelum rilis.
 - Permintaan pengucapan pertama ditolak layanan. Percobaan berikutnya dilakukan setelah izin pengguna; teks suara memakai “Republik Weka Weka” dan “Dei Dua”, sedangkan subtitle mempertahankan merek “Wkwkwk” dan tulisan “Day Dua”.
 - Berkas asli, teks yang dikirim, voice ID, respons/timing, serta pemetaan potongan disimpan. Tidak ada perubahan kecepatan atau nada audio.
-- **Oke Gas belum dibundel.** Pembuka dan penutup memakai perkusi orisinal sebagai ritme uji 130 BPM, bukan rekaman/tiruan lagu tersebut. Checkbox ritme dapat dimatikan. File musik tambahan otomatis menonaktifkan ritme uji. Untuk hasil dengan Oke Gas, masih diperlukan potongan audio yang boleh digunakan dan pemeriksaan sinkronisasi musik final.
+- **Oke Gas sudah terpasang dari file pengguna** docs/record/oke gas.aac. Potongan sumber 0,04–8,04 detik dikonversi ke MP3 stereo 48 kHz. Musik mulai pelan selama narator, berlanjut lebih keras pada joget, berhenti ketika lapangan kosong diperlihatkan, dan kembali pada joget akhir. Tempo joget 145 BPM adalah perkiraan dari jarak transien; belum hasil dengar manual. Suara dan musik memiliki checkbox terpisah. File musik tambahan menggantikan Oke Gas bawaan. Pemetaan, checksum sumber, serta parameter tersimpan di game-src/production-day1-music.json.
 - Suara bawaan mengikuti urutan/durasi hasil suntingan. Jika subtitle diedit, klip suara dilepas agar tidak membacakan teks lama. Pilih lagi klip di menu Suara adegan untuk mengembalikan dialog. Durasi yang memotong suara ditolak.
 - Subtitle SRT mengikuti interval audio, bukan panjang seluruh shot. Tidak ada efek langkah/ambience burung pada versi ini.
 

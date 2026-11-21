@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . $source_css_version); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?= base_url('game-src/production-district.css?v=' . filemtime(FCPATH . 'game-src/production-district.css')); ?>">
+    <link rel="stylesheet" href="<?= base_url('game-src/production-studio.css?v=' . filemtime(FCPATH . 'game-src/production-studio.css')); ?>">
 </head>
 <body class="world-body">
     <main id="app" class="app-shell">

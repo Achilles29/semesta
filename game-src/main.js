@@ -5,6 +5,7 @@ import { createAvatarThumbnails } from './avatar-catalog-thumbnails.js';
 import { mountAvatarStudio } from './avatar-v15-studio.js';
 import { PRODUCTION_DISTRICT, insideProductionDistrict, productionReserved, productionEntry } from './production-district.js';
 import { buildProductionDistrict } from './production-district-scene.js';
+import { createProductionMapPlayer } from './production-map-player.js';
 
 const $ = (selector) => document.querySelector(selector);
 const API_URL = window.SEMESTA_API_URL || new URL('api', document.baseURI).href;
@@ -826,7 +827,8 @@ async function runArea(place, city) {
   catch (error) { startCanvasFallback(canvas, place, city, placedObjects, error); return; }
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5)); renderer.setSize(innerWidth, innerHeight, false); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.12; renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const scene = new THREE.Scene();
-  disposeActiveArea = () => { events.abort(); renderer.dispose(); $('#productionPanel')?.remove(); document.body.classList.remove('production-district'); };
+  let productionViewer=null;
+  disposeActiveArea = () => { productionViewer?.dispose();events.abort(); renderer.dispose(); $('#productionPanel')?.remove(); document.body.classList.remove('production-district'); };
   const regionLook = { kota: { sky: '#d0e4df', fog: '#d0e4df', grass: '#8bb666' }, desa: { sky: '#d8e3c2', fog: '#d8e3c2', grass: '#83ae58' }, hutan: { sky: '#b8d0bc', fog: '#b8d0bc', grass: '#5f8a56' } }[place.id] || { sky: '#d0e4df', fog: '#d0e4df', grass: '#8bb666' };
   scene.background = new THREE.Color(regionLook.sky); scene.fog = null;
   const camera = new THREE.PerspectiveCamera(43, innerWidth / innerHeight, .1, 180); const world = new THREE.Group(); scene.add(world);
@@ -1245,7 +1247,7 @@ async function runArea(place, city) {
   });
   const stopOrbit = (event) => { orbitPointers.delete(event.pointerId); if (orbitPointers.size < 2) pinchDistance = 0; };
   listen(canvas, 'pointerup', stopOrbit); listen(canvas, 'pointercancel', stopOrbit); listen(canvas, 'lostpointercapture', stopOrbit);
-  window.onkeydown = (event) => { if (isTypingTarget(event.target)) return; if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'].includes(event.code)) { keys.add(event.code); event.preventDefault(); } if (event.code === 'KeyE' || event.code === 'Space') talk(); if (event.code === 'Escape') document.body.classList.remove('capture-mode'); };
+  window.onkeydown = (event) => { if (productionViewer?.isOpen || isTypingTarget(event.target)) return; if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ArrowUp', 'ArrowLeft', 'ArrowDown', 'ArrowRight'].includes(event.code)) { keys.add(event.code); event.preventDefault(); } if (event.code === 'KeyE' || event.code === 'Space') talk(); if (event.code === 'Escape') document.body.classList.remove('capture-mode'); };
   window.onkeyup = (event) => keys.delete(event.code);
   const joystick = $('#joystick'); const knob = $('#joystickKnob');
   if (joystick) {
@@ -1274,11 +1276,13 @@ async function runArea(place, city) {
   let productionPanel = null;
   if (production) {
     productionPanel = document.createElement('aside'); productionPanel.id = 'productionPanel'; productionPanel.className = 'production-panel'; productionPanel.hidden = true;
-    productionPanel.innerHTML = '<strong>Balai Produksi</strong><p>Produksi baru dimulai dari Day 1. Skenario, pemeran, dan ekspor MP4 tersedia di halaman Produksi.</p>';
+    productionPanel.innerHTML = '<strong>Day 1 sudah tayang</strong><p>Republik Wkwkwk baru buka. Tonton cerita lengkap dengan narator dan Oke Gas di sini.</p>';
+    productionViewer=createProductionMapPlayer($('#exploreScreen'));
+    const watch=document.createElement('button');watch.type='button';watch.textContent='Tonton Day 1';watch.onclick=()=>{keys.clear();stick.x=stick.y=0;void productionViewer.open();};productionPanel.append(watch);
     const studioLink=document.createElement('a');studioLink.href=new URL('admin/?view=production',document.baseURI).href;studioLink.textContent='Buka studio produksi';productionPanel.append(studioLink);
     $('#exploreScreen').append(productionPanel);
   }
-  function frame(now) { if (runToken !== areaRunToken || events.signal.aborted) return; if (!$('#exploreScreen').classList.contains('active')) { disposeActiveArea(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); const oldPX=player.position.x,oldPZ=player.position.z; const movementSpeed=avatarSpeed(playerModel,(keys.has('ShiftLeft')||keys.has('ShiftRight')||touchRunning)?'Run':'Walk'); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * movementSpeed * dt; const nextZ = player.position.z + moveZ * movementSpeed * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = 0; if (!animateCharacter(playerModel, Math.hypot(player.position.x-oldPX,player.position.z-oldPZ)/Math.max(dt,.001), dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
+  function frame(now) { if (runToken !== areaRunToken || events.signal.aborted) return; if (!$('#exploreScreen').classList.contains('active')) { disposeActiveArea(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; if(productionViewer?.isOpen)return; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); const oldPX=player.position.x,oldPZ=player.position.z; const movementSpeed=avatarSpeed(playerModel,(keys.has('ShiftLeft')||keys.has('ShiftRight')||touchRunning)?'Run':'Walk'); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * movementSpeed * dt; const nextZ = player.position.z + moveZ * movementSpeed * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = 0; if (!animateCharacter(playerModel, Math.hypot(player.position.x-oldPX,player.position.z-oldPZ)/Math.max(dt,.001), dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
     if (activeCitizen && now - lastChatSync > 1700) syncCitizenChat(now);
     if (productionPanel) {
       production.updateLabels(document.body.classList.contains('capture-mode')?0:cameraDistance);

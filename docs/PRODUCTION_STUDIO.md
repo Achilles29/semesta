@@ -1,17 +1,17 @@
 # Studio produksi baru
 
-Halaman: `/admin/?view=production`. Reset dilakukan pada 21 November 2026. Workspace awal tetap kosong. **Day 1 lengkap · dengan narator** memuat episode 89,98 detik dengan tiga pemeran, latar lapangan nol, dan 19 potongan suara. Visual/audio serta MP4 belum ditinjau langsung di browser; musik Oke Gas belum dibundel.
+Halaman: `/admin/?view=production`. **Day 1 lengkap · dengan narator** otomatis dimuat pada kunjungan baru atau draf kosong lama: 89,98 detik, tiga pemeran, latar lapangan nol, 19 potongan suara dan Oke Gas dari file pengguna. Draf berisi suntingan tetap dipertahankan. Pilihan eksplisit Day 1 kosong juga dipertahankan saat reload. Visual/audio serta MP4 belum ditinjau langsung di browser.
 
-Pembaruan: [timeline Day 1 lengkap](script/001-day-1-scenes.md) berisi 26 shot: narator, joget, kedatangan Sari/Joko, kursi kantor sementara, usulan pembangunan/acara/aturan, ajakan berpartisipasi, dan joget bersama. Tombol **Pembuka Prabowow** mempertahankan draf pendek lama. Ritme joget bawaan adalah perkusi orisinal 130 BPM untuk latihan, bukan Oke Gas. Pengaturan audio dapat menonaktifkannya.
+Pembaruan: [timeline Day 1 lengkap](script/001-day-1-scenes.md) berisi 26 shot: narator, joget, kedatangan Sari/Joko, kursi kantor sementara, usulan pembangunan/acara/aturan, ajakan berpartisipasi, dan joget bersama. Oke Gas dipelankan saat narator membuka cerita, dinaikkan saat joget, dan dihentikan selama dialog berikutnya. Di peta jelajah, tombol **Tonton Day 1** membuka pemutar yang sama tanpa admin. Menutupnya membebaskan audio/render dan mengembalikan kendali peta; draf admin tidak disentuh.
 
 Episode lama, media `public/audio/produksi/episode-001` sampai `episode-004`, naskah `docs/script/001…014`, release/review episode, pemutar lama, dan alat khusus episode lama telah dihapus. Riwayat Git tetap menjadi tempat pemulihan bila diperlukan. Model avatar, variasi pakaian, aset dunia, dan helper pengujian rig tetap tersedia. Data akun warga, avatar tersimpan, susunan wilayah, dan database game tidak direset.
 
 ## Cara memakai
 
-1. Buka Produksi. Workspace awal adalah Day 1 kosong. **Coba latihan studio** membuka latihan teknis 10 detik, bukan episode Day 1.
+1. Buka Produksi. Day 1 sudah siap pada kunjungan baru/draf kosong lama. **Coba latihan studio** tetap tersedia untuk latihan teknis 10 detik.
 2. Pilih 1–4 pemeran dari 32 preset avatar. Atur lokasi dan properti: bangku, peti, tanaman, dan papan. Gerakan Hold membawa properti kecil yang mengikuti tangan.
 3. Tambah adegan. Tentukan durasi, kamera, pemeran fokus, gerakan setiap pemeran, arah, posisi tujuan jalan/lari, dan subtitle. Posisi akhir diteruskan ke adegan berikutnya. X adalah kiri/kanan set; Z adalah kedalaman, dan arah 0 menghadap kamera dari depan.
-4. Day 1 lengkap otomatis memuat suara bawaan saat Play/ekspor. Pilihan suara per adegan mengikuti durasi dan urutan hasil edit. Mengedit subtitle melepas suara lama; pilih klip lagi untuk mengembalikannya. Bukaan mulut mengikuti amplitudo audio, bukan sinkronisasi fonem penuh. File dialog/musik tambahan tetap bisa dipasang; matikan suara bawaan jika memakai dialog pengganti. File musik tambahan menonaktifkan ritme sementara.
+4. Day 1 lengkap otomatis memuat suara dan musik bawaan saat Play/ekspor. Pilihan suara per adegan mengikuti durasi dan urutan hasil edit. Mengedit subtitle melepas suara lama; pilih klip lagi untuk mengembalikannya. Bukaan mulut mengikuti amplitudo audio, bukan sinkronisasi fonem penuh. File dialog/musik tambahan tetap bisa dipasang; matikan suara bawaan jika memakai dialog pengganti. File musik tambahan menggantikan Oke Gas bawaan.
 5. Tekan **Play semua**. Semua adegan berjalan berurutan tanpa kendali karakter manual. Jeda, ulang dari awal, dan geser timeline tersedia.
 6. Pilih vertikal, horizontal, atau persegi; kualitas 1080p atau 720p. Tekan **Buat MP4**, tunggu proses, kemudian **Unduh MP4**. Tombol unduh hanya muncul setelah file selesai. Mengubah skenario, audio, format, atau kualitas membatalkan tautan hasil lama.
 7. **Day 1 kosong** mengosongkan workspace. Jika yang diganti adalah skenario episode berisi adegan, studio lebih dahulu menawarkan unduhan cadangan otomatis. Latihan teknis tidak menjadi konten final.

@@ -36,10 +36,12 @@ export async function mixProductionAudio(tracks,duration){
   const context=new OfflineAudioContext(2,Math.ceil(frameCount(duration)/EXPORT_FPS*48000),48000);
   for(const track of active){
     const source=context.createBufferSource(),gain=context.createGain();source.buffer=track.buffer;
-    const length=Math.min(track.buffer.duration,duration-track.offset),fade=Math.min(.12,length/3);
+    const sourceOffset=Math.max(0,track.sourceOffset||0),length=Math.min(track.duration??Infinity,track.buffer.duration-sourceOffset,duration-track.offset);
+    if(length<=0)continue;
+    const fade=Math.min(.025,length/3);
     gain.gain.setValueAtTime(0,track.offset);gain.gain.linearRampToValueAtTime(track.volume,track.offset+fade);
     gain.gain.setValueAtTime(track.volume,track.offset+length-fade);gain.gain.linearRampToValueAtTime(0,track.offset+length);
-    source.connect(gain).connect(context.destination);source.start(track.offset,0,length);
+    source.connect(gain).connect(context.destination);source.start(track.offset,sourceOffset,length);
   }
   const mixed=await context.startRendering();
   let peak=0;for(let c=0;c<mixed.numberOfChannels;c++)for(const value of mixed.getChannelData(c))peak=Math.max(peak,Math.abs(value));

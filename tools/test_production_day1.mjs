@@ -7,6 +7,7 @@ import {compileScenario,sampleScenario,validateScenario,srtFor} from '../game-sr
 import {createProductionStage} from '../game-src/production-stage.js';
 import {loadStoryAudio,storyAudioUrl} from '../game-src/production-story-audio.js';
 import {loadTestAvatars} from './avatar_v15_test_asset.mjs';
+import {mixProductionAudio} from '../game-src/production-export.js';
 
 const scenario=day1Scenario(),compiled=compileScenario(scenario);
 assert.equal(scenario.set,'republic');assert.equal(compiled.shots.length,26);assert.ok(compiled.duration>=85&&compiled.duration<=91);
@@ -26,9 +27,13 @@ stage.dispose();
 let decoded=0;
 const context={decodeAudioData:async bytes=>{decoded++;return {bytes};},createBuffer:(channels,length,rate)=>({duration:length/rate,getChannelData:()=>new Float32Array(length)})};
 const fetcher=async url=>({ok:true,arrayBuffer:async()=>{const key=url.split('/').at(-1);const b=await fs.readFile(`public/audio/produksi/day-1/${key}`);return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);}});
-const tracks=await loadStoryAudio(scenario,context,{fetcher});assert.equal(decoded,19);assert.equal(tracks.length,21);
+const tracks=await loadStoryAudio(scenario,context,{fetcher});assert.equal(decoded,20);assert.equal(tracks.length,22);
 for(let i=0;i<speech.length;i++)assert.equal(tracks.filter(t=>t.volume===.95)[i].offset,speech[i].start+.3);
-assert.equal((await loadStoryAudio(scenario,context,{fetcher,rhythm:false})).length,19);assert.equal(decoded,19,'Decoded clips cached');
+assert.equal((await loadStoryAudio(scenario,context,{fetcher,rhythm:false})).length,19);assert.equal(decoded,20,'Decoded clips cached');
+const musicTracks=await loadStoryAudio(scenario,context,{fetcher,voices:false});assert.equal(musicTracks.length,3);assert.equal(musicTracks[0].volume,.08);assert.equal(musicTracks[1].sourceOffset,3);assert.equal(musicTracks[1].duration,3);
+const starts=[];globalThis.OfflineAudioContext=class{destination={};createBufferSource(){return {connect(destination){return destination;},start(at,offset,length){starts.push({at,offset,length});}};}createGain(){return {gain:{setValueAtTime(){},linearRampToValueAtTime(){}},connect(){}};}async startRendering(){return {numberOfChannels:2,getChannelData:()=>new Float32Array(2)};}};
+await mixProductionAudio(musicTracks.map(t=>({...t,buffer:{duration:8}})),compiled.duration);
+assert.deepEqual(starts.map(t=>[t.at,t.offset,t.length]),musicTracks.map(t=>[t.offset,t.sourceOffset,t.duration]),'Mix must trim music and carry the source offset, not restart or spill into dialogue');
 assert.ok(storyAudioUrl('narrator-01').endsWith('/project/public/audio/produksi/day-1/narrator-01.wav'));
 assert.ok(srtFor(scenario).includes('00:00:00,300 -->'));
 for(const mutate of [s=>s.shots[0].speech='../../secret',s=>s.shots[0].duration=1,s=>s.shots[0].actors.a.visible='yes',s=>s.shots[0].frame={target:[0,1,0],width:Infinity}]){const bad=structuredClone(scenario);mutate(bad);assert.throws(()=>validateScenario(bad));}

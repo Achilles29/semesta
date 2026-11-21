@@ -45,7 +45,9 @@ export function validateScenario(input) {
     if(shot.speech&&(shot.speechOffset??.3)+day1Audio[shot.speech].duration>shot.duration)fail('Durasi adegan lebih pendek dari dialog.');
     if(shot.overlay!==undefined&&!text(shot.overlay,100))fail('Teks utama maksimal 100 karakter.');
     if(shot.card!==undefined&&!['build','events'].includes(shot.card))fail('Kartu usulan tidak dikenal.');
-    if(shot.sound!==undefined&&shot.sound!=='beat')fail('Efek suara tidak dikenal.');
+    if(shot.sound!==undefined&&!['beat','okeGas'].includes(shot.sound))fail('Efek suara tidak dikenal.');
+    if(shot.musicOffset!==undefined&&!finite(shot.musicOffset,0,7))fail('Posisi musik tidak valid.');
+    if(shot.musicVolume!==undefined&&!finite(shot.musicVolume,0,1))fail('Volume musik tidak valid.');
     if(shot.frame!==undefined&&(!Array.isArray(shot.frame.target)||shot.frame.target.length!==3||!shot.frame.target.every(n=>finite(n,-12,12))||!finite(shot.frame.width,.8,12)))fail('Bingkai kamera tidak valid.');
     if(!shot.actors||typeof shot.actors!=='object'||Array.isArray(shot.actors))fail('Gerakan pemeran belum diatur.');
     for(const [id,cue] of Object.entries(shot.actors)){

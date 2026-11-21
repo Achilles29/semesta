@@ -1,4 +1,5 @@
 import audio from './production-day1-audio.json' with {type:'json'};
+import music from './production-day1-music.json' with {type:'json'};
 
 export const DAY1_SPEAKERS={narrator:'Narator',prabowow:'Prabowow',sari:'Sari',joko:'Joko'};
 export const day1Caption=key=>audio[key].text.replaceAll('Weka Weka','Wkwkwk').replaceAll('Dei Dua','Day Dua');
@@ -40,5 +41,8 @@ export function day1Scenario(){
   add('boleh-joget',2.8,'Joko meminta joget bersama',{speech:'joko-03',actors:{a:idle(.65),b:idle(.5),c:idle(-.8)}});
   add('boleh',1.4,'Presiden menyetujui',{speech:'prabowow-09',actors:{a:idle(.65,{gesture:'nod'}),b:idle(.3),c:idle(-.6)}});
   add('joget-bersama',3.5,'Warga pertama berjoget bersama',{sound:'beat',overlay:'FOLLOW · LIHAT HASILNYA DI DAY 2',actors:{a:{action:'Dance',bpm:130,delay:.2},b:{action:'Dance',bpm:130,delay:.7},c:{action:'Dance',bpm:130}}});
+  for(const shot of scenario.shots){for(const cue of Object.values(shot.actors))if(cue.action==='Dance')cue.bpm=music.bpm;if(shot.sound==='beat')shot.sound='okeGas';}
+  scenario.shots[0].sound='okeGas';scenario.shots[0].musicVolume=.08;
+  scenario.shots[1].musicOffset=3;
   return scenario;
 }

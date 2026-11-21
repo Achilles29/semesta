@@ -1,9 +1,12 @@
 // DOM interaction tests, not a real-browser or WebGL test.
 import assert from 'node:assert/strict';
 import {Window} from 'happy-dom';
-import {compileScenario,sampleScenario} from '../game-src/production-scenario.js';
+import {compileScenario,sampleScenario,blankScenario} from '../game-src/production-scenario.js';
+import {day1Scenario} from '../game-src/production-day1.js';
+import {createProductionMapPlayer} from '../game-src/production-map-player.js';
 import {mountProductionStudio} from '../game-src/production-studio.js';
 const win=new Window({url:'http://localhost/project/admin/?view=production'});
+const schedule=globalThis.setTimeout;globalThis.setTimeout=(fn,ms,...args)=>{const timer=schedule(fn,ms,...args);if(ms===60000)timer.unref();return timer;}; // Download URL cleanup must not keep this DOM test alive for a minute.
 for(const name of ['window','document','navigator','localStorage','Event','CustomEvent','HTMLElement'])Object.defineProperty(globalThis,name,{value:name==='window'?win:win[name],configurable:true});
 let clock=0,frame;
 Object.defineProperty(globalThis,'performance',{value:{now:()=>clock*1000},configurable:true});
@@ -24,9 +27,10 @@ const dependencies={
 const flush=()=>new Promise(resolve=>setTimeout(resolve,0));
 const click=selector=>q(selector).click();
 const change=(selector,value)=>{const node=q(selector);node.value=value;node.dispatchEvent(new win.Event('change',{bubbles:true}));};
+localStorage.setItem('semesta.production.workspace.v1',JSON.stringify(blankScenario()));
 let studio=mountProductionStudio(host,dependencies);await flush();
-assert.equal(creates,0);assert.equal(q('[data-command="play"]').disabled,true);assert.equal(q('.ps-empty').hidden,false);
-click('[data-command="rehearsal"]');await flush();assert.equal(creates,1);assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('.ps-empty').hidden,true);
+assert.equal(creates,1);assert.equal(host.querySelectorAll('[data-shot]').length,26,'Legacy empty workspace migrates to active Day 1');assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('.ps-empty').hidden,true);
+click('[data-command="rehearsal"]');await flush();assert.equal(creates,2);assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('.ps-empty').hidden,true);
 assert.deepEqual(gpuSize.at(-1),[360,640],'Preview GPU must be sized even if display canvas already matches');
 click('[data-command="play"]');assert.ok(q('[data-command="play"]').textContent.includes('Jeda'));clock=3;frame();assert.ok(q('[data-time]').textContent.startsWith('0:03.0'));
 click('[data-command="play"]');assert.equal(frame,null);click('[data-jump="2"]');assert.equal(Number(q('[data-seek]').value),5);
@@ -52,5 +56,11 @@ assert.match(q('[data-field="title"]').value,/Republik Wkwkwk/);assert.equal(q('
 click('[data-command="play"]');await flush();assert.equal(storyLoads,1);assert.match(q('[data-command="play"]').textContent,/Jeda/);click('[data-command="play"]');
 mode='complete';click('[data-command="export"]');await flush();await flush();assert.equal(exportRequest.audio.storyAudio,true,'Built-in voice must reach MP4 encoder');assert.ok(exportRequest.duration>85);assert.equal(storyLoads,1,'Preview and export reuse the same mix');
 change('[data-shot="0"] [data-shot-field="caption"]','Narasi yang disunting');assert.equal(JSON.parse(localStorage.getItem('semesta.production.workspace.v1')).shots[0].speech,undefined,'Text edits must not leave mismatched old audio');assert.equal(q('[data-download]').hidden,true);
-studio.dispose();await win.happyDOM.close();
+click('[data-command="new"]');await flush();studio.dispose();studio=mountProductionStudio(host,dependencies);await flush();assert.equal(q('[data-command="play"]').disabled,true,'Explicit empty choice survives reload');studio.dispose();
+const beforeMap=localStorage.getItem('semesta.production.workspace.v1'),mapHost=document.createElement('section');document.body.append(mapHost);
+const mapPlayer=createProductionMapPlayer(mapHost,{load:async()=>[{mountProductionStudio:(h,options)=>mountProductionStudio(h,{...dependencies,...options})},{day1Scenario}]});
+await mapPlayer.open();assert.equal(mapPlayer.isOpen,true);assert.equal(mapHost.querySelectorAll('[data-shot]').length,26);assert.equal(mapHost.querySelector('[data-command="play"]').disabled,false);
+mapHost.querySelector('[data-command="play"]').click();await flush();assert.match(mapHost.querySelector('[data-command="play"]').textContent,/Jeda/,'Map player works without admin-view ancestor');assert.equal(localStorage.getItem('semesta.production.workspace.v1'),beforeMap,'Map player must never overwrite admin draft');mapHost.querySelector('[data-close-production]').click();assert.equal(mapPlayer.isOpen,false);assert.equal(mapHost.querySelector('dialog'),null);assert.equal(frame,null);
+localStorage.clear();studio=mountProductionStudio(host,dependencies);await flush();assert.equal(host.querySelectorAll('[data-shot]').length,26,'Fresh visit defaults to Day 1');studio.dispose();
+await win.happyDOM.close();
 console.log('PASS: DOM empty/rehearsal/edit/seek/play/pause/export/cancel/format/cast/draft/reset/XSS/lifecycle. Real browser graphics not exercised.');

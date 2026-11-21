@@ -47,7 +47,7 @@
       "actors": {
         "a": {
           "action": "Dance",
-          "bpm": 130
+          "bpm": 145
         },
         "b": {
           "action": "Idle",
@@ -62,7 +62,9 @@
       },
       "speech": "narrator-01",
       "overlay": "HARI PERTAMA",
-      "speechOffset": 0.3
+      "speechOffset": 0.3,
+      "sound": "okeGas",
+      "musicVolume": 0.08
     },
     {
       "id": "presiden-joget",
@@ -74,7 +76,7 @@
       "actors": {
         "a": {
           "action": "Dance",
-          "bpm": 130,
+          "bpm": 145,
           "phase": 3
         },
         "b": {
@@ -89,7 +91,8 @@
         }
       },
       "overlay": "PRESIDEN SUDAH SIAP.",
-      "sound": "beat"
+      "sound": "okeGas",
+      "musicOffset": 3
     },
     {
       "id": "lapangan-kosong",
@@ -728,20 +731,20 @@
       "actors": {
         "a": {
           "action": "Dance",
-          "bpm": 130,
+          "bpm": 145,
           "delay": 0.2
         },
         "b": {
           "action": "Dance",
-          "bpm": 130,
+          "bpm": 145,
           "delay": 0.7
         },
         "c": {
           "action": "Dance",
-          "bpm": 130
+          "bpm": 145
         }
       },
-      "sound": "beat",
+      "sound": "okeGas",
       "overlay": "FOLLOW · LIHAT HASILNYA DI DAY 2"
     }
   ]
