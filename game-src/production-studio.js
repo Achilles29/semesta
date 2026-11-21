@@ -3,6 +3,9 @@ import {ACTIONS,CAMERAS,PROPS,OUTPUTS,blankScenario,rehearsalScenario,validateSc
 import {createProductionStage,createProductionRenderer,compositeFrame} from './production-stage.js';
 import {encodeMp4,mixProductionAudio} from './production-export.js';
 import {day1OpeningScenario} from './production-day1-opening.js';
+import {day1Scenario,day1Caption,DAY1_SPEAKERS} from './production-day1.js';
+import day1Audio from './production-day1-audio.json' with {type:'json'};
+import {hasStoryAudio,loadStoryAudio} from './production-story-audio.js';
 
 const STORAGE='semesta.production.workspace.v1';
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -10,16 +13,17 @@ const options=(values,selected)=>Object.entries(values).map(([v,label])=>`<optio
 const stamp=t=>`${Math.floor(t/60)}:${(t%60).toFixed(1).padStart(4,'0')}`;
 const filename=title=>(title.normalize('NFKD').replace(/[^a-zA-Z0-9_-]+/g,'-').replace(/^-|-$/g,'').slice(0,70)||'produksi');
 
-export function mountProductionStudio(host,{createStage=createProductionStage,createRenderer=createProductionRenderer,encode=encodeMp4,mixAudio=mixProductionAudio}={}){
+export function mountProductionStudio(host,{createStage=createProductionStage,createRenderer=createProductionRenderer,encode=encodeMp4,mixAudio=mixProductionAudio,loadStory=loadStoryAudio}={}){
   const events=new AbortController(),listen=(el,type,fn)=>el.addEventListener(type,fn,{signal:events.signal});
   let scenario=blankScenario(),storageNotice='';
   try{const saved=localStorage.getItem(STORAGE);if(saved)scenario=validateScenario(JSON.parse(saved));}catch{storageNotice='Draf lokal tidak dapat dibaca. Workspace kosong dibuka.';}
   let stage=null,renderer=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false;
   let audioContext=null,audioSource=null,mixed=null,exportAbort=null,downloadUrl=null,format='portrait',quality='1080',guides=false,playVersion=0,audioLoading=0;
   const audioVersion=[0,0];
+  let storyEnabled=true,rhythmEnabled=true;
   const tracks=[{name:'Dialog / narasi',buffer:null,volume:1,offset:0},{name:'Musik / suasana',buffer:null,volume:.25,offset:0}];
   host.innerHTML=`<div class="production-studio">
-    <div class="ps-heading"><div><span class="ps-eyebrow">WORKSPACE BARU</span><h3>Mulai dari cerita pertama.</h3><p>Day 1 belum memiliki skenario. Susun adegan, lalu putar seluruh cerita dengan satu tombol.</p></div><div class="ps-workspace-actions"><button type="button" data-command="day1-opening" class="ps-secondary">Pembuka Prabowow</button><button type="button" data-command="rehearsal" class="ps-secondary">Coba latihan studio</button></div></div>
+    <div class="ps-heading"><div><span class="ps-eyebrow">REPUBLIK WKWKWK · PRODUKSI</span><h3>Mulai dari cerita pertama.</h3><p>Susun adegan, lalu putar seluruh cerita dengan satu tombol.</p></div><div class="ps-workspace-actions"><button type="button" data-command="day1-full" class="ps-secondary">Day 1 lengkap · dengan narator</button><button type="button" data-command="day1-opening" class="ps-secondary">Pembuka Prabowow</button><button type="button" data-command="rehearsal" class="ps-secondary">Coba latihan studio</button></div></div>
     <div class="ps-layout"><section class="ps-monitor" aria-label="Pratinjau produksi">
       <div class="ps-screen"><canvas data-preview width="360" height="640" aria-label="Pratinjau animasi skenario"></canvas><div class="ps-empty"><b>Day 1 · lembar baru</b><p>Belum ada konten. Coba latihan untuk memeriksa gerakan, kamera, dan unduhan.</p></div></div>
       <div class="ps-transport"><button type="button" data-command="play" disabled>▶ Play semua</button><button type="button" data-command="stop" disabled>↺ Awal</button><span data-time>0:00.0 / 0:00.0</span></div>
@@ -34,7 +38,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
       <p data-status role="status" aria-live="polite"></p>
     </section><section class="ps-editor" aria-label="Skenario produksi">
       <form data-editor><div data-form-content></div></form>
-      <section class="ps-audio"><h4>Audio</h4><p class="ps-muted">Pasang dialog/narasi dan musik. Audio hanya untuk sesi ini; lampirkan kembali setelah membuka ulang halaman.</p><p class="ps-muted">Rujukan pembuka Prabowow: <a href="https://www.youtube.com/watch?v=IP7_qN9qN-c" target="_blank" rel="noopener noreferrer">Oke Gas 2 — Richard Jersey</a>. Lagu belum terpasang pada draf. Tambahkan sound dari pustaka platform saat unggah, atau pasang file audio yang sudah berizin di sini.</p>
+      <section class="ps-audio"><h4>Audio</h4><label><input data-story-audio type="checkbox" checked> Gunakan suara narator dan karakter bawaan Day 1</label><label><input data-story-rhythm type="checkbox" checked> Ritme joget sementara (perkusi orisinal, bukan Oke Gas)</label><p class="ps-muted">Suara bawaan mengikuti adegan dan dimuat kembali otomatis. File tambahan di bawah hanya untuk sesi ini. Matikan suara bawaan jika memasang dialog pengganti.</p><p class="ps-muted">Rujukan pembuka Prabowow: <a href="https://www.youtube.com/watch?v=IP7_qN9qN-c" target="_blank" rel="noopener noreferrer">Oke Gas 2 — Richard Jersey</a>. Lagu belum terpasang. Gunakan file berizin untuk mengganti ritme sementara; pemasangan musik tambahan otomatis menonaktifkan ritme saat pemutaran.</p>
       ${tracks.map((t,i)=>`<div class="ps-audio-track" data-audio-track="${i}"><label>${t.name}<input type="file" data-audio-file="${i}" accept="audio/*"></label><span data-audio-name="${i}" class="ps-muted">Tanpa audio</span><div class="ps-audio-settings"><label>Volume<input data-audio-volume="${i}" type="range" min="0" max="1" step=".05" value="${t.volume}"></label><label>Mulai (detik)<input data-audio-offset="${i}" type="number" min="0" max="180" step=".1" value="0"></label><button type="button" data-audio-remove="${i}">Lepas</button></div></div>`).join('')}
       </section><div class="ps-workspace-actions"><button type="button" data-command="save">↓ Simpan skenario</button><label class="ps-file-button">Buka skenario<input data-import type="file" accept=".json,application/json"></label><button type="button" data-command="srt">↓ Subtitle SRT</button><button type="button" data-command="new">Day 1 kosong</button></div>
       <p class="ps-muted" data-save-status>Draf tersimpan otomatis di browser ini. Unduh skenario untuk cadangan atau pindah perangkat.</p>
@@ -47,7 +51,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     el('.ps-heading h3').textContent=scenario.shots.length?scenario.title:'Mulai dari cerita pertama.';
     el('.ps-heading p').textContent=scenario.kind==='rehearsal'?'Draf / latihan, belum menjadi episode final. Uji gerakan, kamera, subtitle, dan MP4; audio perlu dipasang terpisah.':scenario.shots.length?'Skenario siap disunting. Putar semua adegan, lalu buat MP4 untuk diunggah.':'Day 1 belum memiliki skenario. Susun adegan, lalu putar seluruh cerita dengan satu tombol.';
     let cursor=0;
-    el('[data-form-content]').innerHTML=`<div class="ps-fields"><label>Judul<input data-field="title" maxlength="100" value="${escape(scenario.title)}" required></label><label>Lokasi<select data-field="set">${options({courtyard:'Halaman warga',studio:'Studio dalam ruang'},scenario.set)}</select></label></div>
+    el('[data-form-content]').innerHTML=`<div class="ps-fields"><label>Judul<input data-field="title" maxlength="100" value="${escape(scenario.title)}" required></label><label>Lokasi<select data-field="set">${options({courtyard:'Halaman warga',studio:'Studio dalam ruang',republic:'Lapangan nol Republik Wkwkwk'},scenario.set)}</select></label></div>
       <div class="ps-section-heading"><h4>Pemeran</h4><button type="button" data-command="add-cast" ${scenario.cast.length>=4?'disabled':''}>+ Pemeran</button></div>
       <div class="ps-cast">${scenario.cast.map(c=>`<div class="ps-cast-row"><label>Pemeran ${escape(c.id.toUpperCase())}<select data-cast="${c.id}">${options(Object.fromEntries(presets.map(p=>[p.id,p.name])),c.preset)}</select></label><label>X<input data-cast-x="${c.id}" type="number" min="-12" max="12" step=".1" value="${c.position[0]}"></label><label>Z<input data-cast-z="${c.id}" type="number" min="-12" max="12" step=".1" value="${c.position[1]}"></label>${scenario.cast.length>1?`<button type="button" data-remove-cast="${c.id}" aria-label="Hapus pemeran ${c.id}">×</button>`:''}</div>`).join('')}</div>
       <fieldset class="ps-props"><legend>Properti set</legend>${Object.entries(PROPS).map(([k,v])=>`<label><input type="checkbox" data-prop="${k}" ${scenario.props.includes(k)?'checked':''}>${v}</label>`).join('')}</fieldset>
@@ -56,7 +60,11 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
       <div class="ps-shots">${scenario.shots.map((s,i)=>{const start=cursor;cursor+=s.duration;return `<article class="ps-shot" data-shot="${i}"><div class="ps-shot-head"><button type="button" data-jump="${i}">${String(i+1).padStart(2,'0')} · ${stamp(start)}–${stamp(cursor)}</button><div><button type="button" data-up="${i}" ${i===0?'disabled':''} aria-label="Geser adegan ke atas">↑</button><button type="button" data-remove="${i}" aria-label="Hapus adegan">×</button></div></div>
       <label>Nama adegan<input data-shot-field="label" maxlength="80" value="${escape(s.label)}"></label><div class="ps-fields"><label>Durasi (detik)<input data-shot-field="duration" type="number" min="1" max="30" step=".1" value="${s.duration}"></label><label>Kamera<select data-shot-field="camera">${options(CAMERAS,s.camera)}</select></label><label>Fokus<select data-shot-field="focus">${options(Object.fromEntries(scenario.cast.map(c=>[c.id,`Pemeran ${c.id.toUpperCase()}`])),s.focus)}</select></label></div>
       ${scenario.cast.map(c=>{const cue=s.actors[c.id]||{action:'Idle'};return `<div class="ps-blocking"><label>${escape(c.id.toUpperCase())} · gerakan<select data-action="${c.id}">${options(ACTIONS,cue.action)}</select></label>${['Walk','Run'].includes(cue.action)?`<label>Tujuan X<input data-to-x="${c.id}" type="number" min="-12" max="12" step=".1" value="${cue.to[0]}"></label><label>Tujuan Z<input data-to-z="${c.id}" type="number" min="-12" max="12" step=".1" value="${cue.to[1]}"></label>`:`<label>Arah (derajat)<input data-yaw="${c.id}" type="number" min="-360" max="360" step="5" value="${Math.round((cue.yaw||0)*180/Math.PI)}"></label>`}${cue.action==='Dance'?`<label>Tempo (BPM)<input data-bpm="${c.id}" type="number" min="70" max="180" step="1" value="${cue.bpm||130}"></label>`:''}</div>`;}).join('')}
-      <label>Subtitle<textarea data-shot-field="caption" rows="2" maxlength="180" placeholder="Dialog atau teks adegan">${escape(s.caption)}</textarea></label></article>`;}).join('')}</div>`;
+      <label>Suara adegan<select data-speech>${options({'':'Tanpa suara bawaan',...Object.fromEntries(Object.entries(day1Audio).map(([key,clip])=>[key,`${DAY1_SPEAKERS[clip.speaker]}: ${day1Caption(key)}`]))},s.speech||'')}</select></label>
+      <label>Subtitle<textarea data-shot-field="caption" rows="2" maxlength="180" placeholder="Dialog atau teks adegan">${escape(s.caption)}</textarea></label><small>Mengubah subtitle melepas suara bawaan adegan agar teks dan suara tidak berbeda.</small>
+      <label>Teks utama<input data-shot-field="overlay" maxlength="100" value="${escape(s.overlay||'')}"></label>
+      ${s.frame?`<p class="ps-muted">Bingkai khusus: lebar ${s.frame.width} m. Pilih ulang jenis kamera untuk kembali ke bingkai otomatis.</p>`:''}
+      <div class="ps-fields">${scenario.cast.map(c=>`<label><input type="checkbox" data-visible="${c.id}" ${compileScenario(scenario).shots[i].tracks[c.id].visible?'checked':''}>Tampilkan pemeran ${c.id.toUpperCase()}</label>`).join('')}</div></article>`;}).join('')}</div>`;
   }
   function controls(){
     const busy=exporting||starting||audioLoading>0,ready=!!stage&&scenario.shots.length>0;
@@ -76,6 +84,15 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     host.querySelectorAll('[data-shot]').forEach(node=>node.classList.toggle('is-current',Number(node.dataset.shot)===sample?.index));
   }
   function stopAudio(){if(audioSource){try{audioSource.stop();}catch{}audioSource.disconnect();audioSource=null;}}
+  async function prepareAudio(){
+    if(mixed)return mixed;
+    let automatic=[];
+    if(storyEnabled&&hasStoryAudio(scenario)){
+      audioContext ||= new AudioContext();
+      automatic=await loadStory(scenario,audioContext,{rhythm:rhythmEnabled&&!tracks[1].buffer});
+    }
+    mixed=await mixAudio([...automatic,...tracks],stage.compiled.duration);return mixed;
+  }
   function pause(){playVersion++;playing=false;cancelAnimationFrame(raf);stopAudio();controls();}
   function tick(){if(!playing||disposed)return;time=Math.min(stage.compiled.duration,(audioSource?audioContext.currentTime:performance.now()/1000)-started);draw();if(time>=stage.compiled.duration){pause();status('Pemutaran selesai. MP4 siap dibuat.');}else raf=requestAnimationFrame(tick);}
   async function play(){
@@ -83,8 +100,8 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     const attempt=++playVersion;starting=true;controls();
     try{
       if(time>=stage.compiled.duration)time=0;
-      if(tracks.some(t=>t.buffer)){
-        audioContext ||= new AudioContext();await audioContext.resume();mixed ||= await mixAudio(tracks,stage.compiled.duration);
+      if(tracks.some(t=>t.buffer)||(storyEnabled&&hasStoryAudio(scenario))){
+        audioContext ||= new AudioContext();await audioContext.resume();await prepareAudio();
       }
       if(disposed||attempt!==playVersion||!host.closest('.admin-view')?.classList.contains('active'))return;
       if(mixed){audioSource=audioContext.createBufferSource();audioSource.buffer=mixed;audioSource.connect(audioContext.destination);audioSource.start(0,time);started=audioContext.currentTime-time;}else started=performance.now()/1000-time;
@@ -116,7 +133,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     status('Menyiapkan MP4…');let wakeLock;
     try{
       try{wakeLock=await navigator.wakeLock?.request('screen');}catch{}
-      mixed ||= await mixAudio(tracks,stage.compiled.duration);
+      await prepareAudio();
       time=0;draw(true);
       const blob=await encode({canvas,duration:stage.compiled.duration,audio:mixed,signal:exportAbort.signal,renderFrame:t=>{time=t;draw(true);},onProgress:p=>{el('[data-progress]').value=p;status(`Membuat MP4 · ${Math.round(p*100)}%`);}});
       downloadUrl=URL.createObjectURL(blob);const link=el('[data-download]');link.href=downloadUrl;link.download=`${filename(scenario.title)}-${format}-${quality}p.mp4`;link.hidden=false;
@@ -133,7 +150,11 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     for(const [key,axis] of [['castX',0],['castZ',1]])if(target.dataset[key]){next.cast.find(c=>c.id===target.dataset[key]).position[axis]=Number(target.value);scene=true;}
     if(target.dataset.prop){next.props=[...host.querySelectorAll('[data-prop]:checked')].map(n=>n.dataset.prop);scene=true;}
     if(s&&target.dataset.shotField)s[target.dataset.shotField]=target.dataset.shotField==='duration'?Number(target.value):target.value;
-    if(s&&target.dataset.action){const id=target.dataset.action,action=target.value;s.actors[id]={action};if(['Walk','Run'].includes(action)){const prior=compileScenario(scenario).shots[Number(shot.dataset.shot)].tracks[id];s.actors[id].to=[Math.min(10,prior.from[0]+(action==='Run'?5:2.5)),prior.from[1]];}}
+    if(s&&target.dataset.shotField==='caption'){delete s.speech;delete s.speechOffset;}
+    if(s&&target.dataset.shotField==='camera')delete s.frame;
+    if(s&&target.hasAttribute('data-speech')){if(target.value){s.speech=target.value;s.caption=day1Caption(target.value);s.speechOffset=.3;s.duration=Math.max(s.duration,day1Audio[target.value].duration+.9);}else{delete s.speech;delete s.speechOffset;}}
+    if(s&&target.dataset.visible){s.actors[target.dataset.visible] ||= {action:'Idle'};s.actors[target.dataset.visible].visible=target.checked;}
+    if(s&&target.dataset.action){const id=target.dataset.action,action=target.value;s.actors[id]={action,...(s.actors[id]?.visible===undefined?{}:{visible:s.actors[id].visible})};if(['Walk','Run'].includes(action)){const prior=compileScenario(scenario).shots[Number(shot.dataset.shot)].tracks[id];s.actors[id].to=[Math.min(10,prior.from[0]+(action==='Run'?5:2.5)),prior.from[1]];}}
     for(const [key,axis] of [['toX',0],['toZ',1]])if(s&&target.dataset[key])s.actors[target.dataset[key]].to[axis]=Number(target.value);
     if(s&&target.dataset.yaw){const id=target.dataset.yaw;s.actors[id] ||= {action:'Idle'};s.actors[id].yaw=Number(target.value)*Math.PI/180;}
     if(s&&target.dataset.bpm)s.actors[target.dataset.bpm].bpm=Number(target.value);
@@ -147,11 +168,11 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     if(command==='export'){void exportVideo();return;}
     if(command==='save'){download(new Blob([JSON.stringify(scenario,null,2)],{type:'application/json'}),`${filename(scenario.title)}.json`);return;}
     if(command==='srt'){download(new Blob([srtFor(scenario)],{type:'text/plain;charset=utf-8'}),`${filename(scenario.title)}.srt`);return;}
-    if(command==='new'||command==='rehearsal'||command==='day1-opening'){
+    if(command==='new'||command==='rehearsal'||command==='day1-opening'||command==='day1-full'){
       // Keep a downloadable backup before replacing authored work, without a confirmation dialog.
       if(scenario.shots.length&&scenario.kind==='episode')download(new Blob([JSON.stringify(scenario,null,2)],{type:'application/json'}),`${filename(scenario.title)}-cadangan.json`);
       tracks.forEach((t,i)=>{t.buffer=null;t.offset=0;t.volume=i===0?1:.25;el(`[data-audio-file="${i}"]`).value='';el(`[data-audio-name="${i}"]`).textContent='Tanpa audio';el(`[data-audio-offset="${i}"]`).value=0;el(`[data-audio-volume="${i}"]`).value=t.volume;});
-      update(command==='new'?blankScenario():command==='day1-opening'?day1OpeningScenario():rehearsalScenario(),{scene:true});return;
+      update(command==='new'?blankScenario():command==='day1-full'?day1Scenario():command==='day1-opening'?day1OpeningScenario():rehearsalScenario(),{scene:true});return;
     }
     if(button.dataset.jump!==undefined){if(!stage)return;pause();time=compileScenario(scenario).shots[Number(button.dataset.jump)].start;draw();return;}
     if(button.dataset.audioRemove!==undefined){const i=Number(button.dataset.audioRemove);pause();tracks[i].buffer=null;mixed=null;invalidateDownload();el(`[data-audio-file="${i}"]`).value='';el(`[data-audio-name="${i}"]`).textContent='Tanpa audio';return;}
@@ -171,6 +192,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   listen(el('[data-seek]'),'input',event=>{if(exporting)return;pause();time=Number(event.target.value);draw();});
   listen(el('[data-format]'),'change',event=>{pause();format=event.target.value;canvas.style.aspectRatio=`${OUTPUTS[format].width}/${OUTPUTS[format].height}`;invalidateDownload();draw();});
   listen(el('[data-quality]'),'change',event=>{quality=event.target.value;invalidateDownload();});
+  for(const selector of ['[data-story-audio]','[data-story-rhythm]'])listen(el(selector),'change',()=>{pause();storyEnabled=el('[data-story-audio]').checked;rhythmEnabled=el('[data-story-rhythm]').checked;mixed=null;invalidateDownload();});
   listen(el('[data-guides]'),'change',event=>{guides=event.target.checked;if(!exporting)draw();});
   host.querySelectorAll('[data-audio-file]').forEach(input=>listen(input,'change',async()=>{
     const i=Number(input.dataset.audioFile),file=input.files[0],version=++audioVersion[i];if(!file)return;

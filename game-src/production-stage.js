@@ -3,6 +3,9 @@ import {loadAvatarProfile,createHumanModel,disposeAvatar,avatarSpeed} from './av
 import {presets} from './avatar-v15-config.js';
 import {compileScenario,sampleScenario} from './production-scenario.js';
 import {createProductionDance,DANCE_BPM} from './production-dance.js';
+import {buildRepublicSet} from './production-republic-set.js';
+import day1Audio from './production-day1-audio.json' with {type:'json'};
+import {DAY1_SPEAKERS} from './production-day1.js';
 
 /** Scene and deterministic posing are also usable by CPU contract tests. */
 export async function createProductionStage(input){
@@ -14,17 +17,17 @@ export async function createProductionStage(input){
   sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-12,right:12,top:12,bottom:-12,near:.5,far:35});sun.shadow.bias=-.0003;sun.shadow.normalBias=.03;scene.add(sun);
   const fill=new THREE.DirectionalLight('#b1d9ff',1.2);fill.position.set(5,3,-4);scene.add(fill);
   const owned=new THREE.Group();scene.add(owned);
-  const geometries=new Set(),materials=new Set();
+  const geometries=new Set(),materials=new Set(),textures=new Set();
   const box=(color,position,size)=>{
     const geometry=new THREE.BoxGeometry(...size),material=new THREE.MeshStandardMaterial({color,roughness:.78});
     geometries.add(geometry);materials.add(material);const mesh=new THREE.Mesh(geometry,material);mesh.position.fromArray(position);mesh.castShadow=mesh.receiveShadow=true;owned.add(mesh);return mesh;
   };
-  box(input.set==='studio'?'#53656c':'#c5baa4',[0,-.08,0],[100,.15,100]);
-  box('#e5dece',[0,.01,-.6],[9,.02,5]);
+  if(input.set==='republic')buildRepublicSet({owned,geometries,materials,textures,box,office:input.props.includes('office')});
+  else {box(input.set==='studio'?'#53656c':'#c5baa4',[0,-.08,0],[100,.15,100]);box('#e5dece',[0,.01,-.6],[9,.02,5]);}
   if(input.set==='studio'){
     box('#344e58',[0,4,-6],[30,8,.3]);
     for(const x of [-6,6])box('#d6b576',[x,2.3,-5.8],[.12,4.6,.1]);
-  }else{
+  }else if(input.set!=='republic'){
     box('#e3d5bb',[0,1.6,-6],[13,3.2,.3]);
     box('#896952',[0,3.3,-6],[13.5,.18,1]);
     for(const x of [-5,-2.5,2.5,5]){
@@ -54,7 +57,7 @@ export async function createProductionStage(input){
   }
   const actors=new Map(),camera=new THREE.PerspectiveCamera(35,9/16,.1,100);
   const configs=input.cast.map(c=>presets.find(p=>p.id===c.preset).config);
-  const dispose=()=>{actors.forEach(disposeAvatar);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());sun.shadow.dispose();scene.clear();};
+  const dispose=()=>{actors.forEach(disposeAvatar);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());sun.shadow.dispose();scene.clear();};
   try{
     await Promise.all([...new Set(configs.map(c=>c.profileId))].map(loadAvatarProfile));
     input.cast.forEach((c,i)=>{
@@ -71,6 +74,7 @@ export async function createProductionStage(input){
     for(const c of input.cast){
       const actor=actors.get(c.id),p=sample?.actors[c.id]||{action:'Idle',position:c.position,yaw:c.yaw,elapsed:time,blend:1};
       actor.figure.position.set(p.position[0],0,p.position[1]);actor.figure.rotation.y=p.yaw;
+      actor.figure.visible=p.visible!==false;
       actor.mixer.stopAllAction();
       const apply=(cue,weight,previous=false)=>{
         const action=actor.actions[cue.action==='Dance'?'Idle':cue.action];if(!action)return;
@@ -84,21 +88,26 @@ export async function createProductionStage(input){
       const mixerName=name=>name==='Dance'?'Idle':name;
       if(p.previous&&mixerName(p.previous.action)!==mixerName(p.action)&&p.blend<1){apply(p.previous,1-p.blend,true);apply(p,p.blend);}else apply(p,1);
       actor.mixer.update(0);
-      if(p.action==='Dance')actor.productionDance.apply({time:p.elapsed,bpm:p.bpm??DANCE_BPM,weight:Math.min(1,p.elapsed/.22)});
-      else if(p.previous?.action==='Dance'&&p.blend<1)actor.productionDance.apply({time:p.previous.elapsed,bpm:p.previous.bpm??DANCE_BPM,weight:1-p.blend});
+      const danceTime=cue=>Math.max(0,cue.elapsed-(cue.delay||0))+(cue.phase||0);
+      if(p.action==='Dance')actor.productionDance.apply({time:danceTime(p),bpm:p.bpm??DANCE_BPM,weight:p.previous?.action==='Dance'&&p.phase!==undefined?1:Math.max(0,Math.min(1,(p.elapsed-(p.delay||0))/.22))});
+      else if(p.previous?.action==='Dance'&&p.blend<1)actor.productionDance.apply({time:danceTime(p.previous),bpm:p.previous.bpm??DANCE_BPM,weight:1-p.blend});
       actor.productionParcel.visible=p.action==='Hold';
-      actor.figure.userData.expressionController?.update({time,expression:p.action==='Wave'?'happy':'neutral',intensity:.4});
+      if(p.gesture){const envelope=Math.min(1,p.elapsed/.3);if(p.gesture==='nod')actor.head.rotation.x+=Math.sin(p.elapsed*4)*.045*envelope;if(p.gesture==='look')actor.head.rotation.y+=Math.sin(p.elapsed*1.7)*.16*envelope;if(p.gesture==='talk')actor.head.rotation.x+=Math.sin(p.elapsed*2.8)*.025*envelope;}
+      const clip=day1Audio[sample?.shot.speech],local=(sample?.elapsed||0)-(sample?.shot.speechOffset??.3),speaker={prabowow:'a',sari:'b',joko:'c'}[clip?.speaker];
+      const mouth=clip&&speaker===c.id&&local>=0&&local<clip.duration?clip.envelope[Math.floor(local*clip.envelopeFps)]||0:0;
+      // Audio amplitude drives jaw openness, not claimed phoneme-level lip sync.
+      actor.figure.userData.expressionController?.update({time,expression:['Wave','Dance'].includes(p.action)?'happy':'neutral',intensity:.35,viseme:mouth>.02?'AA':'rest',speech:mouth*.8});
     }
     scene.updateMatrixWorld(true);
     const focus=sample?.actors[sample.shot.focus]?.position||[0,0];
     const mode=sample?.shot.camera||'wide';
-    const center=mode==='wide'?[0,0]:focus;
+    const framing=sample?.shot.frame,center=framing?[framing.target[0],framing.target[2]]:mode==='wide'?[0,0]:focus;
     // Fit a stable physical width in either orientation; vertical close-ups
     // remain head-and-torso shots instead of cutting off the head.
-    const width=(aspect<1?{wide:Math.max(2.8,input.cast.length*1.1),medium:1.9,close:.95,follow:2.2}:{wide:7,medium:3.8,close:1.7,follow:3.7})[mode];
+    const width=framing?.width||(aspect<1?{wide:Math.max(2.8,input.cast.length*1.2),medium:1.9,close:.95,follow:2.2}:{wide:7,medium:3.8,close:1.7,follow:3.7})[mode];
     const height=Math.max(mode==='close'?1.25:2.4,width/aspect);
     const distance=height/(2*Math.tan(THREE.MathUtils.degToRad(camera.fov/2)));
-    const y=mode==='close'?1.38:1.05;
+    const y=framing?.target[1]??(mode==='close'?1.38:1.05);
     camera.aspect=aspect;camera.position.set(center[0]+(mode==='follow'?1:0),y+distance*.055,center[1]+distance);camera.lookAt(center[0],y,center[1]);camera.updateProjectionMatrix();
     return sample;
   }
@@ -120,12 +129,19 @@ export function compositeFrame(ctx,source,stage,time,{guides=false}={}){
   const heading=stage.compiled.scenario.notice||(stage.compiled.scenario.kind==='rehearsal'?'LATIHAN STUDIO':stage.compiled.scenario.title);
   ctx.fillStyle='rgba(14,30,35,.8)';ctx.fillRect(pad,h*.09,Math.min(w*.78,ctx.measureText(heading).width+36*scale),42*scale);
   ctx.fillStyle='#fff4db';ctx.fillText(heading,pad+18*scale,h*.09+21*scale,w*.72);
-  if(sample.shot.caption){
+  const clip=day1Audio[sample.shot.speech],speechTime=sample.elapsed-(sample.shot.speechOffset??.3);
+  if(sample.shot.overlay||sample.shot.card){
+    let label=sample.shot.overlay;
+    if(sample.shot.card){const choices=sample.shot.card==='build'?[['rumah','RUMAH?'],['warung','WARUNG?'],['jalan','JALAN?']]:[['Warga','ACARA?'],['Aturan','ATURAN?'],['kegiatan','KEGIATAN?']];for(const [word,title] of choices){const cue=clip?.words.find(w=>w.text.toLowerCase()===word.toLowerCase());if(cue&&speechTime>=cue.start)label='USULAN · '+title;}}
+    if(label){ctx.fillStyle='rgba(255,244,219,.95)';ctx.fillRect(pad,h*.18,w*.84,68*scale);ctx.fillStyle='#294f48';ctx.textAlign='center';ctx.font=`bold ${Math.round(30*scale)}px Arial`;ctx.fillText(label,w/2,h*.18+34*scale,w*.76);}
+  }
+  if(sample.shot.caption&&(!clip||(speechTime>=0&&speechTime<clip.duration+.12))){
     let size=Math.round(38*scale),lines=[];
     const wrap=()=>{ctx.font=`600 ${size}px Arial`;lines=[];let line='';for(const word of sample.shot.caption.split(/\s+/)){const next=line?`${line} ${word}`:word;if(ctx.measureText(next).width>w*.76&&line){lines.push(line);line=word;}else line=next;}if(line)lines.push(line);};
-    wrap();while(lines.length>3&&size>18*scale){size-=1;wrap();}
+    wrap();while(lines.length>2&&size>18*scale){size-=1;wrap();}
     const lineHeight=size*1.35,bottom=h*.79,top=bottom-lines.length*lineHeight-16*scale;
     ctx.fillStyle='rgba(12,25,30,.86)';ctx.fillRect(pad,top,w*.84,lines.length*lineHeight+32*scale);
+    if(clip){ctx.font=`bold ${Math.round(22*scale)}px Arial`;ctx.textAlign='left';ctx.fillStyle='#fff0c4';ctx.fillRect(pad,top-30*scale,170*scale,30*scale);ctx.fillStyle='#294f48';ctx.fillText(DAY1_SPEAKERS[clip.speaker],pad+12*scale,top-15*scale,150*scale);ctx.font=`600 ${size}px Arial`;}
     ctx.fillStyle='#fff';ctx.textAlign='center';lines.forEach((line,i)=>ctx.fillText(line,w/2,top+16*scale+(i+.5)*lineHeight,w*.76));
   }
   if(guides){ctx.strokeStyle='rgba(255,235,177,.65)';ctx.lineWidth=1;ctx.setLineDash([8,8]);ctx.strokeRect(w*.08,h*.09,w*.84,h*.71);}

@@ -1,6 +1,6 @@
 # Day 1 — Negara baru buka. Warga mau bikin apa?
 
-Status: **revisi naskah dan rencana produksi**, target sekitar **80 detik**, vertikal 9:16. Waktu di bawah adalah estimasi, belum hasil penyelarasan rekaman suara. Konsep ini menggantikan cerita 45 detik tentang biaya pendaftaran. Video lengkap belum dibuat. Tombol **Pembuka Prabowow** di studio masih memuat draf pembuka lama sekitar 8,49 detik; belum menjalankan seluruh skenario ini.
+Status: **arsip konsep sebelum tambahan narator**. Implementasi terbaru adalah [Day 1 lengkap dengan narator](001-day-1-scenes.md), 26 shot / 89,98 detik, dengan suara bawaan dan latar khusus. Gunakan timeline pada dokumen terbaru tersebut. Estimasi 80 detik, daftar pekerjaan, dan status aset di bawah dipertahankan sebagai catatan desain pada saat naskah awal dibuat, bukan status implementasi terkini.
 
 ## Inti cerita
 

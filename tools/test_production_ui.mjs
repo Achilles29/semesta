@@ -12,11 +12,14 @@ win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawIm
 win.document.body.innerHTML='<section class="admin-view active"><div id="studio"></div></section>';
 const host=win.document.getElementById('studio'),q=s=>host.querySelector(s);
 let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[];
+let storyLoads=0;
+globalThis.AudioContext=class{currentTime=0;async resume(){}async close(){}createBufferSource(){return {connect(){},start(){},stop(){},disconnect(){}};}};
 const dependencies={
   async createStage(s){creates++;let compiled=compileScenario(s);return {scene:{},camera:{},get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);},pose(t){rendered.push(t);return sampleScenario(compiled,t);},dispose(){disposals++;}};},
   createRenderer(gpu){return {setSize(w,h){gpu.width=w;gpu.height=h;gpuSize.push([w,h]);},render(){},dispose(){}};},
   async encode(args){exportRequest=args;if(mode==='cancel')return new Promise((_,reject)=>args.signal.addEventListener('abort',()=>reject(new DOMException('cancel','AbortError'))));await args.renderFrame(.5);args.onProgress(1);return new Blob(['test'],{type:'video/mp4'});},
-  async mixAudio(){return null;},
+  async mixAudio(tracks){return tracks.length>2?{storyAudio:true}:null;},
+  async loadStory(){storyLoads++;return [{buffer:{},volume:.95,offset:.3}];},
 };
 const flush=()=>new Promise(resolve=>setTimeout(resolve,0));
 const click=selector=>q(selector).click();
@@ -44,5 +47,10 @@ change('[data-shot="0"] [data-bpm="a"]','120');
 const opening=JSON.parse(localStorage.getItem('semesta.production.workspace.v1'));
 assert.equal(opening.shots[0].actors.a.bpm,120);assert.match(opening.notice,/PARODI FIKTIF/);
 change('[data-shot="0"] [data-action="a"]','Idle');assert.equal(q('[data-shot="0"] [data-bpm="a"]'),null,'Changing action must remove dance tempo');
+click('[data-command="day1-full"]');await flush();assert.equal(host.querySelectorAll('[data-cast]').length,3);assert.equal(host.querySelectorAll('[data-shot]').length,26);
+assert.match(q('[data-field="title"]').value,/Republik Wkwkwk/);assert.equal(q('[data-shot="0"] [data-visible="b"]').checked,false);
+click('[data-command="play"]');await flush();assert.equal(storyLoads,1);assert.match(q('[data-command="play"]').textContent,/Jeda/);click('[data-command="play"]');
+mode='complete';click('[data-command="export"]');await flush();await flush();assert.equal(exportRequest.audio.storyAudio,true,'Built-in voice must reach MP4 encoder');assert.ok(exportRequest.duration>85);assert.equal(storyLoads,1,'Preview and export reuse the same mix');
+change('[data-shot="0"] [data-shot-field="caption"]','Narasi yang disunting');assert.equal(JSON.parse(localStorage.getItem('semesta.production.workspace.v1')).shots[0].speech,undefined,'Text edits must not leave mismatched old audio');assert.equal(q('[data-download]').hidden,true);
 studio.dispose();await win.happyDOM.close();
 console.log('PASS: DOM empty/rehearsal/edit/seek/play/pause/export/cancel/format/cast/draft/reset/XSS/lifecycle. Real browser graphics not exercised.');
