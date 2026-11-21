@@ -37,7 +37,7 @@ export function buildProductionDistrict(THREE,{world,makeHuman,makeText,addColli
   // Open pergola: front/back camera views and walking remain unobstructed.
   block('#936e4b',-48,5.1,-112,24,.16,.18);
   sign('BALAI PRODUKSI WKWKWK',-48,4,-112.65,10);
-  sign('PARODI · BUKAN PENCALONAN NYATA',-48,2.5,-112.6,10);
+  sign('STUDIO ANIMASI',-48,2.5,-112.6,10);
   for(const x of [-62,-34]){
     block('#4b6556',x,1.9,-80,.25,3.8,.25,true);
   }
@@ -70,7 +70,7 @@ export function buildProductionDistrict(THREE,{world,makeHuman,makeText,addColli
   block('#f5ecd4',-40,.06,-98,1.1,.03,4.4);
   block('#805d42',-57,.75,-99,1,.12,1.8,true);
   mesh(group,new THREE.CylinderGeometry(.36,.36,.04,24),'#efe7d4',[-57,.84,-99],[1,1,1]);
-  sign('USULAN WARGA · BUKAN PEMILIHAN',-58,2,-96,5.8);
+  sign('STUDIO PRODUKSI',-58,2,-96,5.8);
   for(let z=-16;z>=-68;z-=18)for(const x of [-54,-42]){
     const lamp=createWorldAsset(THREE,'lamp');lamp.position.set(x,0,z);group.add(lamp);addCollider(x,z,.25,.25,'production');
   }

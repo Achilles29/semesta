@@ -6,7 +6,7 @@
   "phpRoundtrips": 598,
   "invalidRejected": 6,
   "assetRequests": 6,
-  "productionActors": 17,
+  "productionActors": 12,
   "legacyPresetsMigrated": 20,
   "browserInteractionVerified": false,
   "gpuFPSMeasured": false

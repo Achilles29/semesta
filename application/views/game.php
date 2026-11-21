@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . $source_css_version); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?= base_url('game-src/production-district.css?v=' . filemtime(FCPATH . 'game-src/production-district.css')); ?>">
-    <link rel="stylesheet" href="<?= base_url('game-src/production-video-library.css?v=' . filemtime(FCPATH . 'game-src/production-video-library.css')); ?>">
 </head>
 <body class="world-body">
     <main id="app" class="app-shell">
@@ -153,14 +152,6 @@
     <script>window.SEMESTA_API_URL = <?= json_encode(base_url('api'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_AREA_MUSIC_BASE = <?= json_encode(base_url('ilustrasi/musik/'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v10/episode-002-v10-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_V13_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v13/episode-002-v13-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_V14_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v14/episode-002-v14-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_V15_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v15/episode-002-v15-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_V16_VO_URL = <?= json_encode(base_url('public/audio/produksi/episode-002/release-v16-r3/episode-002-v16-r3-master.wav'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_DAY2_VIDEO_URL = <?= json_encode(base_url('public/audio/produksi/episode-003/release-v1/day2-final.mp4'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_DAY2_COVER_URL = <?= json_encode(base_url('public/audio/produksi/episode-003/release-v1/day2-cover.png'), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script>window.SEMESTA_PRODUCTION_MEDIA_ROOT = <?= json_encode(base_url('public/audio/produksi/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . $source_js_version); ?>"></script><?php endif; ?>
 </body>

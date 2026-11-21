@@ -1,4 +1,5 @@
-import envelope from '../public/audio/produksi/episode-002/release-v10/speech-envelope.json' with {type:'json'};
+// Reusable rig audit helper; episode-specific audio has been removed.
+const envelope={fps:30,values:[]};
 
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 

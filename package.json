@@ -11,7 +11,9 @@
     "prepare": "node tools/install-git-hooks.mjs --optional",
     "setup:git": "node tools/install-git-hooks.mjs && node tools/git-auto-build.mjs",
     "test:git-build": "node tools/test_git_auto_build.mjs",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "test:production": "node tools/test_production_studio.mjs && node tools/test_production_ui.mjs",
+    "test:production:mp4": "node tools/test_production_mp4.mjs"
   },
   "directories": {
     "doc": "docs"
@@ -20,9 +22,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mediabunny": "1.66.2",
     "three": "^0.187.0"
   },
   "devDependencies": {
+    "happy-dom": "21.0.4",
     "vite": "^8.3.5"
   }
 }

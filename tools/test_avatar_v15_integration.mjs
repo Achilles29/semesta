@@ -7,7 +7,8 @@ import {catalog,presets,defaults,normalizeAvatarConfig,validateAvatarConfig,avat
 import {loadAvatarProfile,preloadAvatars,createHumanModel,disposeAvatar,animateAvatar,avatarSpeed} from '../game-src/avatar-runtime.js';
 import {FARMER_PRESETS as legacyPresets} from '../game-src/avatar-farmer-presets.js';
 import {buildProductionDistrict} from '../game-src/production-district-scene.js';
-import {createV15Props} from '../game-src/production-v15-props.js';
+import {createProductionStage} from '../game-src/production-stage.js';
+import {rehearsalScenario} from '../game-src/production-scenario.js';
 globalThis.ProgressEvent ||= class { constructor(type,init){Object.assign(this,{type},init);} };
 globalThis.window={SEMESTA_AVATAR_V15_BASE:'http://localhost/project/public/models/characters/v15/'};
 globalThis.location=new URL('http://localhost/project/');
@@ -56,12 +57,13 @@ for(const profile of catalog.profiles){
 }
 await loadAvatarProfile('male-balanced');assert.equal(requests,6,'Disposed actors must not invalidate shared asset cache');
 const production=buildProductionDistrict(THREE,{world:new THREE.Group(),makeHuman(parent,options){const actor=createHumanModel(THREE,options);parent.add(actor.figure);return actor;},makeText(){return new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.DataTexture(new Uint8Array([255,255,255,255]),1,1)}));},addCollider(x,z){return {x,z};},createWorldAsset(){return new THREE.Group();}});
-const film=createV15Props(THREE,production);
-const cast=[...production.cast,...production.neighborhood.extras,...film.extraCast];
+const film=await createProductionStage(rehearsalScenario());
+film.pose(1);
+const cast=[...production.cast,...production.neighborhood.extras,...[...film.actors].map(([id,model])=>({id,model}))];
 for(const person of cast){assert.equal(person.model.figure.userData.avatarConfig.model,'v15');assert.ok(person.model.figure.userData.getGrip('handR'));animateAvatar(person.model,avatarSpeed(person.model),.1);}
 production.updateAtmosphere(1);production.updateAtmosphere(2);film.dispose();
 for(const person of [...production.cast,...production.neighborhood.extras])disposeAvatar(person.model);
 const main=await fs.readFile('game-src/main.js','utf8');assert.ok(main.includes('moveX * movementSpeed * dt'));assert.ok(!main.includes('person.position.y = .025 + Math.abs(step)'));
-for(const name of ['main.js','avatar-catalog-thumbnails.js','production-district-scene.js','production-neighborhood.js','production-v14-props.js','production-v15-props.js']){const text=await fs.readFile('game-src/'+name,'utf8');assert.ok(!text.includes("from './avatar-character-3d.js'"));}
+for(const name of ['main.js','avatar-catalog-thumbnails.js','production-district-scene.js','production-neighborhood.js','production-stage.js']){const text=await fs.readFile('game-src/'+name,'utf8');assert.ok(!text.includes("from './avatar-character-3d.js'"));}
 const report={passed:true,presets:presets.length,profiles:6,variationCases:cases,phpRoundtrips:configs.length,invalidRejected:invalid.length,assetRequests:requests,productionActors:cast.length,legacyPresetsMigrated:legacyPresets.length,browserInteractionVerified:false,gpuFPSMeasured:false};
 await fs.writeFile('ilustrasi/avatar-v2/farmer-v15-proportions/integration-test.json',JSON.stringify(report,null,2));console.log(report);

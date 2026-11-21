@@ -1,5 +1,14 @@
 # Republik WkWkWk
 
+## Studio produksi
+
+Buka **Produksi** di panel admin (`/admin/?view=production`). Episode lama telah
+direset; Day 1 baru masih kosong. Tombol **Coba latihan studio** memuat adegan
+teknis untuk menguji Play otomatis dan ekspor MP4, terpisah dari cerita Day 1.
+Studio mendukung pemeran V15, gerakan, properti, kamera, subtitle, audio, dan
+ekspor H.264 1080p/30 fps. Panduan dan batas dukungan browser tersedia di
+[Studio produksi](docs/PRODUCTION_STUDIO.md).
+
 ## Panduan lokal di XAMPP
 
 1. Letakkan proyek di `C:\xampp\htdocs\project`.

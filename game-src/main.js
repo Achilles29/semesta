@@ -5,7 +5,6 @@ import { createAvatarThumbnails } from './avatar-catalog-thumbnails.js';
 import { mountAvatarStudio } from './avatar-v15-studio.js';
 import { PRODUCTION_DISTRICT, insideProductionDistrict, productionReserved, productionEntry } from './production-district.js';
 import { buildProductionDistrict } from './production-district-scene.js';
-import { mountProductionDirector } from './production-director.js';
 
 const $ = (selector) => document.querySelector(selector);
 const API_URL = window.SEMESTA_API_URL || new URL('api', document.baseURI).href;
@@ -109,7 +108,7 @@ const destinationInfo = {
   makassar: { id: 'makassar', name: 'Makassar', country: 'INDONESIA · SULAWESI SELATAN', coordinates: '05°08′ S · 119°25′ E', icon: '⛵', desc: 'Kehidupan kota, pesisir, dan jalur ekonomi memberi banyak sudut pandang warga.', note: 'Cerita berikutnya terbuka untuk usulan dan pengalaman warga.', x: 66, y: 56, intro: 'Kawasan rekaan yang terinspirasi keseharian warga Sulawesi Selatan.' },
 };
 const locations = {
-  'balai-produksi': { name: 'Balai Produksi WkWkWk', emoji: '🎬', tag: 'KOTA WARGA · SET PARODI', desc: 'Kompleks baru di barat laut kota, terhubung jalan dua arah. Temui lima pemeran audisi parodi; bukan pencalonan nyata.', type: 'kota' },
+  'balai-produksi': { name: 'Balai Produksi WkWkWk', emoji: '🎬', tag: 'KOTA WARGA · STUDIO ANIMASI', desc: 'Temui kru studio di barat laut kota. Susun skenario dan unduh MP4 melalui halaman Produksi di panel admin.', type: 'kota' },
   sekolah: { name: 'Sekolah Rusak', emoji: '🏫', tag: 'FASILITAS UMUM · PENDIDIKAN', desc: 'Sekolah warga yang butuh perhatian. Atapnya punya lebih banyak lubang daripada jadwal libur.', title: 'Bel Sekolah Minta Diperbaiki', hook: 'Bel sekolah berbunyi sendiri setiap kali hujan mulai turun.', witness: 'PAK GURU', type: 'sekolah', colors: ['#d97a5c', '#d8b46b', '#82a16c'] },
   dapur: { name: 'Dapur MBG', emoji: '🍱', tag: 'CERITA HARIAN · MBG', desc: 'Dapur sekolah yang ramai. Sendok sayurnya punya agenda sendiri.', title: 'Sendok Sayur Mengundurkan Diri', hook: 'Pagi ini sendok sayur pamit. Katanya capek mengaduk semuanya.', witness: 'BU NINING', type: 'dapur', colors: ['#f4d275', '#e98d67', '#87ad69'] },
   kopdes: { name: 'Kopdes Merah Putih', emoji: '🏪', tag: 'CERITA HARIAN · KOPDES', desc: 'Toko desa, ruang rapat, dan gudang beras. Semua punya kunci, kecuali lemari kuncinya.', title: 'Timbangan Minta Jadi Bendahara', hook: 'Timbangan di Kopdes menolak menimbang. Katanya mau menghitung kas saja.', witness: 'PAK DARTO', type: 'kopdes', colors: ['#88a872', '#d9a95d', '#93b6a1'] },
@@ -509,6 +508,7 @@ function initExploreAvatarCustomizer() {
 async function start() {
   if (document.body.classList.contains('admin-body')) {
     initAdminNavigation();
+    initProductionStudio();
     initAvatarStudio();
     initWorldEditor();
     initObjectGallery();
@@ -1272,33 +1272,13 @@ async function runArea(place, city) {
   }
   if (collides(player.position.x, player.position.z)) player.position.set(0, 0, 18);
   let productionPanel = null;
-  let productionDirector = null;
   if (production) {
     productionPanel = document.createElement('aside'); productionPanel.id = 'productionPanel'; productionPanel.className = 'production-panel'; productionPanel.hidden = true;
-    productionPanel.innerHTML = '<strong>Balai Produksi WkWkWk</strong><p class="production-disclaimer">PARODI · DIALOG REKAAN · BUKAN PENCALONAN NYATA</p><details class="production-cast-options"><summary>Pratinjau pemeran 3D</summary><label for="productionCast">Pratinjau pemeran</label><select id="productionCast"><option value="">Pilih pemeran…</option></select><div class="production-actions"><button type="button" data-production-action="preview">Lihat dekat</button><button type="button" data-production-action="wide">Kamera lebar</button></div><p data-production-status role="status">Dekati pemeran lalu tekan E / BICARA.</p></details><details><summary>Lokasi & suara AI</summary><p>Area di barat laut Kota Warga. Jalan ke selatan, lalu timur untuk kembali. Tampilan tokoh merupakan interpretasi kartun, bukan potret akurat.</p><p>PLAY V16 + SUARA memutar 23 shot dalam 6 rangkaian, subtitle, dan musik komedi revisi 3. Rekam layar browser dan audio tab/sistem agar subtitle ikut terekam. Master, stem, dan SRT ada di public/audio/produksi/episode-002/release-v16-r3. Arsip set animasi: Jalannya Rusak, Acaranya Mulus. Pilih video Day 1, Day 2, atau Day 3 pada pemilih episode. Dialog merupakan rekaan parodi. Dialog jelajah tetap berupa teks.</p></details>';
+    productionPanel.innerHTML = '<strong>Balai Produksi</strong><p>Produksi baru dimulai dari Day 1. Skenario, pemeran, dan ekspor MP4 tersedia di halaman Produksi.</p>';
+    const studioLink=document.createElement('a');studioLink.href=new URL('admin/?view=production',document.baseURI).href;studioLink.textContent='Buka studio produksi';productionPanel.append(studioLink);
     $('#exploreScreen').append(productionPanel);
-    productionDirector=mountProductionDirector({THREE,production,world,camera,renderer,scene,panel:productionPanel,signal:events.signal,onStart:()=>{
-      keys.clear();stick.x=stick.y=0;$('#dialogue').classList.remove('visible');
-      window.dispatchEvent(new Event('semesta:production-start'));
-    }});
-    const castSelect = productionPanel.querySelector('select');
-    production.cast.forEach(npc => { const option = document.createElement('option'); option.value = npc.id; option.textContent = npc.name; castSelect.append(option); });
-    listen(productionPanel, 'click', event => {
-      const action = event.target.closest('[data-production-action]')?.dataset.productionAction;
-      if (!action) return;
-      keys.clear(); stick.x = stick.y = 0;
-      if (action === 'wide') { player.position.set(PRODUCTION_DISTRICT.spawn.x,0,PRODUCTION_DISTRICT.spawn.z);cameraDistance=24;pitch=.65;yaw=0;return; }
-      const npc = production.cast.find(n => n.id === castSelect.value);
-      if (!npc) { productionPanel.querySelector('[data-production-status]').textContent='Pilih pemeran terlebih dahulu.';return; }
-      const x=npc.root.position.x,z=npc.root.position.z+2.2;
-      if (collides(x,z)) { productionPanel.querySelector('[data-production-status]').textContent='Posisi dekat terhalang. Dekati melalui sisi panggung.';return; }
-      player.position.set(x,0,z);cameraDistance=5.5;pitch=.3;yaw=0;
-      showDialogue(npc.name,npc.lines[0],npc.icon);
-      productionPanel.querySelector('[data-production-status]').textContent=`${npc.name}: karakter V15. Tekan E untuk dialog berikutnya.`;
-    });
   }
   function frame(now) { if (runToken !== areaRunToken || events.signal.aborted) return; if (!$('#exploreScreen').classList.contains('active')) { disposeActiveArea(); return; } requestAnimationFrame(frame); const dt = Math.min((now - last) / 1000, .04); last = now; let x = stick.x; let z = stick.y; if (keys.has('KeyA') || keys.has('ArrowLeft')) x -= 1; if (keys.has('KeyD') || keys.has('ArrowRight')) x += 1; if (keys.has('KeyW') || keys.has('ArrowUp')) z -= 1; if (keys.has('KeyS') || keys.has('ArrowDown')) z += 1; const length = Math.hypot(x, z); const oldPX=player.position.x,oldPZ=player.position.z; const movementSpeed=avatarSpeed(playerModel,(keys.has('ShiftLeft')||keys.has('ShiftRight')||touchRunning)?'Run':'Walk'); if (length > .1) { x /= Math.max(1, length); z /= Math.max(1, length); const moveX = x * Math.cos(yaw) + z * Math.sin(yaw); const moveZ = -x * Math.sin(yaw) + z * Math.cos(yaw); const nextX = player.position.x + moveX * movementSpeed * dt; const nextZ = player.position.z + moveZ * movementSpeed * dt; if (!collides(nextX, nextZ)) { player.position.x = nextX; player.position.z = nextZ; } else { if (!collides(nextX, player.position.z)) player.position.x = nextX; if (!collides(player.position.x, nextZ)) player.position.z = nextZ; } player.rotation.y = Math.atan2(moveX, moveZ); const step = Math.sin(now * .012); person.position.y = 0; if (!animateCharacter(playerModel, Math.hypot(player.position.x-oldPX,player.position.z-oldPZ)/Math.max(dt,.001), dt)) { legs[0].rotation.x = step * .38; legs[1].rotation.x = -step * .38; arms[0].rotation.x = -step * .26; arms[1].rotation.x = step * .26; } } else { person.position.y = THREE.MathUtils.damp(person.position.y, 0, 5, dt); if (!animateCharacter(playerModel, false, dt)) { legs.forEach((leg) => { leg.rotation.x = THREE.MathUtils.damp(leg.rotation.x, 0, 7, dt); }); arms.forEach((arm) => { arm.rotation.x = THREE.MathUtils.damp(arm.rotation.x, 0, 7, dt); }); } }
-    if(productionDirector?.active){productionDirector.update(now);return;}
     if (activeCitizen && now - lastChatSync > 1700) syncCitizenChat(now);
     if (productionPanel) {
       production.updateLabels(document.body.classList.contains('capture-mode')?0:cameraDistance);
@@ -1837,6 +1817,20 @@ async function initObjectGallery() {
     $('#objectGalleryPrev').addEventListener('click', () => { if(galleryPage>1){galleryPage--;renderFallback();syncFallbackUrl();} }); $('#objectGalleryNext').addEventListener('click', () => { galleryPage++;renderFallback();syncFallbackUrl(); }); renderFallback();
     console.error('Galeri object:', error);
   }
+}
+
+function initProductionStudio() {
+  const host=document.querySelector('#adminProductionStudio');if(!host)return;
+  let mounting=false,instance=null;
+  const open=async()=>{
+    if(mounting||instance||!document.querySelector('#adminView-production')?.classList.contains('active'))return;
+    mounting=true;host.textContent='Membuka studio produksi…';
+    try{const {mountProductionStudio}=await import('./production-studio.js');instance=mountProductionStudio(host);}
+    catch(error){host.textContent=`Studio belum dapat dibuka: ${error.message}. Muat ulang untuk mencoba lagi.`;}
+    finally{mounting=false;}
+  };
+  window.addEventListener('semesta:admin-view-change',open);void open();
+  window.addEventListener('pagehide',event=>{if(!event.persisted){instance?.dispose();window.removeEventListener('semesta:admin-view-change',open);}});
 }
 
 async function initAvatarStudio() {

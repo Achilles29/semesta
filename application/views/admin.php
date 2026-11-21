@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . filemtime(FCPATH . 'game-src/style.css')); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?= base_url('game-src/admin.css?v=' . filemtime(FCPATH . 'game-src/admin.css')); ?>">
-    <link rel="stylesheet" href="<?= base_url('game-src/production-video-library.css?v=' . filemtime(FCPATH . 'game-src/production-video-library.css')); ?>">
+    <link rel="stylesheet" href="<?= base_url('game-src/production-studio.css?v=' . filemtime(FCPATH . 'game-src/production-studio.css')); ?>">
 </head>
 <body class="admin-body">
     <main class="editor-shell">
@@ -108,8 +108,8 @@
                 </section>
 
                 <section class="admin-view" id="adminView-production">
-                    <div class="admin-page-intro"><div><span class="eyebrow">REPUBLIK WKWKWK / EPISODE</span><h2>Produksi konten</h2><p>Pilih Day 1, Day 2, atau Day 3 untuk menonton satu video. Tombol unduh mengikuti episode yang dipilih.</p></div></div>
-                    <div id="adminProductionLibrary" aria-label="Pemutar dan unduhan video produksi"></div>
+                    <div class="admin-page-intro"><div><span class="eyebrow">STUDIO / PRODUKSI BARU</span><h2>Produksi konten</h2><p>Susun skenario, gerakkan pemeran dan properti, lalu buat video MP4 untuk media sosial.</p></div></div>
+                    <div id="adminProductionStudio" aria-label="Studio produksi animasi"><p>Studio akan dimuat saat halaman Produksi dibuka.</p></div>
                 </section>
 
                 <section class="admin-view" id="adminView-settings">
@@ -167,8 +167,7 @@
     <script>window.SEMESTA_AVATAR_V15_BASE = <?= json_encode(base_url('public/models/characters/v15/'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_API_URL = <?= json_encode(base_url('api'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
-    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"}}</script>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/","mediabunny":"https://cdn.jsdelivr.net/npm/mediabunny@1.66.2/dist/bundles/mediabunny.mjs"}}</script>
     <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . filemtime(FCPATH . 'game-src/main.js')); ?>"></script><?php endif; ?>
-    <script type="module">import {mountProductionVideoLibrary} from <?= json_encode(base_url('game-src/production-video-library.js?v=' . filemtime(FCPATH . 'game-src/production-video-library.js')), JSON_UNESCAPED_SLASHES); ?>;mountProductionVideoLibrary(document.getElementById('adminProductionLibrary'),{mediaRoot:<?= json_encode(base_url('public/audio/produksi/'), JSON_UNESCAPED_SLASHES); ?>});</script>
 </body>
 </html>
