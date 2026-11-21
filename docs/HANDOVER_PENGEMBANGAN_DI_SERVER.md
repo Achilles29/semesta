@@ -17,7 +17,7 @@ Dokumen ini menjadi panduan memindahkan prototipe dari XAMPP lokal ke server dan
 
 - `application/` berisi CodeIgniter 3, controller, API, konfigurasi, dan tampilan.
 - `game-src/` berisi sumber game, peta, UI, dan CSS.
-- `assets/game/` berisi hasil build yang dipakai browser. Folder ini diabaikan Git, jadi hasil build harus dibuat dan ikut diunggah.
+- `assets/game/` berisi hasil build yang dipakai browser. Folder ini diabaikan Git. Checkout server dapat membuatnya otomatis setelah push/pull; paket deploy tanpa Git harus menyertakan hasil build.
 - `database/schema.sql` berisi struktur database.
 - `tools/setup_database.php` membuat database/tabel dan mengimpor seed secara aman tanpa menghapus isi yang sudah ada.
 - `application/data/cases/` dan `application/data/ideas-warga.json` adalah sumber seed/cadangan.
@@ -35,6 +35,20 @@ Pastikan server menyediakan:
 - HTTPS untuk penggunaan publik.
 
 Jangan mengunggah `node_modules`. Pasang ulang dependensi dari `package-lock.json` di mesin build dengan `npm ci`.
+
+## Pembaruan harian lewat Git
+
+Pada checkout server, setelah menarik versi yang menyertakan `.githooks/`, aktifkan
+sekali dengan `npm run setup:git`. Perintah ini memasang hook dan menyiapkan build.
+Selanjutnya cukup `git push` / `git pull`; perubahan frontend/aset memicu build,
+perubahan dependency memicu `npm ci --include=dev`, dan pull dokumentasi/PHP saja
+melewati build. `git pull --rebase` juga didukung. Node/npm harus ada di PATH user
+Git. Aktivasi lokal di komputer pengembang tidak otomatis mengaktifkan server.
+
+Jika hook build gagal setelah pull, commit sudah masuk tetapi build belum siap.
+Perbaiki error lalu jalankan `npm run build`; pull yang sudah up to date tidak
+menjalankan ulang hook. Hook `pre-push` menahan push jika build gagal. Lihat
+[panduan lengkap](../README.md#push-dan-pull-dengan-build-otomatis).
 
 ## Langkah pindah dan deploy
 

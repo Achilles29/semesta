@@ -1,0 +1,8 @@
+#!/bin/sh
+# Commit amendment does not need a build; pull --rebase does.
+[ "$1" = rebase ] || exit 0
+if ! command -v node >/dev/null 2>&1; then
+  echo '[frontend] Rebase selesai, tetapi Node.js tidak ditemukan di PATH untuk build frontend.' >&2
+  exit 1
+fi
+exec node tools/git-auto-build.mjs

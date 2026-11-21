@@ -7,6 +7,10 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
+    "postbuild": "node tools/git-auto-build.mjs --record",
+    "prepare": "node tools/install-git-hooks.mjs --optional",
+    "setup:git": "node tools/install-git-hooks.mjs && node tools/git-auto-build.mjs",
+    "test:git-build": "node tools/test_git_auto_build.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "directories": {

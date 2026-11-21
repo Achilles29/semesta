@@ -3,3 +3,4 @@
 ilustrasi/avatar-v2/farmer-v14-jrpg/source/** -text
 ilustrasi/avatar-v2/farmer-v15-proportions/source/** -text
 public/models/characters/v15/runtime/** -text
+.githooks/* text eol=lf

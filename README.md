@@ -15,16 +15,39 @@
 
 Aplikasi mendeteksi alamat lokal beserta subfolder secara otomatis. Untuk server, tetapkan `SEMESTA_BASE_URL` ke alamat publik aplikasi, misalnya `https://contoh.id/`, lalu siapkan konfigurasi database, admin, sesi, dan SMTP sesuai panduan handover.
 
-## Membuat ulang frontend
+## Push dan pull dengan build otomatis
 
-Node.js hanya diperlukan untuk membuat berkas frontend. Setelah mengambil perubahan frontend atau dependensi:
+Aktifkan **sekali pada setiap checkout**, termasuk server, dari folder project:
 
-```powershell
-npm ci
-npm run build
+```sh
+git pull
+npm run setup:git
 ```
 
-Buka ulang halaman XAMPP setelah build. Browser menjalankan game langsung; server Node.js tidak diperlukan saat bermain.
+Setelah itu cukup `git push` dan `git pull` biasa. Hook akan membangun frontend
+jika sumber, aset publik, konfigurasi build, atau dependensinya berubah. Pull
+merge/fast-forward dan `git pull --rebase` didukung. Perubahan dokumentasi atau
+PHP saja tidak memicu build. Dependensi dipasang ulang dengan `npm ci --include=dev`
+jika `package.json`/`package-lock.json` berubah atau paket yang diperlukan hilang.
+
+Node.js dan npm harus tersedia di PATH terminal Git, termasuk di server. Pengaturan
+hook bersifat lokal tiap checkout; pull pertama yang membawa skrip ini belum dapat
+mengaktifkannya sendiri. `npm ci`/`npm install` berikutnya juga memasang hook melalui
+script `prepare`. Hook kustom yang sudah ada tidak ditimpa; gabungkan manual jika
+installer melaporkan konflik.
+
+Build gagal akan terlihat di terminal. Kegagalan sebelum push membatalkan push;
+kegagalan setelah pull tidak membatalkan perubahan Git. Setelah memperbaiki error,
+jalankan `npm run build` untuk mencoba kembali, termasuk jika pull berikutnya
+mengatakan `Already up to date`. Build manual tetap tersedia dan statusnya dicatat.
+Untuk menonaktifkan hook project: `git config --local --unset core.hooksPath`.
+
+Hasil `assets/game/` tetap tidak masuk Git dan dibuat pada mesin masing-masing.
+Buka ulang halaman setelah build; browser memuat bundle dengan nama hash terbaru.
+Server Node.js tidak diperlukan saat bermain.
+
+Referensi mekanisme: [Git hooks](https://git-scm.com/docs/githooks) dan
+[npm lifecycle scripts](https://docs.npmjs.com/cli/v11/using-npm/scripts/).
 
 ## Bagian aplikasi
 
