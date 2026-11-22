@@ -11,9 +11,13 @@
     "prepare": "node tools/install-git-hooks.mjs --optional",
     "setup:git": "node tools/install-git-hooks.mjs && node tools/git-auto-build.mjs",
     "test:git-build": "node tools/test_git_auto_build.mjs",
+    "test:citizens": "node tools/test_citizen_roster.mjs && node tools/test_citizen_ui.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "test:production": "node tools/test_production_studio.mjs && node tools/test_production_ui.mjs && node tools/test_production_dance.mjs && node tools/test_production_day1.mjs",
-    "test:production:mp4": "node tools/test_production_mp4.mjs"
+    "test:production:mp4": "node tools/test_production_mp4.mjs",
+    "test:production:day2": "node tools/test_production_day2.mjs && node tools/test_production_day2_audio.mjs && node tools/test_production_day2_set.mjs && node tools/test_production_draft_day2.mjs",
+    "test:world:ui": "node tools/test_republic_map_ui.mjs && node tools/test_republic_navigation.mjs",
+    "test:entries": "node tools/test_entry_boundaries.mjs"
   },
   "directories": {
     "doc": "docs"

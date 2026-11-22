@@ -10,7 +10,7 @@
     <?php
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();
-    $entry = isset($manifest['game-src/main.js']) ? $manifest['game-src/main.js'] : NULL;
+    $entry = isset($manifest['game-src/admin-main.js']) ? $manifest['game-src/admin-main.js'] : NULL;
     if ($entry && !empty($entry['css'])):
         foreach ($entry['css'] as $css): ?>
             <link rel="stylesheet" href="<?= base_url('assets/game/' . $css); ?>">
@@ -168,6 +168,6 @@
     <script>window.SEMESTA_API_URL = <?= json_encode(base_url('api'), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script>window.SEMESTA_MAP_ASSET_ROOT = <?= json_encode(base_url($map_asset_root), JSON_UNESCAPED_SLASHES); ?>;</script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/","mediabunny":"https://cdn.jsdelivr.net/npm/mediabunny@1.66.2/dist/bundles/mediabunny.mjs"}}</script>
-    <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/main.js?v=' . filemtime(FCPATH . 'game-src/main.js')); ?>"></script><?php endif; ?>
+    <?php if ($entry): ?><script type="module" src="<?= base_url('assets/game/' . $entry['file']); ?>"></script><?php else: ?><script type="module" src="<?= base_url('game-src/admin-main.js?v=' . filemtime(FCPATH . 'game-src/admin-main.js')); ?>"></script><?php endif; ?>
 </body>
 </html>

@@ -145,3 +145,13 @@
 .admin-body .avatar-variation-controls small{flex-basis:100%;color:#587168;font-size:11px}
 /* V15 studio shares the game appearance contract. */
 #adminView-avatars .avatar-options{display:block}#adminView-avatars .v15-editor{grid-template-columns:repeat(2,minmax(0,1fr));background:#f8faf8}#adminView-avatars [data-form]>label{display:flex;flex-direction:column;gap:8px}#adminView-avatars [data-preset-name]{padding:12px;border:1px solid #c9d6ce;border-radius:8px}#adminView-avatars .avatar-library{margin-top:32px}#adminView-avatars [data-cards]{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}#adminView-avatars [data-cards] img{width:100%;aspect-ratio:6/7;object-fit:cover;background:#e8eeea;border-radius:10px}#adminView-avatars .builder-actions{display:flex;flex-wrap:wrap;gap:8px}#adminView-avatars .builder-actions button{padding:10px 14px;border:1px solid #bdccc3;border-radius:8px;background:#edf3ef;color:#214638}#adminView-avatars [data-status],#adminView-avatars [data-asset]{padding:10px;font-size:12px}#adminView-avatars canvas{touch-action:none}#adminView-avatars .character-preview-toolbar{flex-wrap:wrap}#adminView-avatars [data-form] input{max-width:100%}
+#adminView-avatars .avatar-library .builder-subhead{display:flex;align-items:end;flex-wrap:wrap;gap:14px}
+#adminView-avatars .avatar-library label{display:grid;gap:6px;flex:1;min-width:150px;font-size:12px}
+#adminView-avatars .avatar-library input,#adminView-avatars .avatar-library select{min-height:39px;padding:8px 10px;border:1px solid #c9d6ce;border-radius:8px;color:#28453b;background:#fff;max-width:100%}
+#adminView-avatars .avatar-library h3{flex-basis:100%;margin-bottom:0}
+#adminView-avatars .avatar-library-count,#adminView-avatars .avatar-character-notes{font-size:12px;line-height:1.7;color:#567065}
+#adminView-avatars [data-role]{font-size:12px;font-weight:700;color:#315f50}
+#adminView-avatars [data-cards] .avatar-preset-card{grid-template-rows:170px auto auto;align-content:start;gap:8px;padding:9px}
+#adminView-avatars [data-cards] img{height:170px;object-position:center 25%}
+#adminView-avatars [data-cards] b{white-space:normal;overflow-wrap:anywhere;font-size:13px}
+#adminView-avatars [data-cards] small{font-family:inherit;font-size:11px;line-height:1.4;text-transform:none;letter-spacing:0;color:#567065}

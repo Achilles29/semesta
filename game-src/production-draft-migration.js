@@ -3,6 +3,11 @@ import legacyV2 from './production-day1-legacy-v2.json' with {type:'json'};
 import legacyV3 from './production-day1-legacy-v3.json' with {type:'json'};
 import audio from './production-day1-audio.json' with {type:'json'};
 import {day1Scenario,day1Caption} from './production-day1.js';
+import {day2Scenario} from './production-day2.js';
+import {STORY_CLIPS} from './production-audio-catalog.js';
+import {displaySpeechText} from './production-speech-text.js';
+import {isUneditedBuiltInEpisode} from './production-episode-origin.js';
+import {blankScenario} from './production-scenario.js';
 
 const canonical=value=>JSON.stringify(value,(_key,item)=>item&&typeof item==='object'&&!Array.isArray(item)?Object.fromEntries(Object.keys(item).sort().map(k=>[k,item[k]])):item);
 // The old loader padded spoken shots to .35s and immediately autosaved them.
@@ -36,19 +41,47 @@ const savedLegacyV3=oldAutosave(legacyV3,legacyV3Durations);
 const legacyDocuments=new Set([legacy,legacyV2,legacyV3,savedLegacyV3,oldVoiceRefresh(savedLegacyV3)].map(canonical));
 /** Upgrade only a pristine shipped episode. Preserve every authored shot/text. */
 export function migrateProductionDraft(input){
+  if(isUneditedBuiltInEpisode(input)&&input.builtInOrigin.episode==='day2')return day2Scenario();
   const fingerprint=canonical(input),current=day1Scenario();
   const previousCurrent=oldAutosave(current,Object.fromEntries(Object.entries(audio).map(([key,clip])=>[key,clip.duration])));
   if(legacyDocuments.has(fingerprint)||fingerprint===canonical(current)||fingerprint===canonical(previousCurrent))return current;
   const draft=structuredClone(input);
   for(const shot of draft.shots||[]){
-    if(shot.speech&&!audio[shot.speech]){delete shot.speech;delete shot.speechOffset;}
-    if(shot.speech&&audio[shot.speech]){
-      if(shot.caption!==day1Caption(shot.speech)){delete shot.speech;delete shot.speechOffset;}
+    if(shot.speech&&!STORY_CLIPS[shot.speech]){shot.plannedSpeech=shot.speech;delete shot.speech;delete shot.speechOffset;}
+    if(shot.speech&&STORY_CLIPS[shot.speech]){
+      if(shot.caption!==displaySpeechText(STORY_CLIPS[shot.speech].text)){delete shot.speech;delete shot.speechOffset;}
       else {
-        const minimum=(shot.speechOffset??.3)+audio[shot.speech].duration+.32;
+        const minimum=(shot.speechOffset??.3)+STORY_CLIPS[shot.speech].duration-(shot.speechTail||0);
         if(minimum-shot.duration>1e-9)shot.duration=minimum;
       }
     }
+    if(shot.speeches?.length){
+      const available=shot.speeches.filter(cue=>STORY_CLIPS[cue.key]);
+      const missing=shot.speeches.filter(cue=>!STORY_CLIPS[cue.key]);
+      if(missing.length)shot.plannedSpeeches=[...(shot.plannedSpeeches||[]),...missing];
+      // An empty caption deliberately delegates the transcript to each timed
+      // speech cue, including cuts where the final syllable bridges the edit.
+      if(available.length&&(!shot.caption?.trim()||shot.caption===available.map(cue=>displaySpeechText(STORY_CLIPS[cue.key].text)).join(' '))){
+        shot.speeches=available;
+        shot.duration=Math.max(shot.duration,...available.map(cue=>(cue.offset??.3)+STORY_CLIPS[cue.key].duration-(shot.speechTail||0)));
+      }else delete shot.speeches;
+    }
   }
   return draft;
+}
+
+export function isPristineProductionDraft(input){
+  if(!input)return false;
+  if(isUneditedBuiltInEpisode(input))return true;
+  const fingerprint=canonical(input),current=day1Scenario();
+  const previousCurrent=oldAutosave(current,Object.fromEntries(Object.entries(audio).map(([key,clip])=>[key,clip.duration])));
+  return legacyDocuments.has(fingerprint)||fingerprint===canonical(current)||fingerprint===canonical(previousCurrent);
+}
+
+/** A newer episode replaces only generated defaults; authored work wins. */
+export function resolveProductionDraft(input,{emptyIntent=false,preferredEpisode}={}){
+  if(!input)return day2Scenario();
+  if(isPristineProductionDraft(input))return preferredEpisode==='day1'?day1Scenario():day2Scenario();
+  if(!emptyIntent&&canonical(input)===canonical(blankScenario()))return day2Scenario();
+  return migrateProductionDraft(input);
 }

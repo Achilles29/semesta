@@ -10,6 +10,17 @@ export function createAvatarV15(THREE, asset, options = {}) {
   const slotMaterials = new Map();
   actor.figure.traverse(node => {
     if (!node.isMesh) return;
+    // glTF stores extras on the parent Group when one mesh has several
+    // material primitives. Each drawable must retain the wardrobe contract.
+    if(!node.userData.avatarSlot){
+      for(let parent=node.parent;parent;parent=parent.parent){
+        if(!parent.userData.avatarSlot)continue;
+        for(const key of ['avatarSlot','avatarVariantGroup','avatarVariant','avatarFixedColor','avatarTintMode','avatarVisibleFor','avatarNeutralAlbedo']){
+          if(parent.userData[key]!==undefined && node.userData[key]===undefined)node.userData[key]=parent.userData[key];
+        }
+        break;
+      }
+    }
     const slot=node.userData.avatarSlot;
     const ownForSlot=mat=>{
       if(!slotMaterials.has(mat))slotMaterials.set(mat,new Map());
@@ -37,6 +48,10 @@ export function createAvatarV15(THREE, asset, options = {}) {
         if (!node.isMesh) return;
         const {avatarSlot:slot,avatarVariantGroup:group,avatarVariant:variant}=node.userData;
         node.visible=group?state[group]===variant:['accessoryChest','accessoryWaist'].includes(slot)?state[slot]==='on':true;
+        if(node.userData.avatarVisibleFor){
+          const coverage=typeof node.userData.avatarVisibleFor==='string'?JSON.parse(node.userData.avatarVisibleFor):node.userData.avatarVisibleFor;
+          node.visible=Object.entries(coverage).some(([field,values])=>values.includes(state[field]));
+        }
         // Cap and bulky hair are fitted separately. Keep a close crop beneath the cap.
         if(slot==='hair' && catalog.hairCoveringHeadwear.includes(state.headAccessory))node.visible=false;
         // A full jacket covers the underlying vest/harness rather than letting
@@ -52,10 +67,17 @@ export function createAvatarV15(THREE, asset, options = {}) {
         if(fit!==undefined)node.morphTargetInfluences[fit]=state.outerwearStyle==='longVest'?1:0;
         for (const mat of Array.isArray(node.material)?node.material:[node.material]) {
           if(slot==='skin')mat.color.fromArray(catalog.skinTones[state.skinTone].factor);
-          else if(slot==='hair' || slot==='brows')mat.color.copy(materials.get(mat)).multiply(new THREE.Color().fromArray(catalog.hairColors[state.hairColor].factor));
-          else if(!node.userData.avatarFixedColor && catalog.palettes[state.palette][slot]) {
-            const factor=catalog.palettes[state.palette][slot];
-            mat.color.copy(materials.get(mat)).multiply(new THREE.Color().fromArray(factor));
+          else if(slot==='hair' || slot==='brows'){
+            const color=catalog.hairColors[state.hairColor];
+            if(node.userData.avatarTintMode==='absolute')mat.color.fromArray(color.absolute||color.factor);
+            else mat.color.copy(materials.get(mat)).multiply(new THREE.Color().fromArray(color.factor));
+          }
+          else if(!node.userData.avatarFixedColor) {
+            const palette=catalog.palettes[state.palette];
+            const factor=node.userData.avatarTintMode==='absolute'?palette.absolute?.[slot]||palette[slot]:palette[slot];
+            if(!factor)continue;
+            if(node.userData.avatarTintMode==='absolute')mat.color.fromArray(factor);
+            else mat.color.copy(materials.get(mat)).multiply(new THREE.Color().fromArray(factor));
           }
         }
       });

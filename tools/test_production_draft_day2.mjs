@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {day2Scenario} from '../game-src/production-day2.js';
+import {migrateProductionDraft,resolveProductionDraft} from '../game-src/production-draft-migration.js';
+import {isUneditedBuiltInEpisode} from '../game-src/production-episode-origin.js';
+import {validateScenario} from '../game-src/production-scenario.js';
+import {speechCues} from '../game-src/production-speech-cues.js';
+const scenario=day2Scenario(),edited=structuredClone(scenario);edited.title='Draf pembangunan versi saya';
+assert.equal(isUneditedBuiltInEpisode(edited),false);
+const restored=validateScenario(resolveProductionDraft(JSON.parse(JSON.stringify(edited))));
+assert.equal(restored.title,edited.title);
+assert.equal(restored.shots.flatMap(speechCues).length,edited.shots.flatMap(speechCues).length,'Renaming an authored Day 2 never removes auto-transcript voices');
+assert.deepEqual(restored.shots.map(s=>s.duration),edited.shots.map(s=>s.duration),'Valid authored shots preserve measured timing, including speech tails');
+assert.deepEqual(restored.shots.map(s=>s.speechTail),edited.shots.map(s=>s.speechTail));
+assert.deepEqual(restored.shots.flatMap(speechCues),edited.shots.flatMap(speechCues));
+const mismatched=structuredClone(edited),spoken=mismatched.shots.find(s=>s.speeches?.length);spoken.caption='Teks baru yang sengaja berbeda';
+assert.equal(migrateProductionDraft(mismatched).shots.find(s=>s.id===spoken.id).speeches,undefined,'An explicitly changed transcript still detaches mismatched audio');
+console.log('PASS authored Day 2 migration: custom title, all measured voices, cue offsets, durations and speech tails preserved; mismatched captions detached.');

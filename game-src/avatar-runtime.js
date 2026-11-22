@@ -1,6 +1,7 @@
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {createAvatarV15,isAvatarV15} from './avatar-v15.js';
 import {catalog,normalizeAvatarConfig} from './avatar-v15-config.js';
+import {attachCitizenAccessories} from './citizen-accessories.js';
 import manifest from './avatar-v15-runtime-manifest.json' with {type:'json'};
 const assets=new Map(),pending=new Map();
 const textures=new Map();
@@ -39,11 +40,12 @@ export function createHumanModel(THREE,options={}) {
   const actor=createAvatarV15(THREE,asset,{...options,customization:config.appearance});
   // Archived shot scripts retain their action names while using the new rig/clips.
   for(const [alias,clip] of Object.entries({Interact:'Point',Talk:'Point',Carry:'Hold'}))actor.actions[alias]=actor.actions[clip];
-  actor.figure.userData.avatarConfig=config;return actor;
+  actor.figure.userData.avatarConfig=config;
+  attachCitizenAccessories(THREE,actor,config.presetId);return actor;
 }
 export function disposeAvatar(actor) {
   if(!actor)return;actor.mixer?.stopAllAction();actor.mixer?.uncacheRoot(actor.figure);actor.figure.removeFromParent();
-  const materials=new Set(),skeletons=new Set();actor.figure.traverse(n=>{if(n.skeleton)skeletons.add(n.skeleton);if(n.material)(Array.isArray(n.material)?n.material:[n.material]).forEach(m=>materials.add(m));});
+  const materials=new Set(),skeletons=new Set();actor.figure.traverse(n=>{if(n.userData.citizenAccessory)n.geometry?.dispose();if(n.skeleton)skeletons.add(n.skeleton);if(n.material)(Array.isArray(n.material)?n.material:[n.material]).forEach(m=>materials.add(m));});
   materials.forEach(m=>m.dispose());skeletons.forEach(s=>s.dispose());
 }
 export function avatarSpeed(actor,clip='Walk') {

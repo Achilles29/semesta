@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "url": "https://files.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+  "license": "CC0-1.0",
+  "licenseEvidence": "https://static.makehumancommunity.org/assets/assetpacks/makehuman_system_assets.html",
+  "sourceDirectorySha256": "7f911533f347bfa616b1495cd16ae058c892d7d33b200c53463fecb8fdc1a7e4",
+  "files": [
+    {
+      "path": "skins/young_asian_female/young_asian_female.mhmat",
+      "bytes": 1459,
+      "sha256": "2baeded5fdfd31acc187e83b278f9c4e4cbb59a7ffedf50ebcffcc44e4eab220"
+    },
+    {
+      "path": "skins/young_asian_female/young_lightskinned_female_diffuse3.png",
+      "bytes": 3884420,
+      "sha256": "1d82f782b7d2da732229633bd2d14754d873fff53cdb1d088977bcf67ae19dde"
+    },
+    {
+      "path": "skins/young_caucasian_female/young_caucasian_female.mhmat",
+      "bytes": 1464,
+      "sha256": "0bdea7786201f0b1132a24088336a97496ccdc54e9984db65d253a6a6d66f24f"
+    },
+    {
+      "path": "skins/young_caucasian_female/young_lightskinned_female_diffuse.png",
+      "bytes": 4391156,
+      "sha256": "b2a6ac8cd4f9febdb447368e29c76cd68410bb66e46d9dcfa2d5f75126eea8fc"
+    },
+    {
+      "path": "eyelashes/eyelashes01/eyelashes01.obj",
+      "bytes": 18832,
+      "sha256": "f78f5b93fea1946fcae103d32c4f082dd9612a1ec2e7e2f90b03ebe59b0baf20"
+    },
+    {
+      "path": "eyelashes/eyelashes01/eyelashes01.mhclo",
+      "bytes": 2265,
+      "sha256": "5a86b29c15649273d723084954b7fa7bf199112571d4f58539b46734d397ee6b"
+    },
+    {
+      "path": "eyelashes/eyelashes01/eyelashes01.png",
+      "bytes": 91600,
+      "sha256": "4b69c0fff2648874460e9caf80c31413c444218a5c50afebc425aeaa65484a35"
+    },
+    {
+      "path": "eyelashes/eyelashes01/eyelashes01.mhmat",
+      "bytes": 1074,
+      "sha256": "8029c99d94f3d87a1e81825fad6b90eec773ae6955a5b2592222ef237377e190"
+    },
+    {
+      "path": "eyebrows/eyebrow001/eyebrow001.obj",
+      "bytes": 8227,
+      "sha256": "88b13146395133f3901715e11706cdfd293e5d6087ad7c5e01efe1485a26b513"
+    },
+    {
+      "path": "eyebrows/eyebrow001/eyebrow001.png",
+      "bytes": 89619,
+      "sha256": "9940f7d0b1b223709a19b05156ba6f6e9e4dbdbced02d7574f4d51d72c58967b"
+    },
+    {
+      "path": "eyebrows/eyebrow001/eyebrow001.mhclo",
+      "bytes": 9141,
+      "sha256": "54c8892c2ba577f4152d779ce1f20f7cd323beb8cbd9cb701796165c221b4f5b"
+    },
+    {
+      "path": "eyebrows/eyebrow001/eyebrow001.mhmat",
+      "bytes": 1098,
+      "sha256": "976e5f4f1d3922d7a11c6e2db233f8b4584b068d00619d5749687e81c92d61fc"
+    },
+    {
+      "path": "hair/long01/long01_diffuse.png",
+      "bytes": 2915253,
+      "sha256": "e8dc25d90f8f62467e8630420e1240a400d070054fb7c3f1d3f7bf3e457d6c2c"
+    },
+    {
+      "path": "hair/long01/long01.mhmat",
+      "bytes": 1297,
+      "sha256": "74ec88267e679d316f8037a074511ffc887b27e198ea381d0ae4a3f180f96760"
+    },
+    {
+      "path": "hair/long01/long01.obj",
+      "bytes": 215324,
+      "sha256": "7f1d6dadbdf9e96435251955d6657e77ea5433c9bc7c85a5c5f5e4eae0cb9a8c"
+    },
+    {
+      "path": "hair/long01/long01.mhclo",
+      "bytes": 220891,
+      "sha256": "94ecbebfd834da2cbee2ce90b730972590eb22a252ecd9592038ea736e063646"
+    },
+    {
+      "path": "hair/braid01/braid01.obj",
+      "bytes": 302165,
+      "sha256": "ad0b449c80244452bc8d437f5d59c25ec2ac17b2eb35e1ae2d9531fc00b73b0a"
+    },
+    {
+      "path": "hair/braid01/braid01.mhclo",
+      "bytes": 305086,
+      "sha256": "e350614dab32230c47d67e7747079b89859d36e62a890ca47890f068eca4f7a9"
+    },
+    {
+      "path": "hair/braid01/braid01.mhmat",
+      "bytes": 1299,
+      "sha256": "c8fdc8452c94715e9bf8fc194c82dc1e53124475b0665058d31b142bf0f3f762"
+    },
+    {
+      "path": "hair/braid01/braid01_diffuse.png",
+      "bytes": 2615248,
+      "sha256": "24c0d2a639f04704734c3e38af97d110777c1b203e5a10c66a5c89563643a018"
+    },
+    {
+      "path": "hair/ponytail01/ponytail01.obj",
+      "bytes": 264384,
+      "sha256": "d9f5fe96fbedbc8006220d87aad0e4a33d15286eb6b21f5929661cdc490ebf5a"
+    },
+    {
+      "path": "hair/ponytail01/ponytail01_diffuse.png",
+      "bytes": 3910782,
+      "sha256": "dcb364300cac06ce8bef91b2f7c0970baf310898bbdd06b0c6b884ee9306eb97"
+    },
+    {
+      "path": "hair/ponytail01/ponytail01.mhclo",
+      "bytes": 252080,
+      "sha256": "97fc50b12bcb3b1c7b33edddd8d427a2604ffb06fe79b31132bf47f82d7afbac"
+    },
+    {
+      "path": "hair/ponytail01/ponytail01.mhmat",
+      "bytes": 1305,
+      "sha256": "b145f5a7c9606859ad523f5113482a1cf989cf0e26dccc2ea95c377cb1c2557f"
+    },
+    {
+      "path": "hair/bob01/bob01.mhclo",
+      "bytes": 352019,
+      "sha256": "a295b11ab6c7808afa1e01d0c79fb595bbbd7885f65252766486c9fcf6d158c5"
+    },
+    {
+      "path": "hair/bob01/bob01.mhmat",
+      "bytes": 1312,
+      "sha256": "9c3015044a832fb9a72a5d2f28218914ebfbdf6725cfd237cc53a3d95f054e3b"
+    },
+    {
+      "path": "hair/bob01/bob01_diffuse.png",
+      "bytes": 4243598,
+      "sha256": "2b38bc7a028e06e8e633accb7fe2dd1b2bacbb9d32463df73f39f82e63ef9009"
+    },
+    {
+      "path": "hair/bob01/bob01.obj",
+      "bytes": 396190,
+      "sha256": "d7fb73806f47ee37ba3c37bcfadff40a91ba99635d08c3e02d94b4acbf97c231"
+    },
+    {
+      "path": "hair/bob02/bob02.mhclo",
+      "bytes": 112326,
+      "sha256": "a48dcf87c6a618f9c6e90fcb00eed07cd59ab024d8d994606fa1b070da515b96"
+    },
+    {
+      "path": "hair/bob02/bob02_diffuse.png",
+      "bytes": 3373723,
+      "sha256": "38c88e6f71631356591f09b1f17a1bb5a99c3bb095b1a29003f1dc3d3e839b0d"
+    },
+    {
+      "path": "hair/bob02/bob02.obj",
+      "bytes": 109498,
+      "sha256": "30d44038836d786364eb4134a9259cf93ca0c707f883861b0135ebfb149caa08"
+    },
+    {
+      "path": "hair/bob02/bob02.mhmat",
+      "bytes": 1319,
+      "sha256": "32c1712308159f4f5b3775a633352070245bf1ea8b6f837ab4f4ba82b5e9fccd"
+    },
+    {
+      "path": "hair/short04/short04.mhmat",
+      "bytes": 1316,
+      "sha256": "7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97"
+    },
+    {
+      "path": "hair/short04/short04.obj",
+      "bytes": 55152,
+      "sha256": "676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de"
+    },
+    {
+      "path": "hair/short04/short04.mhclo",
+      "bytes": 59195,
+      "sha256": "d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157"
+    },
+    {
+      "path": "hair/short04/short04_diffuse.png",
+      "bytes": 2308132,
+      "sha256": "0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e"
+    }
+  ],
+  "derivatives": [
+    {
+      "path": "derived/eyebrow001-neutral.png",
+      "source": "eyebrows/eyebrow001/eyebrow001.png",
+      "bytes": 96641,
+      "sha256": "7d7ffdfaf174896a5aee30aac718a930b10c4f0a9cb72fdf099d51c98b245eb4",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved"
+    },
+    {
+      "path": "derived/long01-neutral.png",
+      "source": "hair/long01/long01_diffuse.png",
+      "bytes": 676657,
+      "sha256": "e4c39b0eff5ff803d95ac7e93d29286c8dd97c3de3ab6c5c9f28ab6791951c82",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved; alpha-weighted 18px local illumination removed; fine strand contrast preserved"
+    },
+    {
+      "path": "derived/braid01-neutral.png",
+      "source": "hair/braid01/braid01_diffuse.png",
+      "bytes": 668787,
+      "sha256": "abad9dc31c2a3f58dc60bd5a5323d1076b2a32a069bf6c09afd2aa748c8bcec8",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved; alpha-weighted 18px local illumination removed; fine strand contrast preserved"
+    },
+    {
+      "path": "derived/ponytail01-neutral.png",
+      "source": "hair/ponytail01/ponytail01_diffuse.png",
+      "bytes": 977574,
+      "sha256": "3986ea6f59a9ba9f31545de160ab1b875409db0c4f6f35161c6be17ce22177db",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved; alpha-weighted 18px local illumination removed; fine strand contrast preserved"
+    },
+    {
+      "path": "derived/bob01-neutral.png",
+      "source": "hair/bob01/bob01_diffuse.png",
+      "bytes": 797755,
+      "sha256": "82665374e3049968a1ee78741a9306991526376daf93e009521e6d7ae8ec317a",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved; alpha-weighted 18px local illumination removed; fine strand contrast preserved"
+    },
+    {
+      "path": "derived/bob02-neutral.png",
+      "source": "hair/bob02/bob02_diffuse.png",
+      "bytes": 530013,
+      "sha256": "05c386380c83445b7d74496816cfa47cf656f29200ece47e3f8266606260988a",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved; alpha-weighted 18px local illumination removed; fine strand contrast preserved"
+    },
+    {
+      "path": "derived/short04-neutral.png",
+      "source": "hair/short04/short04_diffuse.png",
+      "bytes": 942292,
+      "sha256": "6debf3e38fc93b98af19d24f783d7e96bb6ea51a4d902fc2038f8f7ee00ea147",
+      "operation": "1024px maximum; normalized grayscale strand albedo; original alpha preserved; alpha-weighted 18px local illumination removed; fine strand contrast preserved"
+    }
+  ]
+}

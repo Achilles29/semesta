@@ -1,0 +1,13 @@
+{
+  "reviewType": "offline composition review",
+  "generatedAt": "2026-11-21T22:14:54.874Z",
+  "source": "Existing matched Day 1 Blender frames at C:/tmp/day1-render",
+  "overlay": "Current runtime compositeFrame with actual stage.pose(time), 1080x1920 canvas",
+  "scenes": [
+    "joko-datang",
+    "arti-orang-dalam",
+    "keputusan-perut"
+  ],
+  "result": "Labels readable above visible heads; all three human names, animal names and non-speaking names present. Names separate from title and subtitle bands; current red transparent top/bottom frame retained.",
+  "limitations": "Background uses previous offline render (old guitar strap visible), not a new full-scene render or a real-browser/audio review."
+}

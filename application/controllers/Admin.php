@@ -57,6 +57,53 @@ class Admin extends CI_Controller
         redirect('admin/');
     }
 
+    /** Apache rewrites preserve asset URLs, so relative ESM imports keep working. */
+    public function production_asset()
+    {
+        $this->load->library('production_asset_access');
+        // CI retains %20 in REQUEST_URI; decode once, then reject traversal/aliases.
+        $path = rawurldecode(implode('/', array_slice($this->uri->rsegment_array(), 2)));
+        $asset = $this->production_asset_access->resolve($path, $this->session->userdata('semesta_admin') === TRUE);
+        $method = $this->input->method(TRUE);
+        if ($method !== 'GET' && $method !== 'HEAD') {
+            $this->output->set_header('Allow: GET, HEAD');
+            $asset = array('status'=>405);
+        }
+        if ($asset['status'] !== 200) {
+            $this->output->set_status_header($asset['status'])->set_header('Cache-Control: private, no-store')->set_header('X-Content-Type-Options: nosniff')->set_content_type('text/plain')->set_output($asset['status'] === 403 ? 'Aset episode hanya tersedia untuk admin.' : 'Aset tidak tersedia.');
+            return;
+        }
+
+        $range = Production_asset_access::byte_range($this->input->server('HTTP_RANGE'), $asset['size']);
+        // Release the PHP session lock before concurrent modules/audio are streamed.
+        if (session_status() === PHP_SESSION_ACTIVE) session_write_close();
+        http_response_code($range['status']);
+        header('Content-Type: ' . $asset['mime']);
+        header('X-Content-Type-Options: nosniff');
+        header('Vary: Cookie');
+        header('Accept-Ranges: bytes');
+        header('Cache-Control: ' . ($asset['private'] ? 'private, no-store, max-age=0' : 'public, max-age=31536000, immutable'));
+        if ($range['status'] === 416) {
+            header('Content-Range: bytes */' . $asset['size']);
+            header('Content-Length: 0');
+            exit;
+        }
+        if ($range['status'] === 206) header('Content-Range: bytes ' . $range['start'] . '-' . $range['end'] . '/' . $asset['size']);
+        header('Content-Length: ' . $range['length']);
+        if ($method === 'HEAD') exit;
+        $stream = fopen($asset['file'], 'rb');
+        fseek($stream, $range['start']);
+        $remaining = $range['length'];
+        while ($remaining > 0 && !feof($stream) && !connection_aborted()) {
+            $bytes = fread($stream, min(65536, $remaining));
+            if ($bytes === FALSE || $bytes === '') break;
+            echo $bytes;
+            $remaining -= strlen($bytes);
+        }
+        fclose($stream);
+        exit;
+    }
+
     public function legacy_login()
     {
         redirect('admin/', 'location', 301);

@@ -15,7 +15,7 @@ assert.deepEqual(sampleScenario(compiled,0).actors.a.position,rehearsal.cast[0].
 assert.deepEqual(sampleScenario(compiled,2).actors.a.position,rehearsal.shots[0].actors.a.to);
 assert.equal(travel(0,2),0);assert.equal(travel(2,2),1);
 for(let i=0;i<200;i++)assert.ok(travel(i/100,2)<=travel((i+1)/100,2));
-for(const mutate of [s=>s.cast[0].preset='missing',s=>s.shots[0].duration=NaN,s=>s.shots[0].duration=-1,s=>s.shots[0].focus='missing',s=>s.shots[0].actors.a.to=[Infinity,0],s=>s.shots[0].actors.a.action='UnknownAction',s=>s.cast.push(s.cast[0]),s=>s.shots[1].id=s.shots[0].id,s=>s.props.push('missing'),s=>s.shots=Array.from({length:8},(_,i)=>({...s.shots[0],id:String(i),duration:30}))]){
+for(const mutate of [s=>s.cast[0].preset='missing',s=>s.shots[0].duration=NaN,s=>s.shots[0].duration=-1,s=>s.shots[0].focus='missing',s=>s.shots[0].actors.a.to=[Infinity,0],s=>s.shots[0].actors.a.action='UnknownAction',s=>s.cast.push(s.cast[0]),s=>s.shots[1].id=s.shots[0].id,s=>s.props.push('missing'),s=>s.shots=Array.from({length:11},(_,i)=>({...s.shots[0],id:String(i),duration:30}))]){
   const invalid=structuredClone(rehearsal);mutate(invalid);assert.throws(()=>validateScenario(invalid));
 }
 const srt=srtFor(rehearsal);assert.ok(srt.includes('00:00:02,000 --> 00:00:05,000'));assert.equal(srtFor(blankScenario()),'');
@@ -49,7 +49,10 @@ for(let i=0;i<6;i++){assert.equal(order[2+i*2],`render:${i/30}`);assert.deepEqua
 const abort=new AbortController();await assert.rejects(encodeMp4({...args,signal:abort.signal,renderFrame:()=>abort.abort()},media),{name:'AbortError'});assert.equal(cancelled,1);assert.equal(finalized,1);
 await assert.rejects(encodeMp4(args,{...media,canEncodeVideo:async()=>false}),/H.264/);
 await assert.rejects(encodeMp4(args,{...media,canEncodeAudio:async()=>false}),/AAC/);
-const main=await fs.readFile('game-src/main.js','utf8'),admin=await fs.readFile('application/views/admin.php','utf8');
-assert.ok(main.includes("import('./production-studio.js')"));assert.ok(!main.includes('mountProductionDirector'));assert.ok(admin.includes('adminProductionStudio'));assert.ok(!admin.includes('mountProductionVideoLibrary'));
+const main=await fs.readFile('game-src/main.js','utf8'),adminEntry=await fs.readFile('game-src/admin-main.js','utf8'),admin=await fs.readFile('application/views/admin.php','utf8');
+assert.ok(adminEntry.includes("import('./production-studio.js')"),'Production loads through the protected admin entry');
+assert.ok(!main.includes('production-studio'),'The public game entry must not expose production');
+assert.ok(admin.includes('game-src/admin-main.js'));assert.ok(!admin.includes('game-src/main.js'));
+assert.ok(!adminEntry.includes('mountProductionDirector'));assert.ok(admin.includes('adminProductionStudio'));assert.ok(!admin.includes('mountProductionVideoLibrary'));
 for(const path of ['public/audio/produksi/episode-001','public/audio/produksi/episode-002','public/audio/produksi/episode-003','public/audio/produksi/episode-004'])await assert.rejects(fs.access(path));
 console.log('PASS: empty Day 1, validation, replay/seek on real V15 rigs, prop attachment, edits, export timing/audio/cancel/codec guards, old content removed. Browser GPU/encoder not exercised.');

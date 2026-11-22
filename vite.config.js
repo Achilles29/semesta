@@ -9,7 +9,7 @@ export default defineConfig({
     emptyOutDir: true,
     manifest: true,
     rollupOptions: {
-      input: 'game-src/main.js',
+      input: {game:'game-src/main.js',admin:'game-src/admin-main.js'},
     },
   },
 });

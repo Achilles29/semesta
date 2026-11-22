@@ -25,13 +25,26 @@ Isi brief episode berikut. Bila suatu keputusan belum ada, tulis `belum diputusk
 
 ## Karakter dan kesinambungan
 
-- **Pasca Bowow:** presiden fiktif yang bersemangat, hangat, tegas, dan dapat tampak kikuk ketika kontradiksinya terbuka. Day 1 memakai profil V15 `male-heavy`, safari putih, peci, dan preset `v15-prabowo-inspired`. Suara saat ini Alistaire — Authoritative & Articulate. Arahkan jeda malu singkat dan tawa saat memang ditulis; jangan menjadikannya teriakan terus-menerus atau tiruan suara orang nyata.
+- **Pasca Bowow:** presiden fiktif yang sombong, arogan, sulit menerima koreksi, mencari pujian dan merasa paling memahami kebutuhan warga. Sejak revisi Day 2, ia mengambil kredit atas sumbangan/kerja orang lain, memotong keluhan, menepis koreksi dan membenarkan keputusan sendiri. Tunjukkan melalui dialog yang mengalir, arah pandang, ekspresi responsif, telapak stop/menepis dan tangan ke dada; jangan menahan ekspresi datar terlalu lama. Ini sifat tokoh fiktif, bukan diagnosis klinis atau penilaian medis terhadap orang nyata. Profil V15 `male-heavy`, safari putih, peci dan preset `v15-prabowo-inspired` dipertahankan. Suara tetap Alistaire — Authoritative & Articulate; tegas dan defensif sesuai situasi, tanpa mengganti identitas, memaksa teriakan terus-menerus atau meniru suara orang nyata. Ia belum berubah menjadi rendah hati pada penutup Day 2.
 - **Sari:** warga yang sigap dan ingin dinilai secara adil. Dialognya ramah lalu tegas ketika melihat perlakuan berbeda. Suara saat ini Annie — Excited. **Nama cerita Sari saat ini memakai preset visual `v15-laras`;** kunci identitas visualnya sebelum episode berikut agar tidak berubah tanpa alasan cerita.
 - **Joko:** musisi santai yang antusias, kemudian menyindir dengan ringan. Day 1 memakai `v15-joko-rockstar`, rambut spiky, denim slim, rompi gelap, gitar merah dan strap yang melekat pada torso. Suara saat ini Brodie — Breezy & Genuine. Gerak dan kamera harus memperlihatkan gitar saat ia diperkenalkan.
 - **Narator:** suara penjelas yang hangat, lugas, sedikit geli, dan memberi hubungan sebab-akibat. Tidak tampil sebagai avatar. Suara saat ini Gufron. Beri ruang agar penonton melihat kejadian sebelum narator menarik maknanya.
 - **Ayam dan kucing:** figuran 3D dengan tujuan cerita, posisi, arah pandang, dan reaksi. Jangan hanya menaruhnya sebagai dekorasi; reaksi keduanya harus jelas ketika lelucon bergantung pada perbedaan perlakuan.
 
 Pertahankan suara dan wajah yang telah dipilih kecuali perubahan itu menjadi keputusan kreatif yang dicatat. Bila naskah ujaran berubah, buat ulang atau pilih ulang klip, ukur durasinya, perbarui timing kata/subtitle, dan simpan asal suara. Bukaan mulut saat ini mengikuti amplitudo audio, **belum** fonem yang tepat. Pemeriksaan transkrip otomatis membantu menemukan masalah, tetapi keputusan intonasi dan keterdengaran tetap memerlukan mendengar hasilnya.
+
+### Ketentuan tambahan: suara dan nama karakter
+
+- Suara mengikuti jenis kelamin karakter yang ditetapkan pengguna: perempuan memakai suara perempuan, laki-laki memakai suara laki-laki, dengan usia dan karakter suara yang cocok. Identitas yang belum disebutkan dicatat sebagai sementara sesuai avatar, tidak dianggap fakta pemilik akun. Pilih dan dengarkan suara yang sesuai; jangan menggantinya hanya dengan perubahan pitch.
+- Satu tokoh mempertahankan suara yang sama untuk dialog biasa, keluhan, teriakan, tawa dan episode berikut. Kerumunan campuran tidak otomatis memakai satu suara laki-laki untuk seluruh warga. Pemetaan tokoh–suara–gender–take dicatat sebelum sintesis.
+- Nama tampil **di atas kepala ketika ukuran karakter dan ruang gambar memungkinkan label terbaca**. Pada medium/close-up prioritaskan pembicara dan tokoh fokus, termasuk saat diam atau membelakangi kamera. Ikuti kepala/rambut/topi dan sisakan headroom; label pembicara pada subtitle tetap membantu identitas saat label kepala disembunyikan.
+- Saat kamera sangat jauh, zoom out atau kerumunan padat, **nama boleh disembunyikan** agar gambar tetap bersih. Jangan memaksa semua nama tampil sampai menumpuk, menutup wajah atau bergeser jauh dari pemiliknya. **Tidak memakai garis putih/garis penghubung nama ke kepala.** Pilih framing, kurangi label nonfokus atau sembunyikan label yang tidak muat. Aturan yang sama berlaku pada ayam/kucing dan diuji pada preview/MP4 di tiga rasio.
+
+### Akses Produksi dan hierarki peta
+
+- **Pembuatan, pratinjau dan pemutaran episode lengkap berada di panel admin saja.** Jangan menaruh tombol Produksi/pemutar episode pada peta publik, halaman jelajah, profil pemain atau distrik fisik. Akses admin mengikuti otorisasi aplikasi, bukan sekadar menyembunyikan tombol.
+- Navigasi peta berurutan **peta dunia → peta regional/wilayah → siteplan kota → jelajah**. Peta dunia memperlihatkan kepulauan dan hubungan wilayah; peta regional memberi konteks antarkota; siteplan merinci jalan, zona, tapak dan tahap pembangunan kota yang dipilih. Jangan langsung menjadikan satu denah kota sebagai seluruh dunia.
+- Nama pulau/wilayah/kota di layar adalah nama rekaan. Produksi memakai koordinat dunia yang sama agar bangunan dan posisi tetap berkesinambungan, tetapi bukan tujuan lokasi pada peta publik.
 
 ## Struktur cerita dan scene
 
@@ -40,6 +53,10 @@ Pertahankan suara dan wajah yang telah dipilih kecuali perubahan itu menjadi kep
 3. Tunjukkan sebab sebelum akibat: tokoh melihat objek, kamera memperlihatkannya, lalu tokoh bertindak atau bereaksi. Sisakan jeda komedi singkat setelah kejutan.
 4. Jaga kontinuitas set, posisi, pakaian, properti, cahaya, arah gerak, garis pandang, dan jumlah warga. Lapangan nol Day 1 berkembang bertahap menurut cerita; bangunan tidak muncul selesai tanpa proses atau keputusan yang ditunjukkan.
 5. Akhiri dengan konsekuensi dan satu ajakan yang spesifik. Usulan warga dapat mencakup pembangunan, acara, aturan, atau kegiatan. Jangan menyatakan hasil pilihan warga sebelum ada proses pengumpulan dan keputusan yang dapat dijelaskan.
+
+Jika naskah meminta warga marah/protes, wujudkan lewat ekspresi, gestur dan suara keluhan yang terdengar. Rancang peningkatan keributan, pembicara utama yang tetap jelas, serta respons yang menurunkannya; jangan menggantinya dengan reaksi diam atau narator menjelaskan bahwa warga marah. Emosi berlanjut ke shot berikut, bukan mendadak berubah gembira tanpa alasan.
+
+Untuk bangunan yang diminta mirip tempat nyata, tetapkan referensi foto bangunan yang benar-benar ada, lokasi dan tautan sumbernya. Periksa siluet atap, fasad, warna, bukaan, papan, skala manusia serta fungsi interior; pisahkan ciri yang terlihat dari keputusan adaptasi. Tahap fondasi sampai selesai harus menuju bentuk referensi yang sama. Jangan menyatakan satu foto sebagai desain nasional yang seragam. Nama parodi dalam cerita tetap dipertahankan.
 
 Untuk setiap shot, buat tabel dengan kolom **waktu/durasi, tujuan dramatik, pembicara/teks, pemeran dan ekspresi, aksi/posisi akhir, objek atau figuran, ukuran dan gerak kamera, alasan gerak kamera, musik/efek, teks utama/subtitle, serta transisi ke shot berikutnya**. Satu baris harus cukup jelas untuk diwujudkan di Studio dan diperiksa pada video hasilnya.
 
@@ -65,11 +82,11 @@ Contoh pengembangan **Day 1** untuk menilai arah kamera, bukan perintah mengubah
 
 ### Status mesin kamera
 
-**Sudah tersedia:** `wide`, `medium`, `close`, `follow`; `frame.target`, `frame.width`, sudut `azimuth`, `elevation`, dan `push` maju ringan di dalam shot. Kamera mengikuti posisi figuran tertentu. Framing bisa dirancang terpisah untuk vertikal, horizontal, dan persegi.
+**Sudah tersedia pada revisi Day 2:** `wide`, `medium`, `close`, `follow`; `frame.target`, `frame.width`, sudut `azimuth`, `elevation`, `push` dan `fov`. `frame.motion` menerima `orbit`, `truck`, `crane`, `dolly`, `zoom`, dan `descent`, dengan frame awal–akhir serta porsi `hold`. Pose dihitung dari waktu absolut. Kamera dapat mengikuti posisi figuran; framing penting diperiksa terpisah untuk vertikal, horizontal dan persegi.
 
-**Belum menjadi kontrol skenario:** lintasan orbit/tracking/truck/crane, dolly out, zoom lensa/FOV, bounce/handheld, pan berkurva, dan transisi kamera khusus. Untuk episode yang dibuat sekarang, capai sebagian rasa sinematik melalui pilihan sudut per shot, pergantian ukuran gambar, `push` ringan, aksi tokoh, dan potongan reaksi. Jangan menamai potongan antarsudut sebagai orbit kontinu.
+**Belum menjadi kontrol skenario khusus:** bounce/handheld, lintasan multi-titik bebas dan pan berkurva yang diatur independen. Jangan menyebut fitur tersebut sudah dibuat hanya karena jenis shot ditulis dalam konsep. Potongan antarsudut tetap berbeda dari orbit kontinu. Kamera Day 2 sudah memiliki gerak kontinu, tetapi mutu framing, kenyamanan, occlusion dan hasil render masih memerlukan review visual.
 
-**Kontrak pengembangan mesin berikutnya:** setiap gerak kamera perlu target atau titik pandang, posisi awal–akhir, durasi, easing, batas kecepatan, dan opsi hold. Orbit mendefinisikan pusat, radius, sudut awal–akhir, dan tinggi; dolly mengubah jarak; zoom mengubah FOV; truck/crane mengubah posisi; bounce mempunyai amplitudo, frekuensi, dan waktu reda. Hitung pose kamera dari **waktu absolut**, bukan akumulasi frame, agar seek, replay, pratinjau, dan MP4 sama. Validasi jalur agar kamera tidak menembus set; uji framing wajah, properti, dan area subtitle pada 9:16, 16:9, serta 1:1. Sediakan gerak lebih tenang bila efek mengganggu keterbacaan atau kenyamanan.
+**Kontrak pemeriksaan dan pengembangan berikutnya:** setiap gerak perlu target, posisi awal–akhir, durasi, easing, kecepatan yang dapat diikuti dan hold. Dolly mengubah jarak; zoom mengubah FOV; truck/crane mengubah posisi. Jika bounce ditambahkan kelak, amplitudo, frekuensi dan waktu redanya harus eksplisit. Pertahankan perhitungan dari **waktu absolut** agar seek, replay, pratinjau dan MP4 sama. Validasi jalur agar kamera tidak menembus set; uji framing wajah, properti, nama dan subtitle pada 9:16, 16:9 serta 1:1. Gunakan gerak lebih tenang bila efek mengganggu keterbacaan atau kenyamanan.
 
 ## Suara, musik, dan template seri
 

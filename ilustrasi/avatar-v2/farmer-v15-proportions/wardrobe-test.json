@@ -55,6 +55,36 @@
         "police": {
           "calfWidth": 0.1619674301701392,
           "hem": 0.12700003952656144
+        },
+        "pencilSkirt": {
+          "hem": 0.5665647358284434,
+          "aboveKnee": 0.04073125034593472,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "aLineSkirt": {
+          "hem": 0.5863284452881633,
+          "aboveKnee": 0.06049495980565467,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "miniSkirt": {
+          "hem": 0.6814414258905559,
+          "aboveKnee": 0.15560794040804726,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "racing": {
+          "calfWidth": 0.1696448287442066,
+          "hem": 0.12700003965358164
+        },
+        "firefighter": {
+          "calfWidth": 0.1696448287442066,
+          "hem": 0.12700003965358164
+        },
+        "pilot": {
+          "calfWidth": 0.1696448287442066,
+          "hem": 0.12700003965358164
         }
       }
     },
@@ -112,6 +142,36 @@
         "police": {
           "calfWidth": 0.17188127603943507,
           "hem": 0.12700000214001136
+        },
+        "pencilSkirt": {
+          "hem": 0.5665601524574394,
+          "aboveKnee": 0.0407266616348777,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "aLineSkirt": {
+          "hem": 0.5862961451178738,
+          "aboveKnee": 0.06046265429531206,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "miniSkirt": {
+          "hem": 0.6814224180181913,
+          "aboveKnee": 0.15558892719562956,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "racing": {
+          "calfWidth": 0.18003183128893926,
+          "hem": 0.12700000220357893
+        },
+        "firefighter": {
+          "calfWidth": 0.18003183128893926,
+          "hem": 0.12700000220357893
+        },
+        "pilot": {
+          "calfWidth": 0.18003183128893926,
+          "hem": 0.12700000220357893
         }
       }
     },
@@ -169,6 +229,36 @@
         "police": {
           "calfWidth": 0.19521864236602327,
           "hem": 0.12700221847133475
+        },
+        "pencilSkirt": {
+          "hem": 0.5665539826209072,
+          "aboveKnee": 0.040720516120522854,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "aLineSkirt": {
+          "hem": 0.5862529588407852,
+          "aboveKnee": 0.06041949234040089,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "miniSkirt": {
+          "hem": 0.6813967588819034,
+          "aboveKnee": 0.1555632923815191,
+          "connectedShell": true,
+          "legCoverageVertices": 3354
+        },
+        "racing": {
+          "calfWidth": 0.20449639592149982,
+          "hem": 0.1270022188186911
+        },
+        "firefighter": {
+          "calfWidth": 0.20449639592149982,
+          "hem": 0.1270022188186911
+        },
+        "pilot": {
+          "calfWidth": 0.20449639592149982,
+          "hem": 0.1270022188186911
         }
       }
     },
@@ -226,6 +316,36 @@
         "police": {
           "calfWidth": 0.1540710939232369,
           "hem": 0.1198651535209812
+        },
+        "pencilSkirt": {
+          "hem": 0.5079504025040161,
+          "aboveKnee": 0.021422903944030236,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "aLineSkirt": {
+          "hem": 0.5265725619628409,
+          "aboveKnee": 0.04004506340285496,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "miniSkirt": {
+          "hem": 0.61635754669832,
+          "aboveKnee": 0.1298300481383341,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "racing": {
+          "calfWidth": 0.16194760927600646,
+          "hem": 0.11986515338255473
+        },
+        "firefighter": {
+          "calfWidth": 0.16194760927600646,
+          "hem": 0.11986515338255473
+        },
+        "pilot": {
+          "calfWidth": 0.16194760927600646,
+          "hem": 0.11986515338255473
         }
       }
     },
@@ -283,6 +403,36 @@
         "police": {
           "calfWidth": 0.1636493859247439,
           "hem": 0.11986516756493903
+        },
+        "pencilSkirt": {
+          "hem": 0.5079456041619451,
+          "aboveKnee": 0.02141791574683205,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "aLineSkirt": {
+          "hem": 0.5265389154511777,
+          "aboveKnee": 0.040011227036064634,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "miniSkirt": {
+          "hem": 0.6163374839283711,
+          "aboveKnee": 0.129809795513258,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "racing": {
+          "calfWidth": 0.17174283252270633,
+          "hem": 0.11986516722662441
+        },
+        "firefighter": {
+          "calfWidth": 0.17174283252270633,
+          "hem": 0.11986516722662441
+        },
+        "pilot": {
+          "calfWidth": 0.17174283252270633,
+          "hem": 0.11986516722662441
         }
       }
     },
@@ -340,6 +490,36 @@
         "police": {
           "calfWidth": 0.18614877424579546,
           "hem": 0.1198653152055812
+        },
+        "pencilSkirt": {
+          "hem": 0.5079374242227338,
+          "aboveKnee": 0.02140975746055873,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "aLineSkirt": {
+          "hem": 0.5264871018827612,
+          "aboveKnee": 0.039959435120586084,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "miniSkirt": {
+          "hem": 0.6163053293794646,
+          "aboveKnee": 0.1297776626172895,
+          "connectedShell": true,
+          "legCoverageVertices": 3422
+        },
+        "racing": {
+          "calfWidth": 0.19535502828628956,
+          "hem": 0.11986531483876364
+        },
+        "firefighter": {
+          "calfWidth": 0.19535502828628956,
+          "hem": 0.11986531483876364
+        },
+        "pilot": {
+          "calfWidth": 0.19535502828628956,
+          "hem": 0.11986531483876364
         }
       }
     }

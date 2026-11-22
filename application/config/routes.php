@@ -55,5 +55,7 @@ $route['admin'] = 'admin/index';
 $route['admin/login'] = 'admin/legacy_login';
 $route['admin/login.php'] = 'admin/legacy_login';
 $route['admin/logout'] = 'admin/logout';
+// REQUEST_URI remains the original asset URL after an Apache internal rewrite.
+$route['(?i)(assets/game/(?:assets/.*|\.vite/.*)|(?:public|assets/game)/audio/produksi/.*|game-src/(?:production-|admin-)[^/]*|docs/(?:record|script)/.*)'] = 'admin/production_asset/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import {Window} from 'happy-dom';
 import {compileScenario,sampleScenario,blankScenario} from '../game-src/production-scenario.js';
 import {day1Scenario} from '../game-src/production-day1.js';
+import {scenarioForEpisode} from '../game-src/production-episodes.js';
 import {createProductionMapPlayer} from '../game-src/production-map-player.js';
 import {mountProductionStudio} from '../game-src/production-studio.js';
+import {getWorldPhase,setWorldPhase} from '../game-src/republic-world-layout.js';
+const latestShotCount=scenarioForEpisode('day2').shots.length;
 const win=new Window({url:'http://localhost/project/admin/?view=production'});
 const schedule=globalThis.setTimeout;globalThis.setTimeout=(fn,ms,...args)=>{const timer=schedule(fn,ms,...args);if(ms===60000)timer.unref();return timer;}; // Download URL cleanup must not keep this DOM test alive for a minute.
 for(const name of ['window','document','navigator','localStorage','Event','CustomEvent','HTMLElement'])Object.defineProperty(globalThis,name,{value:name==='window'?win:win[name],configurable:true});
@@ -14,13 +17,13 @@ globalThis.requestAnimationFrame=callback=>{frame=callback;return 1;};globalThis
 win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawImage(){},save(){},restore(){},fillRect(){},strokeRect(){},fillText(){},setLineDash(){},createLinearGradient(){return {addColorStop(){}};},measureText:t=>({width:t.length*8})};};
 win.document.body.innerHTML='<section class="admin-view active"><div id="studio"></div></section>';
 const host=win.document.getElementById('studio'),q=s=>host.querySelector(s);
-let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[];
+let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[],encodedSizes=[];
 let storyLoads=0;
 globalThis.AudioContext=class{currentTime=0;async resume(){}async close(){}createBufferSource(){return {connect(){},start(){},stop(){},disconnect(){}};}};
 const dependencies={
   async createStage(s){creates++;let compiled=compileScenario(s);return {scene:{},camera:{},get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);},pose(t){rendered.push(t);return sampleScenario(compiled,t);},dispose(){disposals++;}};},
   createRenderer(gpu){return {setSize(w,h){gpu.width=w;gpu.height=h;gpuSize.push([w,h]);},render(){},dispose(){}};},
-  async encode(args){exportRequest=args;if(mode==='cancel')return new Promise((_,reject)=>args.signal.addEventListener('abort',()=>reject(new DOMException('cancel','AbortError'))));await args.renderFrame(.5);args.onProgress(1);return new Blob(['test'],{type:'video/mp4'});},
+  async encode(args){exportRequest=args;encodedSizes.push([args.canvas.width,args.canvas.height]);if(mode==='cancel')return new Promise((_,reject)=>args.signal.addEventListener('abort',()=>reject(new DOMException('cancel','AbortError'))));await args.renderFrame(.5);args.onProgress(1);return new Blob(['test'],{type:'video/mp4'});},
   async mixAudio(tracks){return tracks.length>2?{storyAudio:true}:null;},
   async loadStory(){storyLoads++;return [{buffer:{},volume:.95,offset:.3}];},
 };
@@ -29,10 +32,10 @@ const click=selector=>q(selector).click();
 const change=(selector,value)=>{const node=q(selector);node.value=value;node.dispatchEvent(new win.Event('change',{bubbles:true}));};
 localStorage.setItem('semesta.production.workspace.v1',JSON.stringify(blankScenario()));
 let studio=mountProductionStudio(host,dependencies);await flush();
-assert.equal(creates,1);assert.equal(host.querySelectorAll('[data-shot]').length,28,'Legacy empty workspace migrates to active Day 1');assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('.ps-empty').hidden,true);
+assert.equal(creates,1);assert.equal(host.querySelectorAll('[data-shot]').length,latestShotCount,'Legacy empty workspace migrates to latest Day 2');assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('.ps-empty').hidden,true);
 click('[data-command="rehearsal"]');await flush();assert.equal(creates,2);assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('.ps-empty').hidden,true);
 assert.deepEqual(gpuSize.at(-1),[360,640],'Preview GPU must be sized even if display canvas already matches');
-click('[data-command="fullscreen"]');await flush();assert.equal(q('.ps-monitor').classList.contains('ps-expanded'),true);assert.equal(q('[data-command="fullscreen"]').getAttribute('aria-pressed'),'true');assert.deepEqual(gpuSize.at(-1),[1080,1920]);
+click('[data-command="fullscreen"]');await flush();assert.equal(q('.ps-monitor').classList.contains('ps-expanded'),true);assert.equal(q('[data-command="fullscreen"]').getAttribute('aria-pressed'),'true');assert.deepEqual(gpuSize.at(-1),[720,1280],'Fullscreen preview has a bounded GPU resolution; MP4 keeps the selected full size');
 document.dispatchEvent(new win.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));await flush();assert.equal(q('.ps-monitor').classList.contains('ps-expanded'),false);assert.deepEqual(gpuSize.at(-1),[360,640]);assert.equal(document.body.classList.contains('production-fullscreen-open'),false);
 const monitor=q('.ps-monitor');let nativeRequests=0;
 Object.defineProperty(document,'fullscreenElement',{value:null,writable:true,configurable:true});
@@ -44,7 +47,7 @@ click('[data-command="play"]');assert.ok(q('[data-command="play"]').textContent.
 click('[data-command="play"]');assert.equal(frame,null);click('[data-jump="2"]');assert.equal(Number(q('[data-seek]').value),5);
 change('[data-shot="0"] [data-shot-field="duration"]','4');assert.equal(Number(q('[data-seek]').max),12);assert.equal(Number(q('[data-seek]').value),0);
 change('[data-format]','landscape');assert.ok(q('[data-preview]').width>q('[data-preview]').height);
-click('[data-command="export"]');await flush();await flush();assert.equal(exportRequest.canvas.width,640,'Preview size must be restored after export');assert.equal(q('[data-download]').hidden,false);assert.ok(q('[data-download]').download.endsWith('landscape-1080p.mp4'));
+click('[data-command="export"]');await flush();await flush();assert.deepEqual(encodedSizes.at(-1),[1920,1080],'Preview cap must never reduce the 1080p MP4');assert.equal(exportRequest.canvas.width,640,'Preview size must be restored after export');assert.equal(q('[data-download]').hidden,false);assert.ok(q('[data-download]').download.endsWith('landscape-1080p.mp4'));
 change('[data-quality]','720');assert.equal(q('[data-download]').hidden,true,'Never offer stale export after settings change');
 mode='cancel';click('[data-command="export"]');await flush();assert.equal(q('[data-command="cancel"]').hidden,false);assert.equal(q('[data-field="title"]').disabled,true);click('[data-command="cancel"]');await flush();assert.match(q('[data-status]').textContent,/dibatalkan/);assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('[data-download]').hidden,true);
 click('[data-command="play"]');win.dispatchEvent(new win.CustomEvent('semesta:admin-view-change',{detail:{view:'world'}}));assert.equal(frame,null,'Leaving production pauses preview');
@@ -68,10 +71,19 @@ mode='complete';click('[data-command="export"]');await flush();await flush();ass
 change('[data-shot="0"] [data-shot-field="caption"]','Narasi yang disunting');assert.equal(JSON.parse(localStorage.getItem('semesta.production.workspace.v1')).shots[0].speech,undefined,'Text edits must not leave mismatched old audio');assert.equal(q('[data-download]').hidden,true);
 click('[data-command="new"]');await flush();studio.dispose();studio=mountProductionStudio(host,dependencies);await flush();assert.equal(q('[data-command="play"]').disabled,true,'Explicit empty choice survives reload');studio.dispose();
 const beforeMap=localStorage.getItem('semesta.production.workspace.v1'),mapHost=document.createElement('section');document.body.append(mapHost);
-const mapPlayer=createProductionMapPlayer(mapHost,{load:async()=>[{mountProductionStudio:(h,options)=>mountProductionStudio(h,{...dependencies,...options})},{day1Scenario}]});
-await mapPlayer.open();assert.equal(mapPlayer.isOpen,true);assert.equal(mapHost.querySelectorAll('[data-shot]').length,28);assert.equal(mapHost.querySelector('[data-command="play"]').disabled,false);
+const mapPlayer=createProductionMapPlayer(mapHost,{load:async()=>[{mountProductionStudio:(h,options)=>mountProductionStudio(h,{...dependencies,...options})},{scenarioForEpisode}]});
+await mapPlayer.open();assert.equal(mapPlayer.isOpen,true);assert.equal(mapHost.querySelectorAll('[data-shot]').length,latestShotCount);assert.equal(mapHost.querySelector('[data-command="play"]').disabled,false);
 mapHost.querySelector('[data-command="fullscreen"]').click();await flush();assert.ok(mapHost.querySelector('dialog').classList.contains('production-map-player--expanded'));document.dispatchEvent(new win.KeyboardEvent('keydown',{key:'Escape',bubbles:true}));await flush();assert.equal(mapPlayer.isOpen,true,'Escape leaves expanded view without closing the map player');assert.equal(mapHost.querySelector('.ps-expanded'),null);
 mapHost.querySelector('[data-command="play"]').click();await flush();assert.match(mapHost.querySelector('[data-command="play"]').textContent,/Jeda/,'Map player works without admin-view ancestor');assert.equal(localStorage.getItem('semesta.production.workspace.v1'),beforeMap,'Map player must never overwrite admin draft');mapHost.querySelector('[data-close-production]').click();assert.equal(mapPlayer.isOpen,false);assert.equal(mapHost.querySelector('dialog'),null);assert.equal(frame,null);
-localStorage.clear();studio=mountProductionStudio(host,dependencies);await flush();assert.equal(host.querySelectorAll('[data-shot]').length,28,'Fresh visit defaults to Day 1');studio.dispose();
+localStorage.clear();studio=mountProductionStudio(host,{...dependencies,mixAudio:async()=>null});await flush();assert.equal(host.querySelectorAll('[data-shot]').length,latestShotCount,'Fresh visit defaults to latest Day 2');
+assert.equal(host.querySelectorAll('[data-cast]').length,scenarioForEpisode('day2').cast.length,'Every canonical citizen is available in the Day 2 editor');
+assert.equal(q('[data-command="add-cast"]').disabled,false,'The studio supports the 49-character scene and additional actors up to 64');
+const total=Number(q('[data-seek]').max);
+const seek=q('[data-seek]');seek.value=total-.05;seek.dispatchEvent(new win.Event('input',{bubbles:true}));
+assert.equal(getWorldPhase(),'before-day2','Seeking to the ending must not build the city');
+click('[data-command="play"]');await flush();clock+=1;frame();assert.equal(getWorldPhase(),'before-day2','Playing only a seeked ending is not a completed episode');
+click('[data-command="stop"]');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'after-day2','Natural canonical Day 2 playback completion updates the shared city phase');
+setWorldPhase('before-day2');change('[data-field="title"]','Draf cerita yang saya edit');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'before-day2','Authored drafts never advance the public city state');
+studio.dispose();
 await win.happyDOM.close();
 console.log('PASS: DOM empty/rehearsal/edit/seek/play/pause/export/cancel/format/cast/draft/reset/XSS/lifecycle. Real browser graphics not exercised.');

@@ -22,8 +22,10 @@ function snapshot(){
 }
 function outputReady(){
   const manifest=readJson(resolve(root,'assets/game/.vite/manifest.json'));
-  const entry=manifest?.['game-src/main.js'];
-  return Boolean(entry?.file&&existsSync(resolve(root,'assets/game',entry.file)));
+  return ['game-src/main.js','game-src/admin-main.js'].every(key=>{
+    const entry=manifest?.[key];
+    return Boolean(entry?.file&&existsSync(resolve(root,'assets/game',entry.file)));
+  });
 }
 function dependenciesReady(){
   const pkg=readJson(resolve(root,'package.json'));

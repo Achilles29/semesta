@@ -118,6 +118,11 @@ def frame_camera(view='body',angle=.25,rig=None):
     scene=bpy.context.scene;camera=scene.camera
     point,scale={'body':((0,0,.92),2.07),'face':((0,-.025,1.66),.43),'torso':((0,0,1.30),.85),'hand':((.35,-.03,.87),.33),'feet':((0,-.06,.17),.55)}[view]
     point=Vector(point)
+    if view=='face' and rig:
+        head=rig.pose.bones['head']
+        point=rig.matrix_world@((head.head+head.tail)*.5)
+        point.z+=.015
+        point.y-=.025
     if view=='hand' and rig:
         point=(rig.matrix_world@rig.pose.bones['hand.L'].matrix@Vector((0,.065,0)))
     camera.data.type='ORTHO';camera.data.ortho_scale=scale

@@ -51,7 +51,8 @@ try{
 const source=readFileSync('game-src/main.js','utf8');if(source==='FAIL'){console.error('EXPECTED_BUILD_FAILURE');process.exit(2);}
 mkdirSync('assets/game/.vite',{recursive:true});mkdirSync('assets/game/assets',{recursive:true});
 writeFileSync('assets/game/assets/main.js',source);
-writeFileSync('assets/game/.vite/manifest.json',JSON.stringify({'game-src/main.js':{file:'assets/main.js'}}));
+writeFileSync('assets/game/assets/admin.js','admin '+source);
+writeFileSync('assets/game/.vite/manifest.json',JSON.stringify({'game-src/main.js':{file:'assets/main.js'},'game-src/admin-main.js':{file:'assets/admin.js'}}));
 writeFileSync('build-count.txt',String((existsSync('build-count.txt')?Number(readFileSync('build-count.txt','utf8')):0)+1));`);
   git(seed,'add','.');git(seed,'update-index','--chmod=+x','.githooks/pre-push','.githooks/post-merge','.githooks/post-rewrite');commit(seed,'fixture');
   git(seed,'remote','add','origin',remote);git(seed,'push','-u','origin','main');git(sandbox,'clone',remote,client);identity(client);
@@ -76,9 +77,13 @@ writeFileSync('build-count.txt',String((existsSync('build-count.txt')?Number(rea
   writeFileSync(join(client,'game-src/main.js'),'recovered');commit(client,'recovery');git(client,'push','origin','main');assert.equal(count(),6);
   assert.equal(git(remote,'rev-parse','main').stdout,git(client,'rev-parse','HEAD').stdout);
 
+  unlinkSync(join(client,'assets/game/assets/admin.js'));run(client,process.execPath,['tools/git-auto-build.mjs']);assert.equal(count(),7,'A missing admin entry bundle must rebuild even when the public game is intact');
+  writeFileSync(join(client,'assets/game/.vite/manifest.json'),JSON.stringify({'game-src/main.js':{file:'assets/main.js'}}));
+  run(client,process.execPath,['tools/git-auto-build.mjs']);assert.equal(count(),8,'A legacy single-entry manifest must rebuild both public and admin entries');
+
   git(client,'config','core.hooksPath','custom-hooks');const custom=run(client,process.execPath,['tools/install-git-hooks.mjs'],false);
   assert.notEqual(custom.status,0);assert.equal(git(client,'config','--get','core.hooksPath').stdout.trim(),'custom-hooks');
-  console.log('PASS: root/subdirectory lazy JS and CSS URLs, real push/pull hooks, fast-forward, rebase, docs skip, missing output, dependency sync, failed build recovery, custom hook preservation, paths with spaces.');
+  console.log('PASS: root/subdirectory lazy JS and CSS URLs, real push/pull hooks, fast-forward, rebase, docs skip, missing public/admin output, legacy entry migration, dependency sync, failed build recovery, custom hook preservation, paths with spaces.');
 }finally{
   // The only recursively removed path is the exact temporary fixture we created.
   const child=relative(resolve(tmpdir()),resolve(sandbox));

@@ -1,0 +1,270 @@
+{
+  "title": "Day 2 — Sudah Dibangun, Baru Ditanya",
+  "revision": "day2-2026-11-22",
+  "status": "measured_audio_ready_listening_pending",
+  "pronunciation": {
+    "Republik Wkwkwk": "Republik Weka Weka Weka",
+    "Xel": "Ksel"
+  },
+  "takePlan": {
+    "count": 8,
+    "method": "One coherent take per identity; split using returned actual timings. No audition generations."
+  },
+  "actors": {
+    "pasca": {
+      "displayName": "Pasca Bowow",
+      "voiceGender": "male",
+      "lines": [
+        "Tenang! Semua aspirasi saya tampung!",
+        "Terima kasih! Ini untuk pembangunan republik.",
+        "Sesuai janji kemarin, kita bangun Koplak Desa dan Satuan Pengisi Perut Gratis dulu!",
+        "Saya dengar! Semua dicatat. Tapi dua janji ini dulu. Ksel, mulai!",
+        "Dengan ini, Koplak Desa dan Satuan Pengisi Perut Gratis saya resmikan!",
+        "Nah, warga! Selanjutnya kita bangun apa?",
+        "Iya. Kali ini kalian dulu."
+      ],
+      "cueKeys": [
+        "day2-pasca-01",
+        "day2-pasca-02",
+        "day2-pasca-03",
+        "day2-pasca-04",
+        "day2-pasca-05",
+        "day2-pasca-06",
+        "day2-pasca-07"
+      ]
+    },
+    "aulia": {
+      "displayName": "aulia.talita2",
+      "voiceGender": "female",
+      "lines": [
+        "Kami juga ditampung, Pak? Rumahnya belum ada!",
+        "Rumah warga bagaimana?",
+        "Kali ini ditanyanya sebelum dibangun, kan, Pak?"
+      ],
+      "cueKeys": [
+        "day2-aulia-01",
+        "day2-aulia-02",
+        "day2-aulia-03"
+      ]
+    },
+    "narrator": {
+      "displayName": "Narator",
+      "voiceGender": "male",
+      "lines": [
+        "Hari kedua Republik Weka Weka Weka. Warganya berdatangan. Kebutuhannya ikut mengantre.",
+        "Dua bangunan berdiri. Usulan warga masih menunggu.",
+        "Sekolah, rumah sakit, rumah warga, atau sentra usaha? Pilih satu di komentar, kasih alasannya. Usul lain juga boleh."
+      ],
+      "cueKeys": [
+        "day2-narrator-01",
+        "day2-narrator-02",
+        "day2-narrator-03"
+      ]
+    },
+    "eqa": {
+      "displayName": "eqa",
+      "voiceGender": "female",
+      "lines": [
+        "Guru sudah datang, Pak. Sekolahnya kapan?",
+        "Pak, sekolah dulu! Muridnya mau belajar di mana?"
+      ],
+      "cueKeys": [
+        "day2-eqa-01",
+        "day2-eqa-02"
+      ]
+    },
+    "cecil": {
+      "displayName": "cecil",
+      "voiceGender": "female",
+      "lines": [
+        "Dokter juga ada. Rumah sakitnya belum!",
+        "Rumah sakit juga, Pak! Jangan dilewati!"
+      ],
+      "cueKeys": [
+        "day2-cecil-01",
+        "day2-cecil-02"
+      ]
+    },
+    "nopal": {
+      "displayName": "nopal",
+      "voiceGender": "male",
+      "lines": [
+        "Tempat kerja juga, Pak. Kami butuh penghasilan.",
+        "Kami butuh kerja, Pak!"
+      ],
+      "cueKeys": [
+        "day2-nopal-01",
+        "day2-nopal-02"
+      ]
+    },
+    "climenzo": {
+      "displayName": "climenzo_jr",
+      "voiceGender": "male",
+      "lines": [
+        "Ini simbolis sumbangan lima triliun saya, Pak. Dahulukan kebutuhan warga, ya."
+      ],
+      "cueKeys": [
+        "day2-climenzo-01"
+      ]
+    },
+    "xel": {
+      "displayName": "Xel",
+      "voiceGender": "male",
+      "lines": [
+        "Siap. Kita ukur lahannya dulu."
+      ],
+      "cueKeys": [
+        "day2-xel-01"
+      ]
+    }
+  },
+  "cues": [
+    {
+      "shot": "S01",
+      "speaker": "pasca",
+      "key": "day2-pasca-01",
+      "text": "Tenang! Semua aspirasi saya tampung!",
+      "spokenText": "Tenang! Semua aspirasi saya tampung!"
+    },
+    {
+      "shot": "S02",
+      "speaker": "aulia",
+      "key": "day2-aulia-01",
+      "text": "Kami juga ditampung, Pak? Rumahnya belum ada!",
+      "spokenText": "Kami juga ditampung, Pak? Rumahnya belum ada!"
+    },
+    {
+      "shot": "S03",
+      "speaker": "narrator",
+      "key": "day2-narrator-01",
+      "text": "Hari kedua Republik Weka Weka Weka. Warganya berdatangan. Kebutuhannya ikut mengantre.",
+      "spokenText": "Hari kedua Republik Weka Weka Weka. Warganya berdatangan. Kebutuhannya ikut mengantre."
+    },
+    {
+      "shot": "S04",
+      "speaker": "eqa",
+      "key": "day2-eqa-01",
+      "text": "Guru sudah datang, Pak. Sekolahnya kapan?",
+      "spokenText": "Guru sudah datang, Pak. Sekolahnya kapan?"
+    },
+    {
+      "shot": "S05",
+      "speaker": "cecil",
+      "key": "day2-cecil-01",
+      "text": "Dokter juga ada. Rumah sakitnya belum!",
+      "spokenText": "Dokter juga ada. Rumah sakitnya belum!"
+    },
+    {
+      "shot": "S06",
+      "speaker": "nopal",
+      "key": "day2-nopal-01",
+      "text": "Tempat kerja juga, Pak. Kami butuh penghasilan.",
+      "spokenText": "Tempat kerja juga, Pak. Kami butuh penghasilan."
+    },
+    {
+      "shot": "S09",
+      "speaker": "climenzo",
+      "key": "day2-climenzo-01",
+      "text": "Ini simbolis sumbangan lima triliun saya, Pak. Dahulukan kebutuhan warga, ya.",
+      "spokenText": "Ini simbolis sumbangan lima triliun saya, Pak. Dahulukan kebutuhan warga, ya."
+    },
+    {
+      "shot": "S10",
+      "speaker": "pasca",
+      "key": "day2-pasca-02",
+      "text": "Terima kasih! Ini untuk pembangunan republik.",
+      "spokenText": "Terima kasih! Ini untuk pembangunan republik."
+    },
+    {
+      "shot": "S11",
+      "speaker": "pasca",
+      "key": "day2-pasca-03",
+      "text": "Sesuai janji kemarin, kita bangun Koplak Desa dan Satuan Pengisi Perut Gratis dulu!",
+      "spokenText": "Sesuai janji kemarin, kita bangun Koplak Desa dan Satuan Pengisi Perut Gratis dulu!"
+    },
+    {
+      "shot": "S12",
+      "speaker": "eqa",
+      "key": "day2-eqa-02",
+      "text": "Pak, sekolah dulu! Muridnya mau belajar di mana?",
+      "spokenText": "Pak, sekolah dulu! Muridnya mau belajar di mana?"
+    },
+    {
+      "shot": "S12A",
+      "speaker": "cecil",
+      "key": "day2-cecil-02",
+      "text": "Rumah sakit juga, Pak! Jangan dilewati!",
+      "spokenText": "Rumah sakit juga, Pak! Jangan dilewati!"
+    },
+    {
+      "shot": "S12B",
+      "speaker": "aulia",
+      "key": "day2-aulia-02",
+      "text": "Rumah warga bagaimana?",
+      "spokenText": "Rumah warga bagaimana?"
+    },
+    {
+      "shot": "S12B",
+      "speaker": "nopal",
+      "key": "day2-nopal-02",
+      "text": "Kami butuh kerja, Pak!",
+      "spokenText": "Kami butuh kerja, Pak!"
+    },
+    {
+      "shot": "S13",
+      "speaker": "pasca",
+      "key": "day2-pasca-04",
+      "text": "Saya dengar! Semua dicatat. Tapi dua janji ini dulu. Xel, mulai!",
+      "spokenText": "Saya dengar! Semua dicatat. Tapi dua janji ini dulu. Ksel, mulai!"
+    },
+    {
+      "shot": "S14",
+      "speaker": "xel",
+      "key": "day2-xel-01",
+      "text": "Siap. Kita ukur lahannya dulu.",
+      "spokenText": "Siap. Kita ukur lahannya dulu."
+    },
+    {
+      "shot": "S23",
+      "speaker": "pasca",
+      "key": "day2-pasca-05",
+      "text": "Dengan ini, Koplak Desa dan Satuan Pengisi Perut Gratis saya resmikan!",
+      "spokenText": "Dengan ini, Koplak Desa dan Satuan Pengisi Perut Gratis saya resmikan!"
+    },
+    {
+      "shot": "S25",
+      "speaker": "narrator",
+      "key": "day2-narrator-02",
+      "text": "Dua bangunan berdiri. Usulan warga masih menunggu.",
+      "spokenText": "Dua bangunan berdiri. Usulan warga masih menunggu."
+    },
+    {
+      "shot": "S26",
+      "speaker": "pasca",
+      "key": "day2-pasca-06",
+      "text": "Nah, warga! Selanjutnya kita bangun apa?",
+      "spokenText": "Nah, warga! Selanjutnya kita bangun apa?"
+    },
+    {
+      "shot": "S27",
+      "speaker": "aulia",
+      "key": "day2-aulia-03",
+      "text": "Kali ini ditanyanya sebelum dibangun, kan, Pak?",
+      "spokenText": "Kali ini ditanyanya sebelum dibangun, kan, Pak?"
+    },
+    {
+      "shot": "S28",
+      "speaker": "pasca",
+      "key": "day2-pasca-07",
+      "text": "Iya. Kali ini kalian dulu.",
+      "spokenText": "Iya. Kali ini kalian dulu."
+    },
+    {
+      "shot": "S29",
+      "speaker": "narrator",
+      "key": "day2-narrator-03",
+      "text": "Sekolah, rumah sakit, rumah warga, atau sentra usaha? Pilih satu di komentar, kasih alasannya. Usul lain juga boleh.",
+      "spokenText": "Sekolah, rumah sakit, rumah warga, atau sentra usaha? Pilih satu di komentar, kasih alasannya. Usul lain juga boleh."
+    }
+  ]
+}

@@ -2,52 +2,52 @@
   "passed": true,
   "revision": "v15-cmu-locomotion-2-head",
   "cmuSourceHashesVerified": true,
-  "checkedAt": "2026-11-21T04:23:25.146244+00:00",
+  "checkedAt": "2026-11-21T23:52:06.967254+00:00",
   "profiles": [
     {
       "id": "male-slim",
-      "sha256": "0cadd6b0879046c01aad050545e374341ce391534db3743fb9eced065fe97758",
-      "bytes": 40666956,
-      "decodedTextures": 20,
+      "sha256": "148d10a039bf42c1f97cb96a131317a3735138c471b9e0a1e4267c340966eab9",
+      "bytes": 56729536,
+      "decodedTextures": 25,
       "httpStatus": 200
     },
     {
       "id": "male-balanced",
-      "sha256": "30a75a2edc4cc5e57a1ac2fc6232acb5356644affe4802336cf2f46d0f60c575",
-      "bytes": 40944904,
-      "decodedTextures": 20,
+      "sha256": "11b5f749076fc63400cbf3a893d42778df678d83953e6336bb463e6438ce40ab",
+      "bytes": 57009568,
+      "decodedTextures": 25,
       "httpStatus": 200
     },
     {
       "id": "male-heavy",
-      "sha256": "84446ff055fb49acd91cd75ace8b24207b44d59a205810cda1f83a11107933e5",
-      "bytes": 41687784,
-      "decodedTextures": 20,
+      "sha256": "b510465d5ef9f3b89263555ae3456a7e6cec1e7a2f9e1e9aac0c3319bdb71c9e",
+      "bytes": 57664164,
+      "decodedTextures": 25,
       "httpStatus": 200
     },
     {
       "id": "female-slim",
-      "sha256": "c03758d1c0275327dd9ddd9fd8a273e1f6a6ac38b6f8623898bc405e393b9980",
-      "bytes": 41012948,
-      "decodedTextures": 20,
+      "sha256": "8e9f8f70101d3d7132aecba1c2e82f8971c1b4ff20bd757c67e00fda500db504",
+      "bytes": 57682272,
+      "decodedTextures": 26,
       "httpStatus": 200
     },
     {
       "id": "female-balanced",
-      "sha256": "b91f94bffafa7f157bc9ae36cc701d4d8f7f0f5c58cb1c90b51365ebda096073",
-      "bytes": 41287736,
-      "decodedTextures": 20,
+      "sha256": "8195271070b6f4b2c859cc8464af15cd45f50591d7b2fd50d3142aa95fcacb7a",
+      "bytes": 57973896,
+      "decodedTextures": 26,
       "httpStatus": 200
     },
     {
       "id": "female-heavy",
-      "sha256": "cfae304fcf38c0464751c96576ee2c7474dcc43c8030a06158fb2d51061db1a3",
-      "bytes": 41546244,
-      "decodedTextures": 20,
+      "sha256": "8125c06b152c6789517e3927078020421b695a42e9cac9bfceeda3d3a0c29e77",
+      "bytes": 58165320,
+      "decodedTextures": 26,
       "httpStatus": 200
     }
   ],
-  "linkedFiles": 100,
+  "linkedFiles": 197,
   "video": {
     "frames": 92,
     "seconds": 3.83,
@@ -60,7 +60,12 @@
   "httpRange206": true,
   "browserInteractionVerified": false,
   "gpuFPSMeasured": false,
-  "runtimeFilesVerified": 32,
-  "variationRevision": "v15-wardrobe-4-peci",
-  "presetPortraitsVerified": 36
+  "runtimeFilesVerified": 40,
+  "citizenSourceHashesVerified": 43,
+  "citizenBuildsPreserveRigAndAnimation": true,
+  "namedCitizenGalleryVerified": 48,
+  "mainPageCurrentBundleVerified": true,
+  "httpBundleHashVerified": true,
+  "variationRevision": "v15-citizens-2-art",
+  "presetPortraitsVerified": 84
 }

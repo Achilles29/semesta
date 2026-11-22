@@ -33,6 +33,7 @@ const selections=['hari-pertama','joko-datang','ayam-daftar','kucing-kenalan','a
 for(const id of selections){
   const shot=stage.compiled.shots.find(s=>s.id===id),time=shot.start+Math.min(shot.duration*.55,2.5);
   if(process.argv.includes('--composite')){
+    stage.pose(time);
     const c=createCanvas(1080,1920),image=await loadImage(path.join(out,id+'.png'));compositeFrame(c.getContext('2d'),image,stage,time);await fs.writeFile(path.join(out,id+'-frame.png'),await c.encode('png'));
   }else{
     stage.pose(time);stage.scene.add(stage.camera);stage.camera.name='ReviewCamera';stage.scene.children.filter(n=>n.isHemisphereLight).forEach(n=>n.visible=false);

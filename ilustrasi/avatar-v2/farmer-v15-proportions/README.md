@@ -1,6 +1,30 @@
-# Wardrobe 4 — karakter dan produksi Day 1
+# Warga Gelombang 1 — revisi penampilan
 
-Revisi aktif `v15-wardrobe-4-peci`: peci mengikuti irisan kulit kepala dengan
+Revisi aktif **`v15-citizens-2-art`** menyediakan 48 warga yang dikurasi berdasarkan
+brief profesi, bersama 36 preset sebelumnya: total 84 karakter pada enam profil
+tubuh. [Buka galeri warga bernama](warga-gelombang-1.html),
+[lihat seluruh preset](review.html), atau [buka Studio Avatar](../../../admin/?view=avatars).
+
+Tambahan meliputi enam gaya rambut dari aset MakeHuman CC0, kulit/alis/bulu mata
+perempuan, blazer/blouse/satin/pakaian panggung, tiga rok, sepatu berhak rendah,
+rompi operator, setelan balap, damkar, pilot, dan jas medis. Seragam polisi serta
+PNS dibentuk ulang dengan warna tetap dan emblem Republik Wkwkwk.
+Celana slim, regular, longgar, denim, cargo dan seragam tetap tersedia.
+
+Generator `tools/extend_avatar_v15_citizens.py` memperbarui kosmetik enam sumber
+Blender, memeriksa bahwa rig dan kurva animasi tetap sama, lalu mengekspor GLB.
+Renderer dan runtime berbagi kontrak pemilihan pakaian, kulit yang perlu terlihat,
+serta warna tetap seragam. Jangan menjalankan generator wardrobe lama sebagai
+langkah terakhir karena dapat mengembalikan revisi katalog/aset sebelumnya.
+
+[Riset, sumber aset, pipeline reproduksi dan batas verifikasi](../../../docs/characters/RISET_REVISI_WARGA.md)
+serta [lembar karakter](../../../docs/characters/WARGA_GELOMBANG_1.md) menjadi
+acuan revisi ini. Gambar offline tidak menggantikan pemeriksaan interaktif
+browser atau pengukuran FPS pada perangkat pengguna.
+
+## Riwayat Wardrobe 4 — karakter dan produksi Day 1
+
+Pada revisi `v15-wardrobe-4-peci`, peci mengikuti irisan kulit kepala dengan
 kelonggaran sekitar 4,5 mm pada semua enam profil, felt hitam dan bobot penuh
 ke tulang kepala. Tujuh bentuk wajah (termasuk persegi,
 panjang, senior dan Prabowow), 13 pilihan celana, seragam polisi tanpa insignia,

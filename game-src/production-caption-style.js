@@ -36,7 +36,7 @@ export function drawSeriesFrame(ctx,scenario,time,duration){
   }
   ctx.textBaseline='middle';ctx.textAlign='left';ctx.font=`800 ${25*scale}px Arial`;
   ctx.fillStyle='#fff';ctx.shadowColor='rgba(37,6,13,.45)';ctx.shadowBlur=5*scale;
-  ctx.fillText((scenario.title.match(/Day\s*\d+/i)?.[0]||'STUDIO').toUpperCase(),pad,h*.065);
+  ctx.fillText((scenario.day?`DAY ${scenario.day}`:scenario.title.match(/Day\s*\d+/i)?.[0]||'STUDIO').toUpperCase(),pad,h*.065);
   ctx.textAlign='right';ctx.font=`800 ${22*scale}px Arial`;
   ctx.fillText('REPUBLIK WKWKWK',w-pad,h*.065);
   ctx.restore();
@@ -59,4 +59,20 @@ export function drawDialogue(ctx,{clip,caption,speaker,speechTime}){
     const length=line.reduce((sum,v)=>sum+ctx.measureText(v.text).width,0)+gap*(line.length-1);let x=(w-length)/2;
     for(const word of line){const active=clip&&speechTime>=word.start&&speechTime<word.end;ctx.fillStyle=active?'#ffe07a':'#fffaf0';ctx.fillText(word.text,x,top+18*scale+(index+.5)*lineHeight);x+=ctx.measureText(word.text).width+gap;}
   });ctx.restore();
+  return {top:speaker?top-44*scale:top-8*scale,bottom:bottom+18*scale};
+}
+
+/** Survey choices occupy their own band below dialogue, without invented votes. */
+export function drawSurvey(ctx,survey,{time=0}={}){
+  if(!survey?.choices?.length)return;
+  const {width:w,height:h}=ctx.canvas,scale=Math.min(w/1080,h/1080),choices=survey.choices.slice(0,6),rows=Math.ceil(choices.length/2),gap=(rows>2?8:14)*scale,x=w*.08,total=w*.84,cell=(total-gap)/2,rowHeight=Math.min(h*(rows>2?.039:.057),(rows>2?64:86)*scale),top=h*.815;
+  ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.font=`800 ${31*scale}px Arial`;ctx.fillStyle='#fff';ctx.fillText(survey.title||'Pilih pembangunan berikutnya',w/2,h*.155,w*.8);
+  for(const [index,choice] of choices.entries()){
+    const lastFull=choices.length%2&&index===choices.length-1,cellWidth=lastFull?total:cell,cx=x+(index%2)*(cell+gap),cy=top+Math.floor(index/2)*(rowHeight+gap);
+    plate(ctx,cx,cy,cellWidth,rowHeight,'rgba(15,36,44,.94)');
+    ctx.textAlign='left';ctx.font=`800 ${29*scale}px Arial`;ctx.fillStyle='#ffe07a';ctx.fillText(choice.key,cx+18*scale,cy+rowHeight/2);
+    ctx.fillStyle='#fff';ctx.font=`700 ${27*scale}px Arial`;ctx.fillText(choice.label,cx+58*scale,cy+rowHeight/2,cellWidth-76*scale);
+  }
+  ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font=`700 ${23*scale}px Arial`;ctx.fillText(survey.footer||'Pilih satu di komentar + alasannya',w/2,Math.min(h*.97,top+rowHeight*rows+gap*(rows-1)+22*scale),w*.84);ctx.restore();
 }

@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "contract": "semesta-arka-v15",
   "motionRevision": "v15-cmu-locomotion-2-head",
   "defaultProfile": "male-balanced",
@@ -96,6 +96,11 @@
         0.22,
         0.19,
         0.16
+      ],
+      "absolute": [
+        0.018,
+        0.012,
+        0.009
       ]
     },
     "brown": {
@@ -104,6 +109,11 @@
         0.36,
         0.2,
         0.1
+      ],
+      "absolute": [
+        0.12,
+        0.048,
+        0.019
       ]
     },
     "silver": {
@@ -112,6 +122,11 @@
         0.8,
         0.8,
         0.78
+      ],
+      "absolute": [
+        0.65,
+        0.68,
+        0.7
       ]
     },
     "auburn": {
@@ -120,6 +135,11 @@
         0.58,
         0.24,
         0.12
+      ],
+      "absolute": [
+        0.32,
+        0.075,
+        0.032
       ]
     },
     "gold": {
@@ -128,6 +148,11 @@
         0.8,
         0.59,
         0.29
+      ],
+      "absolute": [
+        0.7,
+        0.43,
+        0.16
       ]
     }
   },
@@ -161,7 +186,24 @@
         1,
         1,
         1
-      ]
+      ],
+      "absolute": {
+        "top": [
+          0.49102,
+          0.5972,
+          0.72306
+        ],
+        "bottom": [
+          0.01938,
+          0.04667,
+          0.10702
+        ],
+        "footwear": [
+          0.0356,
+          0.02624,
+          0.02315
+        ]
+      }
     },
     "forest": {
       "label": "Pasir & hijau",
@@ -179,7 +221,24 @@
         0.65,
         0.75,
         0.65
-      ]
+      ],
+      "absolute": {
+        "top": [
+          0.30499,
+          0.42869,
+          0.25415
+        ],
+        "bottom": [
+          0.0331,
+          0.07036,
+          0.03689
+        ],
+        "footwear": [
+          0.0356,
+          0.02624,
+          0.02315
+        ]
+      }
     },
     "wine": {
       "label": "Gading & marun",
@@ -197,7 +256,24 @@
         0.75,
         0.65,
         0.75
-      ]
+      ],
+      "absolute": {
+        "top": [
+          0.30499,
+          0.04667,
+          0.09084
+        ],
+        "bottom": [
+          0.0356,
+          0.02416,
+          0.04374
+        ],
+        "footwear": [
+          0.0356,
+          0.02624,
+          0.02315
+        ]
+      }
     },
     "slate": {
       "label": "Abu & arang",
@@ -280,6 +356,276 @@
         0.35,
         0.38
       ]
+    },
+    "cream": {
+      "label": "Ivory hangat",
+      "top": [
+        0.87137,
+        0.80695,
+        0.68669
+      ],
+      "bottom": [
+        0.08228,
+        0.05613,
+        0.08228
+      ],
+      "outerwear": [
+        0.53948,
+        0.37626,
+        0.22697
+      ],
+      "footwear": [
+        0.13563,
+        0.0648,
+        0.04817
+      ],
+      "absolute": {
+        "top": [
+          0.87137,
+          0.80695,
+          0.68669
+        ],
+        "bottom": [
+          0.08228,
+          0.05613,
+          0.08228
+        ],
+        "outerwear": [
+          0.53948,
+          0.37626,
+          0.22697
+        ],
+        "footwear": [
+          0.13563,
+          0.0648,
+          0.04817
+        ]
+      }
+    },
+    "rose": {
+      "label": "Rose lembut",
+      "top": [
+        0.71569,
+        0.39157,
+        0.42327
+      ],
+      "bottom": [
+        0.15293,
+        0.0356,
+        0.07421
+      ],
+      "outerwear": [
+        0.27468,
+        0.08438,
+        0.13563
+      ],
+      "footwear": [
+        0.09531,
+        0.04667,
+        0.06125
+      ],
+      "absolute": {
+        "top": [
+          0.71569,
+          0.39157,
+          0.42327
+        ],
+        "bottom": [
+          0.15293,
+          0.0356,
+          0.07421
+        ],
+        "outerwear": [
+          0.27468,
+          0.08438,
+          0.13563
+        ],
+        "footwear": [
+          0.09531,
+          0.04667,
+          0.06125
+        ]
+      }
+    },
+    "burgundy": {
+      "label": "Burgundy elegan",
+      "top": [
+        0.26636,
+        0.02217,
+        0.05951
+      ],
+      "bottom": [
+        0.08866,
+        0.016,
+        0.04092
+      ],
+      "outerwear": [
+        0.08866,
+        0.016,
+        0.04092
+      ],
+      "footwear": [
+        0.04092,
+        0.01938,
+        0.0319
+      ],
+      "absolute": {
+        "top": [
+          0.26636,
+          0.02217,
+          0.05951
+        ],
+        "bottom": [
+          0.08866,
+          0.016,
+          0.04092
+        ],
+        "outerwear": [
+          0.08866,
+          0.016,
+          0.04092
+        ],
+        "footwear": [
+          0.04092,
+          0.01938,
+          0.0319
+        ]
+      }
+    },
+    "midnight": {
+      "label": "Midnight navy",
+      "top": [
+        0.02029,
+        0.04092,
+        0.09306
+      ],
+      "bottom": [
+        0.00972,
+        0.01764,
+        0.04231
+      ],
+      "outerwear": [
+        0.0319,
+        0.07036,
+        0.15293
+      ],
+      "footwear": [
+        0.01764,
+        0.02217,
+        0.03434
+      ],
+      "absolute": {
+        "top": [
+          0.02029,
+          0.04092,
+          0.09306
+        ],
+        "bottom": [
+          0.00972,
+          0.01764,
+          0.04231
+        ],
+        "outerwear": [
+          0.0319,
+          0.07036,
+          0.15293
+        ],
+        "footwear": [
+          0.01764,
+          0.02217,
+          0.03434
+        ]
+      }
+    },
+    "teal": {
+      "label": "Teal satin",
+      "top": [
+        0.04374,
+        0.33245,
+        0.33716
+      ],
+      "bottom": [
+        0.01764,
+        0.06301,
+        0.08022
+      ],
+      "outerwear": [
+        0.0185,
+        0.17465,
+        0.20156
+      ],
+      "footwear": [
+        0.01938,
+        0.04231,
+        0.05127
+      ],
+      "absolute": {
+        "top": [
+          0.04374,
+          0.33245,
+          0.33716
+        ],
+        "bottom": [
+          0.01764,
+          0.06301,
+          0.08022
+        ],
+        "outerwear": [
+          0.0185,
+          0.17465,
+          0.20156
+        ],
+        "footwear": [
+          0.01938,
+          0.04231,
+          0.05127
+        ]
+      }
+    },
+    "violet": {
+      "label": "Violet panggung",
+      "top": [
+        0.26636,
+        0.15293,
+        0.54572
+      ],
+      "bottom": [
+        0.07227,
+        0.03434,
+        0.15896
+      ],
+      "outerwear": [
+        0.43415,
+        0.30499,
+        0.66539
+      ],
+      "footwear": [
+        0.04374,
+        0.02416,
+        0.08228
+      ],
+      "absolute": {
+        "top": [
+          0.26636,
+          0.15293,
+          0.54572
+        ],
+        "bottom": [
+          0.07227,
+          0.03434,
+          0.15896
+        ],
+        "outerwear": [
+          0.43415,
+          0.30499,
+          0.66539
+        ],
+        "footwear": [
+          0.04374,
+          0.02416,
+          0.08228
+        ]
+      }
     }
   },
   "readySlots": [
@@ -307,7 +653,7 @@
     "license": "provenance required per asset",
     "ready": "only ready assets can appear as selectable options"
   },
-  "variationRevision": "v15-wardrobe-4-peci",
+  "variationRevision": "v15-citizens-2-art",
   "fields": {
     "skinTone": {
       "label": "Warna kulit",
@@ -345,7 +691,13 @@
         "sidePart": "Belah samping rapi",
         "crew": "Crew cut pendek",
         "spiky": "Spiky RPG",
-        "curtain": "Curtain belah tengah"
+        "curtain": "Curtain belah tengah",
+        "longStraight": "Panjang lurus berlapis",
+        "longWavy": "Panjang bergelombang",
+        "longPonytail": "Ekor kuda panjang",
+        "braided": "Kepang panjang",
+        "bobSoft": "Bob lembut",
+        "shortModern": "Pendek modern"
       }
     },
     "palette": {
@@ -358,7 +710,13 @@
         "slate": "Abu & arang",
         "terracotta": "Terakota & pasir",
         "navy": "Biru laut",
-        "rock": "Rock hitam & denim"
+        "rock": "Rock hitam & denim",
+        "cream": "Ivory hangat",
+        "rose": "Rose lembut",
+        "burgundy": "Burgundy elegan",
+        "midnight": "Midnight navy",
+        "teal": "Teal satin",
+        "violet": "Violet panggung"
       }
     },
     "faceShape": {
@@ -431,7 +789,16 @@
         "camo": "Kemeja loreng woodland",
         "civilService": "Kemeja PNS khaki",
         "safariWhite": "Kemeja safari putih",
-        "police": "Kemeja polisi abu-abu"
+        "police": "Kemeja polisi cokelat",
+        "officeBlazer": "Blazer berpinggang + camisole",
+        "fittedBlouse": "Blouse fitted berkerah",
+        "satinTop": "Atasan satin tanpa lengan",
+        "stageTop": "Jaket panggung pendek",
+        "operator": "Rompi operator reflektif",
+        "racing": "Setelan balap RW",
+        "firefighter": "Jaket damkar reflektif",
+        "pilot": "Kemeja pilot + epaulet",
+        "labcoat": "Jas dokter / laboratorium"
       }
     },
     "outerwearStyle": {
@@ -444,7 +811,7 @@
       }
     },
     "bottomStyle": {
-      "label": "Celana",
+      "label": "Bawahan",
       "default": "straight",
       "options": {
         "straight": "Regular lurus",
@@ -459,7 +826,13 @@
         "slim": "Slim / ketat",
         "jeans": "Jeans denim regular",
         "jeansSlim": "Jeans denim slim",
-        "police": "Celana polisi regular"
+        "police": "Celana polisi cokelat tua",
+        "pencilSkirt": "Rok pensil",
+        "aLineSkirt": "Rok A-line",
+        "miniSkirt": "Rok panggung pendek",
+        "racing": "Celana setelan balap",
+        "firefighter": "Celana damkar",
+        "pilot": "Celana pilot navy"
       }
     },
     "shoeStyle": {
@@ -470,7 +843,8 @@
         "reinforced": "Bot tebal",
         "sneakers": "Sneaker kanvas",
         "workBoots": "Bot kerja",
-        "dress": "Sepatu formal hitam"
+        "dress": "Sepatu formal hitam",
+        "heels": "Sepatu hak rendah"
       }
     },
     "headAccessory": {
@@ -543,7 +917,16 @@
     "camo",
     "civilService",
     "safariWhite",
-    "police"
+    "police",
+    "officeBlazer",
+    "fittedBlouse",
+    "satinTop",
+    "stageTop",
+    "operator",
+    "racing",
+    "firefighter",
+    "pilot",
+    "labcoat"
   ],
   "hairCoveringHeadwear": [
     "cap",

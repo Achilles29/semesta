@@ -1,0 +1,346 @@
+{
+  "title": "Day 2 — Sudah Dibangun, Baru Ditanya",
+  "revision": "day2r4-2026-11-22",
+  "status": "measured_audio_ready_listening_pending",
+  "pronunciation": {
+    "Republik Wkwkwk": "Republik Weka Weka Weka",
+    "Xel": "Ksel"
+  },
+  "takePlan": {
+    "count": 2,
+    "identities": [
+      "narrator",
+      "pasca"
+    ],
+    "method": "One narrator master for three intro beats and the six-choice closing; one Pasca reaction take. Same approved voices, no auditions or speed changes. Retain 22 accepted cues and every previous draft key.",
+    "retainedOriginalRevision": "day2r3-2026-11-22"
+  },
+  "actors": {
+    "pasca": {
+      "displayName": "Pasca Bowow",
+      "voiceGender": "male",
+      "lines": [
+        "Mau gantiin saya? Gantikan saya dong... kalau bisa! Sudah, tenang. Semua saya yang atur.",
+        "Satu-satu! Kalau semuanya bicara, kapan kalian dengar saya?",
+        "Lihat! Baru saya pimpin, lima triliun langsung datang. Hebat, kan?",
+        "Ya, karena percaya sama saya.",
+        "Yang paling penting itu Koplak Desa dan Satuan Pengisi Perut Gratis. Itu dulu!",
+        "Kalian belum paham manfaatnya. Saya ini mikir jauh ke depan! Ksel, kerjakan!",
+        "Nah, lihat hasil kerja saya! Koplak Desa dan Satuan Pengisi Perut Gratis, resmi dibuka!",
+        "Sekarang, kalian mau dibangunkan apa lagi?",
+        "Tentu. Saya kan selalu mendengarkan warga."
+      ],
+      "cueKeys": [
+        "day2r4-pasca-01",
+        "day2r2-pasca-02",
+        "day2r2-pasca-03",
+        "day2r2-pasca-04",
+        "day2r2-pasca-05",
+        "day2r2-pasca-06",
+        "day2r2-pasca-07",
+        "day2r2-pasca-08",
+        "day2r2-pasca-09"
+      ]
+    },
+    "aulia": {
+      "displayName": "aulia.talita2",
+      "voiceGender": "female",
+      "lines": [
+        "Pak, rumah kami baru fondasi!",
+        "Kami butuh rumah, Pak!",
+        "Kali ini dengar dulu, baru bangun, ya, Pak."
+      ],
+      "cueKeys": [
+        "day2r2-aulia-01",
+        "day2r2-aulia-02",
+        "day2r2-aulia-03"
+      ]
+    },
+    "narrator": {
+      "displayName": "Narator",
+      "voiceGender": "male",
+      "lines": [
+        "Hari kedua Republik Weka Weka Weka. Hari pertama saja, sudah lebih dari seratus orang pengin jadi warga!",
+        "Ada yang mau jadi Kapolri.",
+        "Bahkan, ada yang pengin jadi presiden!",
+        "Dua bangunan berdiri. Usulan warga masih menunggu.",
+        "Sekolah, rumah sakit, rumah warga, sentra usaha, rumah ibadah, atau jalan dan transportasi umum? Pilih satu di komentar, kasih alasannya. Usul lain juga boleh."
+      ],
+      "cueKeys": [
+        "day2r4-narrator-01",
+        "day2r4-narrator-02",
+        "day2r4-narrator-03",
+        "day2-narrator-02",
+        "day2r4-narrator-04"
+      ]
+    },
+    "eqa": {
+      "displayName": "eqa",
+      "voiceGender": "female",
+      "lines": [
+        "Guru sudah datang, Pak. Sekolahnya kapan?",
+        "Pak, sekolah dulu! Muridnya mau belajar di mana?"
+      ],
+      "cueKeys": [
+        "day2-eqa-01",
+        "day2-eqa-02"
+      ]
+    },
+    "cecil": {
+      "displayName": "cecil",
+      "voiceGender": "female",
+      "lines": [
+        "Dokter juga ada. Rumah sakitnya belum!",
+        "Rumah sakit juga, Pak! Jangan dilewati!"
+      ],
+      "cueKeys": [
+        "day2-cecil-01",
+        "day2-cecil-02"
+      ]
+    },
+    "nopal": {
+      "displayName": "nopal",
+      "voiceGender": "male",
+      "lines": [
+        "Tempat kerja juga, Pak. Kami butuh penghasilan.",
+        "Kami butuh kerja, Pak!"
+      ],
+      "cueKeys": [
+        "day2-nopal-01",
+        "day2-nopal-02"
+      ]
+    },
+    "climenzo": {
+      "displayName": "climenzo_jr",
+      "voiceGender": "male",
+      "lines": [
+        "Pak, ini sumbangan lima triliun saya. Buat kebutuhan warga, ya.",
+        "Lho, dananya dari saya, Pak.",
+        "Sekolah sama rumah sakitnya, jangan lupa."
+      ],
+      "cueKeys": [
+        "day2r2-climenzo-01",
+        "day2r2-climenzo-02",
+        "day2r2-climenzo-03"
+      ]
+    },
+    "xel": {
+      "displayName": "Xel",
+      "voiceGender": "male",
+      "lines": [
+        "Siap. Kita ukur lahannya dulu."
+      ],
+      "cueKeys": [
+        "day2-xel-01"
+      ]
+    }
+  },
+  "cues": [
+    {
+      "shot": "W00",
+      "speaker": "narrator",
+      "key": "day2r4-narrator-01",
+      "text": "Hari kedua Republik Weka Weka Weka. Hari pertama saja, sudah lebih dari seratus orang pengin jadi warga!",
+      "spokenText": "Hari kedua Republik Weka Weka Weka. Hari pertama saja, sudah lebih dari seratus orang pengin jadi warga!"
+    },
+    {
+      "shot": "W01",
+      "speaker": "narrator",
+      "key": "day2r4-narrator-02",
+      "text": "Ada yang mau jadi Kapolri.",
+      "spokenText": "Ada yang mau jadi Kapolri."
+    },
+    {
+      "shot": "W02",
+      "speaker": "narrator",
+      "key": "day2r4-narrator-03",
+      "text": "Bahkan, ada yang pengin jadi presiden!",
+      "spokenText": "Bahkan, ada yang pengin jadi presiden!"
+    },
+    {
+      "shot": "S01",
+      "speaker": "pasca",
+      "key": "day2r4-pasca-01",
+      "text": "Mau gantiin saya? Gantikan saya dong... kalau bisa! Sudah, tenang. Semua saya yang atur.",
+      "spokenText": "Mau gantiin saya? Gantikan saya dong... kalau bisa! Sudah, tenang. Semua saya yang atur."
+    },
+    {
+      "shot": "S02",
+      "speaker": "aulia",
+      "key": "day2r2-aulia-01",
+      "text": "Pak, rumah kami baru fondasi!",
+      "spokenText": "Pak, rumah kami baru fondasi!"
+    },
+    {
+      "shot": "S02",
+      "speaker": "eqa",
+      "key": "day2-eqa-01",
+      "text": "Guru sudah datang, Pak. Sekolahnya kapan?",
+      "spokenText": "Guru sudah datang, Pak. Sekolahnya kapan?"
+    },
+    {
+      "shot": "S02",
+      "speaker": "cecil",
+      "key": "day2-cecil-01",
+      "text": "Dokter juga ada. Rumah sakitnya belum!",
+      "spokenText": "Dokter juga ada. Rumah sakitnya belum!"
+    },
+    {
+      "shot": "S02",
+      "speaker": "nopal",
+      "key": "day2-nopal-01",
+      "text": "Tempat kerja juga, Pak. Kami butuh penghasilan.",
+      "spokenText": "Tempat kerja juga, Pak. Kami butuh penghasilan."
+    },
+    {
+      "shot": "S03",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-02",
+      "text": "Satu-satu! Kalau semuanya bicara, kapan kalian dengar saya?",
+      "spokenText": "Satu-satu! Kalau semuanya bicara, kapan kalian dengar saya?"
+    },
+    {
+      "shot": "S04",
+      "speaker": "climenzo",
+      "key": "day2r2-climenzo-01",
+      "text": "Pak, ini sumbangan lima triliun saya. Buat kebutuhan warga, ya.",
+      "spokenText": "Pak, ini sumbangan lima triliun saya. Buat kebutuhan warga, ya."
+    },
+    {
+      "shot": "S05",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-03",
+      "text": "Lihat! Baru saya pimpin, lima triliun langsung datang. Hebat, kan?",
+      "spokenText": "Lihat! Baru saya pimpin, lima triliun langsung datang. Hebat, kan?"
+    },
+    {
+      "shot": "S06",
+      "speaker": "climenzo",
+      "key": "day2r2-climenzo-02",
+      "text": "Lho, dananya dari saya, Pak.",
+      "spokenText": "Lho, dananya dari saya, Pak."
+    },
+    {
+      "shot": "S06",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-04",
+      "text": "Ya, karena percaya sama saya.",
+      "spokenText": "Ya, karena percaya sama saya."
+    },
+    {
+      "shot": "S07",
+      "speaker": "climenzo",
+      "key": "day2r2-climenzo-03",
+      "text": "Sekolah sama rumah sakitnya, jangan lupa.",
+      "spokenText": "Sekolah sama rumah sakitnya, jangan lupa."
+    },
+    {
+      "shot": "S08",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-05",
+      "text": "Yang paling penting itu Koplak Desa dan Satuan Pengisi Perut Gratis. Itu dulu!",
+      "spokenText": "Yang paling penting itu Koplak Desa dan Satuan Pengisi Perut Gratis. Itu dulu!"
+    },
+    {
+      "shot": "S09",
+      "speaker": "eqa",
+      "key": "day2-eqa-02",
+      "text": "Pak, sekolah dulu! Muridnya mau belajar di mana?",
+      "spokenText": "Pak, sekolah dulu! Muridnya mau belajar di mana?"
+    },
+    {
+      "shot": "S09",
+      "speaker": "cecil",
+      "key": "day2-cecil-02",
+      "text": "Rumah sakit juga, Pak! Jangan dilewati!",
+      "spokenText": "Rumah sakit juga, Pak! Jangan dilewati!"
+    },
+    {
+      "shot": "S09",
+      "speaker": "aulia",
+      "key": "day2r2-aulia-02",
+      "text": "Kami butuh rumah, Pak!",
+      "spokenText": "Kami butuh rumah, Pak!"
+    },
+    {
+      "shot": "S09",
+      "speaker": "nopal",
+      "key": "day2-nopal-02",
+      "text": "Kami butuh kerja, Pak!",
+      "spokenText": "Kami butuh kerja, Pak!"
+    },
+    {
+      "shot": "S10",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-06",
+      "text": "Kalian belum paham manfaatnya. Saya ini mikir jauh ke depan! Xel, kerjakan!",
+      "spokenText": "Kalian belum paham manfaatnya. Saya ini mikir jauh ke depan! Ksel, kerjakan!"
+    },
+    {
+      "shot": "S11",
+      "speaker": "xel",
+      "key": "day2-xel-01",
+      "text": "Siap. Kita ukur lahannya dulu.",
+      "spokenText": "Siap. Kita ukur lahannya dulu."
+    },
+    {
+      "shot": "S21",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-07",
+      "text": "Nah, lihat hasil kerja saya! Koplak Desa dan Satuan Pengisi Perut Gratis, resmi dibuka!",
+      "spokenText": "Nah, lihat hasil kerja saya! Koplak Desa dan Satuan Pengisi Perut Gratis, resmi dibuka!"
+    },
+    {
+      "shot": "S23",
+      "speaker": "narrator",
+      "key": "day2-narrator-02",
+      "text": "Dua bangunan berdiri. Usulan warga masih menunggu.",
+      "spokenText": "Dua bangunan berdiri. Usulan warga masih menunggu."
+    },
+    {
+      "shot": "S24",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-08",
+      "text": "Sekarang, kalian mau dibangunkan apa lagi?",
+      "spokenText": "Sekarang, kalian mau dibangunkan apa lagi?"
+    },
+    {
+      "shot": "S25",
+      "speaker": "aulia",
+      "key": "day2r2-aulia-03",
+      "text": "Kali ini dengar dulu, baru bangun, ya, Pak.",
+      "spokenText": "Kali ini dengar dulu, baru bangun, ya, Pak."
+    },
+    {
+      "shot": "S26",
+      "speaker": "pasca",
+      "key": "day2r2-pasca-09",
+      "text": "Tentu. Saya kan selalu mendengarkan warga.",
+      "spokenText": "Tentu. Saya kan selalu mendengarkan warga."
+    },
+    {
+      "shot": "S27",
+      "speaker": "narrator",
+      "key": "day2r4-narrator-04",
+      "text": "Sekolah, rumah sakit, rumah warga, sentra usaha, rumah ibadah, atau jalan dan transportasi umum? Pilih satu di komentar, kasih alasannya. Usul lain juga boleh.",
+      "spokenText": "Sekolah, rumah sakit, rumah warga, sentra usaha, rumah ibadah, atau jalan dan transportasi umum? Pilih satu di komentar, kasih alasannya. Usul lain juga boleh."
+    }
+  ],
+  "previousTakePlans": [
+    {
+      "revision": "day2r2-2026-11-22",
+      "count": 3,
+      "identities": [
+        "pasca",
+        "climenzo",
+        "aulia"
+      ],
+      "method": "One coherent revised take per existing identity; retain the other five accepted voices. No auditions.",
+      "retainedOriginalRevision": "day2-2026-11-22"
+    }
+  ],
+  "evidenceNotes": {
+    "applicantCount": "More than 100 interested people after Day 1, as reported by the user; not a verified enrollment total. Cast remains the 48 named citizens plus Pasca.",
+    "aspiringOffices": "DD requested Kapolri and Asila requested president. Their silent reactions are fictional staging, not quoted comments or appointments."
+  }
+}

@@ -1,5 +1,5 @@
 """Delivery verification. Does not claim browser/GPU interaction."""
-import hashlib,io,json,re,struct,urllib.request,datetime
+import hashlib,html,io,json,re,struct,urllib.request,datetime
 from pathlib import Path
 from PIL import Image
 import imageio_ffmpeg
@@ -29,7 +29,15 @@ for p in report['profiles']:
  checks.append({'id':p['id'],'sha256':p['sha256'],'bytes':len(b),'decodedTextures':len(images),'httpStatus':200})
 for f in json.loads((OUT/'source/manifest.json').read_text())['files']:assert hashlib.sha256((OUT/'source'/f['path']).read_bytes()).hexdigest()==f['sha256']
 for f in json.loads((OUT/'source/cmu/manifest.json').read_text()):assert hashlib.sha256((OUT/'source/cmu'/f['path']).read_bytes()).hexdigest()==f['sha256']
+beauty_root=OUT/'source/citizen-beauty'
+beauty_manifest=json.loads((beauty_root/'manifest.json').read_text(encoding='utf-8'))
+beauty_files=beauty_manifest['files']+beauty_manifest['derivatives']
+for f in beauty_files:
+ assert hashlib.sha256((beauty_root/f['path']).read_bytes()).hexdigest()==f['sha256'],f['path']
 catalog=json.loads((ROOT/'game-src/avatar-v15-catalog.json').read_text(encoding='utf-8'))
+for p in report['profiles']:
+ build=json.loads((OUT/p['id']/'citizen-art-build.json').read_text(encoding='utf-8'))
+ assert build['revision']==catalog['variationRevision'] and build['rigUnchanged'] and build['animationsUnchanged']
 revision=catalog['motionRevision']
 for p in report['profiles']:
  for gait in p['locomotion'].values():assert gait['revision']==revision and gait['source'].startswith('CMU ')
@@ -44,13 +52,34 @@ with urllib.request.urlopen(urllib.request.Request('http://localhost/project/ilu
 manifest=json.loads((ROOT/'assets/game/.vite/manifest.json').read_text());bundle=ROOT/'assets/game'/manifest['game-src/main.js']['file'];assert 'semesta-arka-v15' in bundle.read_text(encoding='utf-8')
 assert revision in bundle.read_text(encoding='utf-8')
 assert catalog['variationRevision'] in bundle.read_text(encoding='utf-8')
+with urllib.request.urlopen('http://localhost/project/',timeout=15) as response:
+ assert response.status==200 and manifest['game-src/main.js']['file'] in response.read().decode('utf-8')
+with urllib.request.urlopen('http://localhost/project/assets/game/'+manifest['game-src/main.js']['file'],timeout=15) as response:
+ assert response.status==200 and response.read()==bundle.read_bytes()
 presets=json.loads((ROOT/'game-src/avatar-v15-presets.json').read_text(encoding='utf-8'))
 for preset in presets:
  name=preset['id']+'.png';portrait=(OUT/'presets'/name).read_bytes()
  assert portrait==(ROOT/'public/models/characters/v15/portraits'/name).read_bytes()
  assert portrait==(ROOT/'assets/game/models/characters/v15/portraits'/name).read_bytes()
+citizens=json.loads((ROOT/'game-src/citizen-roster.json').read_text(encoding='utf-8'))['citizens']
+gallery_url='http://localhost/project/ilustrasi/avatar-v2/farmer-v15-proportions/warga-gelombang-1.html'
+with urllib.request.urlopen(gallery_url,timeout=15) as response:
+ assert response.status==200
+ gallery=response.read().decode('utf-8')
+assert gallery.count('<article ')==len(citizens)==48
+for citizen in citizens:
+ assert '<h2>'+html.escape(citizen['name'])+'</h2>' in gallery
+ assert 'presets/'+citizen['presetId']+'.png?v=' in gallery
+for name in ['v15-warga-angel.png','v15-warga-aku-ardhyy.png','v15-warga-fale.png']:
+ with urllib.request.urlopen('http://localhost/project/public/models/characters/v15/portraits/'+name,timeout=15) as response:
+  assert response.read()==(OUT/'presets'/name).read_bytes(),name
 admin=(ROOT/'application/views/admin.php').read_text(encoding='utf-8');assert 'SEMESTA_AVATAR_V15_BASE' in admin and 'SEMESTA_FARMER_MODEL' not in admin
 result={'passed':True,'revision':revision,'cmuSourceHashesVerified':True,'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'profiles':checks,'linkedFiles':len(links),'video':{'frames':count,'seconds':meta['duration'],'fps':meta['fps'],'size':meta['size']},'httpRange206':True,'browserInteractionVerified':False,'gpuFPSMeasured':False}
 result['runtimeFilesVerified']=len(runtime_files)
+result['citizenSourceHashesVerified']=len(beauty_files)
+result['citizenBuildsPreserveRigAndAnimation']=True
+result['namedCitizenGalleryVerified']=len(citizens)
+result['mainPageCurrentBundleVerified']=True
+result['httpBundleHashVerified']=True
 result['variationRevision']=catalog['variationRevision'];result['presetPortraitsVerified']=len(presets)
 (OUT/'release-check.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

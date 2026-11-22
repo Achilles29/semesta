@@ -1,5 +1,8 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    # Evaluate the admin session before the existing-file shortcut. Built public
+    # chunks are allowed by the manifest graph; shared world assets stay static.
+    RewriteRule ^(assets/game/(?:assets/.*|\.vite/.*)|(?:public|assets/game)/audio/produksi/.*|game-src/(?:production-|admin-)[^/]*|docs/(?:record|script)/.*)$ index.php/admin/production_asset/$1 [END,NC]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php/$1 [L]
