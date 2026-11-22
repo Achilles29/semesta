@@ -82,7 +82,7 @@
     $manifest_path = FCPATH . 'assets/game/.vite/manifest.json';
     $manifest = is_file($manifest_path) ? json_decode(file_get_contents($manifest_path), TRUE) : array();
     $entry = isset($manifest['game-src/main.js']) ? $manifest['game-src/main.js'] : NULL;
-    $map_asset_root = is_file(FCPATH . 'assets/game/map-assets/kawasan-warga.webp') ? 'assets/game/map-assets/' : 'public/map-assets/';
+    $map_asset_root = 'public/map-assets/';
     $source_css_version = is_file(FCPATH . 'game-src/style.css') ? filemtime(FCPATH . 'game-src/style.css') : time();
     $source_js_version = is_file(FCPATH . 'game-src/main.js') ? filemtime(FCPATH . 'game-src/main.js') : time();
     if ($entry && !empty($entry['css'])):

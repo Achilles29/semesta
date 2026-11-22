@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#101426">
-    <?php $map_asset_root = is_file(FCPATH . 'assets/game/map-assets/kawasan-warga.webp') ? 'assets/game/map-assets/' : 'public/map-assets/'; ?>
+    <?php $map_asset_root = 'public/map-assets/'; ?>
     <?php $avatar_preset_count = count(json_decode(file_get_contents(FCPATH . 'game-src/avatar-v15-presets.json'), TRUE) ?: array()); ?>
     <title>Panel Admin — Republik WkWkWk</title>
     <?php

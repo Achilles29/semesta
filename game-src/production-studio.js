@@ -96,7 +96,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   function controls(){
     const busy=exporting||starting||audioLoading>0,ready=!!stage&&scenario.shots.length>0;
     el('[data-command="play"]').disabled=!ready||busy;el('[data-command="play"]').textContent=playing?'Ⅱ Jeda':'▶ Play semua';
-    el('[data-command="stop"]').disabled=!ready||busy;el('[data-command="export"]').disabled=!ready||busy||playing;
+    el('[data-command="stop"]').disabled=!ready||busy;el('[data-command="export"]').disabled=!ready||busy;
     el('[data-seek]').disabled=!ready||busy;el('[data-command="cancel"]').hidden=!exporting;el('[data-progress]').hidden=!exporting;
     host.querySelectorAll('[data-editor] input,[data-editor] select,[data-editor] textarea,[data-editor] button,.ps-workspace-actions input,.ps-workspace-actions button,.ps-audio input,.ps-audio button,[data-episode],[data-command="rehearsal"],[data-command="day1-opening"],[data-format],[data-quality]').forEach(node=>{node.disabled=busy;});
     if(!busy){el('[data-command="add-cast"]').disabled=scenario.cast.length>=64;el('[data-command="add"]').disabled=scenario.shots.length>=80;const first=el('[data-up="0"]');if(first)first.disabled=true;}
@@ -179,17 +179,20 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     restoredDifferentDraft=!isPristineProductionDraft(next);clearSessionAudio();update(next,{scene:true});
   }
   async function exportVideo(){
-    pause();playbackFromStart=false;exporting=true;exportAbort=new AbortController();invalidateDownload();el('[data-progress]').value=0;controls();const oldTime=time;
-    status('Menyiapkan MP4…');let wakeLock;
+    pause();playbackFromStart=false;exporting=true;exportAbort=new AbortController();invalidateDownload();el('[data-progress]').removeAttribute('value');controls();const oldTime=time;
+    let exportStage='Menyiapkan suara',wakeLock;
+    status('Menyiapkan suara untuk MP4…');
     try{
+      // Let the browser paint the busy state before audio mixing or rendering.
+      await new Promise(resolve=>setTimeout(resolve,0));
       try{wakeLock=await navigator.wakeLock?.request('screen');}catch{}
       await prepareAudio();
-      if(disposed||exportAbort.signal.aborted)throw new DOMException('Ekspor dibatalkan.','AbortError');
+      if(disposed||exportAbort.signal.aborted)throw exportAbort.signal.reason||new DOMException('Ekspor dibatalkan.','AbortError');
       time=0;draw(true);
-      const blob=await encode({canvas,duration:stage.compiled.duration,audio:mixed,signal:exportAbort.signal,renderFrame:t=>{time=t;draw(true);},onProgress:p=>{el('[data-progress]').value=p;status(`Membuat MP4 · ${Math.round(p*100)}%`);}});
+      const blob=await encode({canvas,duration:stage.compiled.duration,audio:mixed,signal:exportAbort.signal,renderFrame:t=>{time=t;draw(true);},onStage:label=>{exportStage=label;status(`${label}…`);},onProgress:p=>{el('[data-progress]').value=p;status(`Membuat MP4 · ${Math.round(p*100)}%`);}});
       downloadUrl=URL.createObjectURL(blob);const link=el('[data-download]');link.href=downloadUrl;link.download=`${filename(scenario.title)}-${format}-${quality}p.mp4`;link.hidden=false;
       status(`MP4 selesai · ${(blob.size/1048576).toFixed(1)} MB. Tekan Unduh MP4 untuk menyimpan.`);
-    }catch(error){status(error.name==='AbortError'?'Ekspor dibatalkan. Skenario tetap tersimpan.':`Ekspor gagal: ${error.message}`);}
+    }catch(error){const cause=exportAbort?.signal.aborted?exportAbort.signal.reason||error:error;status(cause.name==='AbortError'?'Ekspor dibatalkan. Skenario tetap tersimpan.':`Ekspor gagal (${exportStage}): ${cause.message}`);}
     finally{await wakeLock?.release().catch(()=>{});exporting=false;exportAbort=null;time=oldTime;if(!disposed){draw();controls();}}
   }
   listen(el('[data-editor]'),'submit',e=>e.preventDefault());
@@ -267,7 +270,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   listen(window,'semesta:admin-view-change',event=>{if(event.detail.view!=='production'&&!exporting)pause();});
   listen(document,'visibilitychange',()=>{if(document.hidden&&!exporting)pause();});
   listen(window,'beforeunload',event=>{if(exporting){event.preventDefault();event.returnValue='';}});
-  listen(gpu,'webglcontextlost',event=>{event.preventDefault();pause();exportAbort?.abort();status('Konteks grafis terputus. Muat ulang halaman; draf tetap tersimpan.');});
+  listen(gpu,'webglcontextlost',event=>{event.preventDefault();pause();const error=new Error('Konteks grafis terputus. Muat ulang halaman; draf tetap tersimpan. Coba kualitas 720p untuk mengurangi beban grafis.');exportAbort?.abort(error);status(error.message);});
   form();saveDraft();const ready=rebuild();
   return {ready,play,dispose(){disposed=true;fullscreen.dispose();loadVersion++;audioVersion[0]++;audioVersion[1]++;pause();exportAbort?.abort();events.abort();stage?.dispose();renderer?.dispose();void audioContext?.close();invalidateDownload();host.replaceChildren();}};
 }

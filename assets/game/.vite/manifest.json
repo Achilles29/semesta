@@ -1,0 +1,114 @@
+{
+  "_citizen-roster-BJq2EOF7.js": {
+    "file": "assets/citizen-roster-BJq2EOF7.js",
+    "name": "citizen-roster",
+    "imports": [
+      "_preload-helper-BsTTRhKD.js"
+    ]
+  },
+  "_preload-helper-BsTTRhKD.js": {
+    "file": "assets/preload-helper-BsTTRhKD.js",
+    "name": "preload-helper",
+    "imports": [
+      "_three.module-CCJQ98ag.js"
+    ]
+  },
+  "_republic-capital-scene-2ZKfTiGr.js": {
+    "file": "assets/republic-capital-scene-2ZKfTiGr.js",
+    "name": "republic-capital-scene",
+    "imports": [
+      "_three.module-CCJQ98ag.js",
+      "_republic-world-layout-CzbWfuDO.js"
+    ],
+    "assets": [
+      "assets/bgn-logo-official-CNL6oYL0.png"
+    ]
+  },
+  "_republic-world-layout-CzbWfuDO.js": {
+    "file": "assets/republic-world-layout-CzbWfuDO.js",
+    "name": "republic-world-layout"
+  },
+  "_rolldown-runtime-XKyaHtl9.js": {
+    "file": "assets/rolldown-runtime-XKyaHtl9.js",
+    "name": "rolldown-runtime"
+  },
+  "_three.module-CCJQ98ag.js": {
+    "file": "assets/three.module-CCJQ98ag.js",
+    "name": "three.module",
+    "imports": [
+      "_rolldown-runtime-XKyaHtl9.js"
+    ]
+  },
+  "game-src/admin-main.js": {
+    "file": "assets/admin-CGbH5u_s.js",
+    "name": "admin",
+    "src": "game-src/admin-main.js",
+    "isEntry": true,
+    "imports": [
+      "_three.module-CCJQ98ag.js",
+      "_preload-helper-BsTTRhKD.js",
+      "_citizen-roster-BJq2EOF7.js"
+    ],
+    "dynamicImports": [
+      "_three.module-CCJQ98ag.js",
+      "game-src/production-studio.js"
+    ]
+  },
+  "game-src/assets/bgn-logo-official.png": {
+    "file": "assets/bgn-logo-official-CNL6oYL0.png",
+    "src": "game-src/assets/bgn-logo-official.png"
+  },
+  "game-src/main.js": {
+    "file": "assets/game-n1-FXyiz.js",
+    "name": "game",
+    "src": "game-src/main.js",
+    "isEntry": true,
+    "imports": [
+      "_preload-helper-BsTTRhKD.js",
+      "_republic-world-layout-CzbWfuDO.js"
+    ],
+    "dynamicImports": [
+      "_three.module-CCJQ98ag.js",
+      "game-src/republic-openworld.js"
+    ]
+  },
+  "game-src/production-studio.js": {
+    "file": "assets/production-studio-BOVnYzNV.js",
+    "name": "production-studio",
+    "src": "game-src/production-studio.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_preload-helper-BsTTRhKD.js",
+      "_three.module-CCJQ98ag.js",
+      "_republic-capital-scene-2ZKfTiGr.js",
+      "game-src/admin-main.js",
+      "_citizen-roster-BJq2EOF7.js",
+      "_republic-world-layout-CzbWfuDO.js"
+    ],
+    "dynamicImports": [
+      "node_modules/mediabunny/dist/modules/src/index.js"
+    ]
+  },
+  "game-src/republic-openworld.js": {
+    "file": "assets/republic-openworld-KEWrwl8w.js",
+    "name": "republic-openworld",
+    "src": "game-src/republic-openworld.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_three.module-CCJQ98ag.js",
+      "_republic-capital-scene-2ZKfTiGr.js",
+      "_republic-world-layout-CzbWfuDO.js",
+      "_citizen-roster-BJq2EOF7.js",
+      "_preload-helper-BsTTRhKD.js"
+    ]
+  },
+  "node_modules/mediabunny/dist/modules/src/index.js": {
+    "file": "assets/src-1kDIo81v.js",
+    "name": "src",
+    "src": "node_modules/mediabunny/dist/modules/src/index.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-XKyaHtl9.js"
+    ]
+  }
+}

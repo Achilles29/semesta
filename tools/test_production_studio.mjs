@@ -37,16 +37,20 @@ for(const aspect of [9/16,16/9,1]){stage.pose(5.5,aspect);assert.equal(stage.cam
 stage.dispose();const next=await createProductionStage(rehearsal);next.pose(2);assert.equal(next.actors.size,2);next.dispose();
 
 // Backpressure, exact timestamps, audio inclusion, cancellation, and codec failure.
-let order=[],cancelled=0,finalized=0;
+let order=[],cancelled=0,finalized=0,videoProbe,audioProbe,videoConfig,audioConfig,formatConfig;
 class Output{constructor({target}){this.target=target;}addVideoTrack(){}addAudioTrack(){order.push('audio-track');}async start(){}async finalize(){finalized++;this.target.buffer=new Uint8Array([0,0,0,20,102,116,121,112]).buffer;}async cancel(){cancelled++;}}
-class CanvasSource{constructor(){}async add(t,d){order.push([t,d]);await new Promise(r=>setTimeout(r,1));}close(){}}
-class AudioBufferSource{async add(){order.push('audio-data');}close(){}}
-const media={Output,CanvasSource,AudioBufferSource,Quality:class{},Mp4OutputFormat:class{},BufferTarget:class{},canEncodeVideo:async()=>true,canEncodeAudio:async()=>true};
+class CanvasSource{constructor(_canvas,config){videoConfig=config;}async add(t,d){order.push([t,d]);await new Promise(r=>setTimeout(r,1));}close(){}}
+class AudioBufferSource{constructor(config){audioConfig=config;}async add(){order.push('audio-data');}close(){}}
+const media={Output,CanvasSource,AudioBufferSource,Quality:class{},Mp4OutputFormat:class{constructor(config){formatConfig=config;}},BufferTarget:class{},canEncodeVideo:async(_codec,config)=>{videoProbe=config;return true;},canEncodeAudio:async(_codec,config)=>{audioProbe=config;return true;}};
 const args={canvas:{width:1080,height:1920},duration:.2,audio:{},renderFrame:t=>order.push(`render:${t}`)};
-const result=await encodeMp4(args,media);assert.equal(result.type,'video/mp4');assert.equal(finalized,1);assert.equal(cancelled,0);
+const stages=[],result=await encodeMp4({...args,onStage:s=>stages.push(s)},media);assert.equal(result.type,'video/mp4');assert.equal(finalized,1);assert.equal(cancelled,0);
+assert.equal(videoProbe.latencyMode,videoConfig.latencyMode);assert.equal(videoProbe.quality,videoConfig.quality);assert.equal(audioProbe.quality,audioConfig.quality,'Codec probes use the actual encoder settings');
+assert.equal(formatConfig.fastStart,false,'Long episodes must not retain all media packets in a second in-memory fast-start buffer');
+assert.deepEqual(stages,['Memeriksa dukungan MP4','Menyimpan suara ke MP4','Merender video','Menyelesaikan file MP4']);
 assert.equal(order[0],'audio-track');assert.equal(order[1],'audio-data');
 for(let i=0;i<6;i++){assert.equal(order[2+i*2],`render:${i/30}`);assert.deepEqual(order[3+i*2],[i/30,1/30]);}
 const abort=new AbortController();await assert.rejects(encodeMp4({...args,signal:abort.signal,renderFrame:()=>abort.abort()},media),{name:'AbortError'});assert.equal(cancelled,1);assert.equal(finalized,1);
+const contextLoss=new AbortController(),lost=new Error('Konteks grafis terputus');await assert.rejects(encodeMp4({...args,signal:contextLoss.signal,renderFrame:()=>contextLoss.abort(lost)},media),error=>error===lost);
 await assert.rejects(encodeMp4(args,{...media,canEncodeVideo:async()=>false}),/H.264/);
 await assert.rejects(encodeMp4(args,{...media,canEncodeAudio:async()=>false}),/AAC/);
 const main=await fs.readFile('game-src/main.js','utf8'),adminEntry=await fs.readFile('game-src/admin-main.js','utf8'),admin=await fs.readFile('application/views/admin.php','utf8');

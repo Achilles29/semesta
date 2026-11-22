@@ -17,7 +17,7 @@ Dokumen ini menjadi panduan memindahkan prototipe dari XAMPP lokal ke server dan
 
 - `application/` berisi CodeIgniter 3, controller, API, konfigurasi, dan tampilan.
 - `game-src/` berisi sumber game, peta, UI, dan CSS.
-- `assets/game/` berisi hasil build yang dipakai browser. Folder ini diabaikan Git. Checkout server dapat membuatnya otomatis setelah push/pull; paket deploy tanpa Git harus menyertakan hasil build.
+- `assets/game/assets/`, `.vite/manifest.json`, dan `.semesta-build.json` berisi rilis frontend yang ikut Git. Model/audio/ilustrasi publik memakai sumber `public/`, sehingga tidak perlu menggandakan aset besar ke folder build.
 - `database/schema.sql` berisi struktur database.
 - `tools/setup_database.php` membuat database/tabel dan mengimpor seed secara aman tanpa menghapus isi yang sudah ada.
 - `application/data/cases/` dan `application/data/ideas-warga.json` adalah sumber seed/cadangan.
@@ -31,23 +31,27 @@ Pastikan server menyediakan:
 - PHP dengan ekstensi `mysqli`, `mbstring`, dan `json`. Pastikan versi PHP kompatibel dengan CodeIgniter 3 yang ada.
 - Browser pengguna dengan dukungan WebGL 2 untuk area Three.js.
 - MySQL atau MariaDB.
-- Node.js 20.19+ atau 22.12+ dan npm untuk membangun frontend. Node.js tidak diperlukan saat game dimainkan.
+- Node.js 20.19+ atau 22.12+ dan npm hanya pada komputer pembuat build/commit. Server PHP yang menerima rilis melalui Git tidak memerlukannya.
 - HTTPS untuk penggunaan publik.
 
 Jangan mengunggah `node_modules`. Pasang ulang dependensi dari `package-lock.json` di mesin build dengan `npm ci`.
 
 ## Pembaruan harian lewat Git
 
-Pada checkout server, setelah menarik versi yang menyertakan `.githooks/`, aktifkan
-sekali dengan `npm run setup:git`. Perintah ini memasang hook dan menyiapkan build.
-Selanjutnya cukup `git push` / `git pull`; perubahan frontend/aset memicu build,
-perubahan dependency memicu `npm ci --include=dev`, dan pull dokumentasi/PHP saja
-melewati build. `git pull --rebase` juga didukung. Node/npm harus ada di PATH user
-Git. Aktivasi lokal di komputer pengembang tidak otomatis mengaktifkan server.
+Pada komputer pengembang, aktifkan `npm run setup:git` sekali. Setelah sumber
+di-stage, hook `pre-commit` membangun dan men-stage rilis frontend; `pre-push`
+memastikan semua sumber dan bundle dalam commit cocok. Tanpa hook, build dahulu
+dan sertakan `assets/game/` dalam commit secara manual.
 
-Jika hook build gagal setelah pull, commit sudah masuk tetapi build belum siap.
-Perbaiki error lalu jalankan `npm run build`; pull yang sudah up to date tidak
-menjalankan ulang hook. Hook `pre-push` menahan push jika build gagal. Lihat
+**Di server cukup `git pull`**, tanpa build dan tanpa Node.js. JS/CSS/manifest
+terbaru ikut commit, sedangkan model/audio publik tetap berasal dari `public/`.
+Hook pull lama yang sudah aktif sekarang hanya memeriksa rilis bila Node tersedia;
+ketiadaan Node tidak menghalangi deploy. Jangan menghapus rilis dari commit.
+
+Server yang masih memakai commit lama (seluruh build diabaikan Git) perlu menarik
+rilis baru ini. Sebelum commit rilis baru tersedia, perbaikan sementara adalah
+`npm ci` lalu `npm run build` sekali pada server. Pull yang sudah up to date tidak
+membangun ulang secara otomatis. Rincian ada di
 [panduan lengkap](../README.md#push-dan-pull-dengan-build-otomatis).
 
 ## Langkah pindah dan deploy

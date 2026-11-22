@@ -2,28 +2,28 @@
 
 Acuan kreatif untuk episode berikutnya, termasuk karakter, suara, template, dan pengembangan kamera sinematik: [Prompt acuan produksi konten](PROMPT_ACUAN_PRODUKSI_KONTEN.md).
 
-Halaman: `/admin/?view=production`. **Day 1 lengkap · dengan narator** otomatis dimuat pada kunjungan baru atau draf kosong lama: 101,10 detik, tiga pemeran, latar lapangan nol, 20 potongan suara dan Oke Gas dari file pengguna. Draf berisi suntingan tetap dipertahankan. Pilihan eksplisit Day 1 kosong juga dipertahankan saat reload. Visual/audio serta MP4 belum ditinjau langsung di browser.
+Halaman: `/admin/?view=production`. Produksi dan episode lengkap hanya tersedia di panel admin. Kunjungan baru membuka **Day 2 — Sudah Dibangun, Baru Ditanya**: 118,308 detik, 30 shot, Pasca dan seluruh 48 warga, serta 27 cue suara. Day 1 tetap tersedia melalui pilihan episode. Draf suntingan pengguna dipertahankan; draf bawaan yang belum diedit mengikuti revisi terbaru.
 
-Pembaruan: [timeline Day 1 lengkap](script/001-day-1-scenes.md) berisi 27 shot: narator, joget, kedatangan Sari/Joko, kursi kantor sementara, usulan pembangunan/acara/aturan, ajakan berpartisipasi, dan keputusan Koplak Desa / Satuan Pengisi Perut Gratis disertai tawa. Oke Gas dipelankan saat narator membuka cerita, dinaikkan saat joget, dan dihentikan selama dialog berikutnya. Di peta jelajah, tombol **Tonton Day 1** membuka pemutar yang sama tanpa admin. Menutupnya membebaskan audio/render dan mengembalikan kendali peta; draf admin tidak disentuh.
+Naskah dan status pemeriksaan tersedia pada [Day 1](script/001-day-1-scenes.md) dan [Day 2](script/002-day-2-concept.md). Peta publik memakai lokasi dunia yang sama tanpa tombol pemutar Produksi. Konten dinyatakan final setelah video penuh dan mix ditinjau pada perangkat sasaran.
 
 Episode lama, media `public/audio/produksi/episode-001` sampai `episode-004`, naskah `docs/script/001…014`, release/review episode, pemutar lama, dan alat khusus episode lama telah dihapus. Riwayat Git tetap menjadi tempat pemulihan bila diperlukan. Model avatar, variasi pakaian, aset dunia, dan helper pengujian rig tetap tersedia. Data akun warga, avatar tersimpan, susunan wilayah, dan database game tidak direset.
 
 ## Cara memakai
 
-1. Buka Produksi. Day 1 sudah siap pada kunjungan baru/draf kosong lama. **Coba latihan studio** tetap tersedia untuk latihan teknis 10 detik.
-2. Pilih 1–4 pemeran dari 32 preset avatar. Atur lokasi dan properti: bangku, peti, tanaman, dan papan. Gerakan Hold membawa properti kecil yang mengikuti tangan.
+1. Buka Produksi dan pilih Day 1, Day 2, atau draf latihan. Day 2 dimuat pada kunjungan baru. **Coba latihan studio** tetap tersedia untuk latihan teknis 10 detik.
+2. Pilih hingga 64 pemeran dari preset avatar dan warga yang tersedia. Atur lokasi dan properti: bangku, peti, tanaman, dan papan. Gerakan Hold membawa properti kecil yang mengikuti tangan.
 3. Tambah adegan. Tentukan durasi, kamera, pemeran fokus, gerakan setiap pemeran, arah, posisi tujuan jalan/lari, dan subtitle. Posisi akhir diteruskan ke adegan berikutnya. X adalah kiri/kanan set; Z adalah kedalaman, dan arah 0 menghadap kamera dari depan.
-4. Day 1 lengkap otomatis memuat suara dan musik bawaan saat Play/ekspor. Pilihan suara per adegan mengikuti durasi dan urutan hasil edit. Mengedit subtitle melepas suara lama; pilih klip lagi untuk mengembalikannya. Bukaan mulut mengikuti amplitudo audio, bukan sinkronisasi fonem penuh. File dialog/musik tambahan tetap bisa dipasang; matikan suara bawaan jika memakai dialog pengganti. File musik tambahan menggantikan Oke Gas bawaan.
+4. Episode lengkap otomatis memuat suara dan musik bawaan saat Play/ekspor. Pilihan suara per adegan mengikuti durasi dan urutan hasil edit. Mengedit subtitle melepas suara lama; pilih klip lagi untuk mengembalikannya. Bukaan mulut mengikuti amplitudo audio, bukan sinkronisasi fonem penuh. File dialog/musik tambahan tetap bisa dipasang; matikan suara bawaan jika memakai dialog pengganti. File musik tambahan menggantikan Oke Gas bawaan.
 5. Tekan **Play semua**. Semua adegan berjalan berurutan tanpa kendali karakter manual. Jeda, ulang dari awal, dan geser timeline tersedia.
-6. Pilih vertikal, horizontal, atau persegi; kualitas 1080p atau 720p. Tekan **Buat MP4**, tunggu proses, kemudian **Unduh MP4**. Tombol unduh hanya muncul setelah file selesai. Mengubah skenario, audio, format, atau kualitas membatalkan tautan hasil lama.
-7. **Day 1 kosong** mengosongkan workspace. Jika yang diganti adalah skenario episode berisi adegan, studio lebih dahulu menawarkan unduhan cadangan otomatis. Latihan teknis tidak menjadi konten final.
+6. Pilih vertikal, horizontal, atau persegi; kualitas 1080p atau 720p. Tekan **Buat MP4**, termasuk ketika pratinjau sedang berjalan: pratinjau/audio akan dijeda otomatis. Status menampilkan persiapan suara, pemeriksaan dukungan MP4, render beserta persentase, dan finalisasi. Tunggu selesai, kemudian tekan **Unduh MP4**. Tombol unduh hanya muncul setelah file selesai. Mengubah skenario, audio, format, atau kualitas membatalkan tautan hasil lama.
+7. **Skenario kosong** mengosongkan workspace. Jika yang diganti adalah skenario episode berisi adegan, studio lebih dahulu menawarkan unduhan cadangan otomatis. Latihan teknis tidak menjadi konten final.
 
 ## Penyimpanan dan batas
 
 - Skenario tersimpan otomatis di localStorage browser ini, memakai namespace baru. Tidak ada data episode lama yang diimpor otomatis.
-- Gunakan **Simpan skenario** dan **Buka skenario** untuk cadangan JSON/pindah perangkat. Suara bawaan Day 1 disimpan sebagai aset proyek dan dimuat kembali otomatis; JSON merujuk ID klip yang dikenal. File audio tambahan milik pengguna **hanya disimpan di memori sesi ini** dan perlu dilampirkan kembali setelah reload.
+- Gunakan **Simpan skenario** dan **Buka skenario** untuk cadangan JSON/pindah perangkat. Suara bawaan episode disimpan sebagai aset proyek dan dimuat kembali otomatis; JSON merujuk ID klip yang dikenal. File audio tambahan milik pengguna **hanya disimpan di memori sesi ini** dan perlu dilampirkan kembali setelah reload.
 - Saat Day 1 disepakati, simpan skenario final dan aset audionya sebagai berkas proyek agar ikut Git. `push/pull` menyinkronkan berkas proyek; tidak menyinkronkan localStorage atau file audio yang dipilih di browser.
-- Maksimal 4 pemeran, 40 adegan, 1–30 detik per adegan, total 180 detik. File audio maksimal 50 MB dan 10 menit per track; bagian melewati durasi skenario dipotong.
+- Maksimal 64 pemeran, 80 adegan, 1–30 detik per adegan, total 300 detik. File audio maksimal 50 MB dan 10 menit per track; bagian melewati durasi skenario dipotong.
 - Video saat ini dibuat dalam memori perangkat. 1080p / 3 menit dapat membutuhkan memori cukup besar; gunakan 720p atau pendekkan cerita bila perangkat terbatas.
 
 ## Kontrak pemutaran dan ekspor
@@ -32,7 +32,7 @@ Episode lama, media `public/audio/produksi/episode-001` sampai `episode-004`, na
 - `game-src/production-stage.js`: scene Three.js, avatar V15 bersama, pose deterministik, transisi clip, properti tangan, kamera dan kompositor subtitle. Gerak jalan/lari mengikuti jarak tempuh dan metadata kecepatan rig.
 - `game-src/production-studio.js`: editor, penyimpanan lokal, lifecycle pemutaran/ekspor, status, unduhan, pembatalan dan pembersihan sumber daya. Scene dimuat hanya saat diperlukan. Modul studio dimuat saat menu Produksi pertama dibuka.
 - `game-src/production-export.js`: frame pada `n / 30`, menunggu setiap frame encoder (backpressure), lalu finalisasi MP4. Durasi dibulatkan ke frame berikutnya; tidak bergantung pada kecepatan RAF/GPU. Tidak memakai rekam layar, MediaRecorder real-time, atau mengganti ekstensi WebM.
-- MP4: H.264, target 12 Mbps, 30 fps, metadata fast start. Ukuran utama 1080×1920, 1920×1080, atau 1080×1080; kualitas ringan 720×1280, 1280×720, atau 720×720.
+- MP4: H.264, target 12 Mbps, 30 fps. Metadata ditulis di akhir berkas MP4 biasa agar muxer tidak menahan seluruh paket video sekali lagi untuk fast start; buffer file akhir tetap memakai memori perangkat. Ukuran utama 1080×1920, 1920×1080, atau 1080×1080; kualitas ringan 720×1280, 1280×720, atau 720×720.
 - Audio: klip suara bawaan dijadwalkan pada timeline, lalu dimix bersama track tambahan menggunakan OfflineAudioContext, stereo 48 kHz, AAC target 192 kbps, fade pendek dan pembatasan puncak. Buffer mix yang sama dipakai untuk pratinjau dan ekspor. Tanpa audio aktif, MP4 mempunyai track video saja.
 - Subtitle digambar ke canvas video pada area aman; panduan garis hanya muncul di pratinjau. SRT terpisah juga dapat diunduh.
 - Halaman harus berada di **HTTPS atau localhost**, dengan dukungan WebGL dan encoder WebCodecs H.264 (serta AAC jika ada audio). Kemampuan codec diperiksa sebelum render. Pada browser yang tidak mendukung, studio memberi pesan kegagalan dengan langkah perbaikan; tidak menawarkan berkas MP4 palsu. Tidak ada fallback FFmpeg server yang harus dipasang.
@@ -42,6 +42,12 @@ Episode lama, media `public/audio/produksi/episode-001` sampai `episode-004`, na
 
 `npm run test:production` memeriksa Day 1 kosong, skenario invalid, seek/replay pada rig V15 asli, perubahan adegan, attachment tangan, backpressure dan timestamp frame, guard codec, pembatalan, serta interaksi editor melalui DOM emulasi. Pengujian integrasi avatar tetap tersedia melalui `node tools/test_avatar_v15_integration.mjs`.
 
-`npm run test:production:mp4` memakai FFmpeg untuk menyediakan paket H.264/AAC fixture lalu menjalankannya melalui pipeline MP4 aplikasi. Ketiga rasio diperiksa codec, dimensi, jumlah frame, durasi, letak fast-start metadata, dan decode ulang FFmpeg. Atur `FFMPEG_PATH`, atau pasang Python `imageio_ffmpeg` untuk **pengujian pengembang ini saja**. FFmpeg tidak diperlukan oleh aplikasi.
+`npm run test:production:mp4` memakai FFmpeg untuk menyediakan paket H.264/AAC fixture lalu menjalankannya melalui pipeline MP4 aplikasi. Ketiga rasio diperiksa codec, dimensi, jumlah frame, durasi, letak metadata setelah media, dan decode ulang FFmpeg. `node tools/test_production_mp4.mjs --day2` menambah fixture sepanjang durasi aktual Day 2 (3.550 frame pada revisi r4), bukan rekaman visual episode. Atur `FFMPEG_PATH`, atau pasang Python `imageio_ffmpeg` untuk **pengujian pengembang ini saja**. FFmpeg tidak diperlukan oleh aplikasi.
 
-Build Vite dan lint PHP juga harus lulus. Tes CPU/DOM/container **tidak menguji render WebGL atau encoder native pada browser pengguna**. Sebelum publikasi konten final, tonton latihan dan ekspor satu MP4 pada browser target untuk memeriksa tampilan, audio, dan kemampuan perangkat. Ide dan hasil final Day 1 disusun setelah fondasi ini.
+Build Vite dan lint PHP juga harus lulus. Tes CPU/DOM/container **tidak menguji render WebGL atau encoder native pada browser pengguna**. Sebelum publikasi konten final, tonton latihan dan ekspor satu MP4 pada browser target untuk memeriksa tampilan, audio, dan kemampuan perangkat. Pada lingkungan otomatis saat ini, inspeksi browser Windows terhalang kebijakan URL alat computer-use; tes tidak dianggap bukti keberhasilan encoder pada browser pengguna.
+
+## Jika tombol MP4 atau peta tidak bereaksi
+
+- Tombol **Buat MP4** aktif setelah scene siap, termasuk saat Play berjalan. Selama muat scene/audio atau ekspor aktif, tunggu status proses; jangan memulai beberapa ekspor bersamaan.
+- Jika gagal, catat teks status dan persentase. Penyebab kehilangan konteks grafis dipertahankan, bukan diganti menjadi pembatalan biasa. Muat ulang dan pilih 720p bila beban perangkat terlalu tinggi. Dukungan encoder H.264/AAC mengikuti browser/perangkat.
+- Jika server masih memakai bundle lama setelah pull, ikuti [panduan deploy](HANDOVER_PENGEMBANGAN_DI_SERVER.md). Rilis `assets/game` kini ikut Git; sumber JavaScript dan rilis hasil build harus masuk commit yang sama. Jangan menganggap perubahan lokal sudah tersedia di server sebelum commit/push/pull rilis tersebut.

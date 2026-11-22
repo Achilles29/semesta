@@ -19,10 +19,10 @@ try{
       const active=existsSync(directory)?readdirSync(directory).filter(name=>!name.endsWith('.sample')&&!name.startsWith('.')):[];
       if(active.length)throw new Error(`Hook Git lama ditemukan (${active.join(', ')}); gabungkan secara manual agar tetap berjalan.`);
     }
-    for(const name of ['pre-push','post-merge','post-rewrite'])chmodSync(resolve(root,'.githooks',name),0o755);
+    for(const name of ['pre-commit','pre-push','post-merge','post-rewrite'])chmodSync(resolve(root,'.githooks',name),0o755);
     const result=git(['config','--local','core.hooksPath','.githooks']);
     if(result.status!==0)throw new Error(result.stderr||'Gagal memasang hook.');
-    console.log('[frontend] Build otomatis aktif untuk push, pull merge, dan pull rebase.');
+    console.log('[frontend] Build dan staging rilis otomatis aktif sebelum commit; push memeriksa rilis. Server cukup pull tanpa Node.js.');
   }
 }catch(error){
   console.error(`[frontend] ${error.message}`);

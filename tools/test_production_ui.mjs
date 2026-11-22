@@ -17,13 +17,13 @@ globalThis.requestAnimationFrame=callback=>{frame=callback;return 1;};globalThis
 win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawImage(){},save(){},restore(){},fillRect(){},strokeRect(){},fillText(){},setLineDash(){},createLinearGradient(){return {addColorStop(){}};},measureText:t=>({width:t.length*8})};};
 win.document.body.innerHTML='<section class="admin-view active"><div id="studio"></div></section>';
 const host=win.document.getElementById('studio'),q=s=>host.querySelector(s);
-let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[],encodedSizes=[];
-let storyLoads=0;
-globalThis.AudioContext=class{currentTime=0;async resume(){}async close(){}createBufferSource(){return {connect(){},start(){},stop(){},disconnect(){}};}};
+let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[],encodedSizes=[],rendererCanvas;
+let storyLoads=0,audioPlaying=false,audioStops=0;
+globalThis.AudioContext=class{currentTime=0;async resume(){}async close(){}createBufferSource(){return {connect(){},start(){audioPlaying=true;},stop(){audioPlaying=false;audioStops++;},disconnect(){}};}};
 const dependencies={
   async createStage(s){creates++;let compiled=compileScenario(s);return {scene:{},camera:{},get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);},pose(t){rendered.push(t);return sampleScenario(compiled,t);},dispose(){disposals++;}};},
-  createRenderer(gpu){return {setSize(w,h){gpu.width=w;gpu.height=h;gpuSize.push([w,h]);},render(){},dispose(){}};},
-  async encode(args){exportRequest=args;encodedSizes.push([args.canvas.width,args.canvas.height]);if(mode==='cancel')return new Promise((_,reject)=>args.signal.addEventListener('abort',()=>reject(new DOMException('cancel','AbortError'))));await args.renderFrame(.5);args.onProgress(1);return new Blob(['test'],{type:'video/mp4'});},
+  createRenderer(gpu){rendererCanvas=gpu;return {setSize(w,h){gpu.width=w;gpu.height=h;gpuSize.push([w,h]);},render(){},dispose(){}};},
+  async encode(args){assert.equal(frame,null,'Export must stop the preview render loop first');assert.equal(audioPlaying,false,'Export must stop preview audio before encoding');exportRequest=args;encodedSizes.push([args.canvas.width,args.canvas.height]);if(mode==='error')throw new Error('Encoder H.264 gagal saat frame 12');if(mode==='cancel')return new Promise((_,reject)=>args.signal.addEventListener('abort',()=>reject(new DOMException('cancel','AbortError'))));await args.renderFrame(.5);args.onProgress(1);return new Blob(['test'],{type:'video/mp4'});},
   async mixAudio(tracks){return tracks.length>2?{storyAudio:true}:null;},
   async loadStory(){storyLoads++;return [{buffer:{},volume:.95,offset:.3}];},
 };
@@ -43,7 +43,7 @@ monitor.requestFullscreen=async()=>{nativeRequests++;document.fullscreenElement=
 document.exitFullscreen=async()=>{document.fullscreenElement=null;document.dispatchEvent(new win.Event('fullscreenchange'));};
 click('[data-command="fullscreen"]');await flush();assert.equal(nativeRequests,1);assert.equal(document.fullscreenElement,monitor);assert.equal(monitor.classList.contains('ps-expanded'),false);click('[data-command="fullscreen"]');await flush();assert.equal(document.fullscreenElement,null);
 monitor.requestFullscreen=async()=>{throw new Error('Unsupported in embedded browser');};click('[data-command="fullscreen"]');await flush();assert.ok(monitor.classList.contains('ps-expanded'),'Denied native API falls back to usable fullscreen');click('[data-command="fullscreen"]');await flush();
-click('[data-command="play"]');assert.ok(q('[data-command="play"]').textContent.includes('Jeda'));clock=3;frame();assert.ok(q('[data-time]').textContent.startsWith('0:03.0'));
+click('[data-command="play"]');assert.ok(q('[data-command="play"]').textContent.includes('Jeda'));assert.equal(q('[data-command="export"]').disabled,false,'Buat MP4 must remain actionable during preview playback');clock=3;frame();assert.ok(q('[data-time]').textContent.startsWith('0:03.0'));
 click('[data-command="play"]');assert.equal(frame,null);click('[data-jump="2"]');assert.equal(Number(q('[data-seek]').value),5);
 change('[data-shot="0"] [data-shot-field="duration"]','4');assert.equal(Number(q('[data-seek]').max),12);assert.equal(Number(q('[data-seek]').value),0);
 change('[data-format]','landscape');assert.ok(q('[data-preview]').width>q('[data-preview]').height);
@@ -66,8 +66,13 @@ click('[data-command="day1-full"]');await flush();assert.equal(host.querySelecto
 assert.match(q('[data-field="title"]').value,/Orang Dalam/);assert.equal(q('[data-shot="0"] [data-visible="b"]').checked,false);
 assert.equal(q('[data-draft-notice]').hidden,true,'Loading latest clears restored-draft notice');
 assert.equal(q('[data-cast-prop="c"]').value,'guitar','Guitar is an editable cast accessory');
-click('[data-command="play"]');await flush();assert.equal(storyLoads,1);assert.match(q('[data-command="play"]').textContent,/Jeda/);click('[data-command="play"]');
-mode='complete';click('[data-command="export"]');await flush();await flush();assert.equal(exportRequest.audio.storyAudio,true,'Built-in voice must reach MP4 encoder');assert.ok(exportRequest.duration>85);assert.equal(storyLoads,1,'Preview and export reuse the same mix');
+click('[data-command="play"]');await flush();assert.equal(storyLoads,1);assert.match(q('[data-command="play"]').textContent,/Jeda/);assert.equal(audioPlaying,true);
+const stopsBeforeExport=audioStops,exportsBeforePlayback=encodedSizes.length;
+assert.equal(q('[data-command="export"]').disabled,false,'Playing a voiced episode must not silently disable MP4');
+mode='complete';click('[data-command="export"]');assert.equal(frame,null,'One export click immediately pauses preview');assert.equal(audioStops,stopsBeforeExport+1,'One export click stops the current audio source');await flush();await flush();assert.equal(encodedSizes.length,exportsBeforePlayback+1,'A click while playing must actually reach the encoder');assert.equal(exportRequest.audio.storyAudio,true,'Built-in voice must reach MP4 encoder');assert.ok(exportRequest.duration>85);assert.equal(storyLoads,1,'Preview and export reuse the same mix');assert.equal(q('[data-download]').hidden,false);
+mode='error';click('[data-command="export"]');await flush();await flush();assert.match(q('[data-status]').textContent,/Encoder H\.264 gagal saat frame 12/,'Keep the useful encoder error visible');assert.equal(q('[data-command="play"]').disabled,false);assert.equal(q('[data-command="export"]').disabled,false);assert.equal(q('[data-field="title"]').disabled,false);assert.equal(q('[data-command="cancel"]').hidden,true);assert.equal(q('[data-progress]').hidden,true);assert.equal(q('[data-download]').hidden,true,'A failed new export must not offer the previous download');
+mode='cancel';click('[data-command="export"]');await flush();rendererCanvas.dispatchEvent(new win.Event('webglcontextlost',{cancelable:true}));await flush();await flush();assert.match(q('[data-status]').textContent,/grafis|GPU/i,'Graphics context loss must retain its cause instead of becoming generic user cancellation');assert.equal(q('[data-download]').hidden,true);
+mode='complete';
 change('[data-shot="0"] [data-shot-field="caption"]','Narasi yang disunting');assert.equal(JSON.parse(localStorage.getItem('semesta.production.workspace.v1')).shots[0].speech,undefined,'Text edits must not leave mismatched old audio');assert.equal(q('[data-download]').hidden,true);
 click('[data-command="new"]');await flush();studio.dispose();studio=mountProductionStudio(host,dependencies);await flush();assert.equal(q('[data-command="play"]').disabled,true,'Explicit empty choice survives reload');studio.dispose();
 const beforeMap=localStorage.getItem('semesta.production.workspace.v1'),mapHost=document.createElement('section');document.body.append(mapHost);

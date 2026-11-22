@@ -1,6 +1,6 @@
 #!/bin/sh
 if ! command -v node >/dev/null 2>&1; then
-  echo '[frontend] Pull sudah masuk, tetapi Node.js tidak ditemukan di PATH untuk build frontend.' >&2
-  exit 1
+  echo '[frontend] Rilis frontend sudah ikut Git. Tidak perlu build di server.'
+  exit 0
 fi
-exec node tools/git-auto-build.mjs
+exec node tools/git-auto-build.mjs --verify-release

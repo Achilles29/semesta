@@ -3,4 +3,4 @@ if ! command -v node >/dev/null 2>&1; then
   echo '[frontend] Node.js tidak ditemukan di PATH; build otomatis belum bisa dijalankan.' >&2
   exit 1
 fi
-exec node tools/git-auto-build.mjs
+exec node tools/git-auto-build.mjs --verify-push

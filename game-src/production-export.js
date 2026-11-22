@@ -1,30 +1,38 @@
 export const EXPORT_FPS=30;
 export const EXPORT_BITRATE=12_000_000;
 export function frameCount(duration){return Math.ceil(duration*EXPORT_FPS);}
-export async function encodeMp4({canvas,duration,renderFrame,audio=null,signal,onProgress=()=>{}},media){
+export async function encodeMp4({canvas,duration,renderFrame,audio=null,signal,onProgress=()=>{},onStage=()=>{}},media){
+  const check=()=>{if(signal?.aborted)throw signal.reason||new DOMException('Ekspor dibatalkan.','AbortError');};
+  check();onStage('Memeriksa dukungan MP4');
   media ||= await import('mediabunny');
+  check();
   const {Output,Mp4OutputFormat,BufferTarget,CanvasSource,AudioBufferSource,Quality,canEncodeVideo,canEncodeAudio}=media;
   const quality=new Quality({bitrate:EXPORT_BITRATE});
-  if(!await canEncodeVideo('avc',{width:canvas.width,height:canvas.height,frameRate:EXPORT_FPS,quality})){
+  const videoOptions={codec:'avc',quality,keyFrameInterval:2,latencyMode:'quality'};
+  if(!await canEncodeVideo('avc',{width:canvas.width,height:canvas.height,frameRate:EXPORT_FPS,quality,latencyMode:videoOptions.latencyMode})){
     throw new Error('Encoder H.264 belum tersedia di browser ini. Gunakan Chrome/Edge dengan akselerasi grafis aktif melalui HTTPS atau localhost. Coba kualitas 720p bila 1080p tidak didukung.');
   }
-  if(audio&&!await canEncodeAudio('aac',{sampleRate:48000,numberOfChannels:2}))throw new Error('Encoder audio AAC belum tersedia. Gunakan Chrome/Edge yang mendukung AAC untuk mengekspor dengan audio.');
-  const target=new BufferTarget(),output=new Output({format:new Mp4OutputFormat({fastStart:'in-memory'}),target});
-  const video=new CanvasSource(canvas,{codec:'avc',quality,keyFrameInterval:2,latencyMode:'quality'});
+  const audioQuality=new Quality({bitrate:192_000});
+  if(audio&&!await canEncodeAudio('aac',{sampleRate:audio.sampleRate||48000,numberOfChannels:audio.numberOfChannels||2,quality:audioQuality}))throw new Error('Encoder audio AAC belum tersedia. Gunakan Chrome/Edge yang mendukung AAC untuk mengekspor dengan audio.');
+  check();
+  // A completed download is a regular MP4. Write media as it arrives instead
+  // of retaining every compressed chunk again until the end of a long episode.
+  const target=new BufferTarget(),output=new Output({format:new Mp4OutputFormat({fastStart:false}),target});
+  const video=new CanvasSource(canvas,videoOptions);
   output.addVideoTrack(video,{frameRate:EXPORT_FPS});
   let sound;
-  if(audio){sound=new AudioBufferSource({codec:'aac',quality:new Quality({bitrate:192_000})});output.addAudioTrack(sound);}
-  const check=()=>{if(signal?.aborted)throw new DOMException('Ekspor dibatalkan.','AbortError');};
+  if(audio){sound=new AudioBufferSource({codec:'aac',quality:audioQuality});output.addAudioTrack(sound);}
   try{
     check();await output.start();
-    if(sound){await sound.add(audio);sound.close();}
+    if(sound){onStage('Menyimpan suara ke MP4');await sound.add(audio);sound.close();check();}
+    onStage('Merender video');
     const total=frameCount(duration);
     for(let frame=0;frame<total;frame++){
       check();await renderFrame(frame/EXPORT_FPS);
       await video.add(frame/EXPORT_FPS,1/EXPORT_FPS);
       if(frame%6===0||frame===total-1){onProgress((frame+1)/total);await new Promise(resolve=>setTimeout(resolve,0));}
     }
-    video.close();check();await output.finalize();check();
+    video.close();check();onStage('Menyelesaikan file MP4');await output.finalize();check();
     return new Blob([target.buffer],{type:'video/mp4'});
   }catch(error){await output.cancel().catch(()=>{});throw error;}
 }

@@ -26,34 +26,42 @@ Aplikasi mendeteksi alamat lokal beserta subfolder secara otomatis. Untuk server
 
 ## Push dan pull dengan build otomatis
 
-Aktifkan **sekali pada setiap checkout**, termasuk server, dari folder project:
+**Rilis frontend sekarang ikut Git**, sehingga server cukup menjalankan `git pull`.
+Yang disertakan hanya bundle JS/CSS/gambar hasil Vite, manifest, dan catatan hash
+build di `assets/game/` (sekitar 3 MB). Model, audio, dan ilustrasi besar tetap
+berasal dari `public/`; salinan lama di `assets/game/map-assets/` tidak digunakan.
+Server PHP tidak membutuhkan Node.js, npm, atau pemasangan hook untuk menerima rilis.
+
+Pada **komputer pengembang**, aktifkan sekali melalui `npm run setup:git`.
+`npm ci` juga memasang hook melalui lifecycle `prepare`. Node.js dan npm diperlukan
+di komputer ini. Alur selanjutnya tetap:
 
 ```sh
+git add .
+git commit -m "Perbarui peta dan produksi"
+git push
+# Di server:
 git pull
-npm run setup:git
 ```
 
-Setelah itu cukup `git push` dan `git pull` biasa. Hook akan membangun frontend
-jika sumber, aset publik, konfigurasi build, atau dependensinya berubah. Pull
-merge/fast-forward dan `git pull --rebase` didukung. Perubahan dokumentasi atau
-PHP saja tidak memicu build. Dependensi dipasang ulang dengan `npm ci --include=dev`
-jika `package.json`/`package-lock.json` berubah atau paket yang diperlukan hilang.
+Hook `pre-commit` membangun perubahan frontend dan memasukkan **hanya hasil build**
+ke staging. Jika sumber frontend baru sebagian di-stage, commit dihentikan agar
+perubahan lain tidak ikut rilis tanpa sengaja. Dokumen/PHP saja tidak perlu build.
+Hook `pre-push` memeriksa sumber, manifest, dan seluruh chunk dalam commit yang
+dikirim; rilis kedaluwarsa atau tidak lengkap menahan push, tanpa mengubah commit.
+Hook kustom tidak ditimpa otomatis oleh installer.
 
-Node.js dan npm harus tersedia di PATH terminal Git, termasuk di server. Pengaturan
-hook bersifat lokal tiap checkout; pull pertama yang membawa skrip ini belum dapat
-mengaktifkannya sendiri. `npm ci`/`npm install` berikutnya juga memasang hook melalui
-script `prepare`. Hook kustom yang sudah ada tidak ditimpa; gabungkan manual jika
-installer melaporkan konflik.
+Tanpa hook, jalankan `npm ci`, `npm run build`, lalu sertakan `assets/game/` ketika
+`git add` dan commit. Jangan hanya mem-build sesudah commit: hasilnya harus masuk
+commit yang dikirim. Buka ulang halaman setelah pull agar HTML memuat nama bundle
+berhash yang baru. Jika ada cache halaman/CDN, bersihkan cache HTML tersebut.
 
-Build gagal akan terlihat di terminal. Kegagalan sebelum push membatalkan push;
-kegagalan setelah pull tidak membatalkan perubahan Git. Setelah memperbaiki error,
-jalankan `npm run build` untuk mencoba kembali, termasuk jika pull berikutnya
-mengatakan `Already up to date`. Build manual tetap tersedia dan statusnya dicatat.
-Untuk menonaktifkan hook project: `git config --local --unset core.hooksPath`.
-
-Hasil `assets/game/` tetap tidak masuk Git dan dibuat pada mesin masing-masing.
-Buka ulang halaman setelah build; browser memuat bundle dengan nama hash terbaru.
-Server Node.js tidak diperlukan saat bermain.
+Pada rilis sebelum perubahan ini, seluruh `assets/game/` diabaikan Git. Push bisa
+sukses tetapi server masih memakai build lama, sekalipun sumber sudah terbaru.
+Perbaikannya adalah menarik commit yang **sudah menyertakan rilis frontend**.
+Untuk checkout lama sebelum rilis itu tersedia, jalankan `npm ci` dan
+`npm run build` sekali di server. `git pull` yang sudah up to date tidak mengulang
+hook build yang sebelumnya gagal.
 
 Referensi mekanisme: [Git hooks](https://git-scm.com/docs/githooks) dan
 [npm lifecycle scripts](https://docs.npmjs.com/cli/v11/using-npm/scripts/).

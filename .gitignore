@@ -4,7 +4,13 @@
 /application/config/visitor_private.php
 /application/cache/sessions/*
 !/application/cache/sessions/.gitkeep
-/assets/game/
+# Publish only the small frontend release; public models/audio remain in public/.
+/assets/game/*
+!/assets/game/assets/
+!/assets/game/.vite/
+/assets/game/.vite/*
+!/assets/game/.vite/manifest.json
+!/assets/game/.semesta-build.json
 /.ci3-extract/
 /node_modules/
 /n
