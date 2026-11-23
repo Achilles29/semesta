@@ -2,9 +2,9 @@
 
 ## Studio produksi
 
-Buka **Produksi** di panel admin (`/admin/?view=production`). Episode lama telah
-direset; Day 1 baru masih kosong. Tombol **Coba latihan studio** memuat adegan
-teknis untuk menguji Play otomatis dan ekspor MP4, terpisah dari cerita Day 1.
+Buka **Produksi** di panel admin (`/admin/?view=production`). Day 1 dan Day 2
+tersedia pada katalog produksi. Episode, audio dan pemutarnya hanya untuk admin;
+peta publik tidak menampilkan studio atau kerumunan pemeran episode.
 Studio mendukung pemeran V15, gerakan, properti, kamera, subtitle, audio, dan
 ekspor H.264 1080p/30 fps. Panduan dan batas dukungan browser tersedia di
 [Studio produksi](docs/PRODUCTION_STUDIO.md).
@@ -72,11 +72,12 @@ Referensi mekanisme: [Git hooks](https://git-scm.com/docs/githooks) dan
 - `game-src/` berisi antarmuka, peta, dan area Three.js.
 - `assets/game/` berisi hasil build frontend.
 - `database/schema.sql` dan `tools/setup_database.php` menyiapkan struktur serta data awal MySQL.
-- `docs/KONSEP_REPUBLIK_WKWKWK.md` menjadi acuan konsep produk saat ini.
-- `docs/HANDOVER_PENGEMBANGAN_DI_SERVER.md` menjelaskan status teknis dan proses deploy.
+- `roadmap/README.md` menjadi pintu masuk konsep game, checklist dan handover terbaru.
+- `docs/PROMPT_ACUAN_PRODUKSI_KONTEN.md` menjadi acuan produksi episode.
+- `roadmap/03-HANDOVER-SERVER.md` menjelaskan kelanjutan pekerjaan; `docs/HANDOVER_PENGEMBANGAN_DI_SERVER.md` menyimpan panduan operasional terdahulu.
 
 ## Alur produk saat ini
 
-Pengguna dapat membuat akun warga dan memilih avatar. Kunjungan pertama membuka Peta Utama Indonesia; pemain memilih kota, lalu wilayah Kota Warga, Desa Tumbuh, atau Hutan Warga sebelum masuk ke area 3D. Fasilitas seperti sekolah, MBG, Kopdes, pasar, dan permukiman menjadi bahan cerita di dalam kawasan.
+Pengguna membuat akun warga, memilih profesi dan karakter, menerima saran avatar yang dapat diedit, lalu mempunyai kartu warga virtual. Satu klik kota di atlas Republik membuka wilayahnya. Wilayah memuat kawasan kota, desa, pedesaan, hutan dan pegunungan; denah rinci Jakartawa terpisah. Jelajah memakai satu ruang dunia bersama dengan akun online terdekat.
 
-Republik WkWkWk adalah dunia cerita interaktif untuk membahas kehidupan dan isu publik dengan humor. Cerita boleh fiktif dan absurd; klaim faktual harus bersumber. Game saat ini adalah prototipe produksi dan eksplorasi, bukan layanan untuk menentukan kebijakan atau tempat transaksi warga.
+Pengembangan menuju **simulasi kehidupan warga dengan pembangunan kota bersama**. Fase dunia dan proyek kini tersimpan di server; prototipe konstruksi rumah P01 menyediakan alur ambil–antar–pasang beserta kit/XP per akun. Admin mengaktifkannya melalui **Dunia bersama**. Jalankan migrasi tambahan `php tools/migrate_republic_world.php` pada database yang sudah ada, jangan mengulang seed database. Inventaris umum, kepemilikan rumah dan pekerjaan lain masih mengikuti [checklist](roadmap/02-TAHAP-DAN-CHECKLIST.md). Konten mengikuti kanon, komentar warga dan fitur yang siap; playback tidak menerbitkan dunia. Email/Google ditunda ke pengerjaan server.

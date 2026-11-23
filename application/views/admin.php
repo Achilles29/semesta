@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . filemtime(FCPATH . 'game-src/style.css')); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?= base_url('game-src/admin.css?v=' . filemtime(FCPATH . 'game-src/admin.css')); ?>">
+    <link rel="stylesheet" href="<?= base_url('game-src/admin-world-state.css?v=' . filemtime(FCPATH . 'game-src/admin-world-state.css')); ?>">
     <link rel="stylesheet" href="<?= base_url('game-src/production-studio.css?v=' . filemtime(FCPATH . 'game-src/production-studio.css')); ?>">
 </head>
 <body class="admin-body">
@@ -29,13 +30,14 @@
             <label class="admin-command-search"><span>⌕</span><input id="adminMenuSearch" type="search" placeholder="Cari menu admin…" aria-label="Cari menu admin"><kbd>CTRL K</kbd></label>
             <div class="editor-header-actions"><a class="back-link" href="<?= base_url(); ?>">Lihat dunia ↗</a><form method="post" action="<?= site_url('admin/logout/'); ?>"><button class="logout-button" type="submit">Keluar ↗</button></form></div>
         </header>
-        <div class="local-banner"><span class="workspace-dot" aria-hidden="true"></span><strong>Ruang kerja pengembangan</strong><span>Karakter, dunia, dan komunitas dalam satu studio.</span><small>Perubahan dipublikasikan saat disimpan</small></div>
+        <div class="local-banner"><span class="workspace-dot" aria-hidden="true"></span><strong>Ruang kerja pengembangan</strong><span>Karakter, dunia, dan komunitas dalam satu studio.</span><small>Publikasi dunia melalui menu Dunia bersama</small></div>
         <div class="admin-layout">
             <nav class="admin-nav" aria-label="Menu panel admin">
                 <span class="admin-nav-label">PANEL ADMIN</span>
                 <a href="<?= site_url('admin/'); ?>?view=overview" class="active" data-admin-view="overview"><span>⌂</span> Ringkasan</a>
                 <a href="<?= site_url('admin/'); ?>?view=avatars" data-admin-view="avatars"><span>♙</span> Studio avatar</a>
                 <a href="<?= site_url('admin/'); ?>?view=world" data-admin-view="world"><span>▧</span> Tata wilayah</a>
+                <a href="<?= site_url('admin/'); ?>?view=shared-world" data-admin-view="shared-world"><span>◎</span> Dunia bersama</a>
                 <a href="<?= site_url('admin/'); ?>?view=production" data-admin-view="production"><span>▣</span> Produksi konten</a>
                 <a href="<?= site_url('admin/'); ?>?view=objects" data-admin-view="objects"><span>◇</span> Galeri object</a>
                 <a href="<?= site_url('admin/'); ?>?view=ideas" data-admin-view="ideas"><span>✳</span> Inbox warga <b id="ideasNavCount">—</b></a>
@@ -67,6 +69,11 @@
                             <label id="objectScaleField">Skala<input class="property-range" id="objectScaleRange" type="range" min="0.25" max="4" step="0.1" aria-label="Geser skala objek"><input id="objectScale" type="number" min="0.25" max="4" step="0.1"></label><button class="delete-object-button" id="deleteWorldObject" type="button">HAPUS OBJEK</button>
                         </div></aside>
                     </div>
+                </section>
+
+                <section class="admin-view" id="adminView-shared-world">
+                    <div class="admin-page-intro"><div><span class="eyebrow">KEADAAN RESMI REPUBLIK</span><h2>Dunia bersama</h2><p>Tinjau fase dunia, aktifkan proyek warga, dan catat keputusan pembangunan yang diterbitkan.</p></div></div>
+                    <div id="adminSharedWorld" aria-label="Pengelolaan dunia bersama"><p role="status">Data dunia akan dimuat saat menu ini dibuka.</p></div>
                 </section>
 
                 <section class="admin-view" id="adminView-objects">
@@ -122,7 +129,7 @@
     </main>
     <script>
     (function () {
-        var validViews = ['overview','avatars','world','production','objects','ideas','citizens','visitors','settings'];
+        var validViews = ['overview','avatars','world','shared-world','production','objects','ideas','citizens','visitors','settings'];
         var activeView = 'overview';
         var adminUrl = new URL(<?= json_encode(site_url('admin/'), JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT); ?>, location.href);
         var viewFromUrl = function () { var candidate = new URLSearchParams(location.search).get('view'); return validViews.indexOf(candidate) >= 0 ? candidate : 'overview'; };

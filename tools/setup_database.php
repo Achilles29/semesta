@@ -43,6 +43,7 @@ try {
         display_name VARCHAR(40) NOT NULL,
         password_hash VARCHAR(255) NOT NULL,
         email_verified TINYINT(1) NOT NULL DEFAULT 0,
+        google_sub VARCHAR(255) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL,
         is_active TINYINT(1) NOT NULL DEFAULT 1,
         verification_token_hash CHAR(64) DEFAULT NULL,
         verification_expires_at DATETIME DEFAULT NULL,
@@ -69,6 +70,7 @@ try {
     if (!isset($columns['email'])) $db->query('ALTER TABLE citizens ADD COLUMN email VARCHAR(190) NULL AFTER id');
     if (!isset($columns['username'])) $db->query('ALTER TABLE citizens ADD COLUMN username VARCHAR(32) NULL AFTER id');
     if (!isset($columns['email_verified'])) $db->query('ALTER TABLE citizens ADD COLUMN email_verified TINYINT(1) NOT NULL DEFAULT 0 AFTER password_hash');
+    if (!isset($columns['google_sub'])) $db->query('ALTER TABLE citizens ADD COLUMN google_sub VARCHAR(255) CHARACTER SET ascii COLLATE ascii_bin DEFAULT NULL AFTER email_verified');
     if (!isset($columns['is_active'])) $db->query('ALTER TABLE citizens ADD COLUMN is_active TINYINT(1) NOT NULL DEFAULT 1 AFTER email_verified');
     if (!isset($columns['account_type'])) $db->query("ALTER TABLE citizens ADD COLUMN account_type VARCHAR(16) NOT NULL DEFAULT 'citizen' AFTER id");
     if (!isset($columns['verification_token_hash'])) $db->query('ALTER TABLE citizens ADD COLUMN verification_token_hash CHAR(64) DEFAULT NULL AFTER email_verified');
@@ -85,6 +87,7 @@ try {
     $indexes = array();
     foreach ($db->query('SHOW INDEX FROM citizens')->fetch_all(MYSQLI_ASSOC) as $index) $indexes[$index['Key_name']] = TRUE;
     if (!isset($indexes['idx_citizens_account_type'])) $db->query('ALTER TABLE citizens ADD KEY idx_citizens_account_type (account_type)');
+    if (!isset($indexes['uq_citizens_google_sub'])) $db->query('ALTER TABLE citizens ADD UNIQUE KEY uq_citizens_google_sub (google_sub)');
 
     $db->query("CREATE TABLE IF NOT EXISTS citizen_master_data (
         master_type VARCHAR(32) NOT NULL,

@@ -17,6 +17,10 @@ class Api extends CI_Controller
         $method = $this->input->method(TRUE);
         $resource = $this->input->get('resource');
         $payload = $method === 'POST' ? json_decode($this->input->raw_input_stream, TRUE) : NULL;
+        if ($method === 'POST' && is_array($payload) && ($payload['resource'] ?? NULL) === 'citizen_home') return $this->citizen_home($method,$payload);
+        if ($resource === 'citizen_home') return $this->citizen_home($method,$payload);
+        if ($method === 'POST' && is_array($payload) && isset($payload['resource']) && in_array($payload['resource'], array('world_admin','world_work'), TRUE)) return $this->republic_world($payload['resource'], $method, $payload);
+        if (in_array($resource, array('world_state','world_admin','world_work'), TRUE)) return $this->republic_world($resource, $method, $payload);
         if ($method === 'POST' && is_array($payload) && isset($payload['resource']) && $payload['resource'] === 'ideas') {
             return $this->save_idea($payload);
         }
@@ -27,6 +31,7 @@ class Api extends CI_Controller
         if ($method === 'POST' && is_array($payload) && isset($payload['resource']) && $payload['resource'] === 'settings') return $this->mail_settings('POST', $payload);
         if ($method === 'POST' && is_array($payload) && isset($payload['resource']) && $payload['resource'] === 'avatar_library') return $this->save_avatar_library($payload);
         if ($resource === 'google_sso') return $this->google_sso($method);
+        if ($resource === 'auth_options') return $this->auth_options($method);
         if ($resource === 'citizen_admin') return $this->citizen_admin($method);
         if ($resource === 'citizen_admin_detail') return $this->citizen_admin_detail($method);
         if ($resource === 'citizen_options') return $this->citizen_options($method);
@@ -44,6 +49,81 @@ class Api extends CI_Controller
         $case = $this->semesta->get_case();
         if ($case === NULL) return $this->output->set_status_header(404)->set_output('{"error":"Episode belum tersedia di database."}');
         return $this->output->set_output($case);
+    }
+
+    private function citizen_home($method, $payload = NULL)
+    {
+        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+        if (!in_array($method,array('GET','POST'),TRUE)) return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
+        $citizenId = (int)$this->session->userdata('citizen_id');
+        if (!$citizenId) return $this->output->set_status_header(401)->set_output('{"error":"Masuk sebagai warga untuk membuka hunian.","code":"login_required"}');
+        if (!$this->database_ready()) return $this->database_error();
+        foreach (array('citizen_homes','citizen_home_requests','citizen_home_ledger','citizens','citizen_presence') as $table) {
+            if (!$this->db->table_exists($table)) return $this->output->set_status_header(503)->set_output('{"error":"Hunian belum siap. Jalankan migrasi hunian di server.","code":"home_unavailable"}');
+        }
+        $this->load->helper('citizen_home'); $this->load->model('Citizen_home_model','citizenHome');
+        try {
+            $binding = $this->session->userdata('citizen_home_binding');
+            $csrf = $this->session->userdata('citizen_home_csrf');
+            if (!is_array($binding) || ($binding['citizenId'] ?? NULL) !== $citizenId || !is_string($binding['nonce'] ?? NULL)) {
+                $binding = array('citizenId'=>$citizenId,'nonce'=>bin2hex(random_bytes(32)));
+                $csrf = bin2hex(random_bytes(32));
+                $this->session->set_userdata('citizen_home_binding',$binding); $this->session->set_userdata('citizen_home_csrf',$csrf);
+            }
+            $sessionHash = hash('sha256',$binding['nonce']);
+            if ($method === 'POST') {
+                if (strlen($this->input->raw_input_stream) > 12000) throw new Citizen_home_error('Permintaan terlalu besar.',413,'request_too_large');
+                if (!is_array($payload)) throw new Citizen_home_error('Permintaan JSON belum valid.');
+                if (!is_string($csrf) || !isset($payload['csrfToken']) || !is_string($payload['csrfToken']) || !hash_equals($csrf,$payload['csrfToken'])) throw new Citizen_home_error('Sesi hunian berubah. Muat ulang sebelum melanjutkan.',403,'csrf_invalid');
+                $result = $this->citizenHome->act($citizenId,$sessionHash,$payload);
+            } else {
+                $result = $this->citizenHome->state($citizenId,$sessionHash);
+                if (!is_string($csrf)) { $csrf=bin2hex(random_bytes(32)); $this->session->set_userdata('citizen_home_csrf',$csrf); }
+            }
+            $result['csrfToken'] = $csrf; $result['serverTime'] = citizen_home_iso(citizen_home_now());
+            return $this->output->set_output(json_encode($result,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        } catch(Citizen_home_error $error) {
+            return $this->output->set_status_header($error->status)->set_output(json_encode(array('error'=>$error->getMessage(),'code'=>$error->error_code),JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        } catch(Throwable $error) {
+            log_message('error','Private home operation failed: '.get_class($error));
+            return $this->output->set_status_header(503)->set_output('{"error":"Hunian sementara tidak dapat disimpan. Coba ulang dengan ID permintaan yang sama.","code":"home_unavailable"}');
+        }
+    }
+
+    private function republic_world($resource, $method, $payload = NULL)
+    {
+        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+        if (!in_array($method, array('GET','POST'), TRUE) || ($resource === 'world_state' && $method !== 'GET')) return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
+        if ($resource === 'world_admin' && !$this->require_admin()) return;
+        $citizenId = (int)$this->session->userdata('citizen_id');
+        if ($resource === 'world_work' && !$citizenId) return $this->output->set_status_header(401)->set_output('{"error":"Masuk sebagai warga untuk bekerja.","code":"login_required"}');
+        if (!$this->database_ready()) return $this->database_error();
+        foreach (array('world_state','world_projects','world_publications','citizen_work_state','world_action_requests','citizen_work_ledger','citizens','citizen_presence') as $table) {
+            if (!$this->db->table_exists($table)) return $this->output->set_status_header(503)->set_output('{"error":"Dunia belum siap. Jalankan migrasi dunia di server.","code":"world_unavailable"}');
+        }
+        $this->load->helper('republic_world');
+        $this->load->model('Republic_world_model', 'republic');
+        try {
+            $csrf = $this->session->userdata('republic_world_csrf');
+            if ($method === 'POST') {
+                if (strlen($this->input->raw_input_stream) > 12000) throw new Republic_world_error('Permintaan terlalu besar.',413,'request_too_large');
+                if (!is_array($payload)) throw new Republic_world_error('Permintaan JSON belum valid.');
+                if (!is_string($csrf) || !isset($payload['csrfToken']) || !is_string($payload['csrfToken']) || !hash_equals($csrf,$payload['csrfToken'])) throw new Republic_world_error('Sesi formulir berubah. Muat ulang sebelum melanjutkan.',403,'csrf_invalid');
+                $result = $resource === 'world_admin' ? $this->republic->publish($payload) : $this->republic->act($citizenId,$payload);
+            } else {
+                $result = $resource === 'world_admin' ? $this->republic->administration() : ($resource === 'world_work' ? $this->republic->work($citizenId) : $this->republic->state());
+                if ($resource !== 'world_state' && !is_string($csrf)) { $csrf = bin2hex(random_bytes(32)); $this->session->set_userdata('republic_world_csrf',$csrf); }
+            }
+            if ($resource !== 'world_state') $result['csrfToken'] = $csrf;
+            // Refresh transport time even when the mutation itself is replayed.
+            if ($resource === 'world_work') $result['serverTime'] = republic_world_iso(republic_world_now());
+            return $this->output->set_output(json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        } catch (Republic_world_error $error) {
+            return $this->output->set_status_header($error->status)->set_output(json_encode(array_merge(array('error'=>$error->getMessage(),'code'=>$error->error_code),$error->details), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        } catch (Throwable $error) {
+            log_message('error', 'Shared world operation failed: ' . get_class($error));
+            return $this->output->set_status_header(503)->set_output('{"error":"Dunia sementara tidak dapat disimpan. Coba ulang dengan ID permintaan yang sama.","code":"world_unavailable"}');
+        }
     }
 
     private function world_scene($method)
@@ -211,6 +291,16 @@ class Api extends CI_Controller
             $this->db->delete('citizen_presence', array('citizen_id' => $citizenId));
             return $this->output->set_output('{"ok":true}');
         }
+        $homeBinding = $this->session->userdata('citizen_home_binding');
+        $homeSessionHash = is_array($homeBinding) && ($homeBinding['citizenId'] ?? NULL) === $citizenId && is_string($homeBinding['nonce'] ?? NULL) ? hash('sha256',$homeBinding['nonce']) : NULL;
+        $hasHomeMode = $homeSessionHash !== NULL && $this->db->table_exists('citizen_homes');
+        if ($hasHomeMode && in_array($action,array('sync','send'),TRUE)) {
+            $private = $this->db->query('SELECT citizen_id FROM citizen_homes WHERE citizen_id=? AND interior_session_hash=?',array($citizenId,$homeSessionHash))->row_array();
+            if ($private) {
+                if ($action === 'sync') return $this->output->set_output('{"players":[],"messages":[],"canChat":false,"privateMode":true}');
+                return $this->output->set_status_header(409)->set_output('{"error":"Keluar dari kamar untuk mengobrol di dunia publik.","code":"private_mode"}');
+            }
+        }
         $destination = isset($payload['destination']) ? (string) $payload['destination'] : '';
         $region = isset($payload['region']) ? (string) $payload['region'] : '';
         $locations = array('jakarta','bandung','semarang','surabaya','makassar');
@@ -222,7 +312,15 @@ class Api extends CI_Controller
             $x = isset($payload['x']) && is_numeric($payload['x']) ? (float) $payload['x'] : NULL;
             $z = isset($payload['z']) && is_numeric($payload['z']) ? (float) $payload['z'] : NULL;
             if ($x === NULL || $z === NULL || !is_finite($x) || !is_finite($z) || abs($x) > 1000000 || abs($z) > 1000000) return $this->output->set_status_header(422)->set_output('{"error":"Posisi warga tidak valid."}');
-            $this->db->query('INSERT INTO citizen_presence (citizen_id, destination, region, x, z, updated_at) VALUES (?, ?, ?, ?, ?, NOW()) ON DUPLICATE KEY UPDATE destination=VALUES(destination), region=VALUES(region), x=VALUES(x), z=VALUES(z), updated_at=NOW()', array($citizenId, $destination, $region, $x, $z));
+            if ($hasHomeMode) {
+                $this->load->helper('citizen_home'); $this->load->model('Citizen_home_model','citizenHome');
+                try {
+                    if (!$this->citizenHome->sync_public_presence($citizenId,$homeSessionHash,$destination,$region,$x,$z)) return $this->output->set_output('{"players":[],"messages":[],"canChat":false,"privateMode":true}');
+                } catch(Throwable $error) {
+                    log_message('error','Private home presence operation failed: '.get_class($error));
+                    return $this->output->set_status_header(503)->set_output('{"error":"Posisi warga sementara tidak dapat disimpan.","code":"presence_unavailable"}');
+                }
+            } else $this->db->query('INSERT INTO citizen_presence (citizen_id, destination, region, x, z, updated_at) VALUES (?, ?, ?, ?, ?, NOW()) ON DUPLICATE KEY UPDATE destination=VALUES(destination), region=VALUES(region), x=VALUES(x), z=VALUES(z), updated_at=NOW()', array($citizenId, $destination, $region, $x, $z));
             $lastCleanup = (float) $this->session->userdata('chat_presence_cleanup_at');
             if (microtime(TRUE) - $lastCleanup > 60) { $this->db->query('DELETE FROM citizen_presence WHERE updated_at < DATE_SUB(NOW(), INTERVAL 60 SECOND)'); $this->session->set_userdata('chat_presence_cleanup_at', microtime(TRUE)); }
             $players = $this->db->query('SELECT c.id, c.display_name, c.avatar, c.avatar_config, c.house, p.x, p.z FROM citizen_presence p JOIN citizens c ON c.id=p.citizen_id WHERE p.citizen_id<>? AND p.destination=? AND p.region=? AND p.updated_at>DATE_SUB(NOW(), INTERVAL 20 SECOND) AND p.x BETWEEN ? AND ? AND p.z BETWEEN ? AND ? ORDER BY p.updated_at DESC LIMIT 100', array($citizenId, $destination, $region, $x - 55, $x + 55, $z - 55, $z + 55))->result_array();
@@ -306,6 +404,10 @@ class Api extends CI_Controller
 
     private function citizen_action($payload)
     {
+        $this->output->set_header('Cache-Control: no-store');
+        foreach (array('action','username','email','password','displayName','avatar','house') as $field) {
+            if (isset($payload[$field]) && !is_string($payload[$field])) return $this->output->set_status_header(422)->set_output('{"error":"Formulir akun belum valid."}');
+        }
         if (!$this->database_ready() || !$this->db->table_exists('citizens') || !$this->db->table_exists('app_settings')) return $this->database_error();
         $action = isset($payload['action']) ? $payload['action'] : '';
         if ($action === 'logout') {
@@ -336,7 +438,15 @@ class Api extends CI_Controller
             $profileFields = $this->collect_citizen_profile_fields($payload);
             if (strlen($display) < 2 || strlen($display) > 40 || !$this->citizen_master_has_value('avatar', $avatar) || !in_array($house, array('rumah-kayu','rumah-bata','rumah-panggung'), TRUE) || $profileFields === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Profil warga belum valid. Periksa biodata dan pilihan avatar."}');
             $profileFields['display_name'] = $display; $profileFields['avatar'] = $avatar; $profileFields['house'] = $house;
-            $this->semesta->update_citizen($id, $profileFields);
+            if (empty($profileFields['gender']) || empty($profileFields['occupation'])) return $this->output->set_status_header(422)->set_output('{"error":"Pilih jenis kelamin karakter dan profesi terlebih dahulu."}');
+            if (isset($payload['avatarConfig'])) {
+                $cleanAvatar = $this->sanitize_avatar_config($payload['avatarConfig']);
+                if ($cleanAvatar === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Pilihan avatar belum valid."}');
+                $profileFields['avatar_config'] = json_encode($cleanAvatar, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            }
+            $existingProfile = $this->semesta->get_citizen_profile($id);
+            if (empty($profileFields['avatar_config']) && empty($existingProfile['avatar_config'])) return $this->output->set_status_header(422)->set_output('{"error":"Pilih avatar untuk melengkapi profil warga."}');
+            if (!$this->semesta->update_citizen($id, $profileFields)) return $this->database_error();
             return $this->output->set_output(json_encode(array('ok' => true, 'citizen' => $this->semesta->get_citizen_profile($id)), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         }
 
@@ -344,12 +454,18 @@ class Api extends CI_Controller
             $email = strtolower(trim(isset($payload['email']) ? $payload['email'] : ''));
             if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 190) return $this->output->set_status_header(422)->set_output('{"error":"Masukkan alamat email yang valid."}');
             $row = $this->semesta->find_citizen_by_email($email);
-            if (!$row) return $this->output->set_status_header(404)->set_output('{"error":"Akun dengan email itu tidak ditemukan."}');
-            if ((int) $row['email_verified'] === 1) return $this->output->set_output('{"ok":true,"message":"Email sudah terverifikasi."}');
+            if (time() - (int) $this->session->userdata('verification_last_sent') < 60) return $this->output->set_status_header(429)->set_output('{"error":"Tunggu satu menit sebelum meminta tautan lagi."}');
+            $this->session->set_userdata('verification_last_sent', time());
+            $generic = '{"ok":true,"message":"Jika akun membutuhkan verifikasi, tautan akan dikirim ke email tersebut. Periksa kotak masuk dan spam."}';
+            if (!$row || (int) $row['email_verified'] === 1 || empty($row['is_active'])) return $this->output->set_output($generic);
+            if (!$this->smtp_configured()) return $this->output->set_status_header(503)->set_output('{"error":"Pengiriman email belum tersedia. Hubungi pengelola republik."}');
             $token = bin2hex(random_bytes(32));
-            $this->semesta->update_citizen($row['id'], array('verification_token_hash' => hash('sha256', $token), 'verification_expires_at' => date('Y-m-d H:i:s', time() + 172800)));
-            if (!$this->send_verification_email($email, $token, $row['display_name'])) return $this->output->set_status_header(503)->set_output('{"error":"Email belum terkirim. Periksa pengaturan SMTP di server."}');
-            return $this->output->set_output('{"ok":true,"message":"Tautan verifikasi dikirim ulang."}');
+            if (!$this->semesta->update_citizen($row['id'], array('verification_token_hash' => hash('sha256', $token), 'verification_expires_at' => date('Y-m-d H:i:s', time() + 172800)))) return $this->database_error();
+            if (!$this->send_verification_email($email, $token, $row['display_name'])) {
+                $this->semesta->update_citizen($row['id'], array('verification_token_hash' => $row['verification_token_hash'], 'verification_expires_at' => $row['verification_expires_at']));
+                return $this->output->set_status_header(503)->set_output('{"error":"Email belum terkirim. Coba kembali nanti; tautan sebelumnya masih berlaku."}');
+            }
+            return $this->output->set_output($generic);
         }
 
         $password = isset($payload['password']) ? (string) $payload['password'] : '';
@@ -370,13 +486,15 @@ class Api extends CI_Controller
                 $avatarConfig = json_encode($cleanAvatar, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             }
             if (strlen($display) < 2 || strlen($display) > 40 || !$this->citizen_master_has_value('avatar', $avatar) || !in_array($house, array('rumah-kayu','rumah-bata','rumah-panggung'), TRUE) || $profileFields === FALSE) return $this->output->set_status_header(422)->set_output('{"error":"Nama, biodata, avatar, atau pilihan rumah belum valid."}');
+            if (empty($profileFields['gender']) || empty($profileFields['occupation']) || !$avatarConfig) return $this->output->set_status_header(422)->set_output('{"error":"Pilih jenis kelamin karakter, profesi, dan avatar sebelum mendaftar."}');
             if ($this->semesta->find_citizen_by_email($email)) return $this->output->set_status_header(409)->set_output('{"error":"Email sudah terdaftar. Coba masuk atau kirim ulang verifikasi."}');
             if ($this->semesta->find_citizen_by_username($username)) return $this->output->set_status_header(409)->set_output('{"error":"Username sudah dipakai. Pilih username lain."}');
             $verificationRequired = $this->semesta->get_app_setting('require_email_verification', '0') === '1';
+            if ($verificationRequired && !$this->smtp_configured()) return $this->output->set_status_header(503)->set_output('{"error":"Pendaftaran email sedang menunggu layanan verifikasi. Coba lagi nanti atau gunakan Google jika tersedia."}');
             $token = $verificationRequired ? bin2hex(random_bytes(32)) : NULL;
             $id = $this->semesta->create_citizen(array(
                 'username' => $username, 'email' => $email, 'display_name' => $display, 'password_hash' => password_hash($password, PASSWORD_DEFAULT),
-                'email_verified' => $verificationRequired ? 0 : 1, 'verification_token_hash' => $token ? hash('sha256', $token) : NULL,
+                'email_verified' => 0, 'verification_token_hash' => $token ? hash('sha256', $token) : NULL,
                 'verification_expires_at' => $token ? date('Y-m-d H:i:s', time() + 172800) : NULL, 'avatar' => $avatar, 'avatar_config' => $avatarConfig, 'house' => $house,
                 'account_type' => 'citizen',
             ) + $profileFields);
@@ -391,8 +509,9 @@ class Api extends CI_Controller
         }
         if ($action === 'login') {
             $username = strtolower(trim(isset($payload['username']) ? $payload['username'] : ''));
-            if (!preg_match('/^[a-z0-9_.-]{1,32}$/', $username)) return $this->output->set_status_header(422)->set_output('{"error":"Masukkan username yang valid."}');
-            $row = $this->semesta->find_citizen_by_username($username);
+            $emailLogin = filter_var($username, FILTER_VALIDATE_EMAIL) && strlen($username) <= 190;
+            if (!$emailLogin && !preg_match('/^[a-z0-9_.-]{1,32}$/', $username)) return $this->output->set_status_header(422)->set_output('{"error":"Masukkan username atau email yang valid."}');
+            $row = $emailLogin ? $this->semesta->find_citizen_by_email($username) : $this->semesta->find_citizen_by_username($username);
 
             // The deployment admin can also enter the free-play world as a citizen.
             // Keep the admin credential source authoritative while storing a normal
@@ -429,7 +548,7 @@ class Api extends CI_Controller
             }
             if (!$row || !password_verify($password, $row['password_hash'])) return $this->output->set_status_header(401)->set_output('{"error":"Username atau kata sandi tidak cocok."}');
             if (empty($row['is_active'])) return $this->output->set_status_header(403)->set_output('{"error":"Akun warga ini sedang dinonaktifkan. Hubungi admin."}');
-            if ((int) $row['email_verified'] !== 1) return $this->output->set_status_header(403)->set_output('{"error":"Email belum diverifikasi. Gunakan tombol kirim ulang tautan verifikasi."}');
+            if ((int) $row['email_verified'] !== 1 && $this->semesta->get_app_setting('require_email_verification', '0') === '1') return $this->output->set_status_header(403)->set_output('{"error":"Email belum diverifikasi. Gunakan tombol kirim ulang tautan verifikasi."}');
             $this->session->sess_regenerate(TRUE);
             if ($isAdminLogin && $row['account_type'] !== 'admin') $this->semesta->update_citizen($row['id'], array('account_type' => 'admin'));
             $this->session->set_userdata('citizen_id', (int) $row['id']);
@@ -492,10 +611,34 @@ class Api extends CI_Controller
         return (bool) ($mail['host'] && $mail['username'] && $mail['password'] && $mail['from']);
     }
 
+    private function auth_options($method)
+    {
+        $this->output->set_header('Cache-Control: no-store');
+        if ($method !== 'GET') return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
+        if (!$this->database_ready() || !$this->db->table_exists('app_settings')) return $this->database_error();
+        $required = $this->semesta->get_app_setting('require_email_verification', '0') === '1';
+        $mail = $this->smtp_configured();
+        $google = $this->auth_config()['google'];
+        return $this->output->set_output(json_encode(array(
+            'emailRegistrationAvailable' => !$required || $mail,
+            'emailVerificationRequired' => $required,
+            'emailDeliveryAvailable' => $mail,
+            'googleAvailable' => (bool) ($google['client_id'] && $google['client_secret'] && $this->db->field_exists('google_sub', 'citizens')),
+        )));
+    }
+
+    private function auth_error($message, $status = 400)
+    {
+        $this->output->set_status_header($status)->set_content_type('text/html', 'utf-8');
+        return $this->load->view('email_verification', array('title' => 'Masuk belum berhasil', 'message' => $message,
+            'next_step' => 'Kembali ke permainan untuk mencoba lagi atau masuk dengan email dan kata sandi.',
+            'back_url' => base_url(), 'success' => FALSE));
+    }
+
     private function auth_config()
     {
         $config = array('smtp' => array(), 'google' => array());
-        $privateFile = '/www/server/php/81/etc/semesta-auth.php';
+        $privateFile = getenv('SEMESTA_AUTH_CONFIG_FILE') ?: '/www/server/php/81/etc/semesta-auth.php';
         if (is_readable($privateFile)) {
             $private = require $privateFile;
             if (is_array($private)) $config = array_replace_recursive($config, $private);
@@ -514,7 +657,7 @@ class Api extends CI_Controller
         $config['smtp']['host'] = isset($config['smtp']['host']) ? $config['smtp']['host'] : '';
         $config['smtp']['port'] = isset($config['smtp']['port']) ? (int) $config['smtp']['port'] : 587;
         $config['smtp']['username'] = isset($config['smtp']['username']) ? $config['smtp']['username'] : '';
-        $config['smtp']['password'] = isset($config['smtp']['password']) ? preg_replace('/\s+/', '', $config['smtp']['password']) : '';
+        $config['smtp']['password'] = isset($config['smtp']['password']) ? $config['smtp']['password'] : '';
         $config['smtp']['crypto'] = isset($config['smtp']['crypto']) ? $config['smtp']['crypto'] : 'tls';
         $config['smtp']['from'] = isset($config['smtp']['from']) ? $config['smtp']['from'] : '';
         $config['smtp']['from_name'] = isset($config['smtp']['from_name']) ? $config['smtp']['from_name'] : 'Republik WkWkWk';
@@ -545,40 +688,64 @@ class Api extends CI_Controller
 
     private function google_sso($method)
     {
+        $this->output->set_header('Cache-Control: no-store');
         if ($method !== 'GET') return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
         $config = $this->auth_config()['google'];
         $action = (string) $this->input->get('action', TRUE);
         $callback = site_url('api?resource=google_sso&action=callback');
         if (!$config['client_id'] || !$config['client_secret']) {
-            $this->output->set_content_type('text/html', 'utf-8');
-            return $this->output->set_status_header(503)->set_output('<!doctype html><meta charset="utf-8"><title>Google SSO belum disetel</title><h1>Google SSO belum disetel</h1><p>Tambahkan Google OAuth Client ID dan Client Secret pada konfigurasi privat Semesta, lalu coba lagi.</p><a href="' . htmlspecialchars(base_url(), ENT_QUOTES, 'UTF-8') . '">Kembali ke Republik WkWkWk</a>');
+            return $this->auth_error('Masuk dengan Google belum tersedia. Gunakan email dan kata sandi.', 503);
         }
+        if (!$this->database_ready() || !$this->db->table_exists('citizens') || !$this->db->field_exists('google_sub', 'citizens')) return $this->auth_error('Layanan Google sedang disiapkan oleh pengelola republik.', 503);
         if ($action !== 'callback') {
             $state = bin2hex(random_bytes(32));
             $this->session->set_userdata('google_oauth_state', $state);
+            $this->session->set_userdata('google_oauth_started', time());
             $query = http_build_query(array('client_id' => $config['client_id'], 'redirect_uri' => $callback, 'response_type' => 'code', 'scope' => 'openid email profile', 'state' => $state, 'prompt' => 'select_account'), '', '&', PHP_QUERY_RFC3986);
             return redirect('https://accounts.google.com/o/oauth2/v2/auth?' . $query);
         }
         $state = (string) $this->input->get('state', TRUE);
         $expected = (string) $this->session->userdata('google_oauth_state');
+        $started = (int) $this->session->userdata('google_oauth_started');
         $this->session->unset_userdata('google_oauth_state');
-        if (!$expected || !$state || !hash_equals($expected, $state)) return $this->output->set_status_header(400)->set_output('{"error":"Permintaan SSO tidak valid. Silakan coba lagi."}');
+        $this->session->unset_userdata('google_oauth_started');
+        if (!$expected || !$state || !hash_equals($expected, $state) || !$started || time() - $started > 600) return $this->auth_error('Sesi masuk dengan Google sudah berakhir atau tidak valid. Mulai lagi dari tombol Google.');
+        if ($this->input->get('error')) return $this->auth_error('Masuk dengan Google dibatalkan. Akun Anda belum diubah.');
         $code = (string) $this->input->get('code', TRUE);
-        if (!$code) return $this->output->set_status_header(400)->set_output('{"error":"Google tidak mengembalikan kode masuk."}');
+        if (!$code) return $this->auth_error('Google tidak mengembalikan kode masuk. Silakan coba lagi.');
         $tokenContext = stream_context_create(array('http' => array('method' => 'POST', 'header' => "Content-Type: application/x-www-form-urlencoded\r\nAccept: application/json\r\n", 'content' => http_build_query(array('code' => $code, 'client_id' => $config['client_id'], 'client_secret' => $config['client_secret'], 'redirect_uri' => $callback, 'grant_type' => 'authorization_code')), 'timeout' => 12, 'ignore_errors' => TRUE)));
         $tokenResponse = @file_get_contents('https://oauth2.googleapis.com/token', FALSE, $tokenContext);
         $token = is_string($tokenResponse) ? json_decode($tokenResponse, TRUE) : NULL;
-        if (!is_array($token) || empty($token['access_token'])) return $this->output->set_status_header(401)->set_output('{"error":"Google tidak menerima proses masuk. Periksa konfigurasi OAuth dan redirect URI."}');
+        if (!is_array($token) || empty($token['access_token']) || !is_string($token['access_token']) || preg_match('/[\r\n]/', $token['access_token'])) return $this->auth_error('Google belum menerima proses masuk. Silakan coba lagi nanti.', 401);
         $userContext = stream_context_create(array('http' => array('method' => 'GET', 'header' => 'Authorization: Bearer ' . $token['access_token'] . "\r\nAccept: application/json\r\n", 'timeout' => 12, 'ignore_errors' => TRUE)));
         $userResponse = @file_get_contents('https://openidconnect.googleapis.com/v1/userinfo', FALSE, $userContext);
         $profile = is_string($userResponse) ? json_decode($userResponse, TRUE) : NULL;
-        if (!is_array($profile) || empty($profile['email']) || !filter_var($profile['email'], FILTER_VALIDATE_EMAIL) || !in_array($profile['email_verified'], array(TRUE, 'true', 1, '1'), TRUE)) return $this->output->set_status_header(401)->set_output('{"error":"Akun Google tidak memberikan email terverifikasi."}');
+        $this->load->helper('citizen_identity');
+        if (!citizen_google_profile_valid($profile)) return $this->auth_error('Akun Google tidak memberikan identitas dan email terverifikasi.', 401);
         if (!$this->database_ready() || !$this->db->table_exists('citizens')) return $this->database_error();
         $email = strtolower($profile['email']);
-        $citizen = $this->semesta->find_citizen_by_email($email);
+        $citizen = $this->semesta->find_citizen_by_google_sub($profile['sub']);
+        if (!$citizen) {
+            $existing = $this->semesta->find_citizen_by_email($email);
+            if ($existing) {
+                $sameSession = (int) $this->session->userdata('citizen_id') === (int) $existing['id'];
+                if (!empty($existing['google_sub']) || $existing['account_type'] === 'admin' || (!$sameSession && !citizen_google_can_link_email($profile))) return $this->auth_error('Email ini sudah memiliki akun. Masuk dengan kata sandi terlebih dahulu, lalu hubungkan Google dari profil.', 409);
+                if (empty($existing['is_active'])) return $this->auth_error('Akun warga ini sedang dinonaktifkan. Hubungi admin.', 403);
+                if (!$this->semesta->update_citizen($existing['id'], array('google_sub' => $profile['sub']))) return $this->database_error();
+                $citizen = $existing;
+            }
+        }
         if ($citizen) {
-            if (empty($citizen['is_active'])) return $this->output->set_status_header(403)->set_output('{"error":"Akun warga ini sedang dinonaktifkan. Hubungi admin."}');
-            if ((int) $citizen['email_verified'] !== 1) $this->semesta->update_citizen($citizen['id'], array('email_verified' => 1, 'verification_token_hash' => NULL, 'verification_expires_at' => NULL));
+            if (empty($citizen['is_active'])) return $this->auth_error('Akun warga ini sedang dinonaktifkan. Hubungi admin.', 403);
+            // A Google subject survives an email change. Never transfer the new
+            // address's verification claim onto the account's old saved email.
+            $sameEmail = strcasecmp((string) $citizen['email'], $email) === 0;
+            $verification = $sameEmail ? 1 : 0;
+            if ((int) $citizen['email_verified'] !== $verification) {
+                $changes = array('email_verified' => $verification);
+                if ($sameEmail) $changes += array('verification_token_hash' => NULL, 'verification_expires_at' => NULL);
+                if (!$this->semesta->update_citizen($citizen['id'], $changes)) return $this->database_error();
+            }
         } else {
             $base = strtolower(substr(strstr($email, '@', TRUE), 0, 22));
             $base = trim(preg_replace('/[^a-z0-9_.-]/', '-', $base), '._-');
@@ -586,18 +753,19 @@ class Api extends CI_Controller
             $username = $base;
             while ($this->semesta->find_citizen_by_username($username)) $username = substr($base, 0, 22) . '-' . strtolower(bin2hex(random_bytes(3)));
             $display = trim(strip_tags(isset($profile['name']) ? $profile['name'] : $username));
-            $id = $this->semesta->create_citizen(array('username' => $username, 'email' => $email, 'display_name' => substr($display ?: $username, 0, 40), 'password_hash' => password_hash(bin2hex(random_bytes(32)), PASSWORD_DEFAULT), 'email_verified' => 1, 'verification_token_hash' => NULL, 'verification_expires_at' => NULL, 'avatar' => 'warga', 'house' => 'rumah-kayu'));
+            $id = $this->semesta->create_citizen(array('google_sub' => $profile['sub'], 'account_type' => 'citizen', 'username' => $username, 'email' => $email, 'display_name' => mb_substr($display ?: $username, 0, 40), 'password_hash' => password_hash(bin2hex(random_bytes(32)), PASSWORD_DEFAULT), 'email_verified' => 1, 'verification_token_hash' => NULL, 'verification_expires_at' => NULL, 'avatar' => 'warga', 'house' => 'rumah-kayu'));
             if (!$id) return $this->database_error();
             $citizen = $this->semesta->find_citizen_by_email($email);
         }
         if (!$citizen) return $this->database_error();
         $this->session->sess_regenerate(TRUE);
         $this->session->set_userdata('citizen_id', (int) $citizen['id']);
-        return redirect(base_url());
+        return redirect(base_url('?signed_in=google'));
     }
 
     private function verify_email($method)
     {
+        $this->output->set_header('Cache-Control: no-store')->set_header('Referrer-Policy: no-referrer')->set_content_type('text/html', 'utf-8');
         if ($method !== 'GET') return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
         if (!$this->database_ready() || !$this->db->table_exists('citizens')) return $this->database_error();
         $token = (string) $this->input->get('token', TRUE);
@@ -612,7 +780,7 @@ class Api extends CI_Controller
                 'success' => FALSE,
             ));
         }
-        $this->semesta->update_citizen($citizen['id'], array('email_verified' => 1, 'verification_token_hash' => NULL, 'verification_expires_at' => NULL));
+        if (!$this->semesta->update_citizen($citizen['id'], array('email_verified' => 1, 'verification_token_hash' => NULL, 'verification_expires_at' => NULL))) return $this->database_error();
         return redirect(base_url('?email_verified=1'));
     }
 

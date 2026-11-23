@@ -9,8 +9,6 @@ import {DAY2_SPEAKERS} from './production-day2.js';
 import {STORY_CLIPS} from './production-audio-catalog.js';
 import {displaySpeechText} from './production-speech-text.js';
 import {speakerCastId} from './production-speech-cues.js';
-import {isUneditedBuiltInEpisode} from './production-episode-origin.js';
-import {setWorldPhase} from './republic-world-layout.js';
 import {PRODUCTION_EPISODES,LATEST_EPISODE,scenarioForEpisode,episodeForScenario} from './production-episodes.js';
 import {hasStoryAudio,loadStoryAudio} from './production-story-audio.js';
 import {migrateProductionDraft,resolveProductionDraft,isPristineProductionDraft} from './production-draft-migration.js';
@@ -34,7 +32,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   let scenario=initialScenario?validateScenario(initialScenario):scenarioForEpisode(LATEST_EPISODE),storageNotice='';
   if(persist&&!initialScenario)try{const saved=localStorage.getItem(STORAGE);if(saved)scenario=validateScenario(resolveProductionDraft(JSON.parse(saved),{emptyIntent:localStorage.getItem(STORAGE+'.empty-intent')==='true',preferredEpisode:localStorage.getItem(STORAGE+'.selected-episode')}));}catch{try{localStorage.setItem(STORAGE+'.unreadable-backup',localStorage.getItem(STORAGE)||'');}catch{}storageNotice='Draf lokal tidak dapat dibaca. Day 2 bawaan dibuka; salinan data lama disimpan untuk pemulihan.';}
   let restoredDifferentDraft=persist&&!initialScenario&&!isPristineProductionDraft(scenario);
-  let stage=null,renderer=null,rebuilding=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false,playbackFromStart=false;
+  let stage=null,renderer=null,rebuilding=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false;
   let audioContext=null,audioSource=null,mixed=null,exportAbort=null,downloadUrl=null,format='portrait',quality='1080',guides=false,playVersion=0,audioLoading=0;
   const audioVersion=[0,0];
   let storyEnabled=true,rhythmEnabled=true;
@@ -130,13 +128,12 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     mixed=await mixAudio([...automatic,...tracks],stage.compiled.duration);return mixed;
   }
   function pause(){playVersion++;playing=false;cancelAnimationFrame(raf);stopAudio();controls();}
-  function tick(){if(!playing||disposed)return;time=Math.min(stage.compiled.duration,(audioSource?audioContext.currentTime:performance.now()/1000)-started);draw();if(time>=stage.compiled.duration){pause();if(playbackFromStart&&scenario.episode==='day2'&&scenario.worldPhaseOnComplete==='after-day2'&&isUneditedBuiltInEpisode(scenario))setWorldPhase('after-day2',{source:'day2-playback'});playbackFromStart=false;status('Pemutaran selesai. MP4 siap dibuat.');}else raf=requestAnimationFrame(tick);}
+  function tick(){if(!playing||disposed)return;time=Math.min(stage.compiled.duration,(audioSource?audioContext.currentTime:performance.now()/1000)-started);draw();if(time>=stage.compiled.duration){pause();status('Pemutaran selesai. MP4 siap dibuat.');}else raf=requestAnimationFrame(tick);}
   async function play(){
     if(playing){pause();return;}
     const attempt=++playVersion;starting=true;controls();
     try{
       if(time>=stage.compiled.duration)time=0;
-      if(time===0)playbackFromStart=true;
       if(tracks.some(t=>t.buffer)||((storyEnabled||rhythmEnabled)&&hasStoryAudio(scenario))){
         audioContext ||= new AudioContext();await audioContext.resume();await prepareAudio();
       }
@@ -146,7 +143,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     }catch(error){status(error.message);}finally{starting=false;if(!disposed)controls();}
   }
   async function rebuild(){
-    const version=++loadVersion;pause();playbackFromStart=false;stage?.dispose();stage=null;time=0;mixed=null;invalidateDownload();
+    const version=++loadVersion;pause();stage?.dispose();stage=null;time=0;mixed=null;invalidateDownload();
     const hasShots=scenario.shots.length>0;el('.ps-empty').hidden=hasShots;el('[data-seek]').max=durationOf(scenario);controls();
     el('[data-time]').textContent=`0:00.0 / ${stamp(durationOf(scenario))}`;
     if(!hasShots){ctx.fillStyle='#18333d';ctx.fillRect(0,0,canvas.width,canvas.height);el('[data-shot-status]').textContent='Belum ada adegan.';status(storageNotice||'Workspace kosong. Pilih episode atau tambahkan adegan.');storageNotice='';return;}
@@ -161,7 +158,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   function update(next,{scene=false}={}){
     try{scenario=validateScenario(next);}catch(error){status(error.message);form();controls();return;}
     if(persist)try{if(scenario.shots.length)localStorage.removeItem(STORAGE+'.empty-intent');else localStorage.setItem(STORAGE+'.empty-intent','true');}catch{}
-    pause();playbackFromStart=false;invalidateDownload();mixed=null;saveDraft();form();
+    pause();invalidateDownload();mixed=null;saveDraft();form();
     if(scene||!stage||!scenario.shots.length){rebuilding=rebuild();return;}
     stage.setScenario(scenario);time=0;el('[data-seek]').max=durationOf(scenario);draw();controls();
   }
@@ -179,7 +176,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     restoredDifferentDraft=!isPristineProductionDraft(next);clearSessionAudio();update(next,{scene:true});
   }
   async function exportVideo(){
-    pause();playbackFromStart=false;exporting=true;exportAbort=new AbortController();invalidateDownload();el('[data-progress]').removeAttribute('value');controls();const oldTime=time;
+    pause();exporting=true;exportAbort=new AbortController();invalidateDownload();el('[data-progress]').removeAttribute('value');controls();const oldTime=time;
     let exportStage='Menyiapkan pratinjau',wakeLock;
     status('Menyiapkan pratinjau untuk MP4…');
     try{
@@ -228,7 +225,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     const command=button.dataset.command;
     if(command==='fullscreen'){if(!exporting)void fullscreen.toggle();return;}
     if(command==='cancel'){exportAbort?.abort();return;}if(exporting||starting||audioLoading)return;
-    if(command==='play'){void play();return;}if(command==='stop'){pause();playbackFromStart=false;time=0;draw();return;}
+    if(command==='play'){void play();return;}if(command==='stop'){pause();time=0;draw();return;}
     if(command==='export'){void exportVideo();return;}
     if(command==='save'){download(new Blob([JSON.stringify(scenario,null,2)],{type:'application/json'}),`${filename(scenario.title)}.json`);return;}
     if(command==='srt'){download(new Blob([srtFor(scenario)],{type:'text/plain;charset=utf-8'}),`${filename(scenario.title)}.srt`);return;}
@@ -239,7 +236,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
       restoredDifferentDraft=false;
       clearSessionAudio();update(command==='new'?blankScenario():command==='day1-opening'?day1OpeningScenario():rehearsalScenario(),{scene:true});return;
     }
-    if(button.dataset.jump!==undefined){if(!stage)return;pause();playbackFromStart=false;time=compileScenario(scenario).shots[Number(button.dataset.jump)].start;draw();return;}
+    if(button.dataset.jump!==undefined){if(!stage)return;pause();time=compileScenario(scenario).shots[Number(button.dataset.jump)].start;draw();return;}
     if(button.dataset.audioRemove!==undefined){const i=Number(button.dataset.audioRemove);pause();tracks[i].buffer=null;mixed=null;invalidateDownload();el(`[data-audio-file="${i}"]`).value='';el(`[data-audio-name="${i}"]`).textContent='Tanpa audio';return;}
     const next=structuredClone(scenario);let scene=false,changed=true;
     if(command==='add'){next.shots.push({id:crypto.randomUUID(),label:`Adegan ${next.shots.length+1}`,duration:3,camera:'wide',focus:next.cast[0].id,caption:'',actors:Object.fromEntries(next.cast.map(c=>[c.id,{action:'Idle',yaw:0}]))});}
@@ -256,7 +253,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     const file=event.target.files[0];if(!file)return;
     try{if(file.size>200000)throw new Error('Berkas skenario maksimal 200 KB.');const next=validateScenario(JSON.parse(await file.text()));update(next,{scene:true});}catch(error){status(`Skenario belum dibuka: ${error.message}`);}finally{event.target.value='';}
   });
-  listen(el('[data-seek]'),'input',event=>{if(exporting)return;pause();playbackFromStart=false;time=Number(event.target.value);draw();});
+  listen(el('[data-seek]'),'input',event=>{if(exporting)return;pause();time=Number(event.target.value);draw();});
   listen(el('[data-format]'),'change',event=>{pause();format=event.target.value;canvas.style.aspectRatio=`${OUTPUTS[format].width}/${OUTPUTS[format].height}`;invalidateDownload();draw();});
   listen(el('[data-quality]'),'change',event=>{quality=event.target.value;invalidateDownload();});
   for(const selector of ['[data-story-audio]','[data-story-rhythm]'])listen(el(selector),'change',()=>{pause();storyEnabled=el('[data-story-audio]').checked;rhythmEnabled=el('[data-story-rhythm]').checked;mixed=null;invalidateDownload();});

@@ -87,7 +87,7 @@ const total=Number(q('[data-seek]').max);
 const seek=q('[data-seek]');seek.value=total-.05;seek.dispatchEvent(new win.Event('input',{bubbles:true}));
 assert.equal(getWorldPhase(),'before-day2','Seeking to the ending must not build the city');
 click('[data-command="play"]');await flush();clock+=1;frame();assert.equal(getWorldPhase(),'before-day2','Playing only a seeked ending is not a completed episode');
-click('[data-command="stop"]');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'after-day2','Natural canonical Day 2 playback completion updates the shared city phase');
+click('[data-command="stop"]');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'before-day2','Even full canonical playback never publishes the world');assert.equal(localStorage.getItem('republic-world-phase-v1'),null,'Playback writes no phase storage');
 setWorldPhase('before-day2');change('[data-field="title"]','Draf cerita yang saya edit');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'before-day2','Authored drafts never advance the public city state');
 studio.dispose();
 let releaseScene;

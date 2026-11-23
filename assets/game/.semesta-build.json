@@ -1,20 +1,22 @@
 {
   "version": 2,
-  "sourceHash": "561e265e07aac2076212df46f4cd2bc24c13af595d47e1a90335d0d616b479fb",
+  "sourceHash": "7feca074aed6281e4fff13dfee398cbc0d0363717f6fe28eb36a5929acb45ae5",
   "outputs": {
-    "assets/game/.vite/manifest.json": "c9c41c87ad6b013a83d66fa76a2ceca50fcf39f2caeb3f1f8ff54e8d479d5b29",
+    "assets/game/.vite/manifest.json": "b5defd7b2676f29620cdf536737f1190606fe532c59324a68678f148d32afc6a",
     "assets/game/assets/__vite-browser-external-CYarHYxD.js": "324af4b1e37a9a0e6db4bf66b35c17bae54d3b0ed31e82e38db73ea7c7a88714",
-    "assets/game/assets/admin-VWOY44H3.js": "27142f28a23121199dad56eaa865907a4b1206762439536aac5b794ce0bf9564",
+    "assets/game/assets/admin-CbXffYsK.js": "256d23d61ed0f7da493983b61afaa903ab4e05c6882e2c527ea83fbafce24d4c",
+    "assets/game/assets/admin-world-state-Dm1tYtvT.js": "d9c5b2c94ed862642764a01df0e19c7b6e4be40ab842aeea7f8d9a65874d82cf",
     "assets/game/assets/bgn-logo-official-CNL6oYL0.png": "75e80b35bc80c701ee102d4820b110e4269eff1e0c53f595601951071a5153ff",
-    "assets/game/assets/game-DkVr4JM1.js": "68a39fd761e75a347a431fc1e4b1a9a6f88a479ffd3553b2698547dd3f01f169",
-    "assets/game/assets/mediabunny-aac-encoder-Cbc9mO3u.js": "cd427bd7e40967f5112f892727ba5d75010159feec02ea8d1b15fa6147e835aa",
-    "assets/game/assets/preload-helper-DylvPKTu.js": "77c486d68361f9b5e6a17ef0d1a50a911ee81beebe52d9e45f10f67aff98a3bb",
-    "assets/game/assets/production-studio-DFkNS8qU.js": "d1c75985dbf322eb9d8bbf0c4bd5913c22348d65d95bb6abbd544e08065bb3cc",
-    "assets/game/assets/republic-capital-scene-BDqLkQvu.js": "f06752e718e9fe06a42070fc306de619a273757e7419ea5b83910f18b4daa070",
-    "assets/game/assets/republic-openworld-Csdz0wYy.js": "c93a3526cd0fb02f3e75163b6e6ae261e47a48dedc545b510e7c05ad28820088",
-    "assets/game/assets/republic-world-layout-DUa2fOEa.js": "1a511bd87de7ea17c899a266a43c89c1b491f6ece0840811fdefe5488abf45ac",
+    "assets/game/assets/citizen-home-BiOjbeqm.css": "82cc5a074029f093e2ff76b79867f523f09249aab720984166ea6a727a0355c9",
+    "assets/game/assets/game-CobiKgVN.js": "3f6a448c81fc8b8943c104379ae51198b7091091ed44021a2400610a2dd0e450",
+    "assets/game/assets/mediabunny-aac-encoder-BoaLpU5G.js": "231e76802651101bd0f1c00d0b1e34c6c9dfdd6e085c267b6b2a0743f559d918",
+    "assets/game/assets/preload-helper-8mOwI8Ez.js": "9b938b93c8d99754fa4539cdb34769c98b84fa8a45b97a1495453ad750ddf804",
+    "assets/game/assets/production-studio-7MGnI4KB.js": "811ede1c530003d637f6a18694883c27225043eab24a937b248bcf5fbe6d6049",
+    "assets/game/assets/republic-capital-scene-BoTv5-ls.js": "99dff04f41945a27c69cfa9c778eca9468f78f113e947b878168aef642745e7d",
+    "assets/game/assets/republic-construction-D84bOVJJ.css": "7f090f0a16fd57556efee29912c8e28cec122d73d044aa12e977899f46581a34",
+    "assets/game/assets/republic-openworld-CGoG6-yQ.js": "72a788d687c62a2e5578c12473051c53d683c7d03c18f849195c7ab1029e3395",
+    "assets/game/assets/republic-world-layout-B6j6zHEk.js": "e856ff72f72eb3839e720913f6ca4ca17c2d2a1a1b6b39775606b3181a445a5d",
     "assets/game/assets/rolldown-runtime-COiEfhsA.js": "174e7e98105b02138bee9b4c62dfc8a01980db395f9e6c916db999c091115562",
-    "assets/game/assets/src-HcwaKfSh.js": "f35c7199bb80860bbbff5ba2970dee608e90b2d12a8b957825e031421df40ea4",
-    "assets/game/assets/three.module-BgtcbXTu.js": "2a4d9e2fb22f8b5b28fb5050b1ba754bf62740d4a0b6fcfe10f26f1a776a3f4d"
+    "assets/game/assets/src-HcwaKfSh.js": "f35c7199bb80860bbbff5ba2970dee608e90b2d12a8b957825e031421df40ea4"
   }
 }

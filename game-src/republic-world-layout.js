@@ -13,7 +13,8 @@ export const WORLD_DESTINATIONS=Object.freeze({
   surabaya:destination('surabaya','Surabawow',1100,300,'mainland'),
   makassar:destination('makassar','Makasabar',-1150,1550,'makassar-island'),
 });
-const coastRadius=(angle,seed)=>1+.055*Math.sin(angle*3+seed)+.026*Math.cos(angle*7-seed);
+// Broad bays and small headlands share one function with the terrain shoreline.
+const coastRadius=(angle,seed)=>1+.09*Math.sin(angle*3+seed)+.045*Math.cos(angle*7-seed)+.025*Math.sin(angle*13+seed*.7)+.012*Math.cos(angle*23-seed);
 function landmass(id,name,x,z,rx,rz,rotation,seed){
   const center={x,z},radius={x:rx,z:rz};
   const outline=Array.from({length:144},(_,i)=>{const a=i/144*Math.PI*2,r=coastRadius(a,seed),px=Math.cos(a)*rx*r,pz=Math.sin(a)*rz*r;return [x+px*Math.cos(rotation)-pz*Math.sin(rotation),z+px*Math.sin(rotation)+pz*Math.cos(rotation)];});
@@ -99,10 +100,22 @@ export const CAPITAL_LAYOUT=Object.freeze({
 });
 
 export function normalizeWorldPhase(value){return value==='after-day2'?'after-day2':'before-day2';}
+let publishedWorld=false,publishedPhase='before-day2';
+/** Public entry opts into server authority before mounting any maps. Explicit
+ * storage arguments remain available to offline scene/inspection tools. */
+export function usePublishedWorldPhase(){publishedWorld=true;}
+export function applyPublishedWorldPhase(value){
+  const next=normalizeWorldPhase(value),changed=next!==publishedPhase;publishedWorld=true;publishedPhase=next;
+  const target=globalThis.window||globalThis;
+  if(changed&&target.dispatchEvent&&globalThis.CustomEvent)target.dispatchEvent(new CustomEvent(WORLD_PHASE_EVENT,{detail:{phase:next,source:'server'}}));
+  return next;
+}
 export function getWorldPhase(storage){
+  if(publishedWorld&&!storage)return publishedPhase;
   try{const item=(storage||globalThis.localStorage)?.getItem(WORLD_PHASE_KEY);const record=JSON.parse(item||'null');return normalizeWorldPhase(typeof record==='string'?record:record?.phase);}catch{return 'before-day2';}
 }
 export function setWorldPhase(value,{persist=true,source='inspection',storage}={}){
+  if(publishedWorld&&!storage)return publishedPhase;
   const phase=normalizeWorldPhase(value),detail={phase,source,updatedAt:new Date().toISOString()};
   if(persist)try{(storage||globalThis.localStorage)?.setItem(WORLD_PHASE_KEY,JSON.stringify(detail));}catch{/* A local preview still works when storage is unavailable. */}
   if(globalThis.dispatchEvent&&globalThis.CustomEvent)globalThis.dispatchEvent(new CustomEvent(WORLD_PHASE_EVENT,{detail}));

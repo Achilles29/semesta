@@ -75,6 +75,9 @@
 .rm-region-key{position:absolute;z-index:4;bottom:12px;left:12px;display:flex;gap:10px;background:#f6f3e7df;border:1px solid #cdd9ba;border-radius:6px;padding:8px 11px;color:#536e58;font:600 8px Arial}
 .rm-detail-button{padding:10px 8px;border:1px solid #b3c5ad;border-radius:8px;background:#edf1df;color:#3e6854;font:700 8px var(--mono,monospace);margin-top:9px;cursor:pointer}
 .rm-civic-detail[hidden]{display:none}
+.rm-civic-detail summary{cursor:pointer;min-height:40px;display:list-item;align-content:center;font:700 12px Arial;color:#365b52;padding:8px}
+.rm-civic-detail details>div{max-height:min(230px,40vh);overflow:auto;overscroll-behavior:contain}
+.rm-civic-detail summary:focus-visible{outline:3px solid #c6a85e;outline-offset:2px;border-radius:5px}
 #regionScreen .location-info{border:1px solid #d4ddca;background:#f9f8ef;box-shadow:none;border-radius:10px}
 #regionScreen .location-emoji{background:#e7edda;color:#709066;font:700 17px var(--mono,monospace);border-radius:50%}
 #regionScreen .primary-button{background:#2f6858;box-shadow:none}
@@ -129,3 +132,52 @@
   .rm-zone-pin{font-size:11px;min-height:40px}.rm-zone-pin small{font-size:9px}.rm-civic-detail{min-width:170px;padding:8px}.rm-civic-detail button{font-size:11px;min-height:40px}.rm-civic-detail small{font-size:10px}.rm-civic-detail>b{font-size:10px}
   .rm-region-key{font-size:10px;gap:8px;flex-wrap:wrap;max-width:calc(100% - 20px);padding:8px}.rm-plan-legend{font-size:10px;gap:6px;padding:8px}
 }
+
+/* Citizen atlas: clear destinations, illustrated terrain, fewer repeated panels. */
+.world-body #worldScreen,.world-body #regionScreen{background:radial-gradient(ellipse at 80% 10%,#e5eee6,transparent 65%),#f4f5ed}
+#worldScreen .screen-heading,.world-body #regionScreen .city-heading{margin-bottom:15px}
+#worldScreen .page-foot,#regionScreen .page-foot,#regionScreen .city-id,#regionScreen .location-emoji,#regionScreen .walk-note{display:none}
+#worldScreen .world-map-card,#regionScreen .city-map-card{border-radius:18px;overflow:hidden;border-color:#c5d7ce;box-shadow:0 16px 44px #194b4314}
+#worldScreen .rm-atlas-mount{inset:0 0 56px}
+.rm-world-plane{left:0;top:0;width:100%;height:100%}
+.rm-atlas-help{position:absolute;inset:auto 0 0;height:56px;padding:9px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#f6f7ef;color:#56706b;font-size:12px;border-top:1px solid #d5e0d5}
+#worldScreen .rm-atlas-help #enterCity{min-width:0;flex-basis:auto;width:auto;border:1px solid #c5d4c8;border-radius:8px;background:#e9efdf;color:#2b6151;padding:8px 13px;min-height:36px;font:700 12px Arial;cursor:pointer}
+.rm-map-controls{gap:6px;right:15px;top:15px;align-items:center}
+.rm-map-controls button{background:#f8f6eaf0;border:1px solid #c5d6cb;color:#23544f;box-shadow:0 3px 10px #173b3c1a;border-radius:10px}
+.rm-map-controls button:hover{background:#fff9df;color:#123e3b}
+.rm-map-controls button:focus-visible,.rm-city-pin:focus-visible>span,.rm-district-pin:focus-visible>span{outline:3px solid #f6cf6b;outline-offset:3px}
+.rm-map-controls .rm-map-reset{height:auto;min-height:58px;width:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:7px 2px}
+.rm-map-reset svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rm-map-reset span{font:600 9px/1.25 Arial;white-space:normal}
+.rm-city-pin,.rm-city-pin.selected{width:18px;height:18px;min-height:0;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;gap:0}
+.rm-city-pin>i{position:absolute;inset:3px;width:12px;height:12px;border:2px solid #fff7d4;background:#e4b566;box-shadow:0 0 0 5px #fff1c224,0 3px 8px #173b4160}
+.rm-city-pin>span{position:absolute;left:50%;top:24px;transform:translateX(-50%);min-width:100px;padding:9px 13px;border:1px solid #dfeddc;border-radius:10px;background:#fffdf0f5;box-shadow:0 5px 16px #143a4529;color:#244f48;text-align:center}
+.rm-city-pin b{font:700 14px/1.15 var(--display,Arial)}.rm-city-pin small{font:500 9px/1.3 Arial;color:#738471;letter-spacing:.02em}
+.rm-city-pin.selected>span{border-color:#e9c981;background:#fff1c9;box-shadow:0 0 0 3px #efd59722,0 5px 16px #143a4538}
+.rm-city-pin.selected>i{background:#edc278;border-color:#fff8d6}
+.rm-city-pin[data-destination="bandung"]>span{top:auto;bottom:25px}
+.rm-city-pin[data-destination="surabaya"]>span{top:auto;bottom:25px}
+.rm-city-pin:hover>span{background:#fff4c9;transform:translateX(-50%) translateY(-2px)}
+#regionScreen .location-info{align-self:center;border-radius:14px;background:#fffdf4;padding:22px;box-shadow:0 8px 24px #2c5e4810}
+#regionScreen .location-info h2{font-size:26px;line-height:1.15;letter-spacing:-.025em}
+#regionScreen .location-label{font-size:10px;color:#6a8b7c;letter-spacing:.08em}
+#regionScreen .local-tag{align-self:flex-start;border-radius:20px;padding:7px 10px;background:#e8eedc;color:#527555}
+.rm-region-key{border:0;background:#143e4acb;color:#ecf4df;box-shadow:none;pointer-events:none;letter-spacing:.015em}
+.rm-district-pin>span{border-radius:9px;border-color:#d7e5c9;background:#fffdf0f5;box-shadow:0 5px 15px #315c4b25;color:#29574b}
+.rm-district-pin.selected>span{background:#fff0bf;border-color:#dab56f;box-shadow:0 0 0 3px #efd59733,0 5px 15px #315c4b25}
+.rm-label-leader{background:#486f5f9c}
+@media(max-width:620px){
+  .world-body #worldScreen .world-map-card{min-height:465px}.world-body #worldScreen .world-map{min-height:390px}
+  #worldScreen .screen-heading h1{font-size:29px}#worldScreen .rm-atlas-mount{bottom:55px}
+  .rm-world-plane{left:0;width:100%;height:100%}
+  .rm-city-pin>span{min-width:87px;padding:8px 7px;top:20px;border-radius:8px}
+  .rm-city-pin b{font-size:11px}.rm-city-pin small{display:none}
+  .rm-city-pin[data-destination="bandung"]>span,.rm-city-pin[data-destination="surabaya"]>span{bottom:22px}
+  .rm-atlas-help{height:55px;padding:8px 10px;font-size:10px;gap:8px}.rm-atlas-help>span{max-width:160px}
+  #worldScreen .rm-atlas-help #enterCity{font-size:11px;min-height:38px;padding:7px 10px}
+  .rm-map-controls{top:9px;right:8px}.rm-map-controls button{width:40px;height:40px}.rm-map-controls .rm-map-reset{width:48px;min-height:52px}.rm-map-reset span{font-size:8px}
+  #regionScreen .location-info{align-self:stretch;margin-top:0;padding:16px;border-radius:13px}
+  .rm-region-key{max-width:calc(100% - 18px);font-size:10px}
+}
+.shared-world-notice{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:35;display:flex;align-items:center;gap:12px;width:max-content;max-width:calc(100vw - 32px);padding:10px 15px;border:1px solid #bfd3d7;border-radius:12px;background:#f3faf9;color:#254f58;box-shadow:0 4px 18px #173e4c15;font-size:13px;line-height:1.4}
+.shared-world-notice[hidden]{display:none}.shared-world-notice button{flex-shrink:0;border:0;background:#245c68;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}.capture-mode .shared-world-notice{display:none}

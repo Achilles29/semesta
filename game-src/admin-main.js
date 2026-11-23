@@ -530,6 +530,21 @@ async function initObjectGallery() {
   }
 }
 
+function initSharedWorldAdmin() {
+  const host=document.querySelector('#adminSharedWorld');if(!host)return;
+  let mounting=false,instance=null,disposed=false;
+  const open=async()=>{
+    if(disposed||mounting||!document.querySelector('#adminView-shared-world')?.classList.contains('active'))return;
+    if(instance){void instance.load();return;}
+    mounting=true;
+    try{const {mountAdminWorldState}=await import('./admin-world-state.js');if(!disposed)instance=mountAdminWorldState(host,{apiUrl:API_URL});}
+    catch(error){if(!disposed)host.textContent=`Dunia bersama belum dapat dibuka: ${error.message}. Buka kembali menu untuk mencoba lagi.`;}
+    finally{mounting=false;}
+  };
+  window.addEventListener('semesta:admin-view-change',open);void open();
+  window.addEventListener('pagehide',event=>{if(!event.persisted){disposed=true;instance?.dispose();window.removeEventListener('semesta:admin-view-change',open);}});
+}
+
 function initProductionStudio() {
   const host=document.querySelector('#adminProductionStudio');if(!host)return;
   let mounting=false,instance=null;
@@ -551,5 +566,5 @@ async function initAvatarStudio() {
 
 // Only the authenticated admin template loads this entry.
 if(document.body.classList.contains('admin-body')){
-  initAdminNavigation();initProductionStudio();initAvatarStudio();initWorldEditor();initObjectGallery();initIdeasInbox();initCitizenDirectory();initVisitorLogs();initMailSettings();
+  initAdminNavigation();initSharedWorldAdmin();initProductionStudio();initAvatarStudio();initWorldEditor();initObjectGallery();initIdeasInbox();initCitizenDirectory();initVisitorLogs();initMailSettings();
 }

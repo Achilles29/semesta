@@ -1,5 +1,7 @@
 # PR pengembangan Republik Wkwkwk
 
+**Acuan kelanjutan game sejak 23 November 2026 berada di [roadmap](../roadmap/README.md).** Daftar di bawah menyimpan pemeriksaan produksi/dunia sebelumnya; jumlah shot, durasi dan cue lama bukan sumber konfigurasi runtime. Gunakan script aktif untuk angka terbaru dan handover roadmap untuk perbaikan yang ditarik dari server.
+
 Pembaruan **22 November 2026**, setelah implementasi lokal Jakartawa dan revisi Day 2. Dokumen ini membedakan fitur yang sudah tersedia di pratinjau lokal, pemeriksaan teknis yang dilakukan, penerimaan video yang masih tertunda, serta pekerjaan dunia berikutnya. Implementasi lokal tidak berarti video sudah final atau kemajuan dunia sudah tersimpan global di server.
 
 Acuan konten: [PROMPT_ACUAN_PRODUKSI_KONTEN.md](PROMPT_ACUAN_PRODUKSI_KONTEN.md). Konsep kelanjutan: [Day 2 — Sudah Dibangun, Baru Ditanya](script/002-day-2-concept.md).
@@ -60,7 +62,7 @@ Lihat [rencana Jakartawa](world/KOTA_MULAMULA.md) dan [siteplan](world/kota-mula
 
 ## Pekerjaan berikutnya yang belum selesai
 
-- [ ] **Simpan kemajuan dunia global di server.** Saat ini fase memakai `localStorage` dan event browser; belum tersinkron antarperangkat, akun atau sesi pengguna lain. Jangan menyatakan semua pemain melihat bangunan yang sama secara global.
+- [x] **Simpan kemajuan dunia global di server.** Paket 23 November 2026 menambah API/database fase dan proyek bersama, publikasi admin, serta konstruksi rumah P01. LocalStorage tidak mengatur fase publik. Tes dua sesi/reload, konflik dan retry tercatat di [handover](../roadmap/03-HANDOVER-SERVER.md); penerimaan browser/perangkat dan deploy tetap terpisah.
 - [ ] Bangun rumah warga di atas fondasi setelah keputusan pembangunan, tentukan kebutuhan akses dasar serta mekanisme penempatan/penghunian tanpa mengarang kepemilikan akun.
 - [ ] Bangun fasilitas pendidikan, kesehatan, pasar/bengkel dan zona lain berdasarkan rekap kebutuhan; slot pada denah bukan gedung yang sudah ada.
 - [ ] Perluas kota kosong secara bertahap setelah cerita/keputusan yang mendasarinya tersedia.

@@ -3,7 +3,7 @@ import bpy,sys,pathlib
 from mathutils import Vector
 folder=pathlib.Path(sys.argv[sys.argv.index('--')+1])
 selected=next((arg[8:].split(',') for arg in sys.argv if arg.startswith('--views=')),None)
-target_folder=pathlib.Path('C:/xampp/htdocs/project/ilustrasi/world')
+target_folder=pathlib.Path(next((arg[9:] for arg in sys.argv if arg.startswith('--output=')),'C:/xampp/htdocs/project/ilustrasi/world'))
 target_folder.mkdir(parents=True,exist_ok=True)
 for source in sorted(folder.glob('*.glb')):
     if selected and source.stem not in selected:continue

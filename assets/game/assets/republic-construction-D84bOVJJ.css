@@ -1,0 +1,26 @@
+.republic-construction{position:absolute;inset:0;pointer-events:none;color:#f7f3df;font-family:Arial,sans-serif}
+.republic-construction[hidden]{display:none}
+.rc-card{position:absolute;right:18px;top:112px;width:278px;border:1px solid #dbdfba66;border-radius:14px;background:#204842ee;box-shadow:0 8px 35px #102d3038;pointer-events:auto;overflow:hidden}
+.rc-card summary{padding:12px 14px;cursor:pointer;min-height:58px}.rc-card summary>span{display:block;color:#d9c78d;font-size:10px;letter-spacing:.12em}.rc-card summary strong{display:block;margin-top:4px;font-size:15px}
+.rc-content{padding:0 14px 13px}.rc-content p{font-size:12px;line-height:1.45;margin:9px 0}.rc-content .rc-step{font-size:14px;font-weight:bold;color:#ffdd93}.rc-project-progress progress,.rc-content>progress{display:block;appearance:none;width:100%;height:7px;border:0;border-radius:8px;overflow:hidden;background:#ffffff24;accent-color:#d6bc68}.rc-project-progress progress::-webkit-progress-bar,.rc-content>progress::-webkit-progress-bar{background:#ffffff24}.rc-project-progress progress::-webkit-progress-value,.rc-content>progress::-webkit-progress-value{background:#d6bc68}.rc-project-progress>span{display:block;margin-top:5px;font-size:11px;color:#cbdacf}
+.rc-direction{display:flex;align-items:center;gap:9px}.rc-direction>b{display:grid;place-items:center;width:27px;height:27px;font-size:22px;color:#edce83}.rc-direction>span{font-size:12px}.rc-inventory{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-top:1px solid #ffffff1e;font-size:10px;color:#d7e3d3}
+.rc-content [data-notice]{min-height:0;color:#d5e7c5;font-size:11px}.rc-content [data-notice]:empty{display:none}.rc-content [data-notice].is-error{color:#ffd3a7}.rc-content button{min-height:40px;width:100%;border:1px solid #ffffff50;border-radius:7px;background:#ffffff12;color:#fff;font-size:12px;cursor:pointer}
+.rc-action{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);min-height:46px;min-width:190px;max-width:calc(100% - 32px);padding:11px 17px;border:1px solid #f8dc93;border-radius:24px;background:#c4a453;color:#233f38;box-shadow:0 4px 20px #193a3e55;font-size:13px;font-weight:bold;cursor:pointer;pointer-events:auto}.rc-action:disabled{background:#304e48;color:#dce1cd;border-color:#94a38b;cursor:default}.rc-action[hidden],.rc-content [hidden]{display:none}
+.capture-mode .republic-construction{display:none!important}
+.republic-world-overlay:has(.rw-card:not([hidden])) .rc-card{display:none}
+@media(max-width:620px),(pointer:coarse){.rc-card{right:10px;top:112px;width:218px}.rc-card summary{padding:9px 11px;min-height:50px}.rc-card summary strong{font-size:13px}.rc-content{padding:0 11px 10px}.rc-content p{font-size:12px;margin:7px 0}.rc-inventory{flex-wrap:wrap;font-size:10px}.rc-action{bottom:153px;min-height:44px;font-size:12px;min-width:185px}.rc-content .rc-step{font-size:13px}}
+@media(max-height:640px){.rc-card{top:86px;max-height:calc(100% - 270px);overflow:auto}.rc-content p{margin:5px 0}}
+@media(max-width:620px),(pointer:coarse){.republic-world-overlay:has(.republic-construction:not([hidden])) .rw-hint{display:none}}
+
+/* Shared HUD reserves map, home, activity and action regions at every size. */
+.rw-hud-active .rc-card{left:var(--rw-activity-x);top:var(--rw-activity-y);right:auto;bottom:auto;width:var(--rw-activity-width);max-height:var(--rw-activity-height);box-sizing:border-box;overflow:hidden}
+.rw-hud-active .rc-card summary{position:relative;box-sizing:border-box;min-height:54px;padding:9px 12px}.rw-hud-active .rc-card summary strong{font-size:13px}.rw-hud-active .rc-content{max-height:calc(var(--rw-activity-height) - 56px);overflow:auto;padding:0 12px 10px;overscroll-behavior:contain}.rw-hud-active .rc-content p{font-size:12px}.rw-hud-active .rc-inventory{font-size:11px;flex-wrap:wrap}.rw-hud-active .rc-project-progress>span{font-size:11px}
+.rw-hud-active .rc-action{left:var(--rw-action-x);top:var(--rw-action-y);width:var(--rw-action-width);height:var(--rw-action-height);min-width:0;min-height:44px;max-width:none;bottom:auto;right:auto;transform:none;padding:6px 10px;font-size:12px;box-sizing:border-box}
+/* A deliberately opened detail sheet can use the upper HUD, while leaving the
+   movement/action strip free. A 4px scroll area is not a usable expanded card. */
+.rw-hud-active[data-hud-phone=true] .rc-card[open],.rw-hud-active[data-hud-landscape=true] .rc-card[open]{left:10px;top:var(--rw-online-y);width:calc(100% - 80px);max-width:400px;max-height:calc(100% - var(--rw-online-y) - 180px);z-index:6}
+.rw-hud-active[data-hud-phone=true] .rc-card[open] .rc-content,.rw-hud-active[data-hud-landscape=true] .rc-card[open] .rc-content{max-height:calc(100dvh - var(--rw-online-y) - 240px)}
+.rw-hud-active:is([data-hud-phone=true],[data-hud-landscape=true]):has(.republic-construction:not([hidden]) .rc-card[open]) :is(.ch-panel,.rw-online,.rm-live-minimap){visibility:hidden;pointer-events:none}
+.rw-hud-active[data-hud-landscape=true] .rc-card[open]{top:56px;max-height:calc(100% - 200px)}
+.rw-hud-active[data-hud-landscape=true] .rc-card[open] .rc-content{max-height:calc(100dvh - 260px)}
+.rw-hud-active[data-hud-landscape=true]:has(.republic-construction:not([hidden]) .rc-card[open]) .explore-map-nav{visibility:hidden;pointer-events:none}

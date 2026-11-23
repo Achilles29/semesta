@@ -5,8 +5,8 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 import avatar_v14_common as c
 from avatar_v14_common import *
 from citizen_accessories import add_citizen_accessories
-p=argparse.ArgumentParser();p.add_argument('--ids',default='');p.add_argument('--face',action='store_true');p.add_argument('--faces',action='store_true');p.add_argument('--clip',default='Idle');p.add_argument('--angle',type=float,default=.1);p.add_argument('--bottoms',action='store_true');p.add_argument('--frame',type=int);p.add_argument('--samples',type=int,default=8);p.add_argument('--output-dir');a=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
-presets=json.loads((ROOT/'game-src/avatar-v15-presets.json').read_text(encoding='utf-8'));catalog=json.loads((ROOT/'game-src/avatar-v15-catalog.json').read_text(encoding='utf-8'))
+p=argparse.ArgumentParser();p.add_argument('--ids',default='');p.add_argument('--face',action='store_true');p.add_argument('--faces',action='store_true');p.add_argument('--clip',default='Idle');p.add_argument('--angle',type=float,default=.1);p.add_argument('--bottoms',action='store_true');p.add_argument('--frame',type=int);p.add_argument('--samples',type=int,default=8);p.add_argument('--output-dir');p.add_argument('--presets-json');a=p.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
+presets=json.loads((Path(a.presets_json) if a.presets_json else ROOT/'game-src/avatar-v15-presets.json').read_text(encoding='utf-8'));catalog=json.loads((ROOT/'game-src/avatar-v15-catalog.json').read_text(encoding='utf-8'))
 out=Path(a.output_dir).resolve() if a.output_dir else ROOT/'ilustrasi/avatar-v2/farmer-v15-proportions/presets';out.mkdir(parents=True,exist_ok=True);c.OUT=out
 if a.bottoms:
     import copy

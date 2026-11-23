@@ -1,5 +1,6 @@
 import designs from './citizen-accessory-designs.json' with {type:'json'};
 import roster from './citizen-roster.json' with {type:'json'};
+import professions from './citizen-professions.json' with {type:'json'};
 
 const citizens = new Map(roster.citizens.map(c => [c.presetId, c]));
 const disposeGroup = group => {
@@ -9,7 +10,8 @@ const disposeGroup = group => {
 
 /** Role props share their design source with the offline portrait renderer. */
 export function attachCitizenAccessories(THREE, actor, presetId) {
-  const figure = actor.figure, citizen = citizens.get(presetId);
+  const profession = /^profession-(.+)-(male|female)$/.exec(presetId || '');
+  const figure = actor.figure, citizen = citizens.get(presetId) || (profession && professions[profession[1]]);
   if(figure.userData.citizenAccessoryPreset === (presetId || '')) return;
   for(const group of figure.userData.citizenAccessoryGroups || []) disposeGroup(group);
   figure.userData.citizenAccessoryGroups = [];

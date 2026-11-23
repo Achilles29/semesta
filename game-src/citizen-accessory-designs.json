@@ -76,6 +76,17 @@
     }
   },
   "accessories": {
+    "chefHat": {
+      "bone": "head",
+      "parts": [
+        { "shape": "cylinder", "position": [0, -0.018, -0.006], "scale": [0.114, 0.026, 0.138], "color": "#f2f1e9", "roughness": 0.95 },
+        { "shape": "cylinder", "position": [0, 0.045, -0.006], "scale": [0.116, 0.046, 0.14], "color": "#f8f7ef", "roughness": 0.95 },
+        { "shape": "ellipsoid", "position": [0, 0.091, -0.006], "scale": [0.131, 0.038, 0.15], "color": "#f8f7ef", "roughness": 0.95 },
+        { "shape": "box", "position": [-0.047, 0.046, 0.121], "scale": [0.002, 0.042, 0.002], "color": "#d6d7d0" },
+        { "shape": "box", "position": [0, 0.046, 0.134], "scale": [0.002, 0.042, 0.002], "color": "#d6d7d0" },
+        { "shape": "box", "position": [0.047, 0.046, 0.121], "scale": [0.002, 0.042, 0.002], "color": "#d6d7d0" }
+      ]
+    },
     "hardhat": {
       "bone": "head",
       "parts": [

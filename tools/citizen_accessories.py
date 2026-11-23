@@ -21,6 +21,10 @@ CITIZENS = {
     citizen['presetId']: citizen
     for citizen in json.loads((ROOT / 'game-src/citizen-roster.json').read_text(encoding='utf-8'))['citizens']
 }
+PROFESSIONS = json.loads((ROOT / 'game-src/citizen-professions.json').read_text(encoding='utf-8'))
+for profession, design in PROFESSIONS.items():
+    for gender in ['male', 'female']:
+        CITIZENS[f'profession-{profession}-{gender}'] = {'accessories': design.get('accessories', [])}
 
 
 def _sphere(hemisphere=False):

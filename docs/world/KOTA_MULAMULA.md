@@ -1,5 +1,7 @@
 # Jakartawa: dunia dan urutan pembangunan
 
+Pengembangan berikut mengikuti [roadmap game](../../roadmap/README.md). Revisi lokal 23 November 2026 memperbarui ilustrasi atlas/wilayah dan detail pantai dari fungsi geometri bersama; ID, koordinat kota dan jalan tetap. Klik kota langsung membuka wilayah. Tombol **Lihat semua** mengembalikan pan/zoom peta. Fase global dan proyek konstruksi P01 tersimpan server; kepemilikan rumah masih tugas roadmap.
+
 Nama ibu kota kini **Jakartawa**. Nama berkas ini dipertahankan agar tautan dokumentasi lama tidak putus. Kota lain adalah **Bandunggul**, **Surabawow**, **Semarame**, dan **Makasabar**; ID `jakarta`, `bandung`, `surabaya`, `semarang`, dan `makassar` tetap menjadi kunci penyimpanan/API.
 
 Peta nasional, roadmap regional, denah ibu kota, dunia jelajah, serta latar episode memakai koordinat yang sama dari `game-src/republic-world-layout.js`. Jakartawa, Bandunggul dan Surabawow berada pada **satu daratan utama**; Semarame dan Makasabar masing-masing berada di pulau terpisah. Polygon `WORLD_LANDMASSES` pada atlas diturunkan dari garis pantai terrain yang sama, bukan gambar peta terpisah.
@@ -12,7 +14,9 @@ Setelah Day 2 (`after-day2`), Koplak Desa di `[4,0,-7]` dan SPPG di `[-7,0,-9]` 
 
 **Jelajah publik tidak memuat episode, pemutar, audio produksi atau kontrol studio.** Produksi hanya berada pada halaman admin. Bangunan, panggung dan terrain dipakai bersama melalui modul geometri netral `republic-civic-center.js`, `republic-civic-buildings.js` dan `republic-geometry.js`; modul public tidak mengimpor `production-*`. Pembuatan episode di admin memakai geometri tersebut dengan urutan konstruksi per komponen.
 
-Fase disimpan **lokal pada perangkat/browser**, bukan kemajuan global server. Selesainya pemutaran Day 2 kanonis pada admin dapat memajukan fase; membuka daftar episode atau melompat langsung ke akhir tidak dianggap pembangunan otomatis. Perubahan fase melalui event `republic:world-phase` menyelaraskan denah, minimap dan dunia. Pilihan fase untuk inspeksi tidak menyiratkan perubahan pada semua pemain.
+Fase resmi disimpan dalam `world_state`, dengan seed `after-day2`. `GET api?resource=world_state` mengirim versi/fase/progres proyek yang sama kepada semua pemain. Klien melakukan sinkronisasi sekitar tiga detik, mengabaikan fase localStorage dan mencegah respons lama memundurkan progres. Jelajah menunggu snapshot pertama; kegagalan koneksi menyediakan tombol ulang. Admin menerbitkan fase secara sengaja melalui **Dunia bersama**, dengan alasan dan riwayat. Playback/seek/ekspor episode tidak mengubah dunia.
+
+Proyek `jakartawa-home-01` berada di P01 `(29,-28)`, depot `(22,-10)`, titik kerja `(29,-21.5)`, radius interaksi tiga meter. Migrasi membuatnya **draft**. Aktivasi admin membuka 12 kit/pemasangan; status/progres rumah juga tampak pada denah dan minimap. Petak lain tetap fondasi. Pergantian fase Day 2 hanya mengatur dua gedung program, tidak menghapus kontribusi rumah. Lihat [handover](../../roadmap/03-HANDOVER-SERVER.md) untuk migrasi dan pengujian.
 
 ## Kawasan dan perjalanan
 

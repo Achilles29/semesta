@@ -93,6 +93,7 @@
         <link rel="stylesheet" href="<?= base_url('game-src/style.css?v=' . $source_css_version); ?>">
     <?php endif; ?>
     <link rel="stylesheet" href="<?= base_url('game-src/republic-map.css?v=' . filemtime(FCPATH . 'game-src/republic-map.css')); ?>">
+    <link rel="stylesheet" href="<?= base_url('game-src/citizen-auth.css?v=' . filemtime(FCPATH . 'game-src/citizen-auth.css')); ?>">
 </head>
 <body class="world-body">
     <main id="app" class="app-shell">
@@ -101,27 +102,29 @@
             <div class="game-hud-actions"><button class="profile-button" id="profileButton" type="button"><span class="avatar-chip" id="headerAvatar">↗</span><span id="headerCitizenName">MASUK / DAFTAR WARGA</span></button><a class="editor-link" href="<?= base_url('admin/'); ?>">⚙ ADMIN</a></div>
         </div>
 
+        <div class="shared-world-notice" id="sharedWorldNotice" hidden><span role="status">Memuat dunia bersama…</span><button type="button" id="retrySharedWorld">Coba lagi</button></div>
         <section class="citizen-panel" id="citizenPanel" aria-labelledby="citizenPanelTitle" hidden>
             <div class="citizen-card"><button class="citizen-close" id="closeCitizenPanel" type="button" aria-label="Tutup">×</button><span class="kicker">AKUN WARGA · REPUBLIK WKWKWK</span><h2 id="citizenPanelTitle">Masuk atau daftar</h2><p class="citizen-intro">Untuk masuk, cukup isi username dan kata sandi. Pendaftaran warga punya formulir tersendiri.</p>
                 <div class="citizen-tabs"><button type="button" data-auth-mode="register">DAFTAR WARGA</button><button type="button" class="active" data-auth-mode="login">MASUK</button></div>
-                <a class="google-sso-button" href="<?= base_url('api?resource=google_sso'); ?>"><span aria-hidden="true">G</span> LANJUTKAN DENGAN GOOGLE</a>
-                <div class="auth-divider"><span>ATAU PAKAI AKUN WARGA</span></div>
-                <form id="citizenForm"><label class="citizen-username">Username<input name="username" maxlength="32" autocomplete="username" pattern="[A-Za-z0-9_.-]{1,32}" title="Username memakai huruf, angka, titik, garis bawah, atau tanda hubung" required></label><label class="register-only">Email untuk verifikasi<input name="email" type="email" maxlength="190" autocomplete="email"></label><label class="verification-email" hidden>Email akun untuk kirim ulang tautan<input name="verificationEmail" type="email" maxlength="190" autocomplete="email"></label><label class="register-only">Nama warga<input name="displayName" maxlength="40" required></label><label>Kata sandi<input name="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" required></label>
-                    <div class="citizen-profile-fields" id="citizenProfileFields">
-                        <div class="citizen-profile-heading"><b>Profil dan biodata</b><small>Opsional · biodata hanya terlihat oleh Anda dan admin; kostum avatar terlihat di peta</small></div>
-                        <label>Jenis kelamin<select name="gender"><option value="">Pilih jika ingin mengisi</option></select></label>
-                        <label>Agama / kepercayaan<select name="religion"><option value="">Pilih jika ingin mengisi</option></select></label>
-                        <label>Provinsi tempat lahir<select name="birthProvince"><option value="">Pilih jika ingin mengisi</option></select></label>
-                        <label>Kota/kabupaten tempat lahir<input name="birthCity" maxlength="80" placeholder="Opsional"></label>
-                        <label>Tanggal lahir<input name="birthDate" type="date" min="1900-01-01"></label>
-                        <label>Pekerjaan<select name="occupation"><option value="">Pilih jika ingin mengisi</option></select></label>
-                        <label>Pendidikan terakhir<select name="educationLevel"><option value="">Pilih jika ingin mengisi</option></select></label>
-                        <label>Provinsi domisili<select name="domicileProvince"><option value="">Pilih jika ingin mengisi</option></select></label>
-                        <label>Kota/kabupaten domisili<input name="domicileCity" maxlength="80" placeholder="Opsional"></label>
+                <a class="google-sso-button" id="googleSsoButton" aria-disabled="true" href="<?= base_url('api?resource=google_sso'); ?>"><span class="google-sso-icon" aria-hidden="true">G</span><span class="google-sso-label" id="googleSsoLabel">Lanjutkan dengan Google</span></a>
+                <p id="authServiceStatus" class="auth-services" role="status">Memeriksa layanan akun…</p>
+                <article id="citizenIdentityCard" class="identity-card" aria-label="Kartu identitas warga game" hidden></article>
+                <form id="citizenForm">
+                    <label class="citizen-username"><span id="citizenUsernameLabel">Username atau email</span><input name="username" maxlength="190" autocomplete="username" autocapitalize="none" spellcheck="false" required></label>
+                    <label class="register-only">Email<input name="email" type="email" maxlength="190" autocomplete="email" placeholder="nama@email.com"></label>
+                    <label class="verification-email" hidden>Email akun untuk kirim ulang tautan<input name="verificationEmail" type="email" maxlength="190" autocomplete="email"></label>
+                    <label id="citizenDisplayNameLabel" class="register-only">Nama warga<input name="displayName" minlength="2" maxlength="40" autocomplete="nickname"></label>
+                    <label>Kata sandi<input name="password" type="password" minlength="8" maxlength="128" autocomplete="current-password" required></label>
+                    <div class="citizen-profile-fields" id="citizenProfileFields" hidden>
+                        <p class="profile-step"><b>01</b> Ceritakan karakter Anda</p>
+                        <label>Jenis kelamin karakter<select name="gender"><option value="">Pilih karakter</option></select></label>
+                        <label>Profesi di republik<select name="occupation"><option value="">Pilih profesi</option></select></label>
+                        <input type="hidden" name="religion"><input type="hidden" name="birthProvince"><input type="hidden" name="birthCity"><input type="hidden" name="birthDate"><input type="hidden" name="educationLevel"><input type="hidden" name="domicileProvince"><input type="hidden" name="domicileCity">
                         <input type="hidden" name="avatar" id="citizenAvatarSelect" value="warga">
-                        <div class="registration-avatar-choice" id="registrationAvatarChoice"><img id="registrationAvatarPreview" src="<?= base_url('public/models/characters/v15/portrait.png?v=' . filemtime(FCPATH . 'public/models/characters/v15/portrait.png')); ?>" alt="Pratinjau karakter 3D yang dipilih"><div><span>AVATAR KARAKTER DI PETA</span><b id="registrationAvatarName">Belum memilih avatar</b><small id="registrationAvatarHint">Pilih cowok atau cewek, lalu pilih salah satu avatar yang tersedia.</small><button type="button" id="chooseRegistrationAvatar">PILIH AVATAR ↗</button></div></div>
+                        <p class="profile-step"><b>02</b> Pilih penampilan, lalu mulai cerita</p>
+                        <div class="registration-avatar-choice" id="registrationAvatarChoice"><img id="registrationAvatarPreview" src="<?= base_url('public/models/characters/v15/portrait.png?v=' . filemtime(FCPATH . 'public/models/characters/v15/portrait.png')); ?>" alt="Pratinjau karakter 3D yang dipilih"><div><span>AVATAR KARAKTER DI PETA</span><b id="registrationAvatarName">Pilih karakter dan profesi</b><small id="registrationAvatarHint">Rekomendasi pakaian akan mengikuti profesi. Anda bebas meraciknya.</small><div class="registration-avatar-actions"><button type="button" id="useProfessionSuggestion">GUNAKAN SARAN PROFESI</button><button type="button" id="chooseRegistrationAvatar">RACIK / PILIH AVATAR ↗</button></div></div></div>
                     </div>
-                    <div class="register-only"><label>Pilih rumah</label><div class="choice-grid house-choices"><label><input type="radio" name="house" value="rumah-kayu" checked><span>🛖<b>Rumah kayu</b></span></label><label><input type="radio" name="house" value="rumah-bata"><span>🏠<b>Rumah bata</b></span></label><label><input type="radio" name="house" value="rumah-panggung"><span>🏡<b>Rumah panggung</b></span></label></div></div>
+                    <div class="register-only"><label>Gaya rumah impian</label><div class="choice-grid house-choices"><label><input type="radio" name="house" value="rumah-kayu" checked><span>🛖<b>Rumah kayu</b></span></label><label><input type="radio" name="house" value="rumah-bata"><span>🏠<b>Rumah bata</b></span></label><label><input type="radio" name="house" value="rumah-panggung"><span>🏡<b>Rumah panggung</b></span></label></div><p class="auth-services">Simpan gaya rumah impian Anda. Hunian awal berupa kamar pribadi di Wisma Warga, dibuka melalui tugas sambutan Bu Rani. Pilihan ini belum memberikan rumah tapak atau tanah.</p></div>
                     <p class="citizen-error" id="citizenError" role="alert"></p><button class="primary-button" type="submit" id="citizenSubmit">BUAT AKUN WARGA ↗</button><button type="button" class="citizen-logout" id="verificationResend" hidden>Kirim ulang email verifikasi</button><button type="button" class="citizen-logout" id="citizenLogout" hidden>Keluar dari akun ini</button>
                 </form>
             </div>
@@ -142,7 +145,7 @@
                 <div class="world-map" id="worldMap">
                     <div class="rm-atlas-mount" id="republicAtlas"><p class="rm-loading">Memuat kepulauan…</p></div>
                     <div class="map-avatar" id="mapAvatar" hidden aria-hidden="true"><b></b><span></span></div><div id="citizenHome" hidden aria-hidden="true"></div>
-                    <aside class="map-destination-card" aria-live="polite"><div class="map-destination-copy"><div class="map-destination-meta"><span id="destinationIcon">01</span><span id="destinationCountry">REPUBLIK WKWKWK · IBU KOTA</span></div><h2 id="destinationTitle">Jakartawa</h2><p id="destinationDesc">Dari panggung kecil dan fondasi rumah, kota pertama republik mulai tumbuh.</p><small id="destinationNote">Lihat denah, lalu jelajahi dunia bersama warga.</small></div><button class="primary-button" id="enterCity" type="button">BUKA PETA REGIONAL <span>↗</span></button></aside>
+                    <div class="rm-atlas-help"><span>Klik kota untuk membuka wilayahnya.</span><button id="enterCity" type="button">Buka Jakartawa ↗</button></div>
                 </div><div class="map-bottomline"><span><i></i> <span id="worldCitizenStatus">TAMU · PETA TERBUKA</span></span><span>ARAH PEMBANGUNAN DITENTUKAN WARGA</span></div>
             </div></div><div class="page-foot"><span>REPUBLIK WKWKWK <i>·</i> ATLAS DUNIA</span><span>BELUM ADA KOTA BESAR. KITA MEMULAINYA BERSAMA.</span></div>
         </section>

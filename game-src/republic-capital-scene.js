@@ -149,7 +149,7 @@ export const buildCapitalContext=createCapitalContext;
 
 /** Bounded residency: the countryside is streamed, not a huge set of live meshes.
  * Geometry evicted here is owned by the chunk, never by avatar/shared resources. */
-export function createRepublicTerrainStream({parent,city='jakarta',radius=2,size=64}={}){
+export function createRepublicTerrainStream({parent,city='jakarta',radius=2,size=64,reservedBounds=[]}={}){
   const root=new THREE.Group();root.name='RepublicStreamedTerrain';parent?.add(root);
   const terrainMaterial=new THREE.MeshStandardMaterial({color:0xffffff,vertexColors:true,roughness:1});
   const trunkGeometry=new THREE.CylinderGeometry(.17,.24,2.8,7),crownGeometry=new THREE.IcosahedronGeometry(1.6,1),rockGeometry=new THREE.IcosahedronGeometry(.65,0);
@@ -162,7 +162,7 @@ export function createRepublicTerrainStream({parent,city='jakarta',radius=2,size
     const inForest=WORLD_DISTRICTS.some(d=>d.kind==='forest'&&Math.abs(x0-d.rect.x)<d.rect.width/2+size&&Math.abs(z0-d.rect.z)<d.rect.depth/2+size);
     for(let i=0;i<(inForest?70:22);i++){
       const x=cx*size+hashWorld(cx*23+i,cz,21)*size,z=cz*size+hashWorld(cx,cz*31+i,37)*size,h=terrainHeight(x,z,city);
-      if(h<.35&&Math.hypot(x,z)>580||isReservedGround(x,z,city))continue;
+      if(h<.35&&Math.hypot(x,z)>580||isReservedGround(x,z,city)||reservedBounds.some(r=>x>=r.minX&&x<=r.maxX&&z>=r.minZ&&z<=r.maxZ))continue;
       const scale=.75+hashWorld(cx+i,cz-i,13)*.55;if(i%4===0)rocks.push({x,z,h,scale});else trees.push({x,z,h,scale});
     }
     const trunk=new THREE.InstancedMesh(trunkGeometry,trunkMaterial,trees.length),crowns=new THREE.InstancedMesh(crownGeometry,crownMaterial,trees.length),stones=new THREE.InstancedMesh(rockGeometry,rockMaterial,rocks.length);

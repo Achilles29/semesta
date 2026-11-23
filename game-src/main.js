@@ -1,9 +1,12 @@
+import { professionRecommendation } from './citizen-professions.js';
+import { renderIdentityCard, renderAuthAvailability } from './citizen-identity.js';
 import { createHumanModel, preloadAvatars, loadAvatarProfile, animateAvatar, avatarSpeed, disposeAvatar } from './avatar-runtime.js';
 import { attachCitizenAccessories } from './citizen-accessories.js';
 import { catalog as AVATAR_V15_CATALOG, presets as FARMER_PRESETS, avatarCharacterOptions as farmerCharacterOptions, normalizeAvatarConfig, mountAvatarEditor } from './avatar-v15-config.js';
 import { createAvatarThumbnails } from './avatar-catalog-thumbnails.js';
-import { WORLD_DESTINATIONS, WORLD_PHASE_EVENT, WORLD_PHASE_KEY, getWorldPhase } from './republic-world-layout.js';
-import { mountRepublicAtlas, mountRepublicRegionalMap, regionalLocation, mountRepublicSitePlan, mountRepublicMinimap, mountPhasePicker, mapLocation } from './republic-map.js';
+import { WORLD_DESTINATIONS, getWorldPhase, usePublishedWorldPhase } from './republic-world-layout.js';
+import { WORLD_STATE_EVENT, WORLD_SYNC_EVENT, getSharedWorldSnapshot, startSharedWorldSync } from './republic-world-state.js';
+import { mountRepublicAtlas, mountRepublicRegionalMap, regionalLocation, mountRepublicSitePlan, mountRepublicMinimap, mapLocation } from './republic-map.js';
 
 const $ = (selector) => document.querySelector(selector);
 const API_URL = window.SEMESTA_API_URL || new URL('api', document.baseURI).href;
@@ -51,12 +54,16 @@ let updateCitizenHeader = () => {};
 let authMode = 'login';
 let avatarCustomizerMode = 'account';
 let pendingAvatarConfig = null;
+let pendingAvatarManuallyChosen = false;
 let avatarThumbnailService = null;
 let avatarPreviewRequest = 0;
-async function renderAvatarPreview(config) {
+async function renderAvatarPreview(config, { identity = false } = {}) {
   const request = ++avatarPreviewRequest;
   const registrationImage = $('#registrationAvatarPreview');
-  const images = registrationImage && !$('#registrationAvatarChoice')?.hidden ? [registrationImage] : [];
+  const images = [];
+  if (registrationImage && !$('#citizenProfileFields')?.hidden) images.push(registrationImage);
+  const identityImage = $('#identityAvatarPreview');
+  if (identity && identityImage && !$('#citizenIdentityCard')?.hidden) images.push(identityImage);
   if (!images.length) return;
   try {
     await loadAvatarProfile(normalizeAvatarConfig(config).profileId);
@@ -179,20 +186,21 @@ function initAreaMusic() {
 }
 
 async function initCitizen() {
-  const panel = $('#citizenPanel');
+  const panel = $('#citizenPanel'), form = $('#citizenForm'), error = $('#citizenError');
+  const profileFields = $('#citizenProfileFields'), submit = $('#citizenSubmit');
+  const google = $('#googleSsoButton');
   const profileFieldNames = { gender:'gender', religion:'religion', birthProvince:'birth_province', birthCity:'birth_city', birthDate:'birth_date', occupation:'occupation', educationLevel:'education_level', domicileProvince:'domicile_province', domicileCity:'domicile_city' };
-  const profileFields = $('#citizenProfileFields');
-  const fillMasterSelect = (name, options) => {
-    const select = $('#citizenForm').elements[name]; if (!select) return;
-    const current = select.value; select.replaceChildren(new Option('Pilih jika ingin mengisi', ''));
-    (options || []).forEach((option) => select.add(new Option(option.label, option.value)));
-    if (current) select.value = current;
+  let authOptions = null, busy = false;
+  const message = (text, success = false) => { error.textContent = text; error.classList.toggle('success', success); };
+  const fillProfileForm = citizen => {
+    for (const [field, column] of Object.entries(profileFieldNames)) form.elements[field].value = citizen?.[column] || '';
+    form.elements.avatar.value = citizen?.avatar || 'warga';
+    form.elements.displayName.value = citizen?.display_name || '';
+    form.elements.house.value = citizen?.house || 'rumah-kayu';
   };
-  const fillProfileForm = (citizen) => {
-    for (const [field, column] of Object.entries(profileFieldNames)) $('#citizenForm').elements[field].value = citizen?.[column] || '';
-    $('#citizenForm').elements.avatar.value = citizen?.avatar || 'warga';
-  };
-  const updateHeader = updateCitizenHeader = (citizen) => {
+  const availability = () => renderAuthAvailability(authOptions, { google, status:$('#authServiceStatus'), submit, registering:!activeCitizen && authMode === 'register', loggedIn:!!activeCitizen });
+  const updateHeader = updateCitizenHeader = citizen => {
+    if ((citizen?.id || null) !== (activeCitizen?.id || null)) { pendingAvatarConfig = null; pendingAvatarManuallyChosen = false; }
     activeCitizen = citizen;
     document.body.classList.toggle('has-citizen', !!citizen);
     $('#headerAvatar').textContent = citizen ? (citizen.display_name?.trim()?.[0]?.toUpperCase() || 'W') : '↗';
@@ -201,125 +209,162 @@ async function initCitizen() {
     $('#mapAvatar').querySelector('span').textContent = citizen ? citizen.display_name.toUpperCase() : '';
     $('#worldCitizenStatus').textContent = citizen ? `${citizen.display_name.toUpperCase()} · ${citizen.account_type === 'admin' ? 'ADMIN' : 'WARGA'} AKTIF` : 'TAMU · PETA TERBUKA';
     const home = $('#citizenHome');
-    if (home) home.textContent = citizen ? `🏠 ${houseNames[citizen.house] || 'Rumah Warga'} · ${citizen.display_name}` : '';
-    window.dispatchEvent(new CustomEvent('semesta:citizen-change', { detail: { citizen } }));
+    if (home) home.textContent = citizen ? `⌂ ${houseNames[citizen.house] || 'Rumah Warga'} · ${citizen.display_name}` : '';
+    renderIdentityCard($('#citizenIdentityCard'), citizen);
+    const config = parsedAvatarConfig(citizen?.avatar_config);
+    if (config) renderAvatarPreview(config, { identity:true });
+    window.dispatchEvent(new CustomEvent('semesta:citizen-change', { detail:{ citizen } }));
+  };
+  const recommend = (explicit = false) => {
+    if (!explicit && (pendingAvatarManuallyChosen || parsedAvatarConfig(activeCitizen?.avatar_config))) return;
+    const suggestion = professionRecommendation(form.elements.occupation.value, form.elements.gender.value);
+    if (!suggestion) {
+      $('#registrationAvatarHint').textContent = 'Pilih jenis kelamin karakter dan profesi, atau pilih penampilan sendiri lewat Racik avatar.';
+      if (explicit) message('Pilih karakter cowok atau cewek dan profesi untuk memakai saran, atau racik penampilan sendiri.');
+      return;
+    }
+    pendingAvatarConfig = suggestion.config;
+    pendingAvatarManuallyChosen = explicit;
+    form.elements.avatar.value = suggestion.avatar;
+    $('#registrationAvatarName').textContent = suggestion.name;
+    $('#registrationAvatarHint').textContent = suggestion.note + (activeCitizen ? ' Tekan Simpan karakter untuk menerapkan.' : ' Anda tetap bebas mengganti penampilan.');
+    renderAvatarPreview(pendingAvatarConfig);
+    if (explicit) message(activeCitizen ? 'Saran profesi siap ditinjau. Perubahan akan diterapkan setelah Simpan karakter.' : 'Saran profesi dipilih. Anda bisa meraciknya sebelum mendaftar.', true);
+  };
+  const applyMode = () => {
+    const loggedIn = !!activeCitizen, registering = !loggedIn && authMode === 'register';
+    $('#citizenPanelTitle').textContent = loggedIn ? (activeCitizen.profile_complete === false ? 'Lengkapi karakter Anda' : 'Kartu & profil warga') : (registering ? 'Jadi bagian dari republik' : 'Selamat datang kembali');
+    panel.querySelector('.citizen-intro').textContent = loggedIn ? 'Lihat kartu warga dan atur karakter Anda. Simpan untuk menerapkan perubahan.' : registering ? 'Buat akun, pilih profesi, lalu racik karakter untuk menjelajahi republik.' : 'Masuk dengan username atau email dan kata sandi, atau lanjutkan dengan Google jika tersedia.';
+    document.querySelectorAll('.citizen-tabs').forEach(el => el.hidden = loggedIn);
+    document.querySelectorAll('[data-auth-mode]').forEach(el => { el.classList.toggle('active', el.dataset.authMode === authMode); el.setAttribute('aria-pressed', String(el.dataset.authMode === authMode)); });
+    document.querySelectorAll('.register-only').forEach(el => el.hidden = !registering);
+    $('#citizenDisplayNameLabel').hidden = !loggedIn && !registering;
+    form.elements.username.closest('label').hidden = loggedIn;
+    form.elements.username.required = !loggedIn;
+    form.elements.username.maxLength = registering ? 32 : 190;
+    if (registering) form.elements.username.pattern = '[A-Za-z0-9_.-]{3,32}'; else form.elements.username.removeAttribute('pattern');
+    $('#citizenUsernameLabel').textContent = registering ? 'Username · 3–32 karakter' : 'Username atau email';
+    form.elements.email.required = registering;
+    form.elements.password.closest('label').hidden = loggedIn;
+    form.elements.password.required = !loggedIn;
+    form.elements.password.autocomplete = registering ? 'new-password' : 'current-password';
+    form.elements.displayName.required = loggedIn || registering;
+    profileFields.hidden = !loggedIn && !registering;
+    form.elements.gender.required = form.elements.occupation.required = loggedIn || registering;
+    $('#citizenLogout').hidden = !loggedIn;
+    $('#verificationResend').hidden = registering || (loggedIn && (Number(activeCitizen.email_verified) === 1 || !authOptions?.emailDeliveryAvailable));
+    submit.textContent = loggedIn ? 'SIMPAN KARAKTER ↗' : registering ? 'BUAT AKUN & KARTU WARGA ↗' : 'MASUK KE REPUBLIK ↗';
+    availability();
   };
   const showPanel = () => {
     panel.hidden = false;
-    const loggedIn = !!activeCitizen;
-    $('#citizenPanelTitle').textContent = loggedIn ? (activeCitizen.account_type === 'admin' ? 'Profil karakter admin' : 'Profil warga') : (authMode === 'login' ? 'Masuk sebagai warga' : 'Daftar warga');
-    $('#citizenForm').elements.username.value = loggedIn ? (activeCitizen.username || '') : '';
-    $('#citizenForm').elements.username.closest('label').hidden = loggedIn;
-    $('#citizenForm').elements.username.required = !loggedIn;
-    $('#citizenForm').elements.email.closest('label').hidden = loggedIn || authMode === 'login';
-    $('#citizenForm').elements.email.required = !loggedIn && authMode === 'register';
-    $('#citizenForm').elements.verificationEmail.value = '';
-    $('#citizenForm').elements.verificationEmail.closest('label').hidden = true;
-    $('#citizenForm').elements.password.closest('label').hidden = loggedIn;
-    $('#citizenForm').elements.password.required = !loggedIn;
-    $('#citizenLogout').hidden = !loggedIn;
-    $('#verificationResend').hidden = loggedIn || authMode !== 'login';
-    document.querySelectorAll('.citizen-tabs').forEach((el) => el.hidden = loggedIn);
-    document.querySelectorAll('.register-only').forEach((el) => el.hidden = loggedIn || authMode === 'login');
-    if (profileFields) profileFields.hidden = !loggedIn && authMode === 'login';
-    $('#citizenForm').elements.displayName.required = !loggedIn && authMode === 'register';
-    if (loggedIn) {
-      $('#citizenForm').elements.displayName.value = activeCitizen.display_name;
-      $('#citizenForm').elements.house.value = activeCitizen.house;
+    message('');
+    if (activeCitizen && !pendingAvatarConfig) {
       fillProfileForm(activeCitizen);
-      $('#citizenSubmit').textContent = 'SIMPAN PROFIL WARGA ↗';
-      const avatarConfig = parsedAvatarConfig(activeCitizen.avatar_config) || farmerPresetForAvatar(activeCitizen.avatar).config;
-      const avatarPreset = FARMER_PRESETS.find((item) => item.id === avatarConfig.presetId) || farmerPresetForAvatar(activeCitizen.avatar);
-      $('#registrationAvatarName').textContent = avatarPreset.name;
-      $('#registrationAvatarHint').textContent = 'Avatar yang sedang dipakai. Tekan tombol untuk memilih avatar lain.';
-      renderAvatarPreview(avatarConfig);
-    } else $('#citizenSubmit').textContent = authMode === 'register' ? 'BUAT AKUN WARGA ↗' : 'MASUK KE REPUBLIK ↗';
+      const config = parsedAvatarConfig(activeCitizen.avatar_config);
+      $('#registrationAvatarName').textContent = config ? 'Karakter pilihan Anda' : 'Pilih karakter dan profesi';
+      $('#registrationAvatarHint').textContent = config ? 'Penampilan tersimpan. Profesi tidak menimpa pilihan avatar Anda.' : 'Lengkapi karakter sebelum mulai bermain bersama warga.';
+    }
+    form.elements.verificationEmail.closest('label').hidden = true;
+    applyMode();
+    if (pendingAvatarConfig) {
+      renderAvatarPreview(pendingAvatarConfig);
+      if (activeCitizen) message('Rancangan avatar belum diterapkan. Tekan Simpan karakter untuk menyimpannya.');
+    } else if (activeCitizen?.avatar_config) renderAvatarPreview(parsedAvatarConfig(activeCitizen.avatar_config), { identity:true });
+    else recommend();
+    if (activeCitizen?.profile_complete === false && !pendingAvatarConfig) message('Pilih jenis kelamin karakter, profesi, dan penampilan untuk melengkapi kartu warga.');
   };
   $('#profileButton').addEventListener('click', showPanel);
-  $('#chooseRegistrationAvatar').addEventListener('click', () => window.dispatchEvent(new CustomEvent('semesta:avatar-customizer-open', { detail:{ mode: activeCitizen ? 'account' : 'registration' } })));
-  $('#closeCitizenPanel').addEventListener('click', () => { panel.hidden = true; });
-  document.querySelectorAll('[data-auth-mode]').forEach((button) => button.addEventListener('click', () => {
+  $('#chooseRegistrationAvatar').addEventListener('click', () => {
+    if (!form.elements.gender.value || !form.elements.occupation.value) { message('Pilih jenis kelamin karakter dan profesi terlebih dahulu.'); form.elements.gender.reportValidity(); form.elements.occupation.reportValidity(); return; }
+    window.dispatchEvent(new CustomEvent('semesta:avatar-customizer-open', { detail:{ mode:activeCitizen ? 'profile' : 'registration' } }));
+  });
+  $('#useProfessionSuggestion').addEventListener('click', () => { if (!busy) recommend(true); });
+  $('#closeCitizenPanel').addEventListener('click', () => { panel.hidden = true; $('#profileButton').focus(); });
+  panel.addEventListener('click', event => { if (event.target === panel) panel.hidden = true; });
+  document.querySelectorAll('[data-auth-mode]').forEach(button => button.addEventListener('click', () => {
+    if (busy) return;
     authMode = button.dataset.authMode;
-    document.querySelectorAll('[data-auth-mode]').forEach((item) => item.classList.toggle('active', item === button));
-    document.querySelectorAll('.register-only').forEach((el) => el.hidden = authMode === 'login');
-    if (profileFields) profileFields.hidden = authMode === 'login';
-    $('#citizenForm').elements.username.required = true;
-    $('#citizenForm').elements.email.required = authMode === 'register';
-    $('#citizenForm').elements.displayName.required = authMode === 'register';
-    $('#verificationResend').hidden = authMode !== 'login';
-    $('#citizenPanelTitle').textContent = authMode === 'login' ? 'Masuk sebagai warga' : 'Gabung jadi warga';
-    $('#citizenSubmit').textContent = authMode === 'login' ? 'MASUK KE REPUBLIK ↗' : 'BUAT AKUN WARGA ↗';
-    $('#citizenError').textContent = '';
-    $('#citizenError').classList.remove('success');
-    if (authMode === 'register') {
-      if (pendingAvatarConfig) renderAvatarPreview(pendingAvatarConfig);
-    }
+    form.elements.verificationEmail.closest('label').hidden = true;
+    message(''); applyMode(); if (authMode === 'register') recommend();
   }));
-  $('#citizenForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
-    const action = activeCitizen ? 'update' : authMode;
-    const payload = { resource: 'citizen', action, username: form.get('username'), email: form.get('email'), password: form.get('password'), displayName: form.get('displayName'), avatar: form.get('avatar') || activeCitizen?.avatar, house: form.get('house') || activeCitizen?.house };
-    if (action === 'register' && !pendingAvatarConfig) {
-      $('#citizenError').textContent = 'Pilih tipe karakter dan satu avatar siap pakai sebelum membuat akun.';
-      return;
+  google.addEventListener('click', event => { if (!authOptions?.googleAvailable) { event.preventDefault(); message('Google belum tersedia. Gunakan email dan kata sandi.'); } });
+  const post = async payload => {
+    const response = await fetch(API_URL, { method:'POST', headers:{'Content-Type':'application/json', Accept:'application/json'}, body:JSON.stringify({ resource:'citizen', ...payload }) });
+    let result;
+    try { result = await response.json(); } catch { throw new Error('Layanan akun belum merespons. Coba kembali nanti.'); }
+    if (!response.ok) throw new Error(result.error || 'Profil warga belum bisa disimpan.');
+    return result;
+  };
+  form.addEventListener('submit', async event => {
+    event.preventDefault(); if (busy) return;
+    const data = new FormData(form), action = activeCitizen ? 'update' : authMode;
+    if (action !== 'login' && !pendingAvatarConfig && !activeCitizen?.avatar_config) { message('Pilih avatar terlebih dahulu.'); return; }
+    const payload = { action, username:data.get('username'), email:data.get('email'), password:data.get('password'), displayName:data.get('displayName'), avatar:data.get('avatar') || activeCitizen?.avatar, house:data.get('house') || activeCitizen?.house };
+    if (action !== 'login') {
+      for (const field of Object.keys(profileFieldNames)) payload[field] = data.get(field) || '';
+      if (pendingAvatarConfig) payload.avatarConfig = pendingAvatarConfig;
     }
-    if (action === 'register') payload.avatarConfig = pendingAvatarConfig;
-    for (const field of Object.keys(profileFieldNames)) payload[field] = form.get(field) || '';
-    $('#citizenError').textContent = '';
+    busy = true; submit.disabled = true; submit.setAttribute('aria-busy', 'true'); message('Menyimpan akun warga…');
     try {
-      const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
-      const result = await response.json();
-      if (!response.ok) throw new Error(result.error || 'Profil warga belum bisa disimpan.');
+      const result = await post(payload);
+      form.elements.password.value = '';
       if (result.verificationRequired) {
-        pendingAvatarConfig = null;
-        document.querySelector('[data-auth-mode=login]').click();
-        $('#citizenError').classList.add('success');
-        $('#citizenError').textContent = result.message;
+        authMode = 'login'; applyMode();
+        form.elements.verificationEmail.value = data.get('email');
+        message(result.message, true);
         return;
       }
       if (result.citizen) {
-        $('#citizenError').classList.remove('success');
         updateHeader(result.citizen);
-        saveGameState({ citizen: { displayName: result.citizen.display_name, avatar: result.citizen.avatar, house: result.citizen.house } });
-        pendingAvatarConfig = null;
+        saveGameState({ citizen:{ displayName:result.citizen.display_name, avatar:result.citizen.avatar, house:result.citizen.house } });
+        pendingAvatarConfig = null; pendingAvatarManuallyChosen = false;
+        showPanel();
+        message(result.citizen.profile_complete === false ? 'Satu langkah lagi: lengkapi karakter untuk mulai bermain.' : action === 'register' ? 'Selamat datang! Kartu warga Anda sudah terbit. Tutup panel untuk menjelajahi republik.' : 'Profil warga tersimpan. Selamat menjelajah!', true);
       }
-      panel.hidden = true;
-    } catch (error) { $('#citizenError').classList.remove('success'); $('#citizenError').textContent = error.message; if (authMode === 'login' && error.message.includes('belum diverifikasi')) $('#verificationResend').hidden = false; }
+    } catch (failure) { message(failure.message); }
+    finally { busy = false; submit.removeAttribute('aria-busy'); availability(); }
   });
   $('#verificationResend').addEventListener('click', async () => {
-    const verificationEmail = $('#citizenForm').elements.verificationEmail;
-    const email = verificationEmail.value.trim();
-    if (!email) { verificationEmail.closest('label').hidden = false; verificationEmail.focus(); return; }
-    try { const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'citizen', action: 'resend', email }) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal mengirim email.'); $('#citizenError').classList.add('success'); $('#citizenError').textContent = result.message || 'Tautan verifikasi dikirim.'; } catch (error) { $('#citizenError').classList.remove('success'); $('#citizenError').textContent = error.message; }
+    if (busy) return;
+    const field = form.elements.verificationEmail, email = activeCitizen?.email || field.value.trim();
+    if (!email) { field.closest('label').hidden = false; field.focus(); return; }
+    if (!activeCitizen && !field.checkValidity()) { field.reportValidity(); return; }
+    busy = true; $('#verificationResend').disabled = true; message('Mengirim tautan verifikasi…');
+    try { const result = await post({ action:'resend', email }); message(result.message, true); }
+    catch (failure) { message(failure.message); }
+    finally { busy = false; $('#verificationResend').disabled = false; }
   });
   $('#citizenLogout').addEventListener('click', async () => {
-    await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ resource: 'citizen', action: 'logout' }) });
-    updateHeader(null); panel.hidden = true;
-    $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.remove('active'); $('#worldScreen').classList.add('active');
-    saveGameState({ screen: 'world' });
+    if (busy) return;
+    busy = true; $('#citizenLogout').disabled = true;
+    try {
+      await post({ action:'logout' }); updateHeader(null); pendingAvatarConfig = null; pendingAvatarManuallyChosen = false; form.reset(); panel.hidden = true;
+      $('#exploreScreen').classList.remove('active'); document.body.classList.remove('exploring'); $('#cityScreen').classList.remove('active'); $('#worldScreen').classList.add('active'); saveGameState({ screen:'world' });
+    } catch (failure) { message(failure.message); }
+    finally { busy = false; $('#citizenLogout').disabled = false; }
   });
-  $('#citizenForm').elements.occupation.addEventListener('change', (event) => {
-    const selected = (window.citizenMasterOptions?.occupation || []).find((option) => option.value === event.target.value);
-    if (selected?.avatarStyle) $('#citizenAvatarSelect').value = selected.avatarStyle;
-    $('#citizenAvatarHint').textContent = selected?.avatarStyle ? 'Pilihan avatar siap pakai tersedia; pekerjaan tidak mengubah avatar yang Anda pilih.' : 'Pilih avatar siap pakai sesuai tipe karakter.';
-  });
-  try {
-    const masterResponse = await fetch(`${API_URL}?resource=citizen_options`, { headers: { Accept: 'application/json' } });
-    const masterResult = await masterResponse.json(); if (!masterResponse.ok) throw new Error(masterResult.error || 'Pilihan biodata belum tersedia.');
-    const options = masterResult.options || {}; window.citizenMasterOptions = options;
-    fillMasterSelect('gender', options.gender); fillMasterSelect('religion', options.religion); fillMasterSelect('birthProvince', options.province); fillMasterSelect('domicileProvince', options.province); fillMasterSelect('occupation', options.occupation); fillMasterSelect('educationLevel', options.education);
-    const avatarSelect = $('#citizenAvatarSelect');
-    avatarSelect.value = activeCitizen?.avatar || 'warga';
-    const registrationPreset = farmerPresetForAvatar(avatarSelect.value);
-    $('#registrationAvatarName').textContent = 'Belum memilih avatar';
-    if (activeCitizen && !profileFields.hidden) fillProfileForm(activeCitizen);
-  } catch (error) { $('#citizenError').textContent = error.message; }
-  try {
-    const response = await fetch(`${API_URL}?resource=citizen`, { headers: { Accept: 'application/json' } });
-    const result = await response.json();
-    updateHeader(result.citizen || null);
-  } catch (_) { updateHeader(null); }
+  form.elements.occupation.addEventListener('change', () => recommend());
+  form.elements.gender.addEventListener('change', () => recommend());
+  const results = await Promise.allSettled(['citizen_options','citizen','auth_options'].map(async resource => {
+    const response = await fetch(`${API_URL}?resource=${resource}`, { headers:{ Accept:'application/json' } });
+    const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Layanan akun belum tersedia.'); return result;
+  }));
+  if (results[0].status === 'fulfilled') {
+    const options = results[0].value.options || {}; window.citizenMasterOptions = options;
+    for (const name of ['gender','occupation']) {
+      const select = form.elements[name], current = select.value;
+      select.replaceChildren(new Option(name === 'gender' ? 'Pilih karakter' : 'Pilih profesi', ''));
+      (options[name] || []).forEach(option => select.add(new Option(option.label, option.value)));
+      select.value = current;
+    }
+  } else message('Pilihan karakter belum tersedia. Muat ulang untuk mencoba lagi.');
+  if (results[2].status === 'fulfilled') authOptions = results[2].value;
+  updateHeader(results[1].status === 'fulfilled' ? results[1].value.citizen || null : null);
+  applyMode();
+  if (activeCitizen && (activeCitizen.profile_complete === false || !panel.hidden)) showPanel();
+  const url = new URL(location.href);
+  if (url.searchParams.has('signed_in')) { url.searchParams.delete('signed_in'); history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`); if (activeCitizen) showPanel(); }
 }
 
 function initExploreAvatarCustomizer() {
@@ -332,7 +377,13 @@ function initExploreAvatarCustomizer() {
   let previewYaw=.25, previewPointer=null, previewFrame=0, previewLastTime=0, previewUpdateId=0;
   let selectedGender='', selectedPreset=null;
   const cleanConfig = config => normalizeAvatarConfig(config);
-  const customEditor=mountAvatarEditor(grid.parentElement, config=>{selectedGender=config.profileId.split('-')[0];document.querySelectorAll('[data-avatar-gender]').forEach(b=>{const active=b.dataset.avatarGender===selectedGender;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});setSelectedPreset({id:'custom',name:'Karakter saya',config});});
+  const customEditor=mountAvatarEditor(grid.parentElement, config=>{
+    selectedGender=config.profileId.split('-')[0];
+    const sourceId=selectedPreset?.config?.presetId;
+    if(sourceId?.startsWith('profession-')) config.presetId=sourceId.replace(/-(male|female)$/,`-${selectedGender}`);
+    document.querySelectorAll('[data-avatar-gender]').forEach(b=>{const active=b.dataset.avatarGender===selectedGender;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+    setSelectedPreset({id:'custom',name:'Karakter saya',config});
+  });
   const presetById = (id) => FARMER_PRESETS.find((item) => item.id === id);
   const setSelectedPreset = (preset) => {
     selectedPreset = preset || null;
@@ -428,33 +479,35 @@ function initExploreAvatarCustomizer() {
   document.querySelectorAll('[data-avatar-gender]').forEach((button)=>button.addEventListener('click',()=>chooseGender(button.dataset.avatarGender)));
   const fill = (config, mode) => {
     avatarCustomizerMode = mode;
-    const source=config || (mode==='account' ? parsedAvatarConfig(activeCitizen?.avatar_config) : null);
+    const source=config || (mode!=='registration' ? parsedAvatarConfig(activeCitizen?.avatar_config) : null);
     const mappedPreset=presetById(source?.presetId) || farmerPresetForAvatar(mode==='registration' ? $('#citizenAvatarSelect').value : activeCitizen?.avatar);
     const isNewRegistration=mode==='registration' && !source;
     const gender=isNewRegistration ? '' : normalizeAvatarConfig(source || mappedPreset.config).profileId.split('-')[0];
     const exactPreset=presetById(source?.presetId) || (source ? FARMER_PRESETS.find((item)=>JSON.stringify(item.config.appearance)===JSON.stringify(normalizeAvatarConfig(source).appearance)) : mappedPreset);
-    $('#avatarCustomizerTitle').textContent = mode === 'registration' ? 'Pilih avatar untuk akunmu' : `Pilih avatar ${activeCitizen?.account_type === 'admin' ? 'admin' : 'warga'}`;
+    $('#avatarCustomizerTitle').textContent = mode === 'registration' ? 'Pilih avatar untuk akunmu' : mode === 'profile' ? 'Racik rancangan karakter' : `Pilih avatar ${activeCitizen?.account_type === 'admin' ? 'admin' : 'warga'}`;
     chooseGender(gender, exactPreset?.id || '');
     if(source)setSelectedPreset({id:'custom',name:'Karakter saya',config:normalizeAvatarConfig(source)});
-    status.textContent=mode==='registration'?'Langkah 1: pilih cowok atau cewek. Langkah 2: pilih avatar siap pakai.':'Pilih tipe karakter, lalu pilih avatar siap pakai. Perubahan akan langsung terlihat di pratinjau.';
+    status.textContent=mode==='profile'?'Racik penampilan, gunakan pilihan ini, lalu Simpan karakter pada profil.':mode==='registration'?'Pilih avatar siap pakai atau ubah bagian penampilan di editor.':'Pilih tipe karakter, lalu pilih avatar siap pakai. Perubahan akan langsung terlihat di pratinjau.';
   };
   $('#openAvatarCustomizer').addEventListener('click', () => {
     if (!activeCitizen) { $('#profileButton').click(); return; }
     panel.hidden=false;fill(parsedAvatarConfig(activeCitizen.avatar_config), 'account');
   });
   window.addEventListener('semesta:avatar-customizer-open', (event) => {
-    if (!['registration','account'].includes(event.detail?.mode)) return;
-    panel.hidden=false;fill(event.detail.mode==='account' ? parsedAvatarConfig(activeCitizen?.avatar_config) : pendingAvatarConfig, event.detail.mode);
+    if (!['registration','profile','account'].includes(event.detail?.mode)) return;
+    const source=event.detail.mode==='account' ? parsedAvatarConfig(activeCitizen?.avatar_config) : pendingAvatarConfig || (event.detail.mode==='profile' ? parsedAvatarConfig(activeCitizen?.avatar_config) : null);
+    panel.hidden=false;fill(source, event.detail.mode);
   });
   $('#closeAvatarCustomizer').addEventListener('click', () => { panel.hidden=true; });
   panel.addEventListener('click', (event) => { if (event.target === panel) panel.hidden=true; });
   useButton.addEventListener('click', async () => {
     if (!selectedPreset) return;
     const avatarConfig=cleanConfig(selectedPreset.config);
-    if (avatarCustomizerMode === 'registration') {
+    if (avatarCustomizerMode === 'registration' || avatarCustomizerMode === 'profile') {
       pendingAvatarConfig = avatarConfig;
+      pendingAvatarManuallyChosen = true;
       $('#registrationAvatarName').textContent = selectedPreset.name;
-      $('#registrationAvatarHint').textContent='Avatar siap dipakai. Buat akun untuk menyimpan pilihan ini.';
+      $('#registrationAvatarHint').textContent=avatarCustomizerMode==='profile'?'Rancangan avatar siap. Tekan Simpan karakter untuk menerapkan.':'Avatar siap dipakai. Buat akun untuk menyimpan pilihan ini.';
       renderAvatarPreview(avatarConfig); panel.hidden=true; return;
     }
     if (!activeCitizen) { status.textContent='Masuk sebagai warga untuk menyimpan avatar.'; return; }
@@ -462,6 +515,7 @@ function initExploreAvatarCustomizer() {
     try {
       const response = await fetch(`${API_URL}`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({resource:'citizen',action:'update_avatar',avatarConfig})});
       const result=await response.json(); if(!response.ok)throw new Error(result.error||'Avatar belum tersimpan.');
+      pendingAvatarConfig=null;pendingAvatarManuallyChosen=false;
       updateCitizenHeader(result.citizen); $('#registrationAvatarName').textContent=selectedPreset.name; $('#registrationAvatarHint').textContent='Avatar yang sedang dipakai. Tekan tombol untuk memilih avatar lain.'; renderAvatarPreview(avatarConfig); panel.hidden=true;
     } catch(error) { status.textContent=error.message; useButton.disabled=false; }
   });
@@ -492,29 +546,39 @@ let activeRepublicWorld=null;
 let republicMinimap=null;
 
 function initWorld() {
+  usePublishedWorldPhase();
   const areaMusic=initAreaMusic(),savedState=readGameState();
   let destination=WORLD_DESTINATIONS[savedState.destination]?savedState.destination:'jakarta';
   let location=savedState.worldLayoutVersion===2?savedState.location||'stage':'stage';
   let districtId=regionalLocation(savedState.district,destination).id;
-  let phase=getWorldPhase(),lastMap=savedState.lastMap==='city'?'city':'region';
-  const atlas=mountRepublicAtlas($('#republicAtlas'),{selected:destination,onSelect:selectDestination});
+  let phase=getWorldPhase(),projects=[],lastMap=savedState.lastMap==='city'?'city':'region';
+  const atlas=mountRepublicAtlas($('#republicAtlas'),{selected:destination,onSelect:id=>{selectDestination(id);showScreen('region');}});
   const regional=mountRepublicRegionalMap($('#regionalMap'),{city:destination,selected:districtId,onSelect:selectDistrict});
   const plan=mountRepublicSitePlan($('#cityMapArt'),{city:'jakarta',selected:location,phase,onSelect:selectLocation});
-  const phasePicker=mountPhasePicker($('#worldPhasePicker'),{onChange:applyPhase});
+  const phaseStatus=$('#worldPhasePicker');
+  phaseStatus.innerHTML='<span role="status" data-world-sync>Memuat keadaan dunia dari server…</span><button type="button" data-world-retry hidden>Coba lagi</button>';
   republicMinimap=mountRepublicMinimap($('#republicMinimap'),{city:destination,phase,onOpen:(mode,city)=>{if(mode==='regional')selectDestination(city);showScreen(mode==='regional'?'region':'city');}});
 
-  function applyPhase(next){phase=next;phasePicker.select(phase);plan.update({phase});selectLocation(location);$('#worldPhaseStatus').textContent=phase==='after-day2'?'SESUDAH DAY 2 · KOPLAK + SPPG BERDIRI':'SEBELUM DAY 2 · PANGGUNG + FONDASI';republicMinimap?.update({city:destination,phase});}
-  window.addEventListener(WORLD_PHASE_EVENT,event=>applyPhase(event.detail.phase));
-  window.addEventListener('storage',event=>{if(event.key===WORLD_PHASE_KEY)applyPhase(getWorldPhase());});
+  function applyPhase(next){phase=next;plan.update({phase,projects});selectLocation(location);$('#worldPhaseStatus').textContent=!getSharedWorldSnapshot()?'MENUNGGU DUNIA SERVER':phase==='after-day2'?'SESUDAH DAY 2 · KOPLAK + SPPG BERDIRI':'SEBELUM DAY 2 · PANGGUNG + FONDASI';republicMinimap?.update({city:destination,phase,projects});}
+  window.addEventListener(WORLD_STATE_EVENT,event=>{projects=event.detail.projects;applyPhase(event.detail.world.phase);});
+  const setSyncStatus=({state,message,hasSnapshot})=>{
+    const ready=!!getSharedWorldSnapshot();
+    phaseStatus.querySelector('[data-world-sync]').textContent=state==='online'?`Dunia bersama · versi ${getSharedWorldSnapshot().world.version}`:state==='offline'?`${message} ${hasSnapshot?'Menampilkan keadaan terakhir dari server.':''}`:ready?'Memperbarui dunia bersama…':'Memuat keadaan dunia dari server…';
+    phaseStatus.querySelector('[data-world-retry]').hidden=state!=='offline';
+    const globalNotice=$('#sharedWorldNotice');globalNotice.hidden=state==='online'||state==='loading'&&ready;
+    globalNotice.querySelector('span').textContent=state==='offline'?`${message} ${hasSnapshot?'Keadaan terakhir tetap ditampilkan.':'Jelajah menunggu data dunia; peta tetap dapat dibuka.'}`:'Memuat dunia bersama…';
+    $('#retrySharedWorld').hidden=state!=='offline';
+    for(const id of ['enterRegionalLocation','enterLocation']){const button=$('#'+id);button.disabled=!ready;button.title=ready?'':'Menunggu keadaan dunia dari server';}
+  };
+  window.addEventListener(WORLD_SYNC_EVENT,event=>setSyncStatus(event.detail));
+  const worldSync=startSharedWorldSync({apiUrl:API_URL});
+  phaseStatus.querySelector('[data-world-retry]').addEventListener('click',()=>worldSync.refresh());
+  $('#retrySharedWorld').addEventListener('click',()=>worldSync.refresh());
+  window.addEventListener('pagehide',event=>{if(!event.persisted)worldSync.dispose();});
 
   function selectDestination(id){
     if(!WORLD_DESTINATIONS[id])return;destination=id;const data=WORLD_DESTINATIONS[id],capital=id==='jakarta';
-    atlas.select(id);$('#destinationIcon').textContent=String(Object.keys(WORLD_DESTINATIONS).indexOf(id)+1).padStart(2,'0');
-    $('#destinationCountry').textContent=`REPUBLIK WKWKWK · ${capital?'IBU KOTA':'WILAYAH BARU'}`;
-    $('#destinationTitle').textContent=data.name;
-    $('#destinationDesc').textContent=capital?'Kota pertama di daratan utama. Panggung warga dan fondasi rumah menjadi titik awal republik.':`${data.subtitle}. Bentang wilayah tersedia untuk rencana warga berikutnya.`;
-    $('#destinationNote').textContent='Buka peta regional untuk memilih kawasan kota, desa, hutan atau pegunungan.';
-    $('#enterCity').innerHTML='BUKA PETA REGIONAL <span>↗</span>';
+    atlas.select(id);$('#enterCity').textContent=`Buka ${data.name} ↗`;
     districtId=regionalLocation(undefined,id).id;regional.update({city:id,selected:districtId});
     saveGameState({destination,district:districtId});
   }
@@ -533,16 +597,18 @@ function initWorld() {
     const data=WORLD_DESTINATIONS.jakarta;$('#cityTitle').textContent=`Denah rinci ${data.name}`;$('#cityCountry').textContent='REPUBLIK WKWKWK · IBU KOTA';
     $('#cityIntro').textContent='Jalan alun-alun, fondasi permukiman, dan petak rencana pembangunan.';
     $('#cityCoordinates').textContent='225 × 215 M · DENAH RINCI';
-    plan.update({city:'jakarta',phase,selected:location});selectLocation(location);applyPhase(phase);
+    plan.update({city:'jakarta',phase,projects,selected:location});selectLocation(location);applyPhase(phase);
   }
   function selectLocation(id){
-    const site=mapLocation('jakarta',id,phase);location=site.id;plan.update({city:'jakarta',phase,selected:location});
+    const site=mapLocation('jakarta',id,phase,projects);location=site.id;plan.update({city:'jakarta',phase,projects,selected:location});
     $('#locationEmoji').textContent='03';$('#locationTitle').textContent=site.name;$('#locationDescription').textContent=site.description;$('#locationTag').textContent=site.tag;
     $('#enterLocation').innerHTML='JELAJAHI TITIK INI <span>↗</span>';$('#enterLocation').setAttribute('aria-label',`Jelajahi ${site.name}${activeCitizen?'':' sebagai tamu'}`);
     saveGameState({location});
   }
   function stopArea(){areaRunToken++;disposeActiveArea();disposeActiveArea=()=>{};activeRepublicWorld=null;areaMusic.pause();$('#dialogue').classList.remove('visible');$('#citizenChat').hidden=true;}
   function showScreen(screen,{restore=false}={}){
+    if(screen==='explore'&&!getSharedWorldSnapshot()){screen=lastMap;}
+    if(screen==='explore'&&activeCitizen?.profile_complete===false){$('#profileButton').click();$('#citizenError').textContent='Lengkapi profesi, jenis kelamin, dan avatar untuk mulai menjadi warga.';return;}
     if(screen!=='explore')stopArea();
     for(const id of ['world','region','city','explore'])$(`#${id}Screen`).classList.toggle('active',screen===id);
     document.body.classList.toggle('exploring',screen==='explore');document.body.classList.remove('capture-mode');
@@ -551,7 +617,7 @@ function initWorld() {
     if(screen==='city'){lastMap='city';destination='jakarta';regional.update({city:destination});updateCity();}
     saveGameState({screen,destination,location,district:districtId,lastMap,region:'kota'});
     if(screen==='explore'){
-      const site=lastMap==='city'?mapLocation('jakarta',location,phase):regionalLocation(districtId,destination);
+      const site=lastMap==='city'?mapLocation('jakarta',location,phase,projects):regionalLocation(districtId,destination);
       const restorePosition=restore&&savedState.worldLayoutVersion===2?savedState.playerPosition:null;
       $('#exploreCityName').textContent=WORLD_DESTINATIONS[destination].name.toUpperCase();$('#exploreLocationName').textContent=site.name.toUpperCase();
       areaMusic.play('kota');runArea({id:'kota',name:site.name,entry:restorePosition?{...restorePosition,yaw:savedState.playerYaw||0}:site.entry},WORLD_DESTINATIONS[destination]);
@@ -570,10 +636,25 @@ function initWorld() {
   $('#captureButton').addEventListener('click',()=>document.body.classList.add('capture-mode'));
   $('#exitCapture').addEventListener('click',()=>document.body.classList.remove('capture-mode'));
   window.addEventListener('keydown',event=>{if(event.code==='Escape')document.body.classList.remove('capture-mode');});
-  window.addEventListener('semesta:citizen-change',()=>selectLocation(location));
+  window.addEventListener('semesta:citizen-change',event=>{
+    selectLocation(location);
+    // A restored world can start before the account request finishes. Revoke
+    // exploration as soon as that request reveals an incomplete profile.
+    if(event.detail?.citizen?.profile_complete===false&&$('#exploreScreen').classList.contains('active')){
+      showScreen('region');
+      $('#profileButton').click();
+    }
+  });
   const restoredDistrict=districtId;selectDestination(destination);districtId=restoredDistrict;regional.select(districtId);applyPhase(phase);
   const screen=['region','city','explore'].includes(savedState.screen)?savedState.screen:'world';
   showScreen(screen,{restore:true});
+  let restoreUntouched=true;
+  const cancelRestore=()=>{restoreUntouched=false;};
+  window.addEventListener('click',cancelRestore,{once:true});window.addEventListener('keydown',cancelRestore,{once:true});
+  worldSync.ready.then(snapshot=>{
+    window.removeEventListener('click',cancelRestore);window.removeEventListener('keydown',cancelRestore);
+    if(snapshot&&screen==='explore'&&restoreUntouched)showScreen('explore',{restore:true});
+  });
 }
 
 async function runRepublicArea(place,city){

@@ -1,5 +1,9 @@
 # Prompt acuan produksi konten Republik Wkwkwk
 
+**Pemisahan game dan konten, 23 November 2026:** konsep/fitur game mengikuti [roadmap](../roadmap/README.md), sedangkan episode mengikuti dokumen ini. Periksa [checklist kemampuan yang tersedia](../roadmap/02-TAHAP-DAN-CHECKLIST.md) dan [aturan kanon/keputusan warga](../roadmap/04-KONTEN-DAN-KANON.md) sebelum menjanjikan fitur atau mengubah keadaan kota. Akun pemain dan pemeran konten adalah data terpisah.
+
+**Publikasi dunia:** fase game kini diterbitkan di admin **Dunia bersama**, disertai versi dan alasan. Pemutaran/seek/ekspor tidak memajukan dunia. Proyek rumah contoh P01 adalah draft pilot konstruksi, bukan hasil survei pembangunan dan bukan otomatis kanon episode berikutnya.
+
 Dokumen ini adalah pegangan untuk menulis, menyutradarai, membuat, dan meninjau episode animasi Republik Wkwkwk. Gunakan bersama [konsep produk](KONSEP_REPUBLIK_WKWKWK.md), [panduan Studio](PRODUCTION_STUDIO.md), dan [naskah Day 1 terbaru](script/001-day-1-scenes.md). **Day 1 adalah contoh kesinambungan dunia, bukan cetakan cerita yang harus diulang.** Pisahkan selalu fitur yang telah tersedia dari usulan pengembangan mesin.
 
 ## Prompt tetap untuk setiap episode

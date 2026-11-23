@@ -58,6 +58,11 @@ class Semesta_model extends CI_Model
         return $this->db->where('email', $email)->get('citizens')->row_array();
     }
 
+    public function find_citizen_by_google_sub($subject)
+    {
+        return $this->db->where('google_sub', $subject)->get('citizens')->row_array();
+    }
+
     public function find_citizen_by_username($username)
     {
         return $this->db->where('username', $username)->get('citizens')->row_array();
@@ -86,7 +91,12 @@ class Semesta_model extends CI_Model
     public function get_citizen_profile($id)
     {
         $row = $this->db->select('id, account_type, username, email, display_name, email_verified, avatar, avatar_config, house, gender, religion, birth_province, birth_city, birth_date, occupation, education_level, domicile_province, domicile_city, created_at')->where('id', (int) $id)->get('citizens')->row_array();
-        return $row ?: NULL;
+        if (!$row) return NULL;
+        $this->load->helper('citizen_identity');
+        $profession = $this->db->select('label')->where('master_type', 'occupation')->where('master_value', $row['occupation'])->get('citizen_master_data')->row_array();
+        $row['identity_card'] = citizen_identity_card($row, $profession ? $profession['label'] : '');
+        $row['profile_complete'] = citizen_profile_complete($row);
+        return $row;
     }
 
     public function update_citizen($id, array $data)
