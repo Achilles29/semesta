@@ -1,15 +1,15 @@
 import * as THREE from 'three';
 import {createCapitalContext,createRepublicTerrainStream} from './republic-capital-scene.js';
-import {WORLD_PHASE_EVENT,WORLD_PHASE_KEY,worldDestination,getWorldPhase,setWorldPhase as storeWorldPhase,normalizeWorldPhase,terrainHeight,citizenWorldPosition,moveWorldPosition,worldFloorHeight} from './republic-world-layout.js';
+import {WORLD_PHASE_EVENT,WORLD_PHASE_KEY,worldDestination,getWorldPhase,setWorldPhase as storeWorldPhase,normalizeWorldPhase,terrainHeight,moveWorldPosition,worldFloorHeight} from './republic-world-layout.js';
 import {preloadRepublicBuildingLogo} from './republic-building-identity.js';
-import {citizens} from './citizen-roster.js';
+import {createRepublicPresence} from './republic-presence.js';
 import {presets,normalizeAvatarConfig} from './avatar-v15-config.js';
 import {loadAvatarProfile,createHumanModel,disposeAvatar,animateAvatar,avatarSpeed} from './avatar-runtime.js';
 
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const presetMap=new Map(presets.map(p=>[p.id,p]));
 const visible=o=>{for(let p=o;p;p=p.parent)if(!p.visible)return false;return true;};
-export const WORLD_RESIDENT_LIMIT=14;
+export const WORLD_RESIDENT_LIMIT=4;
 export const WORLD_ZOOM_BOUNDS=Object.freeze({min:2.2,max:24});
 export const clampWorldZoom=value=>clamp(Number.isFinite(value)?value:7.2,WORLD_ZOOM_BOUNDS.min,WORLD_ZOOM_BOUNDS.max);
 export const worldLabelVisible=({distance,screenX,self=false})=>!self&&distance<=12&&Math.abs(screenX)<.72;
@@ -19,12 +19,9 @@ export function worldAvatarConfig(citizen){
   if(!input)input=presetMap.get('v15-warga-aulia-talita2')?.config||presetMap.get('v15-laras')?.config||presets[0].config;
   const config=normalizeAvatarConfig(input);if(!config.presetId&&presetMap.has(citizen?.presetId))config.presetId=citizen.presetId;return config;
 }
-/** Stable 48 identities plus the president. Streaming limits detail, not the
- * roster or the accessible land. No server/global progress is implied. */
+/** Story actors belong to episode production. Only deliberate NPCs live here. */
 export function worldResidents(city='jakarta'){
-  const assigned=[];
-  const roster=citizens.map((citizen,i)=>{const home=citizenWorldPosition(citizen,i);while(assigned.some(p=>Math.hypot(p.x-home.x,p.z-home.z)<1.2))home.x-=2;assigned.push(home);return {...citizen,home,index:i};});
-  return [...roster,{id:'pasca-bowow',name:'Pasca Bowow',role:'Presiden',presetId:'v15-prabowo-inspired',personality:'Usulan warga saya dengar. Keputusannya tetap lewat meja saya.',home:{x:-5,y:.615,z:-.1,yaw:0},index:48,stationary:true}];
+  return [{id:'pasca-bowow',name:'Pasca Bowow',role:'NPC · Presiden',presetId:'v15-prabowo-inspired',personality:'Usulan warga saya dengar. Keputusannya tetap lewat meja saya.',home:{x:-5,y:.615,z:-.1,yaw:0},index:0,stationary:true}];
 }
 
 /** No WebGL/browser globals are touched until mount. events accepts either an
@@ -32,7 +29,8 @@ export function worldResidents(city='jakarta'){
 export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,activeCitizen,onState=()=>{},onError=()=>{}}={}){
   if(!canvas?.parentElement)throw new Error('Kanvas peta jelajah tidak tersedia.');
   const destination=worldDestination(city),cityId=destination.id,abort=new AbortController(),signal=abort.signal,external=events?.signal||events;
-  let disposed=false,raf=0,player=null,playerVersion=0,phase=getWorldPhase(),yaw=0,pitch=.34,zoom=7.2,lastTime=0,lastState=0,lastLabels=0,lastPopulation=0,nearby=null,swapCitizen=activeCitizen;
+  let disposed=false,raf=0,player=null,playerVersion=0,phase=getWorldPhase(),yaw=0,pitch=.34,zoom=7.2,lastTime=0,lastState=0,lastLabels=0,lastPopulation=0,lastPresence=0,presenceBusy=false,presenceEpoch=0,nearby=null,swapCitizen=activeCitizen,chatTarget=null,chatAfter=0,canChat=false;
+  const presence=createRepublicPresence({apiUrl});
   const start=Array.isArray(entry)?{x:entry[0],z:entry[1]}:entry||destination.spawn;
   const position={x:Number.isFinite(+start.x)?+start.x:destination.spawn.x,z:Number.isFinite(+start.z)?+start.z:destination.spawn.z,y:0};
   position.y=terrainHeight(position.x,position.z,cityId);if(position.y<-.17){Object.assign(position,destination.spawn);position.y=terrainHeight(position.x,position.z,cityId);}
@@ -43,6 +41,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   const style=document.createElement('style');style.textContent=`
     .republic-world-overlay{position:absolute;inset:0;z-index:7;pointer-events:none;font-family:Inter,Arial,sans-serif;color:#fff;overflow:hidden}
     .rw-hint{position:absolute;left:18px;bottom:16px;padding:8px 12px;background:#173b43d9;backdrop-filter:blur(8px);border:1px solid #ffffff30;border-radius:12px;font-size:11px;letter-spacing:.02em;max-width:calc(100% - 160px)}
+    .rw-online{position:absolute;top:76px;left:18px;padding:7px 11px;background:#173b43dc;border:1px solid #ffffff30;border-radius:10px;font-size:11px}
     .rw-zoom{position:absolute;right:22px;bottom:140px;display:flex;flex-direction:column;gap:5px;pointer-events:auto}.rw-zoom button{width:42px;height:42px;border:1px solid #ffffff80;border-radius:12px;color:#fff;background:#244d50ed;font:700 24px Arial;cursor:pointer}.rw-zoom button:disabled{opacity:.4;cursor:default}.rw-zoom button:focus-visible{outline:3px solid #f8d47e;outline-offset:3px}.rw-zoom output{text-align:center;font-size:10px;text-shadow:0 1px 4px #142f35}
     .rw-loading{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);background:#153b45ec;border:1px solid #ffffff3b;border-radius:16px;padding:18px 24px;text-align:center;font-size:14px}
     .rw-label{position:absolute;transform:translate(-50%,-100%);padding:4px 9px;border:1px solid #ffffff40;border-radius:7px;background:#18333ae8;box-shadow:0 2px 8px #0003;white-space:nowrap;text-align:center;font-size:12px;font-weight:700;text-shadow:0 1px 2px #0005;line-height:1.2}
@@ -53,11 +52,12 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
     .rw-touch-pad{display:none;pointer-events:auto;position:absolute;left:24px;bottom:30px;width:112px;height:112px;border:1px solid #ffffff75;border-radius:50%;background:#24464c55;touch-action:none;box-shadow:inset 0 0 30px #ffffff10}
     .rw-touch-knob{position:absolute;left:34px;top:34px;width:44px;height:44px;border-radius:50%;background:#eaf2e6b8;border:2px solid #fff;box-shadow:0 3px 10px #173b4355}
     .rw-run{display:none;pointer-events:auto;position:absolute;right:28px;bottom:40px;width:72px;height:72px;border-radius:50%;border:1px solid #ffffff80;color:#fff;background:#254b56b8;font-weight:700;touch-action:none}
-    .capture-mode .rw-zoom,.capture-mode .rw-hint,.capture-mode .rw-touch-pad,.capture-mode .rw-run,.capture-mode .rw-talk,.capture-mode .rw-card{display:none!important}
+    .capture-mode .rw-zoom,.capture-mode .rw-hint,.capture-mode .rw-online,.capture-mode .rw-touch-pad,.capture-mode .rw-run,.capture-mode .rw-talk,.capture-mode .rw-card{display:none!important}
     @media(pointer:coarse){.rw-touch-pad,.rw-run{display:block}.rw-hint{bottom:156px;left:22px;max-width:200px;font-size:10px}.rw-talk{bottom:38px}.rw-card{top:85px}}
   `;ui.append(style);
   const labels=document.createElement('div');ui.append(labels);
   const hint=document.createElement('div');hint.className='rw-hint';hint.textContent='WASD / panah · Shift lari · Seret kamera · Gulir zoom · E sapa';ui.append(hint);
+  const onlineBadge=document.createElement('div');onlineBadge.className='rw-online';onlineBadge.setAttribute('role','status');onlineBadge.textContent=swapCitizen?.id?'Mencari warga online…':'Masuk sebagai warga untuk bertemu pemain lain.';ui.append(onlineBadge);
   const loading=document.createElement('div');loading.className='rw-loading';loading.setAttribute('role','status');loading.textContent='Membuka dunia dan karakter…';ui.append(loading);
   const talk=document.createElement('button');talk.className='rw-talk';talk.hidden=true;ui.append(talk);
   const card=document.createElement('section');card.className='rw-card';card.hidden=true;card.setAttribute('aria-live','polite');ui.append(card);
@@ -79,23 +79,73 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   const sun=new THREE.DirectionalLight('#fff1d7',3.2);sun.position.set(20,35,25);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-26;sun.shadow.camera.right=26;sun.shadow.camera.top=26;sun.shadow.camera.bottom=-26;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.normalBias=.025;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
   const context=createCapitalContext({parent:scene,...resources,phase,includeCore:true,city:cityId}),terrain=createRepublicTerrainStream({parent:scene,city:cityId});terrain.update(position.x,position.z);
   position.y=worldFloorHeight(position.x,position.z,{surfaces:context.surfaces,city:cityId});
-  const roster=worldResidents(cityId),residents=new Map(),pending=new Set(),failed=new Set();let desired=new Set(),populationEpoch=0;
+  const roster=worldResidents(cityId),residents=new Map(),pending=new Set(),failed=new Set(),peers=new Map(),peerPending=new Set(),peerData=new Map();let desired=new Set(),populationEpoch=0;
+  const chatPanel=document.getElementById('citizenChat'),chatLog=document.getElementById('citizenChatLog'),chatStatus=document.getElementById('citizenChatStatus'),chatInput=document.querySelector('#citizenChatForm input[name="message"]'),chatSend=document.querySelector('#citizenChatForm button[type="submit"]');
   const keys=new Set(),stick={x:0,z:0},pointer=new Map();let stickId=null,runTouch=false,pinchDistance=0,dragged=0;
   if(window.matchMedia?.('(pointer:coarse)').matches)hint.textContent='Joystick jalan · Tahan LARI · Seret kamera · Cubit zoom';
   const temp=new THREE.Vector3(),headPoint=new THREE.Vector3(),cameraTarget=new THREE.Vector3(),desiredCamera=new THREE.Vector3(),raycaster=new THREE.Raycaster();let width=1,height=1;
   const makeLabel=(name,role,self=false)=>{const e=document.createElement('div');e.className='rw-label';e.hidden=true;e.dataset.self=String(self);e.textContent=name;const small=document.createElement('small');small.textContent=role;e.append(small);labels.append(e);return e;};
   let playerLabel=makeLabel(activeCitizen?.display_name||activeCitizen?.name||'Tamu','',true);
-  function state(){return {city:cityId,phase,position:{x:position.x,y:position.y,z:position.z},yaw:player?.figure.rotation.y??0,cameraYaw:yaw,zoom,nearby:nearby?{id:nearby.id,name:nearby.name,role:nearby.role}:null,loadedChunks:terrain.count,citizensVisible:residents.size,citizensTotal:48};}
+  function state(){return {city:cityId,phase,position:{x:position.x,y:position.y,z:position.z},yaw:player?.figure.rotation.y??0,cameraYaw:yaw,zoom,nearby:nearby?{id:nearby.id,name:nearby.name,role:nearby.role}:null,loadedChunks:terrain.count,npcsVisible:residents.size,onlineVisible:peers.size};}
   function collisionResources(){return {colliders:[...context.colliders,...terrain.colliders,...[...residents.values()].map(c=>({x:c.actor.figure.position.x,z:c.actor.figure.position.z,radius:.28,maxY:c.actor.figure.position.y+1.8}))],surfaces:context.surfaces,city:cityId};}
   function showCitizen(citizen=nearby){
     if(!citizen)return;card.replaceChildren();const close=document.createElement('button');close.textContent='×';close.setAttribute('aria-label','Tutup profil warga');close.onclick=()=>{card.hidden=true;canvas.focus({preventScroll:true});};
     const name=document.createElement('h3');name.textContent=citizen.name;const role=document.createElement('small');role.textContent=citizen.role;
     const text=document.createElement('p');text.textContent=citizen.personality||'Warga pertama Republik Wkwkwk. Usulan dan cerita baru menanti di sini.';
-    const place=document.createElement('p');place.textContent='Karakter cerita · Warga Gelombang 1';card.append(close,name,role,text,place);card.hidden=false;
+    const place=document.createElement('p');place.textContent='Karakter cerita · NPC';card.append(close,name,role,text,place);card.hidden=false;
   }
-  listen(talk,'click',()=>showCitizen());
+  function closeChat(){chatPanel.hidden=true;chatTarget=null;chatAfter=0;canChat=false;chatSend.disabled=true;chatStatus.classList.remove('error');}
+  function clearPeers(){for(const peer of peers.values()){peer.label.remove();disposeAvatar(peer.actor);}peers.clear();peerData.clear();onlineBadge.textContent=swapCitizen?.id?'Belum ada warga lain di sekitar.':'Masuk sebagai warga untuk bertemu pemain lain.';}
+  function appendMessages(messages){
+    for(const message of messages||[]){const id=Number(message.id)||0;if(!id||chatLog.querySelector(`[data-message-id="${id}"]`))continue;
+      chatLog.querySelector('.citizen-chat-empty')?.remove();const bubble=document.createElement('article');bubble.className=`citizen-chat-message${Number(message.sender_id)===Number(swapCitizen?.id)?' mine':''}`;bubble.dataset.messageId=String(id);
+      const by=document.createElement('b');by.textContent=Number(message.sender_id)===Number(swapCitizen?.id)?'KAMU':message.sender_name||chatTarget?.name||'WARGA';const body=document.createElement('span');body.textContent=message.message||'';bubble.append(by,body);chatLog.append(bubble);chatAfter=Math.max(chatAfter,id);
+    }
+    chatLog.scrollTop=chatLog.scrollHeight;
+  }
+  function openChat(peer){
+    if(!swapCitizen?.id){document.getElementById('profileButton')?.click();return;}
+    chatTarget={id:peer.id,name:peer.name};chatAfter=0;canChat=false;chatLog.replaceChildren();const empty=document.createElement('p');empty.className='citizen-chat-empty';empty.textContent='Sapa warga yang kamu temui di sini.';chatLog.append(empty);
+    document.getElementById('citizenChatName').textContent=peer.name;chatStatus.textContent='Menghubungkan obrolan…';chatStatus.classList.remove('error');chatSend.disabled=true;card.hidden=true;chatPanel.hidden=false;chatInput.focus({preventScroll:true});lastPresence=0;void syncPresence();
+  }
+  function removePeer(id){const peer=peers.get(id);if(!peer)return;peer.label.remove();disposeAvatar(peer.actor);peers.delete(id);}
+  async function mountPeer(data,epoch){
+    const id=Number(data.id);if(peerPending.has(id))return;peerPending.add(id);
+    try{const config=worldAvatarConfig(data);await loadAvatarProfile(config.profileId);const target=peerData.get(id);if(disposed||epoch!==presenceEpoch||!target||target.signature!==data.signature)return;
+      const actor=createHumanModel(THREE,{avatarConfig:config});const y=worldFloorHeight(target.x,target.z,{surfaces:context.surfaces,city:cityId});actor.figure.position.set(target.x,y,target.z);scene.add(actor.figure);
+      const label=makeLabel(target.name,'Warga online');peers.set(id,{actor,label,target,signature:target.signature});
+    }catch(error){if(!disposed)console.warn('Avatar warga online belum dapat dimuat.',error);}finally{peerPending.delete(id);}
+  }
+  function updatePeers(players,epoch){
+    const nearbyPlayers=(Array.isArray(players)?players:[]).filter(p=>Number.isFinite(+p.id)&&Number.isFinite(+p.x)&&Number.isFinite(+p.z)&&Number(p.id)!==Number(swapCitizen?.id)).sort((a,b)=>Number(a.distance)-Number(b.distance)).slice(0,12);
+    const wanted=new Set(nearbyPlayers.map(p=>Number(p.id)));
+    for(const id of peerData.keys())if(!wanted.has(id)){peerData.delete(id);removePeer(id);}
+    for(const item of nearbyPlayers){const id=Number(item.id),signature=JSON.stringify(item.avatar_config||item.avatar||''),target={id,name:String(item.displayName||'Warga'),x:Number(item.x),z:Number(item.z),signature,avatar_config:item.avatar_config,avatar:item.avatar};peerData.set(id,target);
+      const peer=peers.get(id);if(peer&&peer.signature!==signature)removePeer(id);else if(peer){peer.target=target;peer.label.firstChild.textContent=target.name;}
+      if(!peers.has(id))void mountPeer(target,epoch);
+    }
+    onlineBadge.textContent=nearbyPlayers.length?`${nearbyPlayers.length} warga online di sekitar`:'Belum ada warga lain di sekitar.';
+  }
+  async function syncPresence(){
+    if(disposed||presenceBusy||!swapCitizen?.id)return;presenceBusy=true;const epoch=presenceEpoch;
+    try{const data=await presence.sync({x:position.x,z:position.z,targetId:chatTarget?.id||0,after:chatAfter,signal});if(disposed||epoch!==presenceEpoch)return;
+      updatePeers(data.players,epoch);
+      if(chatTarget&&!chatPanel.hidden){appendMessages(data.messages);canChat=!!data.canChat;chatSend.disabled=!canChat;chatStatus.textContent=canChat?'Kalian berdekatan · pesan masuk langsung.':'Dekati lagi warga ini untuk mengobrol.';chatStatus.classList.toggle('error',!canChat);}
+    }catch(error){if(!disposed&&error.name!=='AbortError'){onlineBadge.textContent=error.message;chatStatus.textContent=error.message;chatStatus.classList.add('error');chatSend.disabled=true;}}
+    finally{presenceBusy=false;}
+  }
+  listen(talk,'click',()=>nearby?.kind==='player'?openChat(nearby):showCitizen());
+  listen(document.getElementById('citizenChatClose'),'click',()=>closeChat());
+  listen(document.getElementById('citizenChatForm'),'submit',async event=>{
+    event.preventDefault();if(!chatTarget||!canChat||!chatInput.value.trim())return;const message=chatInput.value.trim();chatSend.disabled=true;
+    try{const result=await presence.send({targetId:chatTarget.id,message,signal});if(disposed)return;appendMessages([result.message]);chatInput.value='';chatStatus.textContent='Pesan terkirim.';chatStatus.classList.remove('error');}
+    catch(error){if(!disposed){chatStatus.textContent=error.message;chatStatus.classList.add('error');}}
+    finally{if(!disposed){chatSend.disabled=!canChat;chatInput.focus({preventScroll:true});}}
+  });
   async function replacePlayer(citizen){
-    const version=++playerVersion;swapCitizen=citizen;const config=worldAvatarConfig(citizen);
+    const version=++playerVersion,previousId=Number(swapCitizen?.id)||0,nextId=Number(citizen?.id)||0;swapCitizen=citizen;
+    if(previousId!==nextId){presenceEpoch++;clearPeers();closeChat();lastPresence=0;if(previousId&&!nextId)void presence.leave().catch(()=>{});}
+    const config=worldAvatarConfig(citizen);
     await loadAvatarProfile(config.profileId);if(disposed||version!==playerVersion)return;
     const next=createHumanModel(THREE,{avatarConfig:config});next.figure.position.set(position.x,position.y,position.z);next.figure.rotation.y=player?.figure.rotation.y??(Number.isFinite(+start.yaw)?+start.yaw:Math.PI);scene.add(next.figure);disposeAvatar(player);player=next;
     playerLabel.remove();playerLabel=makeLabel(citizen?.display_name||citizen?.name||'Tamu','',true);loading.remove();
@@ -137,7 +187,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   const observer=new ResizeObserver(resize);observer.observe(canvas);resize();
   const paused=()=>document.body.classList.contains('production-viewer-open')||!!document.querySelector('dialog[open],#avatarCustomizer:not([hidden])');
   const formTarget=e=>e.target?.closest?.('input,textarea,select,[contenteditable=true],[role=dialog]');
-  listen(window,'keydown',e=>{if(formTarget(e)||paused())return;if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','ShiftLeft','ShiftRight'].includes(e.code)){keys.add(e.code);e.preventDefault();}if(['Equal','NumpadAdd','Minus','NumpadSubtract'].includes(e.code)){setZoom(zoom*(['Equal','NumpadAdd'].includes(e.code)?1/1.22:1.22));e.preventDefault();}if(e.code==='KeyE'&&!e.repeat)showCitizen();if(e.code==='Escape')card.hidden=true;});
+  listen(window,'keydown',e=>{if(formTarget(e)||paused())return;if(['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight','ShiftLeft','ShiftRight'].includes(e.code)){keys.add(e.code);e.preventDefault();}if(['Equal','NumpadAdd','Minus','NumpadSubtract'].includes(e.code)){setZoom(zoom*(['Equal','NumpadAdd'].includes(e.code)?1/1.22:1.22));e.preventDefault();}if(e.code==='KeyE'&&!e.repeat){if(nearby?.kind==='player')openChat(nearby);else showCitizen();}if(e.code==='Escape'){card.hidden=true;closeChat();}});
   listen(window,'keyup',e=>keys.delete(e.code));listen(window,'blur',()=>{keys.clear();runTouch=false;stick.x=stick.z=0;});
   listen(canvas,'contextmenu',e=>e.preventDefault());
   listen(canvas,'wheel',e=>{e.preventDefault();setZoom(zoom*Math.exp(e.deltaY*.001));},{passive:false});
@@ -162,6 +212,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   function tick(now){
     if(disposed)return;raf=requestAnimationFrame(tick);if(document.hidden||paused()){lastTime=0;keys.clear();stick.x=stick.z=0;runTouch=false;ui.style.visibility='hidden';return;}ui.style.visibility='';
     const dt=lastTime?Math.min(.05,(now-lastTime)/1000):0;lastTime=now;
+    if(swapCitizen?.id&&now-lastPresence>1600){lastPresence=now;void syncPresence();}
     let dx=Number(keys.has('KeyD')||keys.has('ArrowRight'))-Number(keys.has('KeyA')||keys.has('ArrowLeft'))+stick.x,dz=Number(keys.has('KeyS')||keys.has('ArrowDown'))-Number(keys.has('KeyW')||keys.has('ArrowUp'))+stick.z;
     const length=Math.hypot(dx,dz);if(length>1){dx/=length;dz/=length;}const moving=length>.08,speed=player?avatarSpeed(player,(keys.has('ShiftLeft')||keys.has('ShiftRight')||runTouch)?'Run':'Walk'):0;
     if(player){
@@ -172,8 +223,17 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
     terrain.update(position.x,position.z);
     if(now-lastPopulation>700){lastPopulation=now;void populate();}
     nearby=null;let nearest=4.3;
+    for(const peer of peers.values()){
+      const beforeX=peer.actor.figure.position.x,beforeZ=peer.actor.figure.position.z,travel=Math.hypot(peer.target.x-beforeX,peer.target.z-beforeZ);
+      if(travel>15){peer.actor.figure.position.x=peer.target.x;peer.actor.figure.position.z=peer.target.z;}
+      else {const fraction=Math.min(1,dt*5);peer.actor.figure.position.x+=(peer.target.x-beforeX)*fraction;peer.actor.figure.position.z+=(peer.target.z-beforeZ)*fraction;}
+      const moved=Math.hypot(peer.actor.figure.position.x-beforeX,peer.actor.figure.position.z-beforeZ);peer.actor.figure.position.y=worldFloorHeight(peer.actor.figure.position.x,peer.actor.figure.position.z,{surfaces:context.surfaces,city:cityId});
+      if(moved>.001)peer.actor.figure.rotation.y=Math.atan2(peer.actor.figure.position.x-beforeX,peer.actor.figure.position.z-beforeZ);
+      animateAvatar(peer.actor,dt?moved/dt:0,dt);
+      const distance=Math.hypot(position.x-peer.actor.figure.position.x,position.z-peer.actor.figure.position.z);if(distance<nearest){nearest=distance;nearby={kind:'player',id:peer.target.id,name:peer.target.name,role:'Warga online',actor:peer.actor};}
+    }
     for(const resident of residents.values()){
-      animateAvatar(resident.actor,0,dt);const d=Math.hypot(position.x-resident.actor.figure.position.x,position.z-resident.actor.figure.position.z);if(d<nearest){nearest=d;nearby=resident;}
+      animateAvatar(resident.actor,0,dt);const d=Math.hypot(position.x-resident.actor.figure.position.x,position.z-resident.actor.figure.position.z);if(d<nearest){nearest=d;nearby={...resident,kind:'npc'};}
     }
     talk.hidden=!nearby;talk.textContent=nearby?`Sapa ${nearby.name} · E`:'';
     cameraTarget.set(position.x,position.y+1.25,position.z);desiredCamera.set(position.x+Math.sin(yaw)*zoom*Math.cos(pitch),position.y+1.25+Math.sin(pitch)*zoom,position.z+Math.cos(yaw)*zoom*Math.cos(pitch));
@@ -186,11 +246,11 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
     camera.position.copy(desiredCamera);camera.lookAt(cameraTarget);camera.updateMatrixWorld(true);
     sun.position.set(position.x+20,position.y+35,position.z+25);sun.target.position.set(position.x,position.y,position.z);sun.target.updateMatrixWorld();
     renderer.render(scene,camera);
-    if(now-lastLabels>100){lastLabels=now;playerLabel.hidden=true;let shown=0;for(const resident of [...residents.values()].sort((a,b)=>a.actor.figure.position.distanceToSquared(camera.position)-b.actor.figure.position.distanceToSquared(camera.position))){if(shown>=4){resident.label.hidden=true;continue;}labelAt(resident.actor,resident.label);if(!resident.label.hidden)shown++;}}
+    if(now-lastLabels>100){lastLabels=now;playerLabel.hidden=true;let shown=0;for(const person of [...peers.values(),...residents.values()].sort((a,b)=>a.actor.figure.position.distanceToSquared(camera.position)-b.actor.figure.position.distanceToSquared(camera.position))){if(shown>=4){person.label.hidden=true;continue;}labelAt(person.actor,person.label);if(!person.label.hidden)shown++;}}
     if(now-lastState>250){lastState=now;onState(state());}
   }
   function dispose(){
-    if(disposed)return;disposed=true;playerVersion++;populationEpoch++;cancelAnimationFrame(raf);abort.abort();observer.disconnect();disposeAvatar(player);for(const c of residents.values())disposeAvatar(c.actor);residents.clear();terrain.dispose();context.dispose();
+    if(disposed)return;disposed=true;playerVersion++;populationEpoch++;presenceEpoch++;cancelAnimationFrame(raf);abort.abort();observer.disconnect();if(swapCitizen?.id)void presence.leave().catch(()=>{});closeChat();clearPeers();disposeAvatar(player);for(const c of residents.values())disposeAvatar(c.actor);residents.clear();terrain.dispose();context.dispose();
     for(const set of Object.values(resources))for(const r of set)r.dispose();sun.shadow.map?.dispose();renderer.dispose();ui.remove();parent.style.position=oldPosition;canvas.style.touchAction=oldTouch;if(oldTabIndex===null)canvas.removeAttribute('tabindex');else canvas.setAttribute('tabindex',oldTabIndex);
   }
   if(external){if(external.aborted){dispose();return {dispose,setPhase:applyPhase,focusCitizen,teleport,getState:state};}listen(external,'abort',dispose,{once:true});}

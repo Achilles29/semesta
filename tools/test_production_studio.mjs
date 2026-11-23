@@ -49,7 +49,11 @@ assert.equal(formatConfig.fastStart,false,'Long episodes must not retain all med
 assert.deepEqual(stages,['Memeriksa dukungan MP4','Menyimpan suara ke MP4','Merender video','Menyelesaikan file MP4']);
 assert.equal(order[0],'audio-track');assert.equal(order[1],'audio-data');
 for(let i=0;i<6;i++){assert.equal(order[2+i*2],`render:${i/30}`);assert.deepEqual(order[3+i*2],[i/30,1/30]);}
-const abort=new AbortController();await assert.rejects(encodeMp4({...args,signal:abort.signal,renderFrame:()=>abort.abort()},media),{name:'AbortError'});assert.equal(cancelled,1);assert.equal(finalized,1);
+let fallbackRegistered=false;const fallbackStages=[];
+await encodeMp4({...args,onStage:s=>fallbackStages.push(s)},{...media,canEncodeAudio:async()=>fallbackRegistered,registerAacEncoder:()=>{fallbackRegistered=true;}});
+assert.equal(fallbackRegistered,true,'Missing native AAC activates the bundled encoder');
+assert.ok(fallbackStages.includes('Menyiapkan encoder audio AAC'));
+const abort=new AbortController();await assert.rejects(encodeMp4({...args,signal:abort.signal,renderFrame:()=>abort.abort()},media),{name:'AbortError'});assert.equal(cancelled,1);assert.equal(finalized,2);
 const contextLoss=new AbortController(),lost=new Error('Konteks grafis terputus');await assert.rejects(encodeMp4({...args,signal:contextLoss.signal,renderFrame:()=>contextLoss.abort(lost)},media),error=>error===lost);
 await assert.rejects(encodeMp4(args,{...media,canEncodeVideo:async()=>false}),/H.264/);
 await assert.rejects(encodeMp4(args,{...media,canEncodeAudio:async()=>false}),/AAC/);

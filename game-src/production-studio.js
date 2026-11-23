@@ -34,7 +34,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   let scenario=initialScenario?validateScenario(initialScenario):scenarioForEpisode(LATEST_EPISODE),storageNotice='';
   if(persist&&!initialScenario)try{const saved=localStorage.getItem(STORAGE);if(saved)scenario=validateScenario(resolveProductionDraft(JSON.parse(saved),{emptyIntent:localStorage.getItem(STORAGE+'.empty-intent')==='true',preferredEpisode:localStorage.getItem(STORAGE+'.selected-episode')}));}catch{try{localStorage.setItem(STORAGE+'.unreadable-backup',localStorage.getItem(STORAGE)||'');}catch{}storageNotice='Draf lokal tidak dapat dibaca. Day 2 bawaan dibuka; salinan data lama disimpan untuk pemulihan.';}
   let restoredDifferentDraft=persist&&!initialScenario&&!isPristineProductionDraft(scenario);
-  let stage=null,renderer=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false,playbackFromStart=false;
+  let stage=null,renderer=null,rebuilding=null,loadVersion=0,playing=false,starting=false,exporting=false,time=0,started=0,raf=0,disposed=false,playbackFromStart=false;
   let audioContext=null,audioSource=null,mixed=null,exportAbort=null,downloadUrl=null,format='portrait',quality='1080',guides=false,playVersion=0,audioLoading=0;
   const audioVersion=[0,0];
   let storyEnabled=true,rhythmEnabled=true;
@@ -96,7 +96,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   function controls(){
     const busy=exporting||starting||audioLoading>0,ready=!!stage&&scenario.shots.length>0;
     el('[data-command="play"]').disabled=!ready||busy;el('[data-command="play"]').textContent=playing?'Ⅱ Jeda':'▶ Play semua';
-    el('[data-command="stop"]').disabled=!ready||busy;el('[data-command="export"]').disabled=!ready||busy;
+    el('[data-command="stop"]').disabled=!ready||busy;el('[data-command="export"]').disabled=!scenario.shots.length||busy;
     el('[data-seek]').disabled=!ready||busy;el('[data-command="cancel"]').hidden=!exporting;el('[data-progress]').hidden=!exporting;
     host.querySelectorAll('[data-editor] input,[data-editor] select,[data-editor] textarea,[data-editor] button,.ps-workspace-actions input,.ps-workspace-actions button,.ps-audio input,.ps-audio button,[data-episode],[data-command="rehearsal"],[data-command="day1-opening"],[data-format],[data-quality]').forEach(node=>{node.disabled=busy;});
     if(!busy){el('[data-command="add-cast"]').disabled=scenario.cast.length>=64;el('[data-command="add"]').disabled=scenario.shots.length>=80;const first=el('[data-up="0"]');if(first)first.disabled=true;}
@@ -162,7 +162,7 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
     try{scenario=validateScenario(next);}catch(error){status(error.message);form();controls();return;}
     if(persist)try{if(scenario.shots.length)localStorage.removeItem(STORAGE+'.empty-intent');else localStorage.setItem(STORAGE+'.empty-intent','true');}catch{}
     pause();playbackFromStart=false;invalidateDownload();mixed=null;saveDraft();form();
-    if(scene||!stage||!scenario.shots.length){void rebuild();return;}
+    if(scene||!stage||!scenario.shots.length){rebuilding=rebuild();return;}
     stage.setScenario(scenario);time=0;el('[data-seek]').max=durationOf(scenario);draw();controls();
   }
   function download(blob,name){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);}
@@ -180,12 +180,15 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   }
   async function exportVideo(){
     pause();playbackFromStart=false;exporting=true;exportAbort=new AbortController();invalidateDownload();el('[data-progress]').removeAttribute('value');controls();const oldTime=time;
-    let exportStage='Menyiapkan suara',wakeLock;
-    status('Menyiapkan suara untuk MP4…');
+    let exportStage='Menyiapkan pratinjau',wakeLock;
+    status('Menyiapkan pratinjau untuk MP4…');
     try{
       // Let the browser paint the busy state before audio mixing or rendering.
       await new Promise(resolve=>setTimeout(resolve,0));
+      if(!stage&&rebuilding)await rebuilding;
+      if(!stage)throw new Error('Scene belum berhasil dimuat. Periksa status pratinjau, lalu coba lagi.');
       try{wakeLock=await navigator.wakeLock?.request('screen');}catch{}
+      exportStage='Menyiapkan suara';status('Menyiapkan suara untuk MP4…');
       await prepareAudio();
       if(disposed||exportAbort.signal.aborted)throw exportAbort.signal.reason||new DOMException('Ekspor dibatalkan.','AbortError');
       time=0;draw(true);
@@ -271,6 +274,6 @@ export function mountProductionStudio(host,{createStage=createProductionStage,cr
   listen(document,'visibilitychange',()=>{if(document.hidden&&!exporting)pause();});
   listen(window,'beforeunload',event=>{if(exporting){event.preventDefault();event.returnValue='';}});
   listen(gpu,'webglcontextlost',event=>{event.preventDefault();pause();const error=new Error('Konteks grafis terputus. Muat ulang halaman; draf tetap tersimpan. Coba kualitas 720p untuk mengurangi beban grafis.');exportAbort?.abort(error);status(error.message);});
-  form();saveDraft();const ready=rebuild();
+  form();saveDraft();const ready=rebuild();rebuilding=ready;
   return {ready,play,dispose(){disposed=true;fullscreen.dispose();loadVersion++;audioVersion[0]++;audioVersion[1]++;pause();exportAbort?.abort();events.abort();stage?.dispose();renderer?.dispose();void audioContext?.close();invalidateDownload();host.replaceChildren();}};
 }

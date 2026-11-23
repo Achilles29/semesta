@@ -215,7 +215,8 @@ class Api extends CI_Controller
         $region = isset($payload['region']) ? (string) $payload['region'] : '';
         $locations = array('jakarta','bandung','semarang','surabaya','makassar');
         $regions = array('kota','desa','hutan');
-        if (!in_array($destination, $locations, TRUE) || !in_array($region, $regions, TRUE)) return $this->output->set_status_header(422)->set_output('{"error":"Wilayah obrolan tidak dikenal."}');
+        $sharedWorld = $destination === 'republic' && $region === 'world';
+        if (!$sharedWorld && (!in_array($destination, $locations, TRUE) || !in_array($region, $regions, TRUE))) return $this->output->set_status_header(422)->set_output('{"error":"Wilayah obrolan tidak dikenal."}');
 
         if ($action === 'sync') {
             $x = isset($payload['x']) && is_numeric($payload['x']) ? (float) $payload['x'] : NULL;

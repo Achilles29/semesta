@@ -90,5 +90,12 @@ click('[data-command="play"]');await flush();clock+=1;frame();assert.equal(getWo
 click('[data-command="stop"]');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'after-day2','Natural canonical Day 2 playback completion updates the shared city phase');
 setWorldPhase('before-day2');change('[data-field="title"]','Draf cerita yang saya edit');click('[data-command="play"]');await flush();clock+=total+1;frame();assert.equal(getWorldPhase(),'before-day2','Authored drafts never advance the public city state');
 studio.dispose();
+let releaseScene;
+const waiting=mountProductionStudio(host,{...dependencies,persist:false,initialScenario:day1Scenario(),mixAudio:async()=>null,loadStory:async()=>[],
+  createStage:async scenario=>{await new Promise(resolve=>{releaseScene=resolve;});return dependencies.createStage(scenario);}});
+assert.equal(q('[data-command="export"]').disabled,false,'MP4 stays clickable while the scene is loading');
+click('[data-command="export"]');assert.match(q('[data-status]').textContent,/Menyiapkan pratinjau/,'An early MP4 click gets immediate feedback');
+releaseScene();await waiting.ready;await flush();await flush();
+assert.equal(q('[data-download]').hidden,false,'An early MP4 click starts the export after scene loading');waiting.dispose();
 await win.happyDOM.close();
 console.log('PASS: DOM empty/rehearsal/edit/seek/play/pause/export/cancel/format/cast/draft/reset/XSS/lifecycle. Real browser graphics not exercised.');

@@ -13,7 +13,15 @@ export async function encodeMp4({canvas,duration,renderFrame,audio=null,signal,o
     throw new Error('Encoder H.264 belum tersedia di browser ini. Gunakan Chrome/Edge dengan akselerasi grafis aktif melalui HTTPS atau localhost. Coba kualitas 720p bila 1080p tidak didukung.');
   }
   const audioQuality=new Quality({bitrate:192_000});
-  if(audio&&!await canEncodeAudio('aac',{sampleRate:audio.sampleRate||48000,numberOfChannels:audio.numberOfChannels||2,quality:audioQuality}))throw new Error('Encoder audio AAC belum tersedia. Gunakan Chrome/Edge yang mendukung AAC untuk mengekspor dengan audio.');
+  if(audio){
+    const audioOptions={sampleRate:audio.sampleRate||48000,numberOfChannels:audio.numberOfChannels||2,quality:audioQuality};
+    if(!await canEncodeAudio('aac',audioOptions)){
+      check();onStage('Menyiapkan encoder audio AAC');
+      const {registerAacEncoder}=media.registerAacEncoder?media:await import('@mediabunny/aac-encoder');
+      registerAacEncoder();
+      if(!await canEncodeAudio('aac',audioOptions))throw new Error('Encoder audio AAC tidak berhasil disiapkan di browser ini.');
+    }
+  }
   check();
   // A completed download is a regular MP4. Write media as it arrives instead
   // of retaining every compressed chunk again until the end of a long episode.
