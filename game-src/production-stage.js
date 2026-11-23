@@ -1,3 +1,4 @@
+import {developmentGroundHeight} from './civic-development-layout.js';
 import {drawSeriesFrame,drawDialogue,drawSurvey} from './production-caption-style.js';
 import * as THREE from 'three';
 import {loadAvatarProfile,createHumanModel,disposeAvatar,avatarSpeed} from './avatar-runtime.js';
@@ -9,6 +10,8 @@ import {DAY1_SPEAKERS} from './production-day1.js';
 import {activeSpeeches} from './production-speech-cues.js';
 import {displaySpeechText} from './production-speech-text.js';
 import {cameraFrameAt} from './production-camera.js';
+import {createDay3Set} from './production-day3-set.js';
+import {drawDay3Panel,day3DraftCaption} from './production-day3-panels.js';
 import {createDay2Set} from './production-day2-set.js';
 import {createProductionActing} from './production-acting.js';
 import {productionProps} from './production-props.js';
@@ -19,10 +22,10 @@ import {preloadRepublicBuildingLogo} from './republic-building-identity.js';
 
 /** Scene and deterministic posing are also usable by CPU contract tests. */
 export async function createProductionStage(input){
-  if(input.set==='construction')await preloadRepublicBuildingLogo();
+  if(['construction','development'].includes(input.set))await preloadRepublicBuildingLogo();
   let compiled=compileScenario(input);const scene=new THREE.Scene();
   scene.background=new THREE.Color(input.set==='studio'?'#293d48':'#b6cfce');
-  scene.fog=input.set==='construction'?null:new THREE.Fog(scene.background,24,65);
+  scene.fog=['construction','development'].includes(input.set)?null:new THREE.Fog(scene.background,24,65);
   scene.add(new THREE.HemisphereLight('#fff6df','#52686d',2.2));
   const sun=new THREE.DirectionalLight('#fff1d7',3.2);sun.position.set(-5,9,6);sun.castShadow=true;
   sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-12,right:12,top:12,bottom:-12,near:.5,far:35});sun.shadow.bias=-.0003;sun.shadow.normalBias=.03;scene.add(sun);
@@ -31,7 +34,7 @@ export async function createProductionStage(input){
   const geometries=new Set(),materials=new Set(),textures=new Set();
   const accessories=productionProps({geometries,materials});
   const extras=['republic','construction'].includes(input.set)?accessories.animals(owned):null;
-  let construction=null,capital=null;
+  let construction=null,capital=null,development=null;
   const box=(color,position,size)=>{
     const geometry=new THREE.BoxGeometry(...size),material=new THREE.MeshStandardMaterial({color,roughness:.78});
     geometries.add(geometry);materials.add(material);const mesh=new THREE.Mesh(geometry,material);mesh.position.fromArray(position);mesh.castShadow=mesh.receiveShadow=true;owned.add(mesh);return mesh;
@@ -40,12 +43,16 @@ export async function createProductionStage(input){
     capital=createCapitalContext({parent:owned,geometries,materials,textures,phase:'before-day2',includeCore:false});
     construction=createDay2Set({owned,geometries,materials,textures});
   }
+  else if(input.set==='development'){
+    capital=createCapitalContext({parent:owned,geometries,materials,textures,phase:'after-day2',includeCore:true,heightAt:developmentGroundHeight});
+    development=createDay3Set({owned,geometries,materials,textures});
+  }
   else if(input.set==='republic')buildRepublicSet({owned,geometries,materials,textures,box,office:input.props.includes('office')});
   else {box(input.set==='studio'?'#53656c':'#c5baa4',[0,-.08,0],[100,.15,100]);box('#e5dece',[0,.01,-.6],[9,.02,5]);}
   if(input.set==='studio'){
     box('#344e58',[0,4,-6],[30,8,.3]);
     for(const x of [-6,6])box('#d6b576',[x,2.3,-5.8],[.12,4.6,.1]);
-  }else if(!['republic','construction'].includes(input.set)){
+  }else if(!['republic','construction','development'].includes(input.set)){
     box('#e3d5bb',[0,1.6,-6],[13,3.2,.3]);
     box('#896952',[0,3.3,-6],[13.5,.18,1]);
     for(const x of [-5,-2.5,2.5,5]){
@@ -75,7 +82,7 @@ export async function createProductionStage(input){
   }
   const actors=new Map(),camera=new THREE.PerspectiveCamera(35,9/16,.1,100);
   const configs=input.cast.map(c=>({...presets.find(p=>p.id===c.preset).config,presetId:c.preset}));
-  const dispose=()=>{capital?.dispose?.();construction?.dispose?.();actors.forEach(disposeAvatar);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());sun.shadow.dispose();scene.clear();};
+  const dispose=()=>{development?.dispose?.();capital?.dispose?.();construction?.dispose?.();actors.forEach(disposeAvatar);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());sun.shadow.dispose();scene.clear();};
   try{
     await Promise.all([...new Set(configs.map(c=>c.profileId))].map(loadAvatarProfile));
     input.cast.forEach((c,i)=>{
@@ -119,7 +126,7 @@ export async function createProductionStage(input){
       // Audio amplitude drives jaw openness, not claimed phoneme-level lip sync.
       actor.figure.userData.expressionController?.update({time:time+input.cast.indexOf(c)*1.13,expression:acting.laugh?'happy':p.expression||(['Wave','Dance'].includes(p.action)?'happy':'neutral'),intensity:(acting.laugh?.85:.4)*acting.fade,viseme:mouth>.02?'AA':'rest',speech:mouth*.9,gaze:acting.gaze,channels:{browUpL:acting.accent*.10,browUpR:acting.accent*.10}});
     }
-    extras?.pose(sample,time);construction?.pose(sample,time,actors);scene.updateMatrixWorld(true);
+    extras?.pose(sample,time);construction?.pose(sample,time,actors);if(sample)development?.pose(sample,time);scene.updateMatrixWorld(true);
     const focus=sample?.actors[sample.shot.focus]?.position||[0,0];
     const mode=sample?.shot.camera||'wide';
     const framing=cameraFrameAt(sample?.shot.frame,sample?.elapsed??0,sample?.shot.duration??1),center=sample?.shot.followExtra?sample.extras[sample.shot.followExtra].position:framing?[framing.target[0],framing.target[2]]:mode==='wide'?[0,0]:focus;
@@ -134,9 +141,14 @@ export async function createProductionStage(input){
     const azimuth=framing?.azimuth??(mode==='follow'?.2:0),elevation=framing?.elevation??.055;
     camera.far=Math.max(250,distance*Math.hypot(1,elevation)+18000);camera.near=distance>500?1:.08;
     camera.aspect=aspect;camera.position.set(center[0]+Math.sin(azimuth)*distance,y+distance*elevation,center[1]+Math.cos(azimuth)*distance);camera.lookAt(center[0],y,center[1]);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);
+    if(development){
+      const extent=Math.max(12,Math.min(150,width*.65));sun.position.set(center[0]-100,y+180,center[1]+120);sun.target.position.set(center[0],y,center[1]);
+      sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);
+      Object.assign(sun.shadow.camera,{left:-extent,right:extent,top:extent,bottom:-extent,near:1,far:600});sun.shadow.camera.updateProjectionMatrix();
+    }
     return sample;
   }
-  return {scene,camera,actors,extras,construction,capital,occluders:[...(construction?.occluders||[]),...(capital?.occluders||[])],get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);input=compiled.scenario;},pose,dispose};
+  return {scene,camera,actors,extras,construction,capital,development,occluders:[...(development?.occluders||[]),...(construction?.occluders||[]),...(capital?.occluders||[])],get compiled(){return compiled;},setScenario(next){compiled=compileScenario(next);input=compiled.scenario;},pose,dispose};
 }
 
 export function createProductionRenderer(canvas){
@@ -152,6 +164,7 @@ export function compositeFrame(ctx,source,stage,time,{guides=false,sample:posedS
   const scale=Math.min(w/1080,h/1080),pad=w*.08;
   ctx.save();
   drawSeriesFrame(ctx,stage.compiled.scenario,time,stage.compiled.duration);
+  drawDay3Panel(ctx,sample);
   const voices=activeSpeeches(sample,stage.compiled.scenario,{tail:.12}),voice=[...voices].sort((a,b)=>(a.volume??1)-(b.volume??1)).at(-1),clip=voice?.clip,speechTime=voice?.local??-1;
   if(sample.shot.overlay||sample.shot.card){
     let label=sample.shot.overlay;
@@ -165,7 +178,9 @@ export function compositeFrame(ctx,source,stage,time,{guides=false,sample:posedS
   let dialogue;
   if(clip||sample.shot.caption&&!sample.shot.speech&&!sample.shot.speeches?.length){
     const speakingCast=stage.compiled.scenario.cast.find(c=>c.id===voice?.castId);
-    dialogue=drawDialogue(ctx,{clip,caption:clip?displaySpeechText(clip.text):sample.shot.caption,speaker:speakingCast?castIdentity(speakingCast,stage.compiled.scenario).name:clip?(DAY1_SPEAKERS[clip.speaker]||'Narator'):undefined,speechTime});
+    const draft=stage.compiled.scenario.episode==='day3'&&!clip&&sample.shot.plannedVoice;
+    const draftCast=draft&&stage.compiled.scenario.cast.find(c=>c.id===draft.speaker);
+    dialogue=drawDialogue(ctx,{clip,caption:clip?displaySpeechText(clip.text):draft?day3DraftCaption(sample):sample.shot.caption,speaker:speakingCast?castIdentity(speakingCast,stage.compiled.scenario).name:clip?(DAY1_SPEAKERS[clip.speaker]||'Narator'):draft?(draftCast?.name||'Narator'):undefined,speechTime});
   }
   drawCharacterLabels(ctx,stage,{subtitleTop:dialogue?.top});
   if(sample.shot.survey)drawSurvey(ctx,sample.shot.survey,{time:sample.elapsed});

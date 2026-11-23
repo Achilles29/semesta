@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {spawnSync} from 'node:child_process';
+import {Window} from 'happy-dom';
+const php=process.env.PHP_BINARY||'C:/xampp/php/php.exe';
+const fixture=spawnSync(php,['tools/render_admin_test_fixture.php'],{encoding:'utf8'});assert.equal(fixture.status,0,fixture.stderr);
+const win=new Window({url:'http://localhost/project/admin/?view=citizens'});win.document.body.innerHTML=fixture.stdout;
+const q=s=>win.document.querySelector(s),pending=[];
+const code=readFileSync('game-src/admin-main.js','utf8'),source=code.slice(code.indexOf('async function initCitizenDirectory()'),code.indexOf('async function initMailSettings()'));
+const init=new Function('document','window','location','$','API_URL','fetch','updateAdminQuery',`${source};return initCitizenDirectory;`)(win.document,win,win.location,q,'http://localhost/project/api',async()=>new Promise(resolve=>pending.push(resolve)),()=>{});
+const result=(name)=>({ok:true,json:async()=>({page:1,pages:1,total:1,stats:{total:1},citizens:[{id:1,display_name:name,username:'warga',occupation_label:'Petani',is_active:1}]})});
+const first=init();assert.equal(pending.length,1);pending.shift()(result('Pertama'));await first;
+const filter=q('#citizenAdminFilter');filter.value='inactive';filter.dispatchEvent(new win.Event('change'));filter.value='active';filter.dispatchEvent(new win.Event('change'));assert.equal(pending.length,2);
+pending[1](result('<img src=x onerror=alert(1)>'));await win.happyDOM.waitUntilComplete();
+pending[0](result('Respons lama'));await win.happyDOM.waitUntilComplete();
+assert.match(q('#citizenAdminList').textContent,/<img/);assert.doesNotMatch(q('#citizenAdminList').textContent,/Respons lama/);assert.equal(q('#citizenAdminList img'),null);
+assert.equal(q('#citizenStatTotal').textContent,'1');assert.match(q('#adminView-citizens').textContent,/bukan roster/);
+await win.happyDOM.close();console.log('PASS admin directory: real rendered view, latest filter wins over late response, safe account text, account-only counts and roster separation.');

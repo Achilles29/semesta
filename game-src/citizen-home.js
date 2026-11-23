@@ -7,7 +7,7 @@ const requestId = () => globalThis.crypto?.randomUUID?.() || `home-${Date.now().
 const timeValue = value => typeof value === 'number' ? (value < 1e12 ? value*1000 : value) : (Date.parse(value) || 0);
 
 /** Guidance is a proposal; only the server can award an item or open a room. */
-export function citizenHomeOpportunity({snapshot, now = Date.now()} = {}) {
+export function citizenHomeOpportunity({snapshot, now = Date.now(), position} = {}) {
   const mission = snapshot?.mission;
   if (snapshot?.home?.inside) return null;
   const radius = Number(mission?.radius) || 3;
@@ -16,6 +16,11 @@ export function citizenHomeOpportunity({snapshot, now = Date.now()} = {}) {
     return {action:'deliver', target:mission.deliveryPoint || HOME_LAYOUT.entrance, radius, remaining,
       title:'Antar paket ke Wisma', description:'Bawa paket perlengkapan ke pintu Wisma Warga. Hadiah pertamamu: tanaman untuk kamar.', destination:'Pintu Wisma Warga', label:'Serahkan paket'};
   }
+  if(snapshot?.home?.kind==='subsidy') {
+    if(mission?.status==='completed'||distance(position,mission?.deliveryPoint||HOME_LAYOUT.entrance)<=radius)
+      return {action:'enter_home',target:mission?.deliveryPoint||HOME_LAYOUT.entrance,radius,title:'Rumah subsidimu siap',description:'Masuk rumah pribadi melalui layanan Wisma. Rumah memiliki kamar, ruang duduk, dapur kecil, dan teras.',destination:'Akses rumah · Wisma Warga',label:'Masuk rumah'};
+    return {action:'accept_delivery',target:mission?.clerk||HOME_LAYOUT.clerk,radius,title:'Rumah siap · temui Bu Rani',description:'Rumah subsidi sudah milik akunmu. Masuk melalui pintu Wisma, atau bantu Bu Rani untuk mendapat tanaman hias.',destination:'Bu Rani · hadiah tanaman',label:'Terima tugas antar'};
+  }
   if (snapshot?.home?.unlocked) return {action:'enter_home', target:mission?.deliveryPoint || HOME_LAYOUT.entrance, radius,
     title:'Kamarmu sudah siap', description:'Masuk ke kamar pribadimu. Tempatkan tanaman hadiah di rak sambutan.', destination:'Pintu Wisma Warga', label:'Masuk kamar'};
   return {action:'accept_delivery', target:mission?.clerk || HOME_LAYOUT.clerk, radius,
@@ -23,9 +28,9 @@ export function citizenHomeOpportunity({snapshot, now = Date.now()} = {}) {
 }
 
 /** Static isometric room: the shelf also has an accessible HTML action. */
-export function createCitizenRoomView({canvas, container, onSlot, onError} = {}) {
+export function createCitizenRoomView({canvas, container, onSlot, onError, kind = 'room'} = {}) {
   const scene = new THREE.Scene(); scene.background = new THREE.Color('#e7ddc7');
-  const room = createCitizenRoomGeometry({scene});
+  const room = createCitizenRoomGeometry({scene,kind});
   scene.add(new THREE.HemisphereLight('#fff5df', '#779487', 2.5));
   const sun = new THREE.DirectionalLight('#fff3d9', 3); sun.position.set(5,9,7); scene.add(sun);
   const camera = new THREE.PerspectiveCamera(38, 1, .1, 100); camera.position.set(10,9,12); camera.lookAt(0,.65,0);
@@ -36,7 +41,8 @@ export function createCitizenRoomView({canvas, container, onSlot, onError} = {})
     const width = Math.max(1, container?.clientWidth || canvas.clientWidth || 640), height = Math.max(1, container?.clientHeight || canvas.clientHeight || 480);
     renderer.setSize(width, height, false); camera.aspect = width/height;
     // Keep the whole room visible on narrow phone canvases.
-    camera.position.set(10,9,12).multiplyScalar(Math.max(1, 1/camera.aspect)); camera.lookAt(0,.65,0); camera.updateProjectionMatrix();
+    const target=kind==='subsidy'?new THREE.Vector3(1.9,.65,1):new THREE.Vector3(0,.65,0);
+    camera.position.set(10,9,12).multiplyScalar(Math.max(1,1/camera.aspect)*(kind==='subsidy'?1.4:1)).add(target);camera.lookAt(target);camera.updateProjectionMatrix();
     renderer.render(scene,camera);
   }
   try {
@@ -74,7 +80,7 @@ export function mountCitizenHome({scene, ui, canvas, getPosition, getCitizen, be
   }
   host.innerHTML = '<details class="ch-panel"><summary><span class="ch-eyebrow">WARGA BARU</span><strong data-home-title>Temui Bu Rani</strong><span class="ch-distance"><b data-home-arrow aria-hidden="true">↑</b><span data-home-distance></span></span></summary><div class="ch-panel-body"><p data-home-description></p><p class="ch-bag" data-home-bag></p><p class="ch-notice" data-home-notice role="status" aria-live="polite"></p><button type="button" data-home-sync hidden>Coba sinkronkan lagi</button><button class="ch-collapse" type="button" data-home-collapse>Tutup petunjuk</button></div></details><button type="button" class="ch-action" data-home-action hidden></button><section class="ch-room" role="dialog" aria-modal="true" aria-labelledby="citizenHomeRoomTitle" tabindex="-1" hidden><header><div><span class="ch-eyebrow">RUANG PRIBADI</span><h2 id="citizenHomeRoomTitle" data-home-address>Kamarmu</h2></div><button type="button" class="ch-exit" data-home-exit>Keluar kamar <span aria-hidden="true">×</span></button></header><div class="ch-room-stage"><canvas data-home-canvas aria-label="Kamar dengan tempat tidur, meja, jendela dan rak tanaman"></canvas><p data-home-render-error hidden></p></div><footer><div><strong data-home-shelf-title>Rak sambutan</strong><p data-home-shelf-description></p><p class="ch-notice" data-home-room-notice role="status" aria-live="polite"></p></div><button class="ch-slot-action" type="button" data-home-slot></button><button class="ch-room-sync" type="button" data-home-room-sync hidden>Coba sinkronkan lagi</button></footer></section>';
   const $ = selector => host.querySelector(selector), panel = $('.ch-panel'), actionButton = $('[data-home-action]'), modal = $('.ch-room');
-  const opportunity = () => citizenHomeOpportunity({snapshot, now:now()+clockOffset});
+  const opportunity = () => citizenHomeOpportunity({snapshot, now:now()+clockOffset,position:getPosition?.()});
   const isInside = () => inside;
 
   function transitionInterior(next) {
@@ -83,7 +89,7 @@ export function mountCitizenHome({scene, ui, canvas, getPosition, getCitizen, be
     if (next) {
       previousFocus = document.activeElement; panel.open = false;
       onInteriorChange(true);
-      roomView = createInteriorView({canvas:$('[data-home-canvas]'),container:$('.ch-room-stage'),onSlot:()=>void perform(snapshot?.home?.decorationPlaced?'remove_decoration':'place_decoration'),
+      roomView = createInteriorView({kind:snapshot?.home?.kind,canvas:$('[data-home-canvas]'),container:$('.ch-room-stage'),onSlot:()=>void perform(snapshot?.home?.decorationPlaced?'remove_decoration':'place_decoration'),
         onError:message=>{const fallback=$('[data-home-render-error]');fallback.hidden=false;fallback.textContent=message;}});
       $('[data-home-exit]').focus({preventScroll:true});
     } else {
@@ -177,7 +183,9 @@ export function mountCitizenHome({scene, ui, canvas, getPosition, getCitizen, be
     actionButton.disabled=busy||loading||!!work?.remaining;
     actionButton.textContent=!identity?'Masuk untuk mulai':loading?'Menyinkronkan…':busy?'Menyimpan aksi…':work?.remaining?`Bawa paket ke pintu · ${Math.ceil(work.remaining/1000)} dtk`:`${work?.label || 'Lanjutkan'} · E`;
     if(inside&&snapshot){
-      $('[data-home-address]').textContent=snapshot.home.address||'Kamarmu di Wisma Warga';
+      $('[data-home-address]').textContent=snapshot.home.kind==='subsidy'?`Rumah ${getCitizen?.()?.display_name||'warga'} · ${snapshot.home.address}`:snapshot.home.address||'Kamarmu di Wisma Warga';
+      $('[data-home-exit]').textContent=snapshot.home.kind==='subsidy'?'Keluar rumah ×':'Keluar kamar ×';
+      $('[data-home-canvas]').setAttribute('aria-label',snapshot.home.kind==='subsidy'?'Rumah subsidi dengan kamar, ruang duduk, dapur kecil, teras dan rak tanaman':'Kamar dengan tempat tidur, meja dan rak tanaman');
       $('[data-home-shelf-title]').textContent=snapshot.home.decorationPlaced?'Rak sambutan · tanaman terpasang':'Rak sambutan · kosong';
       $('[data-home-shelf-description]').textContent=snapshot.home.decorationPlaced?'Hadiah tugas pertamamu. Bisa diambil kembali kapan saja.':snapshot.inventory.welcomePlant?'Tanaman hadiah ada di inventaris. Klik rak atau tombol untuk menaruhnya.':'Tempat tidur dan meja siap dipakai. Dekorasi tugas akan tampil di rak ini.';
       $('[data-home-slot]').textContent=busy?'Menyimpan…':snapshot.home.decorationPlaced?'Ambil tanaman':'Taruh tanaman';

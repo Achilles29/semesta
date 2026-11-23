@@ -1,0 +1,26 @@
+import assert from 'node:assert/strict';
+import {Window} from 'happy-dom';
+import {readFileSync} from 'node:fs';
+import {mountAdminDevelopment} from '../game-src/admin-development.js';
+const win=new Window({url:'http://localhost/project/admin/?view=development'});
+const doc=win.document;doc.body.innerHTML='<span data-database-status></span><div id="host"></div>';
+const host=doc.getElementById('host');let mode='ok',pending,requests=0;
+const panel=mountAdminDevelopment(host,{apiUrl:'http://localhost/project/api',fetchImpl:async(url,options)=>{
+  requests++;assert.equal(options.cache,'no-store');assert.equal(new URL(url).searchParams.get('resource'),'admin_operations');
+  if(mode==='pending')return new Promise(resolve=>pending=resolve);
+  return {ok:mode==='ok',json:async()=>mode==='ok'?{database:true,modules:{world:true,homes:true,work:false}}:{error:'Sesi admin berakhir'}};
+}});
+await panel.ready;
+assert.equal(host.querySelectorAll('[data-homes] tr').length,48);
+assert.equal(host.querySelectorAll('[data-facilities] article').length,17);
+assert.match(host.textContent,/1\.000 Koin Republik/);assert.match(host.textContent,/Diberikan sekali/);
+assert.match(host.querySelector('[data-status]').textContent,/dunia bersama, hunian\/Wisma/);
+assert.equal(doc.querySelector('[data-database-status]').textContent,'DATABASE TERHUBUNG');
+const input=host.querySelector('input');input.value='demian';input.dispatchEvent(new win.Event('input'));
+assert.equal(host.querySelectorAll('[data-homes] tr').length,1);assert.match(host.querySelector('[data-homes]').textContent,/belum ditautkan/);
+input.value='<img src=x onerror=alert(1)>';input.dispatchEvent(new win.Event('input'));assert.equal(host.querySelectorAll('img').length,0);assert.equal(host.querySelectorAll('[data-homes] tr').length,0);
+mode='error';await panel.load();assert.match(host.textContent,/Sesi admin berakhir/);assert.equal(doc.querySelector('[data-database-status]').textContent,'STATUS BELUM TERKONFIRMASI');
+mode='pending';const late=panel.load();panel.dispose();pending({ok:true,json:async()=>({database:true,modules:{}})});await late;assert.equal(host.childElementCount,0);
+const template=readFileSync('application/views/admin.php','utf8');assert.doesNotMatch(template,/DATABASE AKTIF|semesta_nyasar|Lihat perubahan tata wilayah langsung/);
+assert.match(template,/bukan siteplan Jakartawa/);assert.match(template,/republikwkwkwk\.com/);
+await win.happyDOM.close();console.log(`PASS admin concept: 48 reservations vs real accounts, 17 planned services, truthful starter status, fresh server availability, filter/XSS, errors and disposed-request guard (${requests} requests).`);

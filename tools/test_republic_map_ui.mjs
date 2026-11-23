@@ -50,7 +50,9 @@ host('plan').querySelector('[data-map-zoom="in"]').click();assert.ok(plan.getVie
 const planZoom=plan.getView().scale;
 assert.equal(host('plan').querySelectorAll('[data-plot]').length,24,'Only housing foundations, never completed houses');
 assert.equal(host('plan').querySelectorAll('[data-structure][data-built="true"]').length,1,'Only the stage exists before Day 2');
-assert.equal(host('plan').querySelectorAll('[data-location]').length,CAPITAL_LAYOUT.zones.length+5);
+assert.equal(host('plan').querySelectorAll('[data-location]').length,CAPITAL_LAYOUT.zones.length+6);
+assert.equal(host('plan').querySelectorAll('[data-story-home]').length,48);
+const homes=host('plan').querySelector('.rm-home-search select');assert.equal(homes.options.length,49);homes.value='founder-demian';homes.dispatchEvent(new win.Event('change',{bubbles:true}));assert.equal(location,'founder-demian');assert.equal(mapLocation('jakarta',location).name,'Rumah demian');
 assert.equal(host('plan').querySelector('.rm-civic-detail details').open,false,'Five destinations do not cover the map before opening the list');
 assert.ok(host('plan').querySelector('[data-game-facility="wisma-warga"]'),'Approved housing extension is distinct from episode structures');
 host('plan').querySelector('[data-location="welcome"]').click();assert.equal(location,'welcome');assert.match(mapLocation('jakarta','welcome').description,/Bu Rani/);
@@ -68,10 +70,10 @@ for(const id of ['bandung','semarang','surabaya','makassar']){
 }
 assert.doesNotMatch(sitePlanSvg(),/production|balai-produksi|school|rumah-warga/i);
 for(const {x,z} of [...CAPITAL_LAYOUT.housingPlots,CAPITAL_LAYOUT.stage,CAPITAL_LAYOUT.koplak,CAPITAL_LAYOUT.sppg]){
-  const p=projectWorldPoint(x,z);assert.deepEqual(p,canonicalProject(x,z));const restored=unprojectWorldPoint(p.x,p.y);assert.ok(Math.abs(restored.x-x)<1e-8&&Math.abs(restored.z-z)<1e-8);
+  const p=projectWorldPoint(x,z);assert.deepEqual(projectWorldPoint(x,z,CAPITAL_LAYOUT.bounds),canonicalProject(x,z));const restored=unprojectWorldPoint(p.x,p.y);assert.ok(Math.abs(restored.x-x)<1e-8&&Math.abs(restored.z-z)<1e-8);
 }
 let opened=0,openedMode;const mini=mountRepublicMinimap(host('mini'),{onOpen:mode=>{opened++;openedMode=mode;}});mini.update({position:{x:4,z:-7},yaw:1});
-const marker=host('mini').querySelector('.rm-player-dot'),p=canonicalProject(4,-7);assert.equal(Number.parseFloat(marker.style.left),p.x);assert.equal(Number.parseFloat(marker.style.top),p.y);
+const marker=host('mini').querySelector('.rm-player-dot'),p=projectWorldPoint(4,-7);assert.equal(Number.parseFloat(marker.style.left),p.x);assert.equal(Number.parseFloat(marker.style.top),p.y);
 host('mini').querySelector('button').click();assert.equal(opened,1);assert.equal(openedMode,'city');
 const project={id:'jakartawa-home-01',name:'Rumah contoh P01',plotId:'P01',city:'jakarta',depot:{x:22,z:-10},status:'active',required:12,delivered:7,installed:5};
 plan.update({city:'jakarta',projects:[project]});mini.update({projects:[project]});

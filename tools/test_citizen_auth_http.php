@@ -44,6 +44,7 @@ try {
     // Exercise the installed CodeIgniter routing/loader/session, in addition to
     // the isolated concurrency suite. Only this exact temporary account changes.
     list($status,$home)=request_fixture('citizen_home');require_fixture($status===200 && $home['playerId']===$id && $home['mission']['status']==='not_started','Own room reservation missing.');
+    if($connection->query("SHOW TABLES LIKE 'citizen_starter_grants'")->num_rows)require_fixture($home['starter']['balance']===1000 && $home['starter']['tools'][0]['id']==='teaching-kit' && $home['home']['kind']==='subsidy' && $home['home']['unlocked'],'Installed starter grant failed.');
     $homeAction=function($action,$extra=array())use(&$home){
         list($status,$result)=request_fixture('citizen_home',array_merge(array('action'=>$action,'requestId'=>'localhome_'.bin2hex(random_bytes(12)),'csrfToken'=>$home['csrfToken']),$extra));
         require_fixture($status===200,'Home action '.$action.' failed (HTTP '.$status.').');$home=$result;return $result;
@@ -64,7 +65,7 @@ try {
     // Exact fixture key guards cleanup even if registration failed before ID was returned.
     $lookup=$connection->prepare("SELECT id FROM citizens WHERE username=? AND email=? AND account_type='citizen'");$lookup->bind_param('ss',$username,$email);$lookup->execute();
     $fixtureRow=$lookup->get_result()->fetch_assoc();
-    if($fixtureRow){$fixtureId=(int)$fixtureRow['id'];foreach(array('citizen_home_requests','citizen_home_ledger','citizen_homes','citizen_presence') as $table){$cleanup=$connection->prepare('DELETE FROM '.$table.' WHERE citizen_id=?');$cleanup->bind_param('i',$fixtureId);$cleanup->execute();}}
+    if($fixtureRow){$fixtureId=(int)$fixtureRow['id'];foreach(array('citizen_home_requests','citizen_home_ledger','citizen_homes','citizen_presence','citizen_starter_grants') as $table){if(!$connection->query("SHOW TABLES LIKE '".$table."'")->num_rows)continue;$cleanup=$connection->prepare('DELETE FROM '.$table.' WHERE citizen_id=?');$cleanup->bind_param('i',$fixtureId);$cleanup->execute();}}
     $statement=$connection->prepare("DELETE FROM citizens WHERE username=? AND email=? AND account_type='citizen'");
     $statement->bind_param('ss',$username,$email);$statement->execute();
     if(is_file($cookie))unlink($cookie);

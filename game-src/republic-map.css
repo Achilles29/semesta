@@ -181,3 +181,5 @@
 }
 .shared-world-notice{position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:35;display:flex;align-items:center;gap:12px;width:max-content;max-width:calc(100vw - 32px);padding:10px 15px;border:1px solid #bfd3d7;border-radius:12px;background:#f3faf9;color:#254f58;box-shadow:0 4px 18px #173e4c15;font-size:13px;line-height:1.4}
 .shared-world-notice[hidden]{display:none}.shared-world-notice button{flex-shrink:0;border:0;background:#245c68;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}.capture-mode .shared-world-notice{display:none}
+
+.rm-home-search{display:grid;gap:6px;padding:10px;font-size:12px}.rm-home-search select{width:100%;min-height:42px;max-width:100%;border:1px solid #8ca69e;border-radius:8px;padding:8px;background:#f4f5e7;color:#244d50}

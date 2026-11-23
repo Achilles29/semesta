@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "title": "Day 3 - Uangnya Warga, Jasanya Presiden",
+  "status": "visual-draft-audio-pending",
+  "website": "https://republikwkwkwk.com",
+  "actors": {
+    "narrator": {
+      "name": "Narator",
+      "voice": "gufron",
+      "gender": "male",
+      "voiceId": "bb23d4e8919d4e20b55ea5b70159749c"
+    },
+    "pasca": {
+      "name": "Pasca Bowow",
+      "preset": "v15-prabowo-inspired",
+      "voice": "Alistaire - Authoritative & Articulate",
+      "gender": "male",
+      "voiceId": "b50db2127b854791b6e16815c3e9b824"
+    },
+    "climenzo": {
+      "name": "climenzo_jr",
+      "preset": "v15-warga-climenzo-jr",
+      "voice": "Roderic - Authoritative & Refined",
+      "gender": "male",
+      "voiceId": "b5c5b28db1ea408abc7d851202983bdb"
+    },
+    "demian": {
+      "name": "demian",
+      "preset": "v15-warga-demian",
+      "voice": "Belum dipilih; pria hangat, komedi datar",
+      "gender": "male"
+    },
+    "eqa": {
+      "name": "eqa",
+      "preset": "v15-warga-eqa",
+      "voice": "Prudence - Cultivated & Precise",
+      "gender": "female",
+      "voiceId": "f264d09b4320461b9873abbe9283b505"
+    },
+    "cecil": {
+      "name": "cecil",
+      "preset": "v15-warga-cecil",
+      "voice": "Leanne - Expressive & Earthy",
+      "gender": "female",
+      "voiceId": "31001ed1e3e54c79a88458cb03ca123a"
+    },
+    "xel": {
+      "name": "Xel",
+      "preset": "v15-warga-xel",
+      "voice": "Lachie - Direct & Reassuring",
+      "gender": "male",
+      "voiceId": "f9a2c5a6b6be456a8ed59dac8a319f2a"
+    },
+    "ardhy": {
+      "name": "aku.ardhyy",
+      "preset": "v15-warga-aku-ardhyy",
+      "voice": "Tidak berdialog",
+      "gender": "male"
+    }
+  },
+  "shots": [
+    {
+      "id": "D00",
+      "label": "Hook: rebutan kredit",
+      "duration": 4,
+      "speaker": "pasca",
+      "text": "Semua pembangunan ini berkat kerja keras saya!",
+      "beat": "plaza",
+      "gesture": "self",
+      "spokenText": "Semua pembangunan ini berkat kerja keras saya!"
+    },
+    {
+      "id": "D01",
+      "label": "Donatur mengingatkan",
+      "duration": 4,
+      "speaker": "climenzo",
+      "text": "Pak, lima triliunnya dari saya.",
+      "beat": "plaza",
+      "gesture": "talk",
+      "spokenText": "Pak, lima triliunnya dari saya."
+    },
+    {
+      "id": "D02",
+      "label": "Pasca membalik kredit",
+      "duration": 4,
+      "speaker": "pasca",
+      "text": "Nah. Saya yang berhasil menerima!",
+      "beat": "plaza",
+      "gesture": "self",
+      "spokenText": "Nah. Saya yang berhasil menerima!"
+    },
+    {
+      "id": "D03",
+      "label": "Permintaan warga ditindaklanjuti",
+      "duration": 7,
+      "speaker": "narrator",
+      "text": "Hari ketiga Republik Wkwkwk. Setelah sumbangan lima triliun, warga akhirnya menagih bangunan yang mereka butuhkan.",
+      "beat": "overview",
+      "gesture": "",
+      "spokenText": "Hari ketiga Republik Weka Weka Weka. Setelah sumbangan lima triliun, warga akhirnya menagih bangunan yang mereka butuhkan."
+    },
+    {
+      "id": "D04",
+      "label": "Sekolah dan layanan kesehatan",
+      "duration": 5,
+      "speaker": "eqa",
+      "text": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.",
+      "beat": "plaza",
+      "gesture": "talk",
+      "spokenText": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar."
+    },
+    {
+      "id": "D05",
+      "label": "Rumah sakit",
+      "duration": 4,
+      "speaker": "cecil",
+      "text": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+      "beat": "plaza",
+      "gesture": "talk",
+      "spokenText": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?"
+    },
+    {
+      "id": "D06",
+      "label": "Keputusan dan pembagian kawasan",
+      "duration": 5,
+      "speaker": "pasca",
+      "text": "Saya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.",
+      "beat": "plaza",
+      "gesture": "dismiss",
+      "spokenText": "Saya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi."
+    },
+    {
+      "id": "D07",
+      "label": "Mandor memeriksa denah",
+      "duration": 5,
+      "speaker": "xel",
+      "text": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.",
+      "beat": "plan",
+      "gesture": "talk",
+      "spokenText": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup."
+    },
+    {
+      "id": "D08",
+      "label": "Fondasi kawasan kerukunan",
+      "duration": 7,
+      "speaker": "narrator",
+      "text": "Enam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.",
+      "beat": "worship-foundation",
+      "gesture": "",
+      "spokenText": "Enam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing."
+    },
+    {
+      "id": "D09",
+      "label": "Tiga tempat ibadah pertama",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Masjid, gereja Kristen, dan gereja Katolik. Pembangunannya bertahap, bukan muncul begitu saja.",
+      "beat": "worship-west",
+      "gesture": "",
+      "spokenText": "Masjid, gereja Kristen, dan gereja Katolik. Pembangunannya bertahap, bukan muncul begitu saja."
+    },
+    {
+      "id": "D10",
+      "label": "Tiga tempat ibadah berikutnya",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Pura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.",
+      "beat": "worship-east",
+      "gesture": "",
+      "spokenText": "Pura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik."
+    },
+    {
+      "id": "D11",
+      "label": "Bangun sekolah",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Sekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.",
+      "beat": "school",
+      "gesture": "",
+      "spokenText": "Sekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar."
+    },
+    {
+      "id": "D12",
+      "label": "Eqa memeriksa sekolah",
+      "duration": 4,
+      "speaker": "eqa",
+      "text": "Bagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+      "beat": "school-reaction",
+      "gesture": "talk",
+      "spokenText": "Bagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi."
+    },
+    {
+      "id": "D13",
+      "label": "Bangun rumah sakit",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Rumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.",
+      "beat": "hospital",
+      "gesture": "",
+      "spokenText": "Rumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat."
+    },
+    {
+      "id": "D14",
+      "label": "Bangun stadion",
+      "duration": 8,
+      "speaker": "demian",
+      "text": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?",
+      "beat": "stadium",
+      "gesture": "talk",
+      "spokenText": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?"
+    },
+    {
+      "id": "D15",
+      "label": "Pasca mengelak",
+      "duration": 3,
+      "speaker": "pasca",
+      "text": "Bisa dua-duanya. Efisien!",
+      "beat": "stadium-reaction",
+      "gesture": "self",
+      "spokenText": "Bisa dua-duanya. Efisien!"
+    },
+    {
+      "id": "D16",
+      "label": "Layanan darurat",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Pos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.",
+      "beat": "safety",
+      "gesture": "",
+      "spokenText": "Pos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah."
+    },
+    {
+      "id": "D17",
+      "label": "Rumah warga gelombang pertama",
+      "duration": 9,
+      "speaker": "narrator",
+      "text": "Warga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.",
+      "beat": "homes-build",
+      "gesture": "",
+      "spokenText": "Warga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis."
+    },
+    {
+      "id": "D18",
+      "label": "Demian menemukan papan nama",
+      "duration": 5,
+      "speaker": "demian",
+      "text": "Ada nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.",
+      "beat": "homes-reaction",
+      "gesture": "talk",
+      "spokenText": "Ada nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak."
+    },
+    {
+      "id": "D19",
+      "label": "Jawaban Pasca",
+      "duration": 3,
+      "speaker": "pasca",
+      "text": "Yang penting ingat siapa yang meresmikan.",
+      "beat": "homes-reaction",
+      "gesture": "self",
+      "spokenText": "Yang penting ingat siapa yang meresmikan."
+    },
+    {
+      "id": "D20",
+      "label": "Gedung membutuhkan kegiatan",
+      "duration": 5,
+      "speaker": "xel",
+      "text": "Rumah sudah ada. Tapi warga cari penghasilan dari mana?",
+      "beat": "economy-intro",
+      "gesture": "talk",
+      "spokenText": "Rumah sudah ada. Tapi warga cari penghasilan dari mana?"
+    },
+    {
+      "id": "D21",
+      "label": "Kawasan ekonomi",
+      "duration": 9,
+      "speaker": "narrator",
+      "text": "Kita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.",
+      "beat": "economy-build",
+      "gesture": "",
+      "spokenText": "Kita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung."
+    },
+    {
+      "id": "D22",
+      "label": "Contoh petani",
+      "duration": 9,
+      "speaker": "narrator",
+      "text": "Rancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.",
+      "beat": "economy-demo",
+      "gesture": "",
+      "spokenText": "Rancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah."
+    },
+    {
+      "id": "D23",
+      "label": "Jembatan ke game",
+      "duration": 5,
+      "speaker": "demian",
+      "text": "Jadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?",
+      "beat": "plaza",
+      "gesture": "talk",
+      "spokenText": "Jadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?"
+    },
+    {
+      "id": "D24",
+      "label": "Alamat dan buka pendaftaran",
+      "duration": 7,
+      "speaker": "narrator",
+      "text": "Buka republikwkwkwk.com, lalu pilih Masuk atau Daftar Warga. Contoh di layar ini memperlihatkan alurnya.",
+      "beat": "register",
+      "gesture": "",
+      "spokenText": "Buka republik weka weka weka titik kom, lalu pilih Masuk atau Daftar Warga. Contoh di layar ini memperlihatkan alurnya."
+    },
+    {
+      "id": "D25",
+      "label": "Pilih profesi dan karakter",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Isi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.",
+      "beat": "profession",
+      "gesture": "",
+      "spokenText": "Isi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri."
+    },
+    {
+      "id": "D26",
+      "label": "Simpan akun",
+      "duration": 6,
+      "speaker": "narrator",
+      "text": "Tekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.",
+      "beat": "save",
+      "gesture": "",
+      "spokenText": "Tekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa."
+    },
+    {
+      "id": "D27",
+      "label": "Starter pack yang disepakati",
+      "duration": 9,
+      "speaker": "narrator",
+      "text": "Lengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!",
+      "beat": "starter",
+      "gesture": "",
+      "spokenText": "Lengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!"
+    },
+    {
+      "id": "D28",
+      "label": "Kemampuan yang tersedia",
+      "duration": 9,
+      "speaker": "narrator",
+      "text": "Yang bisa dicoba sekarang: jelajah, bertemu dan chat warga, tugas Bu Rani, serta kamar dan tanaman. Proyek bersama bisa dikerjakan saat admin mengaktifkannya.",
+      "beat": "available",
+      "gesture": "",
+      "spokenText": "Yang bisa dicoba sekarang: jelajah, bertemu dan chat warga, tugas Bu Rani, serta kamar dan tanaman. Proyek bersama bisa dikerjakan saat admin mengaktifkannya."
+    },
+    {
+      "id": "D29",
+      "label": "Klaim rumah warga cerita",
+      "duration": 8,
+      "speaker": "narrator",
+      "text": "Rumah bernama warga cerita punya jalur klaim terpisah yang sedang disiapkan. Username yang sama saja belum membuktikan rumah itu milikmu.",
+      "beat": "homes-claim",
+      "gesture": "",
+      "spokenText": "Rumah bernama warga cerita punya jalur klaim terpisah yang sedang disiapkan. Username yang sama saja belum membuktikan rumah itu milikmu."
+    },
+    {
+      "id": "D30",
+      "label": "Penutup komedi",
+      "duration": 4,
+      "speaker": "pasca",
+      "text": "Kalau sudah daftar, jangan lupa siapa yang bikin republik ini maju.",
+      "beat": "plaza",
+      "gesture": "self",
+      "spokenText": "Kalau sudah daftar, jangan lupa siapa yang bikin republik ini maju."
+    },
+    {
+      "id": "D31",
+      "label": "Balasan warga",
+      "duration": 3,
+      "speaker": "climenzo",
+      "text": "Yang transfer, Pak?",
+      "beat": "plaza",
+      "gesture": "talk",
+      "spokenText": "Yang transfer, Pak?"
+    },
+    {
+      "id": "D32",
+      "label": "Satu ajakan",
+      "duration": 7,
+      "speaker": "narrator",
+      "text": "Kalau tinggal di sini, usaha pertama apa yang ingin kamu buka? Tulis nama usaha dan barang yang mau kamu jual.",
+      "beat": "closing",
+      "gesture": "",
+      "spokenText": "Kalau tinggal di sini, usaha pertama apa yang ingin kamu buka? Tulis nama usaha dan barang yang mau kamu jual."
+    }
+  ],
+  "pronunciation": {
+    "Republik Wkwkwk": "Republik Weka Weka Weka",
+    "website": "Alamat tetap ditulis republikwkwkwk.com; pelafalan terpisah untuk suara."
+  }
+}

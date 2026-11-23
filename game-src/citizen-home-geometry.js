@@ -109,7 +109,7 @@ export function createCitizenHomeGeometry({scene} = {}) {
 }
 
 /** Account-free room template shared by runtime and offline inspection. */
-export function createCitizenRoomGeometry({scene, decorationPlaced = false} = {}) {
+export function createCitizenRoomGeometry({scene, decorationPlaced = false, kind = 'room'} = {}) {
   const kit = geometryKit('CitizenPrivateRoom', scene), {root, box, mesh, group} = kit;
   const room = group(root, 'RoomTemplate');
   box(room, 'Floor', '#caad82', [0, -.1, 0], [7, .2, 6]);
@@ -138,6 +138,27 @@ export function createCitizenRoomGeometry({scene, decorationPlaced = false} = {}
   box(room, 'WovenRug', '#d6a56f', [0, .015, .95], [2.75,.03,1.6]);
   box(room, 'RugStripe', '#f4dfb7', [0, .035, .5], [2.6,.01,.1]);
   box(room, 'RugStripe', '#f4dfb7', [0, .035, 1.4], [2.6,.01,.1]);
+  if (kind === 'subsidy') {
+    // A cutaway starter house, with a separate living area, kitchenette and
+    // front terrace. Existing earned furniture stays in the bedroom template.
+    box(room,'SubsidyYard','#91ac73',[1,-.27,1],[12,.16,12]);
+    box(room,'LivingFloor','#dbccb1',[5.4,-.1,0],[3.8,.2,6]);
+    box(room,'LivingBackWall','#f3e4c7',[5.4,1.5,-3],[3.8,3,.14]);
+    box(room,'BedroomDivider','#ded3bd',[3.48,1.4,-1.85],[.12,2.8,2.3]);
+    box(room,'Terrace','#c6b99e',[1.9,-.07,4],[10.8,.14,2]);
+    for(const x of [-3.4,7.2]) box(room,'PorchColumn','#f3e4c7',[x,1.4,4.7],[.16,2.8,.16]);
+    box(room,'PorchBeam','#9a6450',[1.9,2.78,4.7],[10.8,.18,.18]);
+    box(room,'PorchStep','#b3a78c',[1.9,-.16,5.2],[2.4,.14,.6]);
+    box(room,'SofaBase','#5e888b',[5.7,.32,.8],[2.2,.55,.9]);
+    box(room,'SofaBack','#527b80',[5.7,.77,1.18],[2.2,.85,.18]);
+    box(room,'TeaTable','#ad8662',[5.7,.45,-.35],[1.25,.12,.7]);
+    for(const x of [5.2,6.2]) box(room,'TeaTableLeg','#917458',[x,.2,-.35],[.1,.4,.5]);
+    box(room,'KitchenCounter','#a3b8a7',[5.5,.5,-2.4],[2.5,1,1]);
+    box(room,'KitchenTop','#e8e5d6',[5.5,1.04,-2.4],[2.6,.1,1.05]);
+    box(room,'KitchenSink','#74939b',[5.95,1.1,-2.4],[.65,.02,.55]);
+    box(room,'Cooktop','#4d5753',[4.85,1.11,-2.4],[.65,.04,.65]);
+    const roof=box(room,'CutawayRoof','#a55d49',[1.9,3.2,-2.6],[10.8,.14,1.2]);roof.rotation.x=-.22;
+  }
   const shelf = group(room, 'WelcomeShelf', [2.65, 0, .7]); shelf.userData.slotId = HOME_LAYOUT.slotId;
   box(shelf, 'ShelfTop', '#b68f61', [0,.92,0], [1.1,.13,.8]);
   box(shelf, 'ShelfBottom', '#b68f61', [0,.23,0], [1.1,.12,.8]);

@@ -67,7 +67,7 @@ async function initIdeasInbox() {
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); const idea = Object.fromEntries(new FormData(form).entries()); idea.resource = 'ideas'; idea.status = 'baru';
     status.textContent = 'Menyimpan…';
-    try { const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(idea) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal menyimpan ide.'); ideas = result.ideas; form.reset(); render(); status.textContent = 'Ide tersimpan lokal.'; status.className = 'save-status saved'; }
+    try { const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(idea) }); const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Gagal menyimpan ide.'); ideas = result.ideas; form.reset(); render(); status.textContent = 'Ide tersimpan di server.'; status.className = 'save-status saved'; }
     catch (error) { status.textContent = error.message; status.className = 'save-status error'; }
   });
 }
@@ -121,16 +121,16 @@ async function initCitizenDirectory() {
   const list = $('#citizenAdminList'); const status = $('#citizenAdminStatus');
   if (!list || !status) return;
   const search = $('#citizenAdminSearch'); const filter = $('#citizenAdminFilter');
-  const params = new URLSearchParams(location.search); let page = Math.max(1, Number(params.get('citizenPage')) || 1); let pages = 1; let pendingSearch = 0;
+  const params = new URLSearchParams(location.search); let page = Math.max(1, Number(params.get('citizenPage')) || 1); let pages = 1; let pendingSearch = 0; let directoryRequest = 0;
   search.value = params.get('citizenQ') || ''; filter.value = params.get('citizenStatus') || 'all';
-  const houseLabels = { 'rumah-kayu':'Rumah kayu', 'rumah-bata':'Rumah bata', 'rumah-panggung':'Rumah panggung' };
   const make = (tag, className, text) => { const element = document.createElement(tag); if (className) element.className = className; if (text !== undefined) element.textContent = text; return element; };
   const load = async () => {
+    const request = ++directoryRequest;
     status.textContent = 'Memuat daftar warga…'; status.className = 'citizen-admin-status';
     try {
       const query = new URLSearchParams({ resource:'citizen_admin', q:search.value.trim(), status:filter.value, page:String(page) });
-      const response = await fetch(`${API_URL}?${query}`, { headers:{ Accept:'application/json' } });
-      const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Direktori warga belum dapat dimuat.');
+      const response = await fetch(`${API_URL}?${query}`, { headers:{ Accept:'application/json' }, cache:'no-store' });
+      const result = await response.json(); if (request !== directoryRequest) return; if (!response.ok) throw new Error(result.error || 'Direktori warga belum dapat dimuat.');
       page = result.page; pages = result.pages;
       $('#citizenStatTotal').textContent = Number(result.stats.total || 0).toLocaleString('id-ID');
       $('#citizenStatVerified').textContent = Number(result.stats.verified || 0).toLocaleString('id-ID');
@@ -161,7 +161,7 @@ async function initCitizenDirectory() {
         card.append(identity,badges,details,action,personal);list.append(card);
       });
       status.textContent = 'Direktori warga siap.';
-    } catch(error) { list.replaceChildren(); status.textContent=error.message;status.className='citizen-admin-status error'; }
+    } catch(error) { if (request !== directoryRequest) return; list.replaceChildren(); status.textContent=error.message;status.className='citizen-admin-status error'; }
   };
   const syncUrl = () => updateAdminQuery({ citizenQ: search.value.trim(), citizenStatus: filter.value, citizenPage: page });
   search.addEventListener('input',()=>{clearTimeout(pendingSearch);pendingSearch=setTimeout(()=>{page=1;load().then(syncUrl);},260);});
@@ -178,7 +178,7 @@ async function initMailSettings() {
   const verification = form.elements.requireEmailVerification;
   const show = (settings) => {
     verification.checked = !!settings.requireEmailVerification;
-    status.textContent = `${settings.smtpConfigured ? `SMTP Gmail siap · ${settings.sender || 'pengirim tersetel'}` : 'SMTP Gmail belum disetel.'} · Google SSO ${settings.googleSsoConfigured ? 'siap' : 'menunggu OAuth Client ID dan Secret'}`;
+    status.textContent = `${settings.smtpConfigured ? `SMTP terkonfigurasi · ${settings.sender || 'pengirim tersetel'}` : 'SMTP belum disetel.'} · Google SSO ${settings.googleSsoConfigured ? 'terkonfigurasi; uji login nyata tetap diperlukan' : 'menunggu OAuth Client ID dan Secret'}`;
     status.classList.toggle('ready', !!settings.smtpConfigured);
   };
   try {
@@ -350,7 +350,7 @@ async function initWorldEditor() {
       const response = await fetch(`${API_URL}`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ resource: 'world_scene', region: currentRegion, objects: entries }) });
       const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Tata wilayah belum tersimpan.');
       if (result.region !== currentRegion || !Array.isArray(result.objects)) throw new Error('Server mengembalikan wilayah yang berbeda. Perubahan belum dikonfirmasi.');
-      entries = result.objects; dirty = false; drawObjects(); setStatus(`${entries.length} objek tersimpan dan sudah dikonfirmasi server.`, false);
+      entries = result.objects; dirty = false; drawObjects(); setStatus(`${entries.length} objek tersimpan sebagai draf tataan; belum diterbitkan ke peta jelajah.`, false);
     } catch (error) { setStatus(error.message); }
     finally { button.disabled = false; }
   }
@@ -545,6 +545,13 @@ function initSharedWorldAdmin() {
   window.addEventListener('pagehide',event=>{if(!event.persisted){disposed=true;instance?.dispose();window.removeEventListener('semesta:admin-view-change',open);}});
 }
 
+function initDevelopmentAdmin() {
+  const host=document.querySelector('#adminDevelopment');if(!host)return;let instance=null,loading=false,disposed=false;
+  const open=async()=>{if(disposed||loading||!['development','settings','overview'].some(id=>document.querySelector('#adminView-'+id)?.classList.contains('active')))return;if(instance){void instance.load();return;}loading=true;
+    try{const {mountAdminDevelopment}=await import('./admin-development.js');if(!disposed)instance=mountAdminDevelopment(host,{apiUrl:API_URL});}catch(error){if(!disposed)host.textContent=error.message;}finally{loading=false;}};
+  window.addEventListener('semesta:admin-view-change',open);void open();window.addEventListener('pagehide',e=>{if(!e.persisted){disposed=true;instance?.dispose();window.removeEventListener('semesta:admin-view-change',open);}});
+}
+
 function initProductionStudio() {
   const host=document.querySelector('#adminProductionStudio');if(!host)return;
   let mounting=false,instance=null;
@@ -566,5 +573,5 @@ async function initAvatarStudio() {
 
 // Only the authenticated admin template loads this entry.
 if(document.body.classList.contains('admin-body')){
-  initAdminNavigation();initSharedWorldAdmin();initProductionStudio();initAvatarStudio();initWorldEditor();initObjectGallery();initIdeasInbox();initCitizenDirectory();initVisitorLogs();initMailSettings();
+  initAdminNavigation();initSharedWorldAdmin();initDevelopmentAdmin();initProductionStudio();initAvatarStudio();initWorldEditor();initObjectGallery();initIdeasInbox();initCitizenDirectory();initVisitorLogs();initMailSettings();
 }

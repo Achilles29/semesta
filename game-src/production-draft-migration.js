@@ -3,6 +3,7 @@ import legacyV2 from './production-day1-legacy-v2.json' with {type:'json'};
 import legacyV3 from './production-day1-legacy-v3.json' with {type:'json'};
 import audio from './production-day1-audio.json' with {type:'json'};
 import {day1Scenario,day1Caption} from './production-day1.js';
+import {scenarioForEpisode,LATEST_EPISODE,PRODUCTION_EPISODES} from './production-episodes.js';
 import {day2Scenario} from './production-day2.js';
 import {STORY_CLIPS} from './production-audio-catalog.js';
 import {displaySpeechText} from './production-speech-text.js';
@@ -41,7 +42,7 @@ const savedLegacyV3=oldAutosave(legacyV3,legacyV3Durations);
 const legacyDocuments=new Set([legacy,legacyV2,legacyV3,savedLegacyV3,oldVoiceRefresh(savedLegacyV3)].map(canonical));
 /** Upgrade only a pristine shipped episode. Preserve every authored shot/text. */
 export function migrateProductionDraft(input){
-  if(isUneditedBuiltInEpisode(input)&&input.builtInOrigin.episode==='day2')return day2Scenario();
+  if(isUneditedBuiltInEpisode(input)&&input.builtInOrigin.episode!=='day1')return scenarioForEpisode(input.builtInOrigin.episode);
   const fingerprint=canonical(input),current=day1Scenario();
   const previousCurrent=oldAutosave(current,Object.fromEntries(Object.entries(audio).map(([key,clip])=>[key,clip.duration])));
   if(legacyDocuments.has(fingerprint)||fingerprint===canonical(current)||fingerprint===canonical(previousCurrent))return current;
@@ -80,8 +81,9 @@ export function isPristineProductionDraft(input){
 
 /** A newer episode replaces only generated defaults; authored work wins. */
 export function resolveProductionDraft(input,{emptyIntent=false,preferredEpisode}={}){
-  if(!input)return day2Scenario();
-  if(isPristineProductionDraft(input))return preferredEpisode==='day1'?day1Scenario():day2Scenario();
-  if(!emptyIntent&&canonical(input)===canonical(blankScenario()))return day2Scenario();
+  const latest=()=>scenarioForEpisode(Object.hasOwn(PRODUCTION_EPISODES,preferredEpisode)?preferredEpisode:LATEST_EPISODE);
+  if(!input)return latest();
+  if(isPristineProductionDraft(input))return latest();
+  if(!emptyIntent&&canonical(input)===canonical(blankScenario()))return latest();
   return migrateProductionDraft(input);
 }

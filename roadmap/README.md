@@ -1,26 +1,32 @@
 # Roadmap Republik Wkwkwk
 
-**Diperbarui 24 November 2026.** Acuan pengembangan game dan handover lokal–server. Konsep ini menggabungkan arahan pemilik proyek, gagasan server, serta kondisi kode setelah pull `61f5e9a`. Perubahan lokal setelah baseline itu belum otomatis dipublikasikan.
+**Diperbarui 24 November 2026.** Acuan pengembangan game dan handover lokal–server. Konsep ini menggabungkan arahan pemilik proyek, gagasan server, serta kondisi kode pada baseline terbaru `f719128`. Paket rumah perintis setelah baseline tersebut masih lokal dan belum otomatis dipublikasikan.
 
 **Arah game:** simulasi kehidupan warga multiplayer dengan pembangunan kota bersama. Pemain memiliki kehidupan, kemampuan, barang, dan rumah sendiri; kerja mereka juga mengubah republik. Three.js dan backend PHP/MySQL yang ada tetap dipakai untuk tahap pertama.
 
 ## Mulai membaca
+
+**Alamat game:** https://republikwkwkwk.com. Paket lokal terbaru sudah memberi rumah subsidi privat, **1.000 Koin Republik** dan satu set alat sesuai pekerjaan sekali per akun lengkap. Migrasi starter dijalankan lokal; server memerlukan migrasi dan smoke test. Belanja/usaha belum aktif. Progres Wisma tetap dipertahankan. Lihat [ekonomi dan starter pack](08-EKONOMI-DAN-STARTER-PACK.md).
 
 1. [Konsep dan pengalaman bermain](01-KONSEP-GAME.md): apa yang membuat warga mau kembali.
 2. [Tahapan dan checklist](02-TAHAP-DAN-CHECKLIST.md): status, ketergantungan, dan kriteria selesai.
 3. [Handover server](03-HANDOVER-SERVER.md): perbaikan yang wajib dipertahankan, perubahan lokal, verifikasi, dan pekerjaan berikutnya.
 4. [Konten dan kanon](04-KONTEN-DAN-KANON.md): hubungan episode, komentar, keputusan, dan fitur game.
 5. [Riset dan arah visual](05-RISET-DAN-ARAH-VISUAL.md): rujukan desain, profesi/avatar, dan peta.
+6. [Game hidup, hunian dan klaim](06-GAME-HIDUP-DAN-HUNIAN.md): sintesis ide server/lokal, aturan kepemilikan dan urutan kerja.
+7. [Register 48 rumah perintis](07-REGISTER-RUMAH-PERINTIS.md): ID stabil, nama dan alamat reservasi.
+8. [Ekonomi dan starter pack](08-EKONOMI-DAN-STARTER-PACK.md): subsidi, 1.000 koin, fasilitas dan siklus usaha.
+9. [Audit panel admin](09-AUDIT-PANEL-ADMIN.md): fungsi setiap panel, koreksi konsep, bukti dan batas pemeriksaan.
 
 ## Keadaan sekarang
 
 | Bagian | Keadaan sebenarnya |
 |---|---|
-| Game publik | Pendaftaran, profil/avatar, peta, presence dan obrolan tersedia. Konstruksi P01 menyimpan kit, XP dan kontribusi. Wisma Warga memberi satu kamar per akun, tugas pengantar Bu Rani, satu tanaman hadiah dan rak persisten. Inventaris umum, rumah tapak dan kunjungan belum tersedia. |
+| Game publik | Pendaftaran, profil/avatar, peta, presence dan obrolan tersedia. Konstruksi P01 menyimpan kit, XP dan kontribusi. Rumah subsidi privat melalui Wisma, saldo 1.000 dan alat awal tersedia setelah migrasi starter; tugas Bu Rani memberi satu tanaman dan rak persisten. Eksterior 48 rumah tapak bernama tersedia sebagai reservasi cerita. Klaim akun, interior rumah tapak, inventaris umum dan kunjungan belum tersedia. |
 | Onboarding lokal terbaru | Saran avatar untuk 23 pilihan profesi awal × dua model gender, editor manual, kartu warga virtual, penyempurnaan login email/Google dan pelengkapan profil. Rincian penerimaan ada di checklist. |
-| Dunia | Keadaan resmi di database, awal sesudah Day 2: panggung, 24 fondasi, Koplak Desa dan SPPG. Wisma Warga + Bu Rani adalah perluasan game yang disetujui, tidak ditambahkan ke rekaman episode lama. Admin mengaktifkan/menjeda P01; proyek masih draft, bukan hasil survei. Empat kota lain belum dibangun. |
-| Konten | Produksi dan episode hanya di admin. Day 1/Day 2 tersedia; penerimaan MP4 penuh tetap mengikuti acuan produksi. Pemeran konten dan akun pemain adalah data berbeda. |
-| Pekerjaan utama selanjutnya | Uji alur sambutan–kamar serta konstruksi di HP/desktop (`P-07`, `A-10`), lalu variasi pesanan `P-02`, inventaris umum dan satu kegiatan kreatif `P-03`. Rilis server `A-11` dan email/Google tetap terpisah. |
+| Dunia | Keadaan resmi di database, awal sesudah Day 2: panggung, 24 fondasi, Koplak Desa dan SPPG. Wisma Warga + Bu Rani adalah perluasan game yang disetujui, tidak ditambahkan ke rekaman episode lama. Admin mengaktifkan/menjeda P01; proyek masih draft, bukan hasil survei. Kampung Perintis ditambahkan di sebelah timur tanpa mengambil P01-P24. Empat kota lain belum dibangun. |
+| Konten | Produksi hanya di admin. Day 1/Day 2 dipertahankan; Day 3 memiliki naskah dan animasi 33 shot/206 detik, musik, 17 fasilitas dan 48 rumah. Ujaran Day 3 belum direkam; belum MP4 final. Pemeran konten dan akun pemain tetap berbeda. |
+| Pekerjaan utama selanjutnya | Server: rilis/migrasi starter dan smoke test 11 panel, lalu klaim identitas H-03. Lokal berikutnya: pintu/interior H-04 setelah kontrak klaim siap. Uji alur sambutan–kamar serta konstruksi di HP/desktop (`P-07`, `A-10`), lalu variasi pesanan `P-02`, inventaris umum dan satu kegiatan kreatif `P-03`. Rilis server `A-11` dan email/Google tetap terpisah. |
 
 ## Cara memperbarui roadmap
 
@@ -43,3 +49,4 @@
 | 2026-11-23 | Dunia resmi dimulai setelah Day 2. Rumah contoh P01 menjadi proyek uji yang perlu aktivasi admin; tidak menggantikan hasil survei. Playback/seek/ekspor tidak menerbitkan dunia. SMTP dan Google dikerjakan nanti di server. |
 | 2026-11-23 | Pemilik menyetujui kamar dasar untuk semua akun melalui Wisma Warga, dibuka dengan tugas pengantar singkat. Rumah berkembang lewat kegiatan; hadiah follower hanya kosmetik opsional, integrasi klaim belum dibuat. |
 | 2026-11-24 | Implementasi lokal pertama: Bu Rani → paket ke Wisma → kamar + tanaman → rak tersimpan. HUD jelajah ditata dan LARI menjadi toggle yang terlihat pada mouse/sentuh. Belum merupakan penerimaan visual browser atau rilis server. |
+| 2026-11-24 | Rumah bernama untuk 48 warga cerita di Kampung Perintis. Nama medsos opsional untuk pendaftaran umum; wajib pada pengajuan klaim warga cerita, diverifikasi sebelum ditautkan ke ID akun. Tanpa klaim otomatis berdasarkan nama. Label NPC dihapus; presence tetap hanya pemain nyata. |

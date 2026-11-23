@@ -1,3 +1,5 @@
+import {CIVIC_FACILITIES} from './civic-development-layout.js';
+import {DAY3_PANELS} from './production-day3-panels.js';
 import {displaySpeechText} from './production-speech-text.js';
 import day1Music from './production-day1-music.json' with {type:'json'};
 import {presets} from './avatar-v15-config.js';
@@ -28,7 +30,7 @@ export function validateScenario(input) {
   if(!text(s.title,100)||!s.title.trim())fail('Judul wajib diisi (maksimal 100 karakter).');
   if(s.notice!==undefined&&!text(s.notice,80))fail('Label produksi maksimal 80 karakter.');
   if(s.template!==undefined&&s.template!=='republic-series')fail('Template tidak dikenal.');
-  if(!['episode','rehearsal'].includes(s.kind)||!['courtyard','studio','republic','construction'].includes(s.set))fail('Jenis produksi atau set tidak dikenal.');
+  if(!['episode','rehearsal'].includes(s.kind)||!['courtyard','studio','republic','construction','development'].includes(s.set))fail('Jenis produksi atau set tidak dikenal.');
   if(!Array.isArray(s.props)||s.props.length>4||s.props.some(p=>!Object.hasOwn(PROPS,p)))fail('Properti tidak dikenal.');
   if(!Array.isArray(s.cast)||s.cast.length<1||s.cast.length>64)fail('Gunakan 1–64 pemeran.');
   const ids=new Set();
@@ -78,6 +80,11 @@ export function validateScenario(input) {
         if(!states[key])fail('Properti adegan tidak dikenal.');if(typeof value==='string'){if(!states[key].includes(value))fail('Status properti tidak dikenal.');}else if(!value||!states[key].includes(value.from)||!states[key].includes(value.to)||!finite(value.at,0,1)||(value.until!==undefined&&!finite(value.until,value.at,1)))fail('Peralihan properti tidak valid.');
       }
     }
+    if(shot.day3Panel!==undefined&&!DAY3_PANELS.includes(shot.day3Panel))fail('Panel Day 3 tidak dikenal.');
+    if(shot.development!==undefined){
+      const d=shot.development,progress=v=>finite(v,0,1)||(Array.isArray(v)&&v.length===2&&v.every(n=>finite(n,0,1)));
+      if(s.set!=='development'||!d||!progress(d.homes)||!d.facilities||Array.isArray(d.facilities)||typeof d.facilities!=='object'||Object.entries(d.facilities).some(([id,v])=>!CIVIC_FACILITIES.some(f=>f.id===id)||!progress(v)))fail('Tahap fasilitas Day 3 tidak valid.');
+    }
     if(shot.interior!==undefined&&!['koplak','sppg'].includes(shot.interior))fail('Interior tidak dikenal.');
     if(shot.survey!==undefined){const poll=shot.survey;if(!poll||!text(poll.title,100)||!text(poll.footer,100)||!Array.isArray(poll.choices)||poll.choices.length<2||poll.choices.length>6||poll.choices.some(c=>!c||!text(c.key,4)||!text(c.label,50)))fail('Pilihan survei tidak valid.');}
     if(shot.protest!==undefined){const p=shot.protest;if(!p||!finite(p.level,0,1)||(p.from!==undefined&&!finite(p.from,0,1))||(p.to!==undefined&&!finite(p.to,p.from??0,1)))fail('Reaksi warga tidak valid.');
@@ -96,7 +103,7 @@ export function validateScenario(input) {
       if(cue.bpm!==undefined&&(!finite(cue.bpm,70,180)||cue.action!=='Dance'))fail('Tempo joget harus 70–180 BPM.');
       if(cue.visible!==undefined&&typeof cue.visible!=='boolean')fail('Visibilitas pemeran tidak valid.');
       if(cue.at!==undefined&&!point(cue.at))fail('Posisi awal adegan tidak valid.');
-      for(const key of ['height','toHeight'])if(cue[key]!==undefined&&!finite(cue[key],-2,10))fail('Ketinggian gerak tidak valid.');
+      for(const key of ['height','toHeight'])if(cue[key]!==undefined&&!finite(cue[key],-2,s.set==='development'?100:10))fail('Ketinggian gerak tidak valid.');
       for(const key of ['delay','gestureDelay'])if(cue[key]!==undefined&&!finite(cue[key],0,shot.duration))fail('Jeda gerak tidak valid.');
       if(cue.activeDuration!==undefined&&!finite(cue.activeDuration,.01,shot.duration-(cue.delay||0)))fail('Jendela gerak tidak valid.');
       if(cue.gesture!==undefined&&!['look','nod','talk','self','stop','dismiss'].includes(cue.gesture))fail('Gestur tidak dikenal.');

@@ -1,5 +1,13 @@
 # Konten, kanon dan game
 
+## Paket Day 3 — 24 November 2026
+
+[Konsep](../docs/script/003-day-3-concept.md) dan [33 shot](../docs/script/003-day-3-scenes.md): **Uangnya Warga, Jasanya Presiden**, 206 detik perkiraan. Visual terhubung ke Produksi Konten admin, musik seri dipakai kembali; 33 ujaran baru belum direkam. Day 1/Day 2 dan draf suntingan admin dipertahankan.
+
+Pembangunan enam tempat ibadah, sekolah, rumah sakit, stadion, damkar, polisi, kodim, lima fasilitas ekonomi dan 48 rumah mengikuti arahan pemilik, bukan hasil survei yang dikarang. Keadaan publik tetap memakai versi server; tidak ada publikasi fase Day 3 dari playback/seek/ekspor. Target episode belum menyatakan total biaya maupun sisa dana dari sumbangan 5 T.
+
+Promosi memakai **republikwkwkwk.com**. Simulasi pendaftaran bukan akun nyata. Rumah subsidi privat + 1.000 Koin Republik + satu set alat sudah berfungsi pada paket lokal E-01a/E-02a; rilis dan smoke test server wajib sebelum promosi publik. Siklus jual beli tetap berlabel **DALAM PENGEMBANGAN**. Paket awal tidak mensyaratkan follow; rumah perintis memerlukan klaim identitas terverifikasi.
+
 ## Dua jalur yang saling memberi bahan
 
 Game mengatur apa yang bisa dilakukan pemain serta progres yang disimpan. Produksi mengatur cerita, kamera, audio, pemeran dan ekspor. Keduanya memakai geometri/avatar yang sama jika sesuai, tetapi mempunyai data dan hak akses terpisah.
@@ -30,3 +38,9 @@ Publikasi dunia global sudah diimplementasikan melalui API admin dan database. P
 ## Catatan setiap episode berikutnya
 
 Simpan kondisi awal/akhir, perubahan kanon, pemeran dan suara, kemampuan yang sudah tersedia, aset/fitur baru yang diperlukan, pertanyaan kepada warga, serta status penerimaan video. Perubahan isi episode dikerjakan pada jalur produksi sendiri; pekerjaan onboarding dan peta ini tidak menulis ulang naskah/audio Day 2.
+
+## Perluasan rumah perintis, 24 November 2026
+
+Atas permintaan pemilik, semua 48 identitas unik pada roster gelombang pertama mendapat eksterior rumah bernama di Kampung Perintis. Ini perluasan game setelah paket Wisma, bukan penulisan ulang pembangunan Day 2. P01-P24 dan proyek contoh tetap utuh. Studio tidak mengimpor kawasan baru secara otomatis; penulis dapat menggunakannya pada episode berikut setelah integrasi set disiapkan.
+
+Reservasi rumah bukan bukti akun game atau status follow terverifikasi. DD dideduplikasi sesuai roster saat ini. Klaim rumah dan keterlibatan dalam konten adalah proses berbeda; mengikuti akun medsos tidak menjanjikan jabatan, tampil di semua episode, atau rumah baru untuk semua follower mendatang. Lihat aturan terbaru pada [dokumen 06](06-GAME-HIDUP-DAN-HUNIAN.md).

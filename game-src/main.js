@@ -1,5 +1,6 @@
 import { professionRecommendation } from './citizen-professions.js';
 import { renderIdentityCard, renderAuthAvailability } from './citizen-identity.js';
+import { mountCitizenStarter } from './citizen-starter.js';
 import { createHumanModel, preloadAvatars, loadAvatarProfile, animateAvatar, avatarSpeed, disposeAvatar } from './avatar-runtime.js';
 import { attachCitizenAccessories } from './citizen-accessories.js';
 import { catalog as AVATAR_V15_CATALOG, presets as FARMER_PRESETS, avatarCharacterOptions as farmerCharacterOptions, normalizeAvatarConfig, mountAvatarEditor } from './avatar-v15-config.js';
@@ -68,7 +69,11 @@ async function renderAvatarPreview(config, { identity = false } = {}) {
   try {
     await loadAvatarProfile(normalizeAvatarConfig(config).profileId);
     if (request !== avatarPreviewRequest) return;
-    if (!avatarThumbnailService) avatarThumbnailService = createAvatarThumbnails(await import('three'));
+    if (!avatarThumbnailService) {
+      const three = await import('three');
+      if (request !== avatarPreviewRequest) return;
+      avatarThumbnailService ||= createAvatarThumbnails(three);
+    }
     await avatarThumbnailService.fill(images.map((image) => ({ image, config })));
   } catch (error) {
     if (request === avatarPreviewRequest) {
@@ -209,7 +214,7 @@ async function initCitizen() {
     $('#mapAvatar').querySelector('span').textContent = citizen ? citizen.display_name.toUpperCase() : '';
     $('#worldCitizenStatus').textContent = citizen ? `${citizen.display_name.toUpperCase()} · ${citizen.account_type === 'admin' ? 'ADMIN' : 'WARGA'} AKTIF` : 'TAMU · PETA TERBUKA';
     const home = $('#citizenHome');
-    if (home) home.textContent = citizen ? `⌂ ${houseNames[citizen.house] || 'Rumah Warga'} · ${citizen.display_name}` : '';
+    if (home) home.textContent = citizen ? `Preferensi gaya: ${houseNames[citizen.house] || 'Rumah Warga'} · ${citizen.display_name}` : '';
     renderIdentityCard($('#citizenIdentityCard'), citizen);
     const config = parsedAvatarConfig(citizen?.avatar_config);
     if (config) renderAvatarPreview(config, { identity:true });
@@ -224,7 +229,7 @@ async function initCitizen() {
       return;
     }
     pendingAvatarConfig = suggestion.config;
-    pendingAvatarManuallyChosen = explicit;
+    pendingAvatarManuallyChosen = false;
     form.elements.avatar.value = suggestion.avatar;
     $('#registrationAvatarName').textContent = suggestion.name;
     $('#registrationAvatarHint').textContent = suggestion.note + (activeCitizen ? ' Tekan Simpan karakter untuk menerapkan.' : ' Anda tetap bebas mengganti penampilan.');
@@ -263,7 +268,7 @@ async function initCitizen() {
       fillProfileForm(activeCitizen);
       const config = parsedAvatarConfig(activeCitizen.avatar_config);
       $('#registrationAvatarName').textContent = config ? 'Karakter pilihan Anda' : 'Pilih karakter dan profesi';
-      $('#registrationAvatarHint').textContent = config ? 'Penampilan tersimpan. Profesi tidak menimpa pilihan avatar Anda.' : 'Lengkapi karakter sebelum mulai bermain bersama warga.';
+      $('#registrationAvatarHint').textContent = config ? 'Ganti profesi atau jenis kelamin untuk melihat saran baru. Penampilan tersimpan berubah setelah Simpan karakter.' : 'Lengkapi karakter sebelum mulai bermain bersama warga.';
     }
     form.elements.verificationEmail.closest('label').hidden = true;
     applyMode();
@@ -344,8 +349,8 @@ async function initCitizen() {
     } catch (failure) { message(failure.message); }
     finally { busy = false; $('#citizenLogout').disabled = false; }
   });
-  form.elements.occupation.addEventListener('change', () => recommend());
-  form.elements.gender.addEventListener('change', () => recommend());
+  form.elements.occupation.addEventListener('change', () => { if (!busy) recommend(true); });
+  form.elements.gender.addEventListener('change', () => { if (!busy) recommend(true); });
   const results = await Promise.allSettled(['citizen_options','citizen','auth_options'].map(async resource => {
     const response = await fetch(`${API_URL}?resource=${resource}`, { headers:{ Accept:'application/json' } });
     const result = await response.json(); if (!response.ok) throw new Error(result.error || 'Layanan akun belum tersedia.'); return result;
@@ -527,6 +532,8 @@ async function start() {
   // never leave the opening map looking interactive while its buttons are dead.
   initExploreAvatarCustomizer();
   initWorld();
+  const starter=mountCitizenStarter($('#citizenStarter'),{apiUrl:API_URL});
+  window.addEventListener('pagehide',()=>starter.dispose(),{once:true});
   const citizenReady = initCitizen();
   window.dispatchEvent(new Event('semesta:entry-ready'));
   citizenReady.then(() => {

@@ -4,7 +4,7 @@ import {republicGeometry} from './republic-geometry.js';
 import {CAPITAL_LAYOUT,WORLD_DESTINATIONS,REGIONAL_LAYOUT,WORLD_DISTRICTS,WORLD_ROUTES,normalizeWorldPhase,terrainHeight,shoreDistance,terrainChunkKeys,hashWorld,isReservedGround} from './republic-world-layout.js';
 
 function resourceSets(options){return {geometries:options.geometries||options.resources?.geometries||new Set(),materials:options.materials||options.resources?.materials||new Set(),textures:options.textures||options.resources?.textures||new Set()};}
-function terrainGeometry(x0,z0,size,segments,city,lower=0,hole=null){
+function terrainGeometry(x0,z0,size,segments,city,lower=0,hole=null,heightAt=terrainHeight){
   let geometry;
   if(hole){
     // Insert exact boundary rows into the coarse distant terrain. Removing
@@ -19,7 +19,7 @@ function terrainGeometry(x0,z0,size,segments,city,lower=0,hole=null){
   }else{geometry=new THREE.PlaneGeometry(size,size,segments,segments);geometry.rotateX(-Math.PI/2);}
   const position=geometry.attributes.position,colors=[],grass=new THREE.Color('#91a76e'),hill=new THREE.Color('#748e62'),sand=new THREE.Color('#c0b48a');
   for(let i=0;i<position.count;i++){
-    const x=position.getX(i)+x0,z=position.getZ(i)+z0,height=terrainHeight(x,z,city);
+    const x=position.getX(i)+x0,z=position.getZ(i)+z0,height=heightAt(x,z,city);
     // Flat city roads/footings sit at grade even when production has no streamed
     // detail ground. Only rolling distant terrain needs a larger LOD overlap.
     const overlap=lower?(height<0?lower:Math.min(lower,.002+height*.1)):0;position.setY(i,height-overlap);
@@ -39,7 +39,7 @@ export function createCapitalContext(options={}){
   const {box,cylinder,beam,group}=g;
   const sign=(...args)=>{const object=g.sign(...args);for(const mat of Array.isArray(object.material)?object.material:[object.material])if(mat.map)mat.color.set('#ffffff');return object;};
   const ocean=box(root,'RepublicSea','#659ca9',[0,-1.3,0],[50000,.25,50000],{roughness:.38});ocean.castShadow=false;
-  const landscape=terrainGeometry(0,0,5600,280,city,.55,!includeCore?{minX:-35,maxX:35,minZ:-30,maxZ:30}:null),terrain=g.mesh(root,'RepublicLandform',landscape,g.material('#ffffff',{vertexColors:true}),[0,0,0]);terrain.castShadow=false;terrain.userData.backgroundTerrain=true;
+  const landscape=terrainGeometry(0,0,5600,280,city,.55,!includeCore?{minX:-35,maxX:35,minZ:-30,maxZ:30}:null,options.heightAt||terrainHeight),terrain=g.mesh(root,'RepublicLandform',landscape,g.material('#ffffff',{vertexColors:true}),[0,0,0]);terrain.castShadow=false;terrain.userData.backgroundTerrain=true;
   let core=null,phase=normalizeWorldPhase(options.phase);
   const coreOccluders=[];
   {

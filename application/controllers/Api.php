@@ -17,6 +17,7 @@ class Api extends CI_Controller
         $method = $this->input->method(TRUE);
         $resource = $this->input->get('resource');
         $payload = $method === 'POST' ? json_decode($this->input->raw_input_stream, TRUE) : NULL;
+        if ($resource === 'admin_operations') return $this->admin_operations($method);
         if ($method === 'POST' && is_array($payload) && ($payload['resource'] ?? NULL) === 'citizen_home') return $this->citizen_home($method,$payload);
         if ($resource === 'citizen_home') return $this->citizen_home($method,$payload);
         if ($method === 'POST' && is_array($payload) && isset($payload['resource']) && in_array($payload['resource'], array('world_admin','world_work'), TRUE)) return $this->republic_world($payload['resource'], $method, $payload);
@@ -45,10 +46,27 @@ class Api extends CI_Controller
         if ($method === 'POST') return $this->save_case($payload);
         if ($method !== 'GET') return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
 
+        // Retired episode endpoint remains private, like the production assets.
+        if (!$this->require_admin()) return;
         if (!$this->database_ready()) return $this->database_error();
         $case = $this->semesta->get_case();
         if ($case === NULL) return $this->output->set_status_header(404)->set_output('{"error":"Episode belum tersedia di database."}');
         return $this->output->set_output($case);
+    }
+
+    private function admin_operations($method)
+    {
+        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+        if (!$this->require_admin()) return;
+        if ($method !== 'GET') return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
+        if (!$this->database_ready()) return $this->database_error();
+        $groups = array('world'=>array('world_state','world_projects','world_publications'),
+            'homes'=>array('citizen_homes','citizen_home_requests','citizen_home_ledger'),
+            'starter'=>array('citizen_starter_grants','citizen_homes','citizen_home_requests','citizen_home_ledger'),
+            'work'=>array('citizen_work_state','world_action_requests','citizen_work_ledger'));
+        $modules = array();
+        foreach ($groups as $key=>$tables) { $modules[$key]=TRUE; foreach ($tables as $table) if (!$this->db->table_exists($table)) $modules[$key]=FALSE; }
+        return $this->output->set_output(json_encode(array('database'=>TRUE,'modules'=>$modules),JSON_UNESCAPED_UNICODE));
     }
 
     private function citizen_home($method, $payload = NULL)
@@ -570,7 +588,8 @@ class Api extends CI_Controller
         $enabled = !empty($payload['requireEmailVerification']);
         if ($enabled && !$this->smtp_configured()) return $this->output->set_status_header(422)->set_output('{"error":"Isi variabel SMTP server terlebih dahulu sebelum verifikasi email diwajibkan."}');
         if (!$this->semesta->set_app_setting('require_email_verification', $enabled ? '1' : '0')) return $this->database_error();
-        return $this->output->set_output(json_encode(array('ok' => true, 'requireEmailVerification' => $enabled, 'smtpConfigured' => $this->smtp_configured()), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        $config = $this->auth_config();
+        return $this->output->set_output(json_encode(array('ok' => true, 'requireEmailVerification' => $enabled, 'smtpConfigured' => $this->smtp_configured(), 'googleSsoConfigured'=>(bool)($config['google']['client_id'] && $config['google']['client_secret']), 'sender'=>$config['smtp']['from']), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     }
 
     private function avatar_library($method)

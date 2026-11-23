@@ -1,6 +1,7 @@
 /** The atlas, road plan and live minimap share the world's public layout. */
 import {WORLD_DESTINATIONS, CAPITAL_LAYOUT, REGIONAL_LAYOUT, WORLD_LANDMASSES, getRegionalLayout, getWorldPhase, setWorldPhase, projectWorldPoint as projectCanonicalPoint} from './republic-world-layout.js';
 import {landscapeSvg} from './republic-map-art.js';
+import {STORY_HOMES,STORY_NEIGHBORHOOD,STORY_ROADS,PUBLIC_SITEPLAN_BOUNDS,storyHomeLocation} from './citizen-story-homes.js';
 import {HOME_LAYOUT} from './citizen-home-layout.js';
 
 const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -12,6 +13,8 @@ const housingLabel=projects=>{const p=housingProgress(projects);return p?p.statu
 export function mapLocation(city='jakarta',id='stage',phase=getWorldPhase(),projects=[]){
   const destination=WORLD_DESTINATIONS[city]||WORLD_DESTINATIONS.jakarta;
   if(city!=='jakarta')return {id:'wilderness',name:destination.name,entry:destination.spawn,tag:'WILAYAH BARU · BELUM DIBANGUN',description:'Lahan alami yang belum memiliki bangunan atau permukiman. Jelajahi bentangnya; rencana kota menunggu usulan warga.'};
+  if(id==='perintis')return {id,name:STORY_NEIGHBORHOOD.name,entry:STORY_NEIGHBORHOOD.entry,tag:'48 RUMAH WARGA CERITA',description:'Rumah bernama untuk seluruh warga gelombang pertama. Pilih nama rumah pada Tujuan di kota untuk menemukan alamatnya. Rumah belum ditautkan ke akun; klaim kepemilikan memerlukan verifikasi.'};
+  const storyHome=storyHomeLocation(id);if(storyHome)return storyHome;
   if(id==='wisma')return {id,name:HOME_LAYOUT.name,entry:{...HOME_LAYOUT.entrance,z:HOME_LAYOUT.entrance.z+2,yaw:Math.PI},tag:'HUNIAN AWAL · KAMAR PRIBADI',description:'Kamar dasar tersedia untuk setiap akun warga. Temui Bu Rani di meja penerimaan, antar paket ke wisma, lalu hias kamar dengan tanaman hadiah. Kamar dan hadiah tersimpan di akun Anda.'};
   if(id==='welcome')return {id,name:'Penerimaan warga baru',entry:{x:HOME_LAYOUT.clerk.x+2,z:HOME_LAYOUT.clerk.z,yaw:-Math.PI/2},tag:'MULAI DI SINI · TUGAS PERTAMA',description:'Bu Rani membantu warga baru mendapatkan kamar di Wisma Warga. Terima paket selamat datang, bawa ke wisma, lalu pasang dekorasi pertama Anda.'};
   const anchors={stage:{name:'Panggung warga',entry:{x:0,z:7,yaw:Math.PI},tag:'SUDAH ADA · PANGGUNG SEMENTARA',description:'Titik kumpul pertama republik. Panggung ini menghadap lapangan terbuka; jalan setapak menghubungkannya dengan fondasi permukiman.'},koplak:{name:'Koplak Desa',entry:{x:CAPITAL_LAYOUT.koplak.entrance.x,z:CAPITAL_LAYOUT.koplak.entrance.z+1,yaw:Math.PI},tag:phase==='after-day2'?'TERBANGUN · PROGRAM DAY 2':'LAHAN RENCANA · PROGRAM DAY 2',description:phase==='after-day2'?'Koplak Desa sudah berdiri setelah pembangunan Day 2. Masuk dari jalan alun-alun untuk melihat tokonya.':'Petak untuk Koplak Desa masih kosong. Bangunannya baru hadir pada tahap sesudah Day 2.'},sppg:{name:'SPPG',entry:{x:CAPITAL_LAYOUT.sppg.entrance.x,z:CAPITAL_LAYOUT.sppg.entrance.z+1,yaw:Math.PI},tag:phase==='after-day2'?'TERBANGUN · PROGRAM DAY 2':'LAHAN RENCANA · PROGRAM DAY 2',description:phase==='after-day2'?'Dapur SPPG sudah berdiri setelah Day 2, di sisi lain alun-alun.':'Petak SPPG masih kosong sebelum Day 2. Pilihan tahap kota hanya mengubah dua bangunan program ini.'}};
@@ -63,19 +66,19 @@ export function mountRepublicAtlas(host,{selected='jakarta',onSelect=()=>{}}={})
 }
 
 // World X maps left/right; world Z maps top/bottom. Both maps use this function.
-export function projectWorldPoint(x,z,bounds=CAPITAL_LAYOUT.bounds){
+export function projectWorldPoint(x,z,bounds=PUBLIC_SITEPLAN_BOUNDS){
   if(bounds===CAPITAL_LAYOUT.bounds)return projectCanonicalPoint(x,z);
   return {x:(x-bounds.minX)/(bounds.maxX-bounds.minX)*100,y:(z-bounds.minZ)/(bounds.maxZ-bounds.minZ)*100};
 }
-export function unprojectWorldPoint(x,y,bounds=CAPITAL_LAYOUT.bounds){
+export function unprojectWorldPoint(x,y,bounds=PUBLIC_SITEPLAN_BOUNDS){
   return {x:bounds.minX+x/100*(bounds.maxX-bounds.minX),z:bounds.minZ+y/100*(bounds.maxZ-bounds.minZ)};
 }
 const point=([x,z],bounds)=>{const p=projectWorldPoint(x,z,bounds);return `${p.x*10},${p.y*10}`;};
 
 export function sitePlanSvg({phase=getWorldPhase(),city='jakarta',mini=false,projects=[]}={}){
-  const bounds=CAPITAL_LAYOUT.bounds;
+  const bounds=PUBLIC_SITEPLAN_BOUNDS;
   if(city!=='jakarta')return `<svg viewBox="0 0 1000 1000" role="img" aria-label="Lahan alami ${escape(WORLD_DESTINATIONS[city]?.name)}; belum dibangun"><rect width="1000" height="1000" fill="#b9c5a0"/><path d="M-80 750Q400 430 1100 710" fill="none" stroke="#8daea6" stroke-width="75"/><path d="M-20 120Q210 0 390 200T1020 120M-60 950Q240 820 450 950" fill="none" stroke="#a0b28e" stroke-width="120"/><g fill="#71896f" opacity=".45"><circle cx="210" cy="305" r="100"/><circle cx="730" cy="270" r="170"/><circle cx="430" cy="680" r="95"/></g>${mini?'':'<text x="500" y="495" text-anchor="middle" fill="#334e42" font-size="32" font-family="Arial">WILAYAH BELUM DIBANGUN</text><text x="500" y="540" text-anchor="middle" fill="#4b6455" font-size="20" font-family="Arial">Rencana kota ditentukan warga.</text>'}</svg>`;
-  const roads=(CAPITAL_LAYOUT.roads||[]).map(road=>`<polyline points="${[road.from,road.to].map(p=>point(p,bounds)).join(' ')}" fill="none" stroke="#ddd3b6" stroke-width="${(road.width||4)/(bounds.maxX-bounds.minX)*1000}" stroke-linecap="round" stroke-linejoin="round"/>`).join('');
+  const roads=[...CAPITAL_LAYOUT.roads,...STORY_ROADS].map(road=>`<polyline points="${[road.from,road.to].map(p=>point(p,bounds)).join(' ')}" fill="none" stroke="#ddd3b6" stroke-width="${(road.width||4)/(bounds.maxX-bounds.minX)*1000}" stroke-linecap="round" stroke-linejoin="round"/>`).join('');
   const zones=(CAPITAL_LAYOUT.zones||[]).map(zone=>{
     const r=zone.rect,p=projectWorldPoint(r.x,r.z,bounds),w=r.width/(bounds.maxX-bounds.minX)*1000,h=r.depth/(bounds.maxZ-bounds.minZ)*1000;
     const built=false,housing=zone.id==='housing';
@@ -84,8 +87,9 @@ export function sitePlanSvg({phase=getWorldPhase(),city='jakarta',mini=false,pro
   const plots=CAPITAL_LAYOUT.housingPlots.map(r=>{const p=projectWorldPoint(r.x,r.z),work=projects.find(item=>item.plotId===r.id&&item.city==='jakarta'&&item.status!=='draft'),color=work?.status==='completed'?'#517e79':work?.installed?'#c79a56':'#c4c1a5';return `<rect data-plot="${escape(r.id)}" data-project-status="${escape(work?.status||'foundation')}" data-installed="${work?.installed||0}" x="${p.x*10-r.width/(bounds.maxX-bounds.minX)*500}" y="${p.y*10-r.depth/(bounds.maxZ-bounds.minZ)*500}" width="${r.width/(bounds.maxX-bounds.minX)*1000}" height="${r.depth/(bounds.maxZ-bounds.minZ)*1000}" fill="${color}" stroke="${work?'#365b60':'#9c947b'}" stroke-width="3"><title>${escape(work?`${work.name}: ${work.installed}/${work.required}`:r.id+' · fondasi')}</title></rect>`;}).join('');
   const core=['stage','koplak','sppg'].map(id=>{const r=CAPITAL_LAYOUT[id],p=projectWorldPoint(r.x,r.z),built=id==='stage'||phase==='after-day2';return `<rect data-structure="${id}" data-built="${built}" x="${p.x*10-r.width/(bounds.maxX-bounds.minX)*500}" y="${p.y*10-r.depth/(bounds.maxZ-bounds.minZ)*500}" width="${r.width/(bounds.maxX-bounds.minX)*1000}" height="${r.depth/(bounds.maxZ-bounds.minZ)*1000}" fill="${built?'#bd9467':'none'}" stroke="#667b5b" stroke-width="3" ${built?'':'stroke-dasharray="5 5"'}/>`;}).join('');
   const home=projectWorldPoint(HOME_LAYOUT.x,HOME_LAYOUT.z),homeW=HOME_LAYOUT.width/(bounds.maxX-bounds.minX)*1000,homeH=HOME_LAYOUT.depth/(bounds.maxZ-bounds.minZ)*1000;
+  const storyPlots=STORY_HOMES.map(h=>{const p=projectWorldPoint(h.x,h.z);return `<rect data-story-home="${escape(h.id)}" x="${p.x*10-h.width/(bounds.maxX-bounds.minX)*500}" y="${p.y*10-h.depth/(bounds.maxZ-bounds.minZ)*500}" width="${h.width/(bounds.maxX-bounds.minX)*1000}" height="${h.depth/(bounds.maxZ-bounds.minZ)*1000}" fill="#a87955" stroke="#5d6b54" stroke-width="2"><title>Rumah ${escape(h.name)} - ${escape(h.address)}</title></rect>`;}).join('');
   const facility=`<rect data-game-facility="wisma-warga" x="${home.x*10-homeW/2}" y="${home.y*10-homeH/2}" width="${homeW}" height="${homeH}" fill="#538d92" stroke="#244f59" stroke-width="3"><title>Wisma Warga · kamar pribadi</title></rect>`;
-  return `<svg viewBox="0 0 1000 1000" role="img" aria-label="Denah ${phase==='after-day2'?'sesudah':'sebelum'} pembangunan Day 2 dengan Wisma Warga"><defs><pattern id="${mini?'mini':'site'}-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#698363" stroke-opacity=".1"/></pattern></defs><rect width="1000" height="1000" fill="#becba6"/><rect width="1000" height="1000" fill="url(#${mini?'mini':'site'}-grid)"/>${zones}${roads}${plots}${core}${facility}</svg>`;
+  return `<svg viewBox="0 0 1000 1000" role="img" aria-label="Denah ${phase==='after-day2'?'sesudah':'sebelum'} pembangunan Day 2 dengan Wisma Warga"><defs><pattern id="${mini?'mini':'site'}-grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M50 0H0V50" fill="none" stroke="#698363" stroke-opacity=".1"/></pattern></defs><rect width="1000" height="1000" fill="#becba6"/><rect width="1000" height="1000" fill="url(#${mini?'mini':'site'}-grid)"/>${zones}${roads}${plots}${core}${facility}${storyPlots}</svg>`;
 }
 
 export function mountRepublicSitePlan(host,{city='jakarta',selected='stage',phase=getWorldPhase(),projects=[],onSelect=()=>{}}={}){
@@ -96,9 +100,10 @@ export function mountRepublicSitePlan(host,{city='jakarta',selected='stage',phas
     host.dataset.city=currentCity;
     plane.innerHTML=`${sitePlanSvg({city:currentCity,phase:currentPhase,projects:currentProjects})}${currentCity==='jakarta'?CAPITAL_LAYOUT.zones.map(zone=>{const p=projectWorldPoint(zone.rect.x,zone.rect.z),active=zone.id==='civic';return `<button type="button" class="rm-zone-pin ${currentSelected===zone.id?'selected':''}" data-location="${escape(zone.id)}" style="left:${p.x}%;top:${p.y}%" aria-pressed="${currentSelected===zone.id}"><i class="${active?'built':zone.id==='housing'?'foundation':'planned'}"></i><span>${escape(zone.id==='housing'?'Permukiman warga':zone.name)}<small>${active?'PANGGUNG + LAHAN PROGRAM':zone.id==='housing'?housingLabel(currentProjects):'LAHAN RENCANA'}</small></span></button>`;}).join(''):''}`;
     const detail=host.querySelector('.rm-civic-detail');detail.hidden=currentCity!=='jakarta';
-    detail.innerHTML=`<details><summary>Tujuan di kota</summary><div>${['welcome','wisma','stage','koplak','sppg'].map(id=>{const built=['stage','welcome','wisma'].includes(id)||currentPhase==='after-day2';return `<button type="button" data-location="${id}" class="${currentSelected===id?'selected':''}"><i class="${built?'built':'planned'}"></i><span>${{welcome:'Bu Rani · mulai di sini',wisma:HOME_LAYOUT.name,stage:'Panggung warga',koplak:'Koplak Desa',sppg:'SPPG'}[id]}</span><small>${id==='welcome'?'Tugas':id==='wisma'?'Kamar':built?'Ada':'Lahan'}</small></button>`;}).join('')}</div></details>`;
+    detail.innerHTML=`<details><summary>Tujuan di kota</summary><div>${['welcome','wisma','perintis','stage','koplak','sppg'].map(id=>{const built=['stage','welcome','wisma','perintis'].includes(id)||currentPhase==='after-day2';return `<button type="button" data-location="${id}" class="${currentSelected===id?'selected':''}"><i class="${built?'built':'planned'}"></i><span>${{welcome:'Bu Rani · mulai di sini',wisma:HOME_LAYOUT.name,perintis:'Kampung Perintis - 48 rumah',stage:'Panggung warga',koplak:'Koplak Desa',sppg:'SPPG'}[id]}</span><small>${id==='welcome'?'Tugas':id==='wisma'?'Kamar':built?'Ada':'Lahan'}</small></button>`;}).join('')}<label class="rm-home-search">Cari rumah warga<select aria-label="Pilih rumah warga cerita"><option value="">Pilih nama warga...</option>${STORY_HOMES.map(h=>`<option value="${escape(h.id)}" ${currentSelected===h.id?'selected':''}>${escape(h.name)} - ${escape(h.address)}</option>`).join('')}</select></label></div></details>`;
   }
   host.addEventListener('click',event=>{if(handleMapZoom(event,pan))return;const pin=event.target.closest('[data-location]');if(!pin)return;currentSelected=pin.dataset.location;render();onSelect(currentSelected);},{signal:abort.signal});
+  host.addEventListener('change',event=>{if(!event.target.matches('.rm-home-search select')||!storyHomeLocation(event.target.value))return;currentSelected=event.target.value;render();onSelect(currentSelected);},{signal:abort.signal});
   render();return {update({city=currentCity,phase=currentPhase,selected=currentSelected,projects=currentProjects}={}){if(city!==currentCity)pan.reset();currentCity=city;currentPhase=phase;currentSelected=selected;currentProjects=projects;render();},getView:pan.getState,dispose(){pan.dispose();abort.abort();}};
 }
 
@@ -166,10 +171,10 @@ export function mountRepublicMinimap(host,{city='jakarta',phase=getWorldPhase(),
   return {update(state){
     let nextCity=currentCity;if(state.city&&state.city!==lastReportedCity){lastReportedCity=state.city;nextCity=state.city;}
     if(state.position&&!inside(state.position,getRegionalLayout(nextCity).bounds))nextCity=Object.values(WORLD_DESTINATIONS).sort((a,b)=>Math.hypot(a.center.x-state.position.x,a.center.z-state.position.z)-Math.hypot(b.center.x-state.position.x,b.center.z-state.position.z))[0].id;
-    const nextMode=state.position?(inside(state.position,CAPITAL_LAYOUT.bounds)?'city':'regional'):nextCity!=='jakarta'?'regional':mode;
+    const nextMode=state.position?(inside(state.position,PUBLIC_SITEPLAN_BOUNDS)?'city':'regional'):nextCity!=='jakarta'?'regional':mode;
     if(nextCity!==currentCity||state.phase&&state.phase!==currentPhase||nextMode!==mode||state.projects&&state.projects!==currentProjects){currentCity=nextCity;currentPhase=state.phase||currentPhase;currentProjects=state.projects||currentProjects;mode=nextMode;render();}
     if(state.position){lastPosition=state.position;lastYaw=state.yaw||0;}
-    if(lastPosition){const p=projectWorldPoint(lastPosition.x,lastPosition.z,mode==='city'?CAPITAL_LAYOUT.bounds:getRegionalLayout(currentCity).bounds),marker=host.querySelector('.rm-player-dot');marker.style.left=`${clamp(p.x,2,98)}%`;marker.style.top=`${clamp(p.y,2,98)}%`;marker.style.transform=`translate(-50%,-50%) rotate(${lastYaw}rad)`;}
+    if(lastPosition){const p=projectWorldPoint(lastPosition.x,lastPosition.z,mode==='city'?PUBLIC_SITEPLAN_BOUNDS:getRegionalLayout(currentCity).bounds),marker=host.querySelector('.rm-player-dot');marker.style.left=`${clamp(p.x,2,98)}%`;marker.style.top=`${clamp(p.y,2,98)}%`;marker.style.transform=`translate(-50%,-50%) rotate(${lastYaw}rad)`;}
   },dispose(){abort.abort();host.replaceChildren();}};
 }
 

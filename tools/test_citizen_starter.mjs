@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import {Window} from 'happy-dom';
+import {mountCitizenStarter} from '../game-src/citizen-starter.js';
+import {citizenHomeOpportunity} from '../game-src/citizen-home.js';
+import {createCitizenRoomGeometry} from '../game-src/citizen-home-geometry.js';
+const win=new Window({url:'http://localhost/project/'}),host=win.document.createElement('section');win.document.body.append(host);
+let pending=[],mode='ok';const pack={playerId:1,home:{address:'Griya RS-00000001'},starter:{balance:1000,tools:[{id:'farm-kit',label:'Cangkul dan penyiram',quantity:1}]}};
+const module=mountCitizenStarter(host,{apiUrl:'http://localhost/project/api',eventTarget:win,fetchImpl:async(url,options)=>{
+  assert.equal(new URL(url).searchParams.get('resource'),'citizen_home');assert.equal(options.cache,'no-store');
+  if(mode==='delay')return new Promise(resolve=>pending.push(resolve));
+  return {ok:mode==='ok',json:async()=>mode==='ok'?pack:{error:'Hunian belum siap'}};
+}});
+const citizen=(id=1)=>win.dispatchEvent(new win.CustomEvent('semesta:citizen-change',{detail:{citizen:id?{id,profile_complete:true,display_name:'<script>Nama</script>'}:null}}));
+const flush=async()=>{await new Promise(r=>setTimeout(r,0));};
+citizen();await flush();assert.match(host.textContent,/1\.000 Koin Republik/);assert.match(host.textContent,/Cangkul/);assert.equal(host.querySelector('script'),null);assert.match(host.textContent,/Belanja/);
+mode='delay';citizen();citizen(null);pending.shift()({ok:true,json:async()=>pack});await flush();assert.equal(host.hidden,true);assert.equal(host.textContent,'');
+mode='error';citizen();await flush();assert.match(host.textContent,/Hunian belum siap/);assert.ok(host.querySelector('button'));
+mode='ok';host.querySelector('button').click();await flush();assert.match(host.textContent,/1\.000/);
+mode='delay';citizen();module.dispose();pending.shift()({ok:true,json:async()=>pack});await flush();assert.equal(host.textContent,'');
+const snapshot={home:{kind:'subsidy',unlocked:true,inside:false},mission:{status:'not_started',radius:3,clerk:{x:9,z:6},deliveryPoint:{x:38,z:3}}};
+assert.equal(citizenHomeOpportunity({snapshot,position:{x:38,z:3}}).action,'enter_home','Free house accessible before quest');
+assert.equal(citizenHomeOpportunity({snapshot,position:{x:9,z:6}}).action,'accept_delivery','Optional plant quest still accessible');
+snapshot.mission.status='carrying';snapshot.mission.acceptedAt=0;assert.equal(citizenHomeOpportunity({snapshot,position:{x:38,z:3}}).action,'deliver');
+const house=createCitizenRoomGeometry({kind:'subsidy'});
+for(const name of ['SubsidyYard','LivingFloor','BedroomDivider','KitchenSink','Cooktop','Terrace','WelcomeShelf'])assert.ok(house.root.getObjectByName(name),name);
+house.applyState({decorationPlaced:true});assert.equal(house.plant.visible,true);house.dispose();
+await win.happyDOM.close();console.log('PASS starter account UI: authoritative amounts, safe labels, logout/stale isolation, retry/dispose, optional quest plus free house, furnished cutaway and retained plant.');

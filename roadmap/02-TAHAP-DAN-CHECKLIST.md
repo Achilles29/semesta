@@ -2,6 +2,40 @@
 
 Status per 24 November 2026. Centang setiap hasil secara terpisah. Urutan bergantung pada kemampuan yang diperlukan, bukan janji tanggal.
 
+## Paket lanjutan aktif — Day 3, starter pack dan audit admin
+
+Baseline tetap `f719128`; seluruh perubahan masih working tree lokal, tanpa commit/push. Baca handover terbaru sebelum bagian paket terdahulu di bawah.
+
+- [x] `A-02b` Pilih profesi/gender memperbarui draf saran avatar; avatar tersimpan berubah hanya setelah Simpan. Thumbnail lambat tidak menimpa pilihan terbaru. Tes onboarding 23 profesi × dua tubuh lulus.
+- [x] `E-01a` Grant 1.000 koin dan satu set alat sesuai profesi, sekali per ID akun lengkap. Akun lama menerima pada request berikutnya; ganti profesi tidak menambah hadiah. Tabel grant menyimpan waktu, versi, jumlah awal dan saldo. Race, rollback, isolasi akun, retry dan migrasi berulang diuji.
+- [x] `E-02a` Rumah subsidi privat beralamat stabil, kamar/ruang duduk/dapur kecil/teras, akses melalui Wisma tanpa wajib menyelesaikan quest. Tugas Bu Rani tetap memberi tanaman; dekorasi lama tersimpan. UI membaca data server. Belum petak publik, kunjungan atau klaim rumah perintis.
+- [x] `K-03a` Konsep/naskah Day 3, 33 shot/206 detik, simulasi pendaftaran, bangunan bertahap, 17 tapak dan 48 rumah bernama; tersedia di studio admin. Siteplan dan empat render offline diperiksa. Tidak menerbitkan dunia.
+- [ ] `K-03b` **Lokal + pemilik:** pilih suara Demian, produksi/ukur 33 ujaran, lip-sync, efek dan mix, revisi tempo serta tonton MP4 penuh. Durasi sekarang perkiraan; tidak disebut final.
+- [x] `ADM-01` Audit 11 panel: perbaikan keterangan sumber data/status/fungsi, panel Hunian & ekonomi, API status privat, respons filter direktori terbaru, episode legacy privat, simpan pengaturan mempertahankan status Google. Bukti DOM/controller, bukan browser nyata. Lihat dokumen 09.
+- [ ] `ADM-02` **Server + pemilik:** smoke test semua panel pada domain rilis, termasuk hak admin, deep link, draft lama, load Day 3, pengaturan tanpa mengubah SMTP/OAuth, tampilan HP/desktop.
+- [ ] `E-03` **Lokal + server:** siklus tani beli–tanam–panen–jual dengan ledger transaksi/inventaris, harga server, stok/timer dan retry. Aset/peta rencana tersedia, transaksi belum dibuat.
+- [ ] `E-04` **Lokal + server:** pembelian/peningkatan rumah setelah E-03, izin pemilik dan stok atomik. Jangan menganggap preferensi gaya sebagai kepemilikan.
+- [ ] `E-05` **Pemilik + lokal:** pilot ekonomi 1.000 koin; contoh biaya 140/penjualan 200 belum harga produksi final.
+
+Urutan server: **A-11 + ADM-02** (termasuk migrasi starter) → **H-03** klaim identitas → kontrak inventaris/transaksi **E-03**. Email/Google A-06/A-07 tetap ditunda ke server. Tugas lama yang belum dicentang adalah pengembangan lanjutan/penerimaan, bukan klaim sudah selesai oleh paket ini.
+
+## Paket aktif — rumah perintis dan game hidup
+
+Baseline `f719128`. Keputusan/kontrak lengkap: [dokumen 06](06-GAME-HIDUP-DAN-HUNIAN.md). Tugas server berikut **A-11 lalu H-03**, bukan mengulang model rumah atau mereset Wisma/P01. Daftar perumahan: [register 07](07-REGISTER-RUMAH-PERINTIS.md).
+
+- [x] `H-01` **Lokal:** 48 eksterior rumah dengan alamat/ID tetap dan papan nama sesuai roster; DD satu entri; enam gang dengan akses, collider, variasi warna, instancing dan atlas nama bersama. Tidak mengambil petak P01–P24. Belum interior/kepemilikan akun.
+- [x] `H-02` **Lokal:** lokasi Kampung Perintis serta pencarian rumah berdasarkan nama pada denah/minimap; jalan +35%, lari +50%, animasi pemain mengikuti gait yang dipilih; label nama/jabatan tanpa teks NPC. Tes geometri/roster/navigasi dan build; penerimaan perangkat tetap A-10.
+- [ ] `H-03` **Server:** formulir klaim opsional untuk warga cerita, platform/username asal, tantangan sekali pakai, review admin, alokasi atomik dan audit. Kriteria: tidak ada klaim otomatis karena nama sama, dua akun berebut satu rumah hanya satu disetujui, bukti privat, retry/expired/CSRF/rollback teruji, profil/login lama tetap berfungsi. Kontrak dan status implementasi wajib dikembalikan ke handover.
+- [ ] `H-04` **Lokal + API server, sesudah H-03:** Rumah saya → arah → pintu hanya pemilik → interior rumah tapak → dekorasi tersimpan. Uji dua akun, sesi ulang, pencabutan kepemilikan serta kesinambungan tanaman/kamar Wisma. Menambah rumah tidak boleh menghapus barang lama.
+- [ ] `H-05` **Server/pemilik:** cocokkan nama display lama dengan komentar sumber, platform dan handle yang benar; selesaikan nama kembar/handle berubah tanpa menebak. Catat bukti secara privat; jangan menyimpan token/kode klaim di Git.
+- [ ] `P-02b` **Lokal, kontrak server disepakati:** tiga variasi pesanan barang/tujuan dan papan kebutuhan, feedback membawa/mengantar, tidak hanya timer; dapat dimainkan solo; reward idempotent.
+- [ ] `G-03c` **Server:** inventaris umum sebagai fondasi P-02b/P-03a; transaksi/ledger, kapasitas, ownership dan migrasi progres lama; tidak menggandakan tanaman/kit.
+- [ ] `P-03a` **Lokal:** aktivitas membuat papan nama/motif untuk rumah; pilihan menghasilkan dekorasi terlihat dan tersimpan. Validasi teks/material dan uji lintas login.
+- [ ] `L-01` **Lokal:** suasana kampung berjarak (lampu, suara lingkungan, hewan ringan); anggaran draw call/frame time terukur sebelum perluasan.
+- [ ] `L-02` **Lokal + server:** papan kebutuhan dan kejadian kota singkat yang berubah sesuai fasilitas/proyek; pekerjaan tetap tersedia ketika tokoh sedang tampil atau pemain lain offline.
+
+`H-01/H-02` selesai sebagai implementasi lokal; jangan mencentang `H-03/H-04/A-10/A-11` berdasarkan rumah yang terlihat pada render.
+
 ## A — Onboarding, identitas dan navigasi
 
 - [x] `A-01` Saran untuk seluruh 23 profesi awal × model laki-laki/perempuan; pilihan gender lain mendapat penjelasan dan editor manual. Katalog/master tidak dikenal memakai pilihan umum yang diberi keterangan, bukan seragam palsu.

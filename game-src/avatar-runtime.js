@@ -52,9 +52,9 @@ export function avatarSpeed(actor,clip='Walk') {
   return (actor?.figure.userData.locomotion?.[clip]?.recommendedForwardSpeed || (clip==='Run'?2.77:1.44))*(actor?.figure.scale.x||1);
 }
 /** Metres/second in world space; animation cadence follows actual displacement. */
-export function animateAvatar(actor,speed,dt) {
+export function animateAvatar(actor,speed,dt,{gait}={}) {
   if(!actor?.mixer)return false;
-  const name=speed>.06?(speed>(avatarSpeed(actor,'Walk')+avatarSpeed(actor,'Run'))/2?'Run':'Walk'):'Idle';
+  const name=speed>.06?(['Walk','Run'].includes(gait)?gait:speed>(avatarSpeed(actor,'Walk')+avatarSpeed(actor,'Run'))/2?'Run':'Walk'):'Idle';
   if(actor.activeAction!==name){actor.actions[actor.activeAction]?.fadeOut(.18);actor.actions[name]?.reset().fadeIn(.18).play();actor.activeAction=name;}
   const rate=name==='Idle'?1:Math.max(.05,Math.min(1.8,speed/avatarSpeed(actor,name)));
   actor.actions[name]?.setEffectiveTimeScale(rate);actor.mixer.update(dt);

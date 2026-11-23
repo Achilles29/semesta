@@ -109,6 +109,7 @@
                 <a class="google-sso-button" id="googleSsoButton" aria-disabled="true" href="<?= base_url('api?resource=google_sso'); ?>"><span class="google-sso-icon" aria-hidden="true">G</span><span class="google-sso-label" id="googleSsoLabel">Lanjutkan dengan Google</span></a>
                 <p id="authServiceStatus" class="auth-services" role="status">Memeriksa layanan akun…</p>
                 <article id="citizenIdentityCard" class="identity-card" aria-label="Kartu identitas warga game" hidden></article>
+                <section id="citizenStarter" class="citizen-starter" aria-label="Paket awal dan rumah warga" aria-live="polite" hidden></section>
                 <form id="citizenForm">
                     <label class="citizen-username"><span id="citizenUsernameLabel">Username atau email</span><input name="username" maxlength="190" autocomplete="username" autocapitalize="none" spellcheck="false" required></label>
                     <label class="register-only">Email<input name="email" type="email" maxlength="190" autocomplete="email" placeholder="nama@email.com"></label>

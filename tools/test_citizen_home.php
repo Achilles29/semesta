@@ -33,7 +33,8 @@ if(PHP_SAPI==='cli-server' || (($argv[1]??'')==='--worker')) {
     $model=new Citizen_home_model();$id=(int)$argv[2];$action=$argv[3];$sessionHash=$argv[4];$requestId=$argv[5];
     while(microtime(TRUE)<(float)$argv[6])usleep(1000);
     try{
-        if($action==='presence')$result=array('allowed'=>$model->sync_public_presence($id,$sessionHash,'republic','world',38,3));
+        if($action==='state')$result=$model->state($id,$sessionHash);
+        elseif($action==='presence')$result=array('allowed'=>$model->sync_public_presence($id,$sessionHash,'republic','world',38,3));
         else{$payload=array('action'=>$action,'requestId'=>$requestId);if(in_array($action,array('place_decoration','remove_decoration'),TRUE))$payload['slotId']='welcome-shelf';$result=$model->act($id,$sessionHash,$payload);}
         echo json_encode(array('status'=>200,'result'=>$result));
     }catch(Citizen_home_error $error){echo json_encode(array('status'=>$error->status,'code'=>$error->error_code));}
@@ -139,6 +140,42 @@ try{
     $reward=$testDb->query("SELECT COUNT(*) AS count,SUM(plant_delta) AS plants FROM citizen_home_ledger WHERE citizen_id=2 AND action='deliver'")->row_array();check_home((int)$reward['count']===1 && (int)$reward['plants']===1,'Delivery ledger duplicated reward');
     $snapshot=$model->state(1,$sessionHash);home_schema($connection);$repeat=$model->state(1,$sessionHash);unset($snapshot['serverTime'],$repeat['serverTime']);check_home($snapshot===$repeat,'Repeat migration reset owned room');
     check_home((int)$testDb->query('SELECT COUNT(*) AS count FROM citizen_homes')->row_array()['count']===2,'Unrequested/incomplete rooms allocated');
+
+    // Upgrade an existing, decorated room without resetting its progress.
+    $connection->multi_query(file_get_contents(FCPATH.'database/migrations/20261124_citizen_starter.sql'));
+    do{if($result=$connection->store_result())$result->free();}while($connection->more_results()&&$connection->next_result());
+    $model=new Citizen_home_model();$upgraded=$model->state(1,$sessionHash);
+    check_home($upgraded['starter']['balance']===1000 && $upgraded['home']['kind']==='subsidy' && $upgraded['home']['unlocked'],'Starter not granted');
+    check_home($upgraded['home']['decorationPlaced'] && $upgraded['mission']['status']==='completed' && $upgraded['inventory']['welcomePlant']===0,'Upgrade reset progress');
+    check_home($upgraded['starter']['tools'][0]['id']==='work-kit','Occupation tool wrong');
+    $testDb->query("UPDATE citizens SET occupation='petani' WHERE id=1");
+    $again=$model->state(1,$sessionHash);check_home($again['starter']===$upgraded['starter'],'Profession change/reload reissued grant');
+    check_home($again['home']['id']==='subsidy-1','Stable private home ID missing');
+    // A fully new account, not a name match, gets a different home immediately.
+    $testDb->query("INSERT INTO citizens(id,is_active,gender,occupation,avatar_config,display_name) SELECT 5,1,gender,'petani',avatar_config,display_name FROM citizens WHERE id=1");
+    $race=home_race(5,hash('sha256','starter-race'),array('state','state'));
+    check_home($race[0]['status']===200 && $race[1]['status']===200,'Concurrent starter reads failed');
+    $fresh=$model->state(5,hash('sha256','starter-race'));
+    check_home($fresh['starter']['balance']===1000 && $fresh['starter']['tools'][0]['id']==='farm-kit' && $fresh['home']['id']!==$again['home']['id'],'Starter isolation/role failed');
+    check_home((int)$testDb->query('SELECT COUNT(*) AS n FROM citizen_starter_grants WHERE citizen_id=5')->row_array()['n']===1,'Race duplicated grant');
+    home_presence(5,'entrance');$enteredNew=$model->act(5,hash('sha256','starter-race'),array('action'=>'enter_home','requestId'=>'starter_enter_new_house'));
+    check_home($enteredNew['home']['inside'] && $enteredNew['mission']['status']==='not_started','Subsidy requires old quest');
+    check_home(!$testDb->query('SELECT citizen_id FROM citizen_presence WHERE citizen_id=5')->row_array(),'Subsidy exposed private presence');
+    check_home(!$model->state(5,hash('sha256','other-browser'))['home']['inside'],'Subsidy session leaked');
+    // Failed grant rolls back the room reservation too; retry remains exactly once.
+    $testDb->query("INSERT INTO citizens(id,is_active,gender,occupation,avatar_config) SELECT 6,1,gender,occupation,avatar_config FROM citizens WHERE id=1");
+    $testDb->failNeedle='INSERT IGNORE INTO citizen_starter_grants';
+    try{$model->state(6,$sessionHash);throw new RuntimeException('Grant failure ignored');}catch(RuntimeException $error){check_home($error->getMessage()==='Home database operation failed.','Unexpected grant rollback failure');}
+    check_home(!$testDb->query('SELECT citizen_id FROM citizen_homes WHERE citizen_id=6')->row_array(),'Failed grant kept partial reservation');
+    check_home($model->state(6,$sessionHash)['starter']['balance']===1000,'Grant retry failed');
+    foreach(array(3,4) as $rejected){try{$model->state($rejected,$sessionHash);throw new RuntimeException('Invalid account got starter');}catch(Citizen_home_error $error){check_home($error->status===403,'Invalid starter account status');}}
+    check_home(!$testDb->query('SELECT citizen_id FROM citizen_starter_grants WHERE citizen_id IN (3,4)')->row_array(),'Invalid accounts received grant');
+    $connection->multi_query(file_get_contents(FCPATH.'database/migrations/20261124_citizen_starter.sql'));
+    do{if($result=$connection->store_result())$result->free();}while($connection->more_results()&&$connection->next_result());
+    check_home($model->state(1,$sessionHash)['starter']===$upgraded['starter'],'Repeat starter migration reset grant');
+    require_once APPPATH.'helpers/citizen_starter_helper.php';
+    foreach(array_keys(json_decode(file_get_contents(FCPATH.'game-src/citizen-professions.json'),TRUE)) as $occupation)check_home(count(citizen_starter_tool($occupation))===2,'Missing role starter');
+
     echo 'PASS '.$checks." private home checks: isolated HTTP/MySQL, ownership/session binding, profile/CSRF, mission timer/reward, persistence, strict slots, fresh replay, private presence gate/race, placement/reward races, rollback, repeat migration.\n";
     echo "Actual controller/model with fixture session adapter; no live account/world changes or external provider calls. Browser and production-login acceptance remain separate.\n";
 }catch(Throwable $error){fwrite(STDERR,'FAIL home fixture: '.$error->getMessage()."\n");$failed=TRUE;}

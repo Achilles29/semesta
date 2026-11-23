@@ -3,6 +3,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Citizen_home_model extends CI_Model
 {
+    private $starterAvailable = NULL;
+    private function has_starter()
+    {
+        if ($this->starterAvailable === NULL) $this->starterAvailable = $this->db->table_exists('citizen_starter_grants');
+        return $this->starterAvailable;
+    }
+
+    private function ensure_starter($citizenId, array $citizen, $now)
+    {
+        if (!$this->has_starter()) return;
+        require_once APPPATH.'helpers/citizen_starter_helper.php';
+        $tool = citizen_starter_tool($citizen['occupation']);
+        // Caller holds the citizen lock. PK and unique home ID are additional
+        // protection against retries, simultaneous sessions and job changes.
+        $this->query('INSERT IGNORE INTO citizen_starter_grants (citizen_id,occupation_at_grant,tool_id,tool_label,home_id,granted_at) VALUES (?,?,?,?,?,?)',
+            array($citizenId,$citizen['occupation'],$tool[0],$tool[1],'subsidy-'.$citizenId,$now));
+    }
+
     private function query($sql, array $params = array())
     {
         $result = $this->db->query($sql,$params);
@@ -25,6 +43,7 @@ class Citizen_home_model extends CI_Model
             $now = citizen_home_now();
             $this->query('INSERT IGNORE INTO citizen_homes (citizen_id,created_at,updated_at) VALUES (?,?,?)',array($citizenId,$now,$now));
             $home = $this->query('SELECT * FROM citizen_homes WHERE citizen_id=? FOR UPDATE',array($citizenId))->row_array();
+            $this->ensure_starter($citizenId,$citizen,$now);
             $result = $operation($home);
             if (!$this->db->trans_status() || !$this->db->trans_commit()) throw new RuntimeException('Home transaction could not commit.');
             return $result;
@@ -35,12 +54,24 @@ class Citizen_home_model extends CI_Model
     private function snapshot($citizenId, $sessionHash)
     {
         $row = $this->query('SELECT * FROM citizen_homes WHERE citizen_id=?',array($citizenId))->row_array();
-        return array('playerId'=>(int)$citizenId,'version'=>(int)$row['version'],
+        $starter = $this->has_starter() ? $this->query('SELECT * FROM citizen_starter_grants WHERE citizen_id=?',array($citizenId))->row_array() : NULL;
+        $result = array('playerId'=>(int)$citizenId,'version'=>(int)$row['version'],
             'mission'=>array('status'=>$row['mission_status'],'acceptedAt'=>citizen_home_iso($row['mission_accepted_at']),'completedAt'=>citizen_home_iso($row['mission_completed_at']),
                 'clerk'=>array('x'=>9,'z'=>6),'deliveryPoint'=>array('x'=>38,'z'=>3),'radius'=>3),
             'home'=>array('id'=>'home-'.$citizenId,'address'=>'Wisma Warga · Kamar '.str_pad((string)$citizenId,8,'0',STR_PAD_LEFT),
                 'unlocked'=>$row['mission_status']==='completed','inside'=>$this->inside($row,$sessionHash),'decorationPlaced'=>(bool)$row['decoration_placed'],'slotId'=>'welcome-shelf'),
             'inventory'=>array('welcomePlant'=>(int)$row['welcome_plant']),'serverTime'=>citizen_home_iso(citizen_home_now()));
+        if ($starter) {
+            $result['home']['id']=$starter['home_id'];
+            $result['home']['kind']='subsidy';
+            $result['home']['address']='Griya Republik · RS-'.str_pad((string)$citizenId,8,'0',STR_PAD_LEFT);
+            $result['home']['unlocked']=TRUE;
+            $result['starter']=array('version'=>(int)$starter['grant_version'],'grantedAt'=>citizen_home_iso($starter['granted_at']),
+                'coinsGranted'=>(int)$starter['coins_granted'],'balance'=>(int)$starter['coin_balance'],
+                'occupation'=>$starter['occupation_at_grant'],'tools'=>array(array('id'=>$starter['tool_id'],'label'=>$starter['tool_label'],'quantity'=>1)),
+                'spendingAvailable'=>FALSE);
+        } else $result['starter']=NULL;
+        return $result;
     }
 
     private function inside(array $home, $sessionHash)
@@ -98,7 +129,7 @@ class Citizen_home_model extends CI_Model
                 $plantDelta = 1;
                 $this->query("UPDATE citizen_homes SET mission_status='completed',mission_completed_at=?,welcome_plant=1,version=version+1,updated_at=? WHERE citizen_id=?",array($now,$now,$citizenId));
             } elseif ($action === 'enter_home') {
-                if ($home['mission_status'] !== 'completed') throw new Citizen_home_error('Serahkan paket sambutan untuk mengambil kunci kamar.',409,'home_locked');
+                if (!$this->has_starter() && $home['mission_status'] !== 'completed') throw new Citizen_home_error('Serahkan paket sambutan untuk mengambil kunci kamar.',409,'home_locked');
                 if (!$this->inside($home,$sessionHash)) {
                     $this->nearby($citizenId);
                     $this->query('UPDATE citizen_homes SET interior_session_hash=?,version=version+1,updated_at=? WHERE citizen_id=?',array($sessionHash,$now,$citizenId));

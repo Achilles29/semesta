@@ -1,5 +1,82 @@
 # Handover lokal ke server
 
+## Paket terbaru: Day 3, starter pack dan admin — 24 November 2026
+
+**Baseline `f719128`; belum commit/push/deploy.** Paket ini melanjutkan working tree Kampung Perintis, tidak mengulang hasil pull server. Bagian paket sebelumnya di bawah adalah riwayat; status terbaru di sini dan checklist 02 mengalahkan keterangan lama seperti “tidak ada migrasi” atau “hanya kamar Wisma”.
+
+### Hasil yang perlu diterima server
+
+1. Saran avatar kini berubah ketika profesi/gender dipilih. Perubahan masih draf sampai disimpan; thumbnail memakai token permintaan sehingga pilihan lambat tidak mengganti pilihan terakhir.
+2. `citizen_starter_grants` memberi **1.000 koin + satu set alat + rumah subsidi privat** sekali per ID akun lengkap. Dipicu GET `citizen_home` dari profil/jelajah; akun lama juga menerima pada request berikut. Kunci baris warga, PK grant dan ID rumah unik mencegah hadiah ganda. Ganti pekerjaan tidak mengulang grant. Angka/modal tidak diterima dari klien. Grant mencatat profesi awal, waktu, versi dan jumlah; belum ledger belanja atau inventaris umum.
+3. Rumah subsidi adalah instance privat beralamat `Griya Republik · RS-{ID}`, dengan kamar, ruang duduk, dapur kecil dan teras. Masuk lewat pintu Wisma. Tugas Bu Rani opsional untuk tanaman, tidak mengunci hak rumah. Plant/dekorasi, XP/P01 dan alamat 48 reservasi tidak dihapus. Ini bukan klaim otomatis rumah perintis atau petak baru pada siteplan.
+4. Day 3 **Uangnya Warga, Jasanya Presiden** terhubung ke pilihan episode admin. Naskah/animasi 33 shot, 206 detik perkiraan; 17 fasilitas, enam rumah ibadah, 48 rumah bernama, crane dan tahapan konstruksi, simulasi pendaftaran/domain. Musik seri dipakai kembali. **33 ujaran belum direkam, belum final bersuara atau MP4 diterima.** Day 1/Day 2 serta draf suntingan tetap dipertahankan. Tombol Muat Day 3 tersedia jika draf lama masih terbuka.
+5. Sebelas panel admin diaudit. Menu baru **Hunian & ekonomi** memisahkan reservasi cerita, akun nyata, fasilitas rencana dan skema backend. `admin_operations` GET privat/no-store memeriksa dunia, hunian, starter dan P01 tanpa kredensial. Direktori mengabaikan respons pencarian lama; pengaturan tidak salah menonaktifkan tampilan Google setelah simpan. Endpoint episode legacy tanpa resource kini admin-only; tidak ada pemanggil game publik.
+6. Peta/kanon publik tetap dari DB. Perataan tanah, bangunan baru dan jalan Day 3 hanya staging produksi. Playback/seek/ekspor tidak memublikasikan fasilitas. Jangan mereset fase atau proyek untuk membuat scene tampil.
+
+### Migrasi dan urutan rilis
+
+Migrasi starter berikut **sudah dijalankan dua kali di localhost**; hanya menambah satu tabel, tanpa mass grant/reset:
+
+```sh
+php tools/migrate_citizen_starter.php
+```
+
+Server memerlukan skema dunia dan hunian dari paket terdahulu. Periksa kondisi DB; bila belum ada jalankan `migrate_republic_world.php`, `migrate_citizen_home.php`, kemudian starter. Ikuti backup deploy. Tanpa tabel starter, Wisma lama tetap berfungsi dan profil menyatakan subsidi belum tersedia; jangan menyatakan fitur sudah aktif.
+
+1. **A-11 / server:** setelah pemilik commit/push/pull, catat SHA, jalankan pemeriksaan build dan migrasi. `assets/game` beserta manifest/catatan hash harus satu paket. Jangan build manual dengan versi dependensi berbeda atau membuang fallback AAC.
+2. **ADM-02 + A-10 / server/pemilik:** login admin → buka 11 menu → Hunian & ekonomi (4 status skema) → Produksi → Muat Day 3. Uji deep link/back, draf lama, hak tamu/akun biasa. Email/Google hanya diperiksa keterangannya; konfigurasi dan provider acceptance tetap A-06/A-07.
+3. **E-01a/E-02a / server:** dua akun lengkap mendapat alamat berbeda dan 1.000 koin; reload/ganti profesi/login kedua tidak menambah hadiah. Akun belum lengkap/nonaktif ditolak. Buka Jakartawa, masuk lewat Wisma sebelum quest, keluar, ambil tugas Bu Rani, pasang tanaman, login ulang. Periksa layar HP/desktop dan presence privat. Jangan memakai akun follower fiktif atau mencocokkan nama.
+4. **H-03 / server:** implementasikan klaim medsos terverifikasi dan review admin sesuai dokumen 06/07. Kriteria: satu rumah–satu akun, retry/race aman, penolakan/audit, tidak otomatis berdasar username. Rancang perpindahan hak subsidi ke rumah perintis tanpa petak gratis ganda.
+5. **H-04 + E-03 / lokal/server:** akses tapak setelah kontrak klaim; ledger/inventaris dan satu siklus tani 140 biaya/200 hasil sebagai pilot, bukan transaksi yang sudah tersedia. **K-03b / lokal/pemilik:** selesaikan suara, efek dan review MP4 Day 3 sebelum unggah. Rilis starter pada domain harus mendahului promosi fitur.
+
+### Bukti verifikasi dan batas
+
+- Hunian/starter: **117 pemeriksaan MySQL terisolasi**, termasuk race pemberian, rollback grant+reservasi, profil/CSRF, dua akun bernama sama, ganti profesi, sesi privat, progres tanaman dan migrasi berulang. Tes HTTP CodeIgniter localhost menggunakan satu akun `.invalid` yang dibersihkan beserta grant; tidak mengirim email/OAuth.
+- Frontend: onboarding, starter, hunian/geometri/integrasi CPU, rumah perintis, peta/HUD; DOM starter menguji angka server, XSS, logout/respons lambat, retry/dispose dan akses rumah sebelum quest.
+- Day 3: 33 shot seek deterministik, tiga rasio kamera, 17 tapak tanpa overlap dengan rumah/jalan, tanah tapak rata, 48 nama, label fitur, musik saja dan tanpa publikasi dunia. Day 2 tetap diuji terpisah.
+- Admin: 11 panel/enam base URL, DOM hunian, direktori dengan respons terbalik, status skema/auth/read-only, produksi dan batas chunk privat. Detail audit di [09](09-AUDIT-PANEL-ADMIN.md).
+- Render offline: [empat shot](../docs/script/day3-visual-review.jpg), [siteplan](../docs/world/day3-siteplan.svg), [rumah subsidi](../docs/world/rumah-subsidi-review.png). Bukan bukti GPU browser, FPS, mix suara atau MP4 penuh. Browser/perangkat tujuan belum diuji pada paket ini.
+- Tidak ada commit/push otomatis; tidak ada migrasi/perubahan server online. Semua pekerjaan lanjutan dan pemiliknya ada di checklist 02 dan ekonomi 08.
+
+Build lokal terbaru berhasil: `d724065624818563870b0f75d3f6ae1a7da8af7e3ac7155bcb07a4d2d40ebdf3`. Pemeriksaan source/output sesuai. Batas distribusi: 40 modul publik tanpa episode dan 69 modul admin; tes HTTP 15 aset privat/9 aset publik lulus. Peringatan chunk besar masih ada; build tidak gagal. Ini bukan pengukuran performa perangkat.
+
+---
+
+## Riwayat paket: Kampung Perintis dan arah game — 24 November 2026
+
+**Baseline yang benar-benar terbaca pada awal paket ini: `f719128` (working tree bersih).** Riwayat `61f5e9a` di bagian bawah adalah baseline pekerjaan sebelumnya, bukan keadaan terbaru. Belum commit/push/deploy untuk paket ini. Baca [rencana gabungan lokal/server](06-GAME-HIDUP-DAN-HUNIAN.md) dan [register alamat](07-REGISTER-RUMAH-PERINTIS.md) sebelum melanjutkan.
+
+### Yang sudah dikerjakan lokal
+
+- `H-01`: 48 rumah bernama di **Kampung Perintis**, timur kawasan lama, x 134–232 / z −86–14. Enam gang A–F, delapan rumah per gang; semua identitas pada roster, termasuk Zizi, mendapat reservasi. DD hanya satu rumah sesuai roster unik. Papan nama cocok dengan warga, empat palet rumah; geometri instanced dan satu atlas papan nama untuk mengurangi draw call. Geometri rumah ada di `citizen-story-homes-geometry.js`; register stabil `citizen-story-homes.json` **bukan tabel kepemilikan akun**.
+- `H-02`: denah/minimap diperluas, pilihan **Tujuan di kota → Kampung Perintis** dan pencarian nama rumah. Pemilihan nama memberi alamat serta pintasan jelajah depan rumah. Jalan naik 35%, lari naik 50% dari kecepatan dasar profil; cadence animasi mengikuti perpindahan, gait pemain dipilih eksplisit. Runtime produksi memakai perilaku default lama; naskah/timing Day 1/Day 2 tidak diubah.
+- Tulisan NPC/karakter cerita di profil dan jabatan tokoh dihapus; nama dan jabatan tetap ada. Tidak mengubah penghitungan presence menjadi tokoh otomatis. Jumlah akun online tetap dari API.
+- Roadmap kini memiliki aturan klaim, urutan pengembangan, tanggung jawab lokal/server, kriteria selesai dan register rumah. AGENTS mewajibkan pembaruan bersamaan dengan perubahan.
+
+**Batas penting:** rumah tapak saat ini eksterior/papan alamat dengan pintu tertutup. Tidak ada API/form klaim, akun pemilik, interior rumah tapak atau izin tamu. Kamar Wisma tetap bisa dipakai melalui tugas Bu Rani. Tidak ada akun follower palsu yang dibuat; nama medsos belum diverifikasi. Tidak ada migrasi baru pada paket rumah eksterior ini.
+
+### Tugas yang dilimpahkan ke server, urut
+
+1. **A-11 — rilis dan smoke test.** Setelah pemilik melakukan commit/push/pull: catat SHA yang diterima, periksa manifest/build, dan migrasi dunia/hunian yang sudah/belum dijalankan. Paket sebelumnya memerlukan `php tools/migrate_republic_world.php` dan `php tools/migrate_citizen_home.php`; jalankan sesuai keadaan DB, bukan seed ulang. Paket eksterior ini tidak memerlukan perubahan DB. Jangan menghapus rumah/P01/dekorasi lama untuk mencoba.
+2. Uji domain server: login → Jakartawa → Pusat Jakartawa → Denah rinci → Tujuan di kota → pilih rumah (contoh demian) → Jelajahi. Pastikan nama/alamat sama, gang tidak tertutup pohon/rumah, jalan/lari berbeda, label tokoh tanpa NPC, Bu Rani/Wisma/P01 tetap bekerja. Uji HP/desktop dan akses privat produksi. Catat perangkat dan bukti, baru centang A-10/A-11 sesuai bagian yang benar-benar lulus.
+3. **H-03 — bangun layanan klaim identitas rumah.** Ikuti kontrak dokumen 06: pilihan platform/username hanya diwajibkan pada klaim warga cerita, tantangan kode sekali pakai, review admin, alokasi satu rumah ke satu ID akun, ledger dan retry. Pendaftaran umum tidak memaksa akun medsos. H-05 diperlukan untuk nama display yang belum diketahui handle aslinya. Jangan menebak berdasarkan username login/email.
+4. Kembalikan handover H-03 dengan nama tabel, migrasi, endpoint/payload/respons, status klaim, kode error, scope data publik/privat, bukti uji dua akun/CSRF/replay/rollback, SHA, dan hal yang belum selesai. **H-04 lokal menunggu kontrak tersebut:** pintu pemilik/interior serta dekorasi rumah tapak. Server tidak perlu menulis ulang 48 model rumah.
+5. Setelah pilot, lanjut G-03c/P-02b/P-03a: inventaris umum → variasi pesanan → aktivitas papan nama. S-01/moderasi mendahului tamu/pasar. Email/Google tetap tugas A-06/A-07 tersendiri.
+
+### Verifikasi paket ini
+
+`test_citizen_story_homes.mjs` lulus: semua 48 identitas unik, ID/alamat, label, reservasi tanpa owner, lokasi peta, tabrakan rumah/jalan/petak lama, pintu tertutup, instancing/disposal, kecepatan/cadence serta penghapusan label NPC. Tes peta menjalankan dropdown nama melalui DOM. Integrasi jelajah memakai mount aktual dengan adapter CPU, bukan penerimaan browser/GPU. [Review kawasan dan papan nama](../docs/world/kampung-perintis-review.jpg) memakai geometri runtime yang dirender offline, bukan screenshot browser.
+
+Tes regresi yang lulus: `test_republic_map_ui.mjs`, `test_republic_navigation.mjs`, `test_republic_world_hud.mjs` (delapan viewport/mode input), `test_citizen_home_integration.mjs`, `test_citizen_home.mjs`, `test_republic_construction.mjs`, `test_republic_world.mjs`, `test_production_day2_set.mjs`. Akses aset: `test_entry_boundaries.mjs` (39 modul publik/60 admin), `test_production_asset_access.php`, `test_production_asset_http.mjs` (13 berkas privat/9 public-shared). Tidak ada perubahan backend/DB pada paket ini; tes MySQL klaim belum ada karena H-03 belum diimplementasikan.
+
+`npm run build` dan `node tools/git-auto-build.mjs` lulus. Source hash paket terbaru: `a7e4f72b471d7be1288a78ca00b7b1be923bd94ffb8d70fc8e9f0b3038b6cff0`. Manifest dan aset hasil build disertakan di working tree. `git diff --check` lulus; peringatan chunk besar masih tugas W-01/W-02. Penerimaan visual/GPU/perangkat, rasa kecepatan baru dan rilis server tetap A-10/A-11/P-07, bukan dianggap lulus dari tes CPU.
+
+Aturan kerja: bila rencana berubah, perbarui dokumen 01/06, checklist 02, handover ini dan register 07 bila alamat/identitas berubah. Tulis penanggung jawab berikutnya. Jangan otomatis push atau menandai tugas server selesai dari hasil lokal.
+
+---
+
+## Handover paket sebelumnya (dipertahankan untuk migrasi dan regresi)
+
 **Tanggal:** 24 November 2026. **Baseline sebelum pekerjaan lokal:** `61f5e9a`. Perubahan pada handover ini berada di working tree lokal sampai pemilik melakukan commit/push. Jangan menganggap dokumen ini bukti server online sudah berubah.
 
 **Paket terbaru:** dunia/konstruksi P01 dilanjutkan dengan perbaikan HUD/LARI dan hunian awal Wisma Warga. Tugas Bu Rani, kamar per akun dan tanaman pada rak tersimpan di database. Migrasi hunian sudah dijalankan di localhost; server memerlukan migrasi tambahan di bawah. SMTP/Google **ditunda ke server**; tidak ada pengiriman audio, email, OAuth nyata atau push otomatis.

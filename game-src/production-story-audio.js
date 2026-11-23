@@ -5,7 +5,7 @@ import {compileScenario} from './production-scenario.js';
 import {speechCues} from './production-speech-cues.js';
 
 const cache=new Map();
-export const hasStoryAudio=scenario=>scenario.shots.some(s=>speechCues(s).length||s.sound||s.protest);
+export const hasStoryAudio=scenario=>scenario.shots.some(s=>speechCues(s).length||s.sound||s.protest||(scenario.set==='development'&&s.musicBedVolume>0));
 function assetUrl(file,directory='day-1'){
   const avatarBase=new URL(globalThis.window?.SEMESTA_AVATAR_V15_BASE||'../public/models/characters/v15/',globalThis.location?.href||'http://localhost/project/admin/');
   return new URL('../../../audio/produksi/'+directory+'/'+file,avatarBase).href;
@@ -18,7 +18,7 @@ export async function loadStoryAudio(scenario,context,{rhythm=true,voices=true,f
   const compiled=compileScenario(scenario),cues=compiled.shots.flatMap(shot=>speechCues(shot).map(cue=>({...cue,start:shot.start+(cue.offset??.3)})));
   const keys=voices?[...new Set(cues.map(c=>c.key))]:[];
   const useMusic=rhythm&&compiled.shots.some(s=>s.sound);
-  const useBed=rhythm&&['republic','construction'].includes(scenario.set)&&cues.length>0&&(useMusic||compiled.shots.some(s=>s.musicBedVolume!==undefined));
+  const useBed=rhythm&&['republic','construction','development'].includes(scenario.set)&&(cues.length>0||scenario.set==='development')&&(useMusic||compiled.shots.some(s=>s.musicBedVolume!==undefined));
   if(useMusic)keys.push('okeGas');
   if(useBed)keys.push('background');
   await Promise.all(keys.map(async key=>{

@@ -69,13 +69,15 @@ form.elements.gender.value='perempuan';form.elements.occupation.value='tenaga-ke
 assert.equal(harness.get().pendingAvatarConfig.appearance.topStyle,'labcoat');
 harness.manual();const manual=harness.get().pendingAvatarConfig;
 form.elements.occupation.value='polri';form.elements.occupation.dispatchEvent(new Event('change'));
-assert.equal(harness.get().pendingAvatarConfig,manual);
+assert.notEqual(harness.get().pendingAvatarConfig,manual,'Explicit profession change must refresh even a previously customized suggestion');
 q('#useProfessionSuggestion').click();
 assert.equal(harness.get().pendingAvatarConfig.appearance.topStyle,'police','Explicit recommendation must replace a manual draft');
 assert.equal(posted.length,0,'Choosing a suggestion must not save it');
 const explicit=harness.get().pendingAvatarConfig;
 form.elements.occupation.value='guru';form.elements.occupation.dispatchEvent(new Event('change'));
-assert.equal(harness.get().pendingAvatarConfig,explicit,'A following field change must preserve the explicit choice');
+assert.notEqual(harness.get().pendingAvatarConfig,explicit,'Using a suggestion must not lock later profession changes');
+assert.equal(harness.get().pendingAvatarConfig.appearance.topStyle,professionRecommendation('guru','perempuan').config.appearance.topStyle);
+form.elements.gender.value='laki-laki';form.elements.gender.dispatchEvent(new Event('change'));assert.match(harness.get().pendingAvatarConfig.profileId,/^male-/);
 renderIdentityCard(q('#citizenIdentityCard'),{identity_card:{number:'RW-00000001',displayName:'<img src=x onerror=alert(1)>',occupation:'Guru',joinedAt:'2026-11-23',verification:'unverified',avatarConfig:null}});
 assert.equal(q('[data-card-name]').textContent,'<img src=x onerror=alert(1)>');assert.equal(q('[data-card-name] img'),null);
 assert.match(q('[data-card-verification]').textContent,/belum/);
@@ -90,7 +92,7 @@ assert.equal(q('#googleSsoButton').hidden,true,'Authenticated profile must not o
 assert.equal(q('#authServiceStatus').hidden,true);assert.equal(q('#authServiceStatus').textContent,'');
 assert.match(q('.citizen-intro').textContent,/atur karakter/);assert.equal(win.getComputedStyle(q('#googleSsoButton')).display,'none');
 const savedForm=q('#citizenForm');savedForm.elements.occupation.value='polri';savedForm.elements.occupation.dispatchEvent(new Event('change'));
-assert.equal(savedHarness.get().pendingAvatarConfig,null,'Changing an existing account profession must not replace the saved appearance');
+assert.equal(savedHarness.get().pendingAvatarConfig.appearance.topStyle,'police','Changing an existing account profession updates the preview draft');
 q('#useProfessionSuggestion').click();const draft=savedHarness.get().pendingAvatarConfig;
 assert.equal(draft.appearance.topStyle,'police');assert.equal(savedHarness.get().activeCitizen.avatar_config,JSON.stringify(savedConfig));
 assert.equal(posted.length,0,'Existing citizen suggestion must remain a draft');

@@ -8,6 +8,8 @@ import * as layout from '../game-src/republic-world-layout.js';
 import {createRepublicPresence} from '../game-src/republic-presence.js';
 import {mountCitizenHome} from '../game-src/citizen-home.js';
 import {HOME_LAYOUT} from '../game-src/citizen-home-layout.js';
+import {createStoryHomes} from '../game-src/citizen-story-homes-geometry.js';
+import {STORY_NEIGHBORHOOD} from '../game-src/citizen-story-homes.js';
 import {createWelcomeParcel} from '../game-src/citizen-home-parcel.js';
 import * as hud from '../game-src/republic-world-hud.js';
 import {presets,normalizeAvatarConfig} from '../game-src/avatar-v15-config.js';
@@ -31,7 +33,7 @@ globalThis.fetch=async(url,options={})=>{
 class Renderer{constructor(){this.shadowMap={};}setPixelRatio(){}setSize(){}render(){}dispose(){}}
 const sceneAdapter=()=>({colliders:[],surfaces:[],occluders:[],count:0,setPhase(){},update(){},dispose(){}});
 let constructionVisible=true,constructionInteractions=0;
-const dependencies={THREE:{...Three,WebGLRenderer:Renderer},...layout,...hud,HOME_LAYOUT,presets,normalizeAvatarConfig,createRepublicPresence,createWelcomeParcel,
+const dependencies={THREE:{...Three,WebGLRenderer:Renderer},...layout,...hud,HOME_LAYOUT,STORY_NEIGHBORHOOD,createStoryHomes,presets,normalizeAvatarConfig,createRepublicPresence,createWelcomeParcel,
   preloadRepublicBuildingLogo:async()=>{},createCapitalContext:sceneAdapter,createRepublicTerrainStream:sceneAdapter,
   mountConstruction:()=>({geometry:sceneAdapter(),tick(){},dispose(){},resetActorPose(){},applyActorPose(){},consumeInteraction(){constructionInteractions++;return false;},wantsInteraction:()=>false,setActionVisible:value=>constructionVisible=value}),
   mountCitizenHome:options=>mountCitizenHome({...options,createInteriorView:()=>({applyState(){},dispose(){}})}),

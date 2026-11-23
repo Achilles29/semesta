@@ -17,18 +17,19 @@ export function createAvatarThumbnails(THREE) {
   const light=new THREE.DirectionalLight('#fff4dc',2.4);light.position.set(3,5,4);scene.add(light);
   const fill=new THREE.DirectionalLight('#bdd9ef',.9);fill.position.set(-4,2,-3);scene.add(fill);
   const camera=new THREE.PerspectiveCamera(33,240/280,.1,20);camera.position.set(1,1.5,4.1);camera.lookAt(0,1.05,0);
-  const cache=new Map(); let disposed=false;
+  const cache=new Map(),requests=new WeakMap(); let disposed=false;
   return {
     async fill(items) {
-      for(const {image,config} of items) {
+      const jobs=items.map(item=>{const token={};requests.set(item.image,token);return {...item,token};});
+      for(const {image,config,token} of jobs) {
         if(disposed)return;
         if(!image.isConnected)continue;
         const key=JSON.stringify(config);
         if(!cache.has(key)) {
           await new Promise(resolve=>requestAnimationFrame(resolve));
-          if(disposed || !image.isConnected)continue;
+          if(disposed || !image.isConnected || requests.get(image)!==token)continue;
           const options=farmerCharacterOptions(config);await loadAvatarProfile(options.avatarConfig.profileId);
-          if(disposed || !image.isConnected)continue;
+          if(disposed || !image.isConnected || requests.get(image)!==token)continue;
           const model=createHumanModel(THREE,options);
           try {
             model.mixer?.update(.15);scene.add(model.figure);renderer.render(scene,camera);
@@ -41,6 +42,7 @@ export function createAvatarThumbnails(THREE) {
             materials.forEach(m=>m.dispose());skeletons.forEach(s=>s.dispose());renderer.renderLists.dispose();
           }
         }
+        if(disposed || !image.isConnected || requests.get(image)!==token)continue;
         image.src=cache.get(key);image.hidden=false;image.parentElement.classList.add('has-preview');
       }
     },

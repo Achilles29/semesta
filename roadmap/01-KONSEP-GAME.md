@@ -1,5 +1,9 @@
 # Konsep game: hidup dan berguna di republik
 
+**Keputusan terbaru 24 November 2026:** alamat game **republikwkwkwk.com**. Hak awal setiap akun: rumah subsidi standar gratis, **1.000 Koin Republik**, dan alat dasar sesuai pekerjaan. E-01a/E-02a sudah diimplementasikan lokal: grant sekali per akun lengkap, rumah privat melalui Wisma, progres tanaman lama tetap ada. Belanja/usaha dan peningkatan rumah belum tersedia. Aturan transisi akun lama/perintis dan harga pilot ada di [dokumen 08](08-EKONOMI-DAN-STARTER-PACK.md). Uraian kamar awal di bawah adalah fondasi yang dipertahankan, bukan pembatas hak subsidi baru.
+
+Rencana terbaru dan pembagian tugas lokal/server: [Game hidup, hunian dan klaim](06-GAME-HIDUP-DAN-HUNIAN.md). Rumah warga cerita kini memiliki kawasan reservasi tersendiri; alokasi akun menunggu verifikasi.
+
 ## Janji kepada pemain
 
 **Saya punya kehidupan di republik, pekerjaan saya berguna, dan kota ini berubah karena kami.** Humor Pasca Bowow dan warga memberi kepribadian pada dunia. Aktivitas yang menyenangkan dan kemajuan yang tersimpan menjadi alasan bermain, termasuk bagi orang yang belum menonton episode.
@@ -53,7 +57,7 @@ Hunian awal adalah kamar pribadi melalui satu bangunan bersama. Server membedaka
 
 Setiap akun dengan profil lengkap memperoleh reservasi kamar dasar gratis di **Wisma Warga**. Tugas pengantar dari **Bu Rani** membuka akses kamar dan hadiah dekorasi. Satu pintu mengantar setiap akun ke ruang pribadinya sendiri; alamat unit mengikuti nomor akun walau templat awal sama. Wisma ditempatkan di (38, −3), pintu (38, 3), meja penerimaan dekat (9, 6), di sela alun-alun dan kawasan fondasi. Perluasan game ini disetujui pemilik dan disertakan pada rilis kode; bukan hasil survei maupun perubahan rekaman Day 2. Tidak memerlukan aktivasi P01 atau menunggu warga lain online.
 
-Pekerjaan memberi perabot, pilihan dekorasi dan peningkatan rumah. Pembagian rumah tapak kelak memerlukan aturan kapasitas, akses dan perluasan blok sendiri. Status follower dapat diberi hadiah kosmetik opsional, sedangkan kamar dasar dan pekerjaan tersedia bagi semua warga. Mekanisme verifikasi/claim follower belum tersedia dan perlu diputuskan; jangan otomatis menandai akun sebagai follower atau menambahkan hadiah sekarang.
+Pekerjaan memberi perabot, pilihan dekorasi dan peningkatan rumah. Rumah tapak bagi 48 warga cerita disiapkan di Kampung Perintis; akun pemilik ditautkan setelah verifikasi. Jalur rumah tapak bagi pemain berikutnya masih memerlukan aturan kapasitas, akses dan perluasan blok. Status follower dapat diberi hadiah kosmetik opsional, sedangkan kamar dasar dan pekerjaan tersedia bagi semua warga. Aturan klaim identitas cerita sudah dirumuskan di dokumen 06; layanan verifikasi dan kepemilikan belum dibuat. Jangan otomatis menandai akun sebagai follower atau pemilik hanya karena nama sama.
 
 Lingkup tahap hunian pertama: satu tugas antar barang, satu hadiah tanaman, satu kamar per akun, dan satu rak yang tersimpan. Penempatan/removal hanya di kamar milik akun yang sedang masuk. Masuk kamar menghentikan presence publik sesi itu; keluar kembali ke pintu wisma. Dua akun tidak berbagi isi kamar. Hadiah hanya satu meskipun permintaan diulang. Ini menggabungkan sebagian P-02/G-03/P-05/P-06; inventaris umum, pilihan pesanan, kunjungan, peningkatan rumah dan pasar belum tercakup.
 
@@ -63,7 +67,7 @@ Pembanding desain: [dokumentasi resmi Palia tentang kustomisasi](https://support
 
 ## Dunia terasa hidup
 
-- Kebutuhan NPC dan proyek memberi tujuan saat server sepi. NPC memakai penanda yang jelas; jangan menyamar sebagai akun online.
+- Kebutuhan NPC dan proyek memberi tujuan saat server sepi. Tokoh memakai nama dan jabatan natural tanpa tulisan NPC; tidak dihitung atau ditampilkan sebagai akun online.
 - Alun-alun menjadi tempat bertemu, papan proyek, pasar/acara berikutnya. Ada alasan melewati ruang yang sama.
 - Perubahan proyek terlihat bertahap, disertai catatan kontribusi. Kemajuan kota tidak bergantung pada pemutaran episode.
 - Pasca berkomentar dengan watak yang sudah ditetapkan. Humor berasal dari situasi; dialog tidak menghalangi pemain menyelesaikan pekerjaan.

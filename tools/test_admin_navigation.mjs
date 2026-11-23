@@ -4,7 +4,7 @@ import vm from 'node:vm';
 import {readFileSync} from 'node:fs';
 
 const php=process.env.PHP_BINARY || (process.platform==='win32'?'C:/xampp/php/php.exe':'php');
-const views=['overview','avatars','world','shared-world','production','objects','ideas','citizens','visitors','settings'];
+const views=['overview','avatars','world','shared-world','development','production','objects','ideas','citizens','visitors','settings'];
 const main=readFileSync('game-src/main.js','utf8');
 assert.ok(main.includes('start().catch('),'Entry must call start; an unreferenced studio/game is tree-shaken from the build');
 const admin=readFileSync('game-src/admin-main.js','utf8');
@@ -50,4 +50,4 @@ for(const base of ['http://localhost/project/','http://localhost:8080/project/',
   search.value='avatars';handlers['search:input']();assert.equal(links.filter(n=>!n.hidden).length,1);
   handlers['search:keydown']({key:'Enter'});flush();assert.equal(location.searchParams.get('view'),'avatars');
 }
-console.log('PASS: rendered sidebar links and navigation across 6 deployment URLs; all 10 views including shared world, deep links, query retention, history, modified clicks, search and per-view scroll. Studio uses V15 exclusively.');
+console.log('PASS: rendered sidebar links and navigation across 6 deployment URLs; all 11 views including shared world, deep links, query retention, history, modified clicks, search and per-view scroll. Studio uses V15 exclusively.');

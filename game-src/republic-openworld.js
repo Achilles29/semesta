@@ -5,6 +5,8 @@ import {preloadRepublicBuildingLogo} from './republic-building-identity.js';
 import {createRepublicPresence} from './republic-presence.js';
 import {mountConstruction} from './republic-construction.js';
 import {mountCitizenHome} from './citizen-home.js';
+import {createStoryHomes} from './citizen-story-homes-geometry.js';
+import {STORY_NEIGHBORHOOD} from './citizen-story-homes.js';
 import {HOME_LAYOUT} from './citizen-home-layout.js';
 import {createWelcomeParcel} from './citizen-home-parcel.js';
 import {WORLD_HUD_CSS,applyWorldHudLayout,bindRunToggle} from './republic-world-hud.js';
@@ -15,6 +17,8 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const presetMap=new Map(presets.map(p=>[p.id,p]));
 const visible=o=>{for(let p=o;p;p=p.parent)if(!p.visible)return false;return true;};
 export const WORLD_RESIDENT_LIMIT=4;
+export const WORLD_MOVEMENT_MULTIPLIER=Object.freeze({Walk:1.35,Run:1.5});
+export const worldMovementSpeed=(actor,clip='Walk')=>avatarSpeed(actor,clip)*WORLD_MOVEMENT_MULTIPLIER[clip];
 export const WORLD_ZOOM_BOUNDS=Object.freeze({min:2.2,max:24});
 export const clampWorldZoom=value=>clamp(Number.isFinite(value)?value:7.2,WORLD_ZOOM_BOUNDS.min,WORLD_ZOOM_BOUNDS.max);
 export const worldLabelVisible=({distance,screenX,self=false})=>!self&&distance<=12&&Math.abs(screenX)<.72;
@@ -26,7 +30,7 @@ export function worldAvatarConfig(citizen){
 }
 /** Story actors belong to episode production. Only deliberate NPCs live here. */
 export function worldResidents(city='jakarta'){
-  return [{id:'pasca-bowow',name:'Pasca Bowow',role:'NPC · Presiden',presetId:'v15-prabowo-inspired',personality:'Usulan warga saya dengar. Keputusannya tetap lewat meja saya.',home:{x:-5,y:.615,z:-.1,yaw:0},index:0,stationary:true},
+  return [{id:'pasca-bowow',name:'Pasca Bowow',role:'Presiden',presetId:'v15-prabowo-inspired',personality:'Usulan warga saya dengar. Keputusannya tetap lewat meja saya.',home:{x:-5,y:.615,z:-.1,yaw:0},index:0,stationary:true},
     {id:'bu-rani',name:HOME_LAYOUT.clerk.name,role:HOME_LAYOUT.clerk.role,presetId:'v15-laras',personality:'Selamat datang! Kamar dasarmu sudah disiapkan di Wisma Warga. Bantu antar paket perlengkapan ini ke sana, lalu tanaman sambutannya boleh kamu taruh di kamar. Tekan tombol tugas untuk mulai.',home:{x:HOME_LAYOUT.clerk.x,z:HOME_LAYOUT.clerk.z,yaw:0},index:1,stationary:true}];
 }
 
@@ -71,7 +75,8 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
   scene.add(new THREE.HemisphereLight('#e5f1ef','#8b8563',2.2));
   const sun=new THREE.DirectionalLight('#fff1d7',3.2);sun.position.set(20,35,25);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-26;sun.shadow.camera.right=26;sun.shadow.camera.top=26;sun.shadow.camera.bottom=-26;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.normalBias=.025;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
-  const context=createCapitalContext({parent:scene,...resources,phase,includeCore:true,city:cityId}),terrain=createRepublicTerrainStream({parent:scene,city:cityId,reservedBounds:[{minX:HOME_LAYOUT.x-HOME_LAYOUT.width/2-3,maxX:HOME_LAYOUT.x+HOME_LAYOUT.width/2+3,minZ:HOME_LAYOUT.z-HOME_LAYOUT.depth/2-3,maxZ:HOME_LAYOUT.entrance.z+3}]});terrain.update(position.x,position.z);
+  const context=createCapitalContext({parent:scene,...resources,phase,includeCore:true,city:cityId}),terrain=createRepublicTerrainStream({parent:scene,city:cityId,reservedBounds:[...(cityId==='jakarta'?[STORY_NEIGHBORHOOD]:[]),{minX:HOME_LAYOUT.x-HOME_LAYOUT.width/2-3,maxX:HOME_LAYOUT.x+HOME_LAYOUT.width/2+3,minZ:HOME_LAYOUT.z-HOME_LAYOUT.depth/2-3,maxZ:HOME_LAYOUT.entrance.z+3}]});terrain.update(position.x,position.z);
+  const storyHomes=createStoryHomes({scene,city:cityId});
   const construction=mountConstruction({scene,ui,canvas,getPosition:()=>position,getCitizen:()=>swapCitizen,getYaw:()=>player?.figure.rotation.y||0,apiUrl,events:signal,beforeAction:async()=>{if(!await syncPresence({fresh:true}))throw new Error('Posisi belum tersinkron. Coba lagi saat koneksi kembali.');}});
   position.y=worldFloorHeight(position.x,position.z,{surfaces:context.surfaces,city:cityId});
   const roster=worldResidents(cityId),residents=new Map(),pending=new Set(),failed=new Set(),peers=new Map(),peerPending=new Set(),peerData=new Map();let desired=new Set(),populationEpoch=0;
@@ -82,13 +87,13 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   const makeLabel=(name,role,self=false)=>{const e=document.createElement('div');e.className='rw-label';e.hidden=true;e.dataset.self=String(self);e.textContent=name;const small=document.createElement('small');small.textContent=role;e.append(small);labels.append(e);return e;};
   let playerLabel=makeLabel(activeCitizen?.display_name||activeCitizen?.name||'Tamu','',true);
   function state(){return {city:cityId,phase,position:{x:position.x,y:position.y,z:position.z},yaw:player?.figure.rotation.y??0,cameraYaw:yaw,zoom,nearby:nearby?{id:nearby.id,name:nearby.name,role:nearby.role}:null,loadedChunks:terrain.count,npcsVisible:residents.size,onlineVisible:peers.size};}
-  function collisionResources(){return {colliders:[...context.colliders,...terrain.colliders,...construction.geometry.colliders,...(home?.geometry.colliders||[]),...[...residents.values()].map(c=>({x:c.actor.figure.position.x,z:c.actor.figure.position.z,radius:.28,maxY:c.actor.figure.position.y+1.8}))],surfaces:[...context.surfaces,...construction.geometry.surfaces,...(home?.geometry.surfaces||[])],city:cityId};}
-  const worldOccluders=()=>[...context.occluders,...construction.geometry.occluders,...(home?.geometry.occluders||[])];
+  function collisionResources(){return {colliders:[...context.colliders,...storyHomes.colliders,...terrain.colliders,...construction.geometry.colliders,...(home?.geometry.colliders||[]),...[...residents.values()].map(c=>({x:c.actor.figure.position.x,z:c.actor.figure.position.z,radius:.28,maxY:c.actor.figure.position.y+1.8}))],surfaces:[...context.surfaces,...construction.geometry.surfaces,...(home?.geometry.surfaces||[])],city:cityId};}
+  const worldOccluders=()=>[...context.occluders,...storyHomes.occluders,...construction.geometry.occluders,...(home?.geometry.occluders||[])];
   function showCitizen(citizen=nearby){
     if(!citizen)return;card.replaceChildren();const close=document.createElement('button');close.textContent='×';close.setAttribute('aria-label','Tutup profil warga');close.onclick=()=>{card.hidden=true;canvas.focus({preventScroll:true});};
     const name=document.createElement('h3');name.textContent=citizen.name;const role=document.createElement('small');role.textContent=citizen.role;
     const text=document.createElement('p');text.textContent=citizen.personality||'Warga pertama Republik Wkwkwk. Usulan dan cerita baru menanti di sini.';
-    const place=document.createElement('p');place.textContent='Karakter cerita · NPC';card.append(close,name,role,text,place);card.hidden=false;
+    card.append(close,name,role,text);card.hidden=false;
   }
   function closeChat(){chatPanel.hidden=true;chatTarget=null;chatAfter=0;canChat=false;chatSend.disabled=true;chatStatus.classList.remove('error');}
   function clearPeers(){for(const peer of peers.values()){peer.label.remove();disposeAvatar(peer.actor);}peers.clear();peerData.clear();onlineBadge.textContent=swapCitizen?.id?'Belum ada warga lain di sekitar.':'Masuk sebagai warga untuk bertemu pemain lain.';}
@@ -233,12 +238,12 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
     const dt=lastTime?Math.min(.05,(now-lastTime)/1000):0;lastTime=now;
     if(swapCitizen?.id&&now-lastPresence>1600){lastPresence=now;void syncPresence();}
     let dx=Number(keys.has('KeyD')||keys.has('ArrowRight'))-Number(keys.has('KeyA')||keys.has('ArrowLeft'))+stick.x,dz=Number(keys.has('KeyS')||keys.has('ArrowDown'))-Number(keys.has('KeyW')||keys.has('ArrowUp'))+stick.z;
-    const length=Math.hypot(dx,dz);if(length>1){dx/=length;dz/=length;}const moving=length>.08,speed=player?avatarSpeed(player,(keys.has('ShiftLeft')||keys.has('ShiftRight')||runTouch)?'Run':'Walk'):0;
+    const length=Math.hypot(dx,dz);if(length>1){dx/=length;dz/=length;}const moving=length>.08,gait=(keys.has('ShiftLeft')||keys.has('ShiftRight')||runTouch)?'Run':'Walk',speed=player?worldMovementSpeed(player,gait):0;
     if(player){
       const wx=dx*Math.cos(yaw)+dz*Math.sin(yaw),wz=-dx*Math.sin(yaw)+dz*Math.cos(yaw),previous={...position};
       if(moving){Object.assign(position,moveWorldPosition(position,{x:wx*speed*dt,z:wz*speed*dt},collisionResources()));const goal=Math.atan2(wx,wz),delta=Math.atan2(Math.sin(goal-player.figure.rotation.y),Math.cos(goal-player.figure.rotation.y));player.figure.rotation.y+=delta*Math.min(1,dt*13);}
       position.y=worldFloorHeight(position.x,position.z,collisionResources());
-      const actual=dt?Math.hypot(position.x-previous.x,position.z-previous.z)/dt:0;player.figure.position.set(position.x,position.y,position.z);construction.resetActorPose();animateAvatar(player,actual,dt);construction.applyActorPose(player);
+      const actual=dt?Math.hypot(position.x-previous.x,position.z-previous.z)/dt:0;player.figure.position.set(position.x,position.y,position.z);construction.resetActorPose();animateAvatar(player,actual,dt,{gait});construction.applyActorPose(player);
     }
     terrain.update(position.x,position.z);
     construction.tick(now);
@@ -273,7 +278,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
     if(now-lastState>250){lastState=now;onState(state());}
   }
   function dispose(){
-    if(disposed)return;disposed=true;playerVersion++;populationEpoch++;presenceEpoch++;cancelAnimationFrame(raf);home?.dispose();parcel.dispose();construction.dispose();abort.abort();observer.disconnect();if(swapCitizen?.id)void presence.leave().catch(()=>{});closeChat();clearPeers();disposeAvatar(player);for(const c of residents.values())disposeAvatar(c.actor);residents.clear();terrain.dispose();context.dispose();
+    if(disposed)return;disposed=true;playerVersion++;populationEpoch++;presenceEpoch++;cancelAnimationFrame(raf);home?.dispose();parcel.dispose();construction.dispose();storyHomes.dispose();abort.abort();observer.disconnect();if(swapCitizen?.id)void presence.leave().catch(()=>{});closeChat();clearPeers();disposeAvatar(player);for(const c of residents.values())disposeAvatar(c.actor);residents.clear();terrain.dispose();context.dispose();
     for(const set of Object.values(resources))for(const r of set)r.dispose();sun.shadow.map?.dispose();renderer.dispose();disposeHud();ui.remove();parent.style.position=oldPosition;canvas.style.touchAction=oldTouch;if(oldTabIndex===null)canvas.removeAttribute('tabindex');else canvas.setAttribute('tabindex',oldTabIndex);
   }
   if(external){if(external.aborted){dispose();return {dispose,setPhase:applyPhase,focusCitizen,teleport,getState:state};}listen(external,'abort',dispose,{once:true});}
