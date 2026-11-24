@@ -106,7 +106,7 @@ export function validateScenario(input) {
       for(const key of ['height','toHeight'])if(cue[key]!==undefined&&!finite(cue[key],-2,s.set==='development'?100:10))fail('Ketinggian gerak tidak valid.');
       for(const key of ['delay','gestureDelay'])if(cue[key]!==undefined&&!finite(cue[key],0,shot.duration))fail('Jeda gerak tidak valid.');
       if(cue.activeDuration!==undefined&&!finite(cue.activeDuration,.01,shot.duration-(cue.delay||0)))fail('Jendela gerak tidak valid.');
-      if(cue.gesture!==undefined&&!['look','nod','talk','self','stop','dismiss'].includes(cue.gesture))fail('Gestur tidak dikenal.');
+      if(cue.gesture!==undefined&&!['look','nod','talk','self','stop','dismiss','boast','sneer','shrug'].includes(cue.gesture))fail('Gestur tidak dikenal.');
       if(cue.expression!==undefined&&!['neutral','happy','confused','surprised','sad','angry'].includes(cue.expression))fail('Ekspresi tidak dikenal.');
       if(cue.lookAt!==undefined&&cue.lookAt!=='camera'&&!ids.has(cue.lookAt))fail('Arah pandangan tidak dikenal.');
       if(cue.phase!==undefined&&(!finite(cue.phase,0,30)||cue.action!=='Dance'))fail('Waktu joget tidak valid.');

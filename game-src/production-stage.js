@@ -24,12 +24,12 @@ import {preloadRepublicBuildingLogo} from './republic-building-identity.js';
 export async function createProductionStage(input){
   if(['construction','development'].includes(input.set))await preloadRepublicBuildingLogo();
   let compiled=compileScenario(input);const scene=new THREE.Scene();
-  scene.background=new THREE.Color(input.set==='studio'?'#293d48':'#b6cfce');
+  scene.background=new THREE.Color(input.set==='studio'?'#293d48':'#80c9ed');
   scene.fog=['construction','development'].includes(input.set)?null:new THREE.Fog(scene.background,24,65);
-  scene.add(new THREE.HemisphereLight('#fff6df','#52686d',2.2));
-  const sun=new THREE.DirectionalLight('#fff1d7',3.2);sun.position.set(-5,9,6);sun.castShadow=true;
+  scene.add(new THREE.HemisphereLight('#fff6df','#334b37',1.35));
+  const sun=new THREE.DirectionalLight('#fff1d7',2.5);sun.position.set(-5,9,6);sun.castShadow=true;
   sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-12,right:12,top:12,bottom:-12,near:.5,far:35});sun.shadow.bias=-.0003;sun.shadow.normalBias=.03;scene.add(sun);
-  const fill=new THREE.DirectionalLight('#b1d9ff',1.2);fill.position.set(5,3,-4);scene.add(fill);
+  const fill=new THREE.DirectionalLight('#b1d9ff',.6);fill.position.set(5,3,-4);scene.add(fill);
   const owned=new THREE.Group();scene.add(owned);
   const geometries=new Set(),materials=new Set(),textures=new Set();
   const accessories=productionProps({geometries,materials});
@@ -139,10 +139,10 @@ export async function createProductionStage(input){
     const distance=height/(2*Math.tan(THREE.MathUtils.degToRad((framing?.distanceFov??camera.fov)/2)))*(1-(framing?.push||0)*progress);
     const y=framing?.target[1]??(mode==='close'?1.38:1.05);
     const azimuth=framing?.azimuth??(mode==='follow'?.2:0),elevation=framing?.elevation??.055;
-    camera.far=Math.max(250,distance*Math.hypot(1,elevation)+18000);camera.near=distance>500?1:.08;
+    camera.far=Math.max(2000,distance*Math.hypot(1,elevation)+6500);camera.near=Math.max(.08,Math.min(80,distance*.002));
     camera.aspect=aspect;camera.position.set(center[0]+Math.sin(azimuth)*distance,y+distance*elevation,center[1]+Math.cos(azimuth)*distance);camera.lookAt(center[0],y,center[1]);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);
     if(development){
-      const extent=Math.max(12,Math.min(150,width*.65));sun.position.set(center[0]-100,y+180,center[1]+120);sun.target.position.set(center[0],y,center[1]);
+      const extent=Math.max(12,Math.min(160,(sample.shot.frame?.width||width)*.7)),texel=2*extent/2048,sx=Math.round(center[0]/texel)*texel,sz=Math.round(center[1]/texel)*texel;sun.position.set(sx-100,y+180,sz+120);sun.target.position.set(sx,y,sz);sun.shadow.intensity=1-THREE.MathUtils.smoothstep(width,180,420);
       sun.target.updateMatrixWorld(true);sun.updateMatrixWorld(true);
       Object.assign(sun.shadow.camera,{left:-extent,right:extent,top:extent,bottom:-extent,near:1,far:600});sun.shadow.camera.updateProjectionMatrix();
     }

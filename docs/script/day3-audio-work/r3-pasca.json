@@ -1,0 +1,171 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/b50db2127b854791b6e16815c3e9b824/id=586a0de66b91425d85c080afe284c556.wav",
+  "duration": 7.764126984126984,
+  "original_words": [
+    {
+      "text": "Semua",
+      "start_time": 0.256,
+      "end_time": 0.6827
+    },
+    {
+      "text": "ini",
+      "start_time": 0.725,
+      "end_time": 0.853
+    },
+    {
+      "text": "berkat",
+      "start_time": 0.896,
+      "end_time": 1.1947
+    },
+    {
+      "text": "kerja",
+      "start_time": 1.28,
+      "end_time": 1.536
+    },
+    {
+      "text": "keras",
+      "start_time": 1.579,
+      "end_time": 1.792
+    },
+    {
+      "text": "saya",
+      "start_time": 1.92,
+      "end_time": 2.133
+    },
+    {
+      "text": "Saya",
+      "start_time": 2.475,
+      "end_time": 2.944
+    },
+    {
+      "text": "yang",
+      "start_time": 2.987,
+      "end_time": 3.072
+    },
+    {
+      "text": "menerima",
+      "start_time": 3.115,
+      "end_time": 3.541
+    },
+    {
+      "text": "Ide",
+      "start_time": 4.224,
+      "end_time": 4.437
+    },
+    {
+      "text": "bagus",
+      "start_time": 4.523,
+      "end_time": 4.821
+    },
+    {
+      "text": "Yang",
+      "start_time": 5.333,
+      "end_time": 5.461
+    },
+    {
+      "text": "penting",
+      "start_time": 5.504,
+      "end_time": 5.888
+    },
+    {
+      "text": "ingat",
+      "start_time": 6.187,
+      "end_time": 6.485
+    },
+    {
+      "text": "siapa",
+      "start_time": 6.571,
+      "end_time": 6.869
+    },
+    {
+      "text": "yang",
+      "start_time": 6.912,
+      "end_time": 6.997
+    },
+    {
+      "text": "berjasa",
+      "start_time": 7.04,
+      "end_time": 7.509
+    }
+  ],
+  "actor": "pasca",
+  "voiceId": "b50db2127b854791b6e16815c3e9b824",
+  "voiceName": "Alistaire - Authoritative & Articulate",
+  "language": "id",
+  "submittedText": "Semua ini berkat kerja keras saya!\n\nSaya yang menerima!\n\nIde bagus.\n\nYang penting, ingat siapa yang berjasa!",
+  "sourceCues": [
+    {
+      "key": "day3r3-d00",
+      "shot": "D00",
+      "id": "D00",
+      "label": "Semua ini berkat kerja keras saya!",
+      "speaker": "pasca",
+      "beat": "plaza",
+      "text": "Semua ini berkat kerja keras saya!",
+      "spokenText": "Semua ini berkat kerja keras saya!",
+      "audioKey": "day3r3-d00",
+      "duration": 4,
+      "gesture": "boast",
+      "expression": "happy",
+      "gestureDelay": 0.3
+    },
+    {
+      "key": "day3r3-d02",
+      "shot": "D02",
+      "id": "D02",
+      "label": "Saya yang menerima!",
+      "speaker": "pasca",
+      "beat": "plaza",
+      "text": "Saya yang menerima!",
+      "spokenText": "Saya yang menerima!",
+      "audioKey": "day3r3-d02",
+      "duration": 4,
+      "gesture": "boast",
+      "expression": "happy",
+      "gestureDelay": 0.25
+    },
+    {
+      "key": "day3r3-d19",
+      "shot": "D19",
+      "id": "D19",
+      "label": "Ide bagus.",
+      "speaker": "pasca",
+      "beat": "homes-reaction",
+      "text": "Ide bagus.",
+      "spokenText": "Ide bagus.",
+      "audioKey": "day3r3-d19",
+      "duration": 4,
+      "gesture": "nod",
+      "expression": "happy",
+      "gestureDelay": 0.1,
+      "minDuration": 1.6,
+      "reactions": {
+        "demian": {
+          "action": "Idle",
+          "expression": "surprised"
+        }
+      }
+    },
+    {
+      "key": "day3r3-d30",
+      "shot": "D30",
+      "id": "D30",
+      "label": "Yang penting, ingat siapa yang berjasa!",
+      "speaker": "pasca",
+      "beat": "final-credit",
+      "text": "Yang penting, ingat siapa yang berjasa!",
+      "spokenText": "Yang penting, ingat siapa yang berjasa!",
+      "audioKey": "day3r3-d30",
+      "duration": 4,
+      "gesture": "boast",
+      "expression": "happy",
+      "gestureDelay": 0.3
+    }
+  ],
+  "status": "generated",
+  "requestedModel": "server_default",
+  "originalFile": "day3r3-pasca-original.wav",
+  "review": {
+    "fullListening": false
+  }
+}

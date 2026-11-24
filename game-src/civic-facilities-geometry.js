@@ -14,7 +14,7 @@ export function createCivicFacilities({parent,geometries,materials,textures}){
     const base=baseFor(f),building=g.group(root,f.id,[f.x,base,f.z]),steps=[];
     const layer=(name,at)=>{const obj=g.group(building,name);steps.push({obj,at});return obj;};
     const pad=layer('Foundation',.04),frame=layer('Frame',.22),walls=layer('Walls',.44),roof=layer('Roof',.68),finish=layer('Finish',.86);
-    const w=f.width*.78,d=f.depth*.65,h=f.id==='rumah-sakit'?9:f.category==='worship'?6:5.5;
+    const w=f.width*.78,d=f.depth*.65,floors=f.id==='rumah-sakit'?4:['sekolah','polisi','kodim'].includes(f.id)?3:f.id==='damkar'?2:1,h=floors>1?floors*4.2:f.category==='worship'?6:5.5;
     g.box(pad,'RaisedSite','#b8b3a1',[0,-.5,0],[f.width,1,f.depth]);
     for(const x of [-w/2,w/2])for(const z of [-d/2,d/2])g.box(frame,'StructuralColumn','#a6a9a2',[x,h/2,z],[.5,h,.5]);
     if(f.id==='stadion'){
@@ -34,9 +34,19 @@ export function createCivicFacilities({parent,geometries,materials,textures}){
         const run=w/2+.5,rise=f.category==='worship'?5:2.3;
         for(const side of [-1,1]){const r=g.box(roof,'PitchedRoof',roofColor,[side*run/2,h+rise/2+.5,0],[Math.hypot(run,rise),.3,d+2]);r.rotation.z=-side*Math.atan2(rise,run);g.triangle(roof,'Gable',color,[[-run,h+.4,side*d/2],[run,h+.4,side*d/2],[0,h+rise+.4,side*d/2]]);}
       }else g.box(roof,'FlatRoof',roofColor,[0,h+.55,0],[w+1.5,.3,d+1.5]);
-      for(let x=-w/2+3;x<w/2;x+=5){if(Math.abs(x)<3)continue;g.box(finish,'Window','#769caa',[x,h*.58,d/2+.07],[2.6,2,.12]);g.box(finish,'WindowSill','#f0ead6',[x,h*.58-1,d/2+.18],[2.9,.15,.35]);}
+      for(let floor=0;floor<floors;floor++)for(let x=-w/2+3;x<w/2;x+=5){if(Math.abs(x)<3)continue;g.box(finish,'Window','#769caa',[x,(floors>1?floor*4.2+2.3:h*.58),d/2+.07],[2.6,2,.12]);g.box(finish,'WindowSill','#f0ead6',[x,(floors>1?floor*4.2+2.3:h*.58)-1,d/2+.18],[2.9,.15,.35]);}
       g.box(finish,'Entrance','#3c646b',[0,1.6,d/2+.08],[3,3.2,.16]);
       g.box(finish,'EntranceCanopy','#d7c79d',[0,3.5,d/2+1.3],[5,.2,3]);
+      if(floors>1){
+        const accent=f.id==='polisi'?'#bda45e':f.id==='kodim'?'#a7b67c':'#e5dcc4';
+        for(let floor=1;floor<floors;floor++)g.box(finish,'StoreyBand',accent,[0,floor*4.2,0],[w+.4,.25,d+.4]);
+        for(const x of [-w*.32,-w*.16,w*.16,w*.32])g.box(finish,'GrandPorticoColumn',accent,[x,3,d/2+2],[.65,6,.65]);
+        g.box(finish,'GrandPorticoRoof',accent,[0,6.2,d/2+1.7],[w*.75,.6,4]);
+        for(let step=0;step<3;step++)g.box(pad,'CeremonialSteps','#c9c1ac',[0,.1+step*.14,d/2+3-step*.5],[w*.8, .2,1.2]);
+        g.box(finish,'CentralGlassSpine','#335f78',[0,h*.65,d/2+.15],[4.5,h*.5,.18]);
+        if(['polisi','kodim'].includes(f.id)){g.cylinder(finish,'CivicEmblem',accent,[0,h-1.3,d/2+.35],1.1,.2).rotation.x=Math.PI/2;g.sign(finish,'EmblemLetters',[f.id==='polisi'?'RW':'TNW'],[0,h-1.3,d/2+.5],[1.7,.9],{background:f.id==='polisi'?'#263e64':'#3f563b',color:'#f7d887'});}
+        for(const x of [-w/2-1,w/2+1]){g.cylinder(finish,'FlagMast','#bfc8c5',[x,5,d/2+2],.06,10);g.box(finish,'RepublicFlagRed','#c53640',[x+.75,9.3,d/2+2],[1.5,.55,.05]);g.box(finish,'RepublicFlagWhite','#fff4db',[x+.75,8.75,d/2+2],[1.5,.55,.05]);}
+      }
       if(f.id==='masjid'){
         g.ball(roof,'Dome','#5b9b88',[0,h+1.7,0],[5.5,4.8,5.5]);
         g.cylinder(roof,'Minaret','#e5dbc1',[-w/2+1,h,0],1,2*h);g.ball(roof,'MinaretCap','#5b9b88',[-w/2+1,2*h+.6,0],[1.4,1.2,1.4]);
@@ -53,7 +63,7 @@ export function createCivicFacilities({parent,geometries,materials,textures}){
       if(f.id==='damkar'){for(const x of [-8,8]){g.box(finish,'ApplianceBay','#415256',[x,2,d/2+.15],[6,4,.2]);g.box(finish,'FireEngine','#c84131',[x,1,d/2+2],[2.8,1.7,4]);}}
       if(f.category==='economy')for(const x of [-w/2+3,w/2-3])g.box(finish,'StockCrate','#bd9465',[x,.6,d/2+2],[1.6,1.2,1.6]);
     }
-    g.sign(finish,'FacilityName',[f.name.toUpperCase()],[0,4.7,f.depth/2-.7],[Math.min(22,f.width*.8),1.7],{background:'#244b56',color:'#fff0ce'});
+    g.sign(finish,'FacilityName',f.id==='kodim'?['MARKAS KOMANDO','TENTARA NASIONAL WKWKWK']:f.id==='polisi'?['KEPOLISIAN','REPUBLIK WKWKWK']:[f.name.toUpperCase()],[0,4.7,f.depth/2-.7],[Math.min(22,f.width*.8),1.7],{background:'#244b56',color:'#fff0ce'});
     buildings.set(f.id,{...f,root:building,steps,base});
   }
   const apply=values=>{for(const [id,b] of buildings)for(const step of b.steps){const t=Math.max(0,Math.min(1,((values[id]||0)-step.at)/.13));step.obj.visible=t>0;step.obj.scale.y=Math.max(.001,t*t*(3-2*t));}};apply({});

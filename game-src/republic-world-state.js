@@ -1,3 +1,4 @@
+import {syncRepublicClock} from './republic-clock.js';
 import {applyPublishedWorldPhase,usePublishedWorldPhase} from './republic-world-layout.js';
 
 export const WORLD_STATE_EVENT='republic:world-state';
@@ -57,7 +58,7 @@ export function startSharedWorldSync({apiUrl,fetcher=(...args)=>fetch(...args),i
         const response=await fetcher(url.href,{credentials:'same-origin',cache:'no-store',signal});
         if(!response.ok)throw new Error('Dunia server belum tersedia. Coba lagi.');
         const body=await response.json();if(disposed||signal.aborted)return null;
-        const snapshot=apply(body);status('online');return snapshot;
+        const snapshot=apply(body);syncRepublicClock(body.serverTime,body.clock);status('online');return snapshot;
       }catch(error){if(!disposed)status('offline',error.name==='AbortError'?'Koneksi dunia melewati batas waktu.':error.message);return null;}
       finally{scheduler.clearTimeout(deadline);pending=null;request=null;if(!disposed)timer=scheduler.setTimeout(refresh,interval);}
     })();return pending;

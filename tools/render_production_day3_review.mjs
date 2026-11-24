@@ -2,8 +2,7 @@
 // Exports the actual posed scene for Blender. This does not control a browser.
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import {createRequire} from 'node:module';
-const {createCanvas,loadImage,ImageData}=createRequire(import.meta.url)(process.env.SEMESTA_CANVAS_MODULE||'@napi-rs/canvas');
+import {createCanvas,loadImage,ImageData,Canvas} from '@napi-rs/canvas';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
@@ -16,7 +15,7 @@ globalThis.ImageData=ImageData;globalThis.HTMLCanvasElement=createCanvas(1,1).co
 const canvas=()=>{const c=createCanvas(1,1);Object.defineProperty(c,'data',{value:undefined});c.toBlob=async callback=>callback(new Blob([await c.encode('png')],{type:'image/png'}));return c;};
 globalThis.document={createElement:name=>{if(name==='canvas')return canvas();throw new Error(name);}};
 globalThis.FileReader=class{async readAsArrayBuffer(blob){this.result=await blob.arrayBuffer();this.onloadend?.();}async readAsDataURL(blob){this.result='data:'+blob.type+';base64,'+Buffer.from(await blob.arrayBuffer()).toString('base64');this.onloadend?.();}};
-const out=path.resolve(process.argv[2]||'C:/tmp/day3-render');await fs.mkdir(out,{recursive:true});
+const out=path.resolve(process.argv[2]||'C:/tmp/day3-r3-render');await fs.mkdir(out,{recursive:true});
 GLTFLoader.prototype.loadAsync=async function(url){
   const id=Object.entries(manifest).find(([,file])=>url.includes(file))?.[0];if(!id)throw new Error(url);
   const bytes=await fs.readFile(`public/models/characters/v15/${id}.glb`);
@@ -32,9 +31,9 @@ GLTFLoader.prototype.loadAsync=async function(url){
 };
 const logo=await loadImage(await fs.readFile(new URL(BGN_LOGO_URL))),logoCanvas=canvas();logoCanvas.width=logo.width;logoCanvas.height=logo.height;logoCanvas.getContext('2d').drawImage(logo,0,0);setRepublicBuildingLogoImage(logoCanvas);
 const stage=await createProductionStage(day3Scenario());
-const selections=process.argv.find(v=>v.startsWith('--shots='))?.slice(8).split(',')||['D00','D10','D17','D21'];
+const selections=process.argv.find(v=>v.startsWith('--shots='))?.slice(8).split(',')||['D00','H00','D18','D24'];
 for(const id of selections){
-  const shot=stage.compiled.shots.find(s=>s.id===id),time=shot.start+shot.duration*.94;
+  const shot=stage.compiled.shots.find(s=>s.id===id),time=shot.start+(id==='S21'?shot.actors.pasca.delay+.48:id==='W00'?.3:shot.duration*.68);
   if(process.argv.includes('--composite')){
     stage.pose(time);
     const c=createCanvas(1080,1920),image=await loadImage(path.join(out,id+'.png'));compositeFrame(c.getContext('2d'),image,stage,time);await fs.writeFile(path.join(out,id+'-frame.png'),await c.encode('png'));

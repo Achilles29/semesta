@@ -1,3 +1,4 @@
+import {shapeWaterBasin,waterDistance} from './republic-nature-layout.js';
 /** Canonical coordinates shared by exploration, the map and filmed episodes.
  * The old destination IDs are storage/API keys, never the displayed names. */
 export const WORLD_PHASE_EVENT='republic:world-phase';
@@ -133,11 +134,14 @@ export function terrainHeight(x,z,city='jakarta'){
   const hills=(Math.sin(x*.008+.6)*Math.cos(z*.007-1)*10+Math.sin((x+z)*.017)*3+14);
   let mountains=78*Math.exp(-(((x+420)/290)**2+((z+570)/235)**2));
   for(const district of localNaturalDistricts)if(district.kind==='mountains')mountains+=52*Math.exp(-(((x-district.rect.x)/85)**2+((z-district.rect.z)/90)**2));
-  return -3*(1-smooth((shore+24)/24))+(hills+mountains)*flat*smooth(shore/100);
+  const natural=-3*(1-smooth((shore+24)/24))+(hills+mountains)*flat*smooth(shore/100);
+  const carved=shapeWaterBasin(natural,x,z),road=regionalRoadDistance(x,z),keep=smooth((road.distance-road.width/2-2)/5);
+  return natural+(carved-natural)*keep;
 }
 export function shoreDistance(x,z){return Math.max(...WORLD_LANDMASSES.map(m=>{const dx=x-m.center.x,dz=z-m.center.z,px=(dx*Math.cos(m.rotation)+dz*Math.sin(m.rotation))/m.radius.x,pz=(-dx*Math.sin(m.rotation)+dz*Math.cos(m.rotation))/m.radius.z;return (coastRadius(Math.atan2(pz,px),m.seed)-Math.hypot(px,pz))*Math.min(m.radius.x,m.radius.z);}));}
 export function regionalRoadDistance(x,z){let nearest={distance:Infinity,width:0},elevation=0;for(const road of WORLD_ROUTES)for(let i=1;i<road.points.length;i++){const distance=distanceToSegment(x,z,road.points[i-1],road.points[i]);if(distance<nearest.distance)nearest={distance,width:road.width};if(distance<=road.width/2)elevation=Math.max(elevation,road.elevation);}return {...nearest,elevation};}
 export function isReservedGround(x,z,city='jakarta'){
+  if(waterDistance(x,z)<18)return true;
   if(WORLD_DISTRICTS.some(d=>Math.hypot(x-d.entry.x-4,z-d.entry.z+4)<5))return true;
   if(Object.values(WORLD_DESTINATIONS).some(d=>Math.hypot(x-d.center.x,z-d.center.z)<25))return true;
   if(x>-25&&x<22&&z>-23&&z<19)return true;

@@ -1,0 +1,331 @@
+[
+  {
+    "actor": "narrator",
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voiceName": "gufron",
+    "text": "Hari ketiga Republik Weka Weka Weka. Lima triliun sudah masuk. Hari ini, warga mau lihat uangnya berubah jadi apa.\n\nDari tepi sungai Jakartawa, kita menuju alun-alun. Warganya membawa kebutuhan. Presidennya membawa rasa percaya diri.\n\nSekolah, rumah sakit, tempat ibadah, sampai rumah warga. Hari ini, janji itu harus kelihatan bentuknya.\n\nEnam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.\n\nMasjid, gereja Kristen, dan gereja Katolik. Halamannya berbeda, jalan bertetangganya tetap tersambung.\n\nPura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.\n\nSekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.\n\nRumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.\n\nPos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.\n\nWarga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.\n\nKita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.\n\nRancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.\n\nBetul. Ini bukan cuma tontonan. Republik Weka Weka Weka sedang jadi game kehidupan warga. Kamu punya karakter, rumah, dan awal perjalananmu sendiri.\n\nBuka republik weka weka weka titik kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.\n\nIsi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.\n\nTekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.\n\nLengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!\n\nJelajahi kota, sapa pemain di dekatmu, lalu mampir ke rumah. Bantu Bu Rani untuk mendapat tanaman. Proyek bersama tersedia saat dibuka admin.\n\nRumah bernama warga cerita tetap menunggu verifikasi klaim. Nama yang sama belum tentu orang yang sama. Jadi rumahmu jangan sampai salah penghuni.\n\nYang namanya belum kebagian muncul, sabar dulu, ya. Kita tata warga dan rumahnya bertahap. Belum tampil bukan berarti dilupakan. Yang penting, jangan rebutan kursi presiden dulu.\n\nRepubliknya mulai berdiri. Sekarang, warga yang bikin hidup. Usaha pertama apa yang kamu buka? Tulis nama usahamu dan barang yang mau dijual.",
+    "sourceCues": [
+      {
+        "key": "day3r2-i00",
+        "shot": "I00",
+        "text": "Hari ketiga Republik Weka Weka Weka. Lima triliun sudah masuk. Hari ini, warga mau lihat uangnya berubah jadi apa.",
+        "spokenText": "Hari ketiga Republik Weka Weka Weka. Lima triliun sudah masuk. Hari ini, warga mau lihat uangnya berubah jadi apa.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-i01",
+        "shot": "I01",
+        "text": "Dari tepi sungai Jakartawa, kita menuju alun-alun. Warganya membawa kebutuhan. Presidennya membawa rasa percaya diri.",
+        "spokenText": "Dari tepi sungai Jakartawa, kita menuju alun-alun. Warganya membawa kebutuhan. Presidennya membawa rasa percaya diri.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d03",
+        "shot": "D03",
+        "text": "Sekolah, rumah sakit, tempat ibadah, sampai rumah warga. Hari ini, janji itu harus kelihatan bentuknya.",
+        "spokenText": "Sekolah, rumah sakit, tempat ibadah, sampai rumah warga. Hari ini, janji itu harus kelihatan bentuknya.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d08",
+        "shot": "D08",
+        "text": "Enam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.",
+        "spokenText": "Enam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d09",
+        "shot": "D09",
+        "text": "Masjid, gereja Kristen, dan gereja Katolik. Halamannya berbeda, jalan bertetangganya tetap tersambung.",
+        "spokenText": "Masjid, gereja Kristen, dan gereja Katolik. Halamannya berbeda, jalan bertetangganya tetap tersambung.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d10",
+        "shot": "D10",
+        "text": "Pura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.",
+        "spokenText": "Pura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d11",
+        "shot": "D11",
+        "text": "Sekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.",
+        "spokenText": "Sekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d13",
+        "shot": "D13",
+        "text": "Rumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.",
+        "spokenText": "Rumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d16",
+        "shot": "D16",
+        "text": "Pos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.",
+        "spokenText": "Pos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d17",
+        "shot": "D17",
+        "text": "Warga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.",
+        "spokenText": "Warga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d21",
+        "shot": "D21",
+        "text": "Kita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.",
+        "spokenText": "Kita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d22",
+        "shot": "D22",
+        "text": "Rancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.",
+        "spokenText": "Rancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-g00",
+        "shot": "G00",
+        "text": "Betul. Ini bukan cuma tontonan. Republik Weka Weka Weka sedang jadi game kehidupan warga. Kamu punya karakter, rumah, dan awal perjalananmu sendiri.",
+        "spokenText": "Betul. Ini bukan cuma tontonan. Republik Weka Weka Weka sedang jadi game kehidupan warga. Kamu punya karakter, rumah, dan awal perjalananmu sendiri.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d24",
+        "shot": "D24",
+        "text": "Buka republik weka weka weka titik kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+        "spokenText": "Buka republik weka weka weka titik kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d25",
+        "shot": "D25",
+        "text": "Isi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.",
+        "spokenText": "Isi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d26",
+        "shot": "D26",
+        "text": "Tekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.",
+        "spokenText": "Tekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d27",
+        "shot": "D27",
+        "text": "Lengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!",
+        "spokenText": "Lengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d28",
+        "shot": "D28",
+        "text": "Jelajahi kota, sapa pemain di dekatmu, lalu mampir ke rumah. Bantu Bu Rani untuk mendapat tanaman. Proyek bersama tersedia saat dibuka admin.",
+        "spokenText": "Jelajahi kota, sapa pemain di dekatmu, lalu mampir ke rumah. Bantu Bu Rani untuk mendapat tanaman. Proyek bersama tersedia saat dibuka admin.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d29",
+        "shot": "D29",
+        "text": "Rumah bernama warga cerita tetap menunggu verifikasi klaim. Nama yang sama belum tentu orang yang sama. Jadi rumahmu jangan sampai salah penghuni.",
+        "spokenText": "Rumah bernama warga cerita tetap menunggu verifikasi klaim. Nama yang sama belum tentu orang yang sama. Jadi rumahmu jangan sampai salah penghuni.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-w00",
+        "shot": "W00",
+        "text": "Yang namanya belum kebagian muncul, sabar dulu, ya. Kita tata warga dan rumahnya bertahap. Belum tampil bukan berarti dilupakan. Yang penting, jangan rebutan kursi presiden dulu.",
+        "spokenText": "Yang namanya belum kebagian muncul, sabar dulu, ya. Kita tata warga dan rumahnya bertahap. Belum tampil bukan berarti dilupakan. Yang penting, jangan rebutan kursi presiden dulu.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d32",
+        "shot": "D32",
+        "text": "Republiknya mulai berdiri. Sekarang, warga yang bikin hidup. Usaha pertama apa yang kamu buka? Tulis nama usahamu dan barang yang mau dijual.",
+        "spokenText": "Republiknya mulai berdiri. Sekarang, warga yang bikin hidup. Usaha pertama apa yang kamu buka? Tulis nama usahamu dan barang yang mau dijual.",
+        "speaker": "narrator"
+      }
+    ]
+  },
+  {
+    "actor": "pasca",
+    "voiceId": "b50db2127b854791b6e16815c3e9b824",
+    "voiceName": "Alistaire - Authoritative & Articulate",
+    "text": "Tenang! Semua pembangunan ini berkat kerja keras saya!\n\nNah. Saya yang berhasil menerima!\n\nSaya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.\n\nBisa dua-duanya. Efisien!\n\nYang penting ingat siapa yang meresmikan.\n\nKalau usaha warga ramai, berarti ide saya berhasil.\n\nKita bentuk tim evaluasi.",
+    "sourceCues": [
+      {
+        "key": "day3r2-d00",
+        "shot": "D00",
+        "text": "Tenang! Semua pembangunan ini berkat kerja keras saya!",
+        "spokenText": "Tenang! Semua pembangunan ini berkat kerja keras saya!",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d02",
+        "shot": "D02",
+        "text": "Nah. Saya yang berhasil menerima!",
+        "spokenText": "Nah. Saya yang berhasil menerima!",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d06",
+        "shot": "D06",
+        "text": "Saya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.",
+        "spokenText": "Saya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d15",
+        "shot": "D15",
+        "text": "Bisa dua-duanya. Efisien!",
+        "spokenText": "Bisa dua-duanya. Efisien!",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d19",
+        "shot": "D19",
+        "text": "Yang penting ingat siapa yang meresmikan.",
+        "spokenText": "Yang penting ingat siapa yang meresmikan.",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d30",
+        "shot": "D30",
+        "text": "Kalau usaha warga ramai, berarti ide saya berhasil.",
+        "spokenText": "Kalau usaha warga ramai, berarti ide saya berhasil.",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-e00",
+        "shot": "E00",
+        "text": "Kita bentuk tim evaluasi.",
+        "spokenText": "Kita bentuk tim evaluasi.",
+        "speaker": "pasca"
+      }
+    ]
+  },
+  {
+    "actor": "climenzo",
+    "voiceId": "b5c5b28db1ea408abc7d851202983bdb",
+    "voiceName": "Roderic - Authoritative & Refined",
+    "text": "Pak, lima triliunnya dari saya.\n\nKalau sepi, siapa yang tanggung jawab, Pak?",
+    "sourceCues": [
+      {
+        "key": "day3r2-d01",
+        "shot": "D01",
+        "text": "Pak, lima triliunnya dari saya.",
+        "spokenText": "Pak, lima triliunnya dari saya.",
+        "speaker": "climenzo"
+      },
+      {
+        "key": "day3r2-d31",
+        "shot": "D31",
+        "text": "Kalau sepi, siapa yang tanggung jawab, Pak?",
+        "spokenText": "Kalau sepi, siapa yang tanggung jawab, Pak?",
+        "speaker": "climenzo"
+      }
+    ]
+  },
+  {
+    "actor": "demian",
+    "voiceId": "c30ecab014cb4a8d816d07f6b2b625c8",
+    "voiceName": "Brodie - Breezy & Genuine",
+    "text": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?\n\nAda nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.\n\nJadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?\n\nTimnya butuh kantor lagi, kan?",
+    "sourceCues": [
+      {
+        "key": "day3r2-d14",
+        "shot": "D14",
+        "text": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?",
+        "spokenText": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?",
+        "speaker": "demian"
+      },
+      {
+        "key": "day3r2-d18",
+        "shot": "D18",
+        "text": "Ada nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.",
+        "spokenText": "Ada nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.",
+        "speaker": "demian"
+      },
+      {
+        "key": "day3r2-d23",
+        "shot": "D23",
+        "text": "Jadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?",
+        "spokenText": "Jadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?",
+        "speaker": "demian"
+      },
+      {
+        "key": "day3r2-e01",
+        "shot": "E01",
+        "text": "Timnya butuh kantor lagi, kan?",
+        "spokenText": "Timnya butuh kantor lagi, kan?",
+        "speaker": "demian"
+      }
+    ]
+  },
+  {
+    "actor": "eqa",
+    "voiceId": "f264d09b4320461b9873abbe9283b505",
+    "voiceName": "Prudence - Cultivated & Precise",
+    "text": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.\n\nBagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+    "sourceCues": [
+      {
+        "key": "day3r2-d04",
+        "shot": "D04",
+        "text": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.",
+        "spokenText": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.",
+        "speaker": "eqa"
+      },
+      {
+        "key": "day3r2-d12",
+        "shot": "D12",
+        "text": "Bagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+        "spokenText": "Bagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+        "speaker": "eqa"
+      }
+    ]
+  },
+  {
+    "actor": "cecil",
+    "voiceId": "31001ed1e3e54c79a88458cb03ca123a",
+    "voiceName": "Leanne - Expressive & Earthy",
+    "text": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+    "sourceCues": [
+      {
+        "key": "day3r2-d05",
+        "shot": "D05",
+        "text": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+        "spokenText": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+        "speaker": "cecil"
+      }
+    ]
+  },
+  {
+    "actor": "xel",
+    "voiceId": "f9a2c5a6b6be456a8ed59dac8a319f2a",
+    "voiceName": "Lachie - Direct & Reassuring",
+    "text": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.\n\nRumah sudah ada. Tapi warga cari penghasilan dari mana?",
+    "sourceCues": [
+      {
+        "key": "day3r2-d07",
+        "shot": "D07",
+        "text": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.",
+        "spokenText": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.",
+        "speaker": "xel"
+      },
+      {
+        "key": "day3r2-d20",
+        "shot": "D20",
+        "text": "Rumah sudah ada. Tapi warga cari penghasilan dari mana?",
+        "spokenText": "Rumah sudah ada. Tapi warga cari penghasilan dari mana?",
+        "speaker": "xel"
+      }
+    ]
+  }
+]

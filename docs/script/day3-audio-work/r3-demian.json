@@ -1,0 +1,195 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/c30ecab014cb4a8d816d07f6b2b625c8/id=5e501f8e58f74df9b36e169ffe0f3fa5.wav",
+  "duration": 8.73936507936508,
+  "original_words": [
+    {
+      "text": "Ada",
+      "start_time": 0.213,
+      "end_time": 0.4267
+    },
+    {
+      "text": "nama",
+      "start_time": 0.469,
+      "end_time": 0.64
+    },
+    {
+      "text": "saya",
+      "start_time": 0.683,
+      "end_time": 0.939
+    },
+    {
+      "text": "Pak",
+      "start_time": 1.493,
+      "end_time": 1.749
+    },
+    {
+      "text": "jangan",
+      "start_time": 2.091,
+      "end_time": 2.3467
+    },
+    {
+      "text": "sekalian",
+      "start_time": 2.389,
+      "end_time": 2.688
+    },
+    {
+      "text": "dipasang",
+      "start_time": 2.731,
+      "end_time": 2.9867
+    },
+    {
+      "text": "foto",
+      "start_time": 3.029,
+      "end_time": 3.2427
+    },
+    {
+      "text": "Bapak",
+      "start_time": 3.285,
+      "end_time": 3.584
+    },
+    {
+      "text": "Kita",
+      "start_time": 3.968,
+      "end_time": 4.1387
+    },
+    {
+      "text": "bisa",
+      "start_time": 4.181,
+      "end_time": 4.352
+    },
+    {
+      "text": "masuk",
+      "start_time": 4.395,
+      "end_time": 4.5227
+    },
+    {
+      "text": "beneran",
+      "start_time": 4.565,
+      "end_time": 4.864
+    },
+    {
+      "text": "ke",
+      "start_time": 4.907,
+      "end_time": 4.992
+    },
+    {
+      "text": "sini",
+      "start_time": 5.035,
+      "end_time": 5.205
+    },
+    {
+      "text": "Nah",
+      "start_time": 5.675,
+      "end_time": 5.845
+    },
+    {
+      "text": "ada",
+      "start_time": 6.059,
+      "end_time": 6.144
+    },
+    {
+      "text": "modalnya",
+      "start_time": 6.229,
+      "end_time": 6.656
+    },
+    {
+      "text": "Kalau",
+      "start_time": 6.997,
+      "end_time": 7.2107
+    },
+    {
+      "text": "mau",
+      "start_time": 7.253,
+      "end_time": 7.3387
+    },
+    {
+      "text": "taman",
+      "start_time": 7.381,
+      "end_time": 7.595
+    },
+    {
+      "text": "Climenzo",
+      "start_time": 7.936,
+      "end_time": 8.405
+    }
+  ],
+  "actor": "demian",
+  "voiceId": "c30ecab014cb4a8d816d07f6b2b625c8",
+  "voiceName": "Brodie - Breezy & Genuine",
+  "language": "id",
+  "submittedText": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.\n\nKita bisa masuk beneran ke sini?\n\nNah, ada modalnya!\n\nKalau mau taman?\n\nClimenzo!",
+  "sourceCues": [
+    {
+      "key": "day3r3-d18",
+      "shot": "D18",
+      "id": "D18",
+      "label": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+      "speaker": "demian",
+      "beat": "homes-reaction",
+      "text": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+      "spokenText": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+      "audioKey": "day3r3-d18",
+      "duration": 4,
+      "gesture": "talk"
+    },
+    {
+      "key": "day3r3-d23",
+      "shot": "D23",
+      "id": "D23",
+      "label": "Kita bisa masuk beneran ke sini?",
+      "speaker": "demian",
+      "beat": "game-question",
+      "text": "Kita bisa masuk beneran ke sini?",
+      "spokenText": "Kita bisa masuk beneran ke sini?",
+      "audioKey": "day3r3-d23",
+      "duration": 4,
+      "gesture": "talk"
+    },
+    {
+      "key": "day3r3-g02",
+      "shot": "G02",
+      "id": "G02",
+      "label": "Nah, ada modalnya!",
+      "speaker": "demian",
+      "beat": "starter-reaction",
+      "text": "Nah, ada modalnya!",
+      "spokenText": "Nah, ada modalnya!",
+      "audioKey": "day3r3-g02",
+      "duration": 4,
+      "gesture": "talk"
+    },
+    {
+      "key": "day3r3-g03",
+      "shot": "G03",
+      "id": "G03",
+      "label": "Kalau mau taman?",
+      "speaker": "demian",
+      "beat": "proposal-question",
+      "text": "Kalau mau taman?",
+      "spokenText": "Kalau mau taman?",
+      "audioKey": "day3r3-g03",
+      "duration": 4,
+      "gesture": "talk"
+    },
+    {
+      "key": "day3r3-e01",
+      "shot": "E01",
+      "id": "E01",
+      "label": "Climenzo!",
+      "speaker": "demian",
+      "beat": "final-answer",
+      "text": "Climenzo!",
+      "spokenText": "Climenzo!",
+      "audioKey": "day3r3-e01",
+      "duration": 4,
+      "gesture": "talk",
+      "minDuration": 1.5
+    }
+  ],
+  "status": "generated",
+  "requestedModel": "server_default",
+  "originalFile": "day3r3-demian-original.wav",
+  "review": {
+    "fullListening": false
+  }
+}

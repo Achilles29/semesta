@@ -1,0 +1,97 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=301f2506556b4b6da66f2ed2aa0c1f40.wav",
+  "duration": 7.1604081632653065,
+  "original_words": [
+    {
+      "text": "Buka",
+      "start_time": 0.384,
+      "end_time": 0.6827
+    },
+    {
+      "text": "republik",
+      "start_time": 0.725,
+      "end_time": 1.152
+    },
+    {
+      "text": "wekawekaweka",
+      "start_time": 1.195,
+      "end_time": 1.8347
+    },
+    {
+      "text": "dot",
+      "start_time": 1.92,
+      "end_time": 2.0907
+    },
+    {
+      "text": "kom",
+      "start_time": 2.176,
+      "end_time": 2.347
+    },
+    {
+      "text": "Pilih",
+      "start_time": 2.944,
+      "end_time": 3.2427
+    },
+    {
+      "text": "Daftar",
+      "start_time": 3.285,
+      "end_time": 3.541
+    },
+    {
+      "text": "Warga",
+      "start_time": 3.627,
+      "end_time": 3.968
+    },
+    {
+      "text": "Sekarang",
+      "start_time": 4.523,
+      "end_time": 4.949
+    },
+    {
+      "text": "giliran",
+      "start_time": 5.376,
+      "end_time": 5.76
+    },
+    {
+      "text": "kamu",
+      "start_time": 5.845,
+      "end_time": 6.0587
+    },
+    {
+      "text": "masuk",
+      "start_time": 6.101,
+      "end_time": 6.3147
+    },
+    {
+      "text": "ke",
+      "start_time": 6.4,
+      "end_time": 6.4427
+    },
+    {
+      "text": "ceritanya",
+      "start_time": 6.485,
+      "end_time": 6.955
+    }
+  ],
+  "actor": "narrator",
+  "submittedText": "Buka republik wekawekaweka dot kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+  "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+  "voiceName": "gufron",
+  "language": "id",
+  "requestedModel": "server_default",
+  "status": "generated",
+  "originalFile": "day3-dotkom-original.wav",
+  "sourceCues": [
+    {
+      "key": "day3-dotkom-d24",
+      "shot": "D24",
+      "id": "D24",
+      "speaker": "narrator",
+      "text": "Buka republik wekawekaweka dot kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+      "spokenText": "Buka republik wekawekaweka dot kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya."
+    }
+  ],
+  "review": {
+    "fullListening": false
+  }
+}

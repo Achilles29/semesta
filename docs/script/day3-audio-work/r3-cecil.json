@@ -1,0 +1,47 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/31001ed1e3e54c79a88458cb03ca123a/id=5f92042ddd27429984d387bc4669f54a.wav",
+  "duration": 1.3289569160997732,
+  "original_words": [
+    {
+      "text": "Rumah",
+      "start_time": 0.299,
+      "end_time": 0.512
+    },
+    {
+      "text": "sakit",
+      "start_time": 0.555,
+      "end_time": 0.768
+    },
+    {
+      "text": "juga",
+      "start_time": 0.811,
+      "end_time": 1.109
+    }
+  ],
+  "actor": "cecil",
+  "voiceId": "31001ed1e3e54c79a88458cb03ca123a",
+  "voiceName": "Leanne - Expressive & Earthy",
+  "language": "id",
+  "submittedText": "Rumah sakit juga!",
+  "sourceCues": [
+    {
+      "key": "day3r3-d05",
+      "shot": "D05",
+      "id": "D05",
+      "label": "Rumah sakit juga!",
+      "speaker": "cecil",
+      "beat": "plaza",
+      "text": "Rumah sakit juga!",
+      "spokenText": "Rumah sakit juga!",
+      "audioKey": "day3r3-d05",
+      "duration": 4,
+      "gesture": "talk"
+    }
+  ],
+  "status": "generated",
+  "requestedModel": "server_default",
+  "originalFile": "day3r3-cecil-original.wav",
+  "review": {
+    "fullListening": false
+  }
+}

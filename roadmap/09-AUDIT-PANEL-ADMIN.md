@@ -29,3 +29,7 @@ Endpoint episode lama tanpa resource sebelumnya masih mengembalikan data kasus k
 - Browser/perangkat sasaran, rasa bermain dan MP4 penuh masih memerlukan penerimaan. Jangan menandai selesai dari tes DOM/CPU.
 
 Tugas berikut: rilis E-01a/E-02a, H-03 klaim, H-04 akses tapak, E-03 siklus usaha; detail kontrak di dokumen 06/08. Publikasi fasilitas perlu versi dunia baru yang diterbitkan sengaja, bukan efek menekan Play.
+
+## Revisi Tata Wilayah dan usulan ? baseline 5736160
+
+Tata Wilayah sekarang dibuka pada denah kanonis Jakartawa: 48 reservasi, 24 fondasi, panggung, Koplak/SPPG sesuai fase server, 17 fasilitas rencana, sungai, danau dan taman. Lapisan dunia terbit tidak memasukkan fasilitas Day 3. Pan/zoom, pencarian dan detail menggunakan koordinat sumber game. Perubahan fase/proyek tetap melalui Dunia bersama. Ini belum editor untuk menyeret/menerbitkan tapak resmi. Editor aset bebas lama berada dalam details terpisah dan baru memuat renderer ketika dibuka. Inbox menerima sumber Game dan dapat meninjau status; pemain hanya membaca usulannya sendiri.

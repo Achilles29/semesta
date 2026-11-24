@@ -1,3 +1,4 @@
+import {currentRepublicLight} from '../game-src/republic-clock.js';
 // Execute the actual world mount with CPU scene/actor adapters. This checks
 // control/presence wiring; it is deliberately not a WebGL/browser acceptance test.
 import assert from 'node:assert/strict';
@@ -31,9 +32,9 @@ globalThis.fetch=async(url,options={})=>{
   return {ok:true,status:200,json:async()=>structuredClone(data)};
 };
 class Renderer{constructor(){this.shadowMap={};}setPixelRatio(){}setSize(){}render(){}dispose(){}}
-const sceneAdapter=()=>({colliders:[],surfaces:[],occluders:[],count:0,setPhase(){},update(){},dispose(){}});
+const sceneAdapter=()=>({colliders:[],surfaces:[],occluders:[],count:0,setPhase(){},setDetailBounds(){},update(){},dispose(){}});
 let constructionVisible=true,constructionInteractions=0;
-const dependencies={THREE:{...Three,WebGLRenderer:Renderer},...layout,...hud,HOME_LAYOUT,STORY_NEIGHBORHOOD,createStoryHomes,presets,normalizeAvatarConfig,createRepublicPresence,createWelcomeParcel,
+const dependencies={currentRepublicLight,THREE:{...Three,WebGLRenderer:Renderer},...layout,...hud,HOME_LAYOUT,STORY_NEIGHBORHOOD,createStoryHomes,presets,normalizeAvatarConfig,createRepublicPresence,createWelcomeParcel,
   preloadRepublicBuildingLogo:async()=>{},createCapitalContext:sceneAdapter,createRepublicTerrainStream:sceneAdapter,
   mountConstruction:()=>({geometry:sceneAdapter(),tick(){},dispose(){},resetActorPose(){},applyActorPose(){},consumeInteraction(){constructionInteractions++;return false;},wantsInteraction:()=>false,setActionVisible:value=>constructionVisible=value}),
   mountCitizenHome:options=>mountCitizenHome({...options,createInteriorView:()=>({applyState(){},dispose(){}})}),

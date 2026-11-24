@@ -1,0 +1,339 @@
+[
+  {
+    "actor": "narrator",
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voiceName": "gufron",
+    "language": "id",
+    "submittedText": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.\n\nBisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.\n\nBelum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+    "sourceCues": [
+      {
+        "key": "day3r3-i00",
+        "shot": "I00",
+        "id": "I00",
+        "label": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling ban",
+        "speaker": "narrator",
+        "beat": "arrival",
+        "text": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.",
+        "spokenText": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.",
+        "audioKey": "day3r3-i00",
+        "duration": 4,
+        "minDuration": 7
+      },
+      {
+        "key": "day3r3-g00",
+        "shot": "G00",
+        "id": "G00",
+        "label": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang on",
+        "speaker": "narrator",
+        "beat": "game-intro",
+        "text": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.",
+        "spokenText": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.",
+        "audioKey": "day3r3-g00",
+        "duration": 4
+      },
+      {
+        "key": "day3r3-w00",
+        "shot": "W00",
+        "id": "W00",
+        "label": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan",
+        "speaker": "narrator",
+        "beat": "waiting",
+        "text": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+        "spokenText": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+        "audioKey": "day3r3-w00",
+        "duration": 4
+      }
+    ]
+  },
+  {
+    "actor": "pasca",
+    "voiceId": "b50db2127b854791b6e16815c3e9b824",
+    "voiceName": "Alistaire - Authoritative & Articulate",
+    "language": "id",
+    "submittedText": "Semua ini berkat kerja keras saya!\n\nSaya yang menerima!\n\nIde bagus.\n\nYang penting, ingat siapa yang berjasa!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d00",
+        "shot": "D00",
+        "id": "D00",
+        "label": "Semua ini berkat kerja keras saya!",
+        "speaker": "pasca",
+        "beat": "plaza",
+        "text": "Semua ini berkat kerja keras saya!",
+        "spokenText": "Semua ini berkat kerja keras saya!",
+        "audioKey": "day3r3-d00",
+        "duration": 4,
+        "gesture": "boast",
+        "expression": "happy",
+        "gestureDelay": 0.3
+      },
+      {
+        "key": "day3r3-d02",
+        "shot": "D02",
+        "id": "D02",
+        "label": "Saya yang menerima!",
+        "speaker": "pasca",
+        "beat": "plaza",
+        "text": "Saya yang menerima!",
+        "spokenText": "Saya yang menerima!",
+        "audioKey": "day3r3-d02",
+        "duration": 4,
+        "gesture": "boast",
+        "expression": "happy",
+        "gestureDelay": 0.25
+      },
+      {
+        "key": "day3r3-d19",
+        "shot": "D19",
+        "id": "D19",
+        "label": "Ide bagus.",
+        "speaker": "pasca",
+        "beat": "homes-reaction",
+        "text": "Ide bagus.",
+        "spokenText": "Ide bagus.",
+        "audioKey": "day3r3-d19",
+        "duration": 4,
+        "gesture": "nod",
+        "expression": "happy",
+        "gestureDelay": 0.1,
+        "minDuration": 1.6,
+        "reactions": {
+          "demian": {
+            "action": "Idle",
+            "expression": "surprised"
+          }
+        }
+      },
+      {
+        "key": "day3r3-d30",
+        "shot": "D30",
+        "id": "D30",
+        "label": "Yang penting, ingat siapa yang berjasa!",
+        "speaker": "pasca",
+        "beat": "final-credit",
+        "text": "Yang penting, ingat siapa yang berjasa!",
+        "spokenText": "Yang penting, ingat siapa yang berjasa!",
+        "audioKey": "day3r3-d30",
+        "duration": 4,
+        "gesture": "boast",
+        "expression": "happy",
+        "gestureDelay": 0.3
+      }
+    ]
+  },
+  {
+    "actor": "demian",
+    "voiceId": "c30ecab014cb4a8d816d07f6b2b625c8",
+    "voiceName": "Brodie - Breezy & Genuine",
+    "language": "id",
+    "submittedText": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.\n\nKita bisa masuk beneran ke sini?\n\nNah, ada modalnya!\n\nKalau mau taman?\n\nClimenzo!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d18",
+        "shot": "D18",
+        "id": "D18",
+        "label": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+        "speaker": "demian",
+        "beat": "homes-reaction",
+        "text": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+        "spokenText": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+        "audioKey": "day3r3-d18",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-d23",
+        "shot": "D23",
+        "id": "D23",
+        "label": "Kita bisa masuk beneran ke sini?",
+        "speaker": "demian",
+        "beat": "game-question",
+        "text": "Kita bisa masuk beneran ke sini?",
+        "spokenText": "Kita bisa masuk beneran ke sini?",
+        "audioKey": "day3r3-d23",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-g02",
+        "shot": "G02",
+        "id": "G02",
+        "label": "Nah, ada modalnya!",
+        "speaker": "demian",
+        "beat": "starter-reaction",
+        "text": "Nah, ada modalnya!",
+        "spokenText": "Nah, ada modalnya!",
+        "audioKey": "day3r3-g02",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-g03",
+        "shot": "G03",
+        "id": "G03",
+        "label": "Kalau mau taman?",
+        "speaker": "demian",
+        "beat": "proposal-question",
+        "text": "Kalau mau taman?",
+        "spokenText": "Kalau mau taman?",
+        "audioKey": "day3r3-g03",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-e01",
+        "shot": "E01",
+        "id": "E01",
+        "label": "Climenzo!",
+        "speaker": "demian",
+        "beat": "final-answer",
+        "text": "Climenzo!",
+        "spokenText": "Climenzo!",
+        "audioKey": "day3r3-e01",
+        "duration": 4,
+        "gesture": "talk",
+        "minDuration": 1.5
+      }
+    ]
+  },
+  {
+    "actor": "eqa",
+    "voiceId": "f264d09b4320461b9873abbe9283b505",
+    "voiceName": "Prudence - Cultivated & Precise",
+    "language": "id",
+    "submittedText": "Pak, sekolahnya!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d04",
+        "shot": "D04",
+        "id": "D04",
+        "label": "Pak, sekolahnya!",
+        "speaker": "eqa",
+        "beat": "plaza",
+        "text": "Pak, sekolahnya!",
+        "spokenText": "Pak, sekolahnya!",
+        "audioKey": "day3r3-d04",
+        "duration": 4,
+        "gesture": "talk"
+      }
+    ]
+  },
+  {
+    "actor": "cecil",
+    "voiceId": "31001ed1e3e54c79a88458cb03ca123a",
+    "voiceName": "Leanne - Expressive & Earthy",
+    "language": "id",
+    "submittedText": "Rumah sakit juga!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d05",
+        "shot": "D05",
+        "id": "D05",
+        "label": "Rumah sakit juga!",
+        "speaker": "cecil",
+        "beat": "plaza",
+        "text": "Rumah sakit juga!",
+        "spokenText": "Rumah sakit juga!",
+        "audioKey": "day3r3-d05",
+        "duration": 4,
+        "gesture": "talk"
+      }
+    ]
+  },
+  {
+    "actor": "xel",
+    "voiceId": "f9a2c5a6b6be456a8ed59dac8a319f2a",
+    "voiceName": "Lachie - Direct & Reassuring",
+    "language": "id",
+    "submittedText": "Siap. Mulai dari fondasi!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d07",
+        "shot": "D07",
+        "id": "D07",
+        "label": "Siap. Mulai dari fondasi!",
+        "speaker": "xel",
+        "beat": "start-build",
+        "text": "Siap. Mulai dari fondasi!",
+        "spokenText": "Siap. Mulai dari fondasi!",
+        "audioKey": "day3r3-d07",
+        "duration": 4,
+        "gesture": "talk"
+      }
+    ]
+  },
+  {
+    "actor": "sari",
+    "voiceId": "3e3d02302c2f4da498ea6d8a4d9ffbf6",
+    "voiceName": "Annie - Excited",
+    "language": "id",
+    "submittedText": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu buat Kartu Warga. Ini KTP kamu di game.\n\nSetelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan alat dasar sesuai pekerjaan.\n\nBisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerjakan tugas Bu Rani.\n\nBuka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.\n\nGiliran kamu. Daftar dan masuk ke kotanya!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d24",
+        "shot": "D24",
+        "id": "D24",
+        "label": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu ",
+        "speaker": "sari",
+        "beat": "register",
+        "text": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu buat Kartu Warga. Ini KTP kamu di game.",
+        "spokenText": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu buat Kartu Warga. Ini KTP kamu di game.",
+        "audioKey": "day3r3-d24",
+        "duration": 4,
+        "minDuration": 12
+      },
+      {
+        "key": "day3r3-d27",
+        "shot": "D27",
+        "id": "D27",
+        "label": "Setelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan",
+        "speaker": "sari",
+        "beat": "starter",
+        "text": "Setelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan alat dasar sesuai pekerjaan.",
+        "spokenText": "Setelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan alat dasar sesuai pekerjaan.",
+        "audioKey": "day3r3-d27",
+        "duration": 4,
+        "minDuration": 7
+      },
+      {
+        "key": "day3r3-d28",
+        "shot": "D28",
+        "id": "D28",
+        "label": "Bisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerj",
+        "speaker": "sari",
+        "beat": "available",
+        "text": "Bisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerjakan tugas Bu Rani.",
+        "spokenText": "Bisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerjakan tugas Bu Rani.",
+        "audioKey": "day3r3-d28",
+        "duration": 4,
+        "minDuration": 8
+      },
+      {
+        "key": "day3r3-g01",
+        "shot": "G01",
+        "id": "G01",
+        "label": "Buka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.",
+        "speaker": "sari",
+        "beat": "proposal",
+        "text": "Buka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.",
+        "spokenText": "Buka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.",
+        "audioKey": "day3r3-g01",
+        "duration": 4,
+        "minDuration": 7
+      },
+      {
+        "key": "day3r3-d32",
+        "shot": "D32",
+        "id": "D32",
+        "label": "Giliran kamu. Daftar dan masuk ke kotanya!",
+        "speaker": "sari",
+        "beat": "closing",
+        "text": "Giliran kamu. Daftar dan masuk ke kotanya!",
+        "spokenText": "Giliran kamu. Daftar dan masuk ke kotanya!",
+        "audioKey": "day3r3-d32",
+        "duration": 4,
+        "minDuration": 4
+      }
+    ]
+  }
+]

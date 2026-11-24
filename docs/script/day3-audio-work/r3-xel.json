@@ -1,0 +1,52 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/f9a2c5a6b6be456a8ed59dac8a319f2a/id=79b4b91709724eed86d5a3526de3d830.wav",
+  "duration": 2.607687074829932,
+  "original_words": [
+    {
+      "text": "Siap",
+      "start_time": 0.299,
+      "end_time": 0.64
+    },
+    {
+      "text": "Mulai",
+      "start_time": 1.28,
+      "end_time": 1.579
+    },
+    {
+      "text": "dari",
+      "start_time": 1.621,
+      "end_time": 1.835
+    },
+    {
+      "text": "fondasi",
+      "start_time": 1.877,
+      "end_time": 2.432
+    }
+  ],
+  "actor": "xel",
+  "voiceId": "f9a2c5a6b6be456a8ed59dac8a319f2a",
+  "voiceName": "Lachie - Direct & Reassuring",
+  "language": "id",
+  "submittedText": "Siap. Mulai dari fondasi!",
+  "sourceCues": [
+    {
+      "key": "day3r3-d07",
+      "shot": "D07",
+      "id": "D07",
+      "label": "Siap. Mulai dari fondasi!",
+      "speaker": "xel",
+      "beat": "start-build",
+      "text": "Siap. Mulai dari fondasi!",
+      "spokenText": "Siap. Mulai dari fondasi!",
+      "audioKey": "day3r3-d07",
+      "duration": 4,
+      "gesture": "talk"
+    }
+  ],
+  "status": "generated",
+  "requestedModel": "server_default",
+  "originalFile": "day3r3-xel-original.wav",
+  "review": {
+    "fullListening": false
+  }
+}

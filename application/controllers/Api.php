@@ -17,6 +17,7 @@ class Api extends CI_Controller
         $method = $this->input->method(TRUE);
         $resource = $this->input->get('resource');
         $payload = $method === 'POST' ? json_decode($this->input->raw_input_stream, TRUE) : NULL;
+        if ($resource === 'citizen_proposal' || ($method === 'POST' && is_array($payload) && ($payload['resource'] ?? NULL) === 'citizen_proposal')) return $this->citizen_proposal($method,$payload);
         if ($resource === 'admin_operations') return $this->admin_operations($method);
         if ($method === 'POST' && is_array($payload) && ($payload['resource'] ?? NULL) === 'citizen_home') return $this->citizen_home($method,$payload);
         if ($resource === 'citizen_home') return $this->citizen_home($method,$payload);
@@ -52,6 +53,28 @@ class Api extends CI_Controller
         $case = $this->semesta->get_case();
         if ($case === NULL) return $this->output->set_status_header(404)->set_output('{"error":"Episode belum tersedia di database."}');
         return $this->output->set_output($case);
+    }
+
+    private function citizen_proposal($method,$payload=NULL)
+    {
+        $this->output->set_header('Cache-Control: no-store');
+        if(!in_array($method,array('GET','POST'),TRUE))return $this->output->set_status_header(405)->set_output('{"error":"Metode tidak didukung."}');
+        $id=(int)$this->session->userdata('citizen_id');
+        if(!$id)return $this->output->set_status_header(401)->set_output('{"error":"Masuk sebagai warga untuk mengusulkan pembangunan."}');
+        if(!$this->database_ready())return $this->database_error();
+        if(!$this->db->table_exists('citizen_proposals'))return $this->output->set_status_header(503)->set_output('{"error":"Usulan belum aktif. Admin perlu menjalankan migrasi usulan."}');
+        $this->load->model('Citizen_proposal_model','proposals');
+        try {
+            $binding=$this->session->userdata('citizen_proposal_binding');
+            if(!is_array($binding)||($binding['id']??NULL)!==$id){$binding=array('id'=>$id,'csrf'=>bin2hex(random_bytes(32)));$this->session->set_userdata('citizen_proposal_binding',$binding);}
+            if($method==='POST'){
+                if(strlen($this->input->raw_input_stream)>2500)throw new Citizen_proposal_error('Permintaan terlalu besar.',413);
+                if(!is_array($payload)||!is_string($payload['csrfToken']??NULL)||!hash_equals($binding['csrf'],$payload['csrfToken']))throw new Citizen_proposal_error('Sesi berubah. Tutup lalu buka kembali formulir.',403);
+            }
+            $result=$this->proposals->run($id,$method==='POST'?$payload:NULL);$result['csrfToken']=$binding['csrf'];
+            return $this->output->set_output(json_encode($result,JSON_UNESCAPED_UNICODE));
+        }catch(Citizen_proposal_error $e){return $this->output->set_status_header($e->status)->set_output(json_encode(array('error'=>$e->getMessage()),JSON_UNESCAPED_UNICODE));}
+        catch(Throwable $e){log_message('error','Citizen proposal failed: '.get_class($e));return $this->output->set_status_header(503)->set_output('{"error":"Usulan belum tersimpan. Coba kirim kembali tanpa mengganti isinya."}');}
     }
 
     private function admin_operations($method)
@@ -134,7 +157,8 @@ class Api extends CI_Controller
             }
             if ($resource !== 'world_state') $result['csrfToken'] = $csrf;
             // Refresh transport time even when the mutation itself is replayed.
-            if ($resource === 'world_work') $result['serverTime'] = republic_world_iso(republic_world_now());
+            $result['serverTime'] = republic_world_iso(republic_world_now());
+            $result['clock'] = array('timezone'=>'Asia/Jakarta','utcOffsetMinutes'=>420);
             return $this->output->set_output(json_encode($result, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         } catch (Republic_world_error $error) {
             return $this->output->set_status_header($error->status)->set_output(json_encode(array_merge(array('error'=>$error->getMessage(),'code'=>$error->error_code),$error->details), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));

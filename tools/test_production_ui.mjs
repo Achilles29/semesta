@@ -14,7 +14,7 @@ for(const name of ['window','document','navigator','localStorage','Event','Custo
 let clock=0,frame;
 Object.defineProperty(globalThis,'performance',{value:{now:()=>clock*1000},configurable:true});
 globalThis.requestAnimationFrame=callback=>{frame=callback;return 1;};globalThis.cancelAnimationFrame=()=>{frame=null;};
-win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawImage(){},save(){},restore(){},fillRect(){},strokeRect(){},fillText(){},setLineDash(){},createLinearGradient(){return {addColorStop(){}};},measureText:t=>({width:t.length*8})};};
+win.HTMLCanvasElement.prototype.getContext=function(){return {canvas:this,drawImage(){},save(){},restore(){},translate(){},beginPath(){},roundRect(){},fill(){},fillRect(){},strokeRect(){},fillText(){},setLineDash(){},createLinearGradient(){return {addColorStop(){}};},measureText:t=>({width:t.length*8})};};
 win.document.body.innerHTML='<section class="admin-view active"><div id="studio"></div></section>';
 const host=win.document.getElementById('studio'),q=s=>host.querySelector(s);
 let creates=0,disposals=0,rendered=[],exportRequest,mode='complete',gpuSize=[],encodedSizes=[],rendererCanvas;
@@ -83,10 +83,11 @@ mapHost.querySelector('[data-command="play"]').click();await flush();assert.matc
 localStorage.clear();studio=mountProductionStudio(host,{...dependencies,mixAudio:async()=>null});await flush();assert.equal(host.querySelectorAll('[data-shot]').length,latestShotCount,'Fresh visit defaults to latest Day 3');
 assert.equal(host.querySelectorAll('[data-cast]').length,scenarioForEpisode('day3').cast.length,'All Day 3 speakers are available in the editor');
 assert.equal(q('[data-command="add-cast"]').disabled,false,'The studio supports the 49-character scene and additional actors up to 64');
-assert.match(q('[data-audio-readiness]').textContent,/33 rekaman/);
+assert.match(q('[data-audio-readiness]').textContent,/21 cue suara terpasang/);
 change('[data-shot="0"] [data-shot-field="caption"]','Kalimat Day 3 yang diperbaiki');
 assert.equal(JSON.parse(localStorage.getItem('semesta.production.workspace.v1')).shots[0].plannedVoice,undefined,'Editing a draft caption cannot retain a stale planned voice transcript');
-click('[data-command="day3-full"]');await flush();assert.equal(host.querySelectorAll('[data-shot]').length,33);
+assert.equal(JSON.parse(localStorage.getItem('semesta.production.workspace.v1')).shots[0].speeches,undefined,'Editing caption also detaches measured audio');
+click('[data-command="day3-full"]');await flush();assert.equal(host.querySelectorAll('[data-shot]').length,latestShotCount);
 const total=Number(q('[data-seek]').max);
 const seek=q('[data-seek]');seek.value=total-.05;seek.dispatchEvent(new win.Event('input',{bubbles:true}));
 assert.equal(getWorldPhase(),'before-day2','Seeking to the ending must not build the city');

@@ -1,3 +1,4 @@
+import {currentRepublicLight} from './republic-clock.js';
 import * as THREE from 'three';
 import {createCapitalContext,createRepublicTerrainStream} from './republic-capital-scene.js';
 import {WORLD_PHASE_EVENT,worldDestination,getWorldPhase,normalizeWorldPhase,terrainHeight,moveWorldPosition,worldFloorHeight} from './republic-world-layout.js';
@@ -67,15 +68,15 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   function setZoom(value){zoom=clampWorldZoom(value);zoomValue.textContent=zoom.toFixed(1)+' m';zoomIn.disabled=zoom<=WORLD_ZOOM_BOUNDS.min;zoomOut.disabled=zoom>=WORLD_ZOOM_BOUNDS.max;}setZoom(zoom);
   const listen=(target,type,callback,options={})=>target?.addEventListener(type,callback,{...options,signal});
   listen(zoomIn,'click',()=>setZoom(zoom/1.22));listen(zoomOut,'click',()=>setZoom(zoom*1.22));
-  const scene=new THREE.Scene();scene.background=new THREE.Color('#b5d5d5');scene.fog=new THREE.Fog('#b5d5d5',260,1500);
+  const scene=new THREE.Scene();scene.background=new THREE.Color('#80c9ed');scene.fog=new THREE.Fog('#80c9ed',260,1500);
   const camera=new THREE.PerspectiveCamera(48,1,.08,4500),resources={geometries:new Set(),materials:new Set(),textures:new Set()};
   let renderer;
   try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});}catch(error){disposeHud();ui.remove();parent.style.position=oldPosition;canvas.style.touchAction=oldTouch;throw error;}
-  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
+  renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.75));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-  scene.add(new THREE.HemisphereLight('#e5f1ef','#8b8563',2.2));
+  const hemisphere=new THREE.HemisphereLight('#d5edff','#344c3b',1.4);scene.add(hemisphere);const daySky=new THREE.Color('#80c9ed'),nightSky=new THREE.Color('#101e3a');
   const sun=new THREE.DirectionalLight('#fff1d7',3.2);sun.position.set(20,35,25);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);sun.shadow.camera.left=-26;sun.shadow.camera.right=26;sun.shadow.camera.top=26;sun.shadow.camera.bottom=-26;sun.shadow.camera.near=1;sun.shadow.camera.far=100;sun.shadow.normalBias=.025;sun.shadow.bias=-.00015;scene.add(sun,sun.target);
-  const context=createCapitalContext({parent:scene,...resources,phase,includeCore:true,city:cityId}),terrain=createRepublicTerrainStream({parent:scene,city:cityId,reservedBounds:[...(cityId==='jakarta'?[STORY_NEIGHBORHOOD]:[]),{minX:HOME_LAYOUT.x-HOME_LAYOUT.width/2-3,maxX:HOME_LAYOUT.x+HOME_LAYOUT.width/2+3,minZ:HOME_LAYOUT.z-HOME_LAYOUT.depth/2-3,maxZ:HOME_LAYOUT.entrance.z+3}]});terrain.update(position.x,position.z);
+  const context=createCapitalContext({parent:scene,...resources,phase,includeCore:true,city:cityId}),terrain=createRepublicTerrainStream({parent:scene,city:cityId,reservedBounds:[...(cityId==='jakarta'?[STORY_NEIGHBORHOOD]:[]),{minX:HOME_LAYOUT.x-HOME_LAYOUT.width/2-3,maxX:HOME_LAYOUT.x+HOME_LAYOUT.width/2+3,minZ:HOME_LAYOUT.z-HOME_LAYOUT.depth/2-3,maxZ:HOME_LAYOUT.entrance.z+3}]});terrain.update(position.x,position.z);context.setDetailBounds(terrain.bounds);
   const storyHomes=createStoryHomes({scene,city:cityId});
   const construction=mountConstruction({scene,ui,canvas,getPosition:()=>position,getCitizen:()=>swapCitizen,getYaw:()=>player?.figure.rotation.y||0,apiUrl,events:signal,beforeAction:async()=>{if(!await syncPresence({fresh:true}))throw new Error('Posisi belum tersinkron. Coba lagi saat koneksi kembali.');}});
   position.y=worldFloorHeight(position.x,position.z,{surfaces:context.surfaces,city:cityId});
@@ -164,7 +165,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   function teleport(point){
     if(interior||!point||!Number.isFinite(+point.x)||!Number.isFinite(+point.z))return false;
     const y=terrainHeight(+point.x,+point.z,cityId);if(y<-.17)return false;
-    Object.assign(position,{x:+point.x,z:+point.z,y});terrain.update(position.x,position.z);
+    Object.assign(position,{x:+point.x,z:+point.z,y});terrain.update(position.x,position.z);context.setDetailBounds(terrain.bounds);
     position.y=worldFloorHeight(position.x,position.z,collisionResources());
     player?.figure.position.set(position.x,position.y,position.z);lastPopulation=0;onState(state());return true;
   }
@@ -235,6 +236,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
   function tick(now){
     if(disposed)return;raf=requestAnimationFrame(tick);home.tick(now);if(document.hidden||paused()){lastTime=0;resetMovement();ui.style.visibility='hidden';return;}ui.style.visibility='';
     if(interior){lastTime=0;return;}
+    if(document.querySelector('dialog[open]'))resetMovement();
     const dt=lastTime?Math.min(.05,(now-lastTime)/1000):0;lastTime=now;
     if(swapCitizen?.id&&now-lastPresence>1600){lastPresence=now;void syncPresence();}
     let dx=Number(keys.has('KeyD')||keys.has('ArrowRight'))-Number(keys.has('KeyA')||keys.has('ArrowLeft'))+stick.x,dz=Number(keys.has('KeyS')||keys.has('ArrowDown'))-Number(keys.has('KeyW')||keys.has('ArrowUp'))+stick.z;
@@ -245,7 +247,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
       position.y=worldFloorHeight(position.x,position.z,collisionResources());
       const actual=dt?Math.hypot(position.x-previous.x,position.z-previous.z)/dt:0;player.figure.position.set(position.x,position.y,position.z);construction.resetActorPose();animateAvatar(player,actual,dt,{gait});construction.applyActorPose(player);
     }
-    terrain.update(position.x,position.z);
+    terrain.update(position.x,position.z);context.setDetailBounds(terrain.bounds);
     construction.tick(now);
     parcel.update(player,home.opportunity()?.action==='deliver');
     const homePriority=home.wantsInteraction();home.setActionVisible(chatPanel.hidden);construction.setActionVisible(!homePriority&&chatPanel.hidden);
@@ -272,6 +274,7 @@ export async function mountRepublicOpenWorld({canvas,city,entry,events,apiUrl,ac
     const obstruction=raycaster.intersectObjects(worldOccluders(),false).find(hit=>hit.distance>.25&&visible(hit.object)&&!(hit.object.material?.transparent&&hit.object.material.opacity<.6));
     if(obstruction)desiredCamera.copy(cameraTarget).addScaledVector(raycaster.ray.direction,Math.max(.7,obstruction.distance-.22));
     camera.position.copy(desiredCamera);camera.lookAt(cameraTarget);camera.updateMatrixWorld(true);
+    const daylight=currentRepublicLight(now);hemisphere.intensity=daylight.ambient;sun.intensity=daylight.sun;sun.color.set(daylight.day>.5?'#fff1d7':'#a3c5ff');scene.background.copy(nightSky).lerp(daySky,daylight.day);scene.fog.color.copy(scene.background);hint.dataset.clock=daylight.synced?daylight.label+' WIB':'';
     sun.position.set(position.x+20,position.y+35,position.z+25);sun.target.position.set(position.x,position.y,position.z);sun.target.updateMatrixWorld();
     renderer.render(scene,camera);
     if(now-lastLabels>100){lastLabels=now;playerLabel.hidden=true;let shown=0;for(const person of [...peers.values(),...residents.values()].sort((a,b)=>a.actor.figure.position.distanceToSquared(camera.position)-b.actor.figure.position.distanceToSquared(camera.position))){if(shown>=4){person.label.hidden=true;continue;}labelAt(person.actor,person.label);if(!person.label.hidden)shown++;}}

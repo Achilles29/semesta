@@ -1,0 +1,256 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=db9580ae9c234d8dbfd50d584b3176e2.wav",
+  "duration": 19.123786848072562,
+  "original_words": [
+    {
+      "text": "Hari",
+      "start_time": 0.341,
+      "end_time": 0.5547
+    },
+    {
+      "text": "ketiga",
+      "start_time": 0.597,
+      "end_time": 0.9387
+    },
+    {
+      "text": "Republik",
+      "start_time": 1.067,
+      "end_time": 1.536
+    },
+    {
+      "text": "Wekawekaweka",
+      "start_time": 1.621,
+      "end_time": 2.219
+    },
+    {
+      "text": "Duitnya",
+      "start_time": 2.901,
+      "end_time": 3.285
+    },
+    {
+      "text": "dari",
+      "start_time": 3.328,
+      "end_time": 3.4987
+    },
+    {
+      "text": "warga",
+      "start_time": 3.541,
+      "end_time": 3.84
+    },
+    {
+      "text": "Tapi",
+      "start_time": 4.224,
+      "end_time": 4.523
+    },
+    {
+      "text": "yang",
+      "start_time": 4.565,
+      "end_time": 4.6507
+    },
+    {
+      "text": "paling",
+      "start_time": 4.693,
+      "end_time": 4.821
+    },
+    {
+      "text": "bangga",
+      "start_time": 4.864,
+      "end_time": 5.248
+    },
+    {
+      "text": "presidennya",
+      "start_time": 5.803,
+      "end_time": 6.443
+    },
+    {
+      "text": "Bisa",
+      "start_time": 6.997,
+      "end_time": 7.424
+    },
+    {
+      "text": "Sekarang",
+      "start_time": 7.765,
+      "end_time": 8.1067
+    },
+    {
+      "text": "warga",
+      "start_time": 8.149,
+      "end_time": 8.405
+    },
+    {
+      "text": "bisa",
+      "start_time": 8.448,
+      "end_time": 8.6187
+    },
+    {
+      "text": "masuk",
+      "start_time": 8.661,
+      "end_time": 8.917
+    },
+    {
+      "text": "langsung",
+      "start_time": 8.96,
+      "end_time": 9.344
+    },
+    {
+      "text": "ketemu",
+      "start_time": 9.685,
+      "end_time": 9.984
+    },
+    {
+      "text": "pemain",
+      "start_time": 10.027,
+      "end_time": 10.24
+    },
+    {
+      "text": "lain",
+      "start_time": 10.325,
+      "end_time": 10.496
+    },
+    {
+      "text": "yang",
+      "start_time": 10.581,
+      "end_time": 10.6667
+    },
+    {
+      "text": "sedang",
+      "start_time": 10.709,
+      "end_time": 10.9227
+    },
+    {
+      "text": "online",
+      "start_time": 11.008,
+      "end_time": 11.136
+    },
+    {
+      "text": "Belum",
+      "start_time": 11.733,
+      "end_time": 11.904
+    },
+    {
+      "text": "muncul",
+      "start_time": 11.947,
+      "end_time": 12.2027
+    },
+    {
+      "text": "di",
+      "start_time": 12.245,
+      "end_time": 12.3307
+    },
+    {
+      "text": "cerita",
+      "start_time": 12.373,
+      "end_time": 12.672
+    },
+    {
+      "text": "Sabar",
+      "start_time": 12.91,
+      "end_time": 13.379
+    },
+    {
+      "text": "kamu",
+      "start_time": 13.72,
+      "end_time": 13.934
+    },
+    {
+      "text": "nggak",
+      "start_time": 13.976,
+      "end_time": 14.1469
+    },
+    {
+      "text": "dilupakan",
+      "start_time": 14.19,
+      "end_time": 14.702
+    },
+    {
+      "text": "Warganya",
+      "start_time": 15.299,
+      "end_time": 15.896
+    },
+    {
+      "text": "kami",
+      "start_time": 15.939,
+      "end_time": 16.152
+    },
+    {
+      "text": "masukkan",
+      "start_time": 16.195,
+      "end_time": 16.536
+    },
+    {
+      "text": "bertahap",
+      "start_time": 16.579,
+      "end_time": 17.091
+    },
+    {
+      "text": "Mainnya",
+      "start_time": 17.475,
+      "end_time": 17.816
+    },
+    {
+      "text": "sudah",
+      "start_time": 17.859,
+      "end_time": 18.072
+    },
+    {
+      "text": "bisa",
+      "start_time": 18.115,
+      "end_time": 18.2856
+    },
+    {
+      "text": "ikut",
+      "start_time": 18.328,
+      "end_time": 18.584
+    }
+  ],
+  "actor": "narrator",
+  "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+  "voiceName": "gufron",
+  "language": "id",
+  "submittedText": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.\n\nBisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.\n\nBelum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+  "sourceCues": [
+    {
+      "key": "day3r3-i00",
+      "shot": "I00",
+      "id": "I00",
+      "label": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling ban",
+      "speaker": "narrator",
+      "beat": "arrival",
+      "text": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.",
+      "spokenText": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.",
+      "audioKey": "day3r3-i00",
+      "duration": 4,
+      "minDuration": 7
+    },
+    {
+      "key": "day3r3-g00",
+      "shot": "G00",
+      "id": "G00",
+      "label": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang on",
+      "speaker": "narrator",
+      "beat": "game-intro",
+      "text": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.",
+      "spokenText": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.",
+      "audioKey": "day3r3-g00",
+      "duration": 4
+    },
+    {
+      "key": "day3r3-w00",
+      "shot": "W00",
+      "id": "W00",
+      "label": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan",
+      "speaker": "narrator",
+      "beat": "waiting",
+      "text": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+      "spokenText": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+      "audioKey": "day3r3-w00",
+      "duration": 4
+    }
+  ],
+  "status": "generated",
+  "requestedModel": "server_default",
+  "originalFile": "day3r3-narrator-original.wav",
+  "review": {
+    "fullListening": false
+  }
+}

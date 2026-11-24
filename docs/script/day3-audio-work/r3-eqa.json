@@ -1,0 +1,42 @@
+{
+  "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/f264d09b4320461b9873abbe9283b505/id=7b3ab749a602483cb8f5703cc1810f00.wav",
+  "duration": 1.606825396825397,
+  "original_words": [
+    {
+      "text": "Pak",
+      "start_time": 0.299,
+      "end_time": 0.512
+    },
+    {
+      "text": "sekolahnya",
+      "start_time": 0.768,
+      "end_time": 1.323
+    }
+  ],
+  "actor": "eqa",
+  "voiceId": "f264d09b4320461b9873abbe9283b505",
+  "voiceName": "Prudence - Cultivated & Precise",
+  "language": "id",
+  "submittedText": "Pak, sekolahnya!",
+  "sourceCues": [
+    {
+      "key": "day3r3-d04",
+      "shot": "D04",
+      "id": "D04",
+      "label": "Pak, sekolahnya!",
+      "speaker": "eqa",
+      "beat": "plaza",
+      "text": "Pak, sekolahnya!",
+      "spokenText": "Pak, sekolahnya!",
+      "audioKey": "day3r3-d04",
+      "duration": 4,
+      "gesture": "talk"
+    }
+  ],
+  "status": "generated",
+  "requestedModel": "server_default",
+  "originalFile": "day3r3-eqa-original.wav",
+  "review": {
+    "fullListening": false
+  }
+}

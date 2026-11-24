@@ -43,6 +43,10 @@ try{
   const clips=JSON.parse(await readFile(resolve(root,'game-src/production-day2-audio.json'),'utf8'));
   const clip=clips['day2r3-narrator-03'];
   privatePaths.push('public/audio/produksi/day-2/'+clip.file,'assets/game/audio/produksi/day-2/'+clip.file);
+  const day3=JSON.parse(await readFile(resolve(root,'game-src/production-day3-audio.json'),'utf8'));
+  privatePaths.push('game-src/production-day3.js','game-src/production-day3-audio.json','public/audio/produksi/day-3/'+day3['day3r2-i00'].file,'assets/game/audio/produksi/day-3/'+day3['day3r2-i00'].file);
+  privatePaths.push('game-src/production-day3-r3.js');
+  for(const key of ['day3r3-i00','day3r3-d24'])privatePaths.push('public/audio/produksi/day-3/'+day3[key].file,'assets/game/audio/produksi/day-3/'+day3[key].file);
   for(const path of privatePaths){
     const denied=await request(path,{headers:{Cookie:guestCookie}});assert.equal(denied.status,403,'Non-admin: '+path);assert.match(denied.headers.get('cache-control'),/no-store/);await denied.arrayBuffer();
     const allowed=await request(path,{headers:{Cookie:adminCookie}});assert.equal(allowed.status,200,'Admin: '+path);assert.match(allowed.headers.get('cache-control'),/private.*no-store/);assert.equal(allowed.headers.get('x-content-type-options'),'nosniff');

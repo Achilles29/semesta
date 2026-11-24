@@ -1,8 +1,18 @@
 # Konten, kanon dan game
 
+## Episode aktif: Day 3 R3 pendek
+
+**33 shot / 113,48 detik, 21 dialog**, sudah terpasang menggantikan versi panjang. Narator tiga bagian; Sari memandu daftar/profesi/avatar/Kartu Warga, subsidi dan 1.000 koin, jelajah/chat/tugas Bu Rani serta usulan pembangunan. Oke Gas mengiringi montase 20 detik tanpa narator; papan rumah Demian terbaca sebelum reaksi; akhir mengembalikan kredit kepada Climenzo. Antarmuka merupakan simulasi berlabel; bukti fitur lokal tidak menggantikan smoke test domain server. Review dengar/MP4 penuh tetap terbuka. Gedung ekonomi tidak dibangun dalam montase R3; alur usaha penuh tidak diiklankan sebagai aktif. Playback tetap tidak memublikasikan fase dunia.
+
+## Riwayat penyusunan sebelum penerapan R3
+
+**Penerapan kecil setelah draf:** gestur Pasca pada adegan mengambil kredit, menepis koreksi dan mengelak sudah terpasang di episode aktif. Alamat memakai klip Gufron baru “republik wekawekaweka dot kom”; acuan dan R3 mengikuti pelafalan itu. Tidak menambah ungkapan khas yang tidak relevan ke dialog. Runtime 42 shot / 260,67 detik; R3 dua menit tetap pekerjaan terpisah, bukan otomatis selesai. Review audio/visual manusia belum selesai.
+
+**Draf editorial terbaru:** [Day 3 R3](../docs/script/003-day-3-script-r3-draft.md), target sekitar dua menit (123 detik perkiraan), masih script sesuai permintaan pengguna. Oke Gas khusus montase pembangunan, pelafalan Wekawekaweka tersambung, papan rumah Demian terbaca dan demo game melalui percakapan. Belum mengganti susunan penuh episode 42 shot; pengecualian gestur dan klip alamat dicatat di atas. Klaim fitur “sekarang” wajib lolos smoke test server sebelum publikasi.
+
 ## Paket Day 3 — 24 November 2026
 
-[Konsep](../docs/script/003-day-3-concept.md) dan [33 shot](../docs/script/003-day-3-scenes.md): **Uangnya Warga, Jasanya Presiden**, 206 detik perkiraan. Visual terhubung ke Produksi Konten admin, musik seri dipakai kembali; 33 ujaran baru belum direkam. Day 1/Day 2 dan draf suntingan admin dipertahankan.
+[Konsep](../docs/script/003-day-3-concept.md) dan [42 shot](../docs/script/003-day-3-scenes.md): **Uangnya Warga, Jasanya Presiden**, 260,67 detik terukur. Intro narator dimulai dari udara, turun melewati sungai, baru membuka panggung. 42 suara, envelope dan subtitle memakai timing audio; mix penuh belum didengarkan dan MP4 belum diterima. Rumah Livia pink bertingkat; Angel vila mewah bernilai cerita Rp200 miliar (bukan saldo/harga transaksi akun). Form usulan game mengirim ke inbox admin, tidak otomatis mengesahkan pembangunan. Day 1/Day 2 dan draf suntingan tetap dipertahankan.
 
 Pembangunan enam tempat ibadah, sekolah, rumah sakit, stadion, damkar, polisi, kodim, lima fasilitas ekonomi dan 48 rumah mengikuti arahan pemilik, bukan hasil survei yang dikarang. Keadaan publik tetap memakai versi server; tidak ada publikasi fase Day 3 dari playback/seek/ekspor. Target episode belum menyatakan total biaya maupun sisa dana dari sumbangan 5 T.
 

@@ -60,7 +60,7 @@ export async function loadStoryAudio(scenario,context,{rhythm=true,voices=true,f
   }
   const speech=voices?cues.map(c=>({start:c.start,end:c.start+clips[c.key].duration})):[];
   for(const track of [...tracks.filter(t=>t.kind),...musicTracks])track.volumePoints=duckMusic(track,speech);
-  if(rhythm&&scenario.set==='construction')tracks.push(...constructionSounds(compiled,context));
+  if(rhythm&&['construction','development'].includes(scenario.set))tracks.push(...constructionSounds(compiled,context));
   return [...tracks,...musicTracks];
 }
 

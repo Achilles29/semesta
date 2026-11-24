@@ -1,3 +1,4 @@
+import {mountAdminCityPlanner} from './admin-city-planner.js';
 import {createWorldAsset,getDefaultWorldScene,preloadWorldAssets,WORLD_ASSET_LIBRARY} from './world-assets-3d-v2.js';
 import {mountAvatarStudio} from './avatar-v15-studio.js';
 const $=selector=>document.querySelector(selector);
@@ -573,5 +574,5 @@ async function initAvatarStudio() {
 
 // Only the authenticated admin template loads this entry.
 if(document.body.classList.contains('admin-body')){
-  initAdminNavigation();initSharedWorldAdmin();initDevelopmentAdmin();initProductionStudio();initAvatarStudio();initWorldEditor();initObjectGallery();initIdeasInbox();initCitizenDirectory();initVisitorLogs();initMailSettings();
+  initAdminNavigation();initSharedWorldAdmin();initDevelopmentAdmin();initProductionStudio();initAvatarStudio();mountAdminCityPlanner($('#adminCityPlanner'),{apiUrl:API_URL});let labStarted=false;$('#legacyWorldLab')?.addEventListener('toggle',e=>{if(e.target.open&&!labStarted){labStarted=true;initWorldEditor();}});initObjectGallery();initIdeasInbox();initCitizenDirectory();initVisitorLogs();initMailSettings();
 }

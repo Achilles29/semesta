@@ -1,3 +1,5 @@
+import {buildSignatureHome,signatureHome} from './signature-homes.js';
+import {republicGeometry} from './republic-geometry.js';
 import * as THREE from 'three';
 import {mergeGeometries} from 'three/addons/utils/BufferGeometryUtils.js';
 import {STORY_HOMES,STORY_ROADS,storyHomeGround} from './citizen-story-homes.js';
@@ -15,11 +17,13 @@ export function createStoryHomes({scene,city='jakarta'}={}){
     const matrix=new THREE.Matrix4().compose(new THREE.Vector3(...position),new THREE.Quaternion().setFromEuler(new THREE.Euler(0,yaw,rotation)),new THREE.Vector3(...size));
     batches.get(key).items.push(matrix);
   }
+  const specialResources={geometries:new Set(),materials:new Set(),textures:new Set()};const sg=republicGeometry({...specialResources,occluders});
   if(city==='jakarta'){
     for(const h of STORY_HOMES){
       const y=storyHomeGround(h),wall=['#e7d6b5','#d9dfcb','#dfc9b8','#cadbd9'][h.style],roof=['#9f5943','#58676b','#a87348','#65745d'][h.style];
       const minY=Math.min(...[-4,4].flatMap(x=>[-4,4].map(z=>terrainHeight(h.x+x,h.z+z))))-.12;
       add('#a79b87',[h.x,(minY+y)/2,h.z],[8.5,y-minY,8.5]);
+      if(signatureHome(h)){const building=sg.group(root,h.id,[h.x,y,h.z]),special=buildSignatureHome(sg,building,h);colliders.push({minX:h.x-4,maxX:h.x+4,minZ:h.z-4,maxZ:h.z+4,minY,maxY:y+special.height});continue;}
       add(wall,[h.x,y+1.55,h.z],[8,3.1,8]);
       add('#b8a78b',[h.x,y+.22,h.z+4.06],[8,.3,.12]);
       for(const sign of [-1,1]){
@@ -68,5 +72,5 @@ export function createStoryHomes({scene,city='jakarta'}={}){
     const material=new THREE.MeshStandardMaterial({color,roughness:.88,side:geo===gable?THREE.DoubleSide:THREE.FrontSide});materials.push(material);
     const mesh=new THREE.InstancedMesh(geo,material,items.length);items.forEach((m,i)=>mesh.setMatrixAt(i,m));mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingSphere();mesh.castShadow=true;mesh.receiveShadow=true;root.add(mesh);occluders.push(mesh);
   }
-  let disposed=false;return {root,colliders,surfaces,occluders,dispose(){if(disposed)return;disposed=true;root.removeFromParent();geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());}};
+  let disposed=false;return {root,colliders,surfaces,occluders,dispose(){if(disposed)return;disposed=true;root.removeFromParent();geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());Object.values(specialResources).forEach(set=>set.forEach(r=>r.dispose()));}};
 }

@@ -1,3 +1,4 @@
+import {REPUBLIC_RIVER,REPUBLIC_LAKE} from './republic-nature-layout.js';
 /** The atlas, road plan and live minimap share the world's public layout. */
 import {WORLD_DESTINATIONS, CAPITAL_LAYOUT, REGIONAL_LAYOUT, WORLD_LANDMASSES, getRegionalLayout, getWorldPhase, setWorldPhase, projectWorldPoint as projectCanonicalPoint} from './republic-world-layout.js';
 import {landscapeSvg} from './republic-map-art.js';
@@ -115,12 +116,16 @@ export function regionalLocation(id,city='jakarta'){
   return {...district,description:district.description||({urban:'Kawasan kota dan lahan untuk pusat kegiatan warga.',village:'Wilayah desa yang masih terbuka. Belum ada rumah atau fasilitas jadi.',countryside:'Bentang pedesaan dan lahan alami untuk pengembangan berikutnya.',forest:'Hutan dan jalur alam yang bisa dijelajahi.',mountains:'Dataran tinggi dengan jalur menuju perbukitan.'}[district.kind]||'Wilayah terbuka untuk dijelajahi.'),entry:Array.isArray(district.entry)?{x:district.entry[0],z:district.entry[1]}:district.entry};
 }
 
+function landscapeWaterSvg(bounds){
+  const project=p=>{const v=projectWorldPoint(p[0],p[1],bounds);return `${v.x*10},${v.y*10}`;},l=REPUBLIC_LAKE,p=projectWorldPoint(l.x,l.z,bounds);
+  return `<polyline data-landscape="river" points="${REPUBLIC_RIVER.points.map(project).join(' ')}" fill="none" stroke="#248ea5" stroke-width="${18/(bounds.maxX-bounds.minX)*1000}"/><ellipse data-landscape="lake" cx="${p.x*10}" cy="${p.y*10}" rx="${l.rx/(bounds.maxX-bounds.minX)*1000}" ry="${l.rz/(bounds.maxZ-bounds.minZ)*1000}" fill="#248ea5"/>`;
+}
 export function regionalPlanSvg(city='jakarta'){
   const data=getRegionalLayout(city),bounds=data.bounds,project=p=>{const v=projectWorldPoint(p[0],p[1],bounds);return `${v.x*10},${v.y*10}`;};
   const routes=data.routes.map(route=>`<polyline data-road="${escape(route.id)}" points="${(route.points||[route.from,route.to]).map(project).join(' ')}" fill="none" stroke="#f3d9a2" stroke-width="${Math.max(3,(route.width||5)/(bounds.maxX-bounds.minX)*1000)}" stroke-linejoin="round" stroke-linecap="round"/>`).join('');
   const colors={urban:'#dbbd8a',village:'#d6ce99',countryside:'#b7c995',forest:'#5a8b76',mountains:'#8a9990'};
   const zones=data.districts.map(district=>{const r=district.rect,p=projectWorldPoint(r.x,r.z,bounds),w=r.width/(bounds.maxX-bounds.minX)*1000,h=r.depth/(bounds.maxZ-bounds.minZ)*1000;return `<rect data-district-area="${escape(district.id)}" x="${p.x*10-w/2}" y="${p.y*10-h/2}" width="${w}" height="${h}" rx="${Math.min(w,h)*.42}" fill="${colors[district.kind]||'#aec49c'}" fill-opacity=".15" stroke="#f1e7c0" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="4 5"/>`;}).join('');
-  return `<svg class="rm-regional-art" viewBox="0 0 1000 1000" preserveAspectRatio="none" role="img" aria-label="Wilayah ${escape(WORLD_DESTINATIONS[city]?.name||WORLD_DESTINATIONS.jakarta.name)}: kota, desa, pedesaan, hutan dan pegunungan"><rect width="1000" height="1000" fill="#286576"/>${landMassSvg(1000,1000,bounds)}${zones}${routes}</svg>`;
+  return `<svg class="rm-regional-art" viewBox="0 0 1000 1000" preserveAspectRatio="none" role="img" aria-label="Wilayah ${escape(WORLD_DESTINATIONS[city]?.name||WORLD_DESTINATIONS.jakarta.name)}: kota, desa, pedesaan, hutan dan pegunungan"><rect width="1000" height="1000" fill="#286576"/>${landMassSvg(1000,1000,bounds)}${zones}${landscapeWaterSvg(bounds)}${routes}</svg>`;
 }
 
 // Keep the actual map points fixed; move their labels with small leader lines.

@@ -8,30 +8,18 @@
       "node_modules/mediabunny/dist/modules/src/index.js"
     ]
   },
-  "_citizen-story-homes-BYRbRkd1.js": {
-    "file": "assets/citizen-story-homes-BYRbRkd1.js",
-    "name": "citizen-story-homes"
-  },
-  "_civic-development-layout-C1QSce1E.js": {
-    "file": "assets/civic-development-layout-C1QSce1E.js",
-    "name": "civic-development-layout",
-    "imports": [
-      "_citizen-story-homes-BYRbRkd1.js"
-    ]
-  },
-  "_preload-helper-CSQvMdCt.js": {
-    "file": "assets/preload-helper-CSQvMdCt.js",
+  "_preload-helper-C3evpBF1.js": {
+    "file": "assets/preload-helper-C3evpBF1.js",
     "name": "preload-helper",
     "imports": [
       "_rolldown-runtime-COiEfhsA.js"
     ]
   },
-  "_republic-capital-scene-7DEqRVP7.js": {
-    "file": "assets/republic-capital-scene-7DEqRVP7.js",
+  "_republic-capital-scene-C4r_LPkj.js": {
+    "file": "assets/republic-capital-scene-C4r_LPkj.js",
     "name": "republic-capital-scene",
     "imports": [
-      "_preload-helper-CSQvMdCt.js",
-      "_citizen-story-homes-BYRbRkd1.js"
+      "_preload-helper-C3evpBF1.js"
     ],
     "assets": [
       "assets/bgn-logo-official-CNL6oYL0.png"
@@ -41,27 +29,31 @@
     "file": "assets/rolldown-runtime-COiEfhsA.js",
     "name": "rolldown-runtime"
   },
+  "_signature-homes-D0aYZ5-3.js": {
+    "file": "assets/signature-homes-D0aYZ5-3.js",
+    "name": "signature-homes"
+  },
   "game-src/admin-development.js": {
-    "file": "assets/admin-development-DQ8YUC9m.js",
+    "file": "assets/admin-development-kco5iUpz.js",
     "name": "admin-development",
     "src": "game-src/admin-development.js",
     "isDynamicEntry": true,
     "imports": [
-      "_citizen-story-homes-BYRbRkd1.js",
-      "game-src/admin-main.js",
-      "_civic-development-layout-C1QSce1E.js"
+      "_preload-helper-C3evpBF1.js",
+      "game-src/admin-main.js"
     ]
   },
   "game-src/admin-main.js": {
-    "file": "assets/admin-CViyNnyx.js",
+    "file": "assets/admin-Bst6X-My.js",
     "name": "admin",
     "src": "game-src/admin-main.js",
     "isEntry": true,
     "imports": [
-      "_preload-helper-CSQvMdCt.js"
+      "_preload-helper-C3evpBF1.js",
+      "_signature-homes-D0aYZ5-3.js"
     ],
     "dynamicImports": [
-      "_preload-helper-CSQvMdCt.js",
+      "_preload-helper-C3evpBF1.js",
       "game-src/admin-world-state.js",
       "game-src/admin-development.js",
       "game-src/production-studio.js"
@@ -82,30 +74,28 @@
     "src": "game-src/citizen-home.css"
   },
   "game-src/main.js": {
-    "file": "assets/game-XJEEz0pg.js",
+    "file": "assets/game-DspTRUL-.js",
     "name": "game",
     "src": "game-src/main.js",
     "isEntry": true,
     "imports": [
-      "_preload-helper-CSQvMdCt.js",
-      "_citizen-story-homes-BYRbRkd1.js"
+      "_preload-helper-C3evpBF1.js"
     ],
     "dynamicImports": [
-      "_preload-helper-CSQvMdCt.js",
+      "_preload-helper-C3evpBF1.js",
       "game-src/republic-openworld.js"
     ]
   },
   "game-src/production-studio.js": {
-    "file": "assets/production-studio-DOJtHmLZ.js",
+    "file": "assets/production-studio-BnlyoQeH.js",
     "name": "production-studio",
     "src": "game-src/production-studio.js",
     "isDynamicEntry": true,
     "imports": [
-      "_preload-helper-CSQvMdCt.js",
-      "_civic-development-layout-C1QSce1E.js",
-      "_republic-capital-scene-7DEqRVP7.js",
-      "_citizen-story-homes-BYRbRkd1.js",
-      "game-src/admin-main.js"
+      "_preload-helper-C3evpBF1.js",
+      "game-src/admin-main.js",
+      "_signature-homes-D0aYZ5-3.js",
+      "_republic-capital-scene-C4r_LPkj.js"
     ],
     "dynamicImports": [
       "node_modules/mediabunny/dist/modules/src/index.js",
@@ -117,15 +107,15 @@
     "src": "game-src/republic-construction.css"
   },
   "game-src/republic-openworld.js": {
-    "file": "assets/republic-openworld-B33fW7e6.js",
+    "file": "assets/republic-openworld-BznyS5pw.js",
     "name": "republic-openworld",
     "src": "game-src/republic-openworld.js",
     "isDynamicEntry": true,
     "imports": [
-      "_preload-helper-CSQvMdCt.js",
-      "_republic-capital-scene-7DEqRVP7.js",
-      "_citizen-story-homes-BYRbRkd1.js",
-      "game-src/main.js"
+      "game-src/main.js",
+      "_preload-helper-C3evpBF1.js",
+      "_republic-capital-scene-C4r_LPkj.js",
+      "_signature-homes-D0aYZ5-3.js"
     ],
     "assets": [
       "assets/republic-construction-D84bOVJJ.css",
@@ -133,14 +123,14 @@
     ]
   },
   "node_modules/@mediabunny/aac-encoder/dist/bundles/mediabunny-aac-encoder.mjs": {
-    "file": "assets/mediabunny-aac-encoder-ByXRuI6i.js",
+    "file": "assets/mediabunny-aac-encoder-B5bsc0LF.js",
     "name": "mediabunny-aac-encoder",
     "src": "node_modules/@mediabunny/aac-encoder/dist/bundles/mediabunny-aac-encoder.mjs",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-COiEfhsA.js",
       "node_modules/mediabunny/dist/modules/src/index.js",
-      "_preload-helper-CSQvMdCt.js"
+      "_preload-helper-C3evpBF1.js"
     ],
     "dynamicImports": [
       "__vite-browser-external"

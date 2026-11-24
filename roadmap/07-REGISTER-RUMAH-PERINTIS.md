@@ -54,3 +54,7 @@ ID dan alamat stabil berasal dari `game-src/citizen-story-homes.json`; jangan me
 | Faras | Kampung Perintis F-06 | `founder-faras` | Belum ditautkan |
 | sheena | Kampung Perintis F-07 | `founder-sheena` | Belum ditautkan |
 | SANKIBOYy | Kampung Perintis F-08 | `founder-sankiboyy` | Belum ditautkan |
+
+## Variasi rumah 24 November 2026
+
+`founder-livia` / Kampung Perintis C-03: vila pink dua lantai. `founder-angel` / Kampung Perintis B-03: tiga lantai dan penthouse, aksen emas, kolam atap; nilai cerita Rp200 miliar. Keduanya memakai tapak 8 x 8 yang sama, tidak memindahkan alamat, tidak mengubah reservasi menjadi kepemilikan akun dan tidak memotong saldo. Model yang sama dipakai jelajah dan Day 3.

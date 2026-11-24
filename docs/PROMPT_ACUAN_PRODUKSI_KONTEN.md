@@ -6,9 +6,11 @@
 
 Dokumen ini adalah pegangan untuk menulis, menyutradarai, membuat, dan meninjau episode animasi Republik Wkwkwk. Gunakan bersama [konsep produk](KONSEP_REPUBLIK_WKWKWK.md), [panduan Studio](PRODUCTION_STUDIO.md), dan [naskah Day 1 terbaru](script/001-day-1-scenes.md). **Day 1 adalah contoh kesinambungan dunia, bukan cetakan cerita yang harus diulang.** Pisahkan selalu fitur yang telah tersedia dari usulan pengembangan mesin.
 
+**Cara membaca acuan:** aturan umum berada di bagian tematik; arahan khusus Day 3 berada di bagian tersendiri dan tidak otomatis berlaku untuk semua episode. Instruksi terbaru pengguna menjadi acuan bila mengubah keputusan sebelumnya; catat perubahan itu pada naskah dan kanon. Draf naskah bukan bukti bahwa episode, audio atau fitur server sudah diperbarui.
+
 ## Prompt tetap untuk setiap episode
 
-> Anda adalah penulis, sutradara animasi, editor, dan penata suara serial Republik Wkwkwk. Buat episode yang terasa sebagai kejadian di negara fiktif yang sama. Mulai dari masalah atau tujuan tokoh yang jelas; bangun sebab-akibat, reaksi, dan humor yang muncul dari situasi; akhiri dengan konsekuensi atau pertanyaan yang memberi warga alasan untuk berkomentar. Jangan mengandalkan narator untuk menjelaskan sesuatu yang dapat diperlihatkan oleh tindakan, properti, ekspresi, atau sudut kamera.
+> Anda adalah penulis, sutradara animasi, editor, dan penata suara serial Republik Wkwkwk. Buat episode yang terasa sebagai kejadian di negara fiktif yang sama. Mulai dari masalah atau tujuan tokoh yang jelas; bangun sebab-akibat, reaksi, dan humor yang muncul dari situasi; akhiri dengan konsekuensi dan satu ajakan yang sesuai tujuan episode, misalnya berkomentar atau masuk ke game. Jangan mengandalkan narator untuk menjelaskan sesuatu yang dapat diperlihatkan oleh tindakan, properti, ekspresi, atau sudut kamera.
 >
 > Pertahankan identitas visual, suara, hubungan antartokoh, dan perubahan dunia dari episode sebelumnya. Rancang kamera yang sinematik dan bergerak karena ada informasi, emosi, atau lelucon yang perlu ditunjukkan. Variasikan ukuran gambar, sudut, kedalaman, dan gerak kamera; sisakan shot tenang agar dialog serta punchline terbaca. Sinkronkan gerak, kamera, subtitle, musik, dan suara pada satu timeline. Hasil harus dapat diputar ulang dan diekspor pada waktu absolut yang sama.
 >
@@ -32,13 +34,25 @@ Isi brief episode berikut. Bila suatu keputusan belum ada, tulis `belum diputusk
 - **Pasca Bowow:** presiden fiktif yang sombong, arogan, sulit menerima koreksi, mencari pujian dan merasa paling memahami kebutuhan warga. Sejak revisi Day 2, ia mengambil kredit atas sumbangan/kerja orang lain, memotong keluhan, menepis koreksi dan membenarkan keputusan sendiri. Tunjukkan melalui dialog yang mengalir, arah pandang, ekspresi responsif, telapak stop/menepis dan tangan ke dada; jangan menahan ekspresi datar terlalu lama. Ini sifat tokoh fiktif, bukan diagnosis klinis atau penilaian medis terhadap orang nyata. Profil V15 `male-heavy`, safari putih, peci dan preset `v15-prabowo-inspired` dipertahankan. Suara tetap Alistaire — Authoritative & Articulate; tegas dan defensif sesuai situasi, tanpa mengganti identitas, memaksa teriakan terus-menerus atau meniru suara orang nyata. Ia belum berubah menjadi rendah hati pada penutup Day 2.
 - **Sari:** warga yang sigap dan ingin dinilai secara adil. Dialognya ramah lalu tegas ketika melihat perlakuan berbeda. Suara saat ini Annie — Excited. **Nama cerita Sari saat ini memakai preset visual `v15-laras`;** kunci identitas visualnya sebelum episode berikut agar tidak berubah tanpa alasan cerita.
 - **Joko:** musisi santai yang antusias, kemudian menyindir dengan ringan. Day 1 memakai `v15-joko-rockstar`, rambut spiky, denim slim, rompi gelap, gitar merah dan strap yang melekat pada torso. Suara saat ini Brodie — Breezy & Genuine. Gerak dan kamera harus memperlihatkan gitar saat ia diperkenalkan.
-- **Narator:** suara penjelas yang hangat, lugas, sedikit geli, dan memberi hubungan sebab-akibat. Tidak tampil sebagai avatar. Suara saat ini Gufron. Beri ruang agar penonton melihat kejadian sebelum narator menarik maknanya.
+- **Narator:** suara penjelas yang antusias, hangat, lugas, sedikit geli, dan memberi hubungan sebab-akibat. Tidak tampil sebagai avatar. Suara acuan Gufron. Hanya memberi konteks, penghubung dan penutup yang diperlukan; jangan membacakan daftar bangunan atau mengulang informasi yang sudah jelas di gambar. Beri ruang agar penonton melihat kejadian sebelum narator menarik maknanya.
 - **Ayam dan kucing:** figuran 3D dengan tujuan cerita, posisi, arah pandang, dan reaksi. Jangan hanya menaruhnya sebagai dekorasi; reaksi keduanya harus jelas ketika lelucon bergantung pada perbedaan perlakuan.
 
-Pertahankan suara dan wajah yang telah dipilih kecuali perubahan itu menjadi keputusan kreatif yang dicatat. Bila naskah ujaran berubah, buat ulang atau pilih ulang klip, ukur durasinya, perbarui timing kata/subtitle, dan simpan asal suara. Bukaan mulut saat ini mengikuti amplitudo audio, **belum** fonem yang tepat. Pemeriksaan transkrip otomatis membantu menemukan masalah, tetapi keputusan intonasi dan keterdengaran tetap memerlukan mendengar hasilnya.
+### Ciri dialog Pasca Bowow
+
+Ungkapan berikut adalah arahan pengguna untuk **tokoh parodi Pasca Bowow**, bukan daftar kutipan terverifikasi atau pernyataan faktual tentang tokoh nyata. Pertahankan kata khasnya, tetapi pilih sesuai sebab-akibat adegan. Arahan nada dan gestur bukan teks yang dibacakan.
+
+| Ungkapan | Pemicu dan fungsi dalam cerita | Nada, ekspresi dan gerak | Contoh penerapan fiktif |
+|---|---|---|---|
+| **“Saya dapat laporan…”** | Anak buah membawa laporan bahwa kinerja/programnya bagus dan lancar sampai pelosok desa, padahal kejadian yang ditampilkan justru bertentangan. Pasca menjadikan laporan sebagai alasan menepis keluhan. | Yakin, bangga, mengangguk sambil menunjukkan berkas; reaksi warga atau gambar berikut membongkar selisih laporan dan kenyataan. | “Saya dapat laporan, program kita lancar sampai pelosok desa!” Cut ke warga di depan fasilitas yang belum bisa digunakan; warga: “Yang lancar laporannya, Pak.” |
+| **“Sory ye.”** | Mengejek ringan setelah membanggakan diri, merasa menang argumen, atau menolak koreksi. Bukan permintaan maaf tulus. | Nada ngece, senyum miring, dagu sedikit terangkat; pendek dan santai, jangan diteriakkan. | “Yang menerima sumbangan kan saya. Sory ye.” |
+| **“Heeeyy, antek-antek asing!”** | Ledakan defensif ketika Pasca kehabisan alasan atau merasa kewibawaannya ditantang. Tunjukkan tuduhan itu sebagai pengalihan yang absurd dalam cerita, bukan fakta tentang warga. | Seruan marah sesaat; badan maju, telunjuk menunjuk, kemudian cut ke respons warga. Tetap memakai identitas suara tokoh yang sama. | Warga mengeluhkan jalan berlubang; Pasca berseru, lalu warga menjawab: “Saya warga sini, Pak. Rumah saya di situ.” |
+| **“Emang gue pikirin.”** | Menepis akibat keputusan atau beban yang harus ditanggung warga; memperlihatkan sikap tidak peduli. | Nyinyir, lirih tetapi jelas, bahu terangkat atau tangan menepis, lalu berpaling. | Setelah ditanya siapa yang mengurus dampak keputusannya: “Emang gue pikirin.” Tahan reaksi warga sesaat agar akibat sikapnya terasa. |
+
+Jangan memaksakan keempat ungkapan dalam setiap episode. Pilih yang memperkuat konflik atau punchline; hindari mengulang ungkapan yang sama tanpa perkembangan. Ragam “saya” boleh bergeser ke “gue” saat menepis, sesuai ungkapan khasnya. Untuk pola laporan, perlihatkan bukti visual yang berlawanan sebelum atau segera setelah klaim, bukan narator panjang yang menjelaskan lelucon. Ini panduan penulisan berikutnya, bukan instruksi otomatis mengganti dialog episode aktif.
 
 ### Ketentuan tambahan: suara dan nama karakter
 
+- Pertahankan suara dan wajah yang telah dipilih kecuali perubahan itu menjadi keputusan kreatif yang dicatat. Nama suara pada profil merupakan acuan; file provenance/pemetaan episode mencatat take yang benar-benar dipakai. Bila ada perubahan yang disetujui, perbarui profil dan pemetaan bersama, jangan diam-diam mengganti suara.
 - Suara mengikuti jenis kelamin karakter yang ditetapkan pengguna: perempuan memakai suara perempuan, laki-laki memakai suara laki-laki, dengan usia dan karakter suara yang cocok. Identitas yang belum disebutkan dicatat sebagai sementara sesuai avatar, tidak dianggap fakta pemilik akun. Pilih dan dengarkan suara yang sesuai; jangan menggantinya hanya dengan perubahan pitch.
 - Satu tokoh mempertahankan suara yang sama untuk dialog biasa, keluhan, teriakan, tawa dan episode berikut. Kerumunan campuran tidak otomatis memakai satu suara laki-laki untuk seluruh warga. Pemetaan tokoh–suara–gender–take dicatat sebelum sintesis.
 - Nama tampil **di atas kepala ketika ukuran karakter dan ruang gambar memungkinkan label terbaca**. Pada medium/close-up prioritaskan pembicara dan tokoh fokus, termasuk saat diam atau membelakangi kamera. Ikuti kepala/rambut/topi dan sisakan headroom; label pembicara pada subtitle tetap membantu identitas saat label kepala disembunyikan.
@@ -52,17 +66,26 @@ Pertahankan suara dan wajah yang telah dipilih kecuali perubahan itu menjadi kep
 
 ## Struktur cerita dan scene
 
-1. Buka dengan gambar/aksi yang segera mengungkap situasi. Dalam beberapa detik pertama, penonton harus tahu siapa yang menginginkan apa atau mengapa keadaan ini lucu.
+1. Buka dengan gambar/aksi yang segera mengungkap situasi. Untuk episode pembangunan, gunakan pengantar narator singkat dan perjalanan kamera dari bentang dunia menuju kota/lokasi aksi; jangan langsung menampilkan presiden. Perjalanan ini sekaligus menyampaikan masalah atau tujuan, bukan intro kosong yang menunda cerita.
 2. Setiap shot menyampaikan satu informasi, aksi, atau reaksi baru. Potong saat perhatian berpindah; jangan menambah gerak kamera hanya agar layar terus bergerak.
-3. Tunjukkan sebab sebelum akibat: tokoh melihat objek, kamera memperlihatkannya, lalu tokoh bertindak atau bereaksi. Sisakan jeda komedi singkat setelah kejutan.
+3. Tunjukkan sebab sebelum akibat: perlihatkan objek/informasi yang ditemukan tokoh sebelum reaksi atau punchline bergantung padanya. Untuk tulisan, beri insert yang sempat dibaca, jangan tertutup subtitle. Sisakan jeda komedi singkat setelah kejutan.
 4. Jaga kontinuitas set, posisi, pakaian, properti, cahaya, arah gerak, garis pandang, dan jumlah warga. Lapangan nol Day 1 berkembang bertahap menurut cerita; bangunan tidak muncul selesai tanpa proses atau keputusan yang ditunjukkan.
 5. Akhiri dengan konsekuensi dan satu ajakan yang spesifik. Usulan warga dapat mencakup pembangunan, acara, aturan, atau kegiatan. Jangan menyatakan hasil pilihan warga sebelum ada proses pengumpulan dan keputusan yang dapat dijelaskan.
+
+Warga berbicara menghadap lawan bicara/panggung. Kamera mencari sudut wajah dari sisi panggung; jangan memutar badan ke kamera hingga membelakangi presiden. Gunakan transisi reaksi singkat dan aliran dialog yang natural, tanpa menunggu setiap tokoh diam sempurna. Jika menyapa warga yang belum tampil, jelaskan bahwa penataan dilakukan bertahap tanpa menjanjikan tanggal atau jabatan.
 
 Jika naskah meminta warga marah/protes, wujudkan lewat ekspresi, gestur dan suara keluhan yang terdengar. Rancang peningkatan keributan, pembicara utama yang tetap jelas, serta respons yang menurunkannya; jangan menggantinya dengan reaksi diam atau narator menjelaskan bahwa warga marah. Emosi berlanjut ke shot berikut, bukan mendadak berubah gembira tanpa alasan.
 
 Untuk bangunan yang diminta mirip tempat nyata, tetapkan referensi foto bangunan yang benar-benar ada, lokasi dan tautan sumbernya. Periksa siluet atap, fasad, warna, bukaan, papan, skala manusia serta fungsi interior; pisahkan ciri yang terlihat dari keputusan adaptasi. Tahap fondasi sampai selesai harus menuju bentuk referensi yang sama. Jangan menyatakan satu foto sebagai desain nasional yang seragam. Nama parodi dalam cerita tetap dipertahankan.
 
 Untuk setiap shot, buat tabel dengan kolom **waktu/durasi, tujuan dramatik, pembicara/teks, pemeran dan ekspresi, aksi/posisi akhir, objek atau figuran, ukuran dan gerak kamera, alasan gerak kamera, musik/efek, teks utama/subtitle, serta transisi ke shot berikutnya**. Satu baris harus cukup jelas untuk diwujudkan di Studio dan diperiksa pada video hasilnya.
+
+## Tata kota dan pengenalan game
+
+- Jalan tetap terbuka, tapak tidak saling menembus, fasilitas utama memiliki skala megah dan identitas terbaca. Sungai, danau, taman dan pohon beragam menjadi orientasi kawasan. Rumah bernama mempertahankan ID/alamat dan aturan klaim; kesamaan nama akun tidak otomatis memberi hak atas rumah.
+- Pencahayaan konten ditetapkan pada timeline; jangan berubah mengikuti waktu ekspor. Siang-malam jam server hanya untuk gameplay.
+- Pengantar game menjelaskan manfaat melalui narator singkat atau percakapan tokoh, kemudian membuktikannya lewat tindakan di antarmuka. Ikuti satu perjalanan: daftar/profesi/avatar → Kartu Warga virtual → hak awal → jelajah dan chat → usulan pembangunan. Pilih detail sesuai fokus episode agar tidak menjadi monolog daftar fitur.
+- Tampilkan domain **republikwkwkwk.com** dengan jelas dan sebut alamatnya. Perlihatkan langkah, hasil dan status fitur. Usulan masuk tinjauan admin, bukan otomatis dibangun; belanja/usaha masih rencana sampai backend siap. Jangan mempromosikan fitur yang belum dirilis di server sebagai aktif; lakukan smoke test server sebelum publikasi video.
 
 ## Bahasa kamera sinematik
 
@@ -94,15 +117,26 @@ Contoh pengembangan **Day 1** untuk menilai arah kamera, bukan perintah mengubah
 
 ## Suara, musik, dan template seri
 
-- Rekam atau pilih suara **per identitas tokoh**, bukan suara acak per episode. Naskah dialog final menjadi sumber teks; ukur durasi suara aktual sebelum mengunci shot. Dokumentasikan versi take, sumber, pilihan suara, potongan, dan pelafalan.
-- Gunakan musik untuk memperkuat struktur adegan. Pada Day 1, Oke Gas muncul pada pembuka dan keputusan akhir; instrumental komedi mengisi dialog. Turunkan musik ketika ada ujaran, beri ruang pada jeda komedi, dan cocokkan gerak joget dengan ketukan yang sudah diperiksa melalui dengar.
+- Pengucapan merek: **Republik Wekawekaweka**, dengan `wekawekaweka` sebagai satu rangkaian tanpa jeda di tengah. Tulisan merek tetap Republik Wkwkwk. Dengarkan uji intro singkat sebelum membuat seluruh audio; ejaan saja bukan bukti pelafalan sudah benar.
+- Pengucapan alamat wajib **“republik wekawekaweka dot kom”**, bukan “titik kom”. Tulisan alamat tetap **republikwkwkwk.com**; ejaan fonetis hanya untuk ujaran.
+- Naskah dialog final menjadi sumber teks. Bila ujaran berubah, buat ulang atau pilih ulang klip, ukur durasi aktual sebelum mengunci shot, perbarui timestamp kata/subtitle dan simpan versi take, sumber, suara, potongan serta pelafalan. Jangan membagi timing kata secara seragam atau mempercepat suara untuk memaksa durasi.
+- Bukaan mulut saat ini mengikuti amplitudo audio, **belum** fonem yang tepat. Pemeriksaan transkrip otomatis membantu menemukan masalah, tetapi intonasi dan keterdengaran tetap diperiksa dengan mendengar hasilnya.
+- Setiap skenario wajib menentukan backsound per bagian: aset, titik masuk/keluar, fade, bagian yang ditonjolkan, ducking saat dialog dan jeda komedi. Cocokkan gerak joget/potongan musikal dengan ketukan yang telah didengarkan. Jangan menambahkan lirik lagu ke naskah dialog. Catatan kesinambungan Day 1: Oke Gas muncul pada pembuka dan keputusan akhir; instrumental komedi mengisi dialog.
+- Mix yang sama dipakai untuk pratinjau dan ekspor. Backsound harus benar-benar terdengar pada keduanya. Dengarkan awal/akhir musik, peralihan suara, pelafalan, tawa dan ekor ujaran; dialog jelas, musik tetap terasa, efek tidak menutup ujaran dan audio tidak pecah/terpotong. Musik vokal diturunkan/dihentikan ketika penjelasan game dimulai. Level akhir ditentukan dari hasil dengar, bukan angka volume semata.
 - Pertahankan template seri aktif: gradasi merah transparan di atas/bawah, label Day dan Republik Wkwkwk putih, teks utama singkat, subtitle frasa pendek pada bidang gelap, label pembicara kecil, dan sorotan kata sesuai timestamp. Jangan menghidupkan kembali bingkai emas/samping dari pratinjau lama tanpa keputusan desain baru.
 - Pastikan teks tidak menutupi wajah, tangan yang beraksi, gitar, hewan, atau objek utama. Subtitle mengikuti ujaran; teks utama memberi konteks atau punchline dan tidak mengulang semua kalimat.
-- Mix yang sama harus dipakai untuk pratinjau dan ekspor. Pemeriksaan wajib mencakup awal/akhir musik, peralihan suara, pelafalan Indonesia, tawa, volume narator terhadap dialog, dan tidak adanya suara yang terpotong.
+
+## Arahan khusus revisi Day 3 R3
+
+Status: [naskah R3](script/003-day-3-script-r3-draft.md) masih draf, belum mengganti episode/audio aktif. Ketentuan berikut khusus revisi ini; durasi episode lain mengikuti brief masing-masing.
+
+- Target sekitar **dua menit**. Pangkas pengulangan dan daftar panjang; narator hanya pengantar/penghubung yang diperlukan, sedangkan demo game dapat dipandu percakapan Demian–Sari. Durasi final mengikuti take alami.
+- Montase pembangunan memakai **Oke Gas**, dari berkas pengguna `docs/record/oke gas.aac` (sebutan pengguna: oke bos). Sisakan bagian pembangunan tanpa narasi agar musik dan proses membangun terasa.
+- Untuk “Ada nama saya”, tahan papan **RUMAH DEMIAN** sekitar dua detik, lalu tampilkan Demian menunjuk papan di depan rumah yang sama. Jangan pindah rumah, memakai aerial jauh atau menutup papan selama punchline.
 
 ## Keluaran yang diminta dari pembuat episode
 
-1. **Premis dan kesinambungan:** satu logline, keadaan dunia awal, perubahan dunia yang sah, konflik, payoff, dan pertanyaan untuk warga.
+1. **Premis dan kesinambungan:** satu logline, keadaan dunia awal, perubahan dunia yang sah, konflik, payoff, dan satu ajakan sesuai tujuan episode.
 2. **Lembar karakter:** preset/penampilan, hubungan, tujuan adegan, ekspresi, gestur, identitas suara, dan catatan pelafalan.
 3. **Skenario shot-by-shot:** tabel sesuai kolom di atas, dengan gerak kamera yang termotivasi dan penanda `tersedia` atau `perlu mesin` pada setiap teknik baru.
 4. **Rencana audio:** teks final, file/take suara, durasi terukur, musik/efek, titik ducking, dan jeda komedi.

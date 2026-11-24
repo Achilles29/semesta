@@ -1,6 +1,73 @@
 # Handover lokal ke server
 
-## Paket terbaru: Day 3, starter pack dan admin — 24 November 2026
+## Paket aktif R3 pendek — 24 November 2026
+
+Baseline tetap `5736160`; melanjutkan working tree lokal sebelumnya. **Day 3 sekarang 33 shot / 113,475918 detik (1:53), 21 dialog**, bukan versi 4:21. Tujuh master baru memakai identitas suara yang sama; satu dialog Climenzo digunakan ulang. Semua original, timestamp dan take lama dipertahankan di manifest/provenance agar suntingan lama masih dapat diputar.
+
+Lingkup: `production-day3-r3.js` sebagai penyusun episode, JSON dialog R3, tiga bagian narator, gestur Pasca, delapan potongan pembangunan dengan satu track Oke Gas kontinu 20 detik, insert papan rumah Demian, rumah Livia/Angel, demo game Sari–Demian, status usulan ditinjau dan penutup Climenzo. Panel game merupakan **simulasi berlabel**, bukan tangkapan akun/pemain server nyata. R3 tidak menerbitkan gedung/fase game dan tidak menjanjikan jual-beli aktif. Tidak ada migrasi database baru, commit atau push.
+
+Verifikasi lokal: tes durasi/21 cue/20 detik musik, kontinuitas sumber musik, rig/gestureDelay/seek tiga rasio, pusat papan Demian, migrasi fixture R2 utuh dan pelestarian edit manual, regresi Day 1/Day 2 dan UI studio. Mix offline `C:/tmp/day3-r3-mix-review.wav` 86 track, tanpa pengurangan gain untuk clipping. Review dengar manusia, browser/GPU dan MP4 penuh masih terbuka; jangan menandainya lulus dari tes CPU.
+
+[Empat gambar review offline R3](../docs/script/day3-r3-visual-review.jpg) diperiksa. Kamera rumah semula masuk atap rumah tetangga; diperbaiki dengan lensa 60/65 derajat agar tetap di gang, lalu dirender ulang. Papan terbaca dan wajah Sari tidak tertutup panel. Tes raycast memeriksa papan tidak terhalang pada tiga rasio. Build memakai dependensi lockfile (Vite 8.3.5); tidak ada perubahan package.json/package-lock.json. HTTP lokal membuktikan 23 aset privat (termasuk suara R3) dapat dimuat admin dan ditolak untuk tamu; sembilan aset publik/shared tetap tersedia. Ini bukan review gerakan GPU atau bukti MP4 penuh.
+
+Sesudah paket diterima, server: jalankan pengecekan build; admin > Produksi pilih **Day 3 R3**. Draf bawaan lama bermigrasi otomatis. Jika masih 4:21 karena draf pernah diedit, **Muat Day 3 terbaru** membuat cadangan sesuai mekanisme studio yang sudah ada. Harus terlihat **21 cue suara, 1:53**. Uji Oke Gas saat pembangunan, alamat “dot kom”, layar penuh/ekspor dan demo fitur akun di domain rilis sebelum publikasi. Pemilik lokal: `K-03e-impl`; penerimaan server/pemilik: `K-03e-qa`.
+
+## Riwayat sebelum R3 (bukan durasi aktif)
+
+**Tambahan terbaru — gestur Pasca dan pelafalan alamat:** baseline tetap `5736160`, melanjutkan working tree paket di bawah. Gestur `boast`, `sneer`, `shrug` diterapkan pada dialog/reaksi yang sesuai di Day 3; tangan, dada dan dagu kembali ke pose dasar setelah aksen singkat, `gestureDelay` dihormati, seek memakai waktu absolut. D24 memakai take Gufron baru “republik wekawekaweka dot kom”, key `day3-dotkom-d24`, klip 6,811 detik; original, word timing dan provenance disimpan. Klip lama dipertahankan untuk draf pengguna. Runtime sekarang **42 shot / 260,674966 detik**. [R3 dua menit](../docs/script/003-day-3-script-r3-draft.md) baru mendapat arahan gestur dan koreksi pelafalan, belum diterapkan penuh.
+
+Verifikasi lokal: Day 3 termasuk perubahan tulang, jeda gestur dan seek ulang; regresi Day 1/Day 2; build berhasil. Batas: belum pemeriksaan dengar manusia atas take baru, visual browser dan MP4 penuh. Tidak ada migrasi/commit/push baru. Server setelah menerima paket: muat Day 3 terbaru di Produksi untuk memeriksa perubahan; jangan menimpa draf suntingan. Tugas `K-03f / lokal` implementasi kecil ini selesai; `K-03e / lokal + server` tetap terbuka untuk R3 penuh dan penerimaan audiovisual/server.
+
+## Paket terbaru: Day 3 bersuara, lanskap dan suara warga - 24 November 2026
+
+**Baseline `5736160 update`; working tree awal bersih. Tidak commit/push/deploy otomatis.** Paket `f719128` di bawah adalah riwayat yang sudah masuk baseline ini. Jangan mengulang atau membatalkan perbaikan server/starter/hunian yang sudah ada.
+
+### Lingkup lokal
+
+- Day 3: 42 shot, **260,418934 detik**. Intro narator udara-sungai-panggung, arah badan warga ke presiden, kamera dialog dari sisi panggung, durasi mengikuti suara, reveal vila Livia/Angel, pengantar game, panel animasi pendaftaran/starter/usulan, penantian warga dan penutup komedi. Draf bawaan dapat dimuat melalui **Muat Day 3 terbaru**; suntingan pengguna dipertahankan/dicadangkan oleh jalur loader yang ada.
+- **42 klip suara dari delapan master** tersimpan dengan word timing, envelope dan provenance di `docs/script/day3-voice-provenance.json`; aset `public/audio/produksi/day-3/`. Narator gufron; suara tokoh memakai voice ID yang sudah diperiksa tersedia. Jangan membuat ulang tanpa kebutuhan/otorisasi setelah error provider. Mix runtime 79 track (suara, musik, Foley), peak tidak memerlukan pengurangan gain. Salinan dengar lokal `C:/tmp/day3-r2-mix-review.wav`, dapat dibuat ulang dengan `node tools/render_production_day3_audio_review.mjs <output.wav>`.
+- Rumah Livia dua lantai pink; Angel tiga lantai/penthouse/kolam atap. Model bersama jelajah/produksi. ID, alamat, petak 8 x 8 dan status reservasi tetap. Rp200 miliar adalah **nilai cerita**, bukan harga transaksi, saldo, atau hak otomatis akun.
+- Sekolah tiga lantai, rumah sakit empat lantai, kepolisian dan markas komando tiga lantai, damkar dua lantai. Tapak/fasilitas tetap 17, tidak menutup jalan. Nama lembaga memakai Republik Wkwkwk. Fasilitas Day 3 hanya staging sampai publikasi resmi didukung/disetujui; playback tidak menulis DB dunia.
+- Alam bersama: palet hijau tropis/biru air, Sungai Ngalir, Danau Santuy, taman dan empat siluet tanaman. Jalur lintas sungai mempertahankan tanah jalan. Medan jauh dipotong di area chunk detail untuk menghindari permukaan saling bertumpuk; near/far kamera serta frustum bayangan produksi diperbaiki. Belum bukti hilangnya flicker pada semua GPU.
+- Gameplay siang/malam: `world_state` mengirim UTC server dan zona **Asia/Jakarta, UTC+7**. Klien menghitung selisih dengan performance clock, tidak jam perangkat. Cahaya produksi tetap ditetapkan untuk ekspor deterministik.
+- Tata Wilayah admin utama membaca koordinat kanonis, 48 reservasi, 24 fondasi, panggung, Koplak/SPPG sesuai fase, 17 fasilitas rencana, air/taman/jalan. Lapisan terbit/rencana, pencarian, pan/zoom dan detail tersedia. Ini **belum editor pemindahan petak resmi**. Laboratorium aset bebas lama dipertahankan dalam panel lipat, renderer baru dimuat ketika dibuka. Publikasi tetap di Dunia bersama.
+- Pemain membuka **Usulkan pembangunan** dari profil atau **Alat** jelajah. Isi kategori, fasilitas, lokasi, alasan. Masuk `citizen_ideas` dengan sumber `Game`; status pribadi dibaca melalui asosiasi ID akun. Maksimal tiga per 24 jam. Admin meninjau melalui inbox yang ada. Status editorial tidak menerbitkan bangunan.
+
+### Migrasi dan kontrak usulan
+
+**Sudah dijalankan dua kali di localhost, sukses**, hanya menambah tabel asosiasi; tidak seed/reset akun, dunia, rumah atau uang:
+
+```sh
+php tools/migrate_citizen_proposals.php
+```
+
+Server harus menjalankannya sesudah pull paket. Dependensi: tabel `citizens` dan `citizen_ideas` yang sudah ada. Tabel baru `citizen_proposals`: PK `(citizen_id, request_id)`, `idea_public_id` unik, `payload_hash`, waktu UTC. Transaksi mengunci akun sebelum memeriksa batas dan menulis inbox/asosiasi. Retry ID sama/payload sama mengembalikan data; payload berbeda ditolak 409. Galat penulisan membatalkan kedua insert.
+
+API `GET api?resource=citizen_proposal`: akun aktif lengkap, hasil `{ok, replayed, proposals, csrfToken}` hanya usulan miliknya. POST resource sama dengan `requestId`, `csrfToken`, `category`, `title`, `location`, `reason`. ID akun/nama/status tidak boleh dikirim untuk menentukan pemilik. CSRF terikat sesi+akun; beralih akun membatalkan token lama. Kategori: pendidikan/kesehatan/ekonomi/infrastruktur/lingkungan/lainnya. Batas byte 70/70/220 untuk judul/lokasi/alasan. 401 tamu, 403 akun/profil/CSRF, 422 payload, 429 batas harian, 503 skema/penyimpanan. Belum voting umum, balasan admin terstruktur, moderasi/lapor atau alokasi anggaran otomatis.
+
+### Bukti lokal
+
+- `test_citizen_proposals.php`: 22 pemeriksaan model/controller MySQL terisolasi; akun bernama sama tetap terpisah, profil, CSRF/beralih akun, replay/conflict, batas, rollback, status inbox dan migrasi berulang. Bukan uji login nyata browser atau race proses serentak.
+- `test_republic_revision.mjs`: waktu server, siang/malam, air/jalan/rumah kering, masker detail terrain, siluet tanaman, nilai rumah, lapisan admin/pencarian dan form usulan/session cleanup melalui DOM.
+- Day 3: 42 suara pada timeline, seek deterministik, 17 tapak tanpa overlap, 48 nama, 3 rasio kamera, draf suntingan dan tidak memublikasikan dunia. Day 1/Day 2 serta audio/draf Day 2 tetap lolos.
+- Dunia, peta, HUD, hunian integrasi CPU, 11 panel navigasi dan panel Hunian & ekonomi lolos. Status admin tetap privat/read-only.
+- Build `npm run build` + source/output check lulus. Source hash `6d95c7d001c35f9fe9fd32f50f07d8587679f68bf4e48e467359e8d9768a24ae`. 45 modul publik tidak mengimpor episode; 74 modul admin. HTTP localhost memeriksa 18 aset privat/9 aset publik, termasuk audio Day 3, payload/range/HEAD/logout. Chunk besar tetap peringatan yang sudah ada.
+- MP4 mux/decode: fixture teknis H.264/AAC satu detik pada 1080x1920, 1920x1080, 1080x1080 lolos. **Bukan rekaman Day 3 penuh.**
+- [Review delapan shot offline](../docs/script/day3-r2-visual-review.jpg): pohon yang menutup dialog diperbaiki dan dirender ulang. Blender memakai cahaya netral; bukan bukti warna WebGL/FPS/browser. Mix penuh belum didengarkan. Narasi tidak boleh dinyatakan natural/final hanya dari waveform.
+
+### Handover berikutnya, berurutan
+
+1. **A-11 + R-03 / server:** setelah pemilik push/pull, catat SHA, `node tools/git-auto-build.mjs --check`, jalankan migrasi usulan. Starter/hunian lama hanya dimigrasikan jika belum ada. Jangan reset fase/proyek demi menampilkan Day 3.
+2. **S-02b / server/pemilik:** dua akun nyata kirim usulan, refresh/logout/retry, cek pembatasan dan status inbox sumber Game. Pastikan tamu/nonaktif ditolak, akun lain tidak melihat usulan pribadi. Tambahkan uji race serentak saat mempersiapkan skala publik.
+3. **K-03b + R-03 / pemilik/server:** buka admin > Produksi > Muat Day 3 terbaru > Play semua. Dengarkan pengucapan pembuka, jenis suara, jeda/komedi dan mix; fullscreen lalu ekspor MP4 penuh. Periksa gambar/subtitle/domain pada awal, rumah, demo game dan akhir. Baru setelah ini video boleh dianggap final.
+4. **W-03b + A-10 / server/pemilik:** HP/desktop, jalan/lari, sungai/jalan penyeberangan, Livia/Angel, zoom dekat/jauh, perubahan siang/malam. Catat GPU/FPS/rekaman flicker; jangan centang dari tes CPU. Zona republik tetap Asia/Jakarta meski host memakai UTC.
+5. **ADM-02 / server/pemilik:** Tata Wilayah lapisan terbit vs rencana, pencarian rumah, akses Dunia bersama/inbox, laboratorium lama dan semua menu. Jangan menganggap denah hanya-baca sebagai editor penerbitan bangunan umum.
+6. **H-03 / server** klaim identitas terverifikasi tetap prioritas berikut; **H-04 / lokal** menunggu kontrak klaim. **E-03 / lokal/server** ledger/inventaris/siklus tani belum tersedia. Email/Google tetap A-06/A-07, ditunda ke server.
+
+---
+
+
+## Riwayat paket sebelum 5736160: Day 3, starter pack dan admin — 24 November 2026
 
 **Baseline `f719128`; belum commit/push/deploy.** Paket ini melanjutkan working tree Kampung Perintis, tidak mengulang hasil pull server. Bagian paket sebelumnya di bawah adalah riwayat; status terbaru di sini dan checklist 02 mengalahkan keterangan lama seperti “tidak ada migrasi” atau “hanya kamar Wisma”.
 

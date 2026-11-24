@@ -4,13 +4,21 @@ Status per 24 November 2026. Centang setiap hasil secara terpisah. Urutan bergan
 
 ## Paket lanjutan aktif — Day 3, starter pack dan audit admin
 
-Baseline tetap `f719128`; seluruh perubahan masih working tree lokal, tanpa commit/push. Baca handover terbaru sebelum bagian paket terdahulu di bawah.
+- [x] `K-03e-impl / lokal` R3 penuh terpasang: 33 shot/113,48 detik, 21 dialog (3 narator), Oke Gas kontinu 20 detik, insert rumah Demian, Sari memandu demo game bertahap dan punchline Climenzo. Tes episode/migrasi R2/edit manual serta regresi Day 1/Day 2/UI lulus. Rincian verifikasi di handover.
+- [ ] `K-03e-qa / pemilik + server` Dengarkan mix/intonasi, tonton gerak di browser dan MP4 penuh, uji fitur yang dipromosikan pada server. Demo antarmuka episode adalah simulasi, bukan bukti lulus pendaftaran/live chat di server.
+
+- [x] `K-03f / lokal` Gestur Pasca per konteks (`boast`, `sneer`, `shrug`, reaksi mendengar) dan klip D24 Gufron “wekawekaweka dot kom” diterapkan ke episode aktif. Tes rig/gestureDelay/seek, regresi Day 1/Day 2 dan build lulus. 42 shot / 260,67 detik; bukan R3 dua menit penuh. Review dengar dan visual tetap bagian K-03e.
+
+- [x] `K-03d / lokal` Tulis [draf Day 3 R3](../docs/script/003-day-3-script-r3-draft.md) sekitar dua menit dan masukkan aturan backsound/pelafalan/insert papan ke acuan. Selesai sebatas naskah, bukan episode aktif.
+- [ ] `K-03e / lokal + server` Penerapan selesai pada `K-03e-impl`; penerimaan audiovisual/server tersisa pada `K-03e-qa`. Kriteria selesai keseluruhan: klaim demo dapat dilakukan di server, musik terdengar, ucapan jelas dan ekspor penuh tidak terpotong/beradegan kosong.
+
+Baseline paket revisi `5736160`; perubahan terbaru masih working tree lokal, tanpa commit/push. Baca handover terbaru sebelum bagian paket terdahulu di bawah.
 
 - [x] `A-02b` Pilih profesi/gender memperbarui draf saran avatar; avatar tersimpan berubah hanya setelah Simpan. Thumbnail lambat tidak menimpa pilihan terbaru. Tes onboarding 23 profesi × dua tubuh lulus.
 - [x] `E-01a` Grant 1.000 koin dan satu set alat sesuai profesi, sekali per ID akun lengkap. Akun lama menerima pada request berikutnya; ganti profesi tidak menambah hadiah. Tabel grant menyimpan waktu, versi, jumlah awal dan saldo. Race, rollback, isolasi akun, retry dan migrasi berulang diuji.
 - [x] `E-02a` Rumah subsidi privat beralamat stabil, kamar/ruang duduk/dapur kecil/teras, akses melalui Wisma tanpa wajib menyelesaikan quest. Tugas Bu Rani tetap memberi tanaman; dekorasi lama tersimpan. UI membaca data server. Belum petak publik, kunjungan atau klaim rumah perintis.
-- [x] `K-03a` Konsep/naskah Day 3, 33 shot/206 detik, simulasi pendaftaran, bangunan bertahap, 17 tapak dan 48 rumah bernama; tersedia di studio admin. Siteplan dan empat render offline diperiksa. Tidak menerbitkan dunia.
-- [ ] `K-03b` **Lokal + pemilik:** pilih suara Demian, produksi/ukur 33 ujaran, lip-sync, efek dan mix, revisi tempo serta tonton MP4 penuh. Durasi sekarang perkiraan; tidak disebut final.
+- [x] `K-03a` Konsep/naskah Day 3, 42 shot/260,42 detik, simulasi pendaftaran, bangunan bertahap, 17 tapak dan 48 rumah bernama; tersedia di studio admin. Siteplan dan empat render offline diperiksa. Tidak menerbitkan dunia.
+- [ ] `K-03b` **Lokal + pemilik:** 42 ujaran sudah diproduksi dan diukur, envelope lip-sync dan mix terhubung. Dengarkan seluruh mix dan tonton MP4 penuh di perangkat sasaran; belum disebut final.
 - [x] `ADM-01` Audit 11 panel: perbaikan keterangan sumber data/status/fungsi, panel Hunian & ekonomi, API status privat, respons filter direktori terbaru, episode legacy privat, simpan pengaturan mempertahankan status Google. Bukti DOM/controller, bukan browser nyata. Lihat dokumen 09.
 - [ ] `ADM-02` **Server + pemilik:** smoke test semua panel pada domain rilis, termasuk hak admin, deep link, draft lama, load Day 3, pengaturan tanpa mengubah SMTP/OAuth, tampilan HP/desktop.
 - [ ] `E-03` **Lokal + server:** siklus tani beli–tanam–panen–jual dengan ledger transaksi/inventaris, harga server, stok/timer dan retry. Aset/peta rencana tersedia, transaksi belum dibuat.
@@ -18,6 +26,16 @@ Baseline tetap `f719128`; seluruh perubahan masih working tree lokal, tanpa comm
 - [ ] `E-05` **Pemilik + lokal:** pilot ekonomi 1.000 koin; contoh biaya 140/penjualan 200 belum harga produksi final.
 
 Urutan server: **A-11 + ADM-02** (termasuk migrasi starter) → **H-03** klaim identitas → kontrak inventaris/transaksi **E-03**. Email/Google A-06/A-07 tetap ditunda ke server. Tugas lama yang belum dicentang adalah pengembangan lanjutan/penerimaan, bukan klaim sudah selesai oleh paket ini.
+
+- [x] `K-03c` Intro udara-sungai-panggung, arah badan warga, dialog terukur, pengenalan game, usulan, rumah khusus, penantian warga dan ending diperbarui. Uji timeline/seek dan render offline; K-03b tetap terbuka.
+- [x] `W-03a` Palet tropis, sungai/danau, empat siluet tanaman, masker overlap terrain, clipping kamera dan bayangan stabil diimplementasikan. Tes geometri/kontrak; flicker GPU dan FPS belum diterima.
+- [x] `G-05a` Waktu server UTC dengan zona tampilan Asia/Jakarta, cahaya siang/malam memakai waktu monotonic setelah sinkronisasi. Produksi tetap memakai pencahayaan yang ditetapkan sutradara.
+- [x] `H-06a` Livia vila pink dua lantai; Angel tiga lantai/penthouse dengan nilai cerita Rp200 miliar. ID/alamat/petak/klaim tetap. Nilai bukan transaksi wallet.
+- [x] `S-02a` Usulan pembangunan autentikasi/CSRF, maksimum tiga per 24 jam, retry idempotent, inbox admin dan status pribadi. Migrasi tambahan lokal dua kali; belum rilis server.
+- [x] `ADM-03a` Tata Wilayah utama menjadi masterplan kanonis, lapisan terbit/rencana, pencarian, pan/zoom, detail dan akses Dunia bersama/inbox. Laboratorium aset lama tetap terpisah. Belum editor pemindahan petak resmi.
+- [ ] `S-02b` **Server + pemilik:** penerimaan usulan dua akun nyata, status inbox, retry/batas dan uji proses serentak sebelum skala publik.
+- [ ] `W-03b` **Server + pemilik:** penerimaan cahaya, air, zoom/flicker/FPS pada GPU HP/desktop; catat perangkat dan bukti.
+- [ ] `R-03` **Server + pemilik:** rilis migrasi usulan, uji nyata dua akun, panel admin, audio/fullscreen/MP4 Day 3, visual siang-malam dan flicker/FPS zoom di HP/desktop. Kriteria dan batas pada handover terbaru.
 
 ## Paket aktif — rumah perintis dan game hidup
 

@@ -1,3 +1,4 @@
+import {openCitizenProposals} from './citizen-proposals.js';
 import { professionRecommendation } from './citizen-professions.js';
 import { renderIdentityCard, renderAuthAvailability } from './citizen-identity.js';
 import { mountCitizenStarter } from './citizen-starter.js';
@@ -191,6 +192,8 @@ function initAreaMusic() {
 }
 
 async function initCitizen() {
+  $('#worldProposalButton')?.addEventListener('click',()=>openCitizenProposals({apiUrl:API_URL}));
+  $('#citizenProposalButton')?.addEventListener('click',()=>openCitizenProposals({apiUrl:API_URL}));
   const panel = $('#citizenPanel'), form = $('#citizenForm'), error = $('#citizenError');
   const profileFields = $('#citizenProfileFields'), submit = $('#citizenSubmit');
   const google = $('#googleSsoButton');

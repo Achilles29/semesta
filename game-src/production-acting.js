@@ -62,6 +62,35 @@ export function createProductionActing(actor){
         }
         figure.userData.handController?.update({pose:'relaxed',intensity:.7});
       }
+      // Short character beats, measured from shot time so seek/replay agree.
+      // Existing gestures remain unchanged for previously accepted episodes.
+      if(['boast','sneer','shrug'].includes(p.gesture)){
+        const t=p.elapsed-(p.gestureDelay||0);
+        const weight=smooth(t/.28)*(1-smooth((t-1.05)/.65))*fade;
+        if(weight>0){
+          const stature=(figure.userData.profile?.height||1.78)/1.78;
+          const chest=bone('chest');
+          let hands;
+          if(p.gesture==='boast'){
+            actor.head.rotation.x-=.065*weight;
+            if(chest)chest.rotation.x-=.045*weight;
+            hands=[[.31,1.04,.27],[-.14,1.32,.23]];
+          }else if(p.gesture==='sneer'){
+            // Chin up and a single outward dismissal, not a repeating head shake.
+            actor.head.rotation.x-=.035*weight;
+            actor.head.rotation.y+=.07*weight;
+            if(chest)chest.rotation.y+=.035*weight;
+            hands=[[.30,1.0,.25],[-.34-.18*smooth(t/.8),1.15,.34]];
+          }else{
+            if(chest)chest.rotation.x-=.018*weight;
+            actor.head.rotation.x-=.025*weight;
+            hands=[[.43,1.25,.34],[-.43,1.25,.34]];
+          }
+          figure.updateMatrixWorld(true);
+          hands.forEach((hand,index)=>arm(arms[index],figure.localToWorld(new Vector3(...hand).multiplyScalar(stature)),figure.localToWorld(new Vector3(index===0?.6:-.6,1.08,.04).multiplyScalar(stature)),weight*.92));
+          figure.userData.handController?.update({pose:'relaxed',intensity:.7});
+        }
+      }
       if(['self','stop','dismiss'].includes(p.gesture)){
         const stature=(figure.userData.profile?.height||1.78)/1.78;
         const beat=smooth(p.elapsed/.2)*smooth((sample.shot.duration-p.elapsed)/.25);

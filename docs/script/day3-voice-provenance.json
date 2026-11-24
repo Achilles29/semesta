@@ -1,0 +1,5109 @@
+{
+  "cecil": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/31001ed1e3e54c79a88458cb03ca123a/id=bb4fb3b74beb4db6af1ca304924e95a9.wav",
+    "duration": 4.223083900226757,
+    "original_words": [
+      {
+        "text": "Rumah",
+        "start_time": 0.256,
+        "end_time": 0.5547
+      },
+      {
+        "text": "sakit",
+        "start_time": 0.597,
+        "end_time": 0.8107
+      },
+      {
+        "text": "juga",
+        "start_time": 0.853,
+        "end_time": 1.195
+      },
+      {
+        "text": "Masa",
+        "start_time": 1.749,
+        "end_time": 2.048
+      },
+      {
+        "text": "pasien",
+        "start_time": 2.091,
+        "end_time": 2.389
+      },
+      {
+        "text": "disuruh",
+        "start_time": 2.432,
+        "end_time": 2.7307
+      },
+      {
+        "text": "antre",
+        "start_time": 2.773,
+        "end_time": 3.1147
+      },
+      {
+        "text": "di",
+        "start_time": 3.157,
+        "end_time": 3.2427
+      },
+      {
+        "text": "depan",
+        "start_time": 3.285,
+        "end_time": 3.456
+      },
+      {
+        "text": "panggung",
+        "start_time": 3.499,
+        "end_time": 3.883
+      }
+    ],
+    "actor": "cecil",
+    "submittedText": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+    "voiceId": "31001ed1e3e54c79a88458cb03ca123a",
+    "voiceName": "Leanne - Expressive & Earthy",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-d05",
+        "shot": "D05",
+        "text": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+        "spokenText": "Rumah sakit juga. Masa pasien disuruh antre di depan panggung?",
+        "speaker": "cecil"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-cecil-original.wav",
+    "sourceSha256": "2369ffa56f5f94de00c31acd95f421e00bb634f272cf2e40afb8f56c7aec7f77",
+    "sourceDuration": 4.223083900226757,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-d05",
+        "shot": "D05",
+        "file": "day3r2-d05-d4b11718be84.wav",
+        "sourceStart": 0.17600907029478458,
+        "sourceEnd": 4.0429931972789115
+      }
+    ]
+  },
+  "climenzo": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/b5c5b28db1ea408abc7d851202983bdb/id=6f89396167e24540b6685701cdb2c9e2.wav",
+    "duration": 5.593061224489796,
+    "original_words": [
+      {
+        "text": "Pak",
+        "start_time": 0.299,
+        "end_time": 0.512
+      },
+      {
+        "text": "lima",
+        "start_time": 1.024,
+        "end_time": 1.3227
+      },
+      {
+        "text": "triliunnya",
+        "start_time": 1.365,
+        "end_time": 1.9627
+      },
+      {
+        "text": "dari",
+        "start_time": 2.005,
+        "end_time": 2.133
+      },
+      {
+        "text": "saya",
+        "start_time": 2.176,
+        "end_time": 2.432
+      },
+      {
+        "text": "Kalau",
+        "start_time": 2.944,
+        "end_time": 3.2427
+      },
+      {
+        "text": "sepi",
+        "start_time": 3.285,
+        "end_time": 3.541
+      },
+      {
+        "text": "siapa",
+        "start_time": 4.011,
+        "end_time": 4.395
+      },
+      {
+        "text": "yang",
+        "start_time": 4.437,
+        "end_time": 4.5227
+      },
+      {
+        "text": "tanggung",
+        "start_time": 4.565,
+        "end_time": 4.821
+      },
+      {
+        "text": "jawab",
+        "start_time": 4.864,
+        "end_time": 5.12
+      },
+      {
+        "text": "Pak",
+        "start_time": 5.248,
+        "end_time": 5.333
+      }
+    ],
+    "actor": "climenzo",
+    "submittedText": "Pak, lima triliunnya dari saya.\n\nKalau sepi, siapa yang tanggung jawab, Pak?",
+    "voiceId": "b5c5b28db1ea408abc7d851202983bdb",
+    "voiceName": "Roderic - Authoritative & Refined",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-d01",
+        "shot": "D01",
+        "text": "Pak, lima triliunnya dari saya.",
+        "spokenText": "Pak, lima triliunnya dari saya.",
+        "speaker": "climenzo"
+      },
+      {
+        "key": "day3r2-d31",
+        "shot": "D31",
+        "text": "Kalau sepi, siapa yang tanggung jawab, Pak?",
+        "spokenText": "Kalau sepi, siapa yang tanggung jawab, Pak?",
+        "speaker": "climenzo"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-climenzo-original.wav",
+    "sourceSha256": "d489c63076daafc190d7c135739ade42f6da2f91ea91ef6a15509cda1d40a847",
+    "sourceDuration": 5.593061224489796,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-d01",
+        "shot": "D01",
+        "file": "day3r2-d01-0840d0716e96.wav",
+        "sourceStart": 0.21900226757369615,
+        "sourceEnd": 2.591995464852608
+      },
+      {
+        "key": "day3r2-d31",
+        "shot": "D31",
+        "file": "day3r2-d31-c5aad1739112.wav",
+        "sourceStart": 2.8639909297052153,
+        "sourceEnd": 5.492993197278912
+      }
+    ]
+  },
+  "demian": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/c30ecab014cb4a8d816d07f6b2b625c8/id=97f444e303e14cca9b3cd62300e88928.wav",
+    "duration": 14.818208616780046,
+    "original_words": [
+      {
+        "text": "Stadion",
+        "start_time": 0.256,
+        "end_time": 0.6827
+      },
+      {
+        "text": "juga",
+        "start_time": 0.768,
+        "end_time": 0.896
+      },
+      {
+        "text": "jadi",
+        "start_time": 0.939,
+        "end_time": 1.195
+      },
+      {
+        "text": "Pak",
+        "start_time": 1.749,
+        "end_time": 1.963
+      },
+      {
+        "text": "ini",
+        "start_time": 2.133,
+        "end_time": 2.4747
+      },
+      {
+        "text": "buat",
+        "start_time": 2.517,
+        "end_time": 2.6027
+      },
+      {
+        "text": "olahraga",
+        "start_time": 2.645,
+        "end_time": 3.157
+      },
+      {
+        "text": "bukan",
+        "start_time": 3.413,
+        "end_time": 3.6267
+      },
+      {
+        "text": "cuma",
+        "start_time": 3.669,
+        "end_time": 3.797
+      },
+      {
+        "text": "tempat",
+        "start_time": 3.84,
+        "end_time": 4.053
+      },
+      {
+        "text": "kampanye",
+        "start_time": 4.096,
+        "end_time": 4.523
+      },
+      {
+        "text": "ya",
+        "start_time": 4.651,
+        "end_time": 4.693
+      },
+      {
+        "text": "Ada",
+        "start_time": 5.077,
+        "end_time": 5.2907
+      },
+      {
+        "text": "nama",
+        "start_time": 5.333,
+        "end_time": 5.504
+      },
+      {
+        "text": "saya",
+        "start_time": 5.547,
+        "end_time": 5.803
+      },
+      {
+        "text": "Pak",
+        "start_time": 6.4,
+        "end_time": 6.571
+      },
+      {
+        "text": "rumahnya",
+        "start_time": 6.784,
+        "end_time": 7.381
+      },
+      {
+        "text": "jangan",
+        "start_time": 7.424,
+        "end_time": 7.552
+      },
+      {
+        "text": "sekalian",
+        "start_time": 7.595,
+        "end_time": 7.893
+      },
+      {
+        "text": "dikasih",
+        "start_time": 7.936,
+        "end_time": 8.192
+      },
+      {
+        "text": "foto",
+        "start_time": 8.235,
+        "end_time": 8.4907
+      },
+      {
+        "text": "Bapak",
+        "start_time": 8.533,
+        "end_time": 8.832
+      },
+      {
+        "text": "Jadi",
+        "start_time": 9.2,
+        "end_time": 9.413
+      },
+      {
+        "text": "kita",
+        "start_time": 9.456,
+        "end_time": 9.5839
+      },
+      {
+        "text": "bisa",
+        "start_time": 9.627,
+        "end_time": 9.797
+      },
+      {
+        "text": "ikut",
+        "start_time": 9.84,
+        "end_time": 10.0105
+      },
+      {
+        "text": "tinggal",
+        "start_time": 10.053,
+        "end_time": 10.3945
+      },
+      {
+        "text": "dan",
+        "start_time": 10.48,
+        "end_time": 10.6079
+      },
+      {
+        "text": "main",
+        "start_time": 10.65,
+        "end_time": 10.7359
+      },
+      {
+        "text": "di",
+        "start_time": 10.821,
+        "end_time": 10.906
+      },
+      {
+        "text": "sini",
+        "start_time": 10.949,
+        "end_time": 11.162
+      },
+      {
+        "text": "Bukan",
+        "start_time": 11.546,
+        "end_time": 11.7599
+      },
+      {
+        "text": "cuma",
+        "start_time": 11.803,
+        "end_time": 11.973
+      },
+      {
+        "text": "nonton",
+        "start_time": 12.016,
+        "end_time": 12.315
+      },
+      {
+        "text": "Timnya",
+        "start_time": 12.741,
+        "end_time": 13.0399
+      },
+      {
+        "text": "butuh",
+        "start_time": 13.082,
+        "end_time": 13.253
+      },
+      {
+        "text": "kantor",
+        "start_time": 13.296,
+        "end_time": 13.5519
+      },
+      {
+        "text": "lagi",
+        "start_time": 13.595,
+        "end_time": 13.893
+      },
+      {
+        "text": "kan",
+        "start_time": 14.107,
+        "end_time": 14.32
+      }
+    ],
+    "actor": "demian",
+    "submittedText": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?\n\nAda nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.\n\nJadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?\n\nTimnya butuh kantor lagi, kan?",
+    "voiceId": "c30ecab014cb4a8d816d07f6b2b625c8",
+    "voiceName": "Brodie - Breezy & Genuine",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-d14",
+        "shot": "D14",
+        "text": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?",
+        "spokenText": "Stadion juga jadi! Pak, ini buat olahraga, bukan cuma tempat kampanye, ya?",
+        "speaker": "demian"
+      },
+      {
+        "key": "day3r2-d18",
+        "shot": "D18",
+        "text": "Ada nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.",
+        "spokenText": "Ada nama saya! Pak, rumahnya jangan sekalian dikasih foto Bapak.",
+        "speaker": "demian"
+      },
+      {
+        "key": "day3r2-d23",
+        "shot": "D23",
+        "text": "Jadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?",
+        "spokenText": "Jadi kita bisa ikut tinggal dan main di sini? Bukan cuma nonton?",
+        "speaker": "demian"
+      },
+      {
+        "key": "day3r2-e01",
+        "shot": "E01",
+        "text": "Timnya butuh kantor lagi, kan?",
+        "spokenText": "Timnya butuh kantor lagi, kan?",
+        "speaker": "demian"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-demian-original.wav",
+    "sourceSha256": "c895999c446e970b2b9f27a9d8af1b2b7e0126ff174689557d43b23b6f5e748e",
+    "sourceDuration": 14.818208616780046,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-d14",
+        "shot": "D14",
+        "file": "day3r2-d14-d2f6a1df096b.wav",
+        "sourceStart": 0.17600907029478458,
+        "sourceEnd": 4.852993197278912
+      },
+      {
+        "key": "day3r2-d18",
+        "shot": "D18",
+        "file": "day3r2-d18-2de0cad4dae4.wav",
+        "sourceStart": 4.9970068027210885,
+        "sourceEnd": 8.991995464852607
+      },
+      {
+        "key": "day3r2-d23",
+        "shot": "D23",
+        "file": "day3r2-d23-31f7dd7575c9.wav",
+        "sourceStart": 9.12,
+        "sourceEnd": 12.47501133786848
+      },
+      {
+        "key": "day3r2-e01",
+        "shot": "E01",
+        "file": "day3r2-e01-c2c18c0ffefe.wav",
+        "sourceStart": 12.660997732426305,
+        "sourceEnd": 14.48
+      }
+    ]
+  },
+  "eqa": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/f264d09b4320461b9873abbe9283b505/id=90783042efdd467e92cd29b17420ef0d.wav",
+    "duration": 9.842312925170068,
+    "original_words": [
+      {
+        "text": "Anak",
+        "start_time": 0.256,
+        "end_time": 0.512
+      },
+      {
+        "text": "anak",
+        "start_time": 0.555,
+        "end_time": 0.725
+      },
+      {
+        "text": "perlu",
+        "start_time": 0.768,
+        "end_time": 0.9387
+      },
+      {
+        "text": "sekolah",
+        "start_time": 0.981,
+        "end_time": 1.323
+      },
+      {
+        "text": "Pak",
+        "start_time": 1.451,
+        "end_time": 1.536
+      },
+      {
+        "text": "Jangan",
+        "start_time": 2.133,
+        "end_time": 2.432
+      },
+      {
+        "text": "belajar",
+        "start_time": 2.475,
+        "end_time": 2.773
+      },
+      {
+        "text": "terus",
+        "start_time": 2.859,
+        "end_time": 3.072
+      },
+      {
+        "text": "di",
+        "start_time": 3.115,
+        "end_time": 3.2427
+      },
+      {
+        "text": "kolom",
+        "start_time": 3.285,
+        "end_time": 3.456
+      },
+      {
+        "text": "komentar",
+        "start_time": 3.499,
+        "end_time": 3.968
+      },
+      {
+        "text": "Bagus",
+        "start_time": 4.523,
+        "end_time": 4.907
+      },
+      {
+        "text": "Sekarang",
+        "start_time": 5.333,
+        "end_time": 5.8027
+      },
+      {
+        "text": "yang",
+        "start_time": 5.931,
+        "end_time": 6.0587
+      },
+      {
+        "text": "dibuka",
+        "start_time": 6.101,
+        "end_time": 6.4427
+      },
+      {
+        "text": "pendaftaran",
+        "start_time": 6.485,
+        "end_time": 7.04
+      },
+      {
+        "text": "murid",
+        "start_time": 7.083,
+        "end_time": 7.339
+      },
+      {
+        "text": "bukan",
+        "start_time": 7.68,
+        "end_time": 8.021
+      },
+      {
+        "text": "pencalonan",
+        "start_time": 8.107,
+        "end_time": 8.576
+      },
+      {
+        "text": "kepala",
+        "start_time": 8.661,
+        "end_time": 8.917
+      },
+      {
+        "text": "sekolah",
+        "start_time": 8.96,
+        "end_time": 9.216
+      },
+      {
+        "text": "lagi",
+        "start_time": 9.259,
+        "end_time": 9.6
+      }
+    ],
+    "actor": "eqa",
+    "submittedText": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.\n\nBagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+    "voiceId": "f264d09b4320461b9873abbe9283b505",
+    "voiceName": "Prudence - Cultivated & Precise",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-d04",
+        "shot": "D04",
+        "text": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.",
+        "spokenText": "Anak-anak perlu sekolah, Pak. Jangan belajar terus di kolom komentar.",
+        "speaker": "eqa"
+      },
+      {
+        "key": "day3r2-d12",
+        "shot": "D12",
+        "text": "Bagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+        "spokenText": "Bagus. Sekarang yang dibuka pendaftaran murid, bukan pencalonan kepala sekolah lagi.",
+        "speaker": "eqa"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-eqa-original.wav",
+    "sourceSha256": "8af1696e4f9e158307043a6e764532e29ca5b709d543a37ec6307019cf3d51a2",
+    "sourceDuration": 9.842312925170068,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-d04",
+        "shot": "D04",
+        "file": "day3r2-d04-722c2e25b879.wav",
+        "sourceStart": 0.17600907029478458,
+        "sourceEnd": 4.128004535147392
+      },
+      {
+        "key": "day3r2-d12",
+        "shot": "D12",
+        "file": "day3r2-d12-e06bac611485.wav",
+        "sourceStart": 4.442993197278912,
+        "sourceEnd": 9.76
+      }
+    ]
+  },
+  "narrator-addon": {
+    "status": "prepared_clips",
+    "actor": "narrator",
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voiceName": "gufron",
+    "submittedText": "Livia mendapat rumah pink bertingkat. Ada balkon untuk mencari inspirasi, bukan untuk mengawasi tetangga.\n\nKalau Angel, vilanya dua ratus miliar dalam cerita. Rumahnya tiga lantai. Semoga laporan keuangannya juga setinggi itu.\n\nPunya ide pembangunan? Buka Usulkan pembangunan di game. Tulis fasilitas, lokasi, dan alasan kebutuhanmu. Usulan masuk ke admin untuk ditinjau, bukan langsung dibangun.",
+    "sourceCues": [
+      {
+        "key": "day3r2-h01",
+        "shot": "H01",
+        "speaker": "narrator",
+        "text": "Livia mendapat rumah pink bertingkat. Ada balkon untuk mencari inspirasi, bukan untuk mengawasi tetangga.",
+        "spokenText": "Livia mendapat rumah pink bertingkat. Ada balkon untuk mencari inspirasi, bukan untuk mengawasi tetangga."
+      },
+      {
+        "key": "day3r2-h02",
+        "shot": "H02",
+        "speaker": "narrator",
+        "text": "Kalau Angel, vilanya dua ratus miliar dalam cerita. Rumahnya tiga lantai. Semoga laporan keuangannya juga setinggi itu.",
+        "spokenText": "Kalau Angel, vilanya dua ratus miliar dalam cerita. Rumahnya tiga lantai. Semoga laporan keuangannya juga setinggi itu."
+      },
+      {
+        "key": "day3r2-g01",
+        "shot": "G01",
+        "speaker": "narrator",
+        "text": "Punya ide pembangunan? Buka Usulkan pembangunan di game. Tulis fasilitas, lokasi, dan alasan kebutuhanmu. Usulan masuk ke admin untuk ditinjau, bukan langsung dibangun.",
+        "spokenText": "Punya ide pembangunan? Buka Usulkan pembangunan di game. Tulis fasilitas, lokasi, dan alasan kebutuhanmu. Usulan masuk ke admin untuk ditinjau, bukan langsung dibangun."
+      }
+    ],
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=e400cdbc40454839813daa22b5145ab1.wav",
+    "duration": 25.86267573696145,
+    "original_words": [
+      {
+        "text": "Livia",
+        "start_time": 0.299,
+        "end_time": 0.64
+      },
+      {
+        "text": "mendapat",
+        "start_time": 0.725,
+        "end_time": 1.0667
+      },
+      {
+        "text": "rumah",
+        "start_time": 1.109,
+        "end_time": 1.3227
+      },
+      {
+        "text": "pink",
+        "start_time": 1.408,
+        "end_time": 1.5787
+      },
+      {
+        "text": "bertingkat",
+        "start_time": 1.664,
+        "end_time": 2.133
+      },
+      {
+        "text": "Ada",
+        "start_time": 2.56,
+        "end_time": 2.773
+      },
+      {
+        "text": "balkon",
+        "start_time": 2.816,
+        "end_time": 3.2
+      },
+      {
+        "text": "untuk",
+        "start_time": 3.285,
+        "end_time": 3.456
+      },
+      {
+        "text": "mencari",
+        "start_time": 3.499,
+        "end_time": 3.797
+      },
+      {
+        "text": "inspirasi",
+        "start_time": 3.84,
+        "end_time": 4.437
+      },
+      {
+        "text": "bukan",
+        "start_time": 4.821,
+        "end_time": 5.205
+      },
+      {
+        "text": "untuk",
+        "start_time": 5.248,
+        "end_time": 5.4187
+      },
+      {
+        "text": "mengawasi",
+        "start_time": 5.461,
+        "end_time": 5.9307
+      },
+      {
+        "text": "tetangga",
+        "start_time": 5.973,
+        "end_time": 6.443
+      },
+      {
+        "text": "Kalau",
+        "start_time": 6.997,
+        "end_time": 7.253
+      },
+      {
+        "text": "Angel",
+        "start_time": 7.296,
+        "end_time": 7.595
+      },
+      {
+        "text": "vilanya",
+        "start_time": 8.107,
+        "end_time": 8.576
+      },
+      {
+        "text": "dua",
+        "start_time": 8.619,
+        "end_time": 8.7467
+      },
+      {
+        "text": "ratus",
+        "start_time": 8.789,
+        "end_time": 8.96
+      },
+      {
+        "text": "miliar",
+        "start_time": 9.045,
+        "end_time": 9.3867
+      },
+      {
+        "text": "dalam",
+        "start_time": 9.472,
+        "end_time": 9.6427
+      },
+      {
+        "text": "cerita",
+        "start_time": 9.728,
+        "end_time": 10.112
+      },
+      {
+        "text": "Rumahnya",
+        "start_time": 10.581,
+        "end_time": 10.965
+      },
+      {
+        "text": "tiga",
+        "start_time": 11.008,
+        "end_time": 11.136
+      },
+      {
+        "text": "lantai",
+        "start_time": 11.179,
+        "end_time": 11.563
+      },
+      {
+        "text": "Semoga",
+        "start_time": 11.899,
+        "end_time": 12.2835
+      },
+      {
+        "text": "laporan",
+        "start_time": 12.326,
+        "end_time": 12.6675
+      },
+      {
+        "text": "keuangannya",
+        "start_time": 12.753,
+        "end_time": 13.2648
+      },
+      {
+        "text": "juga",
+        "start_time": 13.307,
+        "end_time": 13.478
+      },
+      {
+        "text": "setinggi",
+        "start_time": 13.521,
+        "end_time": 13.947
+      },
+      {
+        "text": "itu",
+        "start_time": 13.99,
+        "end_time": 14.161
+      },
+      {
+        "text": "Punya",
+        "start_time": 14.673,
+        "end_time": 14.886
+      },
+      {
+        "text": "ide",
+        "start_time": 14.929,
+        "end_time": 14.9715
+      },
+      {
+        "text": "pembangunan",
+        "start_time": 15.057,
+        "end_time": 15.569
+      },
+      {
+        "text": "Buka",
+        "start_time": 15.953,
+        "end_time": 16.2088
+      },
+      {
+        "text": "Usulkan",
+        "start_time": 16.252,
+        "end_time": 16.678
+      },
+      {
+        "text": "pembangunan",
+        "start_time": 16.721,
+        "end_time": 17.1475
+      },
+      {
+        "text": "di",
+        "start_time": 17.233,
+        "end_time": 17.318
+      },
+      {
+        "text": "game",
+        "start_time": 17.361,
+        "end_time": 17.532
+      },
+      {
+        "text": "Tulis",
+        "start_time": 18.001,
+        "end_time": 18.214
+      },
+      {
+        "text": "fasilitas",
+        "start_time": 18.299,
+        "end_time": 18.854
+      },
+      {
+        "text": "lokasi",
+        "start_time": 19.323,
+        "end_time": 19.878
+      },
+      {
+        "text": "dan",
+        "start_time": 20.177,
+        "end_time": 20.3475
+      },
+      {
+        "text": "alasan",
+        "start_time": 20.39,
+        "end_time": 20.774
+      },
+      {
+        "text": "kebutuhanmu",
+        "start_time": 20.817,
+        "end_time": 21.414
+      },
+      {
+        "text": "Usulan",
+        "start_time": 21.82,
+        "end_time": 22.2889
+      },
+      {
+        "text": "masuk",
+        "start_time": 22.331,
+        "end_time": 22.587
+      },
+      {
+        "text": "ke",
+        "start_time": 22.63,
+        "end_time": 22.715
+      },
+      {
+        "text": "admin",
+        "start_time": 22.758,
+        "end_time": 23.099
+      },
+      {
+        "text": "untuk",
+        "start_time": 23.227,
+        "end_time": 23.4409
+      },
+      {
+        "text": "ditinjau",
+        "start_time": 23.483,
+        "end_time": 23.953
+      },
+      {
+        "text": "bukan",
+        "start_time": 24.294,
+        "end_time": 24.55
+      },
+      {
+        "text": "langsung",
+        "start_time": 24.593,
+        "end_time": 24.934
+      },
+      {
+        "text": "dibangun",
+        "start_time": 24.934,
+        "end_time": 25.361
+      }
+    ],
+    "originalFile": "day3r2-narrator-addon-original.wav",
+    "sourceSha256": "a7294d1768e0a746d2f0f3e0ff960cc3df571c23789b86a35c0b2c20fb62ed71",
+    "sourceDuration": 25.86267573696145,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-h01",
+        "shot": "H01",
+        "file": "day3r2-h01-c987c19ffe57.wav",
+        "sourceStart": 0.21900226757369615,
+        "sourceEnd": 6.602993197278912
+      },
+      {
+        "key": "day3r2-h02",
+        "shot": "H02",
+        "file": "day3r2-h02-7f6e96fadd01.wav",
+        "sourceStart": 6.9170068027210885,
+        "sourceEnd": 14.320997732426305
+      },
+      {
+        "key": "day3r2-g01",
+        "shot": "G01",
+        "file": "day3r2-g01-3e868ab0f965.wav",
+        "sourceStart": 14.592993197278911,
+        "sourceEnd": 25.520997732426302
+      }
+    ],
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    }
+  },
+  "narrator-dotkom": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=301f2506556b4b6da66f2ed2aa0c1f40.wav",
+    "duration": 7.1604081632653065,
+    "original_words": [
+      {
+        "text": "Buka",
+        "start_time": 0.384,
+        "end_time": 0.6827
+      },
+      {
+        "text": "republik",
+        "start_time": 0.725,
+        "end_time": 1.152
+      },
+      {
+        "text": "wekawekaweka",
+        "start_time": 1.195,
+        "end_time": 1.8347
+      },
+      {
+        "text": "dot",
+        "start_time": 1.92,
+        "end_time": 2.0907
+      },
+      {
+        "text": "kom",
+        "start_time": 2.176,
+        "end_time": 2.347
+      },
+      {
+        "text": "Pilih",
+        "start_time": 2.944,
+        "end_time": 3.2427
+      },
+      {
+        "text": "Daftar",
+        "start_time": 3.285,
+        "end_time": 3.541
+      },
+      {
+        "text": "Warga",
+        "start_time": 3.627,
+        "end_time": 3.968
+      },
+      {
+        "text": "Sekarang",
+        "start_time": 4.523,
+        "end_time": 4.949
+      },
+      {
+        "text": "giliran",
+        "start_time": 5.376,
+        "end_time": 5.76
+      },
+      {
+        "text": "kamu",
+        "start_time": 5.845,
+        "end_time": 6.0587
+      },
+      {
+        "text": "masuk",
+        "start_time": 6.101,
+        "end_time": 6.3147
+      },
+      {
+        "text": "ke",
+        "start_time": 6.4,
+        "end_time": 6.4427
+      },
+      {
+        "text": "ceritanya",
+        "start_time": 6.485,
+        "end_time": 6.955
+      }
+    ],
+    "actor": "narrator",
+    "submittedText": "Buka republik wekawekaweka dot kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voiceName": "gufron",
+    "language": "id",
+    "requestedModel": "server_default",
+    "status": "prepared_clips",
+    "originalFile": "day3-dotkom-original.wav",
+    "sourceCues": [
+      {
+        "key": "day3-dotkom-d24",
+        "shot": "D24",
+        "id": "D24",
+        "speaker": "narrator",
+        "text": "Buka republik wekawekaweka dot kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+        "spokenText": "Buka republik wekawekaweka dot kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya."
+      }
+    ],
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "f9de3828513162f7c00ac6cd5933faa72fb43a0450bd40f6165bd9474348e678",
+    "sourceDuration": 7.1604081632653065,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3-dotkom-d24",
+        "shot": "D24",
+        "file": "day3-dotkom-d24-fffbbb7494ac.wav",
+        "sourceStart": 0.3039909297052154,
+        "sourceEnd": 7.115011337868481
+      }
+    ]
+  },
+  "narrator": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=2632c060255d486ca128d847dca5ff95.wav",
+    "duration": 171.24598639455783,
+    "original_words": [
+      {
+        "text": "Hari",
+        "start_time": 0.341,
+        "end_time": 0.5547
+      },
+      {
+        "text": "ketiga",
+        "start_time": 0.597,
+        "end_time": 0.9387
+      },
+      {
+        "text": "Republik",
+        "start_time": 1.067,
+        "end_time": 1.536
+      },
+      {
+        "text": "Weka",
+        "start_time": 1.749,
+        "end_time": 2.091
+      },
+      {
+        "text": "Weka",
+        "start_time": 2.133,
+        "end_time": 2.432
+      },
+      {
+        "text": "Weka",
+        "start_time": 2.517,
+        "end_time": 2.944
+      },
+      {
+        "text": "Lima",
+        "start_time": 3.541,
+        "end_time": 3.84
+      },
+      {
+        "text": "triliun",
+        "start_time": 3.883,
+        "end_time": 4.2667
+      },
+      {
+        "text": "sudah",
+        "start_time": 4.309,
+        "end_time": 4.5227
+      },
+      {
+        "text": "masuk",
+        "start_time": 4.565,
+        "end_time": 4.821
+      },
+      {
+        "text": "Hari",
+        "start_time": 5.291,
+        "end_time": 5.504
+      },
+      {
+        "text": "ini",
+        "start_time": 5.547,
+        "end_time": 5.717
+      },
+      {
+        "text": "warga",
+        "start_time": 6.101,
+        "end_time": 6.4427
+      },
+      {
+        "text": "mau",
+        "start_time": 6.485,
+        "end_time": 6.613
+      },
+      {
+        "text": "lihat",
+        "start_time": 6.656,
+        "end_time": 6.8267
+      },
+      {
+        "text": "uangnya",
+        "start_time": 6.869,
+        "end_time": 7.168
+      },
+      {
+        "text": "berubah",
+        "start_time": 7.211,
+        "end_time": 7.509
+      },
+      {
+        "text": "jadi",
+        "start_time": 7.552,
+        "end_time": 7.765
+      },
+      {
+        "text": "apa",
+        "start_time": 7.808,
+        "end_time": 8.021
+      },
+      {
+        "text": "Dari",
+        "start_time": 8.533,
+        "end_time": 8.704
+      },
+      {
+        "text": "tepi",
+        "start_time": 8.747,
+        "end_time": 8.96
+      },
+      {
+        "text": "sungai",
+        "start_time": 9.003,
+        "end_time": 9.2587
+      },
+      {
+        "text": "Jakartawa",
+        "start_time": 9.301,
+        "end_time": 9.856
+      },
+      {
+        "text": "kita",
+        "start_time": 10.155,
+        "end_time": 10.496
+      },
+      {
+        "text": "menuju",
+        "start_time": 10.539,
+        "end_time": 10.837
+      },
+      {
+        "text": "alun",
+        "start_time": 10.88,
+        "end_time": 11.179
+      },
+      {
+        "text": "alun",
+        "start_time": 11.221,
+        "end_time": 11.477
+      },
+      {
+        "text": "Warganya",
+        "start_time": 11.861,
+        "end_time": 12.416
+      },
+      {
+        "text": "membawa",
+        "start_time": 12.459,
+        "end_time": 12.8
+      },
+      {
+        "text": "kebutuhan",
+        "start_time": 12.843,
+        "end_time": 13.312
+      },
+      {
+        "text": "Presidennya",
+        "start_time": 13.687,
+        "end_time": 14.2848
+      },
+      {
+        "text": "membawa",
+        "start_time": 14.327,
+        "end_time": 14.6688
+      },
+      {
+        "text": "rasa",
+        "start_time": 14.711,
+        "end_time": 14.967
+      },
+      {
+        "text": "percaya",
+        "start_time": 15.01,
+        "end_time": 15.3088
+      },
+      {
+        "text": "diri",
+        "start_time": 15.351,
+        "end_time": 15.607
+      },
+      {
+        "text": "Sekolah",
+        "start_time": 16.119,
+        "end_time": 16.631
+      },
+      {
+        "text": "rumah",
+        "start_time": 17.015,
+        "end_time": 17.271
+      },
+      {
+        "text": "sakit",
+        "start_time": 17.314,
+        "end_time": 17.741
+      },
+      {
+        "text": "tempat",
+        "start_time": 18.125,
+        "end_time": 18.3808
+      },
+      {
+        "text": "ibadah",
+        "start_time": 18.423,
+        "end_time": 18.935
+      },
+      {
+        "text": "sampai",
+        "start_time": 19.319,
+        "end_time": 19.703
+      },
+      {
+        "text": "rumah",
+        "start_time": 19.746,
+        "end_time": 19.9168
+      },
+      {
+        "text": "warga",
+        "start_time": 19.959,
+        "end_time": 20.301
+      },
+      {
+        "text": "Hari",
+        "start_time": 20.77,
+        "end_time": 20.983
+      },
+      {
+        "text": "ini",
+        "start_time": 21.026,
+        "end_time": 21.282
+      },
+      {
+        "text": "janji",
+        "start_time": 21.709,
+        "end_time": 22.0928
+      },
+      {
+        "text": "itu",
+        "start_time": 22.135,
+        "end_time": 22.263
+      },
+      {
+        "text": "harus",
+        "start_time": 22.306,
+        "end_time": 22.4768
+      },
+      {
+        "text": "kelihatan",
+        "start_time": 22.519,
+        "end_time": 22.946
+      },
+      {
+        "text": "bentuknya",
+        "start_time": 22.989,
+        "end_time": 23.458
+      },
+      {
+        "text": "Enam",
+        "start_time": 23.867,
+        "end_time": 24.165
+      },
+      {
+        "text": "tempat",
+        "start_time": 24.251,
+        "end_time": 24.5067
+      },
+      {
+        "text": "ibadah",
+        "start_time": 24.592,
+        "end_time": 24.976
+      },
+      {
+        "text": "disiapkan",
+        "start_time": 25.019,
+        "end_time": 25.5307
+      },
+      {
+        "text": "berdampingan",
+        "start_time": 25.573,
+        "end_time": 26.213
+      },
+      {
+        "text": "dengan",
+        "start_time": 26.555,
+        "end_time": 26.8107
+      },
+      {
+        "text": "halaman",
+        "start_time": 26.853,
+        "end_time": 27.3227
+      },
+      {
+        "text": "dan",
+        "start_time": 27.536,
+        "end_time": 27.8347
+      },
+      {
+        "text": "akses",
+        "start_time": 27.877,
+        "end_time": 28.2187
+      },
+      {
+        "text": "masing",
+        "start_time": 28.304,
+        "end_time": 28.56
+      },
+      {
+        "text": "masing",
+        "start_time": 28.645,
+        "end_time": 28.901
+      },
+      {
+        "text": "Masjid",
+        "start_time": 29.413,
+        "end_time": 29.84
+      },
+      {
+        "text": "gereja",
+        "start_time": 30.352,
+        "end_time": 30.693
+      },
+      {
+        "text": "Kristen",
+        "start_time": 30.736,
+        "end_time": 31.077
+      },
+      {
+        "text": "dan",
+        "start_time": 31.504,
+        "end_time": 31.6747
+      },
+      {
+        "text": "gereja",
+        "start_time": 31.76,
+        "end_time": 32.0587
+      },
+      {
+        "text": "Katolik",
+        "start_time": 32.101,
+        "end_time": 32.485
+      },
+      {
+        "text": "Halamannya",
+        "start_time": 33.083,
+        "end_time": 33.509
+      },
+      {
+        "text": "berbeda",
+        "start_time": 33.552,
+        "end_time": 33.979
+      },
+      {
+        "text": "jalan",
+        "start_time": 34.363,
+        "end_time": 34.661
+      },
+      {
+        "text": "bertetangganya",
+        "start_time": 34.747,
+        "end_time": 35.472
+      },
+      {
+        "text": "tetap",
+        "start_time": 35.515,
+        "end_time": 35.728
+      },
+      {
+        "text": "tersambung",
+        "start_time": 35.813,
+        "end_time": 36.283
+      },
+      {
+        "text": "Pura",
+        "start_time": 36.813,
+        "end_time": 37.154
+      },
+      {
+        "text": "vihara",
+        "start_time": 37.666,
+        "end_time": 38.221
+      },
+      {
+        "text": "dan",
+        "start_time": 38.648,
+        "end_time": 38.7758
+      },
+      {
+        "text": "kelenteng",
+        "start_time": 38.861,
+        "end_time": 39.288
+      },
+      {
+        "text": "Berbeda",
+        "start_time": 39.842,
+        "end_time": 40.269
+      },
+      {
+        "text": "tempat",
+        "start_time": 40.312,
+        "end_time": 40.482
+      },
+      {
+        "text": "beribadah",
+        "start_time": 40.568,
+        "end_time": 41.08
+      },
+      {
+        "text": "tetap",
+        "start_time": 41.506,
+        "end_time": 41.805
+      },
+      {
+        "text": "bertetangga",
+        "start_time": 41.848,
+        "end_time": 42.445
+      },
+      {
+        "text": "dalam",
+        "start_time": 42.488,
+        "end_time": 42.658
+      },
+      {
+        "text": "satu",
+        "start_time": 42.701,
+        "end_time": 42.9998
+      },
+      {
+        "text": "republik",
+        "start_time": 43.042,
+        "end_time": 43.469
+      },
+      {
+        "text": "Sekolah",
+        "start_time": 43.938,
+        "end_time": 44.322
+      },
+      {
+        "text": "dibangun",
+        "start_time": 44.365,
+        "end_time": 44.749
+      },
+      {
+        "text": "dengan",
+        "start_time": 44.792,
+        "end_time": 44.962
+      },
+      {
+        "text": "ruang",
+        "start_time": 45.048,
+        "end_time": 45.218
+      },
+      {
+        "text": "kelas",
+        "start_time": 45.304,
+        "end_time": 45.5598
+      },
+      {
+        "text": "dan",
+        "start_time": 45.645,
+        "end_time": 45.773
+      },
+      {
+        "text": "halaman",
+        "start_time": 45.816,
+        "end_time": 46.242
+      },
+      {
+        "text": "Bu",
+        "start_time": 46.968,
+        "end_time": 47.138
+      },
+      {
+        "text": "Eqa",
+        "start_time": 47.181,
+        "end_time": 47.437
+      },
+      {
+        "text": "akhirnya",
+        "start_time": 47.48,
+        "end_time": 47.864
+      },
+      {
+        "text": "punya",
+        "start_time": 47.906,
+        "end_time": 48.077
+      },
+      {
+        "text": "tempat",
+        "start_time": 48.12,
+        "end_time": 48.333
+      },
+      {
+        "text": "mengajar",
+        "start_time": 48.376,
+        "end_time": 48.802
+      },
+      {
+        "text": "Rumah",
+        "start_time": 49.326,
+        "end_time": 49.6246
+      },
+      {
+        "text": "sakit",
+        "start_time": 49.667,
+        "end_time": 49.9659
+      },
+      {
+        "text": "mendapat",
+        "start_time": 50.051,
+        "end_time": 50.3926
+      },
+      {
+        "text": "jalur",
+        "start_time": 50.435,
+        "end_time": 50.7339
+      },
+      {
+        "text": "masuk",
+        "start_time": 50.819,
+        "end_time": 51.0326
+      },
+      {
+        "text": "sendiri",
+        "start_time": 51.075,
+        "end_time": 51.459
+      },
+      {
+        "text": "Kendaraan",
+        "start_time": 52.057,
+        "end_time": 52.483
+      },
+      {
+        "text": "darurat",
+        "start_time": 52.569,
+        "end_time": 52.9526
+      },
+      {
+        "text": "harus",
+        "start_time": 53.038,
+        "end_time": 53.2086
+      },
+      {
+        "text": "bisa",
+        "start_time": 53.251,
+        "end_time": 53.507
+      },
+      {
+        "text": "lewat",
+        "start_time": 53.55,
+        "end_time": 53.806
+      },
+      {
+        "text": "Pos",
+        "start_time": 54.275,
+        "end_time": 54.403
+      },
+      {
+        "text": "damkar",
+        "start_time": 54.531,
+        "end_time": 55.001
+      },
+      {
+        "text": "kantor",
+        "start_time": 55.47,
+        "end_time": 55.7686
+      },
+      {
+        "text": "polisi",
+        "start_time": 55.854,
+        "end_time": 56.323
+      },
+      {
+        "text": "dan",
+        "start_time": 56.707,
+        "end_time": 56.8779
+      },
+      {
+        "text": "kodim",
+        "start_time": 56.963,
+        "end_time": 57.347
+      },
+      {
+        "text": "menyusul",
+        "start_time": 57.433,
+        "end_time": 57.859
+      },
+      {
+        "text": "di",
+        "start_time": 57.945,
+        "end_time": 58.0299
+      },
+      {
+        "text": "koridor",
+        "start_time": 58.073,
+        "end_time": 58.4139
+      },
+      {
+        "text": "layanan",
+        "start_time": 58.457,
+        "end_time": 58.883
+      },
+      {
+        "text": "Akses",
+        "start_time": 59.353,
+        "end_time": 59.7366
+      },
+      {
+        "text": "kendaraannya",
+        "start_time": 59.822,
+        "end_time": 60.3766
+      },
+      {
+        "text": "dipisahkan",
+        "start_time": 60.419,
+        "end_time": 60.974
+      },
+      {
+        "text": "dari",
+        "start_time": 61.017,
+        "end_time": 61.187
+      },
+      {
+        "text": "halaman",
+        "start_time": 61.23,
+        "end_time": 61.5286
+      },
+      {
+        "text": "rumah",
+        "start_time": 61.571,
+        "end_time": 61.913
+      },
+      {
+        "text": "Warga",
+        "start_time": 62.4,
+        "end_time": 62.741
+      },
+      {
+        "text": "yang",
+        "start_time": 62.784,
+        "end_time": 62.869
+      },
+      {
+        "text": "bergabung",
+        "start_time": 62.912,
+        "end_time": 63.3388
+      },
+      {
+        "text": "sejak",
+        "start_time": 63.381,
+        "end_time": 63.637
+      },
+      {
+        "text": "hari",
+        "start_time": 63.68,
+        "end_time": 63.808
+      },
+      {
+        "text": "pertama",
+        "start_time": 63.851,
+        "end_time": 64.149
+      },
+      {
+        "text": "disiapkan",
+        "start_time": 64.405,
+        "end_time": 65.173
+      },
+      {
+        "text": "empat",
+        "start_time": 65.216,
+        "end_time": 65.472
+      },
+      {
+        "text": "puluh",
+        "start_time": 65.557,
+        "end_time": 65.728
+      },
+      {
+        "text": "delapan",
+        "start_time": 65.771,
+        "end_time": 66.0268
+      },
+      {
+        "text": "rumah",
+        "start_time": 66.112,
+        "end_time": 66.4108
+      },
+      {
+        "text": "bernama",
+        "start_time": 66.496,
+        "end_time": 66.965
+      },
+      {
+        "text": "di",
+        "start_time": 67.093,
+        "end_time": 67.221
+      },
+      {
+        "text": "Kampung",
+        "start_time": 67.264,
+        "end_time": 67.648
+      },
+      {
+        "text": "Perintis",
+        "start_time": 67.691,
+        "end_time": 68.117
+      },
+      {
+        "text": "Kita",
+        "start_time": 68.672,
+        "end_time": 68.885
+      },
+      {
+        "text": "siapkan",
+        "start_time": 68.928,
+        "end_time": 69.312
+      },
+      {
+        "text": "toko",
+        "start_time": 69.355,
+        "end_time": 69.568
+      },
+      {
+        "text": "tani",
+        "start_time": 69.611,
+        "end_time": 69.909
+      },
+      {
+        "text": "pasar",
+        "start_time": 70.379,
+        "end_time": 70.763
+      },
+      {
+        "text": "gudang",
+        "start_time": 71.275,
+        "end_time": 71.659
+      },
+      {
+        "text": "bengkel",
+        "start_time": 72.128,
+        "end_time": 72.597
+      },
+      {
+        "text": "dan",
+        "start_time": 72.981,
+        "end_time": 73.152
+      },
+      {
+        "text": "balai",
+        "start_time": 73.237,
+        "end_time": 73.4508
+      },
+      {
+        "text": "hunian",
+        "start_time": 73.493,
+        "end_time": 73.792
+      },
+      {
+        "text": "Di",
+        "start_time": 74.364,
+        "end_time": 74.534
+      },
+      {
+        "text": "sinilah",
+        "start_time": 74.577,
+        "end_time": 74.8755
+      },
+      {
+        "text": "kebutuhan",
+        "start_time": 74.961,
+        "end_time": 75.3875
+      },
+      {
+        "text": "pekerjaan",
+        "start_time": 75.43,
+        "end_time": 75.9848
+      },
+      {
+        "text": "dan",
+        "start_time": 76.028,
+        "end_time": 76.1555
+      },
+      {
+        "text": "rumah",
+        "start_time": 76.198,
+        "end_time": 76.5395
+      },
+      {
+        "text": "saling",
+        "start_time": 76.582,
+        "end_time": 76.838
+      },
+      {
+        "text": "terhubung",
+        "start_time": 76.924,
+        "end_time": 77.308
+      },
+      {
+        "text": "Rancangan",
+        "start_time": 77.862,
+        "end_time": 78.3315
+      },
+      {
+        "text": "alurnya",
+        "start_time": 78.417,
+        "end_time": 78.844
+      },
+      {
+        "text": "petani",
+        "start_time": 79.27,
+        "end_time": 79.654
+      },
+      {
+        "text": "mendapat",
+        "start_time": 79.697,
+        "end_time": 79.9955
+      },
+      {
+        "text": "alat",
+        "start_time": 80.081,
+        "end_time": 80.337
+      },
+      {
+        "text": "membeli",
+        "start_time": 80.678,
+        "end_time": 81.019
+      },
+      {
+        "text": "benih",
+        "start_time": 81.062,
+        "end_time": 81.318
+      },
+      {
+        "text": "menanam",
+        "start_time": 81.702,
+        "end_time": 82.129
+      },
+      {
+        "text": "lalu",
+        "start_time": 82.47,
+        "end_time": 82.7688
+      },
+      {
+        "text": "menjual",
+        "start_time": 82.811,
+        "end_time": 83.067
+      },
+      {
+        "text": "panen",
+        "start_time": 83.195,
+        "end_time": 83.494
+      },
+      {
+        "text": "Hasilnya",
+        "start_time": 84.075,
+        "end_time": 84.5439
+      },
+      {
+        "text": "bisa",
+        "start_time": 84.587,
+        "end_time": 84.757
+      },
+      {
+        "text": "ditabung",
+        "start_time": 84.8,
+        "end_time": 85.269
+      },
+      {
+        "text": "untuk",
+        "start_time": 85.355,
+        "end_time": 85.525
+      },
+      {
+        "text": "meningkatkan",
+        "start_time": 85.568,
+        "end_time": 86.037
+      },
+      {
+        "text": "usaha",
+        "start_time": 86.08,
+        "end_time": 86.549
+      },
+      {
+        "text": "atau",
+        "start_time": 86.592,
+        "end_time": 86.7625
+      },
+      {
+        "text": "rumah",
+        "start_time": 86.805,
+        "end_time": 87.104
+      },
+      {
+        "text": "Betul",
+        "start_time": 87.744,
+        "end_time": 88.043
+      },
+      {
+        "text": "Ini",
+        "start_time": 88.64,
+        "end_time": 88.8105
+      },
+      {
+        "text": "bukan",
+        "start_time": 88.853,
+        "end_time": 89.0239
+      },
+      {
+        "text": "cuma",
+        "start_time": 89.067,
+        "end_time": 89.237
+      },
+      {
+        "text": "tontonan",
+        "start_time": 89.28,
+        "end_time": 89.749
+      },
+      {
+        "text": "Republik",
+        "start_time": 90.347,
+        "end_time": 90.8159
+      },
+      {
+        "text": "Weka",
+        "start_time": 90.859,
+        "end_time": 91.115
+      },
+      {
+        "text": "Weka",
+        "start_time": 91.2,
+        "end_time": 91.456
+      },
+      {
+        "text": "Weka",
+        "start_time": 91.499,
+        "end_time": 91.754
+      },
+      {
+        "text": "sedang",
+        "start_time": 91.84,
+        "end_time": 92.053
+      },
+      {
+        "text": "jadi",
+        "start_time": 92.096,
+        "end_time": 92.3519
+      },
+      {
+        "text": "game",
+        "start_time": 92.394,
+        "end_time": 92.565
+      },
+      {
+        "text": "kehidupan",
+        "start_time": 92.693,
+        "end_time": 93.077
+      },
+      {
+        "text": "warga",
+        "start_time": 93.162,
+        "end_time": 93.504
+      },
+      {
+        "text": "Kamu",
+        "start_time": 93.917,
+        "end_time": 94.173
+      },
+      {
+        "text": "punya",
+        "start_time": 94.216,
+        "end_time": 94.386
+      },
+      {
+        "text": "karakter",
+        "start_time": 94.429,
+        "end_time": 94.898
+      },
+      {
+        "text": "rumah",
+        "start_time": 95.282,
+        "end_time": 95.709
+      },
+      {
+        "text": "dan",
+        "start_time": 96.008,
+        "end_time": 96.1357
+      },
+      {
+        "text": "awal",
+        "start_time": 96.178,
+        "end_time": 96.477
+      },
+      {
+        "text": "perjalananmu",
+        "start_time": 96.52,
+        "end_time": 97.117
+      },
+      {
+        "text": "sendiri",
+        "start_time": 97.16,
+        "end_time": 97.501
+      },
+      {
+        "text": "Buka",
+        "start_time": 98.098,
+        "end_time": 98.397
+      },
+      {
+        "text": "republik",
+        "start_time": 98.44,
+        "end_time": 98.8237
+      },
+      {
+        "text": "weka",
+        "start_time": 98.866,
+        "end_time": 99.08
+      },
+      {
+        "text": "weka",
+        "start_time": 99.293,
+        "end_time": 99.592
+      },
+      {
+        "text": "weka",
+        "start_time": 99.634,
+        "end_time": 99.848
+      },
+      {
+        "text": "titik",
+        "start_time": 99.89,
+        "end_time": 100.1037
+      },
+      {
+        "text": "kom",
+        "start_time": 100.189,
+        "end_time": 100.317
+      },
+      {
+        "text": "Pilih",
+        "start_time": 100.872,
+        "end_time": 101.085
+      },
+      {
+        "text": "Daftar",
+        "start_time": 101.128,
+        "end_time": 101.426
+      },
+      {
+        "text": "Warga",
+        "start_time": 101.469,
+        "end_time": 101.81
+      },
+      {
+        "text": "Sekarang",
+        "start_time": 102.152,
+        "end_time": 102.536
+      },
+      {
+        "text": "giliran",
+        "start_time": 102.92,
+        "end_time": 103.261
+      },
+      {
+        "text": "kamu",
+        "start_time": 103.304,
+        "end_time": 103.517
+      },
+      {
+        "text": "masuk",
+        "start_time": 103.56,
+        "end_time": 103.816
+      },
+      {
+        "text": "ke",
+        "start_time": 103.858,
+        "end_time": 103.901
+      },
+      {
+        "text": "ceritanya",
+        "start_time": 103.944,
+        "end_time": 104.413
+      },
+      {
+        "text": "Isi",
+        "start_time": 104.859,
+        "end_time": 105.2
+      },
+      {
+        "text": "data",
+        "start_time": 105.243,
+        "end_time": 105.3707
+      },
+      {
+        "text": "akun",
+        "start_time": 105.499,
+        "end_time": 105.84
+      },
+      {
+        "text": "pilih",
+        "start_time": 106.139,
+        "end_time": 106.437
+      },
+      {
+        "text": "karakter",
+        "start_time": 106.48,
+        "end_time": 106.9067
+      },
+      {
+        "text": "dan",
+        "start_time": 106.992,
+        "end_time": 107.12
+      },
+      {
+        "text": "profesi",
+        "start_time": 107.163,
+        "end_time": 107.632
+      },
+      {
+        "text": "Saran",
+        "start_time": 108.187,
+        "end_time": 108.5707
+      },
+      {
+        "text": "penampilan",
+        "start_time": 108.613,
+        "end_time": 109.125
+      },
+      {
+        "text": "ikut",
+        "start_time": 109.211,
+        "end_time": 109.552
+      },
+      {
+        "text": "berubah",
+        "start_time": 109.595,
+        "end_time": 109.936
+      },
+      {
+        "text": "Mau",
+        "start_time": 110.405,
+        "end_time": 110.576
+      },
+      {
+        "text": "beda",
+        "start_time": 110.619,
+        "end_time": 110.875
+      },
+      {
+        "text": "Racik",
+        "start_time": 111.259,
+        "end_time": 111.685
+      },
+      {
+        "text": "avatarmu",
+        "start_time": 111.771,
+        "end_time": 112.24
+      },
+      {
+        "text": "sendiri",
+        "start_time": 112.283,
+        "end_time": 112.624
+      },
+      {
+        "text": "Tekan",
+        "start_time": 113.093,
+        "end_time": 113.349
+      },
+      {
+        "text": "Buat",
+        "start_time": 113.392,
+        "end_time": 113.605
+      },
+      {
+        "text": "Akun",
+        "start_time": 113.648,
+        "end_time": 113.9467
+      },
+      {
+        "text": "dan",
+        "start_time": 114.075,
+        "end_time": 114.245
+      },
+      {
+        "text": "Kartu",
+        "start_time": 114.331,
+        "end_time": 114.629
+      },
+      {
+        "text": "Warga",
+        "start_time": 114.672,
+        "end_time": 114.971
+      },
+      {
+        "text": "Setelah",
+        "start_time": 115.46,
+        "end_time": 115.844
+      },
+      {
+        "text": "pendaftaran",
+        "start_time": 115.887,
+        "end_time": 116.356
+      },
+      {
+        "text": "berhasil",
+        "start_time": 116.399,
+        "end_time": 116.825
+      },
+      {
+        "text": "kamu",
+        "start_time": 117.252,
+        "end_time": 117.5506
+      },
+      {
+        "text": "bisa",
+        "start_time": 117.593,
+        "end_time": 117.764
+      },
+      {
+        "text": "masuk",
+        "start_time": 117.807,
+        "end_time": 118.0626
+      },
+      {
+        "text": "menjelajahi",
+        "start_time": 118.105,
+        "end_time": 118.7026
+      },
+      {
+        "text": "Jakartawa",
+        "start_time": 118.745,
+        "end_time": 119.3
+      },
+      {
+        "text": "Lengkapi",
+        "start_time": 119.641,
+        "end_time": 120.1106
+      },
+      {
+        "text": "profil",
+        "start_time": 120.153,
+        "end_time": 120.495
+      },
+      {
+        "text": "dapat",
+        "start_time": 120.964,
+        "end_time": 121.2626
+      },
+      {
+        "text": "rumah",
+        "start_time": 121.348,
+        "end_time": 121.5186
+      },
+      {
+        "text": "subsidi",
+        "start_time": 121.561,
+        "end_time": 121.988
+      },
+      {
+        "text": "standar",
+        "start_time": 122.031,
+        "end_time": 122.457
+      },
+      {
+        "text": "seribu",
+        "start_time": 122.884,
+        "end_time": 123.268
+      },
+      {
+        "text": "Koin",
+        "start_time": 123.311,
+        "end_time": 123.481
+      },
+      {
+        "text": "Republik",
+        "start_time": 123.567,
+        "end_time": 124.079
+      },
+      {
+        "text": "dan",
+        "start_time": 124.377,
+        "end_time": 124.5906
+      },
+      {
+        "text": "alat",
+        "start_time": 124.633,
+        "end_time": 124.932
+      },
+      {
+        "text": "dasar",
+        "start_time": 124.975,
+        "end_time": 125.316
+      },
+      {
+        "text": "sesuai",
+        "start_time": 125.401,
+        "end_time": 125.785
+      },
+      {
+        "text": "pekerjaan",
+        "start_time": 125.828,
+        "end_time": 126.383
+      },
+      {
+        "text": "Satu",
+        "start_time": 126.937,
+        "end_time": 127.236
+      },
+      {
+        "text": "kali",
+        "start_time": 127.279,
+        "end_time": 127.4066
+      },
+      {
+        "text": "per",
+        "start_time": 127.535,
+        "end_time": 127.6626
+      },
+      {
+        "text": "akun",
+        "start_time": 127.663,
+        "end_time": 127.961
+      },
+      {
+        "text": "Belanja",
+        "start_time": 128.573,
+        "end_time": 128.9567
+      },
+      {
+        "text": "usaha",
+        "start_time": 128.999,
+        "end_time": 129.298
+      },
+      {
+        "text": "menyusul",
+        "start_time": 129.341,
+        "end_time": 129.767
+      },
+      {
+        "text": "Jelajahi",
+        "start_time": 130.407,
+        "end_time": 130.962
+      },
+      {
+        "text": "kota",
+        "start_time": 131.005,
+        "end_time": 131.303
+      },
+      {
+        "text": "sapa",
+        "start_time": 131.773,
+        "end_time": 132.1567
+      },
+      {
+        "text": "pemain",
+        "start_time": 132.199,
+        "end_time": 132.4127
+      },
+      {
+        "text": "di",
+        "start_time": 132.498,
+        "end_time": 132.583
+      },
+      {
+        "text": "dekatmu",
+        "start_time": 132.626,
+        "end_time": 133.053
+      },
+      {
+        "text": "lalu",
+        "start_time": 133.437,
+        "end_time": 133.735
+      },
+      {
+        "text": "mampir",
+        "start_time": 133.778,
+        "end_time": 134.0767
+      },
+      {
+        "text": "ke",
+        "start_time": 134.162,
+        "end_time": 134.247
+      },
+      {
+        "text": "rumah",
+        "start_time": 134.29,
+        "end_time": 134.546
+      },
+      {
+        "text": "Bantu",
+        "start_time": 135.101,
+        "end_time": 135.442
+      },
+      {
+        "text": "Bu",
+        "start_time": 135.485,
+        "end_time": 135.57
+      },
+      {
+        "text": "Rani",
+        "start_time": 135.613,
+        "end_time": 135.8687
+      },
+      {
+        "text": "untuk",
+        "start_time": 135.954,
+        "end_time": 136.167
+      },
+      {
+        "text": "mendapat",
+        "start_time": 136.21,
+        "end_time": 136.551
+      },
+      {
+        "text": "tanaman",
+        "start_time": 136.594,
+        "end_time": 136.978
+      },
+      {
+        "text": "Proyek",
+        "start_time": 137.447,
+        "end_time": 137.703
+      },
+      {
+        "text": "bersama",
+        "start_time": 137.746,
+        "end_time": 138.0447
+      },
+      {
+        "text": "tersedia",
+        "start_time": 138.301,
+        "end_time": 138.855
+      },
+      {
+        "text": "saat",
+        "start_time": 138.941,
+        "end_time": 139.154
+      },
+      {
+        "text": "dibuka",
+        "start_time": 139.197,
+        "end_time": 139.495
+      },
+      {
+        "text": "admin",
+        "start_time": 139.538,
+        "end_time": 139.837
+      },
+      {
+        "text": "Rumah",
+        "start_time": 140.331,
+        "end_time": 140.672
+      },
+      {
+        "text": "bernama",
+        "start_time": 140.715,
+        "end_time": 141.0989
+      },
+      {
+        "text": "warga",
+        "start_time": 141.142,
+        "end_time": 141.3976
+      },
+      {
+        "text": "cerita",
+        "start_time": 141.44,
+        "end_time": 141.867
+      },
+      {
+        "text": "tetap",
+        "start_time": 142.038,
+        "end_time": 142.2936
+      },
+      {
+        "text": "menunggu",
+        "start_time": 142.336,
+        "end_time": 142.72
+      },
+      {
+        "text": "verifikasi",
+        "start_time": 142.763,
+        "end_time": 143.4029
+      },
+      {
+        "text": "klaim",
+        "start_time": 143.446,
+        "end_time": 143.659
+      },
+      {
+        "text": "Nama",
+        "start_time": 144.214,
+        "end_time": 144.4269
+      },
+      {
+        "text": "yang",
+        "start_time": 144.555,
+        "end_time": 144.7256
+      },
+      {
+        "text": "sama",
+        "start_time": 144.768,
+        "end_time": 144.9816
+      },
+      {
+        "text": "belum",
+        "start_time": 145.323,
+        "end_time": 145.536
+      },
+      {
+        "text": "tentu",
+        "start_time": 145.622,
+        "end_time": 145.9629
+      },
+      {
+        "text": "orang",
+        "start_time": 146.006,
+        "end_time": 146.176
+      },
+      {
+        "text": "yang",
+        "start_time": 146.262,
+        "end_time": 146.3469
+      },
+      {
+        "text": "sama",
+        "start_time": 146.39,
+        "end_time": 146.603
+      },
+      {
+        "text": "Jadi",
+        "start_time": 147.286,
+        "end_time": 147.4989
+      },
+      {
+        "text": "rumahmu",
+        "start_time": 147.542,
+        "end_time": 147.9256
+      },
+      {
+        "text": "jangan",
+        "start_time": 147.968,
+        "end_time": 148.1816
+      },
+      {
+        "text": "sampai",
+        "start_time": 148.224,
+        "end_time": 148.5229
+      },
+      {
+        "text": "salah",
+        "start_time": 148.566,
+        "end_time": 148.7789
+      },
+      {
+        "text": "penghuni",
+        "start_time": 148.822,
+        "end_time": 149.163
+      },
+      {
+        "text": "Yang",
+        "start_time": 149.888,
+        "end_time": 150.0589
+      },
+      {
+        "text": "namanya",
+        "start_time": 150.102,
+        "end_time": 150.4856
+      },
+      {
+        "text": "belum",
+        "start_time": 150.528,
+        "end_time": 150.6989
+      },
+      {
+        "text": "kebagian",
+        "start_time": 150.742,
+        "end_time": 151.168
+      },
+      {
+        "text": "muncul",
+        "start_time": 151.254,
+        "end_time": 151.595
+      },
+      {
+        "text": "sabar",
+        "start_time": 152.022,
+        "end_time": 152.3629
+      },
+      {
+        "text": "dulu",
+        "start_time": 152.448,
+        "end_time": 152.704
+      },
+      {
+        "text": "ya",
+        "start_time": 153.131,
+        "end_time": 153.302
+      },
+      {
+        "text": "Kita",
+        "start_time": 153.788,
+        "end_time": 154.044
+      },
+      {
+        "text": "tata",
+        "start_time": 154.087,
+        "end_time": 154.428
+      },
+      {
+        "text": "warga",
+        "start_time": 154.599,
+        "end_time": 154.8975
+      },
+      {
+        "text": "dan",
+        "start_time": 154.94,
+        "end_time": 155.025
+      },
+      {
+        "text": "rumahnya",
+        "start_time": 155.068,
+        "end_time": 155.452
+      },
+      {
+        "text": "bertahap",
+        "start_time": 155.495,
+        "end_time": 155.922
+      },
+      {
+        "text": "Belum",
+        "start_time": 156.305,
+        "end_time": 156.476
+      },
+      {
+        "text": "tampil",
+        "start_time": 156.561,
+        "end_time": 156.988
+      },
+      {
+        "text": "bukan",
+        "start_time": 157.073,
+        "end_time": 157.244
+      },
+      {
+        "text": "berarti",
+        "start_time": 157.287,
+        "end_time": 157.628
+      },
+      {
+        "text": "dilupakan",
+        "start_time": 157.671,
+        "end_time": 158.226
+      },
+      {
+        "text": "Yang",
+        "start_time": 158.865,
+        "end_time": 159.036
+      },
+      {
+        "text": "penting",
+        "start_time": 159.079,
+        "end_time": 159.463
+      },
+      {
+        "text": "jangan",
+        "start_time": 159.932,
+        "end_time": 160.2735
+      },
+      {
+        "text": "rebutan",
+        "start_time": 160.359,
+        "end_time": 160.657
+      },
+      {
+        "text": "kursi",
+        "start_time": 160.7,
+        "end_time": 160.956
+      },
+      {
+        "text": "presiden",
+        "start_time": 160.999,
+        "end_time": 161.3829
+      },
+      {
+        "text": "dulu",
+        "start_time": 161.425,
+        "end_time": 161.681
+      },
+      {
+        "text": "Republiknya",
+        "start_time": 162.108,
+        "end_time": 162.6629
+      },
+      {
+        "text": "mulai",
+        "start_time": 162.706,
+        "end_time": 162.876
+      },
+      {
+        "text": "berdiri",
+        "start_time": 162.919,
+        "end_time": 163.345
+      },
+      {
+        "text": "Sekarang",
+        "start_time": 163.73,
+        "end_time": 164.156
+      },
+      {
+        "text": "warga",
+        "start_time": 164.498,
+        "end_time": 164.839
+      },
+      {
+        "text": "yang",
+        "start_time": 164.881,
+        "end_time": 164.9669
+      },
+      {
+        "text": "bikin",
+        "start_time": 165.052,
+        "end_time": 165.2229
+      },
+      {
+        "text": "hidup",
+        "start_time": 165.308,
+        "end_time": 165.607
+      },
+      {
+        "text": "Usaha",
+        "start_time": 165.929,
+        "end_time": 166.3135
+      },
+      {
+        "text": "pertama",
+        "start_time": 166.356,
+        "end_time": 166.6548
+      },
+      {
+        "text": "apa",
+        "start_time": 166.783,
+        "end_time": 166.953
+      },
+      {
+        "text": "yang",
+        "start_time": 166.996,
+        "end_time": 167.082
+      },
+      {
+        "text": "kamu",
+        "start_time": 167.124,
+        "end_time": 167.3375
+      },
+      {
+        "text": "buka",
+        "start_time": 167.38,
+        "end_time": 167.636
+      },
+      {
+        "text": "Tulis",
+        "start_time": 168.233,
+        "end_time": 168.489
+      },
+      {
+        "text": "nama",
+        "start_time": 168.532,
+        "end_time": 168.745
+      },
+      {
+        "text": "usahamu",
+        "start_time": 168.788,
+        "end_time": 169.343
+      },
+      {
+        "text": "dan",
+        "start_time": 169.471,
+        "end_time": 169.5988
+      },
+      {
+        "text": "barang",
+        "start_time": 169.727,
+        "end_time": 170.025
+      },
+      {
+        "text": "yang",
+        "start_time": 170.068,
+        "end_time": 170.196
+      },
+      {
+        "text": "mau",
+        "start_time": 170.239,
+        "end_time": 170.3668
+      },
+      {
+        "text": "dijual",
+        "start_time": 170.41,
+        "end_time": 170.708
+      }
+    ],
+    "actor": "narrator",
+    "submittedText": "Hari ketiga Republik Weka Weka Weka. Lima triliun sudah masuk. Hari ini, warga mau lihat uangnya berubah jadi apa.\n\nDari tepi sungai Jakartawa, kita menuju alun-alun. Warganya membawa kebutuhan. Presidennya membawa rasa percaya diri.\n\nSekolah, rumah sakit, tempat ibadah, sampai rumah warga. Hari ini, janji itu harus kelihatan bentuknya.\n\nEnam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.\n\nMasjid, gereja Kristen, dan gereja Katolik. Halamannya berbeda, jalan bertetangganya tetap tersambung.\n\nPura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.\n\nSekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.\n\nRumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.\n\nPos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.\n\nWarga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.\n\nKita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.\n\nRancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.\n\nBetul. Ini bukan cuma tontonan. Republik Weka Weka Weka sedang jadi game kehidupan warga. Kamu punya karakter, rumah, dan awal perjalananmu sendiri.\n\nBuka republik weka weka weka titik kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.\n\nIsi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.\n\nTekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.\n\nLengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!\n\nJelajahi kota, sapa pemain di dekatmu, lalu mampir ke rumah. Bantu Bu Rani untuk mendapat tanaman. Proyek bersama tersedia saat dibuka admin.\n\nRumah bernama warga cerita tetap menunggu verifikasi klaim. Nama yang sama belum tentu orang yang sama. Jadi rumahmu jangan sampai salah penghuni.\n\nYang namanya belum kebagian muncul, sabar dulu, ya. Kita tata warga dan rumahnya bertahap. Belum tampil bukan berarti dilupakan. Yang penting, jangan rebutan kursi presiden dulu.\n\nRepubliknya mulai berdiri. Sekarang, warga yang bikin hidup. Usaha pertama apa yang kamu buka? Tulis nama usahamu dan barang yang mau dijual.",
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voiceName": "gufron",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-i00",
+        "shot": "I00",
+        "text": "Hari ketiga Republik Weka Weka Weka. Lima triliun sudah masuk. Hari ini, warga mau lihat uangnya berubah jadi apa.",
+        "spokenText": "Hari ketiga Republik Weka Weka Weka. Lima triliun sudah masuk. Hari ini, warga mau lihat uangnya berubah jadi apa.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-i01",
+        "shot": "I01",
+        "text": "Dari tepi sungai Jakartawa, kita menuju alun-alun. Warganya membawa kebutuhan. Presidennya membawa rasa percaya diri.",
+        "spokenText": "Dari tepi sungai Jakartawa, kita menuju alun-alun. Warganya membawa kebutuhan. Presidennya membawa rasa percaya diri.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d03",
+        "shot": "D03",
+        "text": "Sekolah, rumah sakit, tempat ibadah, sampai rumah warga. Hari ini, janji itu harus kelihatan bentuknya.",
+        "spokenText": "Sekolah, rumah sakit, tempat ibadah, sampai rumah warga. Hari ini, janji itu harus kelihatan bentuknya.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d08",
+        "shot": "D08",
+        "text": "Enam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.",
+        "spokenText": "Enam tempat ibadah disiapkan berdampingan, dengan halaman dan akses masing-masing.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d09",
+        "shot": "D09",
+        "text": "Masjid, gereja Kristen, dan gereja Katolik. Halamannya berbeda, jalan bertetangganya tetap tersambung.",
+        "spokenText": "Masjid, gereja Kristen, dan gereja Katolik. Halamannya berbeda, jalan bertetangganya tetap tersambung.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d10",
+        "shot": "D10",
+        "text": "Pura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.",
+        "spokenText": "Pura, vihara, dan kelenteng. Berbeda tempat beribadah, tetap bertetangga dalam satu republik.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d11",
+        "shot": "D11",
+        "text": "Sekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.",
+        "spokenText": "Sekolah dibangun dengan ruang kelas dan halaman. Bu Eqa akhirnya punya tempat mengajar.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d13",
+        "shot": "D13",
+        "text": "Rumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.",
+        "spokenText": "Rumah sakit mendapat jalur masuk sendiri. Kendaraan darurat harus bisa lewat.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d16",
+        "shot": "D16",
+        "text": "Pos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.",
+        "spokenText": "Pos damkar, kantor polisi, dan kodim menyusul di koridor layanan. Akses kendaraannya dipisahkan dari halaman rumah.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d17",
+        "shot": "D17",
+        "text": "Warga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.",
+        "spokenText": "Warga yang bergabung sejak hari pertama disiapkan empat puluh delapan rumah bernama di Kampung Perintis.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d21",
+        "shot": "D21",
+        "text": "Kita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.",
+        "spokenText": "Kita siapkan toko tani, pasar, gudang, bengkel, dan balai hunian. Di sinilah kebutuhan pekerjaan dan rumah saling terhubung.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d22",
+        "shot": "D22",
+        "text": "Rancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.",
+        "spokenText": "Rancangan alurnya: petani mendapat alat, membeli benih, menanam, lalu menjual panen. Hasilnya bisa ditabung untuk meningkatkan usaha atau rumah.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-g00",
+        "shot": "G00",
+        "text": "Betul. Ini bukan cuma tontonan. Republik Weka Weka Weka sedang jadi game kehidupan warga. Kamu punya karakter, rumah, dan awal perjalananmu sendiri.",
+        "spokenText": "Betul. Ini bukan cuma tontonan. Republik Weka Weka Weka sedang jadi game kehidupan warga. Kamu punya karakter, rumah, dan awal perjalananmu sendiri.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d24",
+        "shot": "D24",
+        "text": "Buka republik weka weka weka titik kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+        "spokenText": "Buka republik weka weka weka titik kom. Pilih Daftar Warga. Sekarang, giliran kamu masuk ke ceritanya.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d25",
+        "shot": "D25",
+        "text": "Isi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.",
+        "spokenText": "Isi data akun, pilih karakter dan profesi. Saran penampilan ikut berubah. Mau beda? Racik avatarmu sendiri.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d26",
+        "shot": "D26",
+        "text": "Tekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.",
+        "spokenText": "Tekan Buat Akun dan Kartu Warga. Setelah pendaftaran berhasil, kamu bisa masuk menjelajahi Jakartawa.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d27",
+        "shot": "D27",
+        "text": "Lengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!",
+        "spokenText": "Lengkapi profil, dapat rumah subsidi standar, seribu Koin Republik, dan alat dasar sesuai pekerjaan. Satu kali per akun. Belanja usaha menyusul!",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d28",
+        "shot": "D28",
+        "text": "Jelajahi kota, sapa pemain di dekatmu, lalu mampir ke rumah. Bantu Bu Rani untuk mendapat tanaman. Proyek bersama tersedia saat dibuka admin.",
+        "spokenText": "Jelajahi kota, sapa pemain di dekatmu, lalu mampir ke rumah. Bantu Bu Rani untuk mendapat tanaman. Proyek bersama tersedia saat dibuka admin.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d29",
+        "shot": "D29",
+        "text": "Rumah bernama warga cerita tetap menunggu verifikasi klaim. Nama yang sama belum tentu orang yang sama. Jadi rumahmu jangan sampai salah penghuni.",
+        "spokenText": "Rumah bernama warga cerita tetap menunggu verifikasi klaim. Nama yang sama belum tentu orang yang sama. Jadi rumahmu jangan sampai salah penghuni.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-w00",
+        "shot": "W00",
+        "text": "Yang namanya belum kebagian muncul, sabar dulu, ya. Kita tata warga dan rumahnya bertahap. Belum tampil bukan berarti dilupakan. Yang penting, jangan rebutan kursi presiden dulu.",
+        "spokenText": "Yang namanya belum kebagian muncul, sabar dulu, ya. Kita tata warga dan rumahnya bertahap. Belum tampil bukan berarti dilupakan. Yang penting, jangan rebutan kursi presiden dulu.",
+        "speaker": "narrator"
+      },
+      {
+        "key": "day3r2-d32",
+        "shot": "D32",
+        "text": "Republiknya mulai berdiri. Sekarang, warga yang bikin hidup. Usaha pertama apa yang kamu buka? Tulis nama usahamu dan barang yang mau dijual.",
+        "spokenText": "Republiknya mulai berdiri. Sekarang, warga yang bikin hidup. Usaha pertama apa yang kamu buka? Tulis nama usahamu dan barang yang mau dijual.",
+        "speaker": "narrator"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-narrator-original.wav",
+    "sourceSha256": "8dbdeb8c230f0573b5a144d6ab7ce710a3a6e1120da69b9b4c39cf784e8fdbd8",
+    "sourceDuration": 171.24598639455783,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-i00",
+        "shot": "I00",
+        "file": "day3r2-i00-b89edd6490db.wav",
+        "sourceStart": 0.26099773242630386,
+        "sourceEnd": 8.180997732426304
+      },
+      {
+        "key": "day3r2-i01",
+        "shot": "I01",
+        "file": "day3r2-i01-875c75a2e216.wav",
+        "sourceStart": 8.45299319727891,
+        "sourceEnd": 15.767006802721088
+      },
+      {
+        "key": "day3r2-d03",
+        "shot": "D03",
+        "file": "day3r2-d03-0c5e89f1baf8.wav",
+        "sourceStart": 16.039002267573697,
+        "sourceEnd": 23.618004535147392
+      },
+      {
+        "key": "day3r2-d08",
+        "shot": "D08",
+        "file": "day3r2-d08-2b1ca7b36735.wav",
+        "sourceStart": 23.787006802721088,
+        "sourceEnd": 29.060997732426305
+      },
+      {
+        "key": "day3r2-d09",
+        "shot": "D09",
+        "file": "day3r2-d09-3598e70b6f38.wav",
+        "sourceStart": 29.332993197278913,
+        "sourceEnd": 36.44299319727891
+      },
+      {
+        "key": "day3r2-d10",
+        "shot": "D10",
+        "file": "day3r2-d10-0853767d8552.wav",
+        "sourceStart": 36.73299319727891,
+        "sourceEnd": 43.629002267573696
+      },
+      {
+        "key": "day3r2-d11",
+        "shot": "D11",
+        "file": "day3r2-d11-cfdf7676a866.wav",
+        "sourceStart": 43.858004535147394,
+        "sourceEnd": 48.961995464852606
+      },
+      {
+        "key": "day3r2-d13",
+        "shot": "D13",
+        "file": "day3r2-d13-96a1e35cb4e2.wav",
+        "sourceStart": 49.24600907029478,
+        "sourceEnd": 53.96600907029478
+      },
+      {
+        "key": "day3r2-d16",
+        "shot": "D16",
+        "file": "day3r2-d16-67492431ccdc.wav",
+        "sourceStart": 54.19501133786848,
+        "sourceEnd": 62.07299319727891
+      },
+      {
+        "key": "day3r2-d17",
+        "shot": "D17",
+        "file": "day3r2-d17-3d6be27c3670.wav",
+        "sourceStart": 62.32,
+        "sourceEnd": 68.27700680272109
+      },
+      {
+        "key": "day3r2-d21",
+        "shot": "D21",
+        "file": "day3r2-d21-ca2dcde2f972.wav",
+        "sourceStart": 68.5919954648526,
+        "sourceEnd": 77.46800453514739
+      },
+      {
+        "key": "day3r2-d22",
+        "shot": "D22",
+        "file": "day3r2-d22-d991cfd04b1a.wav",
+        "sourceStart": 77.78199546485261,
+        "sourceEnd": 87.26399092970522
+      },
+      {
+        "key": "day3r2-g00",
+        "shot": "G00",
+        "file": "day3r2-g00-8f8cd2d21d7a.wav",
+        "sourceStart": 87.66399092970522,
+        "sourceEnd": 97.66099773242631
+      },
+      {
+        "key": "day3r2-d24",
+        "shot": "D24",
+        "file": "day3r2-d24-aca93421919c.wav",
+        "sourceStart": 98.0180045351474,
+        "sourceEnd": 104.5729931972789
+      },
+      {
+        "key": "day3r2-d25",
+        "shot": "D25",
+        "file": "day3r2-d25-e051782cbe97.wav",
+        "sourceStart": 104.7790022675737,
+        "sourceEnd": 112.78399092970521
+      },
+      {
+        "key": "day3r2-d26",
+        "shot": "D26",
+        "file": "day3r2-d26-32e7fdda2ca4.wav",
+        "sourceStart": 113.01299319727892,
+        "sourceEnd": 119.46
+      },
+      {
+        "key": "day3r2-d27",
+        "shot": "D27",
+        "file": "day3r2-d27-5b4d8a7b78d7.wav",
+        "sourceStart": 119.5609977324263,
+        "sourceEnd": 129.92700680272108
+      },
+      {
+        "key": "day3r2-d28",
+        "shot": "D28",
+        "file": "day3r2-d28-1482af3bf8ed.wav",
+        "sourceStart": 130.3270068027211,
+        "sourceEnd": 139.99700680272107
+      },
+      {
+        "key": "day3r2-d29",
+        "shot": "D29",
+        "file": "day3r2-d29-d2f7a7e24363.wav",
+        "sourceStart": 140.2509977324263,
+        "sourceEnd": 149.32299319727892
+      },
+      {
+        "key": "day3r2-w00",
+        "shot": "W00",
+        "file": "day3r2-w00-faf38d2e17eb.wav",
+        "sourceStart": 149.8080045351474,
+        "sourceEnd": 161.8409977324263
+      },
+      {
+        "key": "day3r2-d32",
+        "shot": "D32",
+        "file": "day3r2-d32-cd430d859735.wav",
+        "sourceStart": 162.0280045351474,
+        "sourceEnd": 170.8680045351474
+      }
+    ]
+  },
+  "pasca": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/b50db2127b854791b6e16815c3e9b824/id=6585746111614e32a5e094454dd00496.wav",
+    "duration": 20.656303854875283,
+    "original_words": [
+      {
+        "text": "Tenang",
+        "start_time": 0.299,
+        "end_time": 0.597
+      },
+      {
+        "text": "Semua",
+        "start_time": 0.939,
+        "end_time": 1.365
+      },
+      {
+        "text": "pembangunan",
+        "start_time": 1.408,
+        "end_time": 1.792
+      },
+      {
+        "text": "ini",
+        "start_time": 1.835,
+        "end_time": 2.005
+      },
+      {
+        "text": "berkat",
+        "start_time": 2.048,
+        "end_time": 2.304
+      },
+      {
+        "text": "kerja",
+        "start_time": 2.389,
+        "end_time": 2.645
+      },
+      {
+        "text": "keras",
+        "start_time": 2.688,
+        "end_time": 2.901
+      },
+      {
+        "text": "saya",
+        "start_time": 2.987,
+        "end_time": 3.2
+      },
+      {
+        "text": "Nah",
+        "start_time": 3.712,
+        "end_time": 3.883
+      },
+      {
+        "text": "Saya",
+        "start_time": 4.309,
+        "end_time": 4.779
+      },
+      {
+        "text": "yang",
+        "start_time": 4.821,
+        "end_time": 4.9067
+      },
+      {
+        "text": "berhasil",
+        "start_time": 4.949,
+        "end_time": 5.2907
+      },
+      {
+        "text": "menerima",
+        "start_time": 5.333,
+        "end_time": 5.717
+      },
+      {
+        "text": "Saya",
+        "start_time": 6.272,
+        "end_time": 6.485
+      },
+      {
+        "text": "sudah",
+        "start_time": 6.528,
+        "end_time": 6.741
+      },
+      {
+        "text": "memikirkannya",
+        "start_time": 6.784,
+        "end_time": 7.381
+      },
+      {
+        "text": "Xel",
+        "start_time": 7.765,
+        "end_time": 8.021
+      },
+      {
+        "text": "kerjakan",
+        "start_time": 8.32,
+        "end_time": 8.747
+      },
+      {
+        "text": "Semua",
+        "start_time": 9.216,
+        "end_time": 9.6
+      },
+      {
+        "text": "harus",
+        "start_time": 9.643,
+        "end_time": 9.7707
+      },
+      {
+        "text": "kelihatan",
+        "start_time": 9.813,
+        "end_time": 10.1547
+      },
+      {
+        "text": "rapi",
+        "start_time": 10.197,
+        "end_time": 10.496
+      },
+      {
+        "text": "Bisa",
+        "start_time": 10.795,
+        "end_time": 11.0507
+      },
+      {
+        "text": "dua",
+        "start_time": 11.093,
+        "end_time": 11.221
+      },
+      {
+        "text": "duanya",
+        "start_time": 11.264,
+        "end_time": 11.648
+      },
+      {
+        "text": "Efisien",
+        "start_time": 12.032,
+        "end_time": 12.501
+      },
+      {
+        "text": "Yang",
+        "start_time": 12.828,
+        "end_time": 12.999
+      },
+      {
+        "text": "penting",
+        "start_time": 13.042,
+        "end_time": 13.2976
+      },
+      {
+        "text": "ingat",
+        "start_time": 13.34,
+        "end_time": 13.724
+      },
+      {
+        "text": "siapa",
+        "start_time": 13.81,
+        "end_time": 14.108
+      },
+      {
+        "text": "yang",
+        "start_time": 14.151,
+        "end_time": 14.236
+      },
+      {
+        "text": "meresmikan",
+        "start_time": 14.279,
+        "end_time": 14.748
+      },
+      {
+        "text": "Kalau",
+        "start_time": 15.346,
+        "end_time": 15.559
+      },
+      {
+        "text": "usaha",
+        "start_time": 15.602,
+        "end_time": 15.9
+      },
+      {
+        "text": "warga",
+        "start_time": 15.943,
+        "end_time": 16.199
+      },
+      {
+        "text": "ramai",
+        "start_time": 16.242,
+        "end_time": 16.54
+      },
+      {
+        "text": "berarti",
+        "start_time": 16.967,
+        "end_time": 17.351
+      },
+      {
+        "text": "ide",
+        "start_time": 17.394,
+        "end_time": 17.5216
+      },
+      {
+        "text": "saya",
+        "start_time": 17.607,
+        "end_time": 17.82
+      },
+      {
+        "text": "berhasil",
+        "start_time": 17.863,
+        "end_time": 18.247
+      },
+      {
+        "text": "Kita",
+        "start_time": 18.716,
+        "end_time": 18.9296
+      },
+      {
+        "text": "bentuk",
+        "start_time": 18.972,
+        "end_time": 19.228
+      },
+      {
+        "text": "tim",
+        "start_time": 19.314,
+        "end_time": 19.4416
+      },
+      {
+        "text": "evaluasi",
+        "start_time": 19.527,
+        "end_time": 20.167
+      }
+    ],
+    "actor": "pasca",
+    "submittedText": "Tenang! Semua pembangunan ini berkat kerja keras saya!\n\nNah. Saya yang berhasil menerima!\n\nSaya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.\n\nBisa dua-duanya. Efisien!\n\nYang penting ingat siapa yang meresmikan.\n\nKalau usaha warga ramai, berarti ide saya berhasil.\n\nKita bentuk tim evaluasi.",
+    "voiceId": "b50db2127b854791b6e16815c3e9b824",
+    "voiceName": "Alistaire - Authoritative & Articulate",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-d00",
+        "shot": "D00",
+        "text": "Tenang! Semua pembangunan ini berkat kerja keras saya!",
+        "spokenText": "Tenang! Semua pembangunan ini berkat kerja keras saya!",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d02",
+        "shot": "D02",
+        "text": "Nah. Saya yang berhasil menerima!",
+        "spokenText": "Nah. Saya yang berhasil menerima!",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d06",
+        "shot": "D06",
+        "text": "Saya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.",
+        "spokenText": "Saya sudah memikirkannya. Xel, kerjakan! Semua harus kelihatan rapi.",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d15",
+        "shot": "D15",
+        "text": "Bisa dua-duanya. Efisien!",
+        "spokenText": "Bisa dua-duanya. Efisien!",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d19",
+        "shot": "D19",
+        "text": "Yang penting ingat siapa yang meresmikan.",
+        "spokenText": "Yang penting ingat siapa yang meresmikan.",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-d30",
+        "shot": "D30",
+        "text": "Kalau usaha warga ramai, berarti ide saya berhasil.",
+        "spokenText": "Kalau usaha warga ramai, berarti ide saya berhasil.",
+        "speaker": "pasca"
+      },
+      {
+        "key": "day3r2-e00",
+        "shot": "E00",
+        "text": "Kita bentuk tim evaluasi.",
+        "spokenText": "Kita bentuk tim evaluasi.",
+        "speaker": "pasca"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-pasca-original.wav",
+    "sourceSha256": "1183af6867badfcf681a02f1d86a2ec6381cd0c2d9a92e14f42cc81b8099e762",
+    "sourceDuration": 20.656303854875283,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-d00",
+        "shot": "D00",
+        "file": "day3r2-d00-ea5adfaea74c.wav",
+        "sourceStart": 0.21900226757369615,
+        "sourceEnd": 3.36
+      },
+      {
+        "key": "day3r2-d02",
+        "shot": "D02",
+        "file": "day3r2-d02-41e405b79e84.wav",
+        "sourceStart": 3.631995464852608,
+        "sourceEnd": 5.877006802721088
+      },
+      {
+        "key": "day3r2-d06",
+        "shot": "D06",
+        "file": "day3r2-d06-d1a291791ae6.wav",
+        "sourceStart": 6.191995464852607,
+        "sourceEnd": 10.656009070294784
+      },
+      {
+        "key": "day3r2-d15",
+        "shot": "D15",
+        "file": "day3r2-d15-857ea75fd7fa.wav",
+        "sourceStart": 10.71501133786848,
+        "sourceEnd": 12.660997732426305
+      },
+      {
+        "key": "day3r2-d19",
+        "shot": "D19",
+        "file": "day3r2-d19-c0ac892ebc9b.wav",
+        "sourceStart": 12.748004535147393,
+        "sourceEnd": 14.908004535147393
+      },
+      {
+        "key": "day3r2-d30",
+        "shot": "D30",
+        "file": "day3r2-d30-6493134216b8.wav",
+        "sourceStart": 15.266009070294784,
+        "sourceEnd": 18.40700680272109
+      },
+      {
+        "key": "day3r2-e00",
+        "shot": "E00",
+        "file": "day3r2-e00-4941aeba3261.wav",
+        "sourceStart": 18.636009070294783,
+        "sourceEnd": 20.327006802721087
+      }
+    ]
+  },
+  "r3-cecil": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/31001ed1e3e54c79a88458cb03ca123a/id=5f92042ddd27429984d387bc4669f54a.wav",
+    "duration": 1.3289569160997732,
+    "original_words": [
+      {
+        "text": "Rumah",
+        "start_time": 0.299,
+        "end_time": 0.512
+      },
+      {
+        "text": "sakit",
+        "start_time": 0.555,
+        "end_time": 0.768
+      },
+      {
+        "text": "juga",
+        "start_time": 0.811,
+        "end_time": 1.109
+      }
+    ],
+    "actor": "cecil",
+    "voiceId": "31001ed1e3e54c79a88458cb03ca123a",
+    "voiceName": "Leanne - Expressive & Earthy",
+    "language": "id",
+    "submittedText": "Rumah sakit juga!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d05",
+        "shot": "D05",
+        "id": "D05",
+        "label": "Rumah sakit juga!",
+        "speaker": "cecil",
+        "beat": "plaza",
+        "text": "Rumah sakit juga!",
+        "spokenText": "Rumah sakit juga!",
+        "audioKey": "day3r3-d05",
+        "duration": 4,
+        "gesture": "talk"
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-cecil-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "6cdacc80da7138c0e4b9d7c0c6029aaa12cf5608c62dfad90b0d95d36f64f4ba",
+    "sourceDuration": 1.3289569160997732,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-d05",
+        "shot": "D05",
+        "file": "day3r3-d05-0f5818e7b7cf.wav",
+        "sourceStart": 0.21900226757369615,
+        "sourceEnd": 1.269002267573696
+      }
+    ]
+  },
+  "r3-demian": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/c30ecab014cb4a8d816d07f6b2b625c8/id=5e501f8e58f74df9b36e169ffe0f3fa5.wav",
+    "duration": 8.73936507936508,
+    "original_words": [
+      {
+        "text": "Ada",
+        "start_time": 0.213,
+        "end_time": 0.4267
+      },
+      {
+        "text": "nama",
+        "start_time": 0.469,
+        "end_time": 0.64
+      },
+      {
+        "text": "saya",
+        "start_time": 0.683,
+        "end_time": 0.939
+      },
+      {
+        "text": "Pak",
+        "start_time": 1.493,
+        "end_time": 1.749
+      },
+      {
+        "text": "jangan",
+        "start_time": 2.091,
+        "end_time": 2.3467
+      },
+      {
+        "text": "sekalian",
+        "start_time": 2.389,
+        "end_time": 2.688
+      },
+      {
+        "text": "dipasang",
+        "start_time": 2.731,
+        "end_time": 2.9867
+      },
+      {
+        "text": "foto",
+        "start_time": 3.029,
+        "end_time": 3.2427
+      },
+      {
+        "text": "Bapak",
+        "start_time": 3.285,
+        "end_time": 3.584
+      },
+      {
+        "text": "Kita",
+        "start_time": 3.968,
+        "end_time": 4.1387
+      },
+      {
+        "text": "bisa",
+        "start_time": 4.181,
+        "end_time": 4.352
+      },
+      {
+        "text": "masuk",
+        "start_time": 4.395,
+        "end_time": 4.5227
+      },
+      {
+        "text": "beneran",
+        "start_time": 4.565,
+        "end_time": 4.864
+      },
+      {
+        "text": "ke",
+        "start_time": 4.907,
+        "end_time": 4.992
+      },
+      {
+        "text": "sini",
+        "start_time": 5.035,
+        "end_time": 5.205
+      },
+      {
+        "text": "Nah",
+        "start_time": 5.675,
+        "end_time": 5.845
+      },
+      {
+        "text": "ada",
+        "start_time": 6.059,
+        "end_time": 6.144
+      },
+      {
+        "text": "modalnya",
+        "start_time": 6.229,
+        "end_time": 6.656
+      },
+      {
+        "text": "Kalau",
+        "start_time": 6.997,
+        "end_time": 7.2107
+      },
+      {
+        "text": "mau",
+        "start_time": 7.253,
+        "end_time": 7.3387
+      },
+      {
+        "text": "taman",
+        "start_time": 7.381,
+        "end_time": 7.595
+      },
+      {
+        "text": "Climenzo",
+        "start_time": 7.936,
+        "end_time": 8.405
+      }
+    ],
+    "actor": "demian",
+    "voiceId": "c30ecab014cb4a8d816d07f6b2b625c8",
+    "voiceName": "Brodie - Breezy & Genuine",
+    "language": "id",
+    "submittedText": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.\n\nKita bisa masuk beneran ke sini?\n\nNah, ada modalnya!\n\nKalau mau taman?\n\nClimenzo!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d18",
+        "shot": "D18",
+        "id": "D18",
+        "label": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+        "speaker": "demian",
+        "beat": "homes-reaction",
+        "text": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+        "spokenText": "Ada nama saya! Pak, jangan sekalian dipasang foto Bapak.",
+        "audioKey": "day3r3-d18",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-d23",
+        "shot": "D23",
+        "id": "D23",
+        "label": "Kita bisa masuk beneran ke sini?",
+        "speaker": "demian",
+        "beat": "game-question",
+        "text": "Kita bisa masuk beneran ke sini?",
+        "spokenText": "Kita bisa masuk beneran ke sini?",
+        "audioKey": "day3r3-d23",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-g02",
+        "shot": "G02",
+        "id": "G02",
+        "label": "Nah, ada modalnya!",
+        "speaker": "demian",
+        "beat": "starter-reaction",
+        "text": "Nah, ada modalnya!",
+        "spokenText": "Nah, ada modalnya!",
+        "audioKey": "day3r3-g02",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-g03",
+        "shot": "G03",
+        "id": "G03",
+        "label": "Kalau mau taman?",
+        "speaker": "demian",
+        "beat": "proposal-question",
+        "text": "Kalau mau taman?",
+        "spokenText": "Kalau mau taman?",
+        "audioKey": "day3r3-g03",
+        "duration": 4,
+        "gesture": "talk"
+      },
+      {
+        "key": "day3r3-e01",
+        "shot": "E01",
+        "id": "E01",
+        "label": "Climenzo!",
+        "speaker": "demian",
+        "beat": "final-answer",
+        "text": "Climenzo!",
+        "spokenText": "Climenzo!",
+        "audioKey": "day3r3-e01",
+        "duration": 4,
+        "gesture": "talk",
+        "minDuration": 1.5
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-demian-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "91e16b3ba089715ce60a6db5af72a87f5e99a3488b5a083676b32634fa94ace6",
+    "sourceDuration": 8.73936507936508,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-d18",
+        "shot": "D18",
+        "file": "day3r3-d18-0d44262b4c72.wav",
+        "sourceStart": 0.13299319727891157,
+        "sourceEnd": 3.7439909297052156
+      },
+      {
+        "key": "day3r3-d23",
+        "shot": "D23",
+        "file": "day3r3-d23-710695a496eb.wav",
+        "sourceStart": 3.888004535147392,
+        "sourceEnd": 5.36498866213152
+      },
+      {
+        "key": "day3r3-g02",
+        "shot": "G02",
+        "file": "day3r3-g02-02a3d2b10787.wav",
+        "sourceStart": 5.595011337868481,
+        "sourceEnd": 6.816009070294784
+      },
+      {
+        "key": "day3r3-g03",
+        "shot": "G03",
+        "file": "day3r3-g03-a63759b62e8f.wav",
+        "sourceStart": 6.9170068027210885,
+        "sourceEnd": 7.75501133786848
+      },
+      {
+        "key": "day3r3-e01",
+        "shot": "E01",
+        "file": "day3r3-e01-856cfafe1d4b.wav",
+        "sourceStart": 7.8560090702947845,
+        "sourceEnd": 8.564988662131519
+      }
+    ]
+  },
+  "r3-eqa": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/f264d09b4320461b9873abbe9283b505/id=7b3ab749a602483cb8f5703cc1810f00.wav",
+    "duration": 1.606825396825397,
+    "original_words": [
+      {
+        "text": "Pak",
+        "start_time": 0.299,
+        "end_time": 0.512
+      },
+      {
+        "text": "sekolahnya",
+        "start_time": 0.768,
+        "end_time": 1.323
+      }
+    ],
+    "actor": "eqa",
+    "voiceId": "f264d09b4320461b9873abbe9283b505",
+    "voiceName": "Prudence - Cultivated & Precise",
+    "language": "id",
+    "submittedText": "Pak, sekolahnya!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d04",
+        "shot": "D04",
+        "id": "D04",
+        "label": "Pak, sekolahnya!",
+        "speaker": "eqa",
+        "beat": "plaza",
+        "text": "Pak, sekolahnya!",
+        "spokenText": "Pak, sekolahnya!",
+        "audioKey": "day3r3-d04",
+        "duration": 4,
+        "gesture": "talk"
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-eqa-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "930f956d11df02372d56bbc0c9a1e4a875311346cd07afc56146c2c283988fa3",
+    "sourceDuration": 1.606825396825397,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-d04",
+        "shot": "D04",
+        "file": "day3r3-d04-5192c42eb2ce.wav",
+        "sourceStart": 0.21900226757369615,
+        "sourceEnd": 1.4829931972789117
+      }
+    ]
+  },
+  "r3-narrator": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/bb23d4e8919d4e20b55ea5b70159749c/id=db9580ae9c234d8dbfd50d584b3176e2.wav",
+    "duration": 19.123786848072562,
+    "original_words": [
+      {
+        "text": "Hari",
+        "start_time": 0.341,
+        "end_time": 0.5547
+      },
+      {
+        "text": "ketiga",
+        "start_time": 0.597,
+        "end_time": 0.9387
+      },
+      {
+        "text": "Republik",
+        "start_time": 1.067,
+        "end_time": 1.536
+      },
+      {
+        "text": "Wekawekaweka",
+        "start_time": 1.621,
+        "end_time": 2.219
+      },
+      {
+        "text": "Duitnya",
+        "start_time": 2.901,
+        "end_time": 3.285
+      },
+      {
+        "text": "dari",
+        "start_time": 3.328,
+        "end_time": 3.4987
+      },
+      {
+        "text": "warga",
+        "start_time": 3.541,
+        "end_time": 3.84
+      },
+      {
+        "text": "Tapi",
+        "start_time": 4.224,
+        "end_time": 4.523
+      },
+      {
+        "text": "yang",
+        "start_time": 4.565,
+        "end_time": 4.6507
+      },
+      {
+        "text": "paling",
+        "start_time": 4.693,
+        "end_time": 4.821
+      },
+      {
+        "text": "bangga",
+        "start_time": 4.864,
+        "end_time": 5.248
+      },
+      {
+        "text": "presidennya",
+        "start_time": 5.803,
+        "end_time": 6.443
+      },
+      {
+        "text": "Bisa",
+        "start_time": 6.997,
+        "end_time": 7.424
+      },
+      {
+        "text": "Sekarang",
+        "start_time": 7.765,
+        "end_time": 8.1067
+      },
+      {
+        "text": "warga",
+        "start_time": 8.149,
+        "end_time": 8.405
+      },
+      {
+        "text": "bisa",
+        "start_time": 8.448,
+        "end_time": 8.6187
+      },
+      {
+        "text": "masuk",
+        "start_time": 8.661,
+        "end_time": 8.917
+      },
+      {
+        "text": "langsung",
+        "start_time": 8.96,
+        "end_time": 9.344
+      },
+      {
+        "text": "ketemu",
+        "start_time": 9.685,
+        "end_time": 9.984
+      },
+      {
+        "text": "pemain",
+        "start_time": 10.027,
+        "end_time": 10.24
+      },
+      {
+        "text": "lain",
+        "start_time": 10.325,
+        "end_time": 10.496
+      },
+      {
+        "text": "yang",
+        "start_time": 10.581,
+        "end_time": 10.6667
+      },
+      {
+        "text": "sedang",
+        "start_time": 10.709,
+        "end_time": 10.9227
+      },
+      {
+        "text": "online",
+        "start_time": 11.008,
+        "end_time": 11.136
+      },
+      {
+        "text": "Belum",
+        "start_time": 11.733,
+        "end_time": 11.904
+      },
+      {
+        "text": "muncul",
+        "start_time": 11.947,
+        "end_time": 12.2027
+      },
+      {
+        "text": "di",
+        "start_time": 12.245,
+        "end_time": 12.3307
+      },
+      {
+        "text": "cerita",
+        "start_time": 12.373,
+        "end_time": 12.672
+      },
+      {
+        "text": "Sabar",
+        "start_time": 12.91,
+        "end_time": 13.379
+      },
+      {
+        "text": "kamu",
+        "start_time": 13.72,
+        "end_time": 13.934
+      },
+      {
+        "text": "nggak",
+        "start_time": 13.976,
+        "end_time": 14.1469
+      },
+      {
+        "text": "dilupakan",
+        "start_time": 14.19,
+        "end_time": 14.702
+      },
+      {
+        "text": "Warganya",
+        "start_time": 15.299,
+        "end_time": 15.896
+      },
+      {
+        "text": "kami",
+        "start_time": 15.939,
+        "end_time": 16.152
+      },
+      {
+        "text": "masukkan",
+        "start_time": 16.195,
+        "end_time": 16.536
+      },
+      {
+        "text": "bertahap",
+        "start_time": 16.579,
+        "end_time": 17.091
+      },
+      {
+        "text": "Mainnya",
+        "start_time": 17.475,
+        "end_time": 17.816
+      },
+      {
+        "text": "sudah",
+        "start_time": 17.859,
+        "end_time": 18.072
+      },
+      {
+        "text": "bisa",
+        "start_time": 18.115,
+        "end_time": 18.2856
+      },
+      {
+        "text": "ikut",
+        "start_time": 18.328,
+        "end_time": 18.584
+      }
+    ],
+    "actor": "narrator",
+    "voiceId": "bb23d4e8919d4e20b55ea5b70159749c",
+    "voiceName": "gufron",
+    "language": "id",
+    "submittedText": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.\n\nBisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.\n\nBelum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+    "sourceCues": [
+      {
+        "key": "day3r3-i00",
+        "shot": "I00",
+        "id": "I00",
+        "label": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling ban",
+        "speaker": "narrator",
+        "beat": "arrival",
+        "text": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.",
+        "spokenText": "Hari ketiga Republik Wekawekaweka. Duitnya dari warga. Tapi yang paling bangga… presidennya.",
+        "audioKey": "day3r3-i00",
+        "duration": 4,
+        "minDuration": 7
+      },
+      {
+        "key": "day3r3-g00",
+        "shot": "G00",
+        "id": "G00",
+        "label": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang on",
+        "speaker": "narrator",
+        "beat": "game-intro",
+        "text": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.",
+        "spokenText": "Bisa. Sekarang warga bisa masuk langsung, ketemu pemain lain yang sedang online.",
+        "audioKey": "day3r3-g00",
+        "duration": 4
+      },
+      {
+        "key": "day3r3-w00",
+        "shot": "W00",
+        "id": "W00",
+        "label": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan",
+        "speaker": "narrator",
+        "beat": "waiting",
+        "text": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+        "spokenText": "Belum muncul di cerita? Sabar, kamu nggak dilupakan. Warganya kami masukkan bertahap. Mainnya sudah bisa ikut.",
+        "audioKey": "day3r3-w00",
+        "duration": 4
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-narrator-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "986174c211eea0b6c546d23e039242850e056bc8d0a045497e0cabf454ad8c99",
+    "sourceDuration": 19.123786848072562,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-i00",
+        "shot": "I00",
+        "file": "day3r3-i00-6b624724a5a8.wav",
+        "sourceStart": 0.26099773242630386,
+        "sourceEnd": 6.602993197278912
+      },
+      {
+        "key": "day3r3-g00",
+        "shot": "G00",
+        "file": "day3r3-g00-3550069ebc6f.wav",
+        "sourceStart": 6.9170068027210885,
+        "sourceEnd": 11.296009070294785
+      },
+      {
+        "key": "day3r3-w00",
+        "shot": "W00",
+        "file": "day3r3-w00-6ac62de3613e.wav",
+        "sourceStart": 11.652993197278912,
+        "sourceEnd": 18.743990929705216
+      }
+    ]
+  },
+  "r3-pasca": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/b50db2127b854791b6e16815c3e9b824/id=586a0de66b91425d85c080afe284c556.wav",
+    "duration": 7.764126984126984,
+    "original_words": [
+      {
+        "text": "Semua",
+        "start_time": 0.256,
+        "end_time": 0.6827
+      },
+      {
+        "text": "ini",
+        "start_time": 0.725,
+        "end_time": 0.853
+      },
+      {
+        "text": "berkat",
+        "start_time": 0.896,
+        "end_time": 1.1947
+      },
+      {
+        "text": "kerja",
+        "start_time": 1.28,
+        "end_time": 1.536
+      },
+      {
+        "text": "keras",
+        "start_time": 1.579,
+        "end_time": 1.792
+      },
+      {
+        "text": "saya",
+        "start_time": 1.92,
+        "end_time": 2.133
+      },
+      {
+        "text": "Saya",
+        "start_time": 2.475,
+        "end_time": 2.944
+      },
+      {
+        "text": "yang",
+        "start_time": 2.987,
+        "end_time": 3.072
+      },
+      {
+        "text": "menerima",
+        "start_time": 3.115,
+        "end_time": 3.541
+      },
+      {
+        "text": "Ide",
+        "start_time": 4.224,
+        "end_time": 4.437
+      },
+      {
+        "text": "bagus",
+        "start_time": 4.523,
+        "end_time": 4.821
+      },
+      {
+        "text": "Yang",
+        "start_time": 5.333,
+        "end_time": 5.461
+      },
+      {
+        "text": "penting",
+        "start_time": 5.504,
+        "end_time": 5.888
+      },
+      {
+        "text": "ingat",
+        "start_time": 6.187,
+        "end_time": 6.485
+      },
+      {
+        "text": "siapa",
+        "start_time": 6.571,
+        "end_time": 6.869
+      },
+      {
+        "text": "yang",
+        "start_time": 6.912,
+        "end_time": 6.997
+      },
+      {
+        "text": "berjasa",
+        "start_time": 7.04,
+        "end_time": 7.509
+      }
+    ],
+    "actor": "pasca",
+    "voiceId": "b50db2127b854791b6e16815c3e9b824",
+    "voiceName": "Alistaire - Authoritative & Articulate",
+    "language": "id",
+    "submittedText": "Semua ini berkat kerja keras saya!\n\nSaya yang menerima!\n\nIde bagus.\n\nYang penting, ingat siapa yang berjasa!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d00",
+        "shot": "D00",
+        "id": "D00",
+        "label": "Semua ini berkat kerja keras saya!",
+        "speaker": "pasca",
+        "beat": "plaza",
+        "text": "Semua ini berkat kerja keras saya!",
+        "spokenText": "Semua ini berkat kerja keras saya!",
+        "audioKey": "day3r3-d00",
+        "duration": 4,
+        "gesture": "boast",
+        "expression": "happy",
+        "gestureDelay": 0.3
+      },
+      {
+        "key": "day3r3-d02",
+        "shot": "D02",
+        "id": "D02",
+        "label": "Saya yang menerima!",
+        "speaker": "pasca",
+        "beat": "plaza",
+        "text": "Saya yang menerima!",
+        "spokenText": "Saya yang menerima!",
+        "audioKey": "day3r3-d02",
+        "duration": 4,
+        "gesture": "boast",
+        "expression": "happy",
+        "gestureDelay": 0.25
+      },
+      {
+        "key": "day3r3-d19",
+        "shot": "D19",
+        "id": "D19",
+        "label": "Ide bagus.",
+        "speaker": "pasca",
+        "beat": "homes-reaction",
+        "text": "Ide bagus.",
+        "spokenText": "Ide bagus.",
+        "audioKey": "day3r3-d19",
+        "duration": 4,
+        "gesture": "nod",
+        "expression": "happy",
+        "gestureDelay": 0.1,
+        "minDuration": 1.6,
+        "reactions": {
+          "demian": {
+            "action": "Idle",
+            "expression": "surprised"
+          }
+        }
+      },
+      {
+        "key": "day3r3-d30",
+        "shot": "D30",
+        "id": "D30",
+        "label": "Yang penting, ingat siapa yang berjasa!",
+        "speaker": "pasca",
+        "beat": "final-credit",
+        "text": "Yang penting, ingat siapa yang berjasa!",
+        "spokenText": "Yang penting, ingat siapa yang berjasa!",
+        "audioKey": "day3r3-d30",
+        "duration": 4,
+        "gesture": "boast",
+        "expression": "happy",
+        "gestureDelay": 0.3
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-pasca-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "0f9911b3b8282138647d277c3a19eeff3f5e99ef39b6c725221e452a9bc95da1",
+    "sourceDuration": 7.764126984126984,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-d00",
+        "shot": "D00",
+        "file": "day3r3-d00-2c71986cc6b6.wav",
+        "sourceStart": 0.17600907029478458,
+        "sourceEnd": 2.2929931972789115
+      },
+      {
+        "key": "day3r3-d02",
+        "shot": "D02",
+        "file": "day3r3-d02-6db8b34292d1.wav",
+        "sourceStart": 2.3950113378684805,
+        "sourceEnd": 3.7009977324263037
+      },
+      {
+        "key": "day3r3-d19",
+        "shot": "D19",
+        "file": "day3r3-d19-9ae610116df2.wav",
+        "sourceStart": 4.1439909297052155,
+        "sourceEnd": 4.980997732426304
+      },
+      {
+        "key": "day3r3-d30",
+        "shot": "D30",
+        "file": "day3r3-d30-59211fce3623.wav",
+        "sourceStart": 5.2529931972789115,
+        "sourceEnd": 7.669002267573696
+      }
+    ]
+  },
+  "r3-sari": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/3e3d02302c2f4da498ea6d8a4d9ffbf6/id=db3b30e238a24e968833a7904c9c3f0a.wav",
+    "duration": 29.6475283446712,
+    "original_words": [
+      {
+        "text": "Buka",
+        "start_time": 0.256,
+        "end_time": 0.64
+      },
+      {
+        "text": "republik",
+        "start_time": 0.683,
+        "end_time": 1.024
+      },
+      {
+        "text": "wekawekaweka",
+        "start_time": 1.109,
+        "end_time": 1.664
+      },
+      {
+        "text": "dot",
+        "start_time": 1.749,
+        "end_time": 1.92
+      },
+      {
+        "text": "kom",
+        "start_time": 1.963,
+        "end_time": 2.133
+      },
+      {
+        "text": "Daftar",
+        "start_time": 2.56,
+        "end_time": 3.029
+      },
+      {
+        "text": "pilih",
+        "start_time": 3.371,
+        "end_time": 3.669
+      },
+      {
+        "text": "profesi",
+        "start_time": 3.712,
+        "end_time": 4.181
+      },
+      {
+        "text": "dan",
+        "start_time": 4.224,
+        "end_time": 4.309
+      },
+      {
+        "text": "avatar",
+        "start_time": 4.352,
+        "end_time": 4.821
+      },
+      {
+        "text": "lalu",
+        "start_time": 5.163,
+        "end_time": 5.461
+      },
+      {
+        "text": "buat",
+        "start_time": 5.504,
+        "end_time": 5.6747
+      },
+      {
+        "text": "Kartu",
+        "start_time": 5.717,
+        "end_time": 5.973
+      },
+      {
+        "text": "Warga",
+        "start_time": 6.016,
+        "end_time": 6.315
+      },
+      {
+        "text": "Ini",
+        "start_time": 6.741,
+        "end_time": 7.0827
+      },
+      {
+        "text": "KTP",
+        "start_time": 7.125,
+        "end_time": 7.4667
+      },
+      {
+        "text": "kamu",
+        "start_time": 7.509,
+        "end_time": 7.68
+      },
+      {
+        "text": "di",
+        "start_time": 7.723,
+        "end_time": 7.808
+      },
+      {
+        "text": "game",
+        "start_time": 7.851,
+        "end_time": 7.979
+      },
+      {
+        "text": "Setelah",
+        "start_time": 8.376,
+        "end_time": 8.8029
+      },
+      {
+        "text": "pendaftaran",
+        "start_time": 8.845,
+        "end_time": 9.3149
+      },
+      {
+        "text": "lengkap",
+        "start_time": 9.357,
+        "end_time": 9.699
+      },
+      {
+        "text": "dapat",
+        "start_time": 9.998,
+        "end_time": 10.296
+      },
+      {
+        "text": "rumah",
+        "start_time": 10.339,
+        "end_time": 10.509
+      },
+      {
+        "text": "subsidi",
+        "start_time": 10.552,
+        "end_time": 11.021
+      },
+      {
+        "text": "seribu",
+        "start_time": 11.491,
+        "end_time": 11.8749
+      },
+      {
+        "text": "Koin",
+        "start_time": 11.918,
+        "end_time": 12.1309
+      },
+      {
+        "text": "Republik",
+        "start_time": 12.174,
+        "end_time": 12.643
+      },
+      {
+        "text": "dan",
+        "start_time": 13.027,
+        "end_time": 13.197
+      },
+      {
+        "text": "alat",
+        "start_time": 13.24,
+        "end_time": 13.496
+      },
+      {
+        "text": "dasar",
+        "start_time": 13.539,
+        "end_time": 13.88
+      },
+      {
+        "text": "sesuai",
+        "start_time": 13.966,
+        "end_time": 14.3069
+      },
+      {
+        "text": "pekerjaan",
+        "start_time": 14.35,
+        "end_time": 14.904
+      },
+      {
+        "text": "Bisa",
+        "start_time": 15.544,
+        "end_time": 15.8
+      },
+      {
+        "text": "jelajah",
+        "start_time": 15.843,
+        "end_time": 16.184
+      },
+      {
+        "text": "kota",
+        "start_time": 16.227,
+        "end_time": 16.568
+      },
+      {
+        "text": "ngobrol",
+        "start_time": 17.038,
+        "end_time": 17.4215
+      },
+      {
+        "text": "lewat",
+        "start_time": 17.507,
+        "end_time": 17.677
+      },
+      {
+        "text": "chat",
+        "start_time": 17.72,
+        "end_time": 17.976
+      },
+      {
+        "text": "dengan",
+        "start_time": 18.061,
+        "end_time": 18.232
+      },
+      {
+        "text": "warga",
+        "start_time": 18.275,
+        "end_time": 18.573
+      },
+      {
+        "text": "yang",
+        "start_time": 18.616,
+        "end_time": 18.701
+      },
+      {
+        "text": "online",
+        "start_time": 18.744,
+        "end_time": 18.872
+      },
+      {
+        "text": "dan",
+        "start_time": 19.47,
+        "end_time": 19.64
+      },
+      {
+        "text": "mengerjakan",
+        "start_time": 19.683,
+        "end_time": 20.1095
+      },
+      {
+        "text": "tugas",
+        "start_time": 20.152,
+        "end_time": 20.408
+      },
+      {
+        "text": "Bu",
+        "start_time": 20.494,
+        "end_time": 20.6215
+      },
+      {
+        "text": "Rani",
+        "start_time": 20.622,
+        "end_time": 20.878
+      },
+      {
+        "text": "Buka",
+        "start_time": 21.442,
+        "end_time": 21.7839
+      },
+      {
+        "text": "Usulkan",
+        "start_time": 21.826,
+        "end_time": 22.1679
+      },
+      {
+        "text": "pembangunan",
+        "start_time": 22.253,
+        "end_time": 22.765
+      },
+      {
+        "text": "Tulis",
+        "start_time": 23.277,
+        "end_time": 23.5759
+      },
+      {
+        "text": "lokasi",
+        "start_time": 23.619,
+        "end_time": 24.045
+      },
+      {
+        "text": "dan",
+        "start_time": 24.088,
+        "end_time": 24.173
+      },
+      {
+        "text": "alasannya",
+        "start_time": 24.216,
+        "end_time": 24.77
+      },
+      {
+        "text": "Admin",
+        "start_time": 25.197,
+        "end_time": 25.453
+      },
+      {
+        "text": "meninjau",
+        "start_time": 25.496,
+        "end_time": 25.837
+      },
+      {
+        "text": "dulu",
+        "start_time": 25.88,
+        "end_time": 26.136
+      },
+      {
+        "text": "Giliran",
+        "start_time": 26.52,
+        "end_time": 26.989
+      },
+      {
+        "text": "kamu",
+        "start_time": 27.032,
+        "end_time": 27.331
+      },
+      {
+        "text": "Daftar",
+        "start_time": 27.8,
+        "end_time": 28.3119
+      },
+      {
+        "text": "dan",
+        "start_time": 28.355,
+        "end_time": 28.4399
+      },
+      {
+        "text": "masuk",
+        "start_time": 28.483,
+        "end_time": 28.6959
+      },
+      {
+        "text": "ke",
+        "start_time": 28.738,
+        "end_time": 28.781
+      },
+      {
+        "text": "kotanya",
+        "start_time": 28.824,
+        "end_time": 29.208
+      }
+    ],
+    "actor": "sari",
+    "voiceId": "3e3d02302c2f4da498ea6d8a4d9ffbf6",
+    "voiceName": "Annie - Excited",
+    "language": "id",
+    "submittedText": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu buat Kartu Warga. Ini KTP kamu di game.\n\nSetelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan alat dasar sesuai pekerjaan.\n\nBisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerjakan tugas Bu Rani.\n\nBuka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.\n\nGiliran kamu. Daftar dan masuk ke kotanya!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d24",
+        "shot": "D24",
+        "id": "D24",
+        "label": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu ",
+        "speaker": "sari",
+        "beat": "register",
+        "text": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu buat Kartu Warga. Ini KTP kamu di game.",
+        "spokenText": "Buka republik wekawekaweka dot kom. Daftar, pilih profesi dan avatar, lalu buat Kartu Warga. Ini KTP kamu di game.",
+        "audioKey": "day3r3-d24",
+        "duration": 4,
+        "minDuration": 12
+      },
+      {
+        "key": "day3r3-d27",
+        "shot": "D27",
+        "id": "D27",
+        "label": "Setelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan",
+        "speaker": "sari",
+        "beat": "starter",
+        "text": "Setelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan alat dasar sesuai pekerjaan.",
+        "spokenText": "Setelah pendaftaran lengkap, dapat rumah subsidi, seribu Koin Republik, dan alat dasar sesuai pekerjaan.",
+        "audioKey": "day3r3-d27",
+        "duration": 4,
+        "minDuration": 7
+      },
+      {
+        "key": "day3r3-d28",
+        "shot": "D28",
+        "id": "D28",
+        "label": "Bisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerj",
+        "speaker": "sari",
+        "beat": "available",
+        "text": "Bisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerjakan tugas Bu Rani.",
+        "spokenText": "Bisa jelajah kota, ngobrol lewat chat dengan warga yang online, dan mengerjakan tugas Bu Rani.",
+        "audioKey": "day3r3-d28",
+        "duration": 4,
+        "minDuration": 8
+      },
+      {
+        "key": "day3r3-g01",
+        "shot": "G01",
+        "id": "G01",
+        "label": "Buka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.",
+        "speaker": "sari",
+        "beat": "proposal",
+        "text": "Buka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.",
+        "spokenText": "Buka Usulkan pembangunan. Tulis lokasi dan alasannya. Admin meninjau dulu.",
+        "audioKey": "day3r3-g01",
+        "duration": 4,
+        "minDuration": 7
+      },
+      {
+        "key": "day3r3-d32",
+        "shot": "D32",
+        "id": "D32",
+        "label": "Giliran kamu. Daftar dan masuk ke kotanya!",
+        "speaker": "sari",
+        "beat": "closing",
+        "text": "Giliran kamu. Daftar dan masuk ke kotanya!",
+        "spokenText": "Giliran kamu. Daftar dan masuk ke kotanya!",
+        "audioKey": "day3r3-d32",
+        "duration": 4,
+        "minDuration": 4
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-sari-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "ffd39610307bb065a5a515c452af835714f218ef4a8bf18d2be456a6ed9a248d",
+    "sourceDuration": 29.6475283446712,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-d24",
+        "shot": "D24",
+        "file": "day3r3-d24-62c1db6baad0.wav",
+        "sourceStart": 0.17600907029478458,
+        "sourceEnd": 8.139002267573696
+      },
+      {
+        "key": "day3r3-d27",
+        "shot": "D27",
+        "file": "day3r3-d27-9a2e8416e151.wav",
+        "sourceStart": 8.296009070294785,
+        "sourceEnd": 15.063990929705215
+      },
+      {
+        "key": "day3r3-d28",
+        "shot": "D28",
+        "file": "day3r3-d28-ca6b401201d2.wav",
+        "sourceStart": 15.463990929705215,
+        "sourceEnd": 21.038004535147394
+      },
+      {
+        "key": "day3r3-g01",
+        "shot": "G01",
+        "file": "day3r3-g01-8459502e5662.wav",
+        "sourceStart": 21.36199546485261,
+        "sourceEnd": 26.296009070294783
+      },
+      {
+        "key": "day3r3-d32",
+        "shot": "D32",
+        "file": "day3r3-d32-1b222f0b380e.wav",
+        "sourceStart": 26.44,
+        "sourceEnd": 29.368004535147392
+      }
+    ]
+  },
+  "r3-xel": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/f9a2c5a6b6be456a8ed59dac8a319f2a/id=79b4b91709724eed86d5a3526de3d830.wav",
+    "duration": 2.607687074829932,
+    "original_words": [
+      {
+        "text": "Siap",
+        "start_time": 0.299,
+        "end_time": 0.64
+      },
+      {
+        "text": "Mulai",
+        "start_time": 1.28,
+        "end_time": 1.579
+      },
+      {
+        "text": "dari",
+        "start_time": 1.621,
+        "end_time": 1.835
+      },
+      {
+        "text": "fondasi",
+        "start_time": 1.877,
+        "end_time": 2.432
+      }
+    ],
+    "actor": "xel",
+    "voiceId": "f9a2c5a6b6be456a8ed59dac8a319f2a",
+    "voiceName": "Lachie - Direct & Reassuring",
+    "language": "id",
+    "submittedText": "Siap. Mulai dari fondasi!",
+    "sourceCues": [
+      {
+        "key": "day3r3-d07",
+        "shot": "D07",
+        "id": "D07",
+        "label": "Siap. Mulai dari fondasi!",
+        "speaker": "xel",
+        "beat": "start-build",
+        "text": "Siap. Mulai dari fondasi!",
+        "spokenText": "Siap. Mulai dari fondasi!",
+        "audioKey": "day3r3-d07",
+        "duration": 4,
+        "gesture": "talk"
+      }
+    ],
+    "status": "prepared_clips",
+    "requestedModel": "server_default",
+    "originalFile": "day3r3-xel-original.wav",
+    "review": {
+      "fullListening": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "fullListeningPerformed": false,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "sourceSha256": "bcf25b7759de168f67c3764ae2a21b0c7cc8600f4b79cdea66847ffeaf6647dd",
+    "sourceDuration": 2.607687074829932,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r3-d07",
+        "shot": "D07",
+        "file": "day3r3-d07-608307c6be55.wav",
+        "sourceStart": 0.21900226757369615,
+        "sourceEnd": 2.591995464852608
+      }
+    ]
+  },
+  "xel": {
+    "audio_url": "https://resource2.heygen.ai/text_to_speech/12fe518ef69b45dca700421fa79ab2ba/f9a2c5a6b6be456a8ed59dac8a319f2a/id=f57b15ca494743eeaa9a6182dc52d9dc.wav",
+    "duration": 10.910430839002268,
+    "original_words": [
+      {
+        "text": "Siap",
+        "start_time": 0.256,
+        "end_time": 0.597
+      },
+      {
+        "text": "Tempat",
+        "start_time": 1.067,
+        "end_time": 1.3227
+      },
+      {
+        "text": "ibadah",
+        "start_time": 1.365,
+        "end_time": 1.835
+      },
+      {
+        "text": "layanan",
+        "start_time": 2.176,
+        "end_time": 2.56
+      },
+      {
+        "text": "warga",
+        "start_time": 2.603,
+        "end_time": 3.029
+      },
+      {
+        "text": "rumah",
+        "start_time": 3.371,
+        "end_time": 3.797
+      },
+      {
+        "text": "dan",
+        "start_time": 4.139,
+        "end_time": 4.352
+      },
+      {
+        "text": "kawasan",
+        "start_time": 4.437,
+        "end_time": 4.821
+      },
+      {
+        "text": "usaha",
+        "start_time": 4.864,
+        "end_time": 5.291
+      },
+      {
+        "text": "Jalannya",
+        "start_time": 5.931,
+        "end_time": 6.4427
+      },
+      {
+        "text": "jangan",
+        "start_time": 6.485,
+        "end_time": 6.6987
+      },
+      {
+        "text": "ketutup",
+        "start_time": 6.741,
+        "end_time": 7.125
+      },
+      {
+        "text": "Rumah",
+        "start_time": 7.509,
+        "end_time": 7.808
+      },
+      {
+        "text": "sudah",
+        "start_time": 7.851,
+        "end_time": 8.064
+      },
+      {
+        "text": "ada",
+        "start_time": 8.107,
+        "end_time": 8.192
+      },
+      {
+        "text": "Tapi",
+        "start_time": 8.875,
+        "end_time": 9.173
+      },
+      {
+        "text": "warga",
+        "start_time": 9.216,
+        "end_time": 9.5147
+      },
+      {
+        "text": "cari",
+        "start_time": 9.557,
+        "end_time": 9.728
+      },
+      {
+        "text": "penghasilan",
+        "start_time": 9.771,
+        "end_time": 10.197
+      },
+      {
+        "text": "dari",
+        "start_time": 10.24,
+        "end_time": 10.4107
+      },
+      {
+        "text": "mana",
+        "start_time": 10.453,
+        "end_time": 10.667
+      }
+    ],
+    "actor": "xel",
+    "submittedText": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.\n\nRumah sudah ada. Tapi warga cari penghasilan dari mana?",
+    "voiceId": "f9a2c5a6b6be456a8ed59dac8a319f2a",
+    "voiceName": "Lachie - Direct & Reassuring",
+    "language": "id",
+    "requestedModel": null,
+    "status": "prepared_clips",
+    "sourceCues": [
+      {
+        "key": "day3r2-d07",
+        "shot": "D07",
+        "text": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.",
+        "spokenText": "Siap. Tempat ibadah, layanan warga, rumah, dan kawasan usaha. Jalannya jangan ketutup.",
+        "speaker": "xel"
+      },
+      {
+        "key": "day3r2-d20",
+        "shot": "D20",
+        "text": "Rumah sudah ada. Tapi warga cari penghasilan dari mana?",
+        "spokenText": "Rumah sudah ada. Tapi warga cari penghasilan dari mana?",
+        "speaker": "xel"
+      }
+    ],
+    "review": {
+      "fullListeningPerformed": false,
+      "timestampsValidated": true,
+      "signalValidated": true,
+      "listeningLimitation": "Full audio listening and subjective Indonesian pronunciation review were unavailable in this environment."
+    },
+    "originalFile": "day3r2-xel-original.wav",
+    "sourceSha256": "fbf3a2a802cf9975b5115a07b3832ba5b884993f6d89403c321ea696f1604489",
+    "sourceDuration": 10.910430839002268,
+    "sampleRate": 44100,
+    "channels": 1,
+    "clips": [
+      {
+        "key": "day3r2-d07",
+        "shot": "D07",
+        "file": "day3r2-d07-7cdaacc2f6b2.wav",
+        "sourceStart": 0.17600907029478458,
+        "sourceEnd": 7.28498866213152
+      },
+      {
+        "key": "day3r2-d20",
+        "shot": "D20",
+        "file": "day3r2-d20-45bff41935e6.wav",
+        "sourceStart": 7.429002267573696,
+        "sourceEnd": 10.827006802721089
+      }
+    ]
+  }
+}

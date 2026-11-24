@@ -1,3 +1,5 @@
+import {REPUBLIC_PALETTE as P} from './republic-nature-layout.js';
+import {createRepublicNature,createNatureInstances} from './republic-nature.js';
 import * as THREE from 'three';
 import {createRepublicCivicCenter} from './republic-civic-center.js';
 import {republicGeometry} from './republic-geometry.js';
@@ -6,18 +8,18 @@ import {CAPITAL_LAYOUT,WORLD_DESTINATIONS,REGIONAL_LAYOUT,WORLD_DISTRICTS,WORLD_
 function resourceSets(options){return {geometries:options.geometries||options.resources?.geometries||new Set(),materials:options.materials||options.resources?.materials||new Set(),textures:options.textures||options.resources?.textures||new Set()};}
 function terrainGeometry(x0,z0,size,segments,city,lower=0,hole=null,heightAt=terrainHeight){
   let geometry;
-  if(hole){
+  if(hole||size>=1000){
     // Insert exact boundary rows into the coarse distant terrain. Removing
     // triangles in this rectangle preserves the filmed set's excavations.
-    const axes=(a,b)=>[...new Set([...Array.from({length:segments+1},(_,i)=>-size/2+i*size/segments),a,b])].sort((a,b)=>a-b),xs=axes(hole.minX,hole.maxX),zs=axes(hole.minZ,hole.maxZ),vertices=[],indices=[];
+    const axes=(a,b,min,max,step)=>[...new Set([...Array.from({length:segments+1},(_,i)=>-size/2+i*size/segments),...Array.from({length:Math.ceil((max-min)/step)},(_,i)=>min+i*step),a,b].filter(Number.isFinite))].sort((a,b)=>a-b),xs=axes(hole?.minX,hole?.maxX,-390,-40,6),zs=axes(hole?.minZ,hole?.maxZ,-380,560,8),vertices=[],indices=[];
     for(const z of zs)for(const x of xs)vertices.push(x,0,z);
     for(let j=0;j<zs.length-1;j++)for(let i=0;i<xs.length-1;i++){
-      const x=(xs[i]+xs[i+1])/2,z=(zs[j]+zs[j+1])/2;if(x>hole.minX&&x<hole.maxX&&z>hole.minZ&&z<hole.maxZ)continue;
+      const x=(xs[i]+xs[i+1])/2,z=(zs[j]+zs[j+1])/2;if(hole&&x>hole.minX&&x<hole.maxX&&z>hole.minZ&&z<hole.maxZ)continue;
       const a=j*xs.length+i,b=a+1,c=a+xs.length,d=c+1;indices.push(a,c,b,b,c,d);
     }
     geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));geometry.setIndex(indices);
   }else{geometry=new THREE.PlaneGeometry(size,size,segments,segments);geometry.rotateX(-Math.PI/2);}
-  const position=geometry.attributes.position,colors=[],grass=new THREE.Color('#91a76e'),hill=new THREE.Color('#748e62'),sand=new THREE.Color('#c0b48a');
+  const position=geometry.attributes.position,colors=[],grass=new THREE.Color(P.grass),hill=new THREE.Color(P.hill),sand=new THREE.Color(P.sand);
   for(let i=0;i<position.count;i++){
     const x=position.getX(i)+x0,z=position.getZ(i)+z0,height=heightAt(x,z,city);
     // Flat city roads/footings sit at grade even when production has no streamed
@@ -38,8 +40,14 @@ export function createCapitalContext(options={}){
   const occluders=[],colliders=[],surfaces=[],g=republicGeometry({...resources,occluders});
   const {box,cylinder,beam,group}=g;
   const sign=(...args)=>{const object=g.sign(...args);for(const mat of Array.isArray(object.material)?object.material:[object.material])if(mat.map)mat.color.set('#ffffff');return object;};
-  const ocean=box(root,'RepublicSea','#659ca9',[0,-1.3,0],[50000,.25,50000],{roughness:.38});ocean.castShadow=false;
+  const ocean=box(root,'RepublicSea',P.deepWater,[0,-1.3,0],[50000,.25,50000],{roughness:.38});ocean.castShadow=false;
   const landscape=terrainGeometry(0,0,5600,280,city,.55,!includeCore?{minX:-35,maxX:35,minZ:-30,maxZ:30}:null,options.heightAt||terrainHeight),terrain=g.mesh(root,'RepublicLandform',landscape,g.material('#ffffff',{vertexColors:true}),[0,0,0]);terrain.castShadow=false;terrain.userData.backgroundTerrain=true;
+  const nature=createRepublicNature({parent:root,heightAt:options.heightAt||terrainHeight});colliders.push(...nature.colliders);nature.root.traverse(o=>{if(o.isMesh){geometries.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m);}});
+  // Clip distant terrain beneath resident chunks instead of coplanar overlap.
+  const detailBounds={value:new THREE.Vector4(1,1,-1,-1)};
+  terrain.material.onBeforeCompile=shader=>{shader.uniforms.detailBounds=detailBounds;shader.vertexShader='varying vec2 terrainXZ;\n'+shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nterrainXZ=(modelMatrix*vec4(position,1.0)).xz;');shader.fragmentShader='uniform vec4 detailBounds; varying vec2 terrainXZ;\n'+shader.fragmentShader.replace('#include <clipping_planes_fragment>','#include <clipping_planes_fragment>\nif(terrainXZ.x>=detailBounds.x && terrainXZ.y>=detailBounds.y && terrainXZ.x<detailBounds.z && terrainXZ.y<detailBounds.w) discard;');};
+  terrain.material.customProgramCacheKey=()=> 'terrain-detail-mask-v1';
+  const setDetailBounds=b=>detailBounds.value.set(b.minX,b.minZ,b.maxX,b.maxZ);
   let core=null,phase=normalizeWorldPhase(options.phase);
   const coreOccluders=[];
   {
@@ -143,7 +151,7 @@ export function createCapitalContext(options={}){
   for(let i=occluders.length-1;i>=0;i--)if(occluders[i].userData.backgroundTerrain||occluders[i].name==='RepublicSea')occluders.splice(i,1);
   setPhase(phase);
   let disposed=false;
-  return {root,core,occluders,colliders,surfaces,resources,setPhase,get phase(){return phase;},dispose(){if(disposed)return;disposed=true;root.removeFromParent();}};
+  return {root,core,occluders,colliders,surfaces,resources,setPhase,setDetailBounds,get phase(){return phase;},dispose(){if(disposed)return;disposed=true;nature.root.traverse(o=>{if(o.isMesh){geometries.delete(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])materials.delete(m);}});nature.dispose();root.removeFromParent();}};
 }
 export const buildCapitalContext=createCapitalContext;
 
@@ -163,21 +171,19 @@ export function createRepublicTerrainStream({parent,city='jakarta',radius=2,size
     for(let i=0;i<(inForest?70:22);i++){
       const x=cx*size+hashWorld(cx*23+i,cz,21)*size,z=cz*size+hashWorld(cx,cz*31+i,37)*size,h=terrainHeight(x,z,city);
       if(h<.35&&Math.hypot(x,z)>580||isReservedGround(x,z,city)||reservedBounds.some(r=>x>=r.minX&&x<=r.maxX&&z>=r.minZ&&z<=r.maxZ))continue;
-      const scale=.75+hashWorld(cx+i,cz-i,13)*.55;if(i%4===0)rocks.push({x,z,h,scale});else trees.push({x,z,h,scale});
+      const scale=.75+hashWorld(cx+i,cz-i,13)*.55;if(i%4===0)rocks.push({x,z,h,scale});else trees.push({x,z,h,scale,type:i%4});
     }
-    const trunk=new THREE.InstancedMesh(trunkGeometry,trunkMaterial,trees.length),crowns=new THREE.InstancedMesh(crownGeometry,crownMaterial,trees.length),stones=new THREE.InstancedMesh(rockGeometry,rockMaterial,rocks.length);
-    trunk.name='StreamedTreeTrunks';crowns.name='StreamedTreeCanopies';stones.name='StreamedRocks';
-    trees.forEach((t,i)=>{dummy.position.set(t.x,t.h+1.4*t.scale,t.z);dummy.scale.setScalar(t.scale);dummy.rotation.set(0,0,0);dummy.updateMatrix();trunk.setMatrixAt(i,dummy.matrix);dummy.position.y=t.h+3.1*t.scale;dummy.scale.set(t.scale,1.12*t.scale,t.scale);dummy.updateMatrix();crowns.setMatrixAt(i,dummy.matrix);});
+    const grove=createNatureInstances(trees);group.add(grove.root);const stones=new THREE.InstancedMesh(rockGeometry,rockMaterial,rocks.length);stones.name='StreamedRocks';
     rocks.forEach((t,i)=>{dummy.position.set(t.x,t.h+.25,t.z);dummy.scale.set(t.scale,t.scale*.75,t.scale);dummy.rotation.set(.1,hashWorld(i,cx,7)*6,.15);dummy.updateMatrix();stones.setMatrixAt(i,dummy.matrix);});
-    for(const item of [trunk,crowns,stones]){item.castShadow=item.receiveShadow=true;item.computeBoundingSphere();group.add(item);}
-    root.add(group);return {group,geometry,colliders:[...trees.map(t=>({x:t.x,z:t.z,radius:.22*t.scale,maxY:t.h+4})),...rocks.map(t=>({x:t.x,z:t.z,radius:.57*t.scale,maxY:t.h+.7}))]};
+    for(const item of [stones]){item.castShadow=item.receiveShadow=true;item.computeBoundingSphere();group.add(item);}
+    root.add(group);return {group,geometry,grove,colliders:[...grove.colliders,...rocks.map(t=>({x:t.x,z:t.z,radius:.57*t.scale,maxY:t.h+.7}))]};
   }
   function update(x,z){
     if(disposed)return false;const key=`${Math.floor(x/size)},${Math.floor(z/size)}`;if(key===current)return false;current=key;
     const wanted=new Set(terrainChunkKeys(x,z,size,radius));
-    for(const [id,chunk] of chunks)if(!wanted.has(id)){chunk.group.removeFromParent();chunk.geometry.dispose();chunks.delete(id);}
+    for(const [id,chunk] of chunks)if(!wanted.has(id)){chunk.group.removeFromParent();chunk.geometry.dispose();chunk.grove.dispose();chunks.delete(id);}
     for(const id of wanted)if(!chunks.has(id))chunks.set(id,createChunk(id));
     colliders.length=0;for(const chunk of chunks.values())colliders.push(...chunk.colliders);return true;
   }
-  return {root,chunks,colliders,update,get count(){return chunks.size;},dispose(){if(disposed)return;disposed=true;for(const c of chunks.values())c.geometry.dispose();chunks.clear();colliders.length=0;root.removeFromParent();for(const r of [terrainMaterial,trunkGeometry,crownGeometry,rockGeometry,trunkMaterial,crownMaterial,rockMaterial])r.dispose();}};
+  return {root,chunks,colliders,update,get bounds(){const [cx,cz]=current.split(',').map(Number);return {minX:(cx-radius)*size,minZ:(cz-radius)*size,maxX:(cx+radius+1)*size,maxZ:(cz+radius+1)*size};},get count(){return chunks.size;},dispose(){if(disposed)return;disposed=true;for(const c of chunks.values()){c.geometry.dispose();c.grove.dispose();}chunks.clear();colliders.length=0;root.removeFromParent();for(const r of [terrainMaterial,trunkGeometry,crownGeometry,rockGeometry,trunkMaterial,crownMaterial,rockMaterial])r.dispose();}};
 }

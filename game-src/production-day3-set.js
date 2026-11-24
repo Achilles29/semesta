@@ -1,3 +1,4 @@
+import {buildSignatureHome,signatureHome} from './signature-homes.js';
 import * as THREE from 'three';
 import {createCivicFacilities} from './civic-facilities-geometry.js';
 import {republicGeometry} from './republic-geometry.js';
@@ -10,6 +11,7 @@ export function createDay3Set({owned,geometries,materials,textures}){
     const house=g.group(root,h.id,[h.x,storyHomeGround(h),h.z]),layers=[];
     const layer=(label,at)=>{const o=g.group(house,label);layers.push({o,at});return o;};
     const a=layer('Footings',.05),b=layer('Columns',.25),c=layer('Walls',.45),d=layer('Roof',.65),e=layer('Nameplate',.85);
+    if(signatureHome(h)){const special=buildSignatureHome(g,house,h);homes.push({house,layers:special.parts,index:i});g.sign(e,'ResidentName',['RUMAH '+h.name,h.address],[0,3.75,4.15],[3.5,1.05],{background:'#244d50',color:'#fff4d9',font:52});special.parts.push({o:e,at:.85});continue;}
     const colors=['#e7d6b5','#d9dfcb','#dfc9b8','#cadbd9'],roofs=['#9f5943','#58676b','#a87348','#65745d'];
     g.box(a,'Slab','#b8af98',[0,-.1,0],[8.5,.2,8.5]);for(const x of [-3.8,3.8])for(const z of [-3.8,3.8])g.box(b,'Post','#aaa997',[x,1.55,z],[.3,3.1,.3]);
     g.box(c,'HouseWalls',colors[h.style],[0,1.55,0],[8,3.1,8]);

@@ -86,3 +86,7 @@ Polling presence yang ada tetap dipertahankan sampai pengukuran membuktikan perl
 Teman dan undangan, kunjungan rumah, kerja kelompok, pasar barang, acara terjadwal, pekerjaan baru dan wilayah baru ditambahkan bertahap. Ekonomi awal memakai barang serta nilai fiktif dalam game; pembayaran uang nyata dan penjualan aset belum diputuskan.
 
 Ukur apakah pemain menyelesaikan aktivitas pertama, memahami tujuan berikutnya, kembali dengan kemauan sendiri, dan dapat bermain pada perangkat sasaran. Ukur waktu muat serta frame time. Angka target ditetapkan dari pilot; jangan mengarang tingkat retensi atau menyebut prototipe siap skala besar sebelum diuji.
+
+## Suara warga dan suasana dunia ? 24 November 2026
+
+Pemain lengkap dapat mengusulkan fasilitas, lokasi dan alasan melalui profil atau Alat jelajah. Maksimal tiga per 24 jam, hasil ditinjau pada inbox admin; persetujuan editorial tidak otomatis menerbitkan bangunan. Siang/malam mengikuti waktu server dengan zona republik Asia/Jakarta, tanpa menutup tugas dasar pada malam hari. Konten tetap memakai pencahayaan yang ditetapkan untuk rekaman.
